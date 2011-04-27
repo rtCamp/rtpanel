@@ -1061,18 +1061,22 @@ function rtp_custom_admin_logo() {
  */
 function rtl_custom_admin_footer() {
     echo '<span id="footer-thankyou">' . __( 'Thank you for creating with <a href="http://wordpress.org/" target="_blank">WordPress</a>.' ) . '</span> | ' . __( '<a href="http://codex.wordpress.org/" target="_blank">Documentation</a>' ) . ' | ' . __( '<a href="http://wordpress.org/support/forum/4" target="_blank">Feedback</a>' ) . '
-        ' . __( '<br /><br />rtBlogs Network: <a href="http://devilsworkshop.org/" title="Devils Workshop" target="_blank">Devils Workshop</a>' ) . ' | ' . __( '<a href="http://wpveda.com/" title="WpVeda" target="_blank">WpVeda</a>' ) . ' | ' . __( '<a href="http://fbknol.com/" title="fbknol" target="_blank">fbknol</a>' ) . ' | ' . __( '<a href="http://cultaffair.rtcamp.info/" title="Cult Affair" target="_blank">Cult Affair</a>' ) . ' | ' . __( '<a href="http://orkutdiary.com/" title="orkut diary" target="_blank">orkut diary</a>' ) . ' | ' . __( '<a href="http://crictalks.com/" title="crictalks" target="_blank">crictalks</a>' );
+        ' . __( '<br /><br />Currently using <a href="http://rtpanel.com/" title="rtPanel.com" target="_blank">rtPanel</a>' ) . ' |
+        ' . __( '<a href="http://rtpanel.com/support" title="Click here for rtPanel Free Support" target="_blank">Support</a>' ) . ' |
+        ' . __( '<a href="http://rtpanel.com/documentation" title="Click here for rtPanel Documentation" target="_blank">Documentation</a>' );
 }
 
 /**
  * Add rtPanel Version in Admin Footer
  */
 function rtp_version() {
-    global $ct, $wp_version;
+    global $ct;
+    require_once( ABSPATH . '/wp-admin/includes/update.php' );
+
     $themes_info = '';
     $ct = get_current_theme();
     $themes_info = get_themes();
-    $theme_version = __( 'Version ', 'rtPanel' ) . $wp_version . '<br /><br />' . __( 'rtPanel Version ', 'rtPanel' ) . $themes_info[$ct]['Version'];
+    $theme_version = core_update_footer() . '<br /><br />' . __( 'rtPanel Version ', 'rtPanel' ) . $themes_info[$ct]['Version'];
     return $theme_version;
 }
 

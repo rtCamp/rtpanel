@@ -19,9 +19,9 @@ global $rtp_post_comments;
 <!-- You can start editing here. -->
 <?php if ( have_comments() ) : ?>
     <div class="rtp-comment-count" id="comments">
-        <span class="alignleft"><?php printf( _n( '<span class="count">%1$s</span> Comment', '<span class="count">%1$s</span> Comments', get_comments_number(), 'rtPanel' ), number_format_i18n( get_comments_number() ) ); ?></span>
+        <span class="alignleft"><span class="rtp-courly-bracket">{ </span><?php printf( _n( '<span class="count">%1$s</span> Comment', '<span class="count">%1$s</span> Comments', get_comments_number(), 'rtPanel' ), number_format_i18n( get_comments_number() ) ); ?>... <?php printf( __( 'Add your <a href="%s" title="Add your thoughts">thoughts</a>', 'rtPanel' ), '#respond' ); ?> <span class="rtp-courly-bracket"> }</span></span>
     <?php if ( current_user_can( 'moderate_comments' ) ) { ?>
-        <span class="alignright rtp-manage-comments"><a href="<?php echo get_admin_url( '', 'edit-comments.php?p=' . get_the_ID() ); ?>"><?php _e( 'Manage Comments', 'rtPanel' ); ?></a></span>
+        <span class="alignright rtp-manage-comments"><span class="rtp-courly-bracket">{ </span><a href="<?php echo get_admin_url( '', 'edit-comments.php?p=' . get_the_ID() ); ?>"><?php _e( 'Manage Comments', 'rtPanel' ); ?></a><span class="rtp-courly-bracket"> }</span></span>
     <?php } ?>
     </div>
     <div class="clear"></div>

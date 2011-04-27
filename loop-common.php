@@ -103,7 +103,7 @@ if ( have_posts () ) :
 
                     <!-- ========== [ Call Comments ] ========== -->
                     <?php if ( comments_open() ) { ?>
-                        <p class="alignright rtp-post-comment-count"><?php comments_popup_link( __( '<span>0</span> Comments', 'rtPanel' ), __( '<span>1</span> Comment', 'rtPanel' ), __( '<span>%</span> Comments', 'rtPanel' ), 'rtp-post-comment' ); ?></p>
+                        <p class="alignright rtp-post-comment-count"><span class="rtp-courly-bracket">{</span><?php comments_popup_link( __( '<span>0</span> Comments', 'rtPanel' ), __( '<span>1</span> Comment', 'rtPanel' ), __( '<span>%</span> Comments', 'rtPanel' ), 'rtp-post-comment' ); ?><span class="rtp-courly-bracket">}</span></p>
                     <?php } ?>
                     <div class="clear"></div>
 
@@ -122,7 +122,7 @@ if ( have_posts () ) :
                     }
                 }
                 // ========== [ Call Edit Link ] ========== //
-                    edit_post_link( __( 'Edit this post', 'rtPanel' ), '<p class="rtp-edit-link">(', ')</p>');
+                    edit_post_link( __( 'Edit this post', 'rtPanel' ), '<p class="rtp-edit-link">[', ']</p>');
                 ?>
             </div><!-- end post-meta -->
             <div class="post-content"> <!-- post-content begins -->

@@ -3,12 +3,12 @@ Theme Name: rtPanel Theme
 Theme URI: http://rtcamp.com
 Description: The WordPress theme based on rtCamp Base Theme. It includes Custom Menu, Header Image, Custom Background, custom logo upload, custom favicon upload, feedburner integration, google custom search, plugin support, post functionality, Default Widget plus three custom widgets Support.
 Version: 2.0
-Author: rtCamp 
+Author: rtCamp
 Author URI: http://rtcamp.com
 Tags: black, blue, white, light, two-columns, right-sidebar, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready
 License: GNU General Public License, v3 (or newer)
 License URI: http://www.opensource.org/licenses/gpl-3.0.html
-Contributors: rtCamp Team 
+Contributors: rtCamp Team
 */
 
 /*
@@ -115,7 +115,7 @@ img.wp-smiley,
 body { background-color: #FFFFFF; color: #111111;font-size: 10px; }
     #main-wrapper { width: 960px; margin: 0 auto; }
         #header-wrapper { position: relative; z-index: 100; }
-        #content-wrapper { background: url("img/content-sep.jpg") repeat-y scroll 630px 0 transparent;border-bottom: 1px solid #DDDDDD;clear: both;overflow: hidden;position: relative;z-index: 10; }
+        #content-wrapper { background: url("img/content-sep.jpg") repeat-y scroll 630px 0 transparent;border-bottom: 3px double #DDDDDD;clear: both;overflow: hidden;position: relative;z-index: 10; }
             #content { float: left; padding: 0 0 40px; width: 620px; overflow: hidden; }
             #sidebar { float: right; padding: 12px 0; width: 320px; }
     #footer-wrapper { clear: both;font-size: 130%; overflow: hidden; padding: 0 0 20px; position: relative; }
@@ -179,11 +179,11 @@ h2 a, h2 a:visited, h2 a:active { color: #111111; text-decoration: none; }
     #rtp-nav-menu li:last-child { border-right: 1px solid #DDDDDD; }
 
 /* ========== [ Navigation Link Colors ] ========== */
-    #rtp-nav-menu a { background: none repeat scroll 0 0 #EFEFEF;color: #111111;display: block;font-size: 140%;letter-spacing: 1px;line-height: 125%;padding: 7px 9px;text-decoration: none; }
+    #rtp-nav-menu a { background: none repeat scroll 0 0 #EFEFEF; color: #111111; display: block; font-size: 160%; font-variant: small-caps; letter-spacing: 2px; line-height: 125%; padding: 7px 9px; text-decoration: none; }
     #rtp-nav-menu a:hover { background: none repeat scroll 0 0 #DDDDDD; color: #111111; text-decoration: none; }
 
 /* ========== [ Submenu Support ] ========== */
-    #rtp-nav-menu ul { display: none; position: absolute; top: 32px; left: 0; float: left; width: 180px; z-index: 99999; }
+    #rtp-nav-menu ul { display: none; position: absolute; top: 34px; left: 0; float: left; width: 180px; z-index: 99999; }
         #rtp-nav-menu ul li { border-bottom: 1px solid #DDDDDD; border-right: 1px solid #DDDDDD; border-top: none; min-width: 180px; }
         #rtp-nav-menu ul ul { left: 100%; top: 0; }
             #rtp-nav-menu ul ul li:first-child { border-top: 1px solid #DDDDDD; }
@@ -301,7 +301,7 @@ p.attachment img { margin: 10px 0; }
     #content .search-text { border: 1px double #666666; font-size: 85%; margin: 0; padding: 3px 4px 4px; width: 30%; }
     #content .searchsubmit { background: -webkit-gradient(linear, left top, left bottom, from(#F5F5F5), to(#E2E2E2)); background: -moz-linear-gradient(top, #F5F5F5, #E2E2E2); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F5F5F5, endColorstr=#E2E2E2); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#F5F5F5, endColorstr=#E2E2E2)"; border: 3px double #666666; cursor: pointer; font-size: 13px; font-weight: bold; margin: 0; padding: 0 5px; width: auto !important; }
     #content .searchsubmit:hover { background: -webkit-gradient(linear, left top, left bottom, from(#E2E2E2), to(#F5F5F5)); background: -moz-linear-gradient(top, #E2E2E2, #F5F5F5); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#E2E2E2, endColorstr=#F5F5F5); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#E2E2E2, endColorstr=#F5F5F5)"; }
-    
+
 /* ========== [ Breacrumb Style ] ========== */
 .breadcrumb { color: #888888; font-size: 120%; padding: 5px 0; }
     .breadcrumb a { text-decoration: none; }
@@ -372,7 +372,7 @@ div.comment-body p { padding: 6px 0; }
 div.comment-body div.reply { float: left; clear: both; }
     div.comment-body div.reply p { font-size: 78.6%; letter-spacing: 1px; padding: 10px 0; text-transform: uppercase; }
         div.comment-body div.reply p a { color: #7B7B7B; text-decoration: none; }
-        div.comment-body div.reply p a:hover { color: #555555; text-decoration: underline; }        
+        div.comment-body div.reply p a:hover { color: #555555; text-decoration: underline; }
         div.comment-body div.reply p .rtp-courly-bracket { color: #7B7B7B; font-size: 20px; }
         ol.commentlist li.comment .comment-body .comment-text ul { margin: 0 0 0 25px; }
         ol.commentlist li.comment .comment-body .comment-text ol { margin: 0 0 0 25px; }
@@ -435,7 +435,7 @@ li.comment .rtp-admin-comment { background: none repeat scroll 0 0 #FAFAFA; }
     #sidebar ul { margin-bottom: 0; }
         #sidebar ul li { padding: 0 0 9px; }
         #sidebar ul ul li { padding: 9px 0 0; }
-        
+
 /* ========== [ Recent Comment with Gravatar Widget Style ] ========== */
 .rtp-comments-widget ul { margin: 0 0 0 5px; padding: 0; }
     .rtp-comments-widget ul li { list-style: none; }
@@ -477,7 +477,7 @@ li.comment .rtp-admin-comment { background: none repeat scroll 0 0 #FAFAFA; }
         .rtp-subscribe-widget-container .social-icons li a.linkedin { background-position: -301px 0; }
         .rtp-subscribe-widget-container .social-icons li a.myspace { background-position: -344px 0; }
         .rtp-subscribe-widget-container .social-icons li a.stumbleupon { background-position: -473px 0; }
-        
+
 /* ========== [ Sidebar Form Element Style ] ========== */
 #footerbar input,
 #sidebar input { font-family: Georgia,"Times New Roman",Times,serif; }
@@ -495,7 +495,7 @@ li.comment .rtp-admin-comment { background: none repeat scroll 0 0 #FAFAFA; }
 #sidebar input.searchsubmit { display: none; }
 
 /* ========== [ Footer Style ] ========== */
-#footerbar { border-bottom: 1px solid #DDDDDD; overflow: hidden; padding: 0 0 10px; }
+#footerbar { border-bottom: 3px double #DDDDDD; overflow: hidden; padding: 0 0 10px; }
     #footerbar .footerbar-widget { border-right: 1px dotted #DDDDDD; float: left; line-height: 153.9%; margin: 0 0 -1500px; padding: 10px 8px 1500px 10px; width: 301px; }
     #footerbar .footerbar-widget:last-child { border: medium none; }
     #footerbar h3 { font-size: 153.8%; font-weight: normal; letter-spacing: 2px; padding: 0 0 10px; }

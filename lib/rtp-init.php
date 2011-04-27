@@ -62,23 +62,64 @@ if ( !function_exists( 'rt_base_setup' ) ) {
         load_theme_textdomain( 'rtPanel', TEMPLATEPATH . '/languages' );
 
         /**
+         * Custom background from Admin Panel
+         */
+
+        add_custom_background();
+
+
+        /**
+         * Don't support text inside the header image.
+         */
+
+        if ( !defined( 'NO_HEADER_TEXT' ) ) {
+            define( 'NO_HEADER_TEXT', true );
+        }
+
+
+        $upload_dir = wp_upload_dir();
+        define( 'HEADER_TEXTCOLOR' , '' );
+        define( 'HEADER_IMAGE_WIDTH' , 960 );
+        define( 'HEADER_IMAGE_HEIGHT' , 190 );
+
+
+        /**
+         * adding support for the header image
+         * Usas: uncomment add_custom_image_header()
+         */
+
+        add_custom_image_header( 'rtp_header_style', 'rt_admin_header_style' );
+
+
+        /**
+         * gets included in the admin header
+         */
+        if ( !function_exists( 'rt_admin_header_style' ) ) {
+            function rt_admin_header_style() { ?>
+                <style type="text/css">  #headimg { width: <?php echo HEADER_IMAGE_WIDTH; ?>px; height: <?php echo HEADER_IMAGE_HEIGHT; ?>px; } </style><?php
+            }
+        }
+
+
+        /**
+         * Gets included in the site header
+         */
+
+        if ( !function_exists( 'rtp_header_style' ) ) {
+            function rtp_header_style() {
+                if ( get_header_image() ) { ?>
+                    <style type="text/css"> #header-wrapper { background: url(<?php header_image(); ?>) no-repeat; } </style><?php
+                }
+            }
+        }
+
+        /**
          * This theme uses wp_nav_menu() in one location
          */
 
 	register_nav_menus( array(
             'primary' => __( 'Primary Navigation', 'rtPanel' )
 	) );
-
-        /**
-         * Coming Soon
-         */
-
-        if ( 0 ) {
-            the_post_thumbnail();
-            add_custom_image_header();
-            add_custom_background();
-        }
-
     }
 }
 

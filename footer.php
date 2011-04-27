@@ -38,8 +38,8 @@
                 <div id="footer"> <!-- footer begins -->
                     <!-- If you'd like to support WordPress, having the "powered by" link somewhere on your blog is the best way; it's our only promotion or advertising. -->
                     <p>&copy; <?php echo date( 'Y' ); echo ' - '; bloginfo( 'name' ); ?></p>
-                    <p><em>(<?php printf( __( 'WordPress Theme by <a href="%s" title="This wordpress theme is designed by %s">%s</a>', 'rtPanel' ), 'http://rtcamp.com', 'rtCamp', 'rtCamp' ); ?>)</em></p>
-                </div><!-- end footer -->
+                    <p><em><?php printf( __( '<a href="%s" title="%s" target="_blank">%s</a> Theme by <a href="%s" title="This wordpress theme is designed by %s">%s</a>', 'rtPanel' ), 'http://rtpanel.com/', 'Click here for rtPanel documentation and free support.', 'rtPanel', 'http://rtcamp.com', 'rtCamp', 'rtCamp' ); ?></em></p>
+                </div> <!-- end footer -->
 
                 <?php 
                 // rtpanel_hook for adding content after #footer
