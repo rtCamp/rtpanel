@@ -1,0 +1,33 @@
+/*
+Different styling for paragraph
+
+Note:
+IE7 and earlier does not support :before pseudo elements.
+IE6 and earlier does not support :first-letter with non generic specificity, or adjacent sibling selectors.
+Some earlier browser also do not properly handle the UTF-8 characters injected using the :before pseudo element,
+if they display anything at all.
+Ref: http://jontangerine.com/silo/typography/p/
+
+30 CSS3 useful selector ref:
+http://net.tutsplus.com/tutorials/html-css-techniques/the-30-css-selectors-you-must-memorize/
+*/
+
+/*20px indent with boundary*/
+p + p { text-indent: 20px; }
+
+/*Elevated cap (versal)*/
+p:first-letter {font-size: 35px;line-height: 10px;}
+p + p:first-letter {font-size: 10px;line-height: 12px;}
+
+/*Drop cap (versal) with bold opening*/
+p + p {text-indent: 25px;}
+p:first-letter {font-size: 35px;line-height: 10px;font-weight: 400;float: left;margin: 0 10px 0 0;}
+p:first-line {font-weight: 800;}
+p + p:first-letter {font-size: 10px;line-height: 12px;float: none;margin: 0;}
+p + p:first-line {font-weight: 400;}
+
+/*Outdent cap (versal) with bold small caps opening*/
+p:first-line {font-weight: 800;font-variant: small-caps;}
+p:first-letter {font-size: 80px;line-height: 10px;font-weight: 400;float: left;margin: 0 0 0 -10px;}
+p + p:first-letter {font-size: 10px;line-height: 12px;float: none;margin: 0;}
+p + p:first-line {font-weight: 400;font-variant: normal;}

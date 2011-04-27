@@ -1,0 +1,2 @@
+# This is for PIE.htc file which doesnt work on IE if this rule is not defined.
+AddType text/x-component .htc

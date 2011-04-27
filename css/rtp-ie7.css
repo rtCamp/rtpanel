@@ -1,0 +1,10 @@
+/*
+ * Custom CSS for IE7 Browser
+ */
+legend { margin-left: -7px; } /* thnx ivannikolic! */
+input[type="checkbox"] { vertical-align: baseline; }
+/* bicubic resizing for non-native sized IMG:
+   code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+img { -ms-interpolation-mode: bicubic; }
+.clearfix { zoom: 1; } /* IE < 8 */
+button, input[type='submit'] { *width: auto; *overflow: visible; } /* IE7 extra spacing fix */

@@ -1,0 +1,6 @@
+* {
+  float: none;       /* Screens are not big enough to account for floats */
+  font-size: 80%;    /* Slightly reducing font size to reduce need to scroll */ 
+  background: none repeat scroll 0 0 #FFFFFF;  /*  As much contrast as possible */
+  color: #000000;
+}

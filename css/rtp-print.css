@@ -1,0 +1,24 @@
+/*
+ * Custom CSS for Print Media
+ */
+* { background: transparent !important; color: #444 !important; text-shadow: none; }
+a, a:visited { color: #444 !important; text-decoration: underline; }
+
+/*  a:after { content: " (" attr(href) ")"; }*/
+/*  abbr:after { content: " (" attr(title) ")"; }*/
+/*  .ir a:after { content: ""; }   Don't show links for images*/
+
+pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+img { page-break-inside: avoid; }
+@page { margin: 0.5cm; }
+p, h2, h3 { orphans: 3; widows: 3; }
+h2, h3{ page-break-after: avoid; }
+/* Remove unwanted elements */
+#topbar, #header-wrapper, #navbar, #subnavbar, .date, .infosingle, .infohome, .postsubscribe, .relatedposts, .adsense, #sidebar, #comment-area, .comments, #footer-wrapper, .noprint {
+display: none; }
+
+/* Ensure the content spans the full width */
+#container, #container2, #content { width: 100%; margin: 0; float: none; }
+
+/* Change text colour to black (useful for light text on a dark background) */
+.lighttext { color: #000000; }
