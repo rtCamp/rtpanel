@@ -296,6 +296,7 @@ function rtp_post_comments_validate( $input ) {
                     $input['thumbnail_width'] = get_option( 'thumbnail_size_w' );
                     add_settings_error( 'thumbnail_width', 'invalid_thumbnail_width', __( 'The Thumbnail Width provided is invalid. Please provide a proper value.', 'rtPanel' ) );
                 } elseif ( get_option( 'thumbnail_size_w' ) != $input['thumbnail_width'] ) {
+                    $input['notices'] = '1';
                     update_option( 'thumbnail_size_w', $input['thumbnail_width'] );
                     add_settings_error( 'thumbnail_width', 'valid_thumbnail_width', __( 'The Thumbnail Width has been updated', 'rtPanel' ), 'updated' );
                 }
@@ -303,10 +304,12 @@ function rtp_post_comments_validate( $input ) {
                     $input['thumbnail_height'] = get_option( 'thumbnail_size_h' );
                     add_settings_error( 'thumbnail_height', 'invalid_thumbnail_height', __( 'The Thumbnail Height provided is invalid. Please provide a proper value.', 'rtPanel' ) );
                 } elseif ( get_option( 'thumbnail_size_h' ) != $input['thumbnail_height'] ) {
+                    $input['notices'] = '1';
                     update_option( 'thumbnail_size_h', $input['thumbnail_height'] );
                     add_settings_error( 'thumbnail_height', 'valid_thumbnail_height', __( 'The Thumbnail Height has been updated', 'rtPanel' ), 'updated' );
                 }
                 if ( $input['thumbnail_crop'] != get_option( 'thumbnail_crop' ) ) {
+                    $input['notices'] = '1';
                     update_option( 'thumbnail_crop', $input['thumbnail_crop'] );
                 }
             } else {
@@ -450,7 +453,7 @@ function rtp_post_comments_validate( $input ) {
 function rtp_theme_setup_values() {
 
     $default_general = array(
-        'logo_show'       => '1',
+        'logo_show'       => '0',
         'use_logo'        => 'use_logo_url',
         'logo_url'        => RTP_IMG_FOLDER_URL . '/rtpanel-logo.jpg',
         'logo_upload'     => RTP_IMG_FOLDER_URL . '/rtpanel-logo.jpg',
@@ -466,6 +469,7 @@ function rtp_theme_setup_values() {
 
 
     $default_post_comments = array(
+        'notices'                    => '0',
         'summary_show'               => '1',
         'word_limit'                 => 55,
         'read_text'                  => __( 'Continue Reading...', 'rtPanel' ),
@@ -1075,3 +1079,17 @@ function rtp_version() {
 add_action( 'admin_head', 'rtp_custom_admin_logo' );
 add_filter( 'admin_footer_text', 'rtl_custom_admin_footer' );
 add_filter( 'update_footer', 'rtp_version', 9999 );
+
+if ( is_admin() && $rtp_post_comments['notices'] ) {
+    add_action( 'admin_notices', 'rtp_regenerate_thumbnail_notice');
+}
+
+function rtp_regenerate_thumbnail_notice() {
+            echo '<div class="error"><p>Please Regenerate Thumbnails</p></div>';
+}
+
+if ( is_admin() && ( $_GET['page'] == 'regenerate-thumbnails' ) && $_POST['regenerate-thumbnails'] ) {
+    $rtp_notice = get_option('rtp_post_comments');
+    $rtp_notice['notices'] = '0';
+    update_option( 'rtp_post_comments', $rtp_notice );
+}
