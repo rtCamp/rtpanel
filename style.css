@@ -237,9 +237,9 @@ h2 a, h2 a:visited, h2 a:active { color: #111111; text-decoration: none; }
 
 /* ========== [ Post Edit Style ] ========== */
 .rtp-edit-link { font-family: Georgia, "Times New Roman", Times, serif; }
-.post-meta .rtp-edit-link { clear: both; color: #888888; font-style: normal; letter-spacing: 1px; position: absolute; text-transform: uppercase; visibility: hidden; }
-    .post-meta .rtp-edit-link a { border-bottom: 1px solid #EEEEEE; color: #888888; text-decoration: none; }
-    .post-meta .rtp-edit-link a:hover { color: #111111; text-decoration: none; }
+.post-title .rtp-edit-link { clear: both; color: #888888; font-style: normal; letter-spacing: 1px; position: absolute; text-transform: uppercase; visibility: hidden; }
+    .post-title .rtp-edit-link a { border-bottom: 1px solid #EEEEEE; color: #888888; text-decoration: none; }
+    .post-title .rtp-edit-link a:hover { color: #111111; text-decoration: none; }
 
 /* ========== [ Post Loop Style ] ========== */
 .post { overflow: hidden; }

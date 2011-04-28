@@ -80,10 +80,12 @@ if ( have_posts () ) :
             <div class="post-title"> <!-- post-title begins -->
                 <!-- ========== [ Call Post Title ] ========== -->
                 <?php if ( is_singular() ) { ?>
-                    <h1><?php the_title(); ?></h1>
+                        <h1><?php the_title(); ?></h1>
                 <?php } else { ?>
-                    <h2><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permanent Link to %s', 'rtPanel' ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a></h2>
-                <?php } ?>
+                        <h2><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permanent Link to %s', 'rtPanel' ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a></h2>
+                <?php }
+                        // ========== [ Call Edit Link ] ========== //
+                        edit_post_link( __( 'Edit this post', 'rtPanel' ), '<p class="rtp-edit-link">[', ']</p>'); ?>
                 <div class="clear"></div>
             </div><!-- end post-title -->
 
@@ -120,10 +122,7 @@ if ( have_posts () ) :
                     foreach ( $taxonomies as $taxonomy ) {
                         ( $rtp_post_comments['post_'.$taxonomy.'_u'] ) ? the_terms( $post->ID, $taxonomy, ucfirst( $taxonomy ) . ': ', ', ', '<br />' ) : '';
                     }
-                }
-                // ========== [ Call Edit Link ] ========== //
-                    edit_post_link( __( 'Edit this post', 'rtPanel' ), '<p class="rtp-edit-link">[', ']</p>');
-                ?>
+                } ?>
             </div><!-- end post-meta -->
             <div class="post-content"> <!-- post-content begins -->
                 <?php
