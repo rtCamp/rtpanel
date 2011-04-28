@@ -13,7 +13,7 @@ get_header();
 get_sidebar();
 
 // ========== [ rtpanel_hook for adding content before #content ] ========== //
-rtp_hook_before_content();
+rtp_hook_after_content_begins();
 ?>
 <div id="content" class="rtp-home-posts"> <!-- content begins -->
  <?php    
@@ -27,7 +27,7 @@ rtp_hook_before_content();
     }
 
     /* rtpanel_hook for adding content before .post start */
-    rtp_hook_before_post_start();
+    rtp_hook_before_post_starts();
     ?>
     <div id="post-0"> <!-- post_class begins -->
         <div class="post-title rtp-main-title">
@@ -40,12 +40,12 @@ rtp_hook_before_content();
     </div><!-- end post_class -->
     <?php
     /* rtpanel_hook for adding content after .post end */
-    rtp_hook_after_post_end();
+    rtp_hook_after_post_ends();
 ?>
 </div><!-- end content -->
 <?php
 // ========== [ rtpanel_hook for adding content after #content ] ========== //
-rtp_hook_after_content();
+rtp_hook_before_content_ends();
 
 // ========== [ Call Footer ] ========== //
 get_footer(); ?>

@@ -15,7 +15,7 @@ get_header();
 get_sidebar();
 
 // ========== [ rtpanel_hook for adding content before #content ] ========== //
-rtp_hook_before_content();
+rtp_hook_after_content_begins();
 
 global $rtp_general; ?>
 <div id="content" class="rtp-multiple-post"> <!-- content begins -->
@@ -41,7 +41,7 @@ global $rtp_general; ?>
 </div> <!-- end content -->
 <?php
 // ========== [ rtpanel_hook for adding content after #content ] ========== //
-rtp_hook_after_content();
+rtp_hook_before_content_ends();
 
 // ========== [ Call Footer ] ========== //
 get_footer(); ?>

@@ -16,9 +16,6 @@ get_header();
 // ========== [ Call Sidebar ] ========== //
 get_sidebar();
 
-// ========== [ rtpanel_hook for adding content before #content ] ========== //
-rtp_hook_before_content();
-
 $rtp_content_class = '';
 if ( is_search() || is_archive() ) {
     $rtp_content_class = ' class="rtp-multiple-post" ';
@@ -31,13 +28,16 @@ if ( is_search() || is_archive() ) {
 }
 ?>
 <div id="content"<?php echo $rtp_content_class; ?>> <!-- content begins -->
-    <?php get_template_part( 'loop', 'common' ); ?>
+    <?php
+        rtp_hook_after_content_begins(); /* rtpanel_hook for adding content after #content begins */
+
+        get_template_part( 'loop', 'common' );
+        
+        rtp_hook_before_content_ends(); /* rtpanel_hook for adding content before #content ends */
+    ?>
 </div> <!-- end content -->
 
 <?php
-// ========== [ rtpanel_hook for adding content after #content ] ========== //
-rtp_hook_after_content();
-
 // ========== [ Call Footer ] ========== //
 get_footer();
 ?>

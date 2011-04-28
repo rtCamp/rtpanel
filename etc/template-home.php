@@ -7,16 +7,16 @@ Template Name: HomePage
 get_header();
 
 // ========== [ rtpanel_hook for adding content before #sidebar ] ========== //
-rtp_hook_before_sidebar();
+rtp_hook_after_sidebar_begins();
 
 // ========== [ Call Sidebar ] ========== //
 get_sidebar();
 
 // ========== [ rtpanel_hook for adding content after #sidebar ] ========== //
-rtp_hook_after_sidebar();
+rtp_hook_before_sidebar_ends();
 
 // ========== [ rtpanel_hook for adding content before #content ] ========== //
-rtp_hook_before_content();
+rtp_hook_after_content_begins();
 ?>
 <div id="content" class="rtp-home-posts"> <!-- content begins -->
 
@@ -54,7 +54,7 @@ rtp_hook_before_content();
 </div><!-- end content -->
 <?php
 // ========== [ rtpanel_hook for adding content after #content ] ========== //
-rtp_hook_after_content();
+rtp_hook_before_content_ends();
 
 // ========== [ Call Footer ] ========== //
 get_footer(); ?>

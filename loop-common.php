@@ -73,10 +73,10 @@ if ( have_posts () ) :
 
     while( have_posts() ) : the_post();
     
-            /* rtpanel_hook for adding content before .post start */
-            rtp_hook_before_post_start();
+            /* rtpanel_hook for adding content before .rtp-post-box starts */
+            rtp_hook_before_post_starts();
         ?>
-        <div <?php post_class(); ?>> <!-- post_class begins -->
+        <div <?php post_class('rtp-post-box'); ?>> <!-- post_class begins -->
             <div class="post-title"> <!-- post-title begins -->
                 <!-- ========== [ Call Post Title ] ========== -->
                 <?php if ( is_singular() ) { ?>
@@ -125,30 +125,34 @@ if ( have_posts () ) :
                 } ?>
             </div><!-- end post-meta -->
             <div class="post-content"> <!-- post-content begins -->
-                <?php
-                // ========== [ Get Attachment Image Thumbnail ] ========== //
-                if ( !is_singular() && $rtp_post_comments['summary_show'] && $rtp_post_comments['thumbnail_show'] ) {
-                    $thumbnail_frame = ( $rtp_post_comments['thumbnail_frame'] ) ? ' thumbnail-shadow' : '';
-                    if ( has_post_thumbnail() ) { ?>
-                        <span class="post-img<?php echo '-' . strtolower( $rtp_post_comments['thumbnail_position'] ); ?>">
-                                <a href="<?php echo get_permalink(); ?>" title="<?php echo get_the_title(); ?>"><?php the_post_thumbnail( 'thumbnail', array( 'class' => 'post_thumb'.$thumbnail_frame  ) ); ?></a>
-                        </span><?php
-                    } else {
-                        $image = rtp_generate_thumbs();
-                        if ( $image ) { ?>
-                            <span class="post-img<?php echo '-' . strtolower( $rtp_post_comments['thumbnail_position'] ); ?>">
-                                <a href="<?php echo get_permalink(); ?>" title="<?php echo get_the_title(); ?>"><img class="post-thumb<?php echo $thumbnail_frame; ?> wp-post-image" alt="<?php echo get_the_title(); ?>" src="<?php echo $image; ?>" /></a>
-                            </span><?php
+                <?php 
+                        rtp_hook_before_post_content_begins(); /* rtpanel_hook for adding content before post-content begins */
+
+                        // ========== [ Get Attachment Image Thumbnail ] ========== //
+                        if ( !is_singular() && $rtp_post_comments['summary_show'] && $rtp_post_comments['thumbnail_show'] ) {
+                            $thumbnail_frame = ( $rtp_post_comments['thumbnail_frame'] ) ? ' thumbnail-shadow' : '';
+                            if ( has_post_thumbnail() ) { ?>
+                                <span class="post-img<?php echo '-' . strtolower( $rtp_post_comments['thumbnail_position'] ); ?>">
+                                        <a href="<?php echo get_permalink(); ?>" title="<?php echo get_the_title(); ?>"><?php the_post_thumbnail( 'thumbnail', array( 'class' => 'post_thumb'.$thumbnail_frame  ) ); ?></a>
+                                </span><?php
+                            } else {
+                                $image = rtp_generate_thumbs();
+                                if ( $image ) { ?>
+                                    <span class="post-img<?php echo '-' . strtolower( $rtp_post_comments['thumbnail_position'] ); ?>">
+                                        <a href="<?php echo get_permalink(); ?>" title="<?php echo get_the_title(); ?>"><img class="post-thumb<?php echo $thumbnail_frame; ?> wp-post-image" alt="<?php echo get_the_title(); ?>" src="<?php echo $image; ?>" /></a>
+                                    </span><?php
+                                }
+                            }
                         }
-                    }
-                }
-                // ========== [ Call Post Content ] ========== //
-                if ( is_singular() || !$rtp_post_comments['summary_show'] ) {
-                    the_content( 'Read More &rarr;' );
-                    wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'rtPanel' ), 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) );
-                } else {
-                    the_excerpt();
-                }
+                        // ========== [ Call Post Content ] ========== //
+                        if ( is_singular() || !$rtp_post_comments['summary_show'] ) {
+                            the_content( 'Read More &rarr;' );
+                            wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'rtPanel' ), 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) );
+                        } else {
+                            the_excerpt();
+                        }
+
+                        rtp_hook_after_post_content_ends(); /* rtpanel_hook for adding content after post-content ends */
                 ?>
                 <div class="clear"></div>
             </div> <!-- end post-content -->
@@ -185,8 +189,8 @@ if ( have_posts () ) :
             <?php } ?>
         </div><!-- end post_class -->
         <?php 
-            /* rtpanel_hook for adding content after .post end */
-            rtp_hook_after_post_end();
+            /* rtpanel_hook for adding content after .rtp-post-box ends */
+            rtp_hook_after_post_ends();
         ?>
         <?php
             // ========== [ Call Post Pagination ] ========== //

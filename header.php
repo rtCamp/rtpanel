@@ -81,8 +81,5 @@
             <div class="clear"></div>
             </div><!-- end header-wrapper -->
 
-            <?php 
-            // rtpanel_hook for adding content before #content-wrapper start
-                rtp_hook_before_content_wrapper();
-            ?>
             <div id="content-wrapper"> <!-- content-wrapper begins and end in footer.php -->
+             <?php rtp_hook_after_content_wrapper_begins(); /* rtpanel_hook for adding content after #content-wrapper begins */ ?>

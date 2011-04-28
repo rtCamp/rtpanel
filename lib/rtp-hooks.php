@@ -51,90 +51,112 @@ function rtp_hook_after_logo() {
 
 
 /**
- * Fire the rtp_hook_before_content_wrapper action
+ * Fire the rtp_hook_after_content_wrapper_begins action
  *
- * @uses do_action() Calls 'rtp_hook_before_content_wrapper' hook.
- * @uses Used for adding content before #content-wrapper
+ * @uses do_action() Calls 'rtp_hook_after_content_wrapper_begins' hook.
+ * @uses Used for adding content after #content-wrapper begins
  */
-function rtp_hook_before_content_wrapper() {
-    do_action( 'rtp_hook_before_content_wrapper' );
+function rtp_hook_after_content_wrapper_begins() {
+    do_action( 'rtp_hook_after_content_wrapper_begins' );
 }
 
 
 /**
- * Fire the rtp_hook_after_content_wrapper action
+ * Fire the rtp_hook_before_content_wrapper_ends action
  *
- * @uses do_action() Calls 'rtp_hook_after_content_wrapper' hook.
- * @uses Used for adding content after #content-wrapper
+ * @uses do_action() Calls 'rtp_hook_before_content_wrapper_ends' hook.
+ * @uses Used for adding content before #content-wrapper ends
  */
-function rtp_hook_after_content_wrapper() {
-    do_action( 'rtp_hook_after_content_wrapper' );
+function rtp_hook_before_content_wrapper_ends() {
+    do_action( 'rtp_hook_before_content_wrapper_ends' );
 }
 
 
 /**
- * Fire the rtp_hook_before_content action
+ * Fire the rtp_hook_after_content_begins action
  *
- * @uses do_action() Calls 'rtp_hook_before_content' hook.
- * @uses Used for adding content before #content
+ * @uses do_action() Calls 'rtp_hook_after_content_begins' hook.
+ * @uses Used for adding content after #content begins
  */
-function rtp_hook_before_content() {
-    do_action( 'rtp_hook_before_content' );
+function rtp_hook_after_content_begins() {
+    do_action( 'rtp_hook_after_content_begins' );
 }
 
 
 /**
- * Fire the rtp_hook_after_content action
+ * Fire the rtp_hook_before_content_ends action
  *
- * @uses do_action() Calls 'rtp_hook_after_content' hook.
- * @uses Used for adding content after #content
+ * @uses do_action() Calls 'rtp_hook_before_content_ends' hook.
+ * @uses Used for adding content before #content ends
  */
-function rtp_hook_after_content() {
-    do_action( 'rtp_hook_after_content' );
+function rtp_hook_before_content_ends() {
+    do_action( 'rtp_hook_before_content_ends' );
 }
 
 
 /**
- * Fire the rtp_hook_before_post_start action
+ * Fire the rtp_hook_before_post_starts action
  *
- * @uses do_action() Calls 'rtp_hook_before_post_start' hook.
+ * @uses do_action() Calls 'rtp_hook_before_post_starts' hook.
  * @uses Used for adding content before .post start
  */
-function rtp_hook_before_post_start() {
-    do_action( 'rtp_hook_before_post_start' );
+function rtp_hook_before_post_starts() {
+    do_action( 'rtp_hook_before_post_starts' );
 }
 
 
 /**
- * Fire the rtp_hook_after_post_end action
+ * Fire the rtp_hook_after_post_ends action
  *
- * @uses do_action() Calls 'rtp_hook_after_post_end' hook.
+ * @uses do_action() Calls 'rtp_hook_after_post_ends' hook.
  * @uses Used for adding content after .post end
  */
-function rtp_hook_after_post_end() {
-    do_action( 'rtp_hook_after_post_end' );
+function rtp_hook_after_post_ends() {
+    do_action( 'rtp_hook_after_post_ends' );
 }
 
 
 /**
- * Fire the rtp_hook_before_sidebar action
+ * Fire the rtp_hook_before_post_content_begins action
  *
- * @uses do_action() Calls 'rtp_hook_before_sidebar' hook.
- * @uses Used for adding content before #sidebar
+ * @uses do_action() Calls 'rtp_hook_before_post_content_begins' hook.
+ * @uses Used for adding content before post-content begins
  */
-function rtp_hook_before_sidebar() {
-    do_action( 'rtp_hook_before_sidebar' );
+function rtp_hook_before_post_content_begins() {
+    do_action( 'rtp_hook_before_post_content_begins' );
 }
 
 
 /**
- * Fire the rtp_hook_after_sidebar action
+ * Fire the rtp_hook_after_post_content_ends action
  *
- * @uses do_action() Calls 'rtp_hook_after_sidebar' hook.
- * @uses Used for adding content after #sidebar
+ * @uses do_action() Calls 'rtp_hook_after_post_content_ends' hook.
+ * @uses Used for adding content after post-content ends
  */
-function rtp_hook_after_sidebar() {
-    do_action( 'rtp_hook_after_sidebar' );
+function rtp_hook_after_post_content_ends() {
+    do_action( 'rtp_hook_after_post_content_ends' );
+}
+
+
+/**
+ * Fire the rtp_hook_after_sidebar_begins action
+ *
+ * @uses do_action() Calls 'rtp_hook_after_sidebar_begins' hook.
+ * @uses Used for adding content after #sidebar begins
+ */
+function rtp_hook_after_sidebar_begins() {
+    do_action( 'rtp_hook_after_sidebar_begins' );
+}
+
+
+/**
+ * Fire the rtp_hook_before_sidebar_ends action
+ *
+ * @uses do_action() Calls 'rtp_hook_before_sidebar_ends' hook.
+ * @uses Used for adding content before #sidebar ends
+ */
+function rtp_hook_before_sidebar_ends() {
+    do_action( 'rtp_hook_before_sidebar_ends' );
 }
 
 

@@ -10,11 +10,9 @@
  */
 ?>
                 <div class="clear"></div>
+                 <?php rtp_hook_before_content_wrapper_ends(); /* rtpanel_hook for adding content before #content-wrapper ends */ ?>
             </div><!-- end content-wrapper -->
-            <?php 
-            // rtpanel_hook for adding content after #content-wrapper
-                rtp_hook_after_content_wrapper();
-            ?>
+           
             <div id="footer-wrapper"> <!-- footer-wrapper begins -->
                     <?php
                         // Widgetized sidebar, if you have the plugin installed.
