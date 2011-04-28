@@ -20,7 +20,8 @@ if ( function_exists( 'bcn_display' ) ) {
 
 /* If there are no posts to display */
 if ( ! have_posts() ) : ?>
-    <div id="post-0"> <!-- post_class begins -->
+    <div id="post-0" <?php post_class('rtp-post-box'); ?>> <!-- post_class begins -->
+        <?php rtp_hook_after_post_begins(); /* rtpanel_hook for adding content after .rtp-post-box begins */?>
         <div class="post-title rtp-main-title">
             <h1><?php _e( 'Not Found', 'rtPanel' ); ?></h1>
         </div>
@@ -28,6 +29,7 @@ if ( ! have_posts() ) : ?>
             <p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'rtPanel' ); ?></p>
             <?php get_search_form(); ?>
         </div><!-- .entry-content -->
+        <?php rtp_hook_before_post_ends();/* rtpanel_hook for adding content before .rtp-post-box ends */ ?>
     </div><!-- end post_class -->
 <?php endif;
 
@@ -71,12 +73,10 @@ if ( have_posts () ) :
         ?><div class="post-title rtp-main-title"><h1><?php printf( __( 'Author: %s', 'rtPanel' ), '<span>' . trim( ucfirst( $cur_auth->display_name ) ) . '</span>' ); ?></h1></div><?php
     }
 
-    while( have_posts() ) : the_post();
-    
-            /* rtpanel_hook for adding content before .rtp-post-box starts */
-            rtp_hook_before_post();
-        ?>
+    while( have_posts() ) : the_post(); ?>
+        
         <div <?php post_class('rtp-post-box'); ?>> <!-- post_class begins -->
+            <?php rtp_hook_after_post_begins(); /* rtpanel_hook for adding content after .rtp-post-box begins */?>
             <div class="post-title"> <!-- post-title begins -->
                 <!-- ========== [ Call Post Title ] ========== -->
                 <?php if ( is_singular() ) { ?>
@@ -187,11 +187,8 @@ if ( have_posts () ) :
 
                 </div><!-- .post-meta -->
             <?php } ?>
-        </div><!-- end post_class -->
-        <?php 
-            /* rtpanel_hook for adding content after .rtp-post-box ends */
-            rtp_hook_after_post();
-        ?>
+            <?php rtp_hook_before_post_ends();/* rtpanel_hook for adding content before .rtp-post-box ends */ ?>
+        </div><!-- end post_class -->        
         <?php
             // ========== [ Call Post Pagination ] ========== //
             if ( is_single() ) { ?>

@@ -25,11 +25,9 @@ rtp_hook_after_content_begins();
             bcn_display();
         echo '</div>';
     }
-
-    /* rtpanel_hook for adding content before .post start */
-    rtp_hook_before_post();
     ?>
-    <div id="post-0"> <!-- post_class begins -->
+    <div id="post-0" <?php post_class('rtp-post-box'); ?>> <!-- post_class begins -->
+        <?php rtp_hook_after_post_begins(); /* rtpanel_hook for adding content after .rtp-post-box begins */?>
         <div class="post-title rtp-main-title">
             <h1><?php _e( 'Not Found', 'rtPanel' ); ?></h1>
         </div>
@@ -37,11 +35,8 @@ rtp_hook_after_content_begins();
             <p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'rtPanel' ); ?></p>
             <?php get_search_form(); ?>
         </div><!-- .entry-content -->
+        <?php rtp_hook_before_post_ends();/* rtpanel_hook for adding content before .rtp-post-box ends */ ?>
     </div><!-- end post_class -->
-    <?php
-    /* rtpanel_hook for adding content after .post end */
-    rtp_hook_after_post();
-?>
 </div><!-- end content -->
 <?php
 // ========== [ rtpanel_hook for adding content after #content ] ========== //

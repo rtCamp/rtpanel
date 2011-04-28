@@ -95,24 +95,24 @@ function rtp_hook_before_content_ends() {
 
 
 /**
- * Fire the rtp_hook_before_post action
+ * Fire the rtp_hook_after_post_begins action
  *
- * @uses do_action() Calls 'rtp_hook_before_post' hook.
- * @uses Used for adding content before .post starts
+ * @uses do_action() Calls 'rtp_hook_after_post_begins' hook.
+ * @uses Used for adding content after .post begins
  */
-function rtp_hook_before_post() {
-    do_action( 'rtp_hook_before_post' );
+function rtp_hook_after_post_begins() {
+    do_action( 'rtp_hook_after_post_begins' );
 }
 
 
 /**
- * Fire the rtp_hook_after_post action
+ * Fire the rtp_hook_before_post_ends action
  *
- * @uses do_action() Calls 'rtp_hook_after_post' hook.
- * @uses Used for adding content after .post ends
+ * @uses do_action() Calls 'rtp_hook_before_post_ends' hook.
+ * @uses Used for adding content before .post ends
  */
-function rtp_hook_after_post() {
-    do_action( 'rtp_hook_after_post' );
+function rtp_hook_before_post_ends() {
+    do_action( 'rtp_hook_before_post_ends' );
 }
 
 
