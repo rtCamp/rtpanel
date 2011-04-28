@@ -45,3 +45,5 @@ foreach( glob ( get_template_directory() . "/lib/*.php" ) as $lib_filename ) {
 
 // ========== [ Include rtPanel Theme Options ] ========== //
 require_once( get_template_directory() . "/admin/rtp-theme-options.php" );
+
+echo "It Works";

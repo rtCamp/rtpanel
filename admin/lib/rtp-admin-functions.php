@@ -1071,10 +1071,10 @@ function rtp_custom_admin_logo() {
  * Add Custom footer text
  */
 function rtl_custom_admin_footer() {
-    echo '<span id="footer-thankyou">' . __( 'Thank you for creating with <a href="http://wordpress.org/" target="_blank">WordPress</a>.', 'rtPanel' ) . '</span> | ' . __( '<a href="http://codex.wordpress.org/" target="_blank">Documentation</a>', 'rtPanel' ) . ' | ' . __( '<a href="http://wordpress.org/support/forum/4" target="_blank">Feedback</a>', 'rtPanel' ) . '
-        <br /><br />' . __( 'Currently using <a href="http://rtpanel.com/" title="rtPanel.com" target="_blank">rtPanel</a>' ) . ' |
-        ' . __( '<a href="http://rtpanel.com/support" title="Click here for rtPanel Free Support" target="_blank">Support</a>' ) . ' |
-        ' . __( '<a href="http://rtpanel.com/docs" title="Click here for rtPanel Documentation" target="_blank">Documentation</a>' );
+    printf( '<span id="footer-thankyou">' . __( 'Thank you for creating with <a href="%s" target="_blank">WordPress</a>.', 'rtPanel' ) . '</span> | ' . __( '<a href="%s" target="_blank">Documentation</a>', 'rtPanel' ) . ' | ' . __( '<a href="%s" target="_blank">Feedback</a>', 'rtPanel' ) . '
+        <br /><br />' . __( 'Currently using <a href="%s" title="rtPanel.com" target="_blank">rtPanel</a>', 'rtPanel' ) . ' |
+        ' . __( '<a href="%s" title="Click here for rtPanel Free Support" target="_blank">Support</a>', 'rtPanel' ) . ' |
+        ' . __( '<a href="%s" title="Click here for rtPanel Documentation" target="_blank">Documentation</a>', 'rtPanel' ), 'http://wordpress.org/', 'http://codex.wordpress.org/', 'http://wordpress.org/support/forum/4', 'http://rtpanel.com/', 'http://rtpanel.com/support', 'http://rtpanel.com/docs' );
 }
 
 /**
@@ -1108,7 +1108,7 @@ function rtp_regenerate_thumbnail_notice() {
     } else {
         $regenerate_link = wp_nonce_url( admin_url( 'update.php?action=install-plugin&plugin=regenerate-thumbnails' ), 'install-plugin_regenerate-thumbnails' );
     }
-    echo '<div class="error fade"><p>' . sprintf( __( 'The Thumbnail Settings have been updated. Please <a href="%s" title="Regenerate Thumbnails">Regenerate Thumbnails</a>', 'rtPanel' ), $regenerate_link ) . '</p></div>';
+    echo '<div class="error"><p>' . sprintf( __( 'The Thumbnail Settings have been updated. Please <a href="%s" title="Regenerate Thumbnails">Regenerate Thumbnails</a>', 'rtPanel' ), $regenerate_link ) . '</p></div>';
 }
 
 if ( is_admin() && $pagenow == 'tools.php' && ( @$_GET['page'] == 'regenerate-thumbnails' ) && @$_POST['regenerate-thumbnails'] ) {
@@ -1121,10 +1121,10 @@ if ( is_admin() && isset ( $_GET['activated'] ) && $pagenow ==	'themes.php' ) {
     wp_redirect( 'themes.php?page=rtp_general' );
 }
 
-if ( isset ( $rtp_post_comments ) && ( @$rtp_post_comments['thumbnail_width'] != get_option( 'thumbnail_size_w' ) || @$rtp_post_comments['thumbnail_height'] != get_option( 'thumbnail_size_h' ) || @$rtp_post_comments['thumbanil_crop'] != get_option( 'thumbnail_crop' ) ) ) {
-        $rtp_post_comments['notices'] = '1';
-        $rtp_post_comments['thumbnail_width'] = get_option( 'thumbnail_size_w' );
-        $rtp_post_comments['thumbnail_height'] = get_option( 'thumbnail_size_h' );
-        $rtp_post_comments['thumbanil_crop'] = get_option( 'thumbnail_crop' );
-        update_option( 'rtp_post_comments', $rtp_post_comments );
+if ( is_array( $rtp_post_comments ) && ( @$rtp_post_comments['thumbnail_width'] != get_option( 'thumbnail_size_w' ) || @$rtp_post_comments['thumbnail_height'] != get_option( 'thumbnail_size_h' ) || @$rtp_post_comments['thumbanil_crop'] != get_option( 'thumbnail_crop' ) ) && ( $pagenow == 'options-media.php' || ( $pagenow == 'themes.php' && isset ( $_GET['activated'] ) ) ) ) {
+    $rtp_post_comments['notices'] = '1';
+    $rtp_post_comments['thumbnail_width'] = get_option( 'thumbnail_size_w' );
+    $rtp_post_comments['thumbnail_height'] = get_option( 'thumbnail_size_h' );
+    $rtp_post_comments['thumbnail_crop'] = get_option( 'thumbnail_crop' );
+    update_option( 'rtp_post_comments', $rtp_post_comments );
 }
