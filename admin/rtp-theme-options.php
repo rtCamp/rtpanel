@@ -135,8 +135,8 @@ class rtp_theme {
     </div>
 
     <div class="wrap"><!-- wrap begins -->
-        <div class="icon32" id="icon-themes"></div>
-        <h2><?php foreach ( $links as $link ) echo $link; ?></h2><?php
+        <?php screen_icon( 'rtpanel' ); ?>
+        <h3 class="rtp-tab-wrapper"><?php foreach ( $links as $link ) echo $link; ?></h3><?php
         if ( $pagenow == 'themes.php' ) {
             switch ( $current ) {
                 case 'rtp_general' :

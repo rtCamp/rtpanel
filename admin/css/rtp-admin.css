@@ -6,8 +6,10 @@
 /* ===[ Layout Style ]=== */
 #wpbody-content .metabox-holder { margin-bottom: 10px; padding: 10px 0 0; width: 100%;}
 .wrap { width:76%; overflow: hidden; }
-.wrap h2 { border-bottom: 1px solid #CCCCCC; padding-bottom: 0; }
-.wrap div.updated, .wrap div.error {-moz-border-radius: 0;-webkit-border-radius: 0;border-radius: 0;background: none repeat scroll 0 0 transparent;border-left: 1px solid #CCCCCC;border-right: 1px solid #CCCCCC;border-top: none;border-bottom: none;display: block;margin: 0;padding: 10px 0;text-align: center;}
+.wrap .rtp-tab-wrapper { border-bottom: 1px solid #CCCCCC; margin-bottom: 0; padding-bottom: 0; }
+.wrap .rtp-tab-wrapper a { font-family: Georgia,"Times New Roman","Bitstream Charter",Times,serif;font-size: 24px;font-style: italic;font-weight: normal;padding: 10px 20px; }
+#icon-rtpanel { background: url("../../img/icon-rtpanel.jpg") no-repeat scroll 0 0 transparent; }
+.wrap div.updated, .wrap div.error { background: none repeat scroll 0 0 transparent;border: medium none;-moz-border-radius: 0 0 0 0;-webkit-border-radius: 0 0 0 0;border-radius: 0 0 0 0;display: block;margin: 0;padding: 10px 0;text-align: center; }
 .wrap div.updated p {-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px; background-color: #FFFFE0; border: 1px solid #E6DB55;margin: 0 auto;padding: 7px;width: 95%; }
 .wrap div.error p {-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;background: #FFEBE8;border: 1px solid #CC0000;margin: 0 auto;padding: 7px;width: 95%; }
 .admin-main-heading h2 { border-bottom: 1px solid #EAEAEA; font-size: 153.9%; padding: 14px 0 3px 0; }
@@ -69,3 +71,15 @@ div.inside { margin:10px; }
 /* ===[ Latest News ]=== */
 #latest_news .inside ul { margin: 0 0 0 12px; }
 #latest_news .inside ul li { list-style: square outside none; padding: 0 0 7px; }
+
+/*.form-table { -moz-border-radius: 4px 4px 4px 4px;-webkit-border-radius: 4px 4px 4px 4px;border-radius: 4px 4px 4px 4px; border-spacing: 0; border-style: solid; border-width: 1px; clear: both; margin: 0; width: 100%; }*/
+.form-table * { word-wrap: break-word; }
+.form-table a { text-decoration: none; }
+#plugin_support .form-table td,
+#plugin_support .form-table th { border-bottom: 1px solid #DFDFDF; font-size: 11px; padding: 7px; }
+#plugin_support .form-table td.last-child { border: none; }
+
+/*.widefat td { padding: 7px; }*/
+/*#plugin_support { background: none; border: none; }*/
+/*#plugin_support .inside { margin: 0; }*/
+/*#plugin_support .inside .widefat { -moz-border-radius: 0 0 4px 4px; -webkit-border-radius: 0 0 4px 4px; border-radius: 0 0 4px 4px; }*/

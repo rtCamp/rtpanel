@@ -828,7 +828,7 @@ function rtp_my_plugin_help( $contextual_help, $screen_id, $screen ) {
     }
     return $contextual_help;
 }
-//add_filter('contextual_help', 'rtp_my_plugin_help', 10, 3);
+add_filter('contextual_help', 'rtp_my_plugin_help', 10, 3);
 
 /**
  *  Checks whether the links in the admin bar should be displayed or not
@@ -1053,7 +1053,7 @@ function rtp_import( $file ) {
  * Add Custom Logo to Admin Dashboard
  */
 function rtp_custom_admin_logo() {
-   echo '<style type="text/css"> #header-logo { background: url("' . RTP_IMG_FOLDER_URL . '/admin-logo.jpg") repeat scroll 0 0 transparent !important; height: 32px; width: 32px; } </style>';
+   echo '<style type="text/css"> #header-logo { background: url("' . RTP_IMG_FOLDER_URL . '/icon-rtpanel.jpg") repeat scroll 0 0 transparent !important; height: 32px; width: 32px; } </style>';
 }
 
 /**
@@ -1084,7 +1084,7 @@ add_action( 'admin_head', 'rtp_custom_admin_logo' );
 add_filter( 'admin_footer_text', 'rtl_custom_admin_footer' );
 add_filter( 'update_footer', 'rtp_version', 9999 );
 
-if ( is_admin() && $rtp_post_comments['notices'] ) {
+if ( is_admin() && @$rtp_post_comments['notices'] ) {
     add_action( 'admin_notices', 'rtp_regenerate_thumbnail_notice');
 }
 
@@ -1092,7 +1092,7 @@ function rtp_regenerate_thumbnail_notice() {
             echo '<div class="error"><p>Please Regenerate Thumbnails</p></div>';
 }
 
-if ( is_admin() && ( $_GET['page'] == 'regenerate-thumbnails' ) && $_POST['regenerate-thumbnails'] ) {
+if ( is_admin() && ( @$_GET['page'] == 'regenerate-thumbnails' ) && @$_POST['regenerate-thumbnails'] ) {
     $rtp_notice = get_option('rtp_post_comments');
     $rtp_notice['notices'] = '0';
     update_option( 'rtp_post_comments', $rtp_notice );

@@ -282,8 +282,8 @@ function rtp_plugin_metabox() {
             </td>
         </tr>
         <tr>
-            <td><a href="http://wordpress.org/extend/plugins/breadcrumb-navxt/"><?php _e( 'Breadcrumb NavXT', 'rtPanel' ); ?></a></td>
-            <td>
+            <td class="last-child"><a href="http://wordpress.org/extend/plugins/breadcrumb-navxt/"><?php _e( 'Breadcrumb NavXT', 'rtPanel' ); ?></a></td>
+            <td class="last-child">
                 <?php
                 if ( is_plugin_active( RTP_BREADECRUMB_NAVXT ) ) {
                     echo '<span class="active">Active</span>';
@@ -293,7 +293,7 @@ function rtp_plugin_metabox() {
                     echo '<span class="not-installed">Not Installed</span>';
                 } ?>
             </td>
-            <td>
+            <td class="last-child">
                 <?php if ( is_plugin_active( RTP_BREADECRUMB_NAVXT ) ) { ?>
                     <input type="hidden" value="<?php echo $breadcrumb_deactivate; ?>" name="_wpnonce_breadcrumb_deactivate" id="_wpnonce_breadcrumb_deactivate" /><input id="breadcrumb-deactivate" type="hidden" name="breadcrumb-deactivate" value="0" /><a class="breadcrumb-deactivate" href="#breadcrumb-deactivate" onclick="deactivate_plugin( 'Breadcrumb NavXT' )"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
                 <?php } elseif ( array_key_exists( RTP_BREADECRUMB_NAVXT, $plugins ) ) { ?>
@@ -302,7 +302,7 @@ function rtp_plugin_metabox() {
                     <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&plugin=breadcrumb-navxt' ), 'install-plugin_breadcrumb-navxt' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
                 <?php } ?>
             </td>
-            <td>
+            <td class="last-child">
                 <?php if ( is_plugin_active( RTP_BREADECRUMB_NAVXT ) || array_key_exists( RTP_BREADECRUMB_NAVXT, $plugins ) ) { ?>
                     <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_BREADECRUMB_NAVXT ); ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
                 <?php } else { ?>

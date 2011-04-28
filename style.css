@@ -1,7 +1,7 @@
 /*
 Theme Name: rtPanel Theme
 Theme URI: http://rtcamp.com
-Description: The WordPress theme based on rtCamp Base Theme. It includes Custom Menu, Header Image, Custom Background, custom logo upload, custom favicon upload, feedburner integration, google custom search, plugin support, post functionality, Default Widget plus three custom widgets Support.
+Description: The WordPress theme based on rtCamp Base Theme. It includes Custom Menu, Header Image, Custom Background, custom logo upload, custom favicon upload, feedburner integration, google custom search, plugin support, post functionality, Default Widget plus three custom widgets Support. Support Links: <a href="http://rtpanel.com/support" title="rtPanel Free Support" rel="follow">rtPanel Support forum</a>, <a href="http://rtpanel.com/documentation" title="rtPanel Documentation" rel="follow">Documentation</a> or <a href="http://rtpanel.com/" title="Visit rtPanel" rel="follow">Visit rtPanel</a>.
 Version: 2.0
 Author: rtCamp
 Author URI: http://rtcamp.com
@@ -395,7 +395,7 @@ li.comment .rtp-admin-comment { background: none repeat scroll 0 0 #FAFAFA; }
 
 /* ========== [ Comments Form Style ] ========== */
 #respond { border-bottom: 3px double #CCCCCC; clear: both; margin: 0 0 30px; overflow: hidden; padding: 10px 0 5px; }
-    #respond h3 { color: #555555; font-size: 17px; overflow: hidden; }
+    #respond h3 { color: #555555;font-size: 17px;overflow: hidden;padding: 0 0 11px; }
         #respond h3 small { font-size: 11px; }
     #respond form { border-top: 1px dotted #BBBBBB; clear: both; font-family: Georgia,"Times New Roman", Times, serif; font-size: 14px; line-height: 180%; padding: 11px 0; }
     #respond p { margin: 0 0 14px; overflow: hidden; }
@@ -416,11 +416,11 @@ li.comment .rtp-admin-comment { background: none repeat scroll 0 0 #FAFAFA; }
     #respond #submit { border: 1px solid #CCCCCC;font-size: 13px;font-weight: bold;padding: 5px 7px;width: auto !important; }
     #respond .submit-over,
     #respond #submit:hover { border: 1px solid #999999; color: #000000; }
-    #respond .comment-title { float: left; overflow: hidden; padding: 3px 0 14px; }
-    #respond small a { color: #DD0000;float: right;padding: 2px 8px 1px;text-align: right;text-decoration: none;text-transform: uppercase; }
+    #respond .comment-title {  }
+    #respond small a { color: #DD0000;padding-left: 10px;text-transform: uppercase; }
     #respond small a:hover { color: #AC0000; text-decoration: none; }
     #respond .form-allowed-tags { background: none repeat scroll 0 0 #FAFAFA; border: 1px solid #DDDDDD; color: #666666; font-size: 11px; line-height: 150%; margin: 0 0 14px; padding: 4px; width: 96%; }
-
+    
 /* ========== [ Trackback Comments ] ========== */
 #trackbacks { font-size: 140%; }
     #trackbacks li { padding: 0 0 9px; }
