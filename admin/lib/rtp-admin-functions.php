@@ -1121,7 +1121,7 @@ if ( is_admin() && isset ( $_GET['activated'] ) && $pagenow ==	'themes.php' ) {
     wp_redirect( 'themes.php?page=rtp_general' );
 }
 
-if ( is_array( $rtp_post_comments ) && ( @$rtp_post_comments['thumbnail_width'] != get_option( 'thumbnail_size_w' ) || @$rtp_post_comments['thumbnail_height'] != get_option( 'thumbnail_size_h' ) || @$rtp_post_comments['thumbanil_crop'] != get_option( 'thumbnail_crop' ) ) && ( $pagenow == 'options-media.php' || ( $pagenow == 'themes.php' && isset ( $_GET['activated'] ) ) ) ) {
+if ( is_array( $rtp_post_comments ) && ( @$rtp_post_comments['thumbnail_width'] != get_option( 'thumbnail_size_w' ) || @$rtp_post_comments['thumbnail_height'] != get_option( 'thumbnail_size_h' ) || @$rtp_post_comments['thumbnail_crop'] != get_option( 'thumbnail_crop' ) ) ) {
     $rtp_post_comments['notices'] = '1';
     $rtp_post_comments['thumbnail_width'] = get_option( 'thumbnail_size_w' );
     $rtp_post_comments['thumbnail_height'] = get_option( 'thumbnail_size_h' );
