@@ -114,7 +114,7 @@ img.wp-smiley,
 /* ========== [ Description: Two-column fixed layout with one sidebar right of content ] ========== */
 body { background-color: #FFFFFF; color: #111111;font-size: 10px; }
     #main-wrapper { width: 960px; margin: 0 auto; }
-        #header-wrapper { position: relative; z-index: 100; }
+        #header-wrapper { position: relative;z-index: 100; }
         #content-wrapper { background: url("img/content-sep.jpg") repeat-y scroll 630px 0 transparent;border-bottom: 3px double #DDDDDD;clear: both;overflow: hidden;position: relative;z-index: 10; }
             #content { float: left; padding: 0 0 40px; width: 620px; overflow: hidden; }
             #sidebar { float: right; padding: 12px 0; width: 320px; }
@@ -174,7 +174,7 @@ h2 a, h2 a:visited, h2 a:active { color: #111111; text-decoration: none; }
 #rtp-primary-menu { clear: both; }
 #rtp-nav-menu,
 #rtp-nav-menu ul { list-style: none outside none; margin: 0; }
-#rtp-nav-menu { border-bottom: 1px solid #DDDDDD; float: left; width: 100%; }
+#rtp-nav-menu { border-bottom: 3px double #DDDDDD;float: left;width: 100%; }
     #rtp-nav-menu li { border-top: 1px solid #DDDDDD; border-left: 1px solid #DDDDDD; border-bottom: none; float: left; list-style: none outside none; position: relative; }
     #rtp-nav-menu li:last-child { border-right: 1px solid #DDDDDD; }
 
@@ -183,7 +183,7 @@ h2 a, h2 a:visited, h2 a:active { color: #111111; text-decoration: none; }
     #rtp-nav-menu a:hover { background: none repeat scroll 0 0 #DDDDDD; color: #111111; text-decoration: none; }
 
 /* ========== [ Submenu Support ] ========== */
-    #rtp-nav-menu ul { display: none; position: absolute; top: 34px; left: 0; float: left; width: 180px; z-index: 99999; }
+    #rtp-nav-menu ul { display: none; position: absolute; top: 33px; left: 0; float: left; width: 180px; z-index: 99999; }
         #rtp-nav-menu ul li { border-bottom: 1px solid #DDDDDD; border-right: 1px solid #DDDDDD; border-top: none; min-width: 180px; }
         #rtp-nav-menu ul ul { left: 100%; top: 0; }
             #rtp-nav-menu ul ul li:first-child { border-top: 1px solid #DDDDDD; }
@@ -237,7 +237,7 @@ h2 a, h2 a:visited, h2 a:active { color: #111111; text-decoration: none; }
 
 /* ========== [ Post Edit Style ] ========== */
 .rtp-edit-link { font-family: Georgia, "Times New Roman", Times, serif; }
-.post-title .rtp-edit-link { clear: both; color: #888888; font-style: normal; letter-spacing: 1px; position: absolute; text-transform: uppercase; visibility: hidden; }
+.post-title .rtp-edit-link { bottom: 5px;clear: both;color: #888888;font-style: normal;letter-spacing: 1px;position: absolute;right: 0;text-transform: uppercase;visibility: hidden; }
     .post-title .rtp-edit-link a { border-bottom: 1px solid #EEEEEE; color: #888888; text-decoration: none; }
     .post-title .rtp-edit-link a:hover { color: #111111; text-decoration: none; }
 
