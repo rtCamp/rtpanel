@@ -828,10 +828,16 @@ function rtp_get_error_or_update_messages() {
  * @return string
  */
 function rtp_my_plugin_help( $contextual_help, $screen_id, $screen ) {
-    if ( $screen_id == 'appearance_page_rtp_general' || $screen_id == 'appearance_page_rtp_post_comments' ) {
-        $contextual_help = __( 'This is where I would provide help to the user on how everything in my admin panel works. Formatted HTML works fine in here too.', 'rtPanel' );
+    switch( $screen_id ) {
+        case 'appearance_page_rtp_general' :
+            $contextual_help = __( 'This is where I would provide help on the General Tab.', 'rtPanel' );
+            break;
+        case 'appearance_page_rtp_post_comments' :
+            $contextual_help = __( 'This is where I would provide help to the Post & Comments Tab.', 'rtPanel' );
+            break;
     }
     return $contextual_help;
+
 }
 add_filter('contextual_help', 'rtp_my_plugin_help', 10, 3);
 
