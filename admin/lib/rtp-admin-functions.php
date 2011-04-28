@@ -1074,7 +1074,7 @@ function rtl_custom_admin_footer() {
     echo '<span id="footer-thankyou">' . __( 'Thank you for creating with <a href="http://wordpress.org/" target="_blank">WordPress</a>.' ) . '</span> | ' . __( '<a href="http://codex.wordpress.org/" target="_blank">Documentation</a>' ) . ' | ' . __( '<a href="http://wordpress.org/support/forum/4" target="_blank">Feedback</a>' ) . '
         ' . __( '<br /><br />Currently using <a href="http://rtpanel.com/" title="rtPanel.com" target="_blank">rtPanel</a>' ) . ' |
         ' . __( '<a href="http://rtpanel.com/support" title="Click here for rtPanel Free Support" target="_blank">Support</a>' ) . ' |
-        ' . __( '<a href="http://rtpanel.com/documentation" title="Click here for rtPanel Documentation" target="_blank">Documentation</a>' );
+        ' . __( '<a href="http://rtpanel.com/docs" title="Click here for rtPanel Documentation" target="_blank">Documentation</a>' );
 }
 
 /**

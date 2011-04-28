@@ -75,7 +75,7 @@ class rtp_theme {
      *
      * Adding options for rtPanel in admin menu.
      */
-    function rtp_theme_option_page() {
+    function rtp_theme_option_page(  ) {
         /* Add options page, you can also add it to different sections or use your own one */
         $tab = isset($_GET['page'] )  ? $_GET['page'] : "rtp_general";
         add_theme_page( 'rtPanel', '<strong class="rtpanel">rtPanel</strong>', 'edit_theme_options', 'rtp_general', array( &$this, 'rtp_admin_options' ) );
