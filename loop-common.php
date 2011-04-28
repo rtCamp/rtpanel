@@ -74,7 +74,7 @@ if ( have_posts () ) :
     while( have_posts() ) : the_post();
     
             /* rtpanel_hook for adding content before .rtp-post-box starts */
-            rtp_hook_before_post_starts();
+            rtp_hook_before_post();
         ?>
         <div <?php post_class('rtp-post-box'); ?>> <!-- post_class begins -->
             <div class="post-title"> <!-- post-title begins -->
@@ -190,7 +190,7 @@ if ( have_posts () ) :
         </div><!-- end post_class -->
         <?php 
             /* rtpanel_hook for adding content after .rtp-post-box ends */
-            rtp_hook_after_post_ends();
+            rtp_hook_after_post();
         ?>
         <?php
             // ========== [ Call Post Pagination ] ========== //

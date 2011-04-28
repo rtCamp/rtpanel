@@ -241,12 +241,12 @@ function rtp_hooks_metabox() {
                         <td><textarea cols="33" rows="5" name="rtp_hooks[after_content]" id="rtp_hook_before_content_ends"><?php echo $rtp_hooks['after_content']; ?></textarea><br /></td>
                     </tr>
                     <tr valign="top">
-                        <th scope="row"><p><label for="rtp_hook_before_post_starts"><?php _e( 'Hook Before Post Start', 'rtPanel' ); ?></label></p></th>
-                        <td><textarea cols="33" rows="5" name="rtp_hooks[before_post_start]" id="rtp_hook_before_post_starts"><?php echo $rtp_hooks['before_post_start']; ?></textarea><br /></td>
+                        <th scope="row"><p><label for="rtp_hook_before_post"><?php _e( 'Hook Before Post Start', 'rtPanel' ); ?></label></p></th>
+                        <td><textarea cols="33" rows="5" name="rtp_hooks[before_post_start]" id="rtp_hook_before_post"><?php echo $rtp_hooks['before_post_start']; ?></textarea><br /></td>
                     </tr>
                     <tr valign="top">
-                        <th scope="row"><p><label for="rtp_hook_after_post_ends"><?php _e( 'Hook After Post End', 'rtPanel' ); ?></label></p></th>
-                        <td><textarea cols="33" rows="5" name="rtp_hooks[after_post_end]" id="rtp_hook_after_post_ends"><?php echo $rtp_hooks['after_post_end']; ?></textarea><br /></td>
+                        <th scope="row"><p><label for="rtp_hook_after_post"><?php _e( 'Hook After Post End', 'rtPanel' ); ?></label></p></th>
+                        <td><textarea cols="33" rows="5" name="rtp_hooks[after_post_end]" id="rtp_hook_after_post"><?php echo $rtp_hooks['after_post_end']; ?></textarea><br /></td>
                     </tr>
                     <tr valign="top">
                         <th scope="row"><p><label for="rtp_hook_before_sidebar"><?php _e( 'Hook Before Sidebar', 'rtPanel' ); ?></label></p></th>

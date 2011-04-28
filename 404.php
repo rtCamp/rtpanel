@@ -27,7 +27,7 @@ rtp_hook_after_content_begins();
     }
 
     /* rtpanel_hook for adding content before .post start */
-    rtp_hook_before_post_starts();
+    rtp_hook_before_post();
     ?>
     <div id="post-0"> <!-- post_class begins -->
         <div class="post-title rtp-main-title">
@@ -40,7 +40,7 @@ rtp_hook_after_content_begins();
     </div><!-- end post_class -->
     <?php
     /* rtpanel_hook for adding content after .post end */
-    rtp_hook_after_post_ends();
+    rtp_hook_after_post();
 ?>
 </div><!-- end content -->
 <?php
