@@ -202,7 +202,6 @@ function rtp_custom_styles_metabox() {
  * Metabox for Plugin Support (General Tab)
  */
 function rtp_plugin_metabox() {
-    $options = get_option( 'active_plugins' );
     $plugins = get_plugins();
     $subscribe_activate = wp_create_nonce( RTP_SUBSCRIBE_TO_COMMENTS . '-activate' );
     $subscribe_deactivate = wp_create_nonce( RTP_SUBSCRIBE_TO_COMMENTS . '-deactivate' );
@@ -240,7 +239,7 @@ function rtp_plugin_metabox() {
                 <?php } elseif ( array_key_exists( RTP_SUBSCRIBE_TO_COMMENTS, $plugins ) ) { ?>
                     <input type="hidden" value="<?php echo $subscribe_activate; ?>" name="_wpnonce_subscribe_activate" id="_wpnonce_subscribe_activate" /><input id="subscribe-activate" type="hidden" name="subscribe-activate" value="0" /><a class="subscribe-activate" href="#subscribe-activate" onclick="activate_plugin('Subscribe To Comments')"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo $subscribe_delete; ?>" name="_wpnonce_subscribe_delete" id="_wpnonce_subscribe_delete" /><input id="subscribe-delete" type="hidden" name="subscribe-delete" value="0" /><a class="subscribe-delete" href="#subscribe-delete" onclick="delete_plugin_confirmation( 'Subscribe To Comments' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
                 <?php } else { ?>
-                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&plugin=subscribe-to-comments' ), 'install-plugin_subscribe-to-comments' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
+                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&plugin=subscribe-to-comments' ), 'install-plugin_subscribe-to-comments' ); ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
                 <?php } ?>
             </td>
             <td>

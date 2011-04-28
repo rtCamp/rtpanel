@@ -6,24 +6,20 @@
  * @since rtPanel Theme 2.0
  */
 
-
     /**
      * Set the content width based on the theme's design and stylesheet.
-     *
-     * Used to set the width of images and content. Should be equal to the width the theme
-     * is designed for, generally via the style.css stylesheet.
-     */
-
+ *
+ * Used to set the width of images and content. Should be equal to the width the theme
+ * is designed for, generally via the style.css stylesheet.
+ */
 $content_width = ( isset( $content_width ) ) ? $content_width : 620;
 
-    /**
-     * Tell WordPress to run rt_base_setup() when the 'after_setup_theme' hook is run
-     */
-
+/**
+ * Tell WordPress to run rt_base_setup() when the 'after_setup_theme' hook is run
+ */
 add_action( 'after_setup_theme', 'rt_base_setup' );
 
 if ( !function_exists( 'rt_base_setup' ) ) {
-
 
     /**
      *
@@ -33,13 +29,11 @@ if ( !function_exists( 'rt_base_setup' ) ) {
      */
     function rt_base_setup() {
 
-
         /**
          * This theme uses post thumbnails
          */
 
 	add_theme_support( 'post-thumbnails' );
-
 
         /**
          * Add default posts and comments RSS feed links to head
@@ -47,13 +41,11 @@ if ( !function_exists( 'rt_base_setup' ) ) {
 
 	add_theme_support( 'automatic-feed-links' );
 
-
         /**
          * This theme styles the visual editor with editor-style.css to match the theme style.
          */
 
         add_editor_style( './css/rtp-editor-style.css' );
-
 
         /**
          * Load the text domain
@@ -67,7 +59,6 @@ if ( !function_exists( 'rt_base_setup' ) ) {
 
         add_custom_background();
 
-
         /**
          * Don't support text inside the header image.
          */
@@ -76,12 +67,9 @@ if ( !function_exists( 'rt_base_setup' ) ) {
             define( 'NO_HEADER_TEXT', true );
         }
 
-
-        $upload_dir = wp_upload_dir();
         define( 'HEADER_TEXTCOLOR' , '' );
-        define( 'HEADER_IMAGE_WIDTH' , 960 );
-        define( 'HEADER_IMAGE_HEIGHT' , 190 );
-
+        define( 'HEADER_IMAGE_WIDTH' , apply_filters( 'rtp_header_image_width', 960 ) );
+        define( 'HEADER_IMAGE_HEIGHT' , apply_filters( 'rtp_header_image_height', 190 ) );
 
         /**
          * adding support for the header image
@@ -89,7 +77,6 @@ if ( !function_exists( 'rt_base_setup' ) ) {
          */
 
         add_custom_image_header( 'rtp_header_style', 'rt_admin_header_style' );
-
 
         /**
          * gets included in the admin header
@@ -100,11 +87,9 @@ if ( !function_exists( 'rt_base_setup' ) ) {
             }
         }
 
-
         /**
          * Gets included in the site header
          */
-
         if ( !function_exists( 'rtp_header_style' ) ) {
             function rtp_header_style() {
                 if ( get_header_image() ) { ?>
@@ -116,18 +101,15 @@ if ( !function_exists( 'rt_base_setup' ) ) {
         /**
          * This theme uses wp_nav_menu() in one location
          */
-
 	register_nav_menus( array(
             'primary' => __( 'Primary Navigation', 'rtPanel' )
 	) );
     }
 }
 
-
-    /**
-     * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
-     */
-
+/**
+ * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
+ */
 function rtp_page_menu_args( $args ) {
     $args['show_home'] = true;
     return $args;
@@ -135,11 +117,10 @@ function rtp_page_menu_args( $args ) {
 add_filter( 'wp_page_menu_args', 'rtp_page_menu_args' );
 
 
-    /**
-     * Includes Scripts in the Header
-     * Files which attached in rtp_header_scripts() function should append in wp_head();
-     */
-
+/**
+ * Includes Scripts in the Header
+ * Files which attached in rtp_header_scripts() function should append in wp_head();
+ */
 function rtp_header_scripts() { ?>
     <!--[if IE 7 ]>
         <link rel="stylesheet" href="<?php echo RTP_CSS_FOLDER_URL; ?>/rtp-ie7.css"  />
@@ -166,12 +147,10 @@ function rtp_header_scripts() { ?>
 <?php }
 add_action( 'wp_head', 'rtp_header_scripts' );
 
-
-    /**
-     * Includes Scripts in the footer
-     * Files which attached in rtp_footer_scripts() function should append in wp_footer();
-     */
-
+/**
+ * Includes Scripts in the footer
+ * Files which attached in rtp_footer_scripts() function should append in wp_footer();
+ */
 function rtp_footer_scripts() {
 
        /**

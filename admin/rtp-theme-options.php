@@ -78,7 +78,7 @@ class rtp_theme {
     function rtp_theme_option_page() {
         /* Add options page, you can also add it to different sections or use your own one */
         $tab = isset($_GET['page'] )  ? $_GET['page'] : "rtp_general";
-        add_theme_page( 'rtPanel', '<strong class="rtpanel">rt&para;anel</strong>', 'edit_theme_options', 'rtp_general', array( &$this, 'rtp_admin_options' ) );
+        add_theme_page( 'rtPanel', '<strong class="rtpanel">rtPanel</strong>', 'edit_theme_options', 'rtp_general', array( &$this, 'rtp_admin_options' ) );
         add_theme_page( 'rtPanel', '--- <em>' . __( 'General', 'rtPanel') . '</em>', 'edit_theme_options', 'rtp_general', array( &$this, 'rtp_admin_options' ) );
         add_theme_page( 'rtPanel', '--- <em>' . __( 'Post &amp; Comments', 'rtPanel' ) . '</em>', 'edit_theme_options', 'rtp_post_comments', array( &$this, 'rtp_admin_options' ) );
         do_action( 'rtp_extend_theme_option_pages' );

@@ -46,7 +46,7 @@ function rtp_general_validate( $input ) {
                     @unlink( $logo_file['file'] );
                     $input['logo_url']    = $rtp_general['logo_url'];
                     $input['logo_upload'] = $rtp_general['logo_upload'];
-                    add_settings_error('logo_upload', 'invalid_logo_upload', 'The Uploaded Image is invalid or is an invalid Logo Image type.');
+                    add_settings_error('logo_upload', 'invalid_logo_upload', __( 'The Uploaded Image is invalid or is an invalid Logo Image type.', 'rtPanel' ) );
                 }
             } elseif ( $input['use_logo'] == 'use_logo_upload' && $rtp_general['logo_upload'] != $input['logo_upload'] ){
                 $logo_info           = pathinfo( $input['logo_upload'] );
@@ -58,7 +58,7 @@ function rtp_general_validate( $input ) {
                 } else {
                     $input['logo_upload'] = $rtp_general['logo_upload'];
                     $input['logo_url']    = $rtp_general['logo_url'];
-                    add_settings_error( 'logo_upload', 'invalid_logo_upload', 'The Uploaded Image is invalid or is an invalid Logo Image type.' );
+                    add_settings_error( 'logo_upload', 'invalid_logo_upload', __( 'The Uploaded Image is invalid or is an invalid Logo Image type.', 'rtPanel' ) );
                 }
             } else {
                 $input['logo_upload'] = $rtp_general['logo_upload'];
@@ -432,9 +432,9 @@ function rtp_post_comments_validate( $input ) {
         }
         add_settings_error( 'rtp_post_comments', 'reset_post_comments_options', __( 'All the rtPanel Post & Comments Options have been restored to default.', 'rtPanel' ), 'updated' );
     }
-    unset ( $input['thumbnail_height'] );
-    unset ( $input['thumbnail_width'] );
-    unset ( $input['thumbnail_crop'] );
+    //unset ( $input['thumbnail_height'] );
+    //unset ( $input['thumbnail_width'] );
+    //unset ( $input['thumbnail_crop'] );
     return $input; // return validated input
 }
 
@@ -451,7 +451,7 @@ function rtp_post_comments_validate( $input ) {
  * @return array.
  */
 function rtp_theme_setup_values() {
-
+    global $rtp_post_comments;
     $default_general = array(
         'logo_show'       => '0',
         'use_logo'        => 'use_logo_url',
@@ -466,8 +466,6 @@ function rtp_theme_setup_values() {
         'search_code'     => '',
     );
 
-
-
     $default_post_comments = array(
         'notices'                    => '0',
         'summary_show'               => '1',
@@ -475,6 +473,9 @@ function rtp_theme_setup_values() {
         'read_text'                  => __( 'Continue Reading...', 'rtPanel' ),
         'thumbnail_show'             => '1',
         'thumbnail_position'         => __( 'Right', 'rtPanel' ),
+        'thumbnail_width'            => get_option( 'thumbnail_size_w' ),
+        'thumbnail_height'           => get_option( 'thumbnail_size_h' ),
+        'thumbnail_crop'             => get_option( 'thumbnail_crop' ),
         'thumbnail_frame'            => '0',
         'post_date_u'                => '1',
         'post_date_format_u'         => 'F j, Y',
@@ -498,6 +499,10 @@ function rtp_theme_setup_values() {
         'gravatar_show'              => '1',
         'gravatar_size'              => '64 x 64',
     );
+
+    if( isset ( $rt_post_comments ) ) {
+        $default_general = array( 'thumbnail_width' => $rt_post_comments['thumbnail_width'], 'thumbnail_height' => $rt_post_comments['thumbnail_height'], 'thumbnail_crop' );
+    }
 
     $args = array( '_builtin' => false );
         $taxonomies = get_taxonomies( $args, 'names' );
@@ -1089,11 +1094,31 @@ if ( is_admin() && @$rtp_post_comments['notices'] ) {
 }
 
 function rtp_regenerate_thumbnail_notice() {
-            echo '<div class="error"><p>Please Regenerate Thumbnails</p></div>';
+    define( 'RTP_REGENERATE_THUMBNAILS', 'regenerate-thumbnails/regenerate-thumbnails.php' );
+    if ( is_plugin_active( RTP_REGENERATE_THUMBNAILS ) ) {
+        $regenerate_link = admin_url( '/tools.php?page=regenerate-thumbnails' );
+    } elseif ( array_key_exists( RTP_REGENERATE_THUMBNAILS, get_plugins() ) ) {
+        $regenerate_link = admin_url( '/plugins.php#regenerate-thumbnails' );
+    } else {
+        $regenerate_link = wp_nonce_url( admin_url( 'update.php?action=install-plugin&plugin=regenerate-thumbnails' ), 'install-plugin_regenerate-thumbnails' );
+    }
+    echo '<div class="error fade"><p>' . sprintf( __( 'The Thumbnail Settings have been updated. Please <a href="%s" title="Regenerate Thumbnails">Regenerate Thumbnails</a>', 'rtPanel' ), $regenerate_link ) . '</p></div>';
 }
 
-if ( is_admin() && ( @$_GET['page'] == 'regenerate-thumbnails' ) && @$_POST['regenerate-thumbnails'] ) {
+if ( is_admin() && $pagenow == 'tools.php' && ( @$_GET['page'] == 'regenerate-thumbnails' ) && @$_POST['regenerate-thumbnails'] ) {
     $rtp_notice = get_option('rtp_post_comments');
     $rtp_notice['notices'] = '0';
     update_option( 'rtp_post_comments', $rtp_notice );
+}
+
+if ( is_admin() && isset ( $_GET['activated'] ) && $pagenow ==	'themes.php' ) {
+    wp_redirect( 'themes.php?page=rtp_general' );
+}
+
+if ( isset ( $rtp_post_comments ) && ( @$rtp_post_comments['thumbnail_width'] != get_option( 'thumbnail_size_w' ) || @$rtp_post_comments['thumbnail_height'] != get_option( 'thumbnail_size_h' ) || @$rtp_post_comments['thumbanil_crop'] != get_option( 'thumbnail_crop' ) ) ) {
+        $rtp_post_comments['notices'] = '1';
+        $rtp_post_comments['thumbnail_width'] = get_option( 'thumbnail_size_w' );
+        $rtp_post_comments['thumbnail_height'] = get_option( 'thumbnail_size_h' );
+        $rtp_post_comments['thumbanil_crop'] = get_option( 'thumbnail_crop' );
+        update_option( 'rtp_post_comments', $rtp_post_comments );
 }
