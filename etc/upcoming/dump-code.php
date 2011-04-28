@@ -134,4 +134,30 @@
 //<!-- ========== [ icon for apple iphone, ipod ] ========== -->
 //        <link rel="apple-touch-icon" href="< ?php echo RTP_IMG_FOLDER_URL; ? >/etc/apple-touch-icon.png" />
 
+
+
+
+/**
+ * title for tags and texonomy
+ */
+
+/*
+$taxonomies = get_taxonomies();
+foreach ( $taxonomies as $taxonomy ) {
+//    print_r(get_terms($taxonomy));
+add_filter( 'term_links-'.$taxonomy, 'my_customs');
+}
+
+function my_customs($params) {
+    $rtp_count = 0;
+    foreach ( $params as $param ) {
+        preg_match('/<a.*">(.*)<\/a>/', $param, $title);
+        $param = str_replace( 'rel', 'title="'. $title[1] .'" rel', $param );
+//        var_dump( $param );
+        $params[$rtp_count] = $param;
+        $rtp_count++;
+    }
+    return $params;
+}*/
+
 ?>
