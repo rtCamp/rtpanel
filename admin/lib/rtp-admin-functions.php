@@ -141,7 +141,7 @@ function rtp_general_validate( $input ) {
                 $input['search_code'] = $rtp_general['search_code'];
                 add_settings_error( 'search_code', 'invalid_search_code', __( 'Google Search Code Error : While generating the code the hosting option must be "Search Element" and layout either "full-width" or "compact". The changes made have been reverted.', 'rtPanel' ) );
             } elseif ( $input['search_code'] != $rtp_general['search_code'] ) {
-                    add_settings_error( 'search_code', 'valid_search_code', __( 'Google Custom Search Integration ID has been updated.', 'rtPanel' ), 'updated' );
+                    add_settings_error( 'search_code', 'valid_search_code', __( 'Google Custom Search Integration has been updated.', 'rtPanel' ), 'updated' );
             }
         }
 
@@ -269,8 +269,7 @@ function rtp_general_validate( $input ) {
             unset($input);
             $input = maybe_unserialize( $general );
             add_settings_error( 'rtp_import', 'import', __( 'rtPanel Options Have been imported successfully', 'rtPanel' ), 'updated' );
-        }
-        else {
+        } else {
             add_settings_error( 'rtp_import', 'no_import', __( 'There was an error while importing', 'rtPanel' ) );
         }
     } elseif ( isset($_POST['rtp_reset'] ) ) {
@@ -1089,8 +1088,8 @@ function rtp_import( $file ) {
     if ( is_wp_error( $data ) ) {
         return false;
     } else {
-        preg_match('/\<rtp_general\>(.*)<\/rtp_general\>/i', $data['body'], $general);
-        preg_match('/\<rtp_post_comments\>(.*)<\/rtp_post_comments\>/i', $data['body'], $post_comments);
+        preg_match('/\<rtp_general\>(.*)<\/rtp_general\>/is', $data['body'], $general);
+        preg_match('/\<rtp_post_comments\>(.*)<\/rtp_post_comments\>/is', $data['body'], $post_comments);
         if(!empty($post_comments[1])) update_option('rtp_post_comments', maybe_unserialize($post_comments[1]));
         return $general[1];
     }
