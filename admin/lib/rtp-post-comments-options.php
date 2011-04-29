@@ -6,7 +6,6 @@
  * @since rtPanel Theme 2.0
  */
 
-
 /**
  * Displays the Post Comments Options tab
  *
@@ -47,7 +46,7 @@ function rtp_post_comments_options_page( $pagehook ) {
                     </div>
                     <br class="clear"/>
                     <input class="button-primary" value="<?php _e( 'Save', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
-                    <input class="button-secondary" value="<?php _e( 'Reset', 'rtPanel' ); ?>" name="rtp_reset" type="submit" />
+                    <input class="button-secondary" value="<?php _e( 'Reset All Post &amp; Comments Options', 'rtPanel' ); ?>" name="rtp_reset" type="submit" />
                 </div>
 
                 <script type="text/javascript">

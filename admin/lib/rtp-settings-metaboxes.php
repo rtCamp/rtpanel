@@ -6,10 +6,6 @@
  * @since rtPanel Theme 2.0
  */
 
-define( 'RTP_SUBSCRIBE_TO_COMMENTS', 'subscribe-to-comments/subscribe-to-comments.php' );
-define( 'RTP_WP_PAGENAVI', 'wp-pagenavi/wp-pagenavi.php' );
-define( 'RTP_BREADECRUMB_NAVXT', 'breadcrumb-navxt/breadcrumb_navxt_admin.php' );
-
 /**
  * Used to register the General and Post Comments Tab on admin_init tag
  */
@@ -202,6 +198,7 @@ function rtp_custom_styles_metabox() {
  * Metabox for Plugin Support (General Tab)
  */
 function rtp_plugin_metabox() {
+    
     $plugins = get_plugins();
     $subscribe_activate = wp_create_nonce( RTP_SUBSCRIBE_TO_COMMENTS . '-activate' );
     $subscribe_deactivate = wp_create_nonce( RTP_SUBSCRIBE_TO_COMMENTS . '-deactivate' );

@@ -50,7 +50,7 @@ function rtp_general_options_page( $pagehook ) {
                     </div>
                     <br class="clear"/>
                     <input class="button-primary" value="<?php _e( 'Save', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
-                    <input class="button-secondary" value="<?php _e( 'Reset', 'rtPanel' ); ?>" name="rtp_reset" type="submit" />
+                    <input class="button-secondary" value="<?php _e( 'Reset All General Options', 'rtPanel' ); ?>" name="rtp_reset" type="submit" />
                 </div>
 
                 <script type="text/javascript">
