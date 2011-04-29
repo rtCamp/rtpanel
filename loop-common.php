@@ -18,13 +18,35 @@ if ( function_exists( 'bcn_display' ) ) {
     echo '</div>';
 }
 
+/* ========== [ Call Archive Pages Title ] ========== */
+if ( is_search() ) {
+    ?><div class="post-title rtp-main-title"><h1><?php printf( __( 'Search Results for: %s', 'rtPanel' ), '<span>' . get_search_query() . '</span>' ); ?></h1></div><?php
+}
+if ( is_tag() ) {
+    ?><div class="post-title rtp-main-title"><h1><?php printf( __( 'Tags: %s', 'rtPanel' ), '<span>' . single_tag_title( '', false ) . '</span>' ); ?></h1></div><?php
+}
+if ( is_category() ) {
+    ?><div class="post-title rtp-main-title"><h1><?php printf( __( 'Category: %s', 'rtPanel' ), '<span>' . single_cat_title( '', false ) . '</span>' ); ?></h1></div><?php
+}
+if ( is_day() ) {
+    ?><div class="post-title rtp-main-title"><h1><?php printf( __( 'Archive for %s', 'rtPanel' ), '<span>' . get_the_time( 'F jS, Y' ) . '</span>' ); ?></h1></div><?php
+}
+if ( is_month() ) {
+    ?><div class="post-title rtp-main-title"><h1><?php printf( __( 'Archive for  %s', 'rtPanel' ), '<span>' . get_the_time( 'F, Y' ) . '</span>' ); ?></h1></div><?php
+}
+if ( is_year() ) {
+    ?><div class="post-title rtp-main-title"><h1><?php printf( __( 'Archive for  %s', 'rtPanel' ), '<span>' . get_the_time( 'Y' ) . '</span>' ); ?></h1></div><?php
+}
+if ( get_query_var( 'author_name' ) ) {
+    $cur_auth = '';
+    $cur_auth = get_user_by( 'slug', get_query_var( 'author_name' ) );
+    ?><div class="post-title rtp-main-title"><h1><?php printf( __( 'Author: %s', 'rtPanel' ), '<span>' . trim( ucfirst( $cur_auth->display_name ) ) . '</span>' ); ?></h1></div><?php
+}
+
 /* If there are no posts to display */
 if ( ! have_posts() ) : ?>
     <div id="post-0" <?php post_class('rtp-post-box'); ?>> <!-- post_class begins -->
         <?php rtp_hook_begin_post(); /* rtpanel_hook for adding content after .rtp-post-box begins */?>
-        <div class="post-title rtp-main-title">
-            <h1><?php _e( 'Not Found', 'rtPanel' ); ?></h1>
-        </div>
         <div class="post-content">
             <p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'rtPanel' ); ?></p>
             <?php get_search_form(); ?>
@@ -32,7 +54,6 @@ if ( ! have_posts() ) : ?>
         <?php rtp_hook_end_post();/* rtpanel_hook for adding content before .rtp-post-box ends */ ?>
     </div><!-- end post_class -->
 <?php endif;
-
 
 /* Start the Loop.
  *
@@ -45,34 +66,7 @@ if ( ! have_posts() ) : ?>
  *
  * the loop:
  */
-
 if ( have_posts () ) :
-
-    /* ========== [ Call Archive Pages Title ] ========== */
-    if ( is_search() ) {
-        ?><div class="post-title rtp-main-title"><h1><?php printf( __( 'Search Results for: %s', 'rtPanel' ), '<span>' . get_search_query() . '</span>' ); ?></h1></div><?php
-    }
-    if ( is_tag() ) {
-        ?><div class="post-title rtp-main-title"><h1><?php printf( __( 'Tags: %s', 'rtPanel' ), '<span>' . single_tag_title( '', false ) . '</span>' ); ?></h1></div><?php
-    }
-    if ( is_category() ) {
-        ?><div class="post-title rtp-main-title"><h1><?php printf( __( 'Category: %s', 'rtPanel' ), '<span>' . single_cat_title( '', false ) . '</span>' ); ?></h1></div><?php
-    }
-    if ( is_day() ) {
-        ?><div class="post-title rtp-main-title"><h1><?php printf( __( 'Archive for %s', 'rtPanel' ), '<span>' . get_the_time( 'F jS, Y' ) . '</span>' ); ?></h1></div><?php
-    }
-    if ( is_month() ) {
-        ?><div class="post-title rtp-main-title"><h1><?php printf( __( 'Archive for  %s', 'rtPanel' ), '<span>' . get_the_time( 'F, Y' ) . '</span>' ); ?></h1></div><?php
-    }
-    if ( is_year() ) {
-        ?><div class="post-title rtp-main-title"><h1><?php printf( __( 'Archive for  %s', 'rtPanel' ), '<span>' . get_the_time( 'Y' ) . '</span>' ); ?></h1></div><?php
-    }
-    if ( get_query_var( 'author_name' ) ) {
-        $cur_auth = '';
-        $cur_auth = get_user_by( 'slug', get_query_var( 'author_name' ) );
-        ?><div class="post-title rtp-main-title"><h1><?php printf( __( 'Author: %s', 'rtPanel' ), '<span>' . trim( ucfirst( $cur_auth->display_name ) ) . '</span>' ); ?></h1></div><?php
-    }
-
     while( have_posts() ) : the_post(); ?>
         
         <div <?php post_class('rtp-post-box'); ?>> <!-- post_class begins -->
