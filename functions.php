@@ -45,3 +45,10 @@ foreach( glob ( get_template_directory() . "/lib/*.php" ) as $lib_filename ) {
 
 // ========== [ Include rtPanel Theme Options ] ========== //
 require_once( get_template_directory() . "/admin/rtp-theme-options.php" );
+
+//remove_action('rtp_hook_post_meta_bottom', 'rtp_default_post_meta');
+//add_action('rtp_hook_end_post_title', 'test_fnc');
+//
+//function test_fnc($param) {
+//    echo 'GOT IT';
+//}

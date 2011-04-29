@@ -41,10 +41,8 @@
         <div id="main-wrapper"> <!-- main-wrapper begins and end in footer.php -->
             <div id="header-wrapper"> <!-- header-wrapper begins -->
 
-                <?php
-                // rtpanel_hook for adding content before #header
-                    rtp_hook_before_header();
-                ?>
+                <?php rtp_hook_before_header(); /* rtpanel_hook for adding content before #header */ ?>
+
                 <div id="header"> <!-- header begins -->
                     <?php rtp_hook_before_logo(); ?>
                     <?php if ( is_home() || is_front_page() ) { ?>
@@ -54,32 +52,12 @@
                     <?php } ?>
                         <?php if ( get_bloginfo( 'description' ) ) { ?><h2 class="tagline"><?php bloginfo( 'description' ); ?></h2><?php } ?>
                     <?php rtp_hook_after_logo(); ?>
-                <div class="clear"></div>
+                    <div class="clear"></div>
                 </div><!-- end header -->
-                <?php
-                // rtpanel_hook for adding content after #header
-                    rtp_hook_after_header();
-                ?>
-
-                <div id="rtp-primary-menu"> <!-- rt-primary-menu begins -->
-                <?php
-
-                /**
-                 * Call wp_nav_menu() for Wordpress Navigaiton with fallback wp_list_pages() if menu not set in admin panel
-                 * It's have 3 level dropdown support
-                 */
-                
-                    if ( function_exists( 'wp_nav_menu' ) && has_nav_menu( 'primary' ) ) {
-                        wp_nav_menu( array( 'container' => '', 'menu_id' => 'rtp-nav-menu', 'theme_location' => 'primary', 'depth' => '4' ) );
-                    } else {
-                        echo '<ul class="menu" id="rtp-nav-menu">';
-                            wp_list_pages( array( 'title_li' => '', 'sort_column' => 'menu_order', 'number' => '5', 'depth' => '4' ) );
-                        echo '</ul>';
-                    }
-                ?>
-                </div><!-- end rt-primary-menu -->
-            <div class="clear"></div>
+               
+                <?php rtp_hook_after_header(); // rtpanel_hook for adding content after #header ?>
+                <div class="clear"></div>
             </div><!-- end header-wrapper -->
 
             <div id="content-wrapper"> <!-- content-wrapper begins and end in footer.php -->
-             <?php rtp_hook_after_content_wrapper_begins(); /* rtpanel_hook for adding content after #content-wrapper begins */ ?>
+             <?php rtp_hook_begin_content_wrapper(); /* rtpanel_hook for adding content after #content-wrapper begins */ ?>

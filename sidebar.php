@@ -9,7 +9,7 @@
 ?>
 <div id="sidebar"> <!-- sidebar begins -->
 <?php
-    rtp_hook_after_sidebar_begins(); /* rtpanel_hook for adding content after #sidebar begins */
+    rtp_hook_begin_sidebar(); /* rtpanel_hook for adding content after #sidebar begins */
     // ========== [ Widgetized Sidebar, if you have the plugin installed ] ========== //
     if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar( 'Sidebar Widgets' ) ) { ?>
         <!-- ========== [ Fall-Back Default Widgets ] ========== -->
@@ -20,6 +20,6 @@
             
         <!-- ========== [ End of Default Widgets ] ========== -->
 <?php }
-    rtp_hook_before_sidebar_ends(); /* rtpanel_hook for adding content before #sidebar ends */
+    rtp_hook_end_sidebar(); /* rtpanel_hook for adding content before #sidebar ends */
 ?>
 </div> <!-- end sidebar -->

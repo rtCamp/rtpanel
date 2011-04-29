@@ -10,7 +10,7 @@
  */
 ?>
                 <div class="clear"></div>
-                 <?php rtp_hook_before_content_wrapper_ends(); /* rtpanel_hook for adding content before #content-wrapper ends */ ?>
+                 <?php rtp_hook_end_content_wrapper(); /* rtpanel_hook for adding content before #content-wrapper ends */ ?>
             </div><!-- end content-wrapper -->
            
             <div id="footer-wrapper"> <!-- footer-wrapper begins -->
