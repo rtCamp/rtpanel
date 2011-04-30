@@ -6,19 +6,19 @@
  * @since rtPanel Theme 2.0
  */
 
-// ========== [ Call Header ] ========== //
+/* ========== [ Call Header ] ========== */
 get_header();
 
-// ========== [ Call Sidebar ] ========== //
+/* ========== [ Call Sidebar ] ========== */
 get_sidebar();
 
-// ========== [ rtpanel_hook for adding content before #content ] ========== //
+/* ========== [ rtpanel_hook for adding content before #content ] ========== */
 rtp_hook_begin_content();
 ?>
 <div id="content" class="rtp-home-posts"> <!-- content begins -->
  <?php    
     global $rtp_post_comments;
-    // ========== [ Breadcrumb Support ] ========== //
+    /* ========== [ Breadcrumb Support ] ========== */
     if ( function_exists( 'bcn_display' ) ) {
         echo '<div class="breadcrumb">';
             bcn_display();
@@ -38,8 +38,8 @@ rtp_hook_begin_content();
     </div><!-- end post_class -->
 </div><!-- end content -->
 <?php
-// ========== [ rtpanel_hook for adding content after #content ] ========== //
+/* ========== [ rtpanel_hook for adding content after #content ] ========== */
 rtp_hook_end_content();
 
-// ========== [ Call Footer ] ========== //
+/* ========== [ Call Footer ] ========== */
 get_footer(); ?>

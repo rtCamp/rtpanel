@@ -10,7 +10,7 @@
 <div id="sidebar"> <!-- sidebar begins -->
 <?php
     rtp_hook_begin_sidebar(); /* rtpanel_hook for adding content after #sidebar begins */
-    // ========== [ Widgetized Sidebar, if you have the plugin installed ] ========== //
+    /* ========== [ Widgetized Sidebar, if you have the plugin installed ] ========== */
     if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar( 'Sidebar Widgets' ) ) { ?>
         <!-- ========== [ Fall-Back Default Widgets ] ========== -->
 

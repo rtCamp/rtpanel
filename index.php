@@ -10,10 +10,10 @@
  * @since rtPanel Theme 2.0
  */
 
-// ========== [ Call Header ] ========== //
+/* ========== [ Call Header ] ========== */
 get_header();
 
-// ========== [ Call Sidebar ] ========== //
+/* ========== [ Call Sidebar ] ========== */
 get_sidebar();
 
 $rtp_content_class = '';
@@ -38,6 +38,6 @@ if ( is_search() || is_archive() ) {
 </div> <!-- end content -->
 
 <?php
-// ========== [ Call Footer ] ========== //
+/* ========== [ Call Footer ] ========== */
 get_footer();
 ?>

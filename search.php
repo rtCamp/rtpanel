@@ -8,13 +8,13 @@
  * @since rtPanel Theme 2.0
  */
 
-// ========== [ Call Header ] ========== //
+/* ========== [ Call Header ] ========== */
 get_header();
 
-// ========== [ Call Sidebar ] ========== //
+/* ========== [ Call Sidebar ] ========== */
 get_sidebar();
 
-// ========== [ rtpanel_hook for adding content before #content ] ========== //
+/* ========== [ rtpanel_hook for adding content before #content ] ========== */
 rtp_hook_begin_content();
 
 global $rtp_general; ?>
@@ -22,7 +22,7 @@ global $rtp_general; ?>
     <?php
         if ( preg_match( '/customSearchControl.draw\(\'cse\'\);/i', @$rtp_general["search_code"] ) ) {
 
-            // ========== [ Breadcrumb Support ] ========== //
+            /* ========== [ Breadcrumb Support ] ========== */
             if ( function_exists( 'bcn_display' ) ) {
                 echo '<div class="breadcrumb">';
                     bcn_display();
@@ -40,8 +40,8 @@ global $rtp_general; ?>
     ?>
 </div> <!-- end content -->
 <?php
-// ========== [ rtpanel_hook for adding content after #content ] ========== //
+/* ========== [ rtpanel_hook for adding content after #content ] ========== */
 rtp_hook_end_content();
 
-// ========== [ Call Footer ] ========== //
+/* ========== [ Call Footer ] ========== */
 get_footer(); ?>

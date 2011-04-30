@@ -3,19 +3,19 @@
 Template Name: HomePage
 */
 
-// ========== [ Call Header ] ========== //
+/* ========== [ Call Header ] ========== */
 get_header();
 
-// ========== [ rtpanel_hook for adding content before #sidebar ] ========== //
+/* ========== [ rtpanel_hook for adding content before #sidebar ] ========== */
 rtp_hook_begin_sidebar();
 
-// ========== [ Call Sidebar ] ========== //
+/* ========== [ Call Sidebar ] ========== */
 get_sidebar();
 
-// ========== [ rtpanel_hook for adding content after #sidebar ] ========== //
+/* ========== [ rtpanel_hook for adding content after #sidebar ] ========== */
 rtp_hook_end_sidebar();
 
-// ========== [ rtpanel_hook for adding content before #content ] ========== //
+/* ========== [ rtpanel_hook for adding content before #content ] ========== */
 rtp_hook_begin_content();
 ?>
 <div id="content" class="rtp-home-posts"> <!-- content begins -->
@@ -41,7 +41,7 @@ rtp_hook_begin_content();
 
     <?php endwhile; ?>
     <?php
-    // ========== [ Page-Navi Plugin Support with WP Default Pagination ] ========== //
+    /* ========== [ Page-Navi Plugin Support with WP Default Pagination ] ========== */
             if ( function_exists( 'wp_pagenavi' ) ) {
                 wp_pagenavi();
             } elseif ( get_next_posts_link() || get_previous_posts_link() ) { ?>
@@ -53,8 +53,8 @@ rtp_hook_begin_content();
     endif; ?>
 </div><!-- end content -->
 <?php
-// ========== [ rtpanel_hook for adding content after #content ] ========== //
+/* ========== [ rtpanel_hook for adding content after #content ] ========== */
 rtp_hook_end_content();
 
-// ========== [ Call Footer ] ========== //
+/* ========== [ Call Footer ] ========== */
 get_footer(); ?>

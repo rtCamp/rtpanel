@@ -10,7 +10,7 @@
  */
 //=====================================================================
 //
-// ========== [ Social Network Icon Support ] ========== //
+/* ========== [ Social Network Icon Support ] ========== */
 /*
     valid sizes for twitter - none, horizontal, vertical
     valid sizes for facebook_like- standard, box_count, button_count
@@ -28,7 +28,7 @@
     );
 */
 
-// ========== [ Facebook Share Support ] ========== //
+/* ========== [ Facebook Share Support ] ========== */
 /*
     if( !is_admin() )
     wp_enqueue_script('fbshare', 'http://static.ak.fbcdn.net/connect.php/js/FB.Share', '', '', true);
@@ -42,7 +42,7 @@
     $rt_social_share_call = new rt_social_share_call( $networks );
 */
 
-// ========== [ Open Graph Protocol Support ] ========== //
+/* ========== [ Open Graph Protocol Support ] ========== */
 //$rt_ogp = new rt_ogp();
 
 
@@ -53,11 +53,11 @@
 //=====================================================================
 
 
-// ========== [ Initialise Social Class Before the_loop ] ========== //
+/* ========== [ Initialise Social Class Before the_loop ] ========== */
 //$rt_social_share_call = new rt_social_share_call();
 
 
-// ========== [ Social Share Support ] ========== //
+/* ========== [ Social Share Support ] ========== */
                 /*
                     valid sizes for twitter - none, horizontal, vertical
                     valid sizes for facebook_like - standard, box_count, button_count
