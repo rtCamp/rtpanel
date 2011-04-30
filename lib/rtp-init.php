@@ -15,11 +15,11 @@
 $content_width = ( isset( $content_width ) ) ? $content_width : 620;
 
 /**
- * Tell WordPress to run rt_base_setup() when the 'after_setup_theme' hook is run
+ * Tell WordPress to run rtpanel_setup() when the 'after_setup_theme' hook is run
  */
-add_action( 'after_setup_theme', 'rt_base_setup' );
+add_action( 'after_setup_theme', 'rtpanel_setup' );
 
-if ( !function_exists( 'rt_base_setup' ) ) {
+if ( !function_exists( 'rtpanel_setup' ) ) {
 
     /**
      *
@@ -27,7 +27,7 @@ if ( !function_exists( 'rt_base_setup' ) ) {
      * @uses register_nav_menus() To add support for navigation menus.
      *
      */
-    function rt_base_setup() {
+    function rtpanel_setup() {
 
         /**
          * This theme uses post thumbnails
@@ -104,6 +104,29 @@ if ( !function_exists( 'rt_base_setup' ) ) {
 	register_nav_menus( array(
             'primary' => __( 'Primary Navigation', 'rtPanel' )
 	) );
+
+        /**
+         * @return string returns dynamic meta description
+         */
+        function rtp_meta_description() {
+            global $post;
+            $rawcontent = $post->post_content;
+            if ( empty( $rawcontent ) ) {
+                $rawcontent = htmlentities( bloginfo( 'description' ) );
+            } else {
+                $rawcontent = apply_filters( 'the_content_rss', strip_tags( $rawcontent ) );
+                $rawcontent = preg_replace('/\[.+\]/','', $rawcontent);
+                $chars = array( "", "\n", "\r", "chr(13)",  "\t", "\0", "\x0B" );
+                $rawcontent = htmlentities( str_replace( $chars, " ", $rawcontent ) );
+            }
+            if ( strlen( $rawcontent ) < 155 ) {
+                echo $rawcontent;
+            } else {
+                $desc = substr( $rawcontent, 0, 155 );
+                return $desc;
+            }
+        }
+
     }
 }
 
@@ -128,15 +151,6 @@ function rtp_header_scripts() { ?>
     <!--[if IE 6 ]>
         <link rel="stylesheet" href="<?php echo RTP_CSS_FOLDER_URL; ?>/rtp-ie6.css"  />
     <![endif]-->
-    <!--
-    ========== [ CSS3PIE Hack ] ==========
-    To apply CSS3 border radius, box-shadow, linear gradient. ref. http://css3pie.com/
-    -->
-    <!--
-    <style type="text/css">
-        .ClassName { behavior: url(<?php //echo RTP_JS_FOLDER_URL; ?>/PIE.htc); position: relative; }
-    </style>
-    -->
 
     <!-- Custom CSS override by admin from Admin -> rtPanel Options -->
     <?php
