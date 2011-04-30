@@ -24,10 +24,31 @@ foreach ( glob( get_template_directory() . "/admin/lib/*.php" ) as $lib_filename
  */
 class rtp_theme {
 
+    /* Public variable */
+    var $theme_pages;
+
     /**
     * Constructor of class, PHP4 compatible construction for backward compatibility.
     */
     function rtp_theme() {
+        
+  /*       @param string $page_title The text to be displayed in the title tags of the page when the menu is selected
+ * @param string $menu_title The text to be used for the menu
+ * @param string $capability The capability required for this menu to be displayed to the user.
+ * @param string $menu_slug The slug name to refer to this menu by (should be unique for this menu)
+ * @param callback $function The function to be called to output the content for this page.
+ */
+        $this->theme_pages = apply_filters( 'rtp_add_theme_pages', array(
+            'rtp_general' => array(
+                            'menu_title' => __( 'General', 'rtPanel' ),
+                            'menu_slug' => 'rtp_general'
+                            ),
+            'rtp_post_comments' => array(
+                            'menu_title' => __( 'Post &amp; Comments', 'rtPanel' ),
+                            'menu_slug' => 'rtp_post_comments'
+                            ) )
+
+        );
         /* Add filter for WordPress 2.8 changed backend box system ! */
         add_filter( 'screen_layout_columns', array( &$this, 'rtp_on_screen_layout_columns' ), 10, 2 );
 
@@ -77,11 +98,13 @@ class rtp_theme {
      */
     function rtp_theme_option_page(  ) {
         /* Add options page, you can also add it to different sections or use your own one */
-        $tab = isset($_GET['page'] )  ? $_GET['page'] : "rtp_general";
         add_theme_page( 'rtPanel', '<strong class="rtpanel">rtPanel</strong>', 'edit_theme_options', 'rtp_general', array( &$this, 'rtp_admin_options' ) );
-        add_theme_page( 'rtPanel', '--- <em>' . __( 'General', 'rtPanel') . '</em>', 'edit_theme_options', 'rtp_general', array( &$this, 'rtp_admin_options' ) );
-        add_theme_page( 'rtPanel', '--- <em>' . __( 'Post &amp; Comments', 'rtPanel' ) . '</em>', 'edit_theme_options', 'rtp_post_comments', array( &$this, 'rtp_admin_options' ) );
-        do_action( 'rtp_extend_theme_option_pages' );
+        foreach( $this->theme_pages as $key=>$theme_page ) {
+            if ( is_array( $theme_page ) )
+            add_theme_page( 'rtPanel', '--- <em>' . $theme_page['menu_title'] . '</em>', 'edit_theme_options', $theme_page['menu_slug'], array( &$this, 'rtp_admin_options' ) );
+        }
+
+        $tab = isset( $_GET['page'] )  ? $_GET['page'] : "rtp_general";
         /* Register  callback gets call prior the own page gets rendered. */
         add_action( 'load-appearance_page_' . $tab, array( &$this, 'rtp_on_load_page' ) );
         add_action( 'admin_print_styles-appearance_page_' . $tab, array( &$this, 'rtp_admin_page_styles' ) );
@@ -117,11 +140,15 @@ class rtp_theme {
     function rtp_admin_options() {
         /* Separate the options page into two tabs - General & Post Comments. */
         global $pagenow;
-        $tabs = apply_filters('rtp_admin_tabs', array( 'rtp_general' => __( 'General', 'rtPanel' ), 'rtp_post_comments' => __( 'Post &amp; Comments', 'rtPanel' ) ) );
+        $tabs = array();
+        foreach( $this->theme_pages as $key=>$theme_page ) {
+            if ( is_array( $theme_page ) )
+            $tabs[$theme_page['menu_slug']] = $theme_page['menu_title'];
+        }
         $links = array();
 
         /* Check to see which tab we are on. */
-        $current = isset($_GET['page'] )  ? $_GET['page'] : "rtp_general";
+        $current = isset( $_GET['page'] )  ? $_GET['page'] : "rtp_general";
         foreach ( $tabs as $tab => $name ) {
             if ( $tab == $current ) {
                 $links[] = "<a class='nav-tab nav-tab-active' href='?page=$tab'>$name</a>";
@@ -138,18 +165,17 @@ class rtp_theme {
         <?php screen_icon( 'rtpanel' ); ?>
         <h2 class="rtp-tab-wrapper"><?php foreach ( $links as $link ) echo $link; ?></h2><?php
         if ( $pagenow == 'themes.php' ) {
-            switch ( $current ) {
-                case 'rtp_general' :
-                    rtp_general_options_page( 'appearance_page_' . $current );
-                    break;
-                case 'rtp_post_comments' :
-                    rtp_post_comments_options_page( 'appearance_page_' . $current );
-                    break;
-                default :
-                    do_action('rtp_extend_tabs');
-                    break;
+            foreach( $this->theme_pages as $key=>$theme_page ) {
+                if ( is_array( $theme_page ) ) {
+                    switch ( $current ) {
+                        case $theme_page['menu_slug'] :
+                            if ( function_exists( $theme_page['menu_slug'].'_options_page' ) )
+                            call_user_func( $theme_page['menu_slug'].'_options_page', 'appearance_page_' . $current );
+                            break;
+                    }
+                }
             }
-        } ?>
+        }?>
         </div><!-- end wrap -->
 <?php
     }
@@ -164,7 +190,7 @@ class rtp_theme {
         wp_enqueue_script( 'postbox' );
 
         /* Check to see which tab we are on. */
-        $tab = isset($_GET['page'] )  ? $_GET['page'] : "rtp_general";
+        $tab = isset( $_GET['page'] )  ? $_GET['page'] : "rtp_general";
         switch ( $tab ) {
             case 'rtp_general' :
                 /* All metaboxes registered during load page can be switched off/on at "Screen Options" automatically, nothing special to do therefore. */
