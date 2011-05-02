@@ -97,7 +97,7 @@ function rtp_show_post_thumbnail() {
             $image = ( rtp_generate_thumbs() ) ? rtp_generate_thumbs() : apply_filters( 'rtp_default_image_path', '' );
             if ( $image ) { ?>
                 <span class="post-img<?php echo '-' . strtolower( $rtp_post_comments['thumbnail_position'] ); ?>">
-                    <a href="<?php echo get_permalink(); ?>" title="<?php echo get_the_title(); ?>"><img class="post-thumb<?php echo $thumbnail_frame; ?> wp-post-image" alt="<?php echo get_the_title(); ?>" src="<?php echo ( $image ) ? $image : apply_filters('rtp_default_image_path', '' ) ; ?>" /></a>
+                    <a href="<?php echo get_permalink(); ?>" title="<?php echo get_the_title(); ?>"><img class="post-thumb<?php echo $thumbnail_frame; ?> wp-post-image" alt="<?php echo get_the_title(); ?>" src="<?php echo ( $image ) ? $image : apply_filters( 'rtp_default_image_path', '' ) ; ?>" /></a>
                 </span><?php
             }
         }

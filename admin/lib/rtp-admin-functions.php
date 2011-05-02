@@ -895,13 +895,14 @@ add_action( 'admin_bar_init', 'rtp_admin_bar_init' );
  * @uses object $wp_admin_bar
  */
 function rtp_admin_bar_links() {
-    global $wp_admin_bar;
+    global $wp_admin_bar, $rt_panel_theme;
 
     /* Links to add, in the form: 'Label' => 'URL' */
-    $links = array(
-        __( 'General', 'rtPanel' ) => admin_url( 'themes.php?page=rtp_general' ),
-        __( 'Post &amp; Comments', 'rtPanel' ) => admin_url( 'themes.php?page=rtp_post_comments' )
-    );
+    foreach( $rt_panel_theme->theme_pages as $key=>$theme_page ) {
+            if ( is_array( $theme_page ) )
+                $links[$theme_page['menu_title']] = admin_url( 'themes.php?page='.$theme_page['menu_slug'] );
+
+    }
 
     /*  Add the Parent link. */
     $wp_admin_bar->add_menu( array(
