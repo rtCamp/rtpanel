@@ -48,12 +48,12 @@ function rtp_new_excerpt_length($length) {
 /**
  *  Used to call all the summary filter on init
  */
-function rtp_summary_filters() {
+//function rtp_summary_filters() {
     add_filter( 'the_excerpt', 'rtp_no_ellipsis' );
     add_filter( 'gallery_style', 'rtp_remove_gallery_css' );
     add_filter( 'excerpt_length', 'rtp_new_excerpt_length' );
-}
-add_action( 'init', 'rtp_summary_filters' );
+//}
+//add_action( 'init', 'rtp_summary_filters' );
 
 
 /**
