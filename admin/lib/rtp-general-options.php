@@ -36,7 +36,7 @@ function rtp_general_options_page( $pagehook ) {
                 wp_nonce_field( 'closedpostboxes', 'closedpostboxesnonce', false );
                 wp_nonce_field( 'meta-box-order', 'meta-box-order-nonce', false ); ?>
                 
-                <input type="hidden" name="action" value="save_rt_metaboxes_general" />
+                <input type="hidden" name="action" value="save_rtp_metaboxes_general" />
                 <div id="poststuff" class="metabox-holder alignleft <?php echo 2 == $screen_layout_columns ? ' has-right-sidebar' : ''; ?>">
                     <div id="side-info-column" class="inner-sidebar">
                         <?php do_meta_boxes( $pagehook, 'side', '' ); ?>
