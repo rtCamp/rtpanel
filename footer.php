@@ -8,6 +8,8 @@
  * @package rtPanel
  * @since rtPanel Theme 2.0
  */
+
+global $rtp_general;
 ?>
                 <div class="clear"></div>
                  <?php rtp_hook_end_content_wrapper(); /* rtpanel_hook for adding content before #content-wrapper ends */ ?>
@@ -15,19 +17,22 @@
            
             <div id="footer-wrapper"> <!-- footer-wrapper begins -->
                     <?php
+                        if ( $rtp_general['footer_sidebar'] ) {
+
                         // Widgetized sidebar, if you have the plugin installed.
-                        if ( function_exists('dynamic_sidebar') && is_active_sidebar('footer-widgets') ) {
-                            echo '<div id="footerbar">';
-                                dynamic_sidebar('footer-widgets');
-                            echo '</div><div class="clear"></div>';
-                        } else { ?>
-                            <!-- ========== [ Fall-Back Default Widgets ] ========== -->
-                                <div id="footerbar"> <!-- footerbar begins -->
-                                    <div class="widget footerbar-widget"><h3 class="widgettitle"><?php _e( 'Archives', 'rtPanel' ); ?></h3><ul><?php wp_get_archives( array( 'type' => 'monthly' ) ); ?></ul></div>
-                                    <div class="widget footerbar-widget"><h3 class="widgettitle"><?php _e( 'Tag Cloud', 'rtPanel' ); ?></h3> <?php wp_tag_cloud(); ?> </div>
-                                    <div class="widget footerbar-widget"><h3 class="widgettitle"><?php _e( 'Meta', 'rtPanel' ); ?></h3><ul><?php wp_register(); ?><li><?php wp_loginout(); ?></li><?php wp_meta(); ?></ul></div>
-                                </div> <!-- end footerbar -->
-                            <!-- ========== [ End of Default Widgets ] ========== --><?php
+                            if ( function_exists('dynamic_sidebar') && is_active_sidebar('footer-widgets') ) {
+                                echo '<div id="footerbar">';
+                                    dynamic_sidebar('footer-widgets');
+                                echo '</div><div class="clear"></div>';
+                            } else { ?>
+                                <!-- ========== [ Fall-Back Default Widgets ] ========== -->
+                                    <div id="footerbar"> <!-- footerbar begins -->
+                                        <div class="widget footerbar-widget"><h3 class="widgettitle"><?php _e( 'Archives', 'rtPanel' ); ?></h3><ul><?php wp_get_archives( array( 'type' => 'monthly' ) ); ?></ul></div>
+                                        <div class="widget footerbar-widget"><h3 class="widgettitle"><?php _e( 'Tag Cloud', 'rtPanel' ); ?></h3> <?php wp_tag_cloud(); ?> </div>
+                                        <div class="widget footerbar-widget"><h3 class="widgettitle"><?php _e( 'Meta', 'rtPanel' ); ?></h3><ul><?php wp_register(); ?><li><?php wp_loginout(); ?></li><?php wp_meta(); ?></ul></div>
+                                    </div> <!-- end footerbar -->
+                                <!-- ========== [ End of Default Widgets ] ========== --><?php
+                            }
                         } ?>
                 <?php 
                 // rtpanel_hook for adding content before #footer

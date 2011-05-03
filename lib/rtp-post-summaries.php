@@ -14,7 +14,7 @@ function rtp_no_ellipsis( $text ) {
     global $post, $rtp_post_comments;
     $read_text =  ( !empty($rtp_post_comments['read_text'] ) ) ? $rtp_post_comments['read_text'] : '';
     $text = str_replace( '[...]', '....', $text );
-    $text .= apply_filters( 'rtp_readmore', ( esc_attr( $read_text ) ? '<span class="rtp-courly-bracket">[ </span><a class="rtp-readmore" title="' . sprintf( __( 'Read More On %s', 'rtPanel' ), get_the_title() ) . '" href="' . get_permalink( $post->ID ) . '" rel="nofollow">' . esc_attr( $read_text ) . '</a><span class="rtp-courly-bracket"> ]</span>' : '' ));
+    $text .= apply_filters( 'rtp_readmore', ( esc_attr( $read_text ) ? '<a class="rtp-readmore" title="' . sprintf( __( 'Read More On %s', 'rtPanel' ), get_the_title() ) . '" href="' . get_permalink( $post->ID ) . '" rel="nofollow">' . esc_attr( $read_text ) . '' : '' ));
     return $text;
 }
 

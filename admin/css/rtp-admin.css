@@ -63,7 +63,7 @@ div.inside { margin:10px; }
 #gravatar_size { width: 100px; }
 
 /* ===[ Social Share and Connect ]=== */
-#social .inside a { background: url("../../img/rt-social-icons.png") no-repeat scroll 0 0 transparent;display: inline-block;font-size: 0;height: 23px;margin: 0 5px;text-indent: -999px;text-transform: uppercase;vertical-align: middle;width: 23px; }
+#social .inside a { background: url("../../img/rt-social-icons.png") no-repeat scroll 0 0 transparent;display: inline-block;font-size: 0;height: 23px;margin: 0 5px;text-indent: -9999px;text-transform: uppercase;vertical-align: middle;width: 23px; }
     #social .inside a.rtpanel-facebook { background-position: -215px 0; }
     #social .inside a.rtpanel-twitter { background-position: -559px 0; }
     #social .inside a.rtpanel-rss { background-position: -430px 0; }

@@ -28,6 +28,7 @@ function rtp_general_options_page( $pagehook ) {
                 add_meta_box( 'fav_options', __( 'Favicon Settings', 'rtPanel' ), 'rtp_fav_option_metabox', $pagehook, 'normal', 'core' );
                 add_meta_box( 'feed_options', __( 'Feedburner Settings', 'rtPanel' ), 'rtp_feed_option_metabox', $pagehook, 'normal', 'core' );
                 add_meta_box( 'google_search', __( 'Google Custom Search Integration', 'rtPanel' ), 'rtp_google_search_metabox', $pagehook, 'normal', 'core' );
+                add_meta_box( 'misc_options', __( 'Misc Options', 'rtPanel' ), 'rtp_misc_option_metabox', $pagehook, 'normal', 'core' );
                 add_meta_box( 'custom_styles_options', __( 'Custom Styles', 'rtPanel' ), 'rtp_custom_styles_metabox', $pagehook, 'normal', 'core' );
                 add_meta_box( 'plugin_support', __( 'Plugin Support', 'rtPanel' ), 'rtp_plugin_metabox', $pagehook, 'normal', 'core' );
                 add_meta_box( 'backup_options', __( 'Backup rtPanel Options', 'rtPanel' ), 'rtp_backup_metabox', $pagehook, 'normal', 'core' );

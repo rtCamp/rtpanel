@@ -253,6 +253,13 @@ function rtp_general_validate( $input ) {
             $input[$option] = $value;
         $input['search_code'] = $default[0]['search_code'];
         add_settings_error( 'search_code', 'reset_search_code', __( 'The Search Code has been restored to default.', 'rtPanel' ), 'updated' );
+    } elseif ( isset($_POST['rtp_misc_reset'] ) ) {
+        $options = maybe_unserialize( $rtp_general );
+        unset($input);
+        foreach ( $options as $option=>$value )
+            $input[$option] = $value;
+        $input['footer_sidebar'] = $default[0]['footer_sidebar'];
+        add_settings_error( 'search_code', 'reset_search_code', __( 'The Search Code has been restored to default.', 'rtPanel' ), 'updated' );
     } elseif ( isset($_POST['rtp_custom_styles_reset'] ) ) {
         $options = maybe_unserialize( $rtp_general );
         unset($input);
@@ -290,7 +297,7 @@ function rtp_post_comments_validate( $input ) {
     $default = rtp_theme_setup_values();
 
     if ( isset ( $_POST['rtp_submit'] ) ) {
-
+        $input['notices'] = $rtp_post_comments['notices'];
         if ( $input['summary_show'] ) {
             if ( $input['read_text'] != $rtp_post_comments['input'] ) {
                 $input['read_text'] = trim( $input['read_text']);
@@ -355,7 +362,7 @@ function rtp_post_comments_validate( $input ) {
         $input['author_link_l']             = $rtp_post_comments['author_link_l'];
     }
     if ( !$input['name_email_url_show'] ) {
-        $input['comment_textarea']             = $rtp_post_comments['comment_textarea'];
+        $input['comment_textarea']          = $rtp_post_comments['comment_textarea'];
     }
     if ( !$input['gravatar_show'] ) {
         $input['gravatar_size']             = $rtp_post_comments['gravatar_size'];
@@ -366,6 +373,7 @@ function rtp_post_comments_validate( $input ) {
         unset($input);
         foreach ( $options as $option=>$value )
             $input[$option] = $value;
+        $input['notices'] = $rtp_post_comments['notices'];
         $input['summary_show'] = $default[1]['summary_show'];
         $input['word_limit']   = $default[1]['word_limit'];
         $input['read_text']    = $default[1]['read_text'];
@@ -375,6 +383,7 @@ function rtp_post_comments_validate( $input ) {
         unset($input);
         foreach ( $options as $option=>$value )
             $input[$option] = $value;
+        $input['notices'] = $rtp_post_comments['notices'];
         $input['thumbnail_show']     = $default[1]['thumbnail_show'];
         $input['thumbnail_position'] = $default[1]['thumbnail_position'];
         $input['thumbnail_frame']    = $default[1]['thumbnail_frame'];
@@ -384,6 +393,7 @@ function rtp_post_comments_validate( $input ) {
         unset($input);
         foreach ( $options as $option=>$value )
             $input[$option] = $value;
+        $input['notices'] = $rtp_post_comments['notices'];
         $input['post_date_u']               = $default[1]['post_date_u'];
         $input['post_date_format_u']        = $default[1]['post_date_format_u'];
         $input['post_date_custom_format_u'] = $default[1]['post_date_custom_format_u'];
@@ -415,6 +425,7 @@ function rtp_post_comments_validate( $input ) {
         unset($input);
         foreach ( $options as $option=>$value )
             $input[$option] = $value;
+        $input['notices'] = $rtp_post_comments['notices'];
         $input['comment_textarea']    = $default[1]['comment_textarea'];
         $input['name_email_url_show'] = $default[1]['name_email_url_show'];
         $input['comment_separate']    = $default[1]['comment_separate'];
@@ -424,12 +435,13 @@ function rtp_post_comments_validate( $input ) {
         unset($input);
         foreach ( $options as $option=>$value )
             $input[$option] = $value;
+        $input['notices'] = $rtp_post_comments['notices'];
         $input['gravatar_show'] = $default[1]['gravatar_show'];
         $input['gravatar_size'] = $default[1]['gravatar_size'];
         add_settings_error( 'gravatar', 'reset_gravatar', __( 'The Gravatar options have been restored to default.', 'rtPanel' ), 'updated' );
     } elseif ( isset ( $_POST['rtp_reset'] ) ) {
         $input = $default[1];
-
+        $input['notices'] = $rtp_post_comments['notices'];
         $args = array( '_builtin' => false );
         $taxonomies = get_taxonomies( $args, 'names' );
         if ( !empty( $taxonomies ) ) {
@@ -470,6 +482,7 @@ function rtp_theme_setup_values() {
         'favicon_url'     => RTP_IMG_FOLDER_URL . '/favicon.ico',
         'favicon_upload'  => RTP_IMG_FOLDER_URL . '/favicon.ico',
         'feedburner_url'  => '',
+        'footer_sidebar'  => '1',
         'custom_styles'   => '',
         'search_code'     => '',
     );
@@ -890,6 +903,39 @@ function rtp_admin_bar_init() {
 add_action( 'admin_bar_init', 'rtp_admin_bar_init' );
 
 /**
+ *  Outputs the neccessary js to hide the regenerate thumbnal notice
+ */
+function regenerate_thumbnail_notice_js() { ?>
+    <script type="text/javascript" >
+    jQuery(function(){
+        jQuery('.regenerate_thumbanil_notice_close').click(function(){
+            jQuery('.regenerate_thumbnail_notice').hide();
+            // call ajax
+            jQuery.ajax({
+                url:"/wp-admin/admin-ajax.php",
+                type:'POST',
+                data:'action=hide_regenerate_thumbnail_notice&hide_notice=1',
+            });
+        });
+    });
+    </script><?php
+}
+add_action('admin_head', 'regenerate_thumbnail_notice_js');
+
+/**
+ *  Handles the ajax call to remove the regenerate thumbnail notice
+ * @uses $rtp_post_comments array
+ */
+function handle_regenerate_notice() {
+    global $rtp_post_comments;
+    if(isset($_POST['hide_notice'])) {
+        $rtp_post_comments['notices'] = '0';
+        update_option( 'rtp_post_comments', $rtp_post_comments );
+    } // end if
+}
+add_action( 'wp_ajax_hide_regenerate_thumbnail_notice', 'handle_regenerate_notice' );
+
+/**
  *  Adds rtPanel link on the admin bar
  *
  * @uses object $wp_admin_bar
@@ -1147,7 +1193,7 @@ function rtp_regenerate_thumbnail_notice() {
     } else {
         $regenerate_link = wp_nonce_url( admin_url( 'update.php?action=install-plugin&plugin=regenerate-thumbnails' ), 'install-plugin_regenerate-thumbnails' );
     }
-    echo '<div class="error"><p>' . sprintf( __( 'The Thumbnail Settings have been updated. Please <a href="%s" title="Regenerate Thumbnails">Regenerate Thumbnails</a>', 'rtPanel' ), $regenerate_link ) . '</p></div>';
+    echo '<div class="error regenerate_thumbnail_notice"><p>' . sprintf( __( 'The Thumbnail Settings have been updated. Please <a href="%s" title="Regenerate Thumbnails">Regenerate Thumbnails</a>', 'rtPanel' ), $regenerate_link ) . ' <a class="alignright regenerate_thumbanil_notice_close" href="#">X</a></p></div>';
 }
 
 /* Switch off the regenerate thumbnail notice */

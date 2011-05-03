@@ -10,7 +10,7 @@
 add_action( 'widgets_init', 'rtp_widgets_init' );
 
 function rtp_widgets_init() {
-
+global $rtp_general;
     /**
      * Register Right Sidebar Widget
      */
@@ -28,13 +28,14 @@ function rtp_widgets_init() {
     /**
      * Register Footer Widget
      */
-
-     register_sidebar( array(
-        'name' => __( 'Footer Widgets', 'rtPanel' ),
-        'id' => "footer-widgets",
-        'before_widget' => '<div id="%1$s" class="widget footerbar-widget %2$s">',
-        'after_widget' => '</div>',
-        'before_title' => '<h3 class="widgettitle">',
-        'after_title' => '</h3>',
-    ) );
+    if ( $rtp_general['footer_sidebar'] ) {
+         register_sidebar( array(
+            'name' => __( 'Footer Widgets', 'rtPanel' ),
+            'id' => "footer-widgets",
+            'before_widget' => '<div id="%1$s" class="widget footerbar-widget %2$s">',
+            'after_widget' => '</div>',
+            'before_title' => '<h3 class="widgettitle">',
+            'after_title' => '</h3>',
+        ) );
+    }
 }

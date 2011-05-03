@@ -144,6 +144,32 @@ function rtp_feed_option_metabox() {
 }
 
 /**
+ * Metabox for Misc Settings (General Tab)
+ * @uses $rtp_general array
+ */
+function rtp_misc_option_metabox() {
+    global $rtp_general; ?>
+    <table class="form-table">
+        <tbody>
+            <tr valign="top">
+                <th scope="row"><label for="footer_sidebar"><?php _e( 'Enable Footer Sidebar', 'rtPanel' ); ?></label></th>
+                <td>
+                    <input type="hidden" name="rtp_general[footer_sidebar]" value="0" />
+                    <input type="checkbox" value="1" size="40" name="rtp_general[footer_sidebar]" id="footer_sidebar" <?php checked( $rtp_general['footer_sidebar'] ); ?> />
+                    <span class="description"><label for="footer_sidebar"><?php _e( 'Check this to enable footer sidebar', 'rtPanel' ); ?></label><br /></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="rtp_submit">
+        <input class="button-primary" value="<?php _e( 'Save', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
+        <input class="button-secondary" value="<?php _e( 'Reset', 'rtPanel' ); ?>" name="rtp_misc_reset" type="submit" />
+        <div class="clear"></div>
+    </div>
+<?php
+}
+
+/**
  * Metabox for Google Custom Search Integration (General Tab)
  * @uses $rtp_general array
  */
