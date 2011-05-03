@@ -827,17 +827,6 @@ function rtp_get_error_or_update_messages() {
             echo '<div id="settings-error-' . $message["setting"] . '" class="'. $message["type"] . '"><p><strong>' . $message['message'] . '</strong></p></div>';
         }
     }
-
-    if ( isset ( $_POST['rtp_export'] ) ) {
-        rtp_export( );
-	die();
-    }
-
-     if ( isset ( $_POST['rtp_import'] ) && !$_FILES['rtp_import']['error'] ) {
-        rtp_import($_FILES['rtp_import']);
-    } elseif ( isset ( $_POST['rtp_import'] ) ) {
-        echo '<div id="settings-error-import" class="error"><p><strong>Import file has not been uploaded</strong></p></div>';
-    }
 }
 
 /**
@@ -905,7 +894,7 @@ add_action( 'admin_bar_init', 'rtp_admin_bar_init' );
 /**
  *  Outputs the neccessary js to hide the regenerate thumbnal notice
  */
-function regenerate_thumbnail_notice_js() { ?>
+function rtp_regenerate_thumbnail_notice_js() { ?>
     <script type="text/javascript" >
     jQuery(function(){
         jQuery('.regenerate_thumbanil_notice_close').click(function(){
@@ -914,26 +903,26 @@ function regenerate_thumbnail_notice_js() { ?>
             jQuery.ajax({
                 url:"/wp-admin/admin-ajax.php",
                 type:'POST',
-                data:'action=hide_regenerate_thumbnail_notice&hide_notice=1',
+                data:'action=hide_regenerate_thumbnail_notice&hide_notice=1'
             });
         });
     });
     </script><?php
 }
-add_action('admin_head', 'regenerate_thumbnail_notice_js');
+add_action( 'admin_head', 'rtp_regenerate_thumbnail_notice_js' );
 
 /**
  *  Handles the ajax call to remove the regenerate thumbnail notice
  * @uses $rtp_post_comments array
  */
-function handle_regenerate_notice() {
+function rtp_handle_regenerate_notice() {
     global $rtp_post_comments;
-    if(isset($_POST['hide_notice'])) {
+    if(isset( $_POST['hide_notice']) ) {
         $rtp_post_comments['notices'] = '0';
         update_option( 'rtp_post_comments', $rtp_post_comments );
     } // end if
 }
-add_action( 'wp_ajax_hide_regenerate_thumbnail_notice', 'handle_regenerate_notice' );
+add_action( 'wp_ajax_hide_regenerate_thumbnail_notice', 'rtp_handle_regenerate_notice' );
 
 /**
  *  Adds rtPanel link on the admin bar

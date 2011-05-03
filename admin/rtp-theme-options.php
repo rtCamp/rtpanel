@@ -99,9 +99,9 @@ class rtp_theme {
     function rtp_theme_option_page(  ) {
         /* Add options page, you can also add it to different sections or use your own one */
         add_theme_page( 'rtPanel', '<strong class="rtpanel">rtPanel</strong>', 'edit_theme_options', 'rtp_general', array( &$this, 'rtp_admin_options' ) );
-        foreach( $this->theme_pages as $key=>$theme_page ) {
+        foreach( $this->theme_pages as $key => $theme_page ) {
             if ( is_array( $theme_page ) )
-            add_theme_page( 'rtPanel', '--- <em>' . $theme_page['menu_title'] . '</em>', 'edit_theme_options', $theme_page['menu_slug'], array( &$this, 'rtp_admin_options' ) );
+            add_theme_page( 'rtPanel - ' . $theme_page['menu_title'], '--- <em>' . $theme_page['menu_title'] . '</em>', 'edit_theme_options', $theme_page['menu_slug'], array( &$this, 'rtp_admin_options' ) );
         }
 
         $tab = isset( $_GET['page'] )  ? $_GET['page'] : "rtp_general";
@@ -211,7 +211,9 @@ class rtp_theme {
                 add_meta_box( 'comment_form_options', __('Comment Form Settings', 'rtPanel'), 'rtp_comment_form_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'gravatar_options', __('Gravatar Settings', 'rtPanel'), 'rtp_gravatar_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 break;
-            do_action('rtp_extend_screen_option_metaboxes');
+            case $tab :
+                do_action( $tab .'_metaboxes' );
+                break;
         }
     }
 }

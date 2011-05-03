@@ -79,8 +79,4 @@ div.inside { margin:10px; }
 #plugin_support .form-table td,
 #plugin_support .form-table th { border-bottom: 1px solid #DFDFDF; font-size: 11px; padding: 7px; }
 #plugin_support .form-table td.last-child { border: none; }
-
-/*.widefat td { padding: 7px; }*/
-/*#plugin_support { background: none; border: none; }*/
-/*#plugin_support .inside { margin: 0; }*/
-/*#plugin_support .inside .widefat { -moz-border-radius: 0 0 4px 4px; -webkit-border-radius: 0 0 4px 4px; border-radius: 0 0 4px 4px; }*/
+a.regenerate_thumbanil_notice_close { text-decoration: none; }
