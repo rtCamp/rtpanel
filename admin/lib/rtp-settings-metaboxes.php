@@ -159,6 +159,12 @@ function rtp_misc_option_metabox() {
                     <span class="description"><label for="footer_sidebar"><?php _e( 'Check this to enable footer sidebar', 'rtPanel' ); ?></label><br /></span>
                 </td>
             </tr>
+            <tr valign="top">
+                <th scope="row"><label for="header_width"><?php _e( 'Header Image Width', 'rtPanel' ); ?></label></th>
+                <td>
+                    <input maxlength="3" type="number" value="<?php echo $rtp_general['header_width']; ?>" size="40" name="rtp_general[header_width]" id="header_width" <?php checked( $rtp_general['header_width'] ); ?> /> px
+                </td>
+            </tr>
         </tbody>
     </table>
     <div class="rtp_submit">
@@ -362,7 +368,7 @@ function rtp_backup_metabox() {
 }
 
 /**
- * Metabox for Post Summaries Options (Post & Comments Tab)
+ * Metabox for Post Summary Settings (Post & Comments Tab)
  * @uses $rtp_post_comments array
  */
 function rtp_post_summaries_metabox() {
@@ -401,13 +407,13 @@ function rtp_post_summaries_metabox() {
 }
 
 /**
- * Metabox for Post Thumbnail Options (Post & Comments Tab)
+ * Metabox for Post Thumbnail Settings (Post & Comments Tab)
  * @uses $rtp_post_comments array
  */
 function rtp_post_thumbnail_metabox() {
         global $rtp_post_comments;
         $alignment = ( isset ( $rtp_post_comments['thumbnail_position'] ) ) ? $rtp_post_comments['thumbnail_position'] : ''; ?> <br />
-        <span class="description"><strong><?php _e( 'Enable Summary must be checked on the Post Summaries Options to show these Options', 'rtPanel' ); ?></strong></span>
+        <span class="description"><strong><?php _e( 'Enable Summary must be checked on the Post Summary Settings to show these Options', 'rtPanel' ); ?></strong></span>
         <table class="form-table">
             <tbody>
                 <tr valign="top">
@@ -430,13 +436,13 @@ function rtp_post_thumbnail_metabox() {
                 <tr valign="top">
                     <th scope="row"><label for="thumbnail_width"><?php _e( 'Width', 'rtPanel' ); ?></label></th>
                     <td>
-                        <input maxlength="4" type="text" value="<?php echo get_option( 'thumbnail_size_w' ); ?>" size="3" name="rtp_post_comments[thumbnail_width]" id="thumbnail_width" /> px
+                        <input maxlength="3" type="number" value="<?php echo get_option( 'thumbnail_size_w' ); ?>" size="3" name="rtp_post_comments[thumbnail_width]" id="thumbnail_width" /> px
                     </td>
                 </tr>
                 <tr valign="top">
                     <th scope="row"><label for="thumbnail_height"><?php _e( 'Height', 'rtPanel' ); ?></label></th>
                     <td>
-                        <input  maxlength="4" type="text" value="<?php echo get_option( 'thumbnail_size_h' ); ?>" size="3" name="rtp_post_comments[thumbnail_height]" id="thumbnail_height" /> px
+                        <input maxlength="3" type="number" value="<?php echo get_option( 'thumbnail_size_h' ); ?>" size="3" name="rtp_post_comments[thumbnail_height]" id="thumbnail_height" /> px
                     </td>
                 </tr>
                 <tr valign="top">
@@ -471,7 +477,7 @@ function rtp_post_thumbnail_metabox() {
 }
 
 /**
- * Metabox for Post Meta Options (Post & Comments Tab)
+ * Metabox for Post Meta Settings (Post & Comments Tab)
  * @uses $rtp_post_comments array
  */
 function rtp_post_meta_metabox() {

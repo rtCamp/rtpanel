@@ -180,9 +180,9 @@ class rtp_theme {
                 break;
             case 'rtp_post_comments' :
                 /* All metaboxes registered during load page can be switched off/on at "Screen Options" automatically, nothing special to do therefore. */
-                add_meta_box( 'post_summaries_options', __('Post Summaries Options', 'rtPanel'), 'rtp_post_summaries_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
-                add_meta_box( 'post_thumbnail_options', __('Post Thumbnail Options', 'rtPanel'), 'rtp_post_thumbnail_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
-                add_meta_box( 'post_meta_options', __('Post Meta Options', 'rtPanel'), 'rtp_post_meta_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
+                add_meta_box( 'post_summaries_options', __('Post Summary Settings', 'rtPanel'), 'rtp_post_summaries_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
+                add_meta_box( 'post_thumbnail_options', __('Post Thumbnail Settings', 'rtPanel'), 'rtp_post_thumbnail_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
+                add_meta_box( 'post_meta_options', __('Post Meta Settings', 'rtPanel'), 'rtp_post_meta_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'comment_form_options', __('Comment Form Settings', 'rtPanel'), 'rtp_comment_form_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'gravatar_options', __('Gravatar Settings', 'rtPanel'), 'rtp_gravatar_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 break;

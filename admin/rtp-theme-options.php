@@ -198,16 +198,16 @@ class rtp_theme {
                 add_meta_box( 'fav_options', __( 'Favicon Settings', 'rtPanel'), 'rtp_fav_option_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'feed_options', __( 'Feedburner Settings', 'rtPanel'), 'rtp_feed_option_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'google_search', __( 'Google Custom Search Integration', 'rtPanel'), 'rtp_google_search_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
-                add_meta_box( 'misc_options', __( 'Misc Options', 'rtPanel' ), 'rtp_misc_option_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
+                add_meta_box( 'misc_options', __( 'Misc Settings', 'rtPanel' ), 'rtp_misc_option_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'custom_styles_options', __( 'Custom Styles', 'rtPanel' ), 'rtp_custom_styles_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'plugin_support', __( 'Plugin Support', 'rtPanel'), 'rtp_plugin_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'backup_options', __( 'Backup rtPanel Options', 'rtPanel' ), 'rtp_backup_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 break;
             case 'rtp_post_comments' :
                 /* All metaboxes registered during load page can be switched off/on at "Screen Options" automatically, nothing special to do therefore. */
-                add_meta_box( 'post_summaries_options', __('Post Summaries Options', 'rtPanel'), 'rtp_post_summaries_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
-                add_meta_box( 'post_thumbnail_options', __('Post Thumbnail Options', 'rtPanel'), 'rtp_post_thumbnail_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
-                add_meta_box( 'post_meta_options', __('Post Meta Options', 'rtPanel'), 'rtp_post_meta_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
+                add_meta_box( 'post_summaries_options', __('Post Summary Settings', 'rtPanel'), 'rtp_post_summaries_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
+                add_meta_box( 'post_thumbnail_options', __('Post Thumbnail Settings', 'rtPanel'), 'rtp_post_thumbnail_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
+                add_meta_box( 'post_meta_options', __('Post Meta Settings', 'rtPanel'), 'rtp_post_meta_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'comment_form_options', __('Comment Form Settings', 'rtPanel'), 'rtp_comment_form_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'gravatar_options', __('Gravatar Settings', 'rtPanel'), 'rtp_gravatar_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 break;

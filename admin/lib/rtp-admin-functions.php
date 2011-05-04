@@ -50,7 +50,7 @@ function rtp_general_validate( $input ) {
                 if ( in_array( $logo_extension, array( 'jpg', 'jpeg', 'jpe', 'gif', 'png', 'bmp', 'ico', 'tif', 'tiff' ) ) && ( $wp_remote_get['response'] == 200 ) && $input['logo_url'] != RT_BASE_IMG_FOLDER_URL . '/rtpanel-logo.jpg' ) {
                     $input['logo_url']    = $logo_file['url'];
                     $input['logo_upload'] = $rtp_general['logo_upload'];
-                    add_settings_error( 'logo_upload', 'valid_logo_upload', __( 'The Logo Image Was Updated Successfully.', 'rtPanel' ), 'updated' );
+                    add_settings_error( 'logo_upload', 'valid_logo_upload', __( 'The Logo Settings have been updated.', 'rtPanel' ), 'updated' );
                 } else {
                     @unlink( $logo_file['file'] );
                     $input['logo_url']    = $rtp_general['logo_url'];
@@ -63,7 +63,7 @@ function rtp_general_validate( $input ) {
                 if ( in_array( $logo_extension, array( 'jpg', 'jpeg', 'jpe', 'gif', 'png', 'bmp', 'ico', 'tif', 'tiff' ) ) )
                 {
                     $input['logo_url'] = $rtp_general['logo_url'];
-                    add_settings_error( 'logo_upload', 'valid_logo_upload', __( 'The Logo Image Was Updated Successfully.', 'rtPanel' ), 'updated' );
+                    add_settings_error( 'logo_upload', 'valid_logo_upload', __( 'The Logo Settings have been updated.', 'rtPanel' ), 'updated' );
                 } else {
                     $input['logo_upload'] = $rtp_general['logo_upload'];
                     $input['logo_url']    = $rtp_general['logo_url'];
@@ -100,7 +100,7 @@ function rtp_general_validate( $input ) {
                 if ( ( $favicon_extension == 'ico' ) && ( $wp_remote_get['response'] == 200 ) && $input['favicon_url'] != RT_BASE_IMG_FOLDER_URL . '/rtpanel-favicon.gif' ) {
                     $input['favicon_url']    = $favicon_file['url'];
                     $input['favicon_upload'] = $rtp_general['favicon_upload'];
-                    add_settings_error( 'favicon_upload', 'valid_favicon_upload', __( 'The Favicon Image Was Updated Successfully.', 'rtPanel' ), 'updated' );
+                    add_settings_error( 'favicon_upload', 'valid_favicon_upload', __( 'The Favicon Settings have been updated.', 'rtPanel' ), 'updated' );
                 } else {
                     @unlink( $favicon_file['file'] );
                     $input['favicon_url']    = $rtp_general['favicon_url'];
@@ -115,7 +115,7 @@ function rtp_general_validate( $input ) {
             if ( $favicon_extension == 'ico' )
             {
                 $input['favicon_url'] = $rtp_general['favicon_url'];
-                add_settings_error( 'favicon_upload', 'valid_favicon_upload', __( 'The Favicon Image Was Updated Successfully.', 'rtPanel' ), 'updated' );
+                add_settings_error( 'favicon_upload', 'valid_favicon_upload', __( 'The Favicon Settings have been updated.', 'rtPanel' ), 'updated' );
             } else {
                 $input['favicon_url']    = $rtp_general['favicon_url'];
                 $input['favicon_upload'] = $rtp_general['favicon_upload'];
@@ -132,7 +132,7 @@ function rtp_general_validate( $input ) {
                  $input['feedburner_url'] = $rtp_general['feedburner_url'];
                  add_settings_error( 'feedburner_url', 'valid_feedburner_url', __( 'The FeedBurner URL is not a valid url. The changes made have been reverted.', 'rtPanel' ) );
             } elseif ( $input['feedburner_url'] != $rtp_general['feedburner_url'] ) {
-                add_settings_error( 'feedburner_url', 'invalid_feedburner_url', __( 'The FeedBurner URL has been updated.', 'rtPanel' ), 'updated' );
+                add_settings_error( 'feedburner_url', 'invalid_feedburner_url', __( 'The FeedBurner Settings have been updated.', 'rtPanel' ), 'updated' );
             }
         }
 
@@ -151,7 +151,7 @@ function rtp_general_validate( $input ) {
                 add_settings_error( 'activate-plugin', 'failure_plugin_activation', __( 'You do not have sufficient permissions to activate this plugin.', 'rtPanel' ) );
             } else {
                 activate_plugin( 'subscribe-to-comments/subscribe-to-comments.php' );
-                add_settings_error( 'activate-plugin', 'plugin_activation', __( 'Plugin Activated.', 'rtPanel' ), 'updated' );
+                add_settings_error( 'activate-plugin', 'plugin_activation', __( 'Subscribe to Comments Plugin has been Activated.', 'rtPanel' ), 'updated' );
             }
         } elseif ( $_POST['subscribe-deactivate'] == 1 ) {
             $nonce = $_REQUEST['_wpnonce_subscribe_deactivate'];
@@ -159,7 +159,7 @@ function rtp_general_validate( $input ) {
                 add_settings_error( 'deactivate-plugin', 'failure_plugin_deactivation', __( 'You do not have sufficient permissions to deactivate this plugin.', 'rtPanel' ) );
             } else {
                 deactivate_plugins( array( 'subscribe-to-comments/subscribe-to-comments.php' ) );
-                add_settings_error( 'deactivate-plugin', 'plugin_activation', __( 'Plugin Deactivated.', 'rtPanel' ), 'updated' );
+                add_settings_error( 'deactivate-plugin', 'plugin_activation', __( 'Subscribe to Comments Plugin has been Deactivated.', 'rtPanel' ), 'updated' );
             }
         } elseif ( $_POST['subscribe-delete'] == 1 ) {
             $nonce = $_REQUEST['_wpnonce_subscribe_delete'];
@@ -167,7 +167,7 @@ function rtp_general_validate( $input ) {
                 add_settings_error( 'delete-plugin', 'failure_plugin_deletion', __( 'You do not have sufficient permissions to delete this plugin.', 'rtPanel' ) );
             } else {
                 delete_plugins( array( 'subscribe-to-comments/subscribe-to-comments.php' ) );
-                add_settings_error( 'delete-plugin', 'plugin_deletion', __( 'The selected plugins have been deleted.', 'rtPanel' ), 'updated' );
+                add_settings_error( 'delete-plugin', 'plugin_deletion', __( 'Subscribe to Comments Plugin has been Deleted.', 'rtPanel' ), 'updated' );
             }
         } elseif ( $_POST['pagenavi-activate'] == 1 ) {
             $nonce = $_REQUEST['_wpnonce_pagenavi_activate'];
@@ -175,7 +175,7 @@ function rtp_general_validate( $input ) {
                 add_settings_error( 'activate-plugin', 'failure_plugin_activation', __( 'You do not have sufficient permissions to activate this plugin.', 'rtPanel' ) );
             } else {
                 activate_plugin( 'wp-pagenavi/wp-pagenavi.php' );
-                add_settings_error( 'activate-plugin', 'plugin_activation', __( 'Plugin Activated.', 'rtPanel' ), 'updated' );
+                add_settings_error( 'activate-plugin', 'plugin_activation', __( 'WP PageNavi Plugin has been Activated.', 'rtPanel' ), 'updated' );
             }
         } elseif ( $_POST['pagenavi-deactivate'] == 1 ) {
             $nonce = $_REQUEST['_wpnonce_pagenavi_deactivate'];
@@ -183,7 +183,7 @@ function rtp_general_validate( $input ) {
                 add_settings_error( 'deactivate-plugin', 'failure_plugin_deactivation', __( 'You do not have sufficient permissions to deactivate this plugin.' ) );
             } else {
                 deactivate_plugins( array ( 'wp-pagenavi/wp-pagenavi.php' ) );
-                add_settings_error( 'deactivate-plugin', 'plugin_deactivation', __( 'Plugin Deactivated.', 'rtPanel' ), 'updated' );
+                add_settings_error( 'deactivate-plugin', 'plugin_deactivation', __( 'WP PageNavi Plugin has been Deactivated.', 'rtPanel' ), 'updated' );
             }
         } elseif ( $_POST['pagenavi-delete'] == 1 ) {
             $nonce = $_REQUEST['_wpnonce_pagenavi_delete'];
@@ -191,7 +191,7 @@ function rtp_general_validate( $input ) {
                 add_settings_error( 'delete-plugin', 'failure_plugin_deletion', __( 'You do not have sufficient permissions to delete this plugin.', 'rtPanel' ) );
             } else {
                 delete_plugins( array ( 'wp-pagenavi/wp-pagenavi.php' ) );
-                add_settings_error( 'delete-plugin', 'plugin_deletion', __( 'The selected plugins have been deleted.', 'rtPanel' ), 'updated' );
+                add_settings_error( 'delete-plugin', 'plugin_deletion', __( 'WP PageNavi Plugin has been Deleted.', 'rtPanel' ), 'updated' );
             }
         } elseif ( $_POST['breadcrumb-activate'] == 1 ) {
             $nonce = $_REQUEST['_wpnonce_breadcrumb_activate'];
@@ -199,7 +199,7 @@ function rtp_general_validate( $input ) {
                 add_settings_error( 'activate-plugin', 'failure_plugin_activation', __( 'You do not have sufficient permissions to activate this plugin.', 'rtPanel' ) );
             } else {
                 activate_plugin( 'breadcrumb-navxt/breadcrumb_navxt_admin.php' );
-                add_settings_error( 'activate-plugin', 'plugin_activation', __( 'Plugin Activated.', 'rtPanel' ), 'updated' );
+                add_settings_error( 'activate-plugin', 'plugin_activation', __( 'Breadcrumb NavXT Plugin has been Activated.', 'rtPanel' ), 'updated' );
             }
         } elseif ( $_POST['breadcrumb-deactivate'] == 1 ) {
             $nonce = $_REQUEST['_wpnonce_breadcrumb_deactivate'];
@@ -207,7 +207,7 @@ function rtp_general_validate( $input ) {
                 add_settings_error('deactivate-plugin', 'failure_plugin_deactivation', __( 'You do not have sufficient permissions to deactivate this plugin.', 'rtPanel' ) );
             } else {
                 deactivate_plugins( array( 'breadcrumb-navxt/breadcrumb_navxt_admin.php' ) );
-                add_settings_error( 'deactivate-plugin', 'plugin_deactivation', __( 'Plugin Deactivated.', 'rtPanel' ), 'updated' );
+                add_settings_error( 'deactivate-plugin', 'plugin_deactivation', __( 'Breadcrumb NavXT Plugin has been Deactivated.', 'rtPanel' ), 'updated' );
             }
         } elseif ( $_POST['breadcrumb-delete'] == 1 ) {
             $nonce = $_REQUEST['_wpnonce_breadcrumb_delete'];
@@ -215,7 +215,7 @@ function rtp_general_validate( $input ) {
                 add_settings_error( 'delete-plugin', 'failure_plugin_deletion', __( 'You do not have sufficient permissions to delete this plugin.', 'rtPanel' ) );
             } else {
                 delete_plugins( array( 'breadcrumb-navxt/breadcrumb_navxt_admin.php' ) );
-                add_settings_error( 'delete-plugin', 'plugin_deletion', __( 'The selected plugins have been deleted.', 'rtPanel' ), 'updated' );
+                add_settings_error( 'delete-plugin', 'plugin_deletion', __( 'Breadcrumb NavXT Plugin has been Deleted.', 'rtPanel' ), 'updated' );
             }
         }
 
@@ -229,7 +229,7 @@ function rtp_general_validate( $input ) {
         $input['logo_url']    = $default[0]['logo_url'];
         $input['logo_upload'] = $default[0]['logo_upload'];
         $input['login_head']  = $default[0]['login_head'];
-        add_settings_error( 'logo_upload', 'logo_reset', __( 'The Logo has been restored to default.', 'rtPanel' ), 'updated' );
+        add_settings_error( 'logo_upload', 'logo_reset', __( 'The Logo Settings have been restored to Default.', 'rtPanel' ), 'updated' );
     } elseif ( isset($_POST['rtp_fav_reset'] ) ) {
         $options = maybe_unserialize( $rtp_general );
         unset($input);
@@ -238,50 +238,52 @@ function rtp_general_validate( $input ) {
         $input['use_favicon'] = $default[0]['use_favicon'];
         $input['favicon_url'] = $default[0]['favicon_url'];
         $input['favicon_upload'] = $default[0]['favicon_upload'];
-        add_settings_error( 'favicon_upload', 'fav_reset', __( 'The Favicon has been restored to default.', 'rtPanel' ), 'updated' );
+        add_settings_error( 'favicon_upload', 'fav_reset', __( 'The Favicon Settings have been restored to Default.', 'rtPanel' ), 'updated' );
     } elseif ( isset($_POST['rtp_feed_reset'] ) ) {
         $options = maybe_unserialize( $rtp_general );
         unset($input);
         foreach ( $options as $option=>$value )
             $input[$option] = $value;
         $input['feedburner_url'] = $default[0]['feedburner_url'];
-        add_settings_error( 'feedburner_url', 'reset_feeburner_url', __( 'The Feedburner URL has been restored to default.', 'rtPanel' ), 'updated' );
+        add_settings_error( 'feedburner_url', 'reset_feeburner_url', __( 'The Feedburner Settings have been restored to Default.', 'rtPanel' ), 'updated' );
     } elseif ( isset($_POST['rtp_google_reset'] ) ) {
         $options = maybe_unserialize( $rtp_general );
         unset($input);
         foreach ( $options as $option=>$value )
             $input[$option] = $value;
         $input['search_code'] = $default[0]['search_code'];
-        add_settings_error( 'search_code', 'reset_search_code', __( 'The Search Code has been restored to default.', 'rtPanel' ), 'updated' );
+        add_settings_error( 'search_code', 'reset_search_code', __( 'The Google Custom Search Integration has been restored to Default.', 'rtPanel' ), 'updated' );
     } elseif ( isset($_POST['rtp_misc_reset'] ) ) {
         $options = maybe_unserialize( $rtp_general );
         unset($input);
         foreach ( $options as $option=>$value )
             $input[$option] = $value;
         $input['footer_sidebar'] = $default[0]['footer_sidebar'];
-        add_settings_error( 'search_code', 'reset_search_code', __( 'The Search Code has been restored to default.', 'rtPanel' ), 'updated' );
+        add_settings_error( 'search_code', 'reset_search_code', __( 'The Misc Settings have been restored to Default.', 'rtPanel' ), 'updated' );
     } elseif ( isset($_POST['rtp_custom_styles_reset'] ) ) {
         $options = maybe_unserialize( $rtp_general );
         unset($input);
         foreach ( $options as $option=>$value )
             $input[$option] = $value;
         $input['custom_styles'] = $default[0]['custom_styles'];
-        add_settings_error( 'custom_styles', 'reset_custom_styles', __( 'The Custom Styles has been restored to default.', 'rtPanel' ), 'updated' );
+        add_settings_error( 'custom_styles', 'reset_custom_styles', __( 'Custom Styles has been restored to Default.', 'rtPanel' ), 'updated' );
     } elseif ( isset ( $_POST['rtp_export'] ) ) {
         rtp_export( );
 	die();
     } elseif ( isset ( $_POST['rtp_import'] ) ) {
         $general = rtp_import( $_FILES['rtp_import'] );
-        if( $general ) {
+        if ( $general && $general != 'ext' ) {
             unset($input);
             $input = maybe_unserialize( $general );
             add_settings_error( 'rtp_import', 'import', __( 'rtPanel Options Have been imported successfully', 'rtPanel' ), 'updated' );
+        } elseif ( $general == 'ext' ) {
+            add_settings_error( 'rtp_import', 'no_import', __( 'Not a valid RTP file', 'rtPanel' ) );
         } else {
-            add_settings_error( 'rtp_import', 'no_import', __( 'There was an error while importing', 'rtPanel' ) );
+            add_settings_error( 'rtp_import', 'no_import', __( 'The file is corrupt. There was an error while importing. Please Try Again', 'rtPanel' ) );
         }
     } elseif ( isset($_POST['rtp_reset'] ) ) {
         $input = $default[0];
-        add_settings_error( 'rtp_general', 'reset_general_options', __( 'All the rtPanel General Options have been restored to default.', 'rtPanel' ), 'updated' );
+        add_settings_error( 'rtp_general', 'reset_general_options', __( 'All the rtPanel General Settings have been restored to default.', 'rtPanel' ), 'updated' );
     }
     return $input; /* Return validated input. */
 }
@@ -299,8 +301,9 @@ function rtp_post_comments_validate( $input ) {
     if ( isset ( $_POST['rtp_submit'] ) ) {
         $input['notices'] = $rtp_post_comments['notices'];
         if ( $input['summary_show'] ) {
-            if ( $input['read_text'] != $rtp_post_comments['input'] ) {
+            if ( $input['read_text'] != $rtp_post_comments['read_text'] ) {
                 $input['read_text'] = trim( $input['read_text']);
+                add_settings_error( 'read_text', 'valid_read_text', __( 'The Post Summary Settings have been updated.', 'rtPanel' ), 'updated' );
             }
             if ( !preg_match( '/^[0-9]{1,3}$/i', $input['word_limit'] ) ) {
                 $input['word_limit'] = $rtp_post_comments['word_limit'];
@@ -313,7 +316,7 @@ function rtp_post_comments_validate( $input ) {
                 } elseif ( get_option( 'thumbnail_size_w' ) != $input['thumbnail_width'] ) {
                     $input['notices'] = '1';
                     update_option( 'thumbnail_size_w', $input['thumbnail_width'] );
-                    add_settings_error( 'thumbnail_width', 'valid_thumbnail_width', __( 'The Thumbnail Width has been updated', 'rtPanel' ), 'updated' );
+                    add_settings_error( 'thumbnail_width', 'valid_thumbnail_width', __( 'The Post Thumbnail Settings have been updated', 'rtPanel' ), 'updated' );
                 }
                 if ( !preg_match( '/^[0-9]{1,3}$/i', $input['thumbnail_height'] ) ) {
                     $input['thumbnail_height'] = get_option( 'thumbnail_size_h' );
@@ -321,7 +324,7 @@ function rtp_post_comments_validate( $input ) {
                 } elseif ( get_option( 'thumbnail_size_h' ) != $input['thumbnail_height'] ) {
                     $input['notices'] = '1';
                     update_option( 'thumbnail_size_h', $input['thumbnail_height'] );
-                    add_settings_error( 'thumbnail_height', 'valid_thumbnail_height', __( 'The Thumbnail Height has been updated', 'rtPanel' ), 'updated' );
+                    add_settings_error( 'thumbnail_height', 'valid_thumbnail_height', __( 'The Post Thumbnail Settings have been updated', 'rtPanel' ), 'updated' );
                 }
                 if ( $input['thumbnail_crop'] != get_option( 'thumbnail_crop' ) ) {
                     $input['notices'] = '1';
@@ -377,7 +380,7 @@ function rtp_post_comments_validate( $input ) {
         $input['summary_show'] = $default[1]['summary_show'];
         $input['word_limit']   = $default[1]['word_limit'];
         $input['read_text']    = $default[1]['read_text'];
-        add_settings_error( 'summary', 'reset_summary', __( 'The Summary options have been restored to default.', 'rtPanel' ), 'updated' );
+        add_settings_error( 'summary', 'reset_summary', __( 'The Post Summary Settings have been restored to default.', 'rtPanel' ), 'updated' );
     } elseif ( isset ( $_POST['rtp_thumbnail_reset'] ) ) {
         $options = maybe_unserialize( $rtp_post_comments );
         unset($input);
@@ -387,7 +390,7 @@ function rtp_post_comments_validate( $input ) {
         $input['thumbnail_show']     = $default[1]['thumbnail_show'];
         $input['thumbnail_position'] = $default[1]['thumbnail_position'];
         $input['thumbnail_frame']    = $default[1]['thumbnail_frame'];
-        add_settings_error( 'thumbnail', 'reset_thumbnail', __( 'The Thumbnail options have been restored to default.', 'rtPanel' ), 'updated' );
+        add_settings_error( 'thumbnail', 'reset_thumbnail', __( 'The Post Thumbnail Settings have been restored to default.', 'rtPanel' ), 'updated' );
     } elseif ( isset ( $_POST['rtp_meta_reset'] ) ) {
         $options = maybe_unserialize( $rtp_post_comments );
         unset($input);
@@ -419,7 +422,7 @@ function rtp_post_comments_validate( $input ) {
                 $input['post_' . $taxonomy . '_l'] = '0';
             }
         }
-        add_settings_error( 'post_meta', 'reset_post_meta', __( 'The Post Meta options have been restored to default.', 'rtPanel' ), 'updated' );
+        add_settings_error( 'post_meta', 'reset_post_meta', __( 'The Post Meta Settings have been restored to default.', 'rtPanel' ), 'updated' );
     } elseif ( isset ( $_POST['rtp_comment_reset'] ) ) {
         $options = maybe_unserialize( $rtp_post_comments );
         unset($input);
@@ -429,7 +432,7 @@ function rtp_post_comments_validate( $input ) {
         $input['comment_textarea']    = $default[1]['comment_textarea'];
         $input['name_email_url_show'] = $default[1]['name_email_url_show'];
         $input['comment_separate']    = $default[1]['comment_separate'];
-        add_settings_error( 'comment', 'reset_comment', __( 'The Comment options have been restored to default.', 'rtPanel' ), 'updated' );
+        add_settings_error( 'comment', 'reset_comment', __( 'The Comment Form Settings have been restored to default.', 'rtPanel' ), 'updated' );
     } elseif ( isset ( $_POST['rtp_gravatar_reset'] ) ) {
         $options = maybe_unserialize( $rtp_post_comments );
         unset($input);
@@ -438,7 +441,7 @@ function rtp_post_comments_validate( $input ) {
         $input['notices'] = $rtp_post_comments['notices'];
         $input['gravatar_show'] = $default[1]['gravatar_show'];
         $input['gravatar_size'] = $default[1]['gravatar_size'];
-        add_settings_error( 'gravatar', 'reset_gravatar', __( 'The Gravatar options have been restored to default.', 'rtPanel' ), 'updated' );
+        add_settings_error( 'gravatar', 'reset_gravatar', __( 'The Gravatar Settings have been restored to default.', 'rtPanel' ), 'updated' );
     } elseif ( isset ( $_POST['rtp_reset'] ) ) {
         $input = $default[1];
         $input['notices'] = $rtp_post_comments['notices'];
@@ -450,11 +453,8 @@ function rtp_post_comments_validate( $input ) {
                 $input['post_' . $taxonomy . '_l'] = '0';
             }
         }
-        add_settings_error( 'rtp_post_comments', 'reset_post_comments_options', __( 'All the rtPanel Post & Comments Options have been restored to default.', 'rtPanel' ), 'updated' );
+        add_settings_error( 'rtp_post_comments', 'reset_post_comments_options', __( 'All the rtPanel Post & Comments Settings have been restored to default.', 'rtPanel' ), 'updated' );
     }
-    //unset ( $input['thumbnail_height'] );
-    //unset ( $input['thumbnail_width'] );
-    //unset ( $input['thumbnail_crop'] );
     return $input; // return validated input
 }
 
@@ -1119,14 +1119,16 @@ function rtp_import( $file ) {
     $data = wp_remote_get($import_file['url']);
     unlink($import_file['file']);
     if ( $ext != 'rtp' ) {
-         return false;
+         return 'ext';
     }
     if ( is_wp_error( $data ) ) {
         return false;
     } else {
         preg_match('/\<rtp_general\>(.*)<\/rtp_general\>/is', $data['body'], $general);
         preg_match('/\<rtp_post_comments\>(.*)<\/rtp_post_comments\>/is', $data['body'], $post_comments);
-        if(!empty($post_comments[1])) update_option('rtp_post_comments', maybe_unserialize($post_comments[1]));
+        if( !empty( $post_comments[1] ) ) {
+            update_option( 'rtp_post_comments', maybe_unserialize( $post_comments[1] ) );
+        }
         return $general[1];
     }
 }
