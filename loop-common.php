@@ -69,7 +69,7 @@ if ( ! have_posts() ) : ?>
 if ( have_posts () ) :
     while( have_posts() ) : the_post(); ?>
         
-        <div <?php post_class('rtp-post-box'); ?>> <!-- post_class begins -->
+        <div <?php post_class( 'rtp-post-box' ); ?>> <!-- post_class begins -->
             <?php rtp_hook_begin_post(); /* rtpanel_hook for adding content after .rtp-post-box begins */?>
             <div class="post-title"> <!-- post-title begins -->
                 <?php
