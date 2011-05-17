@@ -145,6 +145,16 @@ function rtp_general_validate( $input ) {
             }
         }
 
+        if ( !preg_match( '/^[0-9]{1,4}$/i', $input['header_width'] ) ) {
+            $input['header_width'] = $rtp_general['header_width'];
+            add_settings_error( 'header_width', 'invalid_header_width', __( 'The Header Width provided is invalid. Please provide a proper value.', 'rtPanel' ) );
+        }
+        
+        if ( !preg_match( '/^[0-9]{1,4}$/i', $input['header_height'] ) ) {
+            $input['header_height'] = $rtp_general['header_height'];
+            add_settings_error( 'header_height', 'invalid_header_height', __( 'The Header Height provided is invalid. Please provide a proper value.', 'rtPanel' ) );
+        }
+
         if ( $_POST['subscribe-activate'] == 1 ) {
             $nonce = $_REQUEST['_wpnonce_subscribe_activate'];
             if ( !wp_verify_nonce( $nonce, RTP_SUBSCRIBE_TO_COMMENTS . '-activate' ) ) {
@@ -259,7 +269,9 @@ function rtp_general_validate( $input ) {
         foreach ( $options as $option=>$value )
             $input[$option] = $value;
         $input['footer_sidebar'] = $default[0]['footer_sidebar'];
-        add_settings_error( 'search_code', 'reset_search_code', __( 'The Misc Settings have been restored to Default.', 'rtPanel' ), 'updated' );
+        $input['header_width'] = $default[0]['header_width'];
+        $input['header_height'] = $default[0]['header_height'];
+        add_settings_error( 'misc_options', 'reset_misc_options', __( 'The Misc Settings have been restored to Default.', 'rtPanel' ), 'updated' );
     } elseif ( isset($_POST['rtp_custom_styles_reset'] ) ) {
         $options = maybe_unserialize( $rtp_general );
         unset($input);
@@ -483,6 +495,8 @@ function rtp_theme_setup_values() {
         'favicon_upload'  => RTP_IMG_FOLDER_URL . '/favicon.ico',
         'feedburner_url'  => '',
         'footer_sidebar'  => '1',
+        'header_width'    => 960,
+        'header_height'   => 190,
         'custom_styles'   => '',
         'search_code'     => '',
     );

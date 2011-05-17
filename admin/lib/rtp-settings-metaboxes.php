@@ -162,7 +162,13 @@ function rtp_misc_option_metabox() {
             <tr valign="top">
                 <th scope="row"><label for="header_width"><?php _e( 'Header Image Width', 'rtPanel' ); ?></label></th>
                 <td>
-                    <input maxlength="3" type="number" value="<?php echo $rtp_general['header_width']; ?>" size="40" name="rtp_general[header_width]" id="header_width" <?php checked( $rtp_general['header_width'] ); ?> /> px
+                    <input size="4" maxlength="4" type="number" value="<?php echo $rtp_general['header_width']; ?>" name="rtp_general[header_width]" id="header_width" <?php checked( $rtp_general['header_width'] ); ?> /> px
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row"><label for="header_height"><?php _e( 'Header Image Height', 'rtPanel' ); ?></label></th>
+                <td>
+                    <input size="4" maxlength="4" type="number" value="<?php echo $rtp_general['header_height']; ?>" name="rtp_general[header_height]" id="header_height" <?php checked( $rtp_general['header_height'] ); ?> /> px
                 </td>
             </tr>
         </tbody>

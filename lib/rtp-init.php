@@ -28,7 +28,7 @@ if ( !function_exists( 'rtpanel_setup' ) ) {
      *
      */
     function rtpanel_setup() {
-
+        global $rtp_general;
         /**
          * This theme uses post thumbnails
          */
@@ -68,8 +68,8 @@ if ( !function_exists( 'rtpanel_setup' ) ) {
         }
 
         define( 'HEADER_TEXTCOLOR' , '' );
-        define( 'HEADER_IMAGE_WIDTH' , apply_filters( 'rtp_header_image_width', 960 ) );
-        define( 'HEADER_IMAGE_HEIGHT' , apply_filters( 'rtp_header_image_height', 190 ) );
+        define( 'HEADER_IMAGE_WIDTH' , apply_filters( 'rtp_header_image_width', $rtp_general['header_width'] ) );
+        define( 'HEADER_IMAGE_HEIGHT' , apply_filters( 'rtp_header_image_height', $rtp_general['header_height'] ) );
 
         /**
          * adding support for the header image
