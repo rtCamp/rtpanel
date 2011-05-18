@@ -68,8 +68,8 @@ if ( !function_exists( 'rtpanel_setup' ) ) {
         }
 
         define( 'HEADER_TEXTCOLOR' , '' );
-        define( 'HEADER_IMAGE_WIDTH' , apply_filters( 'rtp_header_image_width', $rtp_general['header_width'] ) );
-        define( 'HEADER_IMAGE_HEIGHT' , apply_filters( 'rtp_header_image_height', $rtp_general['header_height'] ) );
+        define( 'HEADER_IMAGE_WIDTH' , $rtp_general['header_width'] );
+        define( 'HEADER_IMAGE_HEIGHT' , $rtp_general['header_height'] );
 
         /**
          * adding support for the header image
@@ -93,7 +93,7 @@ if ( !function_exists( 'rtpanel_setup' ) ) {
         if ( !function_exists( 'rtp_header_style' ) ) {
             function rtp_header_style() {
                 if ( get_header_image() ) { ?>
-                    <style type="text/css"> #header-wrapper { background: url(<?php header_image(); ?>) no-repeat; } </style><?php
+                    <style type="text/css"> #header-wrapper { background: url(<?php header_image(); ?>) no-repeat;width: <?php echo HEADER_IMAGE_WIDTH; ?>px; height: <?php echo HEADER_IMAGE_HEIGHT; ?>px; } </style><?php
                 }
             }
         }
