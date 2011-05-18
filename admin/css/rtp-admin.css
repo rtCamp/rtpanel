@@ -80,3 +80,5 @@ div.inside { margin:10px; }
 #plugin_support .form-table th { border-bottom: 1px solid #DFDFDF; font-size: 11px; padding: 7px; }
 #plugin_support .form-table td.last-child { border: none; }
 a.regenerate_thumbanil_notice_close { text-decoration: none; }
+h2 .nav-tab { font-size:20px; padding: 0 6px; }
+.nav-tab { margin: 0 1px -1px 0; }
