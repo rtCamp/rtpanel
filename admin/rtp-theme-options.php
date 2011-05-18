@@ -175,9 +175,8 @@ class rtp_theme {
                     }
                 }
             }
-        }?>
-        </div><!-- end wrap -->
-<?php
+        } ?>
+        </div><!-- end wrap --><?php
     }
 
     /**
