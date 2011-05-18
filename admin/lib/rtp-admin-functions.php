@@ -12,6 +12,7 @@ global $rtp_general, $rtp_post_comments, $rtp_hooks;
 define( 'RTP_SUBSCRIBE_TO_COMMENTS', 'subscribe-to-comments/subscribe-to-comments.php' );
 define( 'RTP_WP_PAGENAVI', 'wp-pagenavi/wp-pagenavi.php' );
 define( 'RTP_BREADECRUMB_NAVXT', 'breadcrumb-navxt/breadcrumb_navxt_admin.php' );
+define( 'RTP_REGENERATE_THUMBNAILS', 'regenerate-thumbnails/regenerate-thumbnails.php' );
 
 /* Redirect to rtPanel once theme is activated */
 if ( is_admin() && isset ( $_GET['activated'] ) && $pagenow ==	'themes.php' ) {
@@ -287,7 +288,7 @@ function rtp_general_validate( $input ) {
         if ( $general && $general != 'ext' ) {
             unset($input);
             $input = maybe_unserialize( $general );
-            add_settings_error( 'rtp_import', 'import', __( 'rtPanel Options Have been imported successfully', 'rtPanel' ), 'updated' );
+            add_settings_error( 'rtp_import', 'import', __( 'rtPanel Options have been imported successfully', 'rtPanel' ), 'updated' );
         } elseif ( $general == 'ext' ) {
             add_settings_error( 'rtp_import', 'no_import', __( 'Not a valid RTP file', 'rtPanel' ) );
         } else {
@@ -1219,8 +1220,7 @@ if ( is_admin() && @$rtp_post_comments['notices'] ) {
 /**
  *  Display the regenerate thumbnail notice
  */
-function rtp_regenerate_thumbnail_notice() {
-    define( 'RTP_REGENERATE_THUMBNAILS', 'regenerate-thumbnails/regenerate-thumbnails.php' );
+function rtp_regenerate_thumbnail_notice( $return = false ) {
     if ( is_plugin_active( RTP_REGENERATE_THUMBNAILS ) ) {
         $regenerate_link = admin_url( '/tools.php?page=regenerate-thumbnails' );
     } elseif ( array_key_exists( RTP_REGENERATE_THUMBNAILS, get_plugins() ) ) {
@@ -1228,7 +1228,13 @@ function rtp_regenerate_thumbnail_notice() {
     } else {
         $regenerate_link = wp_nonce_url( admin_url( 'update.php?action=install-plugin&plugin=regenerate-thumbnails' ), 'install-plugin_regenerate-thumbnails' );
     }
-    echo '<div class="error regenerate_thumbnail_notice"><p>' . sprintf( __( 'The Thumbnail Settings have been updated. Please <a href="%s" title="Regenerate Thumbnails">Regenerate Thumbnails</a>', 'rtPanel' ), $regenerate_link ) . ' <a class="alignright regenerate_thumbanil_notice_close" href="#">X</a></p></div>';
+
+    if( $return ) {
+        return $regenerate_link;
+    } else {
+        echo '<div class="error regenerate_thumbnail_notice"><p>' . sprintf( __( 'The Thumbnail Settings have been updated. Please <a href="%s" title="Regenerate Thumbnails">Regenerate Thumbnails</a>', 'rtPanel' ), $regenerate_link ) . ' <a class="alignright regenerate_thumbanil_notice_close" href="#">X</a></p></div>';
+    }
+
 }
 
 /* Switch off the regenerate thumbnail notice */

@@ -21,13 +21,6 @@ function rtp_post_comments_options_page( $pagehook ) {
 
             <form name="rt_post_comments_form" id="rt_post_comments_form" action="options.php" method="post" enctype="multipart/form-data">
                 <?php
-                //Display the required metaboxes declared in rt-settings-metaboxes.php
-                add_meta_box( 'post_summaries_options', __( 'Post Summary Settings', 'rtPanel' ), 'rtp_post_summaries_metabox', $pagehook, 'normal', 'core' );
-                add_meta_box( 'post_thumbnail_options', __( 'Post Thumbnail Settings', 'rtPanel' ), 'rtp_post_thumbnail_metabox', $pagehook, 'normal', 'core' );
-                add_meta_box( 'post_meta_options', __( 'Post Meta Settings', 'rtPanel' ), 'rtp_post_meta_metabox', $pagehook, 'normal', 'core' );
-                add_meta_box( 'comment_form_options', __( 'Comment Form Settings', 'rtPanel' ), 'rtp_comment_form_metabox', $pagehook, 'normal', 'core' );
-                add_meta_box( 'gravatar_options', __( 'Gravatar Settings', 'rtPanel' ), 'rtp_gravatar_metabox', $pagehook, 'normal', 'core' );
-
                 //nonce for security purpose
                 wp_nonce_field( 'closedpostboxes', 'closedpostboxesnonce', false );
                 wp_nonce_field( 'meta-box-order', 'meta-box-order-nonce', false );

@@ -23,16 +23,6 @@ function rtp_general_options_page( $pagehook ) {
         <div class="options-container">
             <form name="rt_general_form" id="rt_general_form" action="options.php" method="post" enctype="multipart/form-data">
                 <?php
-                //Display the required metaboxes declared in rt-settings-metaboxes.php
-                add_meta_box( 'logo_options', __( 'Logo Settings', 'rtPanel' ), 'rtp_logo_option_metabox', $pagehook, 'normal', 'core' );
-                add_meta_box( 'fav_options', __( 'Favicon Settings', 'rtPanel' ), 'rtp_fav_option_metabox', $pagehook, 'normal', 'core' );
-                add_meta_box( 'feed_options', __( 'Feedburner Settings', 'rtPanel' ), 'rtp_feed_option_metabox', $pagehook, 'normal', 'core' );
-                add_meta_box( 'google_search', __( 'Google Custom Search Integration', 'rtPanel' ), 'rtp_google_search_metabox', $pagehook, 'normal', 'core' );
-                add_meta_box( 'misc_options', __( 'Misc Settings', 'rtPanel' ), 'rtp_misc_option_metabox', $pagehook, 'normal', 'core' );
-                add_meta_box( 'custom_styles_options', __( 'Custom Styles', 'rtPanel' ), 'rtp_custom_styles_metabox', $pagehook, 'normal', 'core' );
-                add_meta_box( 'plugin_support', __( 'Plugin Support', 'rtPanel' ), 'rtp_plugin_metabox', $pagehook, 'normal', 'core' );
-                add_meta_box( 'backup_options', __( 'Backup rtPanel Options', 'rtPanel' ), 'rtp_backup_metabox', $pagehook, 'normal', 'core' );
-
                 //nonce for security purpose
                 wp_nonce_field( 'closedpostboxes', 'closedpostboxesnonce', false );
                 wp_nonce_field( 'meta-box-order', 'meta-box-order-nonce', false ); ?>

@@ -469,7 +469,7 @@ function rtp_post_thumbnail_metabox() {
                 </tr>
                 <tr valign="top">
                     <td>
-                        <strong><?php _e( 'NOTE', 'rtPanel' ); ?> : </strong><span class="description"><?php printf( __( 'Incase the Thumbnail Height, Width or Crop Thumbnail Option is changed, you must use <a target="_blank" href="%s" title="Regenerate Thumbnail">Regenerate Thumbnail</a> plugin to display the thumbnails properly', 'rtPanel' ), 'http://wordpress.org/extend/plugins/regenerate-thumbnails/' ); ?></span>
+                        <strong><?php _e( 'NOTE', 'rtPanel' ); ?> : </strong><span class="description"><?php printf( __( 'Incase the Thumbnail Height, Width or Crop Thumbnail Option is changed, you must use <a target="_blank" href="%s" title="Regenerate Thumbnail">Regenerate Thumbnail</a> plugin to display the thumbnails properly', 'rtPanel' ), rtp_regenerate_thumbnail_notice( true ) ); ?></span>
                     </td>
                 </tr>
             </tbody>
