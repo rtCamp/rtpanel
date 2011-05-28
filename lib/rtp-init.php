@@ -68,8 +68,8 @@ if ( !function_exists( 'rtpanel_setup' ) ) {
         }
 
         define( 'HEADER_TEXTCOLOR' , '' );
-        define( 'HEADER_IMAGE_WIDTH' , $rtp_general['header_width'] );
-        define( 'HEADER_IMAGE_HEIGHT' , $rtp_general['header_height'] );
+        define( 'HEADER_IMAGE_WIDTH' , apply_filters( 'rtp_header_image_width', 960 ) );
+        define( 'HEADER_IMAGE_HEIGHT' , apply_filters( 'rtp_header_image_height', 190 ) );
 
         /**
          * adding support for the header image

@@ -60,5 +60,5 @@
                 <div class="clear"></div>
             </div><!-- end header-wrapper -->
 
-            <div id="content-wrapper"> <!-- content-wrapper begins and end in footer.php -->
+            <div id="content-wrapper"<?php echo ( $rtp_general['search_code'] && $rtp_general['search_layout'] )?'class="search-layout-wrapper"':''; ?>> <!-- content-wrapper begins and end in footer.php -->
              <?php rtp_hook_begin_content_wrapper(); /* rtpanel_hook for adding content after #content-wrapper begins */ ?>

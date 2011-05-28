@@ -295,12 +295,15 @@ p.attachment img { margin: 10px 0; }
 #gallery-1 .gallery-caption { margin: 0; padding: 0; }
 #gallery-1 .gallery-item dt { background: none repeat scroll 0 0 transparent; font-weight: normal; padding: 0; }
 
-/* ========== [ Search Form Style ] ========== */
+/* ========== [ Search Form & Page Style ] ========== */
 .searchform { overflow: hidden; }
     .searchform .search-text { padding: 3px; }
     #content .search-text { border: 1px double #666666; font-size: 85%; margin: 0; padding: 3px 4px 4px; width: 30%; }
     #content .searchsubmit { background: -webkit-gradient(linear, left top, left bottom, from(#F5F5F5), to(#E2E2E2)); background: -moz-linear-gradient(top, #F5F5F5, #E2E2E2); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F5F5F5, endColorstr=#E2E2E2); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#F5F5F5, endColorstr=#E2E2E2)"; border: 3px double #666666; cursor: pointer; font-size: 13px; font-weight: bold; margin: 0; padding: 0 5px; width: auto !important; }
     #content .searchsubmit:hover { background: -webkit-gradient(linear, left top, left bottom, from(#E2E2E2), to(#F5F5F5)); background: -moz-linear-gradient(top, #E2E2E2, #F5F5F5); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#E2E2E2, endColorstr=#F5F5F5); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#E2E2E2, endColorstr=#F5F5F5)"; }
+
+.search #main-wrapper .search-layout-wrapper { background: none; }
+.search #main-wrapper .search-layout-content { width: 960px; }
 
 /* ========== [ Breacrumb Style ] ========== */
 .breadcrumb { color: #888888; font-size: 120%; padding: 5px 0; }

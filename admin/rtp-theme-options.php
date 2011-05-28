@@ -98,7 +98,7 @@ class rtp_theme {
      */
     function rtp_theme_option_page(  ) {
         /* Add options page, you can also add it to different sections or use your own one */
-        add_theme_page( 'rtPanel', '<strong class="rtpanel">rtPanel</strong>', 'edit_theme_options', 'rtp_general', array( &$this, 'rtp_admin_options' ) );
+        add_theme_page( 'rtPanel - ' . $this->theme_pages['rtp_general']['menu_title'], '<strong class="rtpanel">rtPanel</strong>', 'edit_theme_options', 'rtp_general', array( &$this, 'rtp_admin_options' ) );
         foreach( $this->theme_pages as $key => $theme_page ) {
             if ( is_array( $theme_page ) )
             add_theme_page( 'rtPanel - ' . $theme_page['menu_title'], '--- <em>' . $theme_page['menu_title'] . '</em>', 'edit_theme_options', $theme_page['menu_slug'], array( &$this, 'rtp_admin_options' ) );
@@ -197,10 +197,10 @@ class rtp_theme {
                 add_meta_box( 'fav_options', __( 'Favicon Settings', 'rtPanel'), 'rtp_fav_option_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'feed_options', __( 'Feedburner Settings', 'rtPanel'), 'rtp_feed_option_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'google_search', __( 'Google Custom Search Integration', 'rtPanel'), 'rtp_google_search_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
-                add_meta_box( 'misc_options', __( 'Misc Settings', 'rtPanel' ), 'rtp_misc_option_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
+                add_meta_box( 'sidebar_options', __( 'Sidebar Settings', 'rtPanel' ), 'rtp_sidebar_options_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'custom_styles_options', __( 'Custom Styles', 'rtPanel' ), 'rtp_custom_styles_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'plugin_support', __( 'Plugin Support', 'rtPanel'), 'rtp_plugin_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
-                add_meta_box( 'backup_options', __( 'Backup rtPanel Options', 'rtPanel' ), 'rtp_backup_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
+                add_meta_box( 'backup_options', __( 'Backup / Restore Settings', 'rtPanel' ), 'rtp_backup_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 do_action( $tab .'_metaboxes' );
                 break;
             case 'rtp_post_comments' :

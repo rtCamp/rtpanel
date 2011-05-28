@@ -16,7 +16,7 @@ function rtp_post_comments_options_page( $pagehook ) {
     global $screen_layout_columns; ?>
 
     <div class="options-main-container">
-        <?php rtp_get_error_or_update_messages(); ?>
+        <?php settings_errors(); ?>
         <div class="options-container">
 
             <form name="rt_post_comments_form" id="rt_post_comments_form" action="options.php" method="post" enctype="multipart/form-data">
@@ -38,7 +38,7 @@ function rtp_post_comments_options_page( $pagehook ) {
                         </div>
                     </div>
                     <br class="clear"/>
-                    <input class="button-primary" value="<?php _e( 'Save', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
+                    <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
                     <input class="button-secondary" value="<?php _e( 'Reset All Post &amp; Comments Settings', 'rtPanel' ); ?>" name="rtp_reset" type="submit" />
                 </div>
 

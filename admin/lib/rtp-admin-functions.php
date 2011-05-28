@@ -145,17 +145,7 @@ function rtp_general_validate( $input ) {
                     add_settings_error( 'search_code', 'valid_search_code', __( 'Google Custom Search Integration has been updated.', 'rtPanel' ), 'updated' );
             }
         }
-
-        if ( !preg_match( '/^[0-9]{1,4}$/i', $input['header_width'] ) ) {
-            $input['header_width'] = $rtp_general['header_width'];
-            add_settings_error( 'header_width', 'invalid_header_width', __( 'The Header Width provided is invalid. Please provide a proper value.', 'rtPanel' ) );
-        }
         
-        if ( !preg_match( '/^[0-9]{1,4}$/i', $input['header_height'] ) ) {
-            $input['header_height'] = $rtp_general['header_height'];
-            add_settings_error( 'header_height', 'invalid_header_height', __( 'The Header Height provided is invalid. Please provide a proper value.', 'rtPanel' ) );
-        }
-
         if ( $_POST['subscribe-activate'] == 1 ) {
             $nonce = $_REQUEST['_wpnonce_subscribe_activate'];
             if ( !wp_verify_nonce( $nonce, RTP_SUBSCRIBE_TO_COMMENTS . '-activate' ) ) {
@@ -263,16 +253,15 @@ function rtp_general_validate( $input ) {
         foreach ( $options as $option=>$value )
             $input[$option] = $value;
         $input['search_code'] = $default[0]['search_code'];
+        $input['search_layout'] = $default[0]['search_layout'];
         add_settings_error( 'search_code', 'reset_search_code', __( 'The Google Custom Search Integration has been restored to Default.', 'rtPanel' ), 'updated' );
-    } elseif ( isset($_POST['rtp_misc_reset'] ) ) {
+    } elseif ( isset($_POST['rtp_sidebar_reset'] ) ) {
         $options = maybe_unserialize( $rtp_general );
         unset($input);
         foreach ( $options as $option=>$value )
             $input[$option] = $value;
         $input['footer_sidebar'] = $default[0]['footer_sidebar'];
-        $input['header_width'] = $default[0]['header_width'];
-        $input['header_height'] = $default[0]['header_height'];
-        add_settings_error( 'misc_options', 'reset_misc_options', __( 'The Misc Settings have been restored to Default.', 'rtPanel' ), 'updated' );
+        add_settings_error( 'sidebar', 'reset_sidebar', __( 'The Sidebar Settings have been restored to Default.', 'rtPanel' ), 'updated' );
     } elseif ( isset($_POST['rtp_custom_styles_reset'] ) ) {
         $options = maybe_unserialize( $rtp_general );
         unset($input);
@@ -486,7 +475,7 @@ function rtp_post_comments_validate( $input ) {
 function rtp_theme_setup_values() {
     global $rtp_post_comments;
     $default_general = array(
-        'logo_show'       => '0',
+        'logo_show'       => '1',
         'use_logo'        => 'use_logo_url',
         'logo_url'        => RTP_IMG_FOLDER_URL . '/rtpanel-logo.jpg',
         'logo_upload'     => RTP_IMG_FOLDER_URL . '/rtpanel-logo.jpg',
@@ -496,10 +485,9 @@ function rtp_theme_setup_values() {
         'favicon_upload'  => RTP_IMG_FOLDER_URL . '/favicon.ico',
         'feedburner_url'  => '',
         'footer_sidebar'  => '1',
-        'header_width'    => 960,
-        'header_height'   => 190,
         'custom_styles'   => '',
         'search_code'     => '',
+        'search_layout'   => '1',
     );
 
     $default_post_comments = array(
@@ -743,7 +731,7 @@ function rtp_default_sidebar() { ?>
         <div class="inside" style="text-align:center;">
             <a href="<?php printf( '%s', 'http://www.facebook.com/rtCamp.solutions' ); ?>" target="_blank" title="<?php _e( 'Become a fan on Facebook', 'rtPanel' ); ?>" class="rtpanel-facebook"><?php _e( 'Facebook', 'rtPanel' ); ?></a>
             <a href="<?php printf( '%s', 'http://twitter.com/rtCamp' ); ?>" target="_blank" title="<?php _e( 'Follow us on Twitter', 'rtPanel' ); ?>" class="rtpanel-twitter"><?php _e( 'Twitter', 'rtPanel' ); ?></a>
-            <a href="<?php printf( '%s', 'http://feeds.feedburner.com/rtcamp' ); ?>" target="_blank" title="<?php _e( 'Subscribe to our feeds', 'rtPanel' ); ?>" class="rtpanel-rss"><?php _e( 'RSS Feed', 'rtPanel' ); ?></a>
+            <a href="<?php printf( '%s', 'http://feeds.feedburner.com/rtpanel' ); ?>" target="_blank" title="<?php _e( 'Subscribe to our feeds', 'rtPanel' ); ?>" class="rtpanel-rss"><?php _e( 'RSS Feed', 'rtPanel' ); ?></a>
             <a href="<?php printf( '%s', 'http://www.linkedin.com/company/rtcamp-solutions-pvt.-ltd.' ); ?>" target="_blank" title="<?php _e( 'Connect on Linked In', 'rtPanel' ); ?>" class="rtpanel-linkedin"><?php _e( 'Linked In', 'rtPanel' ); ?></a>
         </div>
     </div>
@@ -830,18 +818,6 @@ function rtp_get_feeds( $feed_url='http://feeds.feedburner.com/rtcamp' ) {
         } ?>
     </ul>
 <?php
-}
-
-/**
- * Used to catch all the error validation is caught and display
- */
-function rtp_get_error_or_update_messages() {
-    $messages = get_settings_errors();
-    if ( is_array( $messages ) ) {
-        foreach ( $messages as $message ) {
-            echo '<div id="settings-error-' . $message["setting"] . '" class="'. $message["type"] . '"><p><strong>' . $message['message'] . '</strong></p></div>';
-        }
-    }
 }
 
 /**

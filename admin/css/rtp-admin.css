@@ -37,7 +37,7 @@ input { outline: medium none }
 #poststuff .postbox  .inside p { margin: 0 0 5px 0 }
 #poststuff .postbox  .inside th p { font-size: 11px; margin-bottom: 8px; }
 .form-table label { font-size: 13px }
-.post-meta-common { margin-left:20px; }
+.post-meta-common { margin-left:30px; }
 #post_thumbnail_options .form-table label { margin: 0 20px 0 0;}
 .show { visibility: visible; display: block; }
 .hideme { visibility: hidden; display: none; }
@@ -82,3 +82,8 @@ div.inside { margin:10px; }
 a.regenerate_thumbanil_notice_close { text-decoration: none; }
 h2 .nav-tab { font-size:20px; padding: 0 6px; }
 .nav-tab { margin: 0 5px -1px 0; }
+.has-right-sidebar .postbox input[type="text"], .has-right-sidebar .stuffbox input[type="text"], .has-right-sidebar .postbox textarea, .has-right-sidebar .stuffbox textarea { width: 100%; }
+.has-right-sidebar .inside #logo_metabox img { width: 230px;}
+.postbox-title-action { position: absolute; right: 35px; top: 0; }
+input.reset-link { border:0; background:none; color:#21759B; }
+input.reset-link:hover { text-decoration: underline; cursor:pointer;  }

@@ -8,17 +8,16 @@
  * @since rtPanel Theme 2.0
  */
 
+global $rtp_general;;
 /* ========== [ Call Header ] ========== */
 get_header();
 
-/* ========== [ Call Sidebar ] ========== */
+if ( !$rtp_general['search_code'] || !$rtp_general['search_layout'] )
 get_sidebar();
 
 /* ========== [ rtpanel_hook for adding content before #content ] ========== */
-rtp_hook_begin_content();
-
-global $rtp_general; ?>
-<div id="content" class="rtp-multiple-post"> <!-- content begins -->
+rtp_hook_begin_content(); ?>
+<div id="content" class="rtp-multiple-post<?php echo (  $rtp_general['search_code'] && $rtp_general['search_layout'] )?' search-layout-content':''; ?>"> <!-- content begins -->
     <?php
         if ( preg_match( '/customSearchControl.draw\(\'cse\'\);/i', @$rtp_general["search_code"] ) ) {
 

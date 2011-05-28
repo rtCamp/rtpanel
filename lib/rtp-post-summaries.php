@@ -14,7 +14,7 @@ function rtp_no_ellipsis( $text ) {
     global $post, $rtp_post_comments;
     $read_text =  ( !empty($rtp_post_comments['read_text'] ) ) ? $rtp_post_comments['read_text'] : '';
     $text = str_replace( '[...]', '....', $text );
-    $text .= apply_filters( 'rtp_readmore', ( esc_attr( $read_text ) ? '<a class="rtp-readmore" title="' . sprintf( __( 'Read More On %s', 'rtPanel' ), get_the_title() ) . '" href="' . get_permalink( $post->ID ) . '" rel="nofollow">' . esc_attr( $read_text ) . '' : '' ));
+    $text .= apply_filters( 'rtp_readmore', ( ( $read_text ) ? '<a class="rtp-readmore" title="' . sprintf( __( 'Read More On %s', 'rtPanel' ), get_the_title() ) . '" href="' . get_permalink( $post->ID ) . '" rel="nofollow">' . esc_attr( $read_text ) . '</a>' : '' ));
     return $text;
 }
 
@@ -29,10 +29,10 @@ function rtp_remove_gallery_css( $css ) {
 }
 
 /**
- * Changes the exceprt default length
+ * Changes the excerpt default length
  *
  * @uses $rtp_post_comments array
- * @param int $length The new length
+ * @param int $length The Length
  * @return int
  */
 function rtp_new_excerpt_length($length) {
@@ -46,14 +46,19 @@ function rtp_new_excerpt_length($length) {
 }
 
 /**
- *  Used to call all the summary filter on init
+ * Prepends and Appends Braces to Read More text
+ *
+ * @param int $text The Read More text
+ * @return string
  */
-//function rtp_summary_filters() {
-    add_filter( 'the_excerpt', 'rtp_no_ellipsis' );
-    add_filter( 'gallery_style', 'rtp_remove_gallery_css' );
-    add_filter( 'excerpt_length', 'rtp_new_excerpt_length' );
-//}
-//add_action( 'init', 'rtp_summary_filters' );
+function rtp_readmore_braces($text) {
+   return '<span class="rtp-courly-bracket">[ </span>'. $text .'<span class="rtp-courly-bracket"> ]</span>';
+}
+
+add_filter( 'rtp_readmore', 'rtp_readmore_braces' );
+add_filter( 'the_excerpt', 'rtp_no_ellipsis' );
+add_filter( 'gallery_style', 'rtp_remove_gallery_css' );
+add_filter( 'excerpt_length', 'rtp_new_excerpt_length' );
 
 
 /**

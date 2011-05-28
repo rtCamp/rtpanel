@@ -212,16 +212,20 @@ jQuery(document).ready(function() {
         if (typeof summary_show !== 'undefined' && summary_show !== false) {
             jQuery('#post_thumbnail_options .inside .form-table').show();
             jQuery('#post_thumbnail_options .inside .rtp_submit').show();
+            jQuery('#post_thumbnail_options .inside .post-summary-hide').hide();
             jQuery('#summary_show').click(function(){
                 jQuery('#post_thumbnail_options .inside .form-table').toggle();
                 jQuery('#post_thumbnail_options .inside .rtp_submit').toggle();
+                jQuery('#post_thumbnail_options .inside .post-summary-hide').toggle();
             });
         } else {
             jQuery('#post_thumbnail_options .inside .form-table').hide();
             jQuery('#post_thumbnail_options .inside .rtp_submit').hide();
+            jQuery('#post_thumbnail_options .inside .post-summary-hide').show();
             jQuery('#summary_show').click(function(){
                 jQuery('#post_thumbnail_options .inside .form-table').toggle();
                 jQuery('#post_thumbnail_options .inside .rtp_submit').toggle();
+                jQuery('#post_thumbnail_options .inside .post-summary-hide').toggle();
             });
         }
 

@@ -29,13 +29,13 @@ function rtp_logo_option_metabox() {
                 <td>
                     <input type="hidden" name="rtp_general[logo_show]" value="0" />
                     <input type="checkbox" name="rtp_general[logo_show]" value="1" id="logo_show" <?php checked( $rtp_general['logo_show'] ); ?> />
-                    <span class="description"><label for="logo_show"><?php _e( 'Uncheck this to display Site Title in text instead of Logo', 'rtPanel' ); ?></label></span>
+                    <span class="description"><label for="logo_show"><?php _e( 'Check this box to display logo uploaded below instead of Site Title as text', 'rtPanel' ); ?></label></span>
                 </td>
             </tr>
             <tr valign="top" class="show-fields-logo">
                 <th scope="row">
                     <input type="radio" name="rtp_general[use_logo]" value="use_logo_url" id="use_logo_url" class="rtp_logo" <?php checked( 'use_logo_url', $rtp_general['use_logo'] ); ?> />
-                    <label for="use_logo_url"><?php _e( 'Specify Logo URL', 'rtPanel' ); ?></label></th>
+                    <label for="use_logo_url"><?php _e( 'Logo URL', 'rtPanel' ); ?></label></th>
                 <td class="img-preview">
                     <input<?php disabled( 'use_logo_upload', $rtp_general['use_logo'] ); ?> type="text" value="<?php echo $rtp_general['logo_url']; ?>" name="rtp_general[logo_url]" size="40" id="logo_url" /><br />
                     <span class="description"><label class="example" for="logo_url"><?php _e( 'Eg. http://www.example.com/logo.jpg', 'rtPanel' ); ?></label></span>
@@ -43,7 +43,7 @@ function rtp_logo_option_metabox() {
                 <td class="img-preview" rowspan="2">
                     <div class="image-preview" id="logo_metabox">
                         <p><?php _e( 'Preview', 'rtPanel' ); ?></p>
-                        <img width="240" height="90" alt="Logo" src="<?php echo rtp_logo_fav_src(); ?>" />
+                        <img height="90" alt="Logo" src="<?php echo rtp_logo_fav_src(); ?>" />
                     </div>
                 </td>
             </tr>
@@ -62,13 +62,13 @@ function rtp_logo_option_metabox() {
                 <td>
                     <input type="hidden" name="rtp_general[login_head]" value="0" />
                     <input type="checkbox" name="rtp_general[login_head]" value="1" id="login_head" <?php checked( $rtp_general['login_head'] ); ?> />
-                    <span class="description"><label for="login_head"><?php _e( 'Check this to display your Logo on the Login page', 'rtPanel' ); ?></label></span>
+                    <span class="description"><label for="login_head"><?php printf( __( 'Check this box to display logo on <a href="%s" title="Wordpress Login">WordPress Login Screen</a>', 'rtPanel' ), site_url('/wp-login.php') ); ?></label></span>
                 </td>
             </tr>
         </tbody>
     </table>
     <div class="rtp_submit">
-        <input class="button-primary" value="<?php _e( 'Save', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
+        <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
         <input class="button-secondary" value="<?php _e( 'Reset', 'rtPanel' ); ?>" name="rtp_logo_reset" type="submit" />
         <div class="clear"></div>
     </div>
@@ -86,7 +86,7 @@ function rtp_fav_option_metabox() {
             <tr valign="top">
                 <th scope="row">
                     <input type="radio" name="rtp_general[use_favicon]" value="use_favicon_url" id="use_favicon_url" class="rtp_favicon" <?php checked( 'use_favicon_url', $rtp_general['use_favicon'] ); ?> />
-                    <label for="use_favicon_url"><?php _e( 'Specify Favicon URL', 'rtPanel' ); ?></label>
+                    <label for="use_favicon_url"><?php _e( 'Favicon URL', 'rtPanel' ); ?></label>
                 </th>
                 <td class="img-preview">
                     <input<?php disabled( 'use_favicon_upload', $rtp_general['use_favicon'] ); ?> type="text" value="<?php echo $rtp_general['favicon_url']; ?>" name="rtp_general[favicon_url]" size="40" id="favicon_url" /><br />
@@ -112,7 +112,7 @@ function rtp_fav_option_metabox() {
         </tbody>
     </table>
     <div class="rtp_submit">
-        <input class="button-primary" value="<?php _e( 'Save', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
+        <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
         <input class="button-secondary" value="<?php _e( 'Reset', 'rtPanel' ); ?>" name="rtp_fav_reset" type="submit" />
         <div class="clear"></div>
     </div><?php
@@ -130,13 +130,13 @@ function rtp_feed_option_metabox() {
                 <th scope="row"><label for="feedburner_url"><?php _e( 'FeedBurner URL', 'rtPanel' ); ?></label></th>
                 <td>
                     <input type="text" value="<?php echo $rtp_general['feedburner_url'] ?>" size="40" name="rtp_general[feedburner_url]" id="feedburner_url" />
-                    <span class="description"><label for="feedburner_url"><?php _e( 'Specify FeedBurner URL to redirect feeds', 'rtPanel' ); ?></label><br /><label class="example" for="feedburner_url"><?php _e( 'Eg. http://www.example.com', 'rtPanel' ); ?></label></span>
+                    <span class="description"><label for="feedburner_url"><?php printf( __( 'Specify <a href="%s" title="FeedBurner">FeedBurner</a> URL to redirect feeds', 'rtPanel' ), 'http://www.feedburner.com/' ); ?></label><br /><label class="example" for="feedburner_url"><?php _e( 'Eg. http://www.example.com', 'rtPanel' ); ?></label></span>
                 </td>
             </tr>
         </tbody>
     </table>
     <div class="rtp_submit">
-        <input class="button-primary" value="<?php _e( 'Save', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
+        <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
         <input class="button-secondary" value="<?php _e( 'Reset', 'rtPanel' ); ?>" name="rtp_feed_reset" type="submit" />
         <div class="clear"></div>
     </div>
@@ -147,7 +147,7 @@ function rtp_feed_option_metabox() {
  * Metabox for Misc Settings (General Tab)
  * @uses $rtp_general array
  */
-function rtp_misc_option_metabox() {
+function rtp_sidebar_options_metabox() {
     global $rtp_general; ?>
     <table class="form-table">
         <tbody>
@@ -159,23 +159,11 @@ function rtp_misc_option_metabox() {
                     <span class="description"><label for="footer_sidebar"><?php _e( 'Check this to enable footer sidebar', 'rtPanel' ); ?></label><br /></span>
                 </td>
             </tr>
-            <tr valign="top">
-                <th scope="row"><label for="header_width"><?php _e( 'Header Image Width', 'rtPanel' ); ?></label></th>
-                <td>
-                    <input size="4" maxlength="4" type="number" value="<?php echo $rtp_general['header_width']; ?>" name="rtp_general[header_width]" id="header_width" <?php checked( $rtp_general['header_width'] ); ?> /> px
-                </td>
-            </tr>
-            <tr valign="top">
-                <th scope="row"><label for="header_height"><?php _e( 'Header Image Height', 'rtPanel' ); ?></label></th>
-                <td>
-                    <input size="4" maxlength="4" type="number" value="<?php echo $rtp_general['header_height']; ?>" name="rtp_general[header_height]" id="header_height" <?php checked( $rtp_general['header_height'] ); ?> /> px
-                </td>
-            </tr>
         </tbody>
     </table>
     <div class="rtp_submit">
-        <input class="button-primary" value="<?php _e( 'Save', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
-        <input class="button-secondary" value="<?php _e( 'Reset', 'rtPanel' ); ?>" name="rtp_misc_reset" type="submit" />
+        <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
+        <input class="button-secondary" value="<?php _e( 'Reset', 'rtPanel' ); ?>" name="rtp_sidebar_reset" type="submit" />
         <div class="clear"></div>
     </div>
 <?php
@@ -197,10 +185,18 @@ function rtp_google_search_metabox() {
                     <strong><?php _e( 'NOTE', 'rtPanel' ); ?>: </strong><span class="description"><?php _e( 'The hosting option must be "Search Element" and layout either "full-width" or "compact".', 'rtPanel' ); ?></span></label>
                 </td>
             </tr>
+            <tr valign="top">
+                <th scope="row"><label for="search_layout"><?php _e( 'Hide Sidebar', 'rtPanel' ); ?></label></th>
+                <td>
+                    <input type="hidden" name="rtp_general[search_layout]" value="0" />
+                        <input type="checkbox" name="rtp_general[search_layout]" value="1" id="search_layout" <?php checked( $rtp_general['search_layout'] ); ?> />
+                    <span class="description"><label for="search_layout"><?php _e( 'Do not show sidebar on Search Results Page', 'rtPanel' ); ?></label></span>
+                </td>
+            </tr>
         </tbody>
     </table>
     <div class="rtp_submit">
-        <input class="button-primary" value="<?php _e( 'Save', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
+        <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
         <input class="button-secondary" value="<?php _e( 'Reset', 'rtPanel' ); ?>" name="rtp_google_reset" type="submit" />
         <div class="clear"></div>
     </div>
@@ -216,16 +212,16 @@ function rtp_custom_styles_metabox() {
     <table class="form-table">
         <tbody>
             <tr valign="top">
-                <th scope="row"><label for="custom_styles"><?php _e( 'Custom Styles', 'rtPanel' ); ?></label></th>
+                <th scope="row"><label for="custom_styles"><?php _e( 'Add your CSS here >>', 'rtPanel' ); ?></label></th>
                 <td>
                     <textarea cols="33" rows="5" name="rtp_general[custom_styles]" id="custom_styles"><?php echo $rtp_general['custom_styles']; ?></textarea><br />
-                    <span class="description"><label for="custom_styles"><?php _e( 'Specify your custom style', 'rtPanel' ); ?></label></span>
+                    <span class="description"><label for="custom_styles"><?php _e( 'Add your extra CSS rules here. No need to use !important. Rules written above will be loaded last.', 'rtPanel' ); ?></label></span>
                 </td>
             </tr>
         </tbody>
     </table>
     <div class="rtp_submit">
-        <input class="button-primary" value="<?php _e( 'Save', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
+        <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
         <input class="button-secondary" value="<?php _e( 'Reset', 'rtPanel' ); ?>" name="rtp_custom_styles_reset" type="submit" />
         <div class="clear"></div>
     </div>
@@ -386,27 +382,27 @@ function rtp_post_summaries_metabox() {
                     <td>
                         <input type="hidden" name="rtp_post_comments[summary_show]" value="0" />
                         <input type="checkbox" name="rtp_post_comments[summary_show]" value="1" id="summary_show" <?php checked( $rtp_post_comments['summary_show'] ); ?> />
-                        <span class="description"><label for="summary_show"><?php _e( 'Check this to enable excerpts on Archive pages', 'rtPanel' ); ?></label></span>
+                        <span class="description"><label for="summary_show"><?php _e( 'Check this to enable excerpts on Archive pages ( Pages with multiple posts on them )', 'rtPanel' ); ?></label></span>
                     </td>
                 </tr>
                 <tr valign="top">
                     <th scope="row"><label for="word_limit"><?php _e( 'Word Limit', 'rtPanel' ); ?></label></th>
                     <td>
                         <input  maxlength="4" type="number" value="<?php echo $rtp_post_comments['word_limit']; ?>" size="4" name="rtp_post_comments[word_limit]" id="word_limit" />
-                        <span class="description"><label for="word_limit"><?php _e( 'Enter Word Limit, eg. 55', 'rtPanel' ); ?></label></span>
+                        <span class="description"><label for="word_limit"><?php _e( 'Post Content will be cut around Word Limit you will specify here.', 'rtPanel' ); ?></label></span>
                     </td>
                 </tr>
                 <tr valign="top">
                     <th scope="row"><label for="read_text"><?php _e( 'Read More Text', 'rtPanel' ); ?></label></th>
                     <td>
                         <input type="text" value="<?php echo esc_attr( $rtp_post_comments['read_text'] ); ?>" size="30" name="rtp_post_comments[read_text]" id="read_text" />
-                        <span class="description"><label for="read_text"><?php _e( 'Text to display instead of Read More at the end of excerpt', 'rtPanel' ); ?></label></span>
+                        <span class="description"><label for="read_text"><?php _e( 'This will be added after each post summary. Text added here will be automatically converted into a hyperlink pointing to the respective post.', 'rtPanel' ); ?></label></span>
                     </td>
                 </tr>
             </tbody>
         </table>
         <div class="rtp_submit">
-            <input class="button-primary" value="<?php _e( 'Save', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
+            <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
             <input class="button-secondary" value="<?php _e( 'Reset', 'rtPanel' ); ?>" name="rtp_summary_reset" type="submit" />
             <div class="clear"></div>
         </div><?php
@@ -419,7 +415,7 @@ function rtp_post_summaries_metabox() {
 function rtp_post_thumbnail_metabox() {
         global $rtp_post_comments;
         $alignment = ( isset ( $rtp_post_comments['thumbnail_position'] ) ) ? $rtp_post_comments['thumbnail_position'] : ''; ?> <br />
-        <span class="description"><strong><?php _e( 'Enable Summary must be checked on the Post Summary Settings to show these Options', 'rtPanel' ); ?></strong></span>
+        <span class="description post-summary-hide"><strong><?php _e( 'Enable Summary^ must be checked on the Post Summary Settings to show these Options', 'rtPanel' ); ?></strong></span>
         <table class="form-table">
             <tbody>
                 <tr valign="top">
@@ -427,7 +423,7 @@ function rtp_post_thumbnail_metabox() {
                     <td>
                         <input type="hidden" name="rtp_post_comments[thumbnail_show]" value="0" />
                         <input type="checkbox" name="rtp_post_comments[thumbnail_show]" value="1" id="thumbnail_show" <?php checked( $rtp_post_comments['thumbnail_show'] ); ?> />
-                        <span class="description"><label for="thumbnail_show"><?php _e( 'Check this to display thumbnails next to excerpt on Archive pages', 'rtPanel' ); ?></label></span>
+                        <span class="description"><label for="thumbnail_show"><?php _e( 'Check this to display thumbnails as part of Post Summaries on Archive pages', 'rtPanel' ); ?></label></span>
                     </td>
                 </tr>
                 <tr valign="top">
@@ -469,13 +465,13 @@ function rtp_post_thumbnail_metabox() {
                 </tr>
                 <tr valign="top">
                     <td>
-                        <strong><?php _e( 'NOTE', 'rtPanel' ); ?> : </strong><span class="description"><?php printf( __( 'Incase the Thumbnail Height, Width or Crop Thumbnail Option is changed, you must use <a target="_blank" href="%s" title="Regenerate Thumbnail">Regenerate Thumbnail</a> plugin to display the thumbnails properly', 'rtPanel' ), rtp_regenerate_thumbnail_notice( true ) ); ?></span>
+                        <strong><?php _e( 'Note', 'rtPanel' ); ?> : </strong><span class="description"><?php printf( __( 'If you make changes to thumbnail height, width or crop settings, you must use "<a target="_blank" href="%s" title="Regenerate Thumbnail Plugin">Regenerate Thumbnail Plugin</a>" to regenerate thumbnails on old posts.', 'rtPanel' ), rtp_regenerate_thumbnail_notice( true ) ); ?></span>
                     </td>
                 </tr>
             </tbody>
         </table>
         <div class="rtp_submit">
-            <input class="button-primary" value="<?php _e( 'Save', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
+            <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
             <input class="button-secondary" value="<?php _e( 'Reset', 'rtPanel' ); ?>" name="rtp_thumbnail_reset" type="submit" />
             <div class="clear"></div>
         </div>
@@ -502,6 +498,7 @@ function rtp_post_meta_metabox() {
                     <td>
                         <input type="hidden" name="rtp_post_comments[post_date_u]" value="0" />
                         <input type="checkbox" name="rtp_post_comments[post_date_u]" value="1" id="post_date_u" <?php checked( $rtp_post_comments['post_date_u'] ); ?> />
+                        <span class="description"><label for="post_date_u"><?php _e( 'Check this box to include Post Dates in meta', 'rtPanel' ); ?></label></span>
                         <div class="post-meta-common post_date_format_u">
                             <strong><?php _e( 'Select a Date Format', 'rtPanel' ); ?> :</strong><br />
                             <input type="radio" name="rtp_post_comments[post_date_format_u]" id="full-date-u" value="F j, Y" <?php checked( 'F j, Y', $rtp_post_comments['post_date_format_u'] ); ?> /><label class="full-date-u" for="full-date-u" title="F j, Y"><?php echo date_i18n( __( 'F j, Y' ) ); ?></label><br />
@@ -517,6 +514,7 @@ function rtp_post_meta_metabox() {
                     <td>
                         <input type="hidden" name="rtp_post_comments[post_author_u]" value="0" />
                         <input type="checkbox" name="rtp_post_comments[post_author_u]" value="1" id="post_author_u" <?php checked( $rtp_post_comments['post_author_u'] ); ?> />
+                        <span class="description"><label for="post_author_u"><?php _e( 'Check this box to include Author Name in meta', 'rtPanel' ); ?></label></span>
                         <div class="post-meta-common post_author_u-sub">
                             <input type="hidden" name="rtp_post_comments[author_count_u]" value="0" />
                             <input type="checkbox" name="rtp_post_comments[author_count_u]" value="1" id="author_count_u" <?php checked( $rtp_post_comments['author_count_u'] ); ?> /><label for="author_count_u"><?php _e( 'Show Author Posts Count', 'rtPanel' ); ?></label><br />
@@ -562,6 +560,7 @@ function rtp_post_meta_metabox() {
                     <td>
                         <input type="hidden" name="rtp_post_comments[post_date_l]" value="0" />
                         <input type="checkbox" name="rtp_post_comments[post_date_l]" value="1" id="post_date_l" <?php checked( $rtp_post_comments['post_date_l'] ); ?> />
+                        <span class="description"><label for="post_date_l"><?php _e( 'Check this box to include Post Dates in meta', 'rtPanel' ); ?></label></span>
                         <div class="post-meta-common post_date_format_l">
                             <strong><?php _e( 'Select a Date Format', 'rtPanel' ); ?> :</strong><br />
                             <input type="radio" name="rtp_post_comments[post_date_format_l]" id="full-date-l" value="F j, Y" <?php checked( 'F j, Y', $rtp_post_comments['post_date_format_l'] ); ?> /><label class="full-date-l" for="full-date-l" title="F j, Y"><?php echo date_i18n( __( 'F j, Y' ) ); ?></label><br />
@@ -577,6 +576,7 @@ function rtp_post_meta_metabox() {
                     <td>
                         <input type="hidden" name="rtp_post_comments[post_author_l]" value="0" />
                         <input type="checkbox" name="rtp_post_comments[post_author_l]" value="1" id="post_author_l" <?php checked( $rtp_post_comments['post_author_l'] ); ?> />
+                        <span class="description"><label for="post_author_l"><?php _e( 'Check this box to include Author Name in meta', 'rtPanel' ); ?></label></span>
                         <div class="post-meta-common post_author_l-sub">
                             <input type="hidden" name="rtp_post_comments[author_count_l]" value="0" />
                             <input type="checkbox" name="rtp_post_comments[author_count_l]" value="1" id="author_count_l" <?php checked( $rtp_post_comments['author_count_l'] ); ?> /><label for="author_count_l"><?php _e( 'Show Author Posts Count', 'rtPanel' ); ?></label><br />
@@ -613,7 +613,7 @@ function rtp_post_meta_metabox() {
             </tbody>
         </table>
     <div class="rtp_submit">
-        <input class="button-primary" value="<?php _e( 'Save', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
+        <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
         <input class="button-secondary" value="<?php _e( 'Reset', 'rtPanel' ); ?>" name="rtp_meta_reset" type="submit" />
         <div class="clear"></div>
     </div><?php
@@ -628,17 +628,24 @@ function rtp_comment_form_metabox() {
         <table class="form-table">
             <tbody>
                 <tr valign="top">
-                    <th scope="row"><p><label for="name_email_url_show"><?php _e( 'Show Name, Email, &amp; URL Fields', 'rtPanel' ); ?></label></p></th>
+                    <th scope="row"><p><label for="name_email_url_show"><?php _e( 'Enable Compact Form', 'rtPanel' ); ?></label></p></th>
                     <td>
                         <input type="hidden" name="rtp_post_comments[name_email_url_show]" value="0" />
                         <input type="checkbox" name="rtp_post_comments[name_email_url_show]" value="1" id="name_email_url_show" <?php checked( $rtp_post_comments['name_email_url_show'] ); ?> />
+                        <span class="description"><label for="name_email_url_show"><?php _e( 'Check this box to compact comment form. Name, URL & Email Fields will be on same line', 'rtPanel' ); ?></label></span>
+                        <div class="comment-form-hide-labels">
+                            <input type="hidden" name="rtp_post_comments[hide_labels]" value="0" />
+                            <input type="checkbox" name="rtp_post_comments[hide_labels]" value="1" id="hide_labels" <?php checked( $rtp_post_comments['hide_labels'] ); ?> />
+                            <span class="description"><label for="hide_labels"><?php _e( 'Hide Labels for Name, Email, URL & Comment Textarea. These will be shown inside fields as default text', 'rtPanel' ); ?></label></span>
+                        </div>
                     </td>
                 </tr>
                 <tr valign="top" class="show-fields-comments">
-                    <th scope="row"><p><label for="comment_textarea"><?php _e( 'Display Comment textarea above Name, Email, &amp; URL Fields', 'rtPanel' ); ?></label></p></th>
+                    <th scope="row"><p><label for="comment_textarea"><?php _e( 'Extra Settings', 'rtPanel' ); ?></label></p></th>
                     <td>
                         <input type="hidden" name="rtp_post_comments[comment_textarea]" value="0" />
                         <input type="checkbox" name="rtp_post_comments[comment_textarea]" value="1" id="comment_textarea" <?php checked( $rtp_post_comments['comment_textarea'] ); ?> />
+                        <span class="description"><label for="comment_textarea"><?php _e( 'Display Comment textarea above Name, Email, &amp; URL Fields', 'rtPanel' ); ?></label></span>
                     </td>
                 </tr>
                 <tr valign="top">
@@ -651,7 +658,7 @@ function rtp_comment_form_metabox() {
             </tbody>
         </table>
         <div class="rtp_submit">
-            <input class="button-primary" value="<?php _e( 'Save', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
+            <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
             <input class="button-secondary" value="<?php _e( 'Reset', 'rtPanel' ); ?>" name="rtp_comment_reset" type="submit" />
             <div class="clear"></div>
         </div><?php
@@ -688,7 +695,7 @@ function rtp_gravatar_metabox() {
                 </tbody>
             </table>
             <div class="rtp_submit">
-                <input class="button-primary" value="<?php _e( 'Save', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
+                <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
                 <input class="button-secondary" value="<?php _e( 'Reset', 'rtPanel' ); ?>" name="rtp_gravatar_reset" type="submit" />
                 <div class="clear"></div>
             </div><?php
