@@ -314,4 +314,18 @@ jQuery(document).ready(function() {
             jQuery('#breadcrumb-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
         }
         jQuery('#rt_general_form').submit();
-}
+    }
+
+    function reset_settings(plugin){
+        if ( plugin == 'Subscribe To Comments'){
+            jQuery('#subscribe-deactivate').val(1);
+            jQuery('#subscribe-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
+        } else if ( plugin == 'WP PageNavi'){
+            jQuery('#pagenavi-deactivate').val(1);
+            jQuery('#pagenavi-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
+        } else if ( plugin == 'Breadcrumb NavXT'){
+            jQuery('#breadcrumb-deactivate').val(1);
+            jQuery('#breadcrumb-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
+        }
+        jQuery('#rt_general_form').submit();
+    }

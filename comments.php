@@ -46,26 +46,56 @@ global $rtp_post_comments;
         else : // comments are closed
         endif;
     endif;
-
 // Including Comment form using comment_form() function
      if ( comments_open() ) :
-            update_option( 'require_name_email', 1 );
+
+         if ( $rtp_post_comments['hide_labels'] ) {
+                $hide_class = ' hide-labels';
+                $label_author = '';
+                $author_value = 'Name';
+                $label_email = '';
+                $email_value = 'Email';
+                $label_url = '';
+                $url_value = 'Website';
+                $comment_value = 'Comment';
+            } else {
+                $hide_class = '';
+                $label_author = '<label for="author">' . __( 'Name', 'rtPanel' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' );
+                $author_value = '';
+                $label_email = '<label for="email">' . __( 'Email', 'rtPanel' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' );
+                $email_value = '';
+                $label_url = '<label for="url">' . __( 'Website', 'rtPanel' ) . '</label> ';
+                $url_value = '';
+                $comment_value = '';
+            }
+
             if ( $rtp_post_comments['comment_textarea'] ) {
                 $fields = '';
-                if ( is_user_logged_in() ) {
-                    $comments_after = '';
+                if ( $rtp_post_comments['compact_form'] ) {
+                    $comments_after = '<p class="comment-form-author compact-comment-form' . $hide_class . '">' . $label_author . '<input id="author" name="author" type="text" value="' . ( $commenter['comment_author'] ? esc_attr( $commenter['comment_author'] ) : $author_value ) . '" size="30" /></p>
+                                        <p class="comment-form-email compact-comment-form' . $hide_class . '">' . $label_email . '<input id="email" name="email" type="text" value="' . ( $commenter['comment_author_email'] ? esc_attr( $commenter['comment_author_email'] ) : $email_value ) . '" size="30" /></p>
+                                        <p class="comment-form-url compact-comment-form' . $hide_class . '">' . $label_url . '<input id="url" name="url" type="text" value="' . ( $commenter['comment_author_url'] ? esc_attr( $commenter['comment_author_url'] ) : $url_value ) . '" size="30" /></p>';
                 } else {
-                    $comments_after = '<p class="comment-form-author"><input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30" /> <label for="author">' . __( 'Name', 'rtPanel' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '</p>
-                                       <p class="comment-form-email"><input id="email" name="email" type="text" value="' . esc_attr( $commenter['comment_author_email'] ) . '" size="30" /> <label for="email">' . __( 'Email', 'rtPanel' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '</p>
-                                       <p class="comment-form-url"><input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /> <label for="url">' . __( 'Website', 'rtPanel' ) . '</label>' . '</p>';
-                }                
+                    $comments_after = '<p class="comment-form-author' . $hide_class . '"><input class="alignleft" id="author" name="author" type="text" value="' . ( $commenter['comment_author'] ? esc_attr( $commenter['comment_author'] ) : $author_value ) . '" size="30" />' . $label_author . '</p>
+                                        <p class="comment-form-email' . $hide_class . '"><input class="alignleft" id="email" name="email" type="text" value="' . ( $commenter['comment_author_email'] ? esc_attr( $commenter['comment_author_email'] ) : $email_value ) . '" size="30" />' . $label_email . '</p>
+                                        <p class="comment-form-url' . $hide_class . '"><input class="alignleft" id="url" name="url" type="text" value="' . ( $commenter['comment_author_url'] ? esc_attr( $commenter['comment_author_url'] ) : $url_value ) . '" size="30" />' . $label_url . '</p>';
+                }
             } else {
-               $comments_after = '';
-               $fields =  array(
-                          'author' => '<p class="comment-form-author"><input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30" /> <label for="author">' . __( 'Name', 'rtPanel' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '</p>',
-                          'email'  => '<p class="comment-form-email"><input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30" /> <label for="email">' . __( 'Email', 'rtPanel' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '</p>',
-                          'url'    => '<p class="comment-form-url"><input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /> <label for="url">' . __( 'Website', 'rtPanel' ) . '</label>' . '</p>',
-               );
+               if ( $rtp_post_comments['compact_form'] ) {
+                    $comments_after = '';
+                    $fields =  array(
+                              'author' => '<p class="comment-form-author compact-comment-form' . $hide_class . '">' . $label_author . '<input id="author" name="author" type="text" value="' . ( $commenter['comment_author'] ? esc_attr( $commenter['comment_author'] ) : $author_value ) . '" size="30" /></p>',
+                              'email'  => '<p class="comment-form-email compact-comment-form' . $hide_class . '">' . $label_email . '<input id="email" name="email" type="text" value="' . ( $commenter['comment_author_email'] ? esc_attr( $commenter['comment_author_email'] ) : $email_value ) . '" size="30" /></p>',
+                              'url'    => '<p class="comment-form-url compact-comment-form' . $hide_class . '">' . $label_url . '<input id="url" name="url" type="text" value="' . ( $commenter['comment_author_url'] ? esc_attr( $commenter['comment_author_url'] ) : $url_value ) . '" size="30" /></p>',
+                     );
+               } else {
+                   $comments_after = '';
+                   $fields =  array(
+                              'author' => '<p class="comment-form-author' . $hide_class . '"><input class="alignleft" id="author" name="author" type="text" value="' . ( $commenter['comment_author'] ? esc_attr( $commenter['comment_author'] ) : $author_value ) . '" size="30" />' . $label_author . '</p>',
+                              'email'  => '<p class="comment-form-email' . $hide_class . '"><input class="alignleft" id="email" name="email" type="text" value="' . ( $commenter['comment_author_email'] ? esc_attr( $commenter['comment_author_email'] ) : $email_value ) . '" size="30" />' . $label_email . '</p>',
+                              'url'    => '<p class="comment-form-url' . $hide_class . '"><input class="alignleft" id="url" name="url" type="text" value="' . ( $commenter['comment_author_url'] ? esc_attr( $commenter['comment_author_url'] ) : $url_value ) . '" size="30" />' . $label_url . '</p>',
+                   );
+               }
            }
            $comments_before = '<p class="comment-notes">' . __( 'Your email address will not be published.', 'rtPanel' ) . ( $req ? '<span class="required">*</span>' : '' ) . '</p>';
 
@@ -84,7 +114,7 @@ global $rtp_post_comments;
                 'fields' => apply_filters( 'comment_form_default_fields', $fields ) ,
                 'comment_notes_before' => $comments_before,
                 'comment_notes_after' => $comments_after,
-                'comment_field' => '<p class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="8"></textarea></p>',
+                'comment_field' => '<p class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="8">Comment...</textarea></p>',
                 'title_reply' => __( '<span class="comment-title">Leave a Comment</span>', 'rtPanel' ),
                 'title_reply_to' => __( '<span class="comment-title">Leave a Comment</span>', 'rtPanel' ),
                 'cancel_reply_link' => __( 'Cancel reply', 'rtPanel' ),

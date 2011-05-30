@@ -402,9 +402,11 @@ li.comment .rtp-admin-comment { background: none repeat scroll 0 0 #FAFAFA; }
         #respond h3 small { font-size: 11px; }
     #respond form { border-top: 1px dotted #BBBBBB; clear: both; font-family: Georgia,"Times New Roman", Times, serif; font-size: 14px; line-height: 180%; padding: 11px 0; }
     #respond p { margin: 0 0 14px; overflow: hidden; }
+    #respond p.compact-comment-form { float: left; width:33%; }
     #respond p.comment-notes { margin-bottom: 11px; }
     #respond .subscribe-to-comments { line-height: 14px; }
     #respond label { color: #111111; padding: 0 0 0 11px; }
+    #respond p.compact-comment-form label { padding-left: 0; }
     #respond .required { color: #DD0000; }
     #respond .comment-form-author,
     #respond .comment-form-email,
@@ -414,9 +416,11 @@ li.comment .rtp-admin-comment { background: none repeat scroll 0 0 #FAFAFA; }
     #respond input:focus,
     #respond textarea:focus { background: none repeat 0 0 scroll #FFFFFF; border: 1px solid #CCCCCC; }
     #respond .comment-form-comment { clear: both; font-size: 12px; margin: 0 0 14px; }
-    #respond input { color: #444444; float: left; font-family: Georgia,"Times New Roman",Times,serif; font-size: 14px; margin: 0; padding: 4px; width: 45%; }
+    #respond input { color: #444444; font-family: Georgia,"Times New Roman",Times,serif; font-size: 14px; margin: 0; padding: 4px; width: 45%; }
+    #respond p.compact-comment-form input { width: 90%; }
     #respond textarea { color: #444444; font-family: Georgia,"Times New Roman",Times,serif; font-size: 100%; margin: 0; padding: 4px; width: 96%; }
     #respond #submit { border: 1px solid #CCCCCC;font-size: 13px;font-weight: bold;padding: 5px 7px;width: auto !important; }
+    #respond .form-submit { clear:both; }
     #respond .submit-over,
     #respond #submit:hover { border: 1px solid #999999; color: #000000; }
     #respond .comment-title {  }
