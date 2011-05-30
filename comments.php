@@ -49,7 +49,6 @@ global $rtp_post_comments;
 
 // Including Comment form using comment_form() function
      if ( comments_open() ) :
-        if ( $rtp_post_comments['name_email_url_show'] ) {
             update_option( 'require_name_email', 1 );
             if ( $rtp_post_comments['comment_textarea'] ) {
                 $fields = '';
@@ -69,12 +68,6 @@ global $rtp_post_comments;
                );
            }
            $comments_before = '<p class="comment-notes">' . __( 'Your email address will not be published.', 'rtPanel' ) . ( $req ? '<span class="required">*</span>' : '' ) . '</p>';
-        } else {
-            update_option( 'require_name_email', 0 );
-            $fields = '';
-            $comments_before = '';
-            $comments_after = '';
-        }
 
        /**
          *

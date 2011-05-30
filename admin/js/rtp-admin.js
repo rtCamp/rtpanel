@@ -119,7 +119,6 @@ jQuery(document).ready(function() {
         var post_date_l = jQuery('#post_date_l').attr('checked');
         var post_author_u = jQuery('#post_author_u').attr('checked');
         var post_author_l = jQuery('#post_author_l').attr('checked');
-        var comment_fields = jQuery('#name_email_url_show').attr('checked');
         var gravatar_fields = jQuery('#gravatar_show').attr('checked');
         var logo_show = jQuery('#logo_show').attr('checked');
         var summary_show = jQuery('#summary_show').attr('checked');
@@ -170,18 +169,6 @@ jQuery(document).ready(function() {
             jQuery('#post_author_l').click(function(){
                 jQuery('.post_author_l-sub').toggle();
             });
-        }
-
-        if (typeof comment_fields !== 'undefined' && comment_fields !== false) {
-            jQuery('.show-fields-comments').show();
-            jQuery('#name_email_url_show').click(function(){
-                jQuery('.show-fields-comments').toggle();
-        });
-        } else {
-            jQuery('.show-fields-comments').hide();
-            jQuery('#name_email_url_show').click(function(){
-                jQuery('.show-fields-comments').toggle();
-        });
         }
 
         if (typeof gravatar_fields !== 'undefined' && gravatar_fields !== false) {

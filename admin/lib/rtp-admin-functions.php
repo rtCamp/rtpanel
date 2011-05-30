@@ -366,9 +366,6 @@ function rtp_post_comments_validate( $input ) {
         $input['author_count_l']            = $rtp_post_comments['author_count_l'];
         $input['author_link_l']             = $rtp_post_comments['author_link_l'];
     }
-    if ( !$input['name_email_url_show'] ) {
-        $input['comment_textarea']          = $rtp_post_comments['comment_textarea'];
-    }
     if ( !$input['gravatar_show'] ) {
         $input['gravatar_size']             = $rtp_post_comments['gravatar_size'];
     }
@@ -431,8 +428,9 @@ function rtp_post_comments_validate( $input ) {
         foreach ( $options as $option=>$value )
             $input[$option] = $value;
         $input['notices'] = $rtp_post_comments['notices'];
+        $input['compact_form'] = $default[1]['compact_form'];
+        $input['hide_labels'] = $default[1]['hide_labels'];
         $input['comment_textarea']    = $default[1]['comment_textarea'];
-        $input['name_email_url_show'] = $default[1]['name_email_url_show'];
         $input['comment_separate']    = $default[1]['comment_separate'];
         add_settings_error( 'comment', 'reset_comment', __( 'The Comment Form Settings have been restored to default.', 'rtPanel' ), 'updated' );
     } elseif ( isset ( $_POST['rtp_gravatar_reset'] ) ) {
@@ -517,8 +515,9 @@ function rtp_theme_setup_values() {
         'author_link_l'              => '1',
         'post_category_l'            => '0',
         'post_tags_l'                => '1',
+        'compact_form'               => '0',
+        'hide_labels'                => '0',
         'comment_textarea'           => '0',
-        'name_email_url_show'        => '1',
         'comment_separate'           => '1',
         'gravatar_show'              => '1',
         'gravatar_size'              => '64 x 64',

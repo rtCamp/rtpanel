@@ -69,7 +69,7 @@ function rtp_logo_option_metabox() {
     </table>
     <div class="rtp_submit">
         <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
-        <input class="button-secondary" value="<?php _e( 'Reset', 'rtPanel' ); ?>" name="rtp_logo_reset" type="submit" />
+        <input class="button-secondary" value="<?php _e( 'Reset Logo Settings', 'rtPanel' ); ?>" name="rtp_logo_reset" type="submit" />
         <div class="clear"></div>
     </div>
 <?php
@@ -113,7 +113,7 @@ function rtp_fav_option_metabox() {
     </table>
     <div class="rtp_submit">
         <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
-        <input class="button-secondary" value="<?php _e( 'Reset', 'rtPanel' ); ?>" name="rtp_fav_reset" type="submit" />
+        <input class="button-secondary" value="<?php _e( 'Reset Favicon Settings', 'rtPanel' ); ?>" name="rtp_fav_reset" type="submit" />
         <div class="clear"></div>
     </div><?php
 }
@@ -137,7 +137,7 @@ function rtp_feed_option_metabox() {
     </table>
     <div class="rtp_submit">
         <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
-        <input class="button-secondary" value="<?php _e( 'Reset', 'rtPanel' ); ?>" name="rtp_feed_reset" type="submit" />
+        <input class="button-secondary" value="<?php _e( 'Reset FeedBurner Settings', 'rtPanel' ); ?>" name="rtp_feed_reset" type="submit" />
         <div class="clear"></div>
     </div>
 <?php
@@ -163,7 +163,7 @@ function rtp_sidebar_options_metabox() {
     </table>
     <div class="rtp_submit">
         <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
-        <input class="button-secondary" value="<?php _e( 'Reset', 'rtPanel' ); ?>" name="rtp_sidebar_reset" type="submit" />
+        <input class="button-secondary" value="<?php _e( 'Reset Sidebar Settings', 'rtPanel' ); ?>" name="rtp_sidebar_reset" type="submit" />
         <div class="clear"></div>
     </div>
 <?php
@@ -197,7 +197,7 @@ function rtp_google_search_metabox() {
     </table>
     <div class="rtp_submit">
         <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
-        <input class="button-secondary" value="<?php _e( 'Reset', 'rtPanel' ); ?>" name="rtp_google_reset" type="submit" />
+        <input class="button-secondary" value="<?php _e( 'Reset Google Custom Search Integration', 'rtPanel' ); ?>" name="rtp_google_reset" type="submit" />
         <div class="clear"></div>
     </div>
 <?php
@@ -222,7 +222,7 @@ function rtp_custom_styles_metabox() {
     </table>
     <div class="rtp_submit">
         <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
-        <input class="button-secondary" value="<?php _e( 'Reset', 'rtPanel' ); ?>" name="rtp_custom_styles_reset" type="submit" />
+        <input class="button-secondary" value="<?php _e( 'Reset Custom Styles', 'rtPanel' ); ?>" name="rtp_custom_styles_reset" type="submit" />
         <div class="clear"></div>
     </div>
 <?php
@@ -403,7 +403,7 @@ function rtp_post_summaries_metabox() {
         </table>
         <div class="rtp_submit">
             <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
-            <input class="button-secondary" value="<?php _e( 'Reset', 'rtPanel' ); ?>" name="rtp_summary_reset" type="submit" />
+            <input class="button-secondary" value="<?php _e( 'Reset Post Sumarry Settings', 'rtPanel' ); ?>" name="rtp_summary_reset" type="submit" />
             <div class="clear"></div>
         </div><?php
 }
@@ -472,7 +472,7 @@ function rtp_post_thumbnail_metabox() {
         </table>
         <div class="rtp_submit">
             <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
-            <input class="button-secondary" value="<?php _e( 'Reset', 'rtPanel' ); ?>" name="rtp_thumbnail_reset" type="submit" />
+            <input class="button-secondary" value="<?php _e( 'Reset Post Thumbnail Settings', 'rtPanel' ); ?>" name="rtp_thumbnail_reset" type="submit" />
             <div class="clear"></div>
         </div>
 <?php
@@ -614,7 +614,7 @@ function rtp_post_meta_metabox() {
         </table>
     <div class="rtp_submit">
         <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
-        <input class="button-secondary" value="<?php _e( 'Reset', 'rtPanel' ); ?>" name="rtp_meta_reset" type="submit" />
+        <input class="button-secondary" value="<?php _e( 'Reset Post Meta Settings', 'rtPanel' ); ?>" name="rtp_meta_reset" type="submit" />
         <div class="clear"></div>
     </div><?php
 }
@@ -628,16 +628,15 @@ function rtp_comment_form_metabox() {
         <table class="form-table">
             <tbody>
                 <tr valign="top">
-                    <th scope="row"><p><label for="name_email_url_show"><?php _e( 'Enable Compact Form', 'rtPanel' ); ?></label></p></th>
+                    <th scope="row"><p><label for="compact_form"><?php _e( 'Enable Compact Form', 'rtPanel' ); ?></label></p></th>
                     <td>
-                        <input type="hidden" name="rtp_post_comments[name_email_url_show]" value="0" />
-                        <input type="checkbox" name="rtp_post_comments[name_email_url_show]" value="1" id="name_email_url_show" <?php checked( $rtp_post_comments['name_email_url_show'] ); ?> />
-                        <span class="description"><label for="name_email_url_show"><?php _e( 'Check this box to compact comment form. Name, URL & Email Fields will be on same line', 'rtPanel' ); ?></label></span>
-                        <div class="comment-form-hide-labels">
-                            <input type="hidden" name="rtp_post_comments[hide_labels]" value="0" />
-                            <input type="checkbox" name="rtp_post_comments[hide_labels]" value="1" id="hide_labels" <?php checked( $rtp_post_comments['hide_labels'] ); ?> />
-                            <span class="description"><label for="hide_labels"><?php _e( 'Hide Labels for Name, Email, URL & Comment Textarea. These will be shown inside fields as default text', 'rtPanel' ); ?></label></span>
-                        </div>
+                        <input type="hidden" name="rtp_post_comments[compact_form]" value="0" />
+                        <input type="checkbox" name="rtp_post_comments[compact_form]" value="1" id="compact_form" <?php checked( $rtp_post_comments['compact_form'] ); ?> />
+                        <span class="description"><label for="compact_form"><?php _e( 'Check this box to compact comment form. Name, URL & Email Fields will be on same line', 'rtPanel' ); ?></label></span>
+                        <br />
+                        <input type="hidden" name="rtp_post_comments[hide_labels]" value="0" />
+                        <input type="checkbox" name="rtp_post_comments[hide_labels]" value="1" id="hide_labels" <?php checked( $rtp_post_comments['hide_labels'] ); ?> />
+                        <span class="description"><label for="hide_labels"><?php _e( 'Hide Labels for Name, Email, URL & Comment Textarea. These will be shown inside fields as default text', 'rtPanel' ); ?></label></span>
                     </td>
                 </tr>
                 <tr valign="top" class="show-fields-comments">
@@ -646,20 +645,17 @@ function rtp_comment_form_metabox() {
                         <input type="hidden" name="rtp_post_comments[comment_textarea]" value="0" />
                         <input type="checkbox" name="rtp_post_comments[comment_textarea]" value="1" id="comment_textarea" <?php checked( $rtp_post_comments['comment_textarea'] ); ?> />
                         <span class="description"><label for="comment_textarea"><?php _e( 'Display Comment textarea above Name, Email, &amp; URL Fields', 'rtPanel' ); ?></label></span>
-                    </td>
-                </tr>
-                <tr valign="top">
-                    <th scope="row"><p><label for="comment_separate"><?php _e( 'Separate Comments from Trackbacks &amp; Pingbacks', 'rtPanel' ); ?></label></p></th>
-                    <td>
+                        <br />
                         <input type="hidden" name="rtp_post_comments[comment_separate]" value="0" />
                         <input type="checkbox" name="rtp_post_comments[comment_separate]" value="1" id="comment_separate" <?php checked( $rtp_post_comments['comment_separate'] ); ?> />
+                        <span class="description"><label for="comment_separate"><?php _e( 'Separate Comments from Trackbacks &amp; Pingbacks', 'rtPanel' ); ?></label></span>
                     </td>
                 </tr>
             </tbody>
         </table>
         <div class="rtp_submit">
             <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
-            <input class="button-secondary" value="<?php _e( 'Reset', 'rtPanel' ); ?>" name="rtp_comment_reset" type="submit" />
+            <input class="button-secondary" value="<?php _e( 'Reset Comment Form Settings', 'rtPanel' ); ?>" name="rtp_comment_reset" type="submit" />
             <div class="clear"></div>
         </div><?php
 }
@@ -696,7 +692,7 @@ function rtp_gravatar_metabox() {
             </table>
             <div class="rtp_submit">
                 <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
-                <input class="button-secondary" value="<?php _e( 'Reset', 'rtPanel' ); ?>" name="rtp_gravatar_reset" type="submit" />
+                <input class="button-secondary" value="<?php _e( 'Reset Gravatar Settings', 'rtPanel' ); ?>" name="rtp_gravatar_reset" type="submit" />
                 <div class="clear"></div>
             </div><?php
 }
