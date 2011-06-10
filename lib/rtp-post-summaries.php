@@ -96,9 +96,6 @@ function rtp_generate_thumbs( $attach_id = null, $size = 'thumbnail', $the_id = 
         if ( preg_match( '/wp-image-([\d]*)/i', $match[0], $thumb_id ) ) {
             $image_src = wp_get_attachment_image_src( $thumb_id[1] , $size );
 
-            // explode url to get the hostname
-            $int_or_ext = explode( '/', $match[1] );
-
             //check if the id has parents for sanity (To check if the thumbnail id is proper)
             $attachment_parents = get_post_ancestors( $thumb_id[1] );
             //initialise the variable for further processing
@@ -133,8 +130,8 @@ function rtp_generate_thumbs( $attach_id = null, $size = 'thumbnail', $the_id = 
             return $image_src[0];
 
         } else {
-        //if the img src does not contain wp-image class then need to download and create thumb
-        return rtp_create_external_thumb($match, $post, $size);
+            //if the img src does not contain wp-image class then need to download and create thumb
+            return rtp_create_external_thumb($match, $post, $size);
         }
     }
 }
