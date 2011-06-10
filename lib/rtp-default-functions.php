@@ -13,7 +13,7 @@
  */
 function rtp_default_post_meta( $placement ) { ?>
     <?php if ( !is_page() ) {
-            global $rtp_post_comments; ?>
+            global $post, $rtp_post_comments; ?>
 
             <div class="post-meta post-meta-<?php echo $placement; ?>"><!-- post-meta begins -->
 
