@@ -99,46 +99,38 @@ function rtp_generate_thumbs( $attach_id = null, $size = 'thumbnail', $the_id = 
             // explode url to get the hostname
             $int_or_ext = explode( '/', $match[1] );
 
-            // check if the src is internal or external src and if external then proceed in the loop
-            if ( $_SERVER['HTTP_HOST'] != $int_or_ext[2] ){
-
-                //check if the id has parents for sanity (To check if the thumbnail id is proper)
-                $attachment_parents = get_post_ancestors( $thumb_id[1] );
-                //initialise the variable for further processing
-                $proceed = 0;
-                if( is_array( $attachment_parents ) ) {
-                    foreach ( $attachment_parents as $parent ) {
-                        if ( $parent == $post->ID ) {
-                            $proceed = 1;
-                        }
+            //check if the id has parents for sanity (To check if the thumbnail id is proper)
+            $attachment_parents = get_post_ancestors( $thumb_id[1] );
+            //initialise the variable for further processing
+            $proceed = 0;
+            if( is_array( $attachment_parents ) ) {
+                foreach ( $attachment_parents as $parent ) {
+                    if ( $parent == $post->ID ) {
+                        $proceed = 1;
                     }
-                } elseif ( $attachment_parents == $post->ID ) {
-                    $proceed = 1;
-                } else {
-                    $proceed = 0;
                 }
-
-                // if proceed = 0 then download the img src and update the post content accordingly
-                if( @!$proceed ) {
-                    $updated_post = array();
-                    $updated_post['ID'] = $post->ID;
-                    //remove the misleading wp-image class from img tag and update the current post
-                    $updated_image_tag = str_replace( $thumb_id[0], '', $match[0] );
-                    $match[0];
-                    $updated_post['post_content'] = str_replace($match[0], $updated_image_tag, $post->post_content );
-                    wp_update_post( $updated_post );
-                    // trying to manage the replace and creation of image incase wordpress doesn't fetch url
-                    $double_check_tag = $match[0];
-                    unset($match[0]);
-                    $match[0] = $updated_image_tag;
-                    return rtp_create_external_thumb($match, $post, $size, $double_check_tag);
-                }
-                // if proceed = 1 then just return the img src
-                return $image_src[0];
+            } elseif ( $attachment_parents == $post->ID ) {
+                $proceed = 1;
             } else {
-            // If internal then just return the source
-            return $image_src[0];
+                $proceed = 0;
             }
+
+            // if proceed = 0 then download the img src and update the post content accordingly
+            if( @!$proceed ) {
+                $updated_post = array();
+                $updated_post['ID'] = $post->ID;
+                //remove the misleading wp-image class from img tag and update the current post
+                $updated_image_tag = str_replace( $thumb_id[0], '', $match[0] );
+                $updated_post['post_content'] = str_replace($match[0], $updated_image_tag, $post->post_content );
+                wp_update_post( $updated_post );
+                // trying to manage the replace and creation of image incase wordpress doesn't fetch url
+                $double_check_tag = $match[0];
+                unset($match[0]);
+                $match[0] = $updated_image_tag;
+                return rtp_create_external_thumb($match, $post, $size, $double_check_tag);
+            }
+            // if proceed = 1 then just return the img src
+            return $image_src[0];
 
         } else {
         //if the img src does not contain wp-image class then need to download and create thumb
