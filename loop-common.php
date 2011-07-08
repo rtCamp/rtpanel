@@ -79,9 +79,7 @@ if ( have_posts () ) :
                         <h1><?php the_title(); ?></h1>
                 <?php } else { ?>
                         <h2><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permanent Link to %s', 'rtPanel' ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a></h2>
-                <?php }
-                        /* ========== [ Call Edit Link ] ========== */
-                        edit_post_link( __( 'Edit this post', 'rtPanel' ), '<p class="rtp-edit-link">[', ']</p>'); ?>
+                <?php } ?>
                 <?php rtp_hook_end_post_title(); /* rtpanel_hook for adding content after post's title appears. */ ?>
                 <div class="clear"></div>
             </div><!-- end post-title -->

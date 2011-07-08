@@ -236,10 +236,11 @@ h2 a, h2 a:visited, h2 a:active { color: #111111; text-decoration: none; }
             .hentry .post-tags span {  }
 
 /* ========== [ Post Edit Style ] ========== */
+.post-meta-top { position: relative; }
 .rtp-edit-link { font-family: Georgia, "Times New Roman", Times, serif; }
-.post-title .rtp-edit-link { bottom: 5px;clear: both;color: #888888;font-style: normal;letter-spacing: 1px;position: absolute;right: 0;text-transform: uppercase;visibility: hidden; }
-    .post-title .rtp-edit-link a { border-bottom: 1px solid #EEEEEE; color: #888888; text-decoration: none; }
-    .post-title .rtp-edit-link a:hover { color: #111111; text-decoration: none; }
+.post-meta-top .rtp-edit-link { bottom: 5px;clear: both;color: #888888;font-style: normal;letter-spacing: 1px;position: absolute;left: 0;text-transform: uppercase;visibility: hidden; }
+    .post-meta-top .rtp-edit-link a { border-bottom: 1px solid #EEEEEE; color: #888888; text-decoration: none; }
+    .post-meta-top .rtp-edit-link a:hover { color: #111111; text-decoration: none; }
 
 /* ========== [ Post Loop Style ] ========== */
 .post { overflow: hidden; }
@@ -442,6 +443,8 @@ li.comment .rtp-admin-comment { background: none repeat scroll 0 0 #FAFAFA; }
     #sidebar ul { margin-bottom: 0; }
         #sidebar ul li { padding: 0 0 9px; }
         #sidebar ul ul li { padding: 9px 0 0; }
+    .fixed-widget { position: fixed; top: 0;}
+    .fixed-bottom { position: absolute; bottom: 0;}
 
 /* ========== [ Recent Comment with Gravatar Widget Style ] ========== */
 .rtp-comments-widget ul { margin: 0 0 0 5px; padding: 0; }

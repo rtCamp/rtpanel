@@ -102,3 +102,9 @@ function rtp_show_post_thumbnail() {
         }
     }
 }
+
+add_action('rtp_hook_end_post_meta_top', 'rtp_edit_link');
+function rtp_edit_link() {
+    /* ========== [ Call Edit Link ] ========== */
+                        edit_post_link( __( 'Edit this post', 'rtPanel' ), '<p class="rtp-edit-link">[', ']</p>');
+}

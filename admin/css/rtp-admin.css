@@ -87,3 +87,5 @@ h2 .nav-tab { font-size:20px; padding: 0 6px; }
 .postbox-title-action { position: absolute; right: 35px; top: 0; }
 input.reset-link { border:0; background:none; color:#21759B; }
 input.reset-link:hover { text-decoration: underline; cursor:pointer;  }
+input[type=submit].button-link { background: none; border: none; color: #21759B; cursor: pointer; }
+input[type=submit].button-link:hover { text-decoration: underline; }

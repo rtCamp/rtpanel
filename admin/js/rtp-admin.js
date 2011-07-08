@@ -1,7 +1,11 @@
 jQuery(document).ready(function() {
-//    jQuery('#word_limit, #thumbnail_height, #thumbnail_width').keyup(function () {
-//        this.value = this.value.replace(/[^0-9]/g,'');
-//    });
+
+    jQuery('input[name=rtp_reset]').click( function(){
+       if ( !confirm('Are you sure you want to reset all the options?'))
+       { return false; }
+    });
+    
+
 
     function date_format( position ) {
     jQuery('input[name="rtp_post_comments[post_date_format_'+position+']"]').click(function(){

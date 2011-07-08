@@ -42,3 +42,70 @@ jQuery(document).ready(function() {
     rtp_edit_link('.comment-body');
     rtp_edit_link('.hentry');
 });
+
+jQuery(window).load( function(){
+    var count = 0;
+    var max = null;
+    var id = new Array();
+   
+   jQuery('.footerbar-widget').each(function(){
+       if( ( count % 3 ) == 0) {
+           //jQuery(this).width( ( jQuery('#footer-wrapper').width()/3 ) - ( parseFloat(jQuery(this).css('padding-left')) + parseFloat(jQuery(this).css('padding-right')) ) - 1);
+          for( var oid in id ){
+              jQuery('#'+id[oid]).height(max);
+          }
+          id = new Array();
+          max = null;
+       } else {
+           //jQuery(this).width( ( jQuery('#footer-wrapper').width()/3 ) - ( parseFloat(jQuery(this).css('padding-left')) + parseFloat(jQuery(this).css('padding-right')) ) - 2);
+       }
+       if( count >= 3 ) {
+           id[count-3] = jQuery(this).attr('id');
+       } else {
+           id[count] = jQuery(this).attr('id');
+       }
+       if( (jQuery(this).height()) > max ) {
+           
+           max = jQuery(this).height();
+       }
+       count++;
+   });
+   for( var aoid in id ){
+              jQuery('#'+id[aoid]).height(max);
+   }
+
+
+   
+});
+
+//function sticky_widgets(s) {
+//   //make sidebar widget stickyvar $scrollingDiv = jQuery(".sidebar-widget:last");
+//   var $scrollingDiv = jQuery(s);
+//   var side_top = jQuery('#sidebar').offset().top - parseFloat(jQuery('#sidebar').css('marginTop').replace(/auto/, 0));
+//  var top = jQuery($scrollingDiv).offset().top - parseFloat($scrollingDiv.css('marginTop').replace(/auto/, 0));
+//  var bottom = side_top + jQuery( '#content' ).height() - parseFloat(jQuery('#content').css('margin-bottom').replace(/auto/, 0));
+//  jQuery(window).scroll(function (event) {
+//    // what the y position of the scroll is
+//    var y = jQuery(this).scrollTop();
+//    var z = y + $scrollingDiv.height();
+//
+//    // whether that's below the form
+//    if (y >= top && z<bottom ) {
+//      // if so, ad the fixed class
+//      $scrollingDiv.addClass('fixed-widget');
+//      $scrollingDiv.removeClass( 'fixed-bottom' );
+//      $scrollingDiv.each(function(idx,el){
+//                el.style.bottom='';
+//            });
+//    } else {
+//      // otherwise remove it
+//      if(z>bottom)
+//      $scrollingDiv.addClass( 'fixed-bottom' );
+////      //jQuery( '.fixed-bottom' ).css( 'bottom',jQuery( '#footer-wrapper' ).height());
+//      $scrollingDiv.removeClass('fixed-widget');
+//    }
+//  });
+//}
+  
+
+  

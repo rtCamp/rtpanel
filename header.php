@@ -36,6 +36,7 @@
             Also make sure array() gets proper list of js handles
         -->
         <?php wp_enqueue_script( 'custom', RTP_JS_FOLDER_URL . '/rtp-custom.js', array( 'jquery' ), '', true ); ?>
+            
     <?php wp_head(); ?>
     </head>
     <body <?php body_class(); ?>> <!-- body begins and end in footer.php -->
