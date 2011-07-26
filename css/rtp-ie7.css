@@ -12,3 +12,4 @@ input[type="checkbox"] { vertical-align: baseline; }
 img { -ms-interpolation-mode: bicubic; }
 .clearfix { zoom: 1; } /* IE < 8 */
 button, input[type='submit'] { *width: auto; *overflow: visible; } /* Extra spacing fix */
+#respond, .commentlist .comment .comment-body, .post-meta, div.comment-body, .rtp-post-comment-count, #content-wrapper, .hentry { height: 100%; }

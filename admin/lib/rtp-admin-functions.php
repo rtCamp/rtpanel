@@ -1260,7 +1260,7 @@ function rtp_import( $file ) {
  * @since rtPanel Theme 2.0
  */
 function rtp_custom_admin_logo() {
-   echo '<style type="text/css"> #header-logo { background: url("' . RTP_IMG_FOLDER_URL . '/icon-rtpanel-small.jpg") repeat scroll 0 0 transparent !important; } </style>';
+   echo '<style type="text/css"> #header-logo { background: url("' . RTP_IMG_FOLDER_URL . '/icon-rtpanel-small.jpg") no-repeat scroll center center transparent !important; } </style>';
 }
 add_action( 'admin_head', 'rtp_custom_admin_logo' );
 

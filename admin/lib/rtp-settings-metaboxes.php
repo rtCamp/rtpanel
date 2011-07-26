@@ -41,7 +41,7 @@ function rtp_logo_option_metabox() {
                     <input type="radio" name="rtp_general[use_logo]" value="use_logo_url" id="use_logo_url" class="rtp_logo" <?php checked( 'use_logo_url', $rtp_general['use_logo'] ); ?> />
                     <label for="use_logo_url"><?php _e( 'Logo URL', 'rtPanel' ); ?></label>
                 </th>
-                <td class="img-preview">
+                <td class="img-url">
                     <input<?php disabled( 'use_logo_upload', $rtp_general['use_logo'] ); ?> type="text" value="<?php echo $rtp_general['logo_url']; ?>" name="rtp_general[logo_url]" size="40" id="logo_url" /><br />
                     <span class="description"><label class="example" for="logo_url"><?php _e( 'Eg. http://www.example.com/logo.jpg', 'rtPanel' ); ?></label></span>
                 </td>
@@ -96,7 +96,7 @@ function rtp_fav_option_metabox() {
                     <input type="radio" name="rtp_general[use_favicon]" value="use_favicon_url" id="use_favicon_url" class="rtp_favicon" <?php checked( 'use_favicon_url', $rtp_general['use_favicon'] ); ?> />
                     <label for="use_favicon_url"><?php _e( 'Favicon URL', 'rtPanel' ); ?></label>
                 </th>
-                <td class="img-preview">
+                <td class="img-url">
                     <input<?php disabled( 'use_favicon_upload', $rtp_general['use_favicon'] ); ?> type="text" value="<?php echo $rtp_general['favicon_url']; ?>" name="rtp_general[favicon_url]" size="40" id="favicon_url" /><br />
                     <span class="description"><label class="example" for="favicon_url"><?php _e( 'Eg. http://www.example.com/favicon.ico', 'rtPanel' ); ?></label></span>
                 </td>
@@ -494,7 +494,7 @@ function rtp_post_thumbnail_metabox() {
                     </td>
                 </tr>
                 <tr valign="top">
-                    <td>
+                    <td colspan="2">
                         <strong><?php _e( 'Note', 'rtPanel' ); ?> : </strong><span class="description"><?php printf( __( 'If you make changes to thumbnail height, width or crop settings, you must use "<a target="_blank" href="%s" title="Regenerate Thumbnail Plugin">Regenerate Thumbnail Plugin</a>" to regenerate thumbnails on old posts.', 'rtPanel' ), rtp_regenerate_thumbnail_notice( true ) ); ?></span>
                     </td>
                 </tr>
