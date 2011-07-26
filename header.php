@@ -31,10 +31,6 @@
         <!-- ========== [ Nested Comment Support. For more details check readme.txt ========== -->
         <?php ( is_singular() && get_option( 'thread_comments' ) ) ? wp_enqueue_script('comment-reply') : ''; ?>
 
-        <!--
-            IMPORTANT: You may need to add more wp_enqueue_script calls which should go here i.e. before custom.js.
-            Also make sure array() gets proper list of js handles
-        -->
         <?php wp_enqueue_script( 'custom', RTP_JS_FOLDER_URL . '/rtp-custom.js', array( 'jquery' ), '', true ); ?>
             
     <?php wp_head(); ?>

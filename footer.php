@@ -52,12 +52,5 @@ global $rtp_general;
 	</div><!-- end main-wrapper -->
 
         <?php wp_footer(); ?>
-<!--        <script type="text/javascript">
-            jQuery(window).load(function(){var last = jQuery('.sidebar-widget:nth-child(n+1)').attr('id');
-            var tlast = jQuery('.sidebar-widget:nth-child(n+2)').attr('id');
-            sticky_widgets('#'+last);
-            sticky_widgets('#'+tlast);
-            });
-            </script>-->
     </body><!-- end body -->
 </html><!-- end html -->
