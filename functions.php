@@ -6,9 +6,8 @@
  * @since rtPanel Theme 2.0
  */
 
-$rtp_general = get_option( 'rtp_general' );
-$rtp_post_comments = get_option( 'rtp_post_comments' );
-$rtp_hooks = get_option( 'rtp_hooks' );
+$rtp_general = get_option( 'rtp_general' ); // rtPanel General Options
+$rtp_post_comments = get_option( 'rtp_post_comments' ); // rtPanel Post & Comments Options
 
 /* ========== [ Define Directory Constants ] ========== */
 define( 'RTP_ADMIN', get_template_directory() . '/admin' );

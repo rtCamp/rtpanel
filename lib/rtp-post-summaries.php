@@ -1,39 +1,49 @@
 <?php
 /**
- * This file contains codes for post summaries with thumbnail
+ * The template containing functions related to Post Summaries
  *
  * @package rtPanel
  * @since rtPanel Theme 2.0
  */
 
-/* Post Summaries */
-/* ======================= */
 
-/* replacing [...] of the excerpt */
+/**
+ * Replaces [...] from the excerpt
+ *
+ * @param string $text
+ * @return string
+ * 
+ * @since rtPanel Theme 2.0
+ */
 function rtp_no_ellipsis( $text ) {
     global $post, $rtp_post_comments;
     $read_text =  ( !empty($rtp_post_comments['read_text'] ) ) ? $rtp_post_comments['read_text'] : '';
-    $text = str_replace( '[...]', '....', $text );
+    $text = str_replace( '[...]', '&hellip;', $text );
     $text .= apply_filters( 'rtp_readmore', ( ( $read_text ) ? '<a class="rtp-readmore" title="' . sprintf( __( 'Read More On %s', 'rtPanel' ), get_the_title() ) . '" href="' . get_permalink( $post->ID ) . '" rel="nofollow">' . esc_attr( $read_text ) . '</a>' : '' ));
     return $text;
 }
-
+add_filter( 'the_excerpt', 'rtp_no_ellipsis' );
 
 /**
- * Remove inline styles printed when the gallery shortcode is used.
+ * Remove inline styles printed when the gallery shortcode is used
  *
  * @return string The gallery style filter, with the styles themselves removed.
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_remove_gallery_css( $css ) {
     return preg_replace( "#<style type='text/css'>(.*?)</style>#s", '', $css );
 }
+add_filter( 'gallery_style', 'rtp_remove_gallery_css' );
 
 /**
  * Changes the excerpt default length
  *
  * @uses $rtp_post_comments array
- * @param int $length The Length
+ * @param int $length length
  * @return int
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_new_excerpt_length($length) {
     global $rtp_post_comments;
@@ -44,35 +54,59 @@ function rtp_new_excerpt_length($length) {
         return 55;
     }
 }
+add_filter( 'excerpt_length', 'rtp_new_excerpt_length' );
 
 /**
  * Prepends and Appends Braces to Read More text
  *
- * @param int $text The Read More text
+ * @param int $text read more text
  * @return string
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_readmore_braces($text) {
    return '<span class="rtp-courly-bracket">[ </span>'. $text .'<span class="rtp-courly-bracket"> ]</span>';
 }
-
 add_filter( 'rtp_readmore', 'rtp_readmore_braces' );
-add_filter( 'the_excerpt', 'rtp_no_ellipsis' );
-add_filter( 'gallery_style', 'rtp_remove_gallery_css' );
-add_filter( 'excerpt_length', 'rtp_new_excerpt_length' );
-
 
 /**
+ * Displays Attachment Image Thumbnail
  *
- * Gives the Required Thumbnails Size's Source
+ * @since rtPanel Theme 2.0
+ */
+function rtp_show_post_thumbnail() {
+    global $rtp_post_comments;
+    if ( !is_singular() && $rtp_post_comments['summary_show'] && $rtp_post_comments['thumbnail_show'] ) {
+        $thumbnail_frame = ( $rtp_post_comments['thumbnail_frame'] ) ? ' thumbnail-shadow' : '';
+        if ( has_post_thumbnail() ) { ?>
+            <span class="post-img<?php echo '-' . strtolower( $rtp_post_comments['thumbnail_position'] ); ?>">
+                    <a href="<?php echo get_permalink(); ?>" title="<?php echo get_the_title(); ?>"><?php the_post_thumbnail( 'thumbnail', array( 'class' => 'post_thumb'.$thumbnail_frame  ) ); ?></a>
+            </span><?php
+        } else {
+            $image = rtp_generate_thumbs();
+            $image = ( $image ) ? $image : apply_filters( 'rtp_default_image_path', '' );
+            if ( $image ) { ?>
+                <span class="post-img<?php echo '-' . strtolower( $rtp_post_comments['thumbnail_position'] ); ?>">
+                    <a href="<?php echo get_permalink(); ?>" title="<?php echo get_the_title(); ?>"><img class="post-thumb<?php echo $thumbnail_frame; ?> wp-post-image" alt="<?php echo get_the_title(); ?>" src="<?php echo ( $image ) ? $image : apply_filters( 'rtp_default_image_path', '' ) ; ?>" /></a>
+                </span><?php
+            }
+        }
+    }
+}
+
+/**
+ * Returns required thumbnail 'src' value
  *
  * IMPORTANT : To be used alongwith add_image_size( $name, $width = 0, $height = 0, $crop = FALSE )
  * incase being used for images other than content thumbnail
- * @uses $post object
+ *
  * @param int $attach_id The id of the featured image
- * @param string $size The image size required as output (Must be registered using
- * add_image_size or should use wordpress defaults like thumbnail, medium, full ..etc)
+ * @param string $size The image size required as output ( Must be registered using
+ * add_image_size or should use WordPress defaults like thumbnail, medium, large or full )
  * @param int $the_id The current post should be passed if function is used outside the loop
  * @return string
+ *
+ * @since rtPanel Theme 2.0
  */
 
 function rtp_generate_thumbs( $attach_id = null, $size = 'thumbnail', $the_id = '' ) {
@@ -88,7 +122,7 @@ function rtp_generate_thumbs( $attach_id = null, $size = 'thumbnail', $the_id = 
     if ( $attach_id ) {
         $image_src = wp_get_attachment_image_src( $attach_id, $size );
         return $image_src[0] ;
-    } elseif ( preg_match( '/<img.*src\s*=\s*"([^"]+)[^>]+>/i', $post->post_content, $match ) ) {
+    } elseif ( preg_match( '/<img\s.*?src="(.*?)".*?>/is', $post->post_content, $match ) ) {
 
        /* If the image is inserted into the post through media library
         * Catch the attachment's id from the first img tag's wp-image class
@@ -136,15 +170,16 @@ function rtp_generate_thumbs( $attach_id = null, $size = 'thumbnail', $the_id = 
     }
 }
 
-
 /**
- * Used to download and create img from src and attach to library
+ * Used to download and create image from src and attach to library
  *
  * @param array $match Array in which [0]->whole img tag and [1]->the img src
  * @param object|array $post The global post variable or object from get_posts()
  * @param string $size The image size required
  * @param array $double_check_tag Used to take care of the misleading wp-image class
  * @return string
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_create_external_thumb( $match, $post, $size, $double_check_tag = '' ) {
             $img_path = urldecode( $match[1] );
@@ -224,14 +259,11 @@ function rtp_create_external_thumb( $match, $post, $size, $double_check_tag = ''
                     'post_content' => $img_content,
                 );
 
-
                 // Save the attachment metadata
                 $new_image_id = wp_insert_attachment( $attachment, $img_info['file'], $post->ID );
 
-                if ( !is_wp_error($new_image_id) )
-                        wp_update_attachment_metadata( $new_image_id, wp_generate_attachment_metadata( $new_image_id, $img_info['file'] ) );
-
-                if ( !is_wp_error( $new_image_id ) && $new_image_id != '' ) {
+                if ( !is_wp_error( $new_image_id ) && ( $new_image_id != 0 ) && ( $new_image_id != '' ) ) {
+                    wp_update_attachment_metadata( $new_image_id, wp_generate_attachment_metadata( $new_image_id, $img_info['file'] ) );
                     $updated_post = array();
                     $updated_post['ID'] = $post->ID;
                     if ( is_int( $new_image_id ) ) {
@@ -290,8 +322,9 @@ function rtp_create_external_thumb( $match, $post, $size, $double_check_tag = ''
  * @uses $wpdb object
  * @param string $image_src The Image Source
  * @return int
+ *
+ * @since rtPanel Theme 2.0
  */
-
 function rtp_get_attachment_id_from_src( $image_src ) {
     global $wpdb;
     $query = "SELECT ID FROM {$wpdb->posts} WHERE guid='$image_src'";

@@ -28,6 +28,8 @@ jQuery(document).ready(function() {
     jQuery('#comment').blur( function() { if( this.value == '' ) this.value='Comment...' ; } );
     jQuery('#comment').focus( function() { if( this.value == 'Comment...' ) this.value=''; } );
 
+
+
     /* Show post edit and comment edit while over on post or comment */
     function rtp_edit_link( container ) {
         jQuery(container).hover(
@@ -68,3 +70,35 @@ jQuery(window).load( function(){
               jQuery('#'+id[aoid]).height(max);
    }
 });
+
+//function sticky_widgets(s) {
+//   //make sidebar widget stickyvar $scrollingDiv = jQuery(".sidebar-widget:last");
+//   var $scrollingDiv = jQuery(s);
+//   var side_top = jQuery('#sidebar').offset().top - parseFloat(jQuery('#sidebar').css('marginTop').replace(/auto/, 0));
+//  var top = jQuery($scrollingDiv).offset().top - parseFloat($scrollingDiv.css('marginTop').replace(/auto/, 0));
+//  var bottom = side_top + jQuery( '#content' ).height() - parseFloat(jQuery('#content').css('margin-bottom').replace(/auto/, 0));
+//  jQuery(window).scroll(function (event) {
+//    // what the y position of the scroll is
+//    var y = jQuery(this).scrollTop();
+//    var z = y + $scrollingDiv.height();
+//
+//    // whether that's below the form
+//    if (y >= top && z<bottom ) {
+//      // if so, ad the fixed class
+//      $scrollingDiv.addClass('fixed-widget');
+//      $scrollingDiv.removeClass( 'fixed-bottom' );
+//      $scrollingDiv.each(function(idx,el){
+//                el.style.bottom='';
+//            });
+//    } else {
+//      // otherwise remove it
+//      if(z>bottom)
+//      $scrollingDiv.addClass( 'fixed-bottom' );
+////      //jQuery( '.fixed-bottom' ).css( 'bottom',jQuery( '#footer-wrapper' ).height());
+//      $scrollingDiv.removeClass('fixed-widget');
+//    }
+//  });
+//}
+  
+
+  

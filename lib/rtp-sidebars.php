@@ -1,20 +1,20 @@
 <?php
 /**
- * The template for Register Sidebars
- * Currently Two Sidebar's are registered in this template
+ * The template used to register sidebars
  *
  * @package rtPanel
  * @since rtPanel Theme 2.0
  */
 
-add_action( 'widgets_init', 'rtp_widgets_init' );
-
+/**
+ * Registers the sidebars
+ *
+ * @since rtPanel Theme 2.0
+ */
 function rtp_widgets_init() {
-global $rtp_general;
-    /**
-     * Register Right Sidebar Widget
-     */
+    global $rtp_general;
 
+    // Register Sidebar Widget
     register_sidebar( array(
         'name' => __( 'Sidebar Widgets', 'rtPanel' ),
         'id' => 'sidebar-widgets',
@@ -24,10 +24,7 @@ global $rtp_general;
         'after_title' => '</h3>',
     ) );
 
-
-    /**
-     * Register Footer Widget
-     */
+    // Register Footer Widget
     if ( $rtp_general['footer_sidebar'] ) {
          register_sidebar( array(
             'name' => __( 'Footer Widgets', 'rtPanel' ),
@@ -39,3 +36,4 @@ global $rtp_general;
         ) );
     }
 }
+add_action( 'widgets_init', 'rtp_widgets_init' );

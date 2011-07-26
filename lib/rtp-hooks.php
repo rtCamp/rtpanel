@@ -1,77 +1,124 @@
 <?php
-/* 
- * The template contain all hooks in rtPanel
+/**
+ * The template containing all hooks in rtPanel
  *
  * @package rtPanel
  * @since rtPanel Theme 2.0
  */
 
-/** for adding content before #header */
+/**
+ * For adding content before #header
+ *
+ * @since rtPanel Theme 2.0
+ */
 function rtp_hook_before_header() {
     do_action( 'rtp_hook_before_header' );
 }
 
-/** for adding content after #header */
+/**
+ * For adding content after #header
+ *
+ * @since rtPanel Theme 2.0
+ */
 function rtp_hook_after_header() {
     do_action( 'rtp_hook_after_header' );
 }
 
-/** for adding content before site logo*/
+/**
+ * For adding content before site logo
+ *
+ * @since rtPanel Theme 2.0
+ */
 function rtp_hook_before_logo() {
     do_action( 'rtp_hook_before_logo' );
 }
 
-/** for adding content after site logo */
+/**
+ * For adding content after site logo
+ *
+ * @since rtPanel Theme 2.0
+ */
 function rtp_hook_after_logo() {
     do_action( 'rtp_hook_after_logo' );
 }
 
-/** for adding content after #content-wrapper begins */
+/**
+ * For adding content at the beginning of #content-wrapper
+ *
+ * @since rtPanel Theme 2.0
+ */
 function rtp_hook_begin_content_wrapper() {
     do_action( 'rtp_hook_begin_content_wrapper' );
 }
 
-/** for adding content before #content-wrapper ends */
+/**
+ * For adding content at the end of #content-wrapper
+ *
+ * @since rtPanel Theme 2.0
+ */
 function rtp_hook_end_content_wrapper() {
     do_action( 'rtp_hook_end_content_wrapper' );
 }
 
-/** for adding content after #content begins */
+/**
+ * For adding content at the beginning of #content
+ *
+ * @since rtPanel Theme 2.0
+ */
 function rtp_hook_begin_content() {
     do_action( 'rtp_hook_begin_content' );
 }
 
-/** for adding content before #content ends */
+/**
+ * For adding content at the end of #content
+ *
+ * @since rtPanel Theme 2.0
+ */
 function rtp_hook_end_content() {
     do_action( 'rtp_hook_end_content' );
 }
 
-/** for adding content after .post begins */
+/**
+ * For adding content at the beginning of .post
+ *
+ * @since rtPanel Theme 2.0
+ */
 function rtp_hook_begin_post() {
     do_action( 'rtp_hook_begin_post' );
 }
 
-/** for adding content before .post ends */
+/**
+ * For adding content at the end of .post
+ *
+ * @since rtPanel Theme 2.0
+ */
 function rtp_hook_end_post() {
     do_action( 'rtp_hook_end_post' );
 }
 
-/** for adding content before post's title appears. */
+/**
+ * For adding content before post's title appears
+ *
+ * @since rtPanel Theme 2.0
+ */
 function rtp_hook_begin_post_title() {
     do_action( 'rtp_hook_begin_post_title' );
 }
 
-/** for adding content after post's title appears. */
+/**
+ * For adding content after post's title appears
+ *
+ * @since rtPanel Theme 2.0
+ */
 function rtp_hook_end_post_title() {
     do_action( 'rtp_hook_end_post_title' );
 }
 
-/** for adding content before post's meta appears. */
-function rtp_hook_begin_post_meta_top() {
-    do_action( 'rtp_hook_begin_post_meta_top' );
-}
-
-/** for displaying default rtp post's meta. */
+/**
+ * For displaying default post's meta
+ *
+ * @since rtPanel Theme 2.0
+ */
 function rtp_hook_post_meta( $placement ) {
     if( $placement == 'bottom' )
         do_action( 'rtp_hook_post_meta_bottom', $placement );
@@ -79,48 +126,92 @@ function rtp_hook_post_meta( $placement ) {
         do_action( 'rtp_hook_post_meta_top', $placement );
 }
 
-/** for adding content after post's meta appears. */
+/**
+ * For adding content before post's meta that appears on top
+ *
+ * @since rtPanel Theme 2.0
+ */
+function rtp_hook_begin_post_meta_top() {
+    do_action( 'rtp_hook_begin_post_meta_top' );
+}
+
+/**
+ * For adding content after post's meta that appears on top
+ *
+ * @since rtPanel Theme 2.0
+ */
 function rtp_hook_end_post_meta_top() {
     do_action( 'rtp_hook_end_post_meta_top' );
 }
 
-/** for adding content before post's meta appears.
+/**
+ * For adding content before post's meta that appears at bottom
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_hook_begin_post_meta_bottom() {
     do_action( 'rtp_hook_begin_post_meta_bottom' );
 }
 
-/** for adding content after post's meta appears. */
+/**
+ * For adding content after post's meta that appears at the bottom
+ *
+ * @since rtPanel Theme 2.0
+ */
 function rtp_hook_end_post_meta_bottom() {
     do_action( 'rtp_hook_end_post_meta_bottom' );
 }
 
-/** for adding content before post-content begins */
+/**
+ * For adding content at the beginning of post content
+ *
+ * @since rtPanel Theme 2.0
+ */
 function rtp_hook_begin_post_content() {
     do_action( 'rtp_hook_begin_post_content' );
 }
 
-/** for adding content after post-content ends */
+/**
+ * For adding content at the end of post content
+ *
+ * @since rtPanel Theme 2.0
+ */
 function rtp_hook_end_post_content() {
     do_action( 'rtp_hook_end_post_content' );
 }
 
-/** for adding content after #sidebar begins */
+/**
+ * For adding content at the beginning of #sidebar
+ *
+ * @since rtPanel Theme 2.0
+ */
 function rtp_hook_begin_sidebar() {
     do_action( 'rtp_hook_begin_sidebar' );
 }
 
-/** for adding content before #sidebar ends */
+/**
+ * For adding content at the end of #sidebar
+ *
+ * @since rtPanel Theme 2.0
+ */
 function rtp_hook_end_sidebar() {
     do_action( 'rtp_hook_end_sidebar' );
 }
 
-/** for adding content before #footer */
+/**
+ * For adding content before #footer
+ *
+ * @since rtPanel Theme 2.0
+ */
 function rtp_hook_before_footer() {
     do_action( 'rtp_hook_before_footer' );
 }
 
-/** for adding content after #footer */
+/**
+ * For adding content after #footer
+ *
+ * @since rtPanel Theme 2.0
+ */
 function rtp_hook_after_footer() {
     do_action( 'rtp_hook_after_footer' );
 }

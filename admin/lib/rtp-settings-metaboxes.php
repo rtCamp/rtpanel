@@ -1,6 +1,6 @@
 <?php
 /**
- * It contains the markup for displaying rtPanel.
+ * rtPanel Metaboxes.
  *
  * @package rtPanel
  * @since rtPanel Theme 2.0
@@ -8,9 +8,11 @@
 
 /**
  * Used to register the General and Post Comments Tab on admin_init tag
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_admin_init_general() {
-    /* Registers our settings. */
+    // Registers our settings.
     register_setting( 'general_settings', 'rtp_general', 'rtp_general_validate' );
     register_setting( 'post_comment_settings', 'rtp_post_comments', 'rtp_post_comments_validate' );
 }
@@ -19,6 +21,8 @@ add_action( 'admin_init', 'rtp_admin_init_general' );
 /**
  * Metabox for Logo Settings (General Tab)
  * @uses $rtp_general array
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_logo_option_metabox() {
     global $rtp_general; ?>
@@ -35,7 +39,8 @@ function rtp_logo_option_metabox() {
             <tr valign="top" class="show-fields-logo">
                 <th scope="row">
                     <input type="radio" name="rtp_general[use_logo]" value="use_logo_url" id="use_logo_url" class="rtp_logo" <?php checked( 'use_logo_url', $rtp_general['use_logo'] ); ?> />
-                    <label for="use_logo_url"><?php _e( 'Logo URL', 'rtPanel' ); ?></label></th>
+                    <label for="use_logo_url"><?php _e( 'Logo URL', 'rtPanel' ); ?></label>
+                </th>
                 <td class="img-preview">
                     <input<?php disabled( 'use_logo_upload', $rtp_general['use_logo'] ); ?> type="text" value="<?php echo $rtp_general['logo_url']; ?>" name="rtp_general[logo_url]" size="40" id="logo_url" /><br />
                     <span class="description"><label class="example" for="logo_url"><?php _e( 'Eg. http://www.example.com/logo.jpg', 'rtPanel' ); ?></label></span>
@@ -77,7 +82,10 @@ function rtp_logo_option_metabox() {
 
 /**
  * Metabox for Favicon Settings (General Tab)
+ *
  * @uses $rtp_general array
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_fav_option_metabox() {
     global $rtp_general; ?>
@@ -120,7 +128,10 @@ function rtp_fav_option_metabox() {
 
 /**
  * Metabox for Feedburner Settings (General Tab)
+ *
  * @uses $rtp_general array
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_feed_option_metabox() {
     global $rtp_general; ?>
@@ -145,7 +156,10 @@ function rtp_feed_option_metabox() {
 
 /**
  * Metabox for Misc Settings (General Tab)
+ * 
  * @uses $rtp_general array
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_sidebar_options_metabox() {
     global $rtp_general; ?>
@@ -171,7 +185,10 @@ function rtp_sidebar_options_metabox() {
 
 /**
  * Metabox for Google Custom Search Integration (General Tab)
+ * 
  * @uses $rtp_general array
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_google_search_metabox() {
     global $rtp_general; ?>
@@ -205,14 +222,17 @@ function rtp_google_search_metabox() {
 
 /**
  * Metabox for Custom Styles for Overwrite Default Styles
+ * 
  * @uses $rtp_general array
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_custom_styles_metabox() {
     global $rtp_general; ?>
     <table class="form-table">
         <tbody>
             <tr valign="top">
-                <th scope="row"><label for="custom_styles"><?php _e( 'Add your CSS here >>', 'rtPanel' ); ?></label></th>
+                <th scope="row"><label for="custom_styles"><?php _e( 'Add your CSS here &rarr;', 'rtPanel' ); ?></label></th>
                 <td>
                     <textarea cols="33" rows="5" name="rtp_general[custom_styles]" id="custom_styles"><?php echo $rtp_general['custom_styles']; ?></textarea><br />
                     <span class="description"><label for="custom_styles"><?php _e( 'Add your extra CSS rules here. No need to use !important. Rules written above will be loaded last.', 'rtPanel' ); ?></label></span>
@@ -230,9 +250,10 @@ function rtp_custom_styles_metabox() {
 
 /**
  * Metabox for Plugin Support (General Tab)
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_plugin_metabox() {
-    
     $plugins = get_plugins();
     $subscribe_activate = wp_create_nonce( RTP_SUBSCRIBE_TO_COMMENTS . '-activate' );
     $subscribe_deactivate = wp_create_nonce( RTP_SUBSCRIBE_TO_COMMENTS . '-deactivate' );
@@ -344,8 +365,11 @@ function rtp_plugin_metabox() {
 }
 
 /**
- * Metabox for Google Custom Search Integration (General Tab)
+ * Metabox for rtPanel Options Backup and Restore (General Tab)
+ * 
  * @uses $rtp_general array
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_backup_metabox() {
     global $rtp_general; ?>
@@ -371,7 +395,10 @@ function rtp_backup_metabox() {
 
 /**
  * Metabox for Post Summary Settings (Post & Comments Tab)
+ * 
  * @uses $rtp_post_comments array
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_post_summaries_metabox() {
         global $rtp_post_comments; ?>
@@ -410,7 +437,10 @@ function rtp_post_summaries_metabox() {
 
 /**
  * Metabox for Post Thumbnail Settings (Post & Comments Tab)
+ * 
  * @uses $rtp_post_comments array
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_post_thumbnail_metabox() {
         global $rtp_post_comments;
@@ -480,7 +510,10 @@ function rtp_post_thumbnail_metabox() {
 
 /**
  * Metabox for Post Meta Settings (Post & Comments Tab)
+ *
  * @uses $rtp_post_comments array
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_post_meta_metabox() {
         global $rtp_post_comments;
@@ -621,7 +654,10 @@ function rtp_post_meta_metabox() {
 
 /**
  * Metabox for Comment Form Settings (Post & Comments Tab)
+ *
  * @uses $rtp_post_comments array
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_comment_form_metabox() {
         global $rtp_post_comments; ?>
@@ -662,7 +698,10 @@ function rtp_comment_form_metabox() {
 
 /**
  * Metabox for Gravatar Settings (Post & Comments Tab)
+ *
  * @uses $rtp_post_comments array
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_gravatar_metabox() {
         global $rtp_post_comments; ?>
@@ -679,12 +718,12 @@ function rtp_gravatar_metabox() {
                         <th scope="row"><p><label for="gravatar_size"><?php _e( 'Gravatar Size', 'rtPanel' ); ?></label></p></th>
                         <td>
                             <select name="rtp_post_comments[gravatar_size]" id="gravatar_size">
-                                <option value="32 x 32" <?php selected( '32 x 32', $rtp_post_comments['gravatar_size'] ); ?>>32px X 32px</option>
-                                <option value="40 x 40" <?php selected( '40 x 40', $rtp_post_comments['gravatar_size'] ); ?>>40px X 40px</option>
-                                <option value="48 x 48" <?php selected( '48 x 48', $rtp_post_comments['gravatar_size'] ); ?>>48px X 48px</option>
-                                <option value="56 x 56" <?php selected( '56 x 56', $rtp_post_comments['gravatar_size'] ); ?>>56px X 56px</option>
-                                <option value="64 x 64" <?php selected( '64 x 64', $rtp_post_comments['gravatar_size'] ); ?>>64px X 64px</option>
-                                <option value="96 x 96" <?php selected( '96 x 96', $rtp_post_comments['gravatar_size'] ); ?>>96px X 96px</option>
+                                <option value="32" <?php selected( '32', $rtp_post_comments['gravatar_size'] ); ?>>32px X 32px</option>
+                                <option value="40" <?php selected( '40', $rtp_post_comments['gravatar_size'] ); ?>>40px X 40px</option>
+                                <option value="48" <?php selected( '48', $rtp_post_comments['gravatar_size'] ); ?>>48px X 48px</option>
+                                <option value="56" <?php selected( '56', $rtp_post_comments['gravatar_size'] ); ?>>56px X 56px</option>
+                                <option value="64" <?php selected( '64', $rtp_post_comments['gravatar_size'] ); ?>>64px X 64px</option>
+                                <option value="96" <?php selected( '96', $rtp_post_comments['gravatar_size'] ); ?>>96px X 96px</option>
                             </select>
                         </td>
                     </tr>

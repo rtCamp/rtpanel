@@ -1,68 +1,38 @@
 <?php
 /**
- * Any code to be run after theme is activated here
+ * Any code that runs on initialization of rtPanel theme
  *
  * @package rtPanel
  * @since rtPanel Theme 2.0
  */
 
-    /**
-     * Set the content width based on the theme's design and stylesheet.
+/**
+ * Sets the content's width based on the theme's design and stylesheet
  *
  * Used to set the width of images and content. Should be equal to the width the theme
  * is designed for, generally via the style.css stylesheet.
  */
 $content_width = ( isset( $content_width ) ) ? $content_width : 620;
 
-/**
- * Tell WordPress to run rtpanel_setup() when the 'after_setup_theme' hook is run
- */
-add_action( 'after_setup_theme', 'rtpanel_setup' );
-
 if ( !function_exists( 'rtpanel_setup' ) ) {
-
     /**
+     * Sets up rtPanel theme
      *
      * @uses add_theme_support() To add support for post thumbnails and automatic feed links.
      * @uses register_nav_menus() To add support for navigation menus.
      *
+     * @since rtPanel Theme 2.0
      */
     function rtpanel_setup() {
         global $rtp_general;
-        /**
-         * This theme uses post thumbnails
-         */
-
-	add_theme_support( 'post-thumbnails' );
-
-        /**
-         * Add default posts and comments RSS feed links to head
-         */
-
-	add_theme_support( 'automatic-feed-links' );
-
-        /**
-         * This theme styles the visual editor with editor-style.css to match the theme style.
-         */
-
-        add_editor_style( './css/rtp-editor-style.css' );
-
-        /**
-         * Load the text domain
-         */
-
-        load_theme_textdomain( 'rtPanel', TEMPLATEPATH . '/languages' );
-
-        /**
-         * Custom background from Admin Panel
-         */
-
-        add_custom_background();
-
-        /**
-         * Don't support text inside the header image.
-         */
-
+        rtp_theme_setup_values();
+	add_theme_support( 'post-thumbnails' ); // This theme uses post thumbnails
+	add_theme_support( 'automatic-feed-links' ); // Add default posts and comments RSS feed links to head
+        add_editor_style( './css/rtp-editor-style.css' ); // This theme styles the visual editor with editor-style.css to match the theme style.
+        load_theme_textdomain( 'rtPanel', TEMPLATEPATH . '/languages' ); // Load the text domain
+        add_custom_background(); // Add support for custom background
+        
+        // Don't support text inside the header image
         if ( !defined( 'NO_HEADER_TEXT' ) ) {
             define( 'NO_HEADER_TEXT', true );
         }
@@ -73,24 +43,26 @@ if ( !function_exists( 'rtpanel_setup' ) ) {
 
         /**
          * adding support for the header image
-         * Usas: uncomment add_custom_image_header()
          */
-
         add_custom_image_header( 'rtp_header_style', 'rt_admin_header_style' );
 
-        /**
-         * gets included in the admin header
-         */
         if ( !function_exists( 'rt_admin_header_style' ) ) {
+            /**
+             * Admin header preview styling
+             *
+             * @since rtPanel Theme 2.0
+             */
             function rt_admin_header_style() { ?>
                 <style type="text/css">  #headimg { width: <?php echo HEADER_IMAGE_WIDTH; ?>px; height: <?php echo HEADER_IMAGE_HEIGHT; ?>px; } </style><?php
             }
         }
 
-        /**
-         * Gets included in the site header
-         */
         if ( !function_exists( 'rtp_header_style' ) ) {
+            /**
+             * Site header styling
+             *
+             * @since rtPanel Theme 2.0
+             */
             function rtp_header_style() {
                 if ( get_header_image() ) { ?>
                     <style type="text/css"> #header-wrapper { background: url(<?php header_image(); ?>) no-repeat;width: <?php echo HEADER_IMAGE_WIDTH; ?>px; height: <?php echo HEADER_IMAGE_HEIGHT; ?>px; } </style><?php
@@ -98,53 +70,48 @@ if ( !function_exists( 'rtpanel_setup' ) ) {
             }
         }
 
-        /**
-         * This theme uses wp_nav_menu() in one location
-         */
+        // Makes use of wp_nav_menu() for navigation purpose
 	register_nav_menus( array(
             'primary' => __( 'Primary Navigation', 'rtPanel' )
 	) );
 
-        /**
-         * @return string returns dynamic meta description
-         */
-        function rtp_meta_description() {
-            global $post;
-            $rawcontent = $post->post_content;
-            if ( empty( $rawcontent ) ) {
-                $rawcontent = htmlentities( bloginfo( 'description' ) );
-            } else {
-                $rawcontent = apply_filters( 'the_content_rss', strip_tags( $rawcontent ) );
-                $rawcontent = preg_replace('/\[.+\]/','', $rawcontent);
-                $chars = array( "", "\n", "\r", "chr(13)",  "\t", "\0", "\x0B" );
-                $rawcontent = htmlentities( str_replace( $chars, " ", $rawcontent ) );
-            }
-            if ( strlen( $rawcontent ) < 155 ) {
-                echo $rawcontent;
-            } else {
-                $desc = substr( $rawcontent, 0, 155 );
-                return $desc;
+        if ( !function_exists( 'rtp_meta_description' ) ) {
+            /**
+             * Returns meta description
+             *
+             * @return string
+             *
+             * @since rtPanel Theme 2.0
+             */
+            function rtp_meta_description() {
+                global $post;
+                the_excerpt_rss();
+                $rawcontent = $post->post_content;
+                if ( empty( $rawcontent ) ) {
+                    $rawcontent = html_entity_decode( get_bloginfo( 'description', 'abc' ) );
+                } else {
+                    $rawcontent = apply_filters( 'the_content_rss', strip_tags( $rawcontent ) );
+                    $rawcontent = strip_shortcodes( $rawcontent );
+                    $chars = array( "", "\n", "\r", "chr(13)",  "\t", "\0", "\x0B" );
+                    $rawcontent = str_replace( $chars, " ", $rawcontent );
+                    $rawcontent = html_entity_decode( $rawcontent );
+                }
+                return substr( $rawcontent, 0, 155 );
             }
         }
-
     }
 }
 
-/**
- * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
- */
-function rtp_page_menu_args( $args ) {
-    $args['show_home'] = true;
-    return $args;
-}
-add_filter( 'wp_page_menu_args', 'rtp_page_menu_args' );
-
+// Tell WordPress to run rtpanel_setup() when the 'after_setup_theme' hook is run
+add_action( 'after_setup_theme', 'rtpanel_setup' );
 
 /**
- * Includes Scripts in the Header
- * Files which attached in rtp_header_scripts() function should append in wp_head();
+ * Includes Styles in the Header
+ * Files which are attached in rtp_header_styles() should append in wp_head();
+ *
+ * @since rtPanel Theme 2.0
  */
-function rtp_header_scripts() { ?>
+function rtp_header_styles() { ?>
     <!--[if IE 7 ]>
         <link rel="stylesheet" href="<?php echo RTP_CSS_FOLDER_URL; ?>/rtp-ie7.css"  />
     <![endif]-->
@@ -156,30 +123,16 @@ function rtp_header_scripts() { ?>
     <?php
         global $rtp_general;
         echo ( $rtp_general['custom_styles'] ) ? '<style type="text/css">' . $rtp_general['custom_styles'] . '</style>' : '';
-    ?>
-
-<?php }
-add_action( 'wp_head', 'rtp_header_scripts' );
+}
+add_action( 'wp_head', 'rtp_header_styles' );
 
 /**
  * Includes Scripts in the footer
- * Files which attached in rtp_footer_scripts() function should append in wp_footer();
+ * Files which are attached in rtp_footer_scripts() should append in wp_footer();
+ *
+ * @since rtPanel Theme 2.0
  */
-function rtp_footer_scripts() {
-
-       /**
-        * Note : Below code Paste in (<!--[if lt IE 9]>  <![endif]-->) below condition
-        * for rounded corners in IE and PNG Fix in ie6
-        * Uses:
-        * <!--[if lt IE 9]>
-        *   *** Paste below code here ***
-        * <![endif]-->
-        */
-
-       /**
-        * <script type="text/javascript" src="<?php echo RTP_JS_FOLDER_URL; ?>/DD_roundies.js"></script>
-        */
-    ?>
+function rtp_footer_scripts() { ?>
     <!--[if lt IE 9]>
         <script type="text/javascript" src="<?php echo RTP_JS_FOLDER_URL; ?>/rtp-custom-ie.js"></script>
     <![endif]-->

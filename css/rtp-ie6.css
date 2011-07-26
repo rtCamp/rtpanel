@@ -1,9 +1,13 @@
-/*
+/**
  * Custom CSS for IE6 Browser
+ *
+ * @package rtPanel
+ * @since rtPanel Theme 2.0
  */
+
 legend{ margin-left: -7px; } /* thnx ivannikolic! */
 input { vertical-align: text-bottom; }
-.clear { height: 0px; overflow: hidden; } /* ie6 : height issue */
+.clear { height: 0px; overflow: hidden; } /* height issue */
 div.comment-body { height: 100%; }
 .clearfix { zoom: 1; } /* IE < 8 */
 #respond, .commentlist .comment .comment-body { height: 100%; }

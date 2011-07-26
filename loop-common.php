@@ -50,7 +50,7 @@ if ( ! have_posts() ) : ?>
         <div class="post-content">
             <p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'rtPanel' ); ?></p>
             <?php get_search_form(); ?>
-        </div><!-- .entry-content -->
+        </div>
         <?php rtp_hook_end_post();/* rtpanel_hook for adding content before .rtp-post-box ends */ ?>
     </div><!-- end post_class -->
 <?php endif;
@@ -70,27 +70,27 @@ if ( have_posts () ) :
     while( have_posts() ) : the_post(); ?>
         
         <div <?php post_class( 'rtp-post-box' ); ?>> <!-- post_class begins -->
-            <?php rtp_hook_begin_post(); /* rtpanel_hook for adding content after .rtp-post-box begins */?>
+            <?php rtp_hook_begin_post(); // rtpanel_hook for adding content after .rtp-post-box begins ?>
             <div class="post-title"> <!-- post-title begins -->
                 <?php
-                        rtp_hook_begin_post_title(); /* rtpanel_hook for adding content before post's title appears. */
+                        rtp_hook_begin_post_title(); // rtpanel_hook for adding content before post's title appears.
                         /* ========== [ Call Post Title ] ========== */
                         if ( is_singular() ) { ?>
                         <h1><?php the_title(); ?></h1>
                 <?php } else { ?>
                         <h2><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permanent Link to %s', 'rtPanel' ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a></h2>
                 <?php } ?>
-                <?php rtp_hook_end_post_title(); /* rtpanel_hook for adding content after post's title appears. */ ?>
+                <?php rtp_hook_end_post_title(); // rtpanel_hook for adding content after post's title appears. ?>
                 <div class="clear"></div>
             </div><!-- end post-title -->
 
-            <?php rtp_hook_post_meta( 'top' ); /* displays rtp post meta top */ ?>
+            <?php rtp_hook_post_meta( 'top' ); // displays post meta top ?>
             
             <div class="post-content"> <!-- post-content begins -->
                 <?php 
-                        rtp_hook_begin_post_content(); /* rtpanel_hook for adding content before post-content begins */
+                        rtp_hook_begin_post_content(); // rtpanel_hook for adding content before post-content begins
 
-                        rtp_show_post_thumbnail(); /* Displays post thumbnail */
+                        rtp_show_post_thumbnail(); // Displays post thumbnail
                         
                         /* ========== [ Call Post Content ] ========== */
                         if ( is_singular() || !$rtp_post_comments['summary_show'] ) {
@@ -100,14 +100,14 @@ if ( have_posts () ) :
                             the_excerpt();
                         }
 
-                        rtp_hook_end_post_content(); /* rtpanel_hook for adding content after post-content ends */
+                        rtp_hook_end_post_content(); // rtpanel_hook for adding content after post-content ends
                 ?>
                 <div class="clear"></div>
             </div> <!-- end post-content -->
             
-            <?php rtp_hook_post_meta( 'bottom' ); /* displays rtp post meta bottom */ ?>
+            <?php rtp_hook_post_meta( 'bottom' ); // displays post meta bottom ?>
             
-            <?php rtp_hook_end_post();/* rtpanel_hook for adding content before .rtp-post-box ends */ ?>
+            <?php rtp_hook_end_post();// rtpanel_hook for adding content before .rtp-post-box ends ?>
             
         </div><!-- end post_class -->        
         <?php

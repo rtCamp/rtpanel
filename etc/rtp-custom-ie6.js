@@ -6,6 +6,7 @@
  */
 
 jQuery(document).ready(function() {
+
     /* Admin Comment Support */
     jQuery("li.comment-author-admin > div.comment-body").addClass("rtp-admin-comment");
     jQuery("li.byuser > div.comment-body").addClass("rtp-admin-comment");
@@ -21,4 +22,14 @@ jQuery(document).ready(function() {
     
     /* IE6 Submit Hover */
     jQuery("#submit").hover( function() { jQuery(this).addClass("submit-over"); }, function() { jQuery(this).removeClass("submit-over"); } )
+
 });
+
+    /**
+     * PNG Fix for IE6
+     *
+     * uses: for pngfix in ie6, goto rtp_footer_scripts() function in lib -> rtp-init.php file and activate DD_roundies.js
+     * after that uncomment following code and insert selector replacing "#selector" selector
+     */
+    
+    /* DD_roundies.addRule('#selector'); */

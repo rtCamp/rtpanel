@@ -6,17 +6,16 @@
  * @since rtPanel Theme 2.0
  */
 
-
 /**
  * Displays The General Options tab
  *
  * @uses $screen_layout_columns int
  * @param string $pagehook The page hook
+ *
+ * @since rtPanel Theme 2.0
  */
- 
 function rtp_general_options_page( $pagehook ) {
-    global $screen_layout_columns;
-?>
+    global $screen_layout_columns; ?>
 
     <div class="options-main-container">
         <?php settings_errors(); ?>
@@ -36,7 +35,6 @@ function rtp_general_options_page( $pagehook ) {
                         <div id="post-body-content" class="has-sidebar-content">
                             <?php settings_fields( 'general_settings' ); ?>
                             <?php do_meta_boxes( $pagehook, 'normal', '' ); ?>
-                            
                         </div>
                     </div>
                     <br class="clear"/>
@@ -55,7 +53,6 @@ function rtp_general_options_page( $pagehook ) {
                     //]]>
                 </script>
             </form>
-            
         </div>
     </div><?php
 }

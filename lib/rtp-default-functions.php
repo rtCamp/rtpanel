@@ -1,15 +1,18 @@
 <?php
 /* 
- * rtPanel default functions
+ * The template containing default rtPanel functions
  *
  * @package rtPanel
  * @since rtPanel Theme 2.0
  */
 
 /**
- * Displays default post meta
+ * Displays default post meta.
+ *
  * @uses $rtp_post_comments Post Comments DB array
  * @param string $placement Specify the position of the post meta (top/bottom)
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_default_post_meta( $placement ) { ?>
     <?php if ( !is_page() ) {
@@ -17,10 +20,12 @@ function rtp_default_post_meta( $placement ) { ?>
 
             <div class="post-meta post-meta-<?php echo $placement; ?>"><!-- post-meta begins -->
 
-                <?php if( $placement == 'bottom' )  rtp_hook_begin_post_meta_bottom(); /* rtpanel_hook for adding content after post bottom meta appears. */
-                        else rtp_hook_begin_post_meta_top(); /* rtpanel_hook for adding content before post top meta appears. */
+            <?php if( $placement == 'bottom' )
+                    rtp_hook_begin_post_meta_bottom(); // rtpanel_hook for adding content after post meta bottom appears.
+                else
+                    rtp_hook_begin_post_meta_top(); // rtpanel_hook for adding content before post meta top appears.
 
-                        $position = ( $placement == 'bottom' ) ? 'l' : 'u'; ?>
+                        $position = ( $placement == 'bottom' ) ? 'l' : 'u'; // l = Lower/Bottom , u = Upper/Top ?>
 
                 <!-- ========== [ Call Author Link ] ========== -->
                 <p class="alignleft post-publish"><?php
@@ -34,7 +39,7 @@ function rtp_default_post_meta( $placement ) { ?>
                 </p>
 
                 <!-- ========== [ Call Comments ] ========== -->
-                <?php if ( comments_open() && $position == 'u' ) { ?>
+                <?php if ( comments_open() && $position == 'u' ) { // If post meta is set to top then only display the comment count. ?>
                     <p class="alignright rtp-post-comment-count"><span class="rtp-courly-bracket">{</span><?php comments_popup_link( __( '<span>0</span> Comments', 'rtPanel' ), __( '<span>1</span> Comment', 'rtPanel' ), __( '<span>%</span> Comments', 'rtPanel' ), 'rtp-post-comment' ); ?><span class="rtp-courly-bracket">}</span></p>
                 <?php } ?>
                 <div class="clear"></div>
@@ -54,17 +59,20 @@ function rtp_default_post_meta( $placement ) { ?>
                 }
 
                 if( $placement == 'bottom' )
-                    rtp_hook_end_post_meta_bottom(); /* rtpanel_hook for adding content after post bottom meta appears. */
+                    rtp_hook_end_post_meta_bottom(); /* rtpanel_hook for adding custom content after post meta bottom appears. */
                 else
-                    rtp_hook_end_post_meta_top(); /* rtpanel_hook for adding content before post top meta appears. */ ?>
+                    rtp_hook_end_post_meta_top(); /* rtpanel_hook for adding custom content before post meta top appears. */ ?>
             </div><!-- end post-meta --><?php
         }
  }
-add_action('rtp_hook_post_meta_top','rtp_default_post_meta'); /* Adds rtp default post meta top */
-add_action('rtp_hook_post_meta_bottom','rtp_default_post_meta'); /* Adds rtp default post meta bottom */
+
+add_action('rtp_hook_post_meta_top','rtp_default_post_meta'); /* Adds default post meta top */
+add_action('rtp_hook_post_meta_bottom','rtp_default_post_meta'); /* Adds default post meta bottom */
 
 /**
  * Displays default primary nav menu
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_default_nav_menu() {
      echo '<div id="rtp-primary-menu">';
@@ -78,33 +86,15 @@ function rtp_default_nav_menu() {
         }
     echo '</div>';
 }
-add_action('rtp_hook_after_header','rtp_default_nav_menu'); /* Adds rtp default nav menu after #header */
+add_action('rtp_hook_after_header','rtp_default_nav_menu'); /* Adds default nav menu after #header */
 
 /**
- * Displays Attachment Image Thumbnail
+ * Displays an edit link for the post/page
+ *
+ * @since rtPanel Theme 2.0
  */
-function rtp_show_post_thumbnail() {
-    global $rtp_post_comments;
-    if ( !is_singular() && $rtp_post_comments['summary_show'] && $rtp_post_comments['thumbnail_show'] ) {
-        $thumbnail_frame = ( $rtp_post_comments['thumbnail_frame'] ) ? ' thumbnail-shadow' : '';
-        if ( has_post_thumbnail() ) { ?>
-            <span class="post-img<?php echo '-' . strtolower( $rtp_post_comments['thumbnail_position'] ); ?>">
-                    <a href="<?php echo get_permalink(); ?>" title="<?php echo get_the_title(); ?>"><?php the_post_thumbnail( 'thumbnail', array( 'class' => 'post_thumb'.$thumbnail_frame  ) ); ?></a>
-            </span><?php
-        } else {
-            $image = rtp_generate_thumbs();
-            $image = ( $image ) ? $image : apply_filters( 'rtp_default_image_path', '' );
-            if ( $image ) { ?>
-                <span class="post-img<?php echo '-' . strtolower( $rtp_post_comments['thumbnail_position'] ); ?>">
-                    <a href="<?php echo get_permalink(); ?>" title="<?php echo get_the_title(); ?>"><img class="post-thumb<?php echo $thumbnail_frame; ?> wp-post-image" alt="<?php echo get_the_title(); ?>" src="<?php echo ( $image ) ? $image : apply_filters( 'rtp_default_image_path', '' ) ; ?>" /></a>
-                </span><?php
-            }
-        }
-    }
-}
-
-add_action('rtp_hook_end_post_meta_top', 'rtp_edit_link');
 function rtp_edit_link() {
     /* ========== [ Call Edit Link ] ========== */
-                        edit_post_link( __( 'Edit this post', 'rtPanel' ), '<p class="rtp-edit-link">[', ']</p>');
+    edit_post_link( __( 'Edit this post', 'rtPanel' ), '<p class="rtp-edit-link">[', ']</p>');
 }
+add_action('rtp_hook_end_post_meta_top', 'rtp_edit_link');

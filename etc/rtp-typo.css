@@ -7,10 +7,11 @@
 /* fonts.css from the YUI Library: developer.yahoo.com/yui/
    Refer to developer.yahoo.com/yui/3/cssfonts/ for font sizing percentages
 */
+/*body { font: 13px/1.231 } hack retained to preserve specificity */
 body { font-size: 13px; line-height: 150%; font-family: Georgia,"Times New Roman",Times,serif; }
 h1, h2, h3, h4, h5, h6 { font-weight: normal; letter-spacing: 1px; line-height: 136.4%; margin: 0; padding: 0; }
 
-/* Default Heading Style */
+/* ========== [ Default Heading Style ] ========== */
 h1 { font-size: 200%; } /* 28px */
 h2 { font-size: 171.4%; } /* 24px */
 h3 { font-size: 142.8%; } /* 20px */

@@ -1,6 +1,6 @@
 <?php
 /**
- * This file contains all the functions for handling rtPanel Admin.
+ * The template containing functions related to rtPanel Admin.
  *
  * @package rtPanel
  * @since rtPanel Theme 2.0
@@ -8,30 +8,31 @@
 
 global $rtp_general, $rtp_post_comments, $rtp_hooks;
 
-/* Define plugin support constants */
+// Define plugin support constants
 define( 'RTP_SUBSCRIBE_TO_COMMENTS', 'subscribe-to-comments/subscribe-to-comments.php' );
 define( 'RTP_WP_PAGENAVI', 'wp-pagenavi/wp-pagenavi.php' );
 define( 'RTP_BREADECRUMB_NAVXT', 'breadcrumb-navxt/breadcrumb_navxt_admin.php' );
 define( 'RTP_REGENERATE_THUMBNAILS', 'regenerate-thumbnails/regenerate-thumbnails.php' );
 
-/* Redirect to rtPanel once theme is activated */
+// Redirect to rtPanel on theme activation
 if ( is_admin() && isset ( $_GET['activated'] ) && $pagenow ==	'themes.php' ) {
     wp_redirect( 'themes.php?page=rtp_general' );
 }
 
 /**
  * Used to Validate data for some/all of the input fields in General Options Tab.
+ * 
  * @uses $rtp_general array
  * @return Array
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_general_validate( $input ) {
     global $rtp_general;
     $default = rtp_theme_setup_values();
 
     if ( isset ( $_POST['rtp_submit'] ) ) {
-
         if ( $input['logo_show'] ) {
-
             if ( $input['use_logo'] == 'use_logo_url' && $rtp_general['logo_url'] != $input['logo_url'] ) {
                 $logo_info = pathinfo( $input['logo_url'] );
                 $logo_with_extension = urldecode( basename( $input['logo_url'] ) );
@@ -40,10 +41,13 @@ function rtp_general_validate( $input ) {
 
                 $logo_with_extension = str_replace( '?', '-', $logo_with_extension );
                 $logo_with_extension = str_replace( '&', '-', $logo_with_extension );
+
                 // get placeholder file in the upload dir with a unique, sanitized filename
                 $logo_file = wp_upload_bits( $logo_with_extension, 0, '');
+
                 // fetch the remote url and write it to the placeholder file
                 $wp_remote_get = wp_get_http( $remote_get_path, $logo_file['file'], 5);
+
                 if ( $wp_remote_get == '' || $wp_remote_get == false ) {
                         @unlink( $logo_file['file'] );
                 }
@@ -74,7 +78,6 @@ function rtp_general_validate( $input ) {
                 $input['logo_upload'] = $rtp_general['logo_upload'];
                 $input['logo_url']    = $rtp_general['logo_url'];
             }
-
         } else {
             $input['logo_url']    = $rtp_general['logo_url'];
             $input['logo_upload'] = $rtp_general['logo_upload'];
@@ -82,39 +85,39 @@ function rtp_general_validate( $input ) {
         }
 
         if ( $input['use_favicon'] == 'use_favicon_url' && $rtp_general['favicon_url'] != $input['favicon_url'] ) {
-
             $favicon_info = pathinfo( $input['favicon_url'] );
-                $favicon_with_extension = urldecode( basename( $input['favicon_url'] ) );
-                $remote_get_path     = str_replace( ' ', '%20', urldecode($input['favicon_url']));
-                $favicon_extension      = strtolower( $favicon_info['extension'] );
+            $favicon_with_extension = urldecode( basename( $input['favicon_url'] ) );
+            $remote_get_path     = str_replace( ' ', '%20', urldecode($input['favicon_url']));
+            $favicon_extension      = strtolower( $favicon_info['extension'] );
 
-                $favicon_with_extension = str_replace( '?', '-', $favicon_with_extension );
-                $favicon_with_extension = str_replace( '&', '-', $favicon_with_extension );
-                // get placeholder file in the upload dir with a unique, sanitized filename
-                $favicon_file = wp_upload_bits( $favicon_with_extension, 0, '');
-                // fetch the remote url and write it to the placeholder file
-                $wp_remote_get = wp_get_http( $remote_get_path, $favicon_file['file'], 5);
-                if ( $wp_remote_get == '' || $wp_remote_get == false ) {
-                        @unlink( $favicon_file['file'] );
-                }
+            $favicon_with_extension = str_replace( '?', '-', $favicon_with_extension );
+            $favicon_with_extension = str_replace( '&', '-', $favicon_with_extension );
 
-                if ( ( $favicon_extension == 'ico' ) && ( $wp_remote_get['response'] == 200 ) && $input['favicon_url'] != RT_BASE_IMG_FOLDER_URL . '/rtpanel-favicon.gif' ) {
-                    $input['favicon_url']    = $favicon_file['url'];
-                    $input['favicon_upload'] = $rtp_general['favicon_upload'];
-                    add_settings_error( 'favicon_upload', 'valid_favicon_upload', __( 'The Favicon Settings have been updated.', 'rtPanel' ), 'updated' );
-                } else {
+            // get placeholder file in the upload dir with a unique, sanitized filename
+            $favicon_file = wp_upload_bits( $favicon_with_extension, 0, '');
+
+            // fetch the remote url and write it to the placeholder file
+            $wp_remote_get = wp_get_http( $remote_get_path, $favicon_file['file'], 5);
+
+            if ( $wp_remote_get == '' || $wp_remote_get == false ) {
                     @unlink( $favicon_file['file'] );
-                    $input['favicon_url']    = $rtp_general['favicon_url'];
-                    $input['favicon_upload'] = $rtp_general['favicon_upload'];
-                    add_settings_error('favicon_upload', 'invalid_favicon_upload', 'The Uploaded Image is invalid or is an invalid Favicon Image type.');
-                }
+            }
 
+            if ( ( $favicon_extension == 'ico' ) && ( $wp_remote_get['response'] == 200 ) && $input['favicon_url'] != RT_BASE_IMG_FOLDER_URL . '/rtpanel-favicon.gif' ) {
+                $input['favicon_url']    = $favicon_file['url'];
+                $input['favicon_upload'] = $rtp_general['favicon_upload'];
+                add_settings_error( 'favicon_upload', 'valid_favicon_upload', __( 'The Favicon Settings have been updated.', 'rtPanel' ), 'updated' );
+            } else {
+                @unlink( $favicon_file['file'] );
+                $input['favicon_url']    = $rtp_general['favicon_url'];
+                $input['favicon_upload'] = $rtp_general['favicon_upload'];
+                add_settings_error('favicon_upload', 'invalid_favicon_upload', 'The Uploaded Image is invalid or is an invalid Favicon Image type.');
+            }
         }
         elseif ( $input['use_favicon'] == 'use_favicon_upload' && $rtp_general['favicon_upload'] != $input['favicon_upload'] ){
-            $favicon_info           = pathinfo( $input['favicon_upload'] );
-            $favicon_extension      = strtolower( $favicon_info['extension'] );
-            if ( $favicon_extension == 'ico' )
-            {
+            $favicon_info      = pathinfo( $input['favicon_upload'] );
+            $favicon_extension = strtolower( $favicon_info['extension'] );
+            if ( $favicon_extension == 'ico' ) {
                 $input['favicon_url'] = $rtp_general['favicon_url'];
                 add_settings_error( 'favicon_upload', 'valid_favicon_upload', __( 'The Favicon Settings have been updated.', 'rtPanel' ), 'updated' );
             } else {
@@ -219,13 +222,14 @@ function rtp_general_validate( $input ) {
                 add_settings_error( 'delete-plugin', 'plugin_deletion', __( 'Breadcrumb NavXT Plugin has been Deleted.', 'rtPanel' ), 'updated' );
             }
         }
-
     } elseif ( isset ( $_POST['rtp_logo_reset'] ) ) {
         $options = maybe_unserialize( $rtp_general );
         unset($input);
-        foreach ( $options as $option=>$value )
+
+        foreach ( $options as $option => $value )
             $input[$option] = $value;
-        $input['logo_show']    = $default[0]['logo_show'];
+
+        $input['logo_show']   = $default[0]['logo_show'];
         $input['use_logo']    = $default[0]['use_logo'];
         $input['logo_url']    = $default[0]['logo_url'];
         $input['logo_upload'] = $default[0]['logo_upload'];
@@ -234,39 +238,49 @@ function rtp_general_validate( $input ) {
     } elseif ( isset($_POST['rtp_fav_reset'] ) ) {
         $options = maybe_unserialize( $rtp_general );
         unset($input);
-        foreach ( $options as $option=>$value )
+
+        foreach ( $options as $option => $value )
             $input[$option] = $value;
-        $input['use_favicon'] = $default[0]['use_favicon'];
-        $input['favicon_url'] = $default[0]['favicon_url'];
+
+        $input['use_favicon']    = $default[0]['use_favicon'];
+        $input['favicon_url']    = $default[0]['favicon_url'];
         $input['favicon_upload'] = $default[0]['favicon_upload'];
         add_settings_error( 'favicon_upload', 'fav_reset', __( 'The Favicon Settings have been restored to Default.', 'rtPanel' ), 'updated' );
     } elseif ( isset($_POST['rtp_feed_reset'] ) ) {
         $options = maybe_unserialize( $rtp_general );
         unset($input);
-        foreach ( $options as $option=>$value )
+
+        foreach ( $options as $option => $value )
             $input[$option] = $value;
+
         $input['feedburner_url'] = $default[0]['feedburner_url'];
         add_settings_error( 'feedburner_url', 'reset_feeburner_url', __( 'The Feedburner Settings have been restored to Default.', 'rtPanel' ), 'updated' );
     } elseif ( isset($_POST['rtp_google_reset'] ) ) {
         $options = maybe_unserialize( $rtp_general );
         unset($input);
-        foreach ( $options as $option=>$value )
+
+        foreach ( $options as $option => $value )
             $input[$option] = $value;
-        $input['search_code'] = $default[0]['search_code'];
+
+        $input['search_code']   = $default[0]['search_code'];
         $input['search_layout'] = $default[0]['search_layout'];
         add_settings_error( 'search_code', 'reset_search_code', __( 'The Google Custom Search Integration has been restored to Default.', 'rtPanel' ), 'updated' );
     } elseif ( isset($_POST['rtp_sidebar_reset'] ) ) {
         $options = maybe_unserialize( $rtp_general );
         unset($input);
-        foreach ( $options as $option=>$value )
+
+        foreach ( $options as $option => $value )
             $input[$option] = $value;
+        
         $input['footer_sidebar'] = $default[0]['footer_sidebar'];
         add_settings_error( 'sidebar', 'reset_sidebar', __( 'The Sidebar Settings have been restored to Default.', 'rtPanel' ), 'updated' );
     } elseif ( isset($_POST['rtp_custom_styles_reset'] ) ) {
         $options = maybe_unserialize( $rtp_general );
         unset($input);
-        foreach ( $options as $option=>$value )
+
+        foreach ( $options as $option => $value )
             $input[$option] = $value;
+
         $input['custom_styles'] = $default[0]['custom_styles'];
         add_settings_error( 'custom_styles', 'reset_custom_styles', __( 'Custom Styles has been restored to Default.', 'rtPanel' ), 'updated' );
     } elseif ( isset ( $_POST['rtp_export'] ) ) {
@@ -287,14 +301,17 @@ function rtp_general_validate( $input ) {
         $input = $default[0];
         add_settings_error( 'rtp_general', 'reset_general_options', __( 'All the rtPanel General Settings have been restored to default.', 'rtPanel' ), 'updated' );
     }
-    return $input; /* Return validated input. */
+    return $input; // Return validated input.
 }
 
 /**
  * Used to Validate data for some/all of the input fields in Post Comments Options Tab
+ * 
  * @uses $rtp_post_comments array
  * @param array $input all post & comments options inputs.
  * @return Array
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_post_comments_validate( $input ) {
     global $rtp_post_comments;
@@ -320,6 +337,7 @@ function rtp_post_comments_validate( $input ) {
                     update_option( 'thumbnail_size_w', $input['thumbnail_width'] );
                     add_settings_error( 'thumbnail_width', 'valid_thumbnail_width', __( 'The Post Thumbnail Settings have been updated', 'rtPanel' ), 'updated' );
                 }
+
                 if ( !preg_match( '/^[0-9]{1,3}$/i', $input['thumbnail_height'] ) ) {
                     $input['thumbnail_height'] = get_option( 'thumbnail_size_h' );
                     add_settings_error( 'thumbnail_height', 'invalid_thumbnail_height', __( 'The Thumbnail Height provided is invalid. Please provide a proper value.', 'rtPanel' ) );
@@ -328,6 +346,7 @@ function rtp_post_comments_validate( $input ) {
                     update_option( 'thumbnail_size_h', $input['thumbnail_height'] );
                     add_settings_error( 'thumbnail_height', 'valid_thumbnail_height', __( 'The Post Thumbnail Settings have been updated', 'rtPanel' ), 'updated' );
                 }
+
                 if ( $input['thumbnail_crop'] != get_option( 'thumbnail_crop' ) ) {
                     $input['notices'] = '1';
                     update_option( 'thumbnail_crop', $input['thumbnail_crop'] );
@@ -350,32 +369,39 @@ function rtp_post_comments_validate( $input ) {
         $input['post_date_custom_format_u'] = str_replace( '<', '', $input['post_date_custom_format_u'] );
         $input['post_date_custom_format_l'] = str_replace( '<', '', $input['post_date_custom_format_l'] );
     }
+
     if ( !$input['post_date_u'] ) {
         $input['post_date_format_u']        = $rtp_post_comments['post_date_format_u'];
         $input['post_date_custom_format_u'] = $rtp_post_comments['post_date_custom_format_u'];
     }
+
     if ( !$input['post_date_l'] ) {
         $input['post_date_format_l']        = $rtp_post_comments['post_date_format_l'];
         $input['post_date_custom_format_l'] = $rtp_post_comments['post_date_custom_format_l'];
     }
+
     if ( !$input['post_author_u'] ) {
-        $input['author_count_u']            = $rtp_post_comments['author_count_u'];
-        $input['author_link_u']             = $rtp_post_comments['author_link_u'];
+        $input['author_count_u'] = $rtp_post_comments['author_count_u'];
+        $input['author_link_u']  = $rtp_post_comments['author_link_u'];
     }
+
     if ( !$input['post_author_l'] ) {
-        $input['author_count_l']            = $rtp_post_comments['author_count_l'];
-        $input['author_link_l']             = $rtp_post_comments['author_link_l'];
+        $input['author_count_l'] = $rtp_post_comments['author_count_l'];
+        $input['author_link_l']  = $rtp_post_comments['author_link_l'];
     }
+
     if ( !$input['gravatar_show'] ) {
-        $input['gravatar_size']             = $rtp_post_comments['gravatar_size'];
+        $input['gravatar_size'] = $rtp_post_comments['gravatar_size'];
     }
 
     } elseif ( isset ( $_POST['rtp_summary_reset'] ) ) {
         $options = maybe_unserialize( $rtp_post_comments );
         unset($input);
-        foreach ( $options as $option=>$value )
+
+        foreach ( $options as $option => $value )
             $input[$option] = $value;
-        $input['notices'] = $rtp_post_comments['notices'];
+
+        $input['notices']      = $rtp_post_comments['notices'];
         $input['summary_show'] = $default[1]['summary_show'];
         $input['word_limit']   = $default[1]['word_limit'];
         $input['read_text']    = $default[1]['read_text'];
@@ -383,9 +409,11 @@ function rtp_post_comments_validate( $input ) {
     } elseif ( isset ( $_POST['rtp_thumbnail_reset'] ) ) {
         $options = maybe_unserialize( $rtp_post_comments );
         unset($input);
-        foreach ( $options as $option=>$value )
+
+        foreach ( $options as $option => $value )
             $input[$option] = $value;
-        $input['notices'] = $rtp_post_comments['notices'];
+
+        $input['notices']            = $rtp_post_comments['notices'];
         $input['thumbnail_show']     = $default[1]['thumbnail_show'];
         $input['thumbnail_position'] = $default[1]['thumbnail_position'];
         $input['thumbnail_frame']    = $default[1]['thumbnail_frame'];
@@ -393,9 +421,11 @@ function rtp_post_comments_validate( $input ) {
     } elseif ( isset ( $_POST['rtp_meta_reset'] ) ) {
         $options = maybe_unserialize( $rtp_post_comments );
         unset($input);
-        foreach ( $options as $option=>$value )
+
+        foreach ( $options as $option => $value )
             $input[$option] = $value;
-        $input['notices'] = $rtp_post_comments['notices'];
+
+        $input['notices']                   = $rtp_post_comments['notices'];
         $input['post_date_u']               = $default[1]['post_date_u'];
         $input['post_date_format_u']        = $default[1]['post_date_format_u'];
         $input['post_date_custom_format_u'] = $default[1]['post_date_custom_format_u'];
@@ -421,24 +451,29 @@ function rtp_post_comments_validate( $input ) {
                 $input['post_' . $taxonomy . '_l'] = '0';
             }
         }
+
         add_settings_error( 'post_meta', 'reset_post_meta', __( 'The Post Meta Settings have been restored to default.', 'rtPanel' ), 'updated' );
     } elseif ( isset ( $_POST['rtp_comment_reset'] ) ) {
         $options = maybe_unserialize( $rtp_post_comments );
         unset($input);
-        foreach ( $options as $option=>$value )
+
+        foreach ( $options as $option => $value )
             $input[$option] = $value;
-        $input['notices'] = $rtp_post_comments['notices'];
-        $input['compact_form'] = $default[1]['compact_form'];
-        $input['hide_labels'] = $default[1]['hide_labels'];
-        $input['comment_textarea']    = $default[1]['comment_textarea'];
-        $input['comment_separate']    = $default[1]['comment_separate'];
+
+        $input['notices']          = $rtp_post_comments['notices'];
+        $input['compact_form']     = $default[1]['compact_form'];
+        $input['hide_labels']      = $default[1]['hide_labels'];
+        $input['comment_textarea'] = $default[1]['comment_textarea'];
+        $input['comment_separate'] = $default[1]['comment_separate'];
         add_settings_error( 'comment', 'reset_comment', __( 'The Comment Form Settings have been restored to default.', 'rtPanel' ), 'updated' );
     } elseif ( isset ( $_POST['rtp_gravatar_reset'] ) ) {
         $options = maybe_unserialize( $rtp_post_comments );
         unset($input);
-        foreach ( $options as $option=>$value )
+
+        foreach ( $options as $option => $value )
             $input[$option] = $value;
-        $input['notices'] = $rtp_post_comments['notices'];
+
+        $input['notices']       = $rtp_post_comments['notices'];
         $input['gravatar_show'] = $default[1]['gravatar_show'];
         $input['gravatar_size'] = $default[1]['gravatar_size'];
         add_settings_error( 'gravatar', 'reset_gravatar', __( 'The Gravatar Settings have been restored to default.', 'rtPanel' ), 'updated' );
@@ -469,9 +504,11 @@ function rtp_post_comments_validate( $input ) {
  * The normal, expected behavior of this function is to return the values
  *
  * @return array.
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_theme_setup_values() {
-    global $rtp_post_comments;
+    global $rtp_general, $rtp_post_comments;
     $default_general = array(
         'logo_show'       => '1',
         'use_logo'        => 'use_logo_url',
@@ -520,12 +557,8 @@ function rtp_theme_setup_values() {
         'comment_textarea'           => '0',
         'comment_separate'           => '1',
         'gravatar_show'              => '1',
-        'gravatar_size'              => '64 x 64',
+        'gravatar_size'              => '64',
     );
-
-    if( isset ( $rt_post_comments ) ) {
-        $default_general = array( 'thumbnail_width' => $rt_post_comments['thumbnail_width'], 'thumbnail_height' => $rt_post_comments['thumbnail_height'], 'thumbnail_crop' );
-    }
 
     $args = array( '_builtin' => false );
         $taxonomies = get_taxonomies( $args, 'names' );
@@ -541,9 +574,9 @@ function rtp_theme_setup_values() {
         $blog_users = get_users();
 
         foreach ( $blog_users as $blog_user ) {
-          $blog_user_id = $blog_user->ID;
-          if ( !get_user_meta( $blog_user_id, 'screen_layout_appearance_page_rtp_general' ) )
-          update_user_meta( $blog_user_id, 'screen_layout_appearance_page_rtp_general', 1, NULL );
+            $blog_user_id = $blog_user->ID;
+            if ( !get_user_meta( $blog_user_id, 'screen_layout_appearance_page_rtp_general' ) )
+                update_user_meta( $blog_user_id, 'screen_layout_appearance_page_rtp_general', 1, NULL );
         }
     }
     if ( !get_option( 'rtp_post_comments' ) ) {
@@ -551,11 +584,21 @@ function rtp_theme_setup_values() {
         $blog_users = get_users();
 
         foreach ( $blog_users as $blog_user ) {
-          $blog_user_id = $blog_user->ID;
-          if ( !get_user_meta( $blog_user_id, 'screen_layout_appearance_page_rtp_post_comments' ) )
-          update_user_meta( $blog_user_id, 'screen_layout_appearance_page_rtp_post_comments', 1, NULL );
+            $blog_user_id = $blog_user->ID;
+            if ( !get_user_meta( $blog_user_id, 'screen_layout_appearance_page_rtp_post_comments' ) )
+                update_user_meta( $blog_user_id, 'screen_layout_appearance_page_rtp_post_comments', 1, NULL );
         }
     }
+
+    $rtp_version = rtp_export_version();
+    if ( !get_option( 'rtp_version' ) || ( get_option( 'rtp_version' ) != $rtp_version['rtPanel'] ) ) {
+        update_option( 'rtp_version', $rtp_version['rtPanel'] );
+        $updated_general = wp_parse_args( $rtp_general, $default_general );
+        $updated_post_comments = wp_parse_args( $rtp_post_comments, $default_post_comments );
+        update_option( 'rtp_general', $updated_general );
+        update_option( 'rtp_post_comments', $updated_post_comments );
+    }
+
     return array( $default_general, $default_post_comments );
 }
 
@@ -563,8 +606,11 @@ function rtp_theme_setup_values() {
  * Feedburner Redirection Code
  *
  * Used to redirect the default wordpress feeds.
+ * 
  * @uses string $feed
  * @uses array $rtp_general
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_feed_redirect() {
     global $feed, $rtp_general, $withcomments;
@@ -580,7 +626,10 @@ function rtp_feed_redirect() {
 
 /**
  * Used to check the feed type (default or comment feed)
+ *
  * @uses $rtp_general array
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_check_url() {
     global $rtp_general;
@@ -602,13 +651,13 @@ function rtp_check_url() {
     }
 }
 
-/* Condition to redirect wordpress feeds to feed burner */
+// Condition to redirect wordpress feeds to feed burner
 if ( !preg_match( '/feedburner|feedvalidator/i', $_SERVER['HTTP_USER_AGENT'] ) ) {
     add_action( 'template_redirect', 'rtp_feed_redirect' );
     add_action( 'init', 'rtp_check_url' );
 }
 
-/* condition to check Admin Login Logo option */
+// condition to check Admin Login Logo option
 if ( $rtp_general['login_head'] && $rtp_general['logo_show'] ) {
     add_action( 'login_head', 'rtp_custom_login_logo' );
     add_filter( 'login_headerurl', 'rtp_login_site_url' );
@@ -618,7 +667,10 @@ if ( $rtp_general['login_head'] && $rtp_general['logo_show'] ) {
  * Custom Admin Logo
  *
  * Used to display logo on the Login Page
+ *
  * @uses $rtp_general array
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_custom_login_logo() {
     $custom_logo = rtp_logo_fav_src( $type = 'logo' );
@@ -632,7 +684,10 @@ function rtp_custom_login_logo() {
 
 /**
  * Used to change link of logo on login page
+ * 
  * @return string
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_login_site_url() {
     return home_url('/');
@@ -643,12 +698,13 @@ function rtp_login_site_url() {
  *
  * @param array $formfields Array of all the fields in form
  * @param object $post Global Post Object or similar object
- *
  * @return Array
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_theme_options_upload( $form_fields, $post ) {
     /* Can now see $post becaue the filter accepts two args, as defined in the add_fitler */
-    if ( substr( $post->post_mime_type, 0, 5 ) == 'image' && ( preg_match( '/rtp_theme=rtp_true/i', @$_SERVER['HTTP_REFERER'] ) ) || preg_match( '/rtp_theme=rtp_true/i', $_SERVER['REQUEST_URI'] ) || isset( $_POST['rtp_theme_true'] ) ) {
+    if ( substr( $post->post_mime_type, 0, 5 ) == 'image' && ( preg_match( '/rtp_theme=rtp_true/i', @$_SERVER['HTTP_REFERER'] ) ) || preg_match( '/rtp_theme=rtp_true/i', $_SERVER['REQUEST_URI'] ) || isset( $_POST['rtp_theme'] ) ) {
 
         $form_fields['url']['label'] = 'Image Path';
         $form_fields['url']['input'] = 'html';
@@ -678,19 +734,19 @@ function rtp_theme_options_upload( $form_fields, $post ) {
         $attachment_id = $post->ID;
         if ( current_user_can( 'delete_post', $attachment_id ) ) {
             if ( !EMPTY_TRASH_DAYS ) {
-                $form_fields['buttons']['html'] = "<input type='hidden' name='rtp_theme_true' value='rtp_theme_true' /><a href='" . wp_nonce_url( "post.php?action=delete&amp;post=$attachment_id", 'delete-attachment_' . $attachment_id ) . "' id='del[$attachment_id]' class='delete'>" . __( 'Delete Permanently' ) . '</a>';
+                $form_fields['buttons']['html'] = "<input type='hidden' name='rtp_theme' value='rtp_true' /><a href='" . wp_nonce_url( "post.php?action=delete&amp;post=$attachment_id", 'delete-attachment_' . $attachment_id ) . "' id='del[$attachment_id]' class='delete'>" . __( 'Delete Permanently' ) . '</a>';
             } elseif ( !MEDIA_TRASH ) {
                 $form_fields['buttons']['html'] = "<input type='submit' class='button' name='send[$attachment_id]' value='" . esc_attr__('Use This', 'rtPanel' ) . "' /><a href='#' class='del-link' onclick=\"document.getElementById('del_attachment_$attachment_id').style.display='block';return false;\">" . __( 'Delete' ) . "</a>
                                                      <div id='del_attachment_$attachment_id' class='del-attachment' style='display:none;'>" . sprintf( __( 'You are about to delete <strong>%s</strong>.' ), $filename) . "
                                                      <a href='" . wp_nonce_url( "post.php?action=delete&amp;post=$attachment_id&amp;rtp_theme=rtp_true&amp;logo_or_favicon=$logo_or_favicon" , 'delete-attachment_' . $attachment_id ) . "' id='del[$attachment_id]' class='button'>" . __( 'Continue' ) . "</a>
                                                      <a href='#' class='button' onclick=\"this.parentNode.style.display='none';return false;\">" . __( 'Cancel' ) . "</a>
-                                                     <input type='hidden' name='rtp_theme_true' value='rtp_theme_true' />
+                                                     <input type='hidden' name='rtp_theme' value='rtp_true' />
                                                      </div>";
             } else {
-                $form_fields['buttons']['html'] = "<input type='hidden' name='rtp_theme_true' value='rtp_theme_true' /><a href='" . wp_nonce_url( "post.php?action=trash&amp;post=$attachment_id", 'trash-attachment_' . $attachment_id ) . "' id='del[$attachment_id]' class='delete'>" . __( 'Move to Trash' ) . "</a><a href='" . wp_nonce_url( "post.php?action=untrash&amp;post=$attachment_id", 'untrash-attachment_' . $attachment_id ) . "' id='undo[$attachment_id]' class='undo hidden'>" . __( 'Undo' ) . "</a>";
+                $form_fields['buttons']['html'] = "<input type='hidden' name='rtp_theme' value='rtp_true' /><a href='" . wp_nonce_url( "post.php?action=trash&amp;post=$attachment_id", 'trash-attachment_' . $attachment_id ) . "' id='del[$attachment_id]' class='delete'>" . __( 'Move to Trash' ) . "</a><a href='" . wp_nonce_url( "post.php?action=untrash&amp;post=$attachment_id", 'untrash-attachment_' . $attachment_id ) . "' id='undo[$attachment_id]' class='undo hidden'>" . __( 'Undo' ) . "</a>";
             }
         } else {
-            $form_fields['buttons']['html'] = "<input type='hidden' name='rtp_theme_true' value='rtp_theme_true' />";
+            $form_fields['buttons']['html'] = "<input type='hidden' name='rtp_theme' value='rtp_true' />";
         }
     }
     return $form_fields;
@@ -703,30 +759,31 @@ function rtp_theme_options_upload( $form_fields, $post ) {
  * Function to remove tabs from media upload Iframe
  *
  * @param array $tabs Array of all the Tabs present
- *
  * @return Array
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_remove_url_tab( $tabs ) {
     unset($tabs['type_url']);
     return $tabs;
 }
 
-/* Check to see if we are in rtPanel Options Page and modify the Media Upload IFrame */
-if ( is_admin() && isset ( $_SERVER['HTTP_REFERER'] ) && ( preg_match( "/rtp_general/i", $_SERVER['HTTP_REFERER'] ) || preg_match( '/rtp_theme=rtp_true/i', $_SERVER['REQUEST_URI'] ) || preg_match( "/rtp_theme=rtp_true/i", $_SERVER['HTTP_REFERER'] ) || isset( $_POST['rtp_theme_true'] ) ) ) {
+// Check to see if we are in rtPanel Options Page and modify the Media Upload IFrame
+if ( is_admin() && isset ( $_SERVER['HTTP_REFERER'] ) && ( preg_match( "/rtp_general/i", $_SERVER['HTTP_REFERER'] ) || preg_match( '/rtp_theme=rtp_true/i', $_SERVER['REQUEST_URI'] ) || preg_match( "/rtp_theme=rtp_true/i", $_SERVER['HTTP_REFERER'] )  || ( isset( $_POST['rtp_theme'] ) && preg_match( '/rtp_theme/i', $_POST['rtp_theme'] ) ) ) ) {
     add_filter( 'media_upload_tabs', 'rtp_remove_url_tab', 1, 2 );
 }
 
 /**
- * Display Default rtPanel Admin Sidebar (Exclusively for rtPanel Admin Options)
- *
  * Displays default rtPanel admin sidebar with metabox styling
  *
  * @return rtPanel_admin_sidebar
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_default_sidebar() { ?>
     <div class="postbox" id="social">
         <div title="<?php _e('Click to toggle', 'rtPanel'); ?>" class="handlediv"><br /></div>
-        <h3 class="hndle"><span><strong class="red"><?php _e('Getting Social is Good', 'rtPanel'); ?></strong></span></h3>
+        <h3 class="hndle"><span><?php _e('Getting Social is Good', 'rtPanel'); ?></span></h3>
         <div class="inside" style="text-align:center;">
             <a href="<?php printf( '%s', 'http://www.facebook.com/rtCamp.solutions' ); ?>" target="_blank" title="<?php _e( 'Become a fan on Facebook', 'rtPanel' ); ?>" class="rtpanel-facebook"><?php _e( 'Facebook', 'rtPanel' ); ?></a>
             <a href="<?php printf( '%s', 'http://twitter.com/rtCamp' ); ?>" target="_blank" title="<?php _e( 'Follow us on Twitter', 'rtPanel' ); ?>" class="rtpanel-twitter"><?php _e( 'Twitter', 'rtPanel' ); ?></a>
@@ -737,7 +794,7 @@ function rtp_default_sidebar() { ?>
 
     <div class="postbox" id="donations">
         <div title="<?php _e('Click to toggle', 'rtPanel'); ?>" class="handlediv"><br /></div>
-        <h3 class="hndle"><span><strong class="red"><?php _e( 'Promote, Donate, Share', 'rtPanel' ); ?>...</strong></span></h3>
+        <h3 class="hndle"><span><?php _e( 'Promote, Donate, Share', 'rtPanel' ); ?>...</span></h3>
         <div class="inside">
             <p><?php _e( 'A lot of time and effort goes into the development of this theme. If you find it useful, please consider making a donation, or a review on your blog or sharing this with your friends to help us.', 'rtPanel' ); ?></p>
             <div class="rt-paypal" style="text-align:center">
@@ -768,25 +825,27 @@ function rtp_default_sidebar() { ?>
 
     <div class="postbox" id="support">
         <div title="<?php _e( 'Click to toggle', 'rtPanel'); ?>" class="handlediv"><br /></div>
-        <h3 class="hndle"><span><strong class="red"><?php _e( 'Free Support', 'rtPanel' ); ?></strong></span></h3>
+        <h3 class="hndle"><span><?php _e( 'Free Support', 'rtPanel' ); ?></span></h3>
         <div class="inside"><p><?php printf( __( 'If you have any problems with this plugin or good ideas for improvements, please talk about them in the <a href="%s" target="_blank">Support forums</a>', 'rtPanel' ), 'http://forum.bloggertowp.org/' ); ?>.</p></div>
     </div>
 
     <div class="postbox" id="latest_news">
         <div title="<?php _e( 'Click to toggle', 'rtPanel'); ?>" class="handlediv"><br /></div>
-        <h3 class="hndle"><span><strong class="red"><?php _e( 'Latest News from Our Blog', 'rtPanel' ); ?></strong></span></h3>
+        <h3 class="hndle"><span><?php _e( 'Latest News from Our Blog', 'rtPanel' ); ?></span></h3>
         <div class="inside"><?php rtp_get_feeds(); ?></div>
     </div><?php
 }
 
 /**
-* Display feeds from a specified Feed URL
-*
-* Displays feed from the specified feed url. Displays feeds from
-* 'http://feeds.feedburner.com/rtcamp' if no argument is passed
-*
-* @param string $feed_url The Feed URL.
-*/
+ * Display feeds from a specified Feed URL
+ *
+ * Displays feed from the specified feed url. Displays feeds from
+ * 'http://feeds.feedburner.com/rtcamp' if no argument is passed
+ *
+ * @param string $feed_url The Feed URL.
+ *
+ * @since rtPanel Theme 2.0
+ */
 function rtp_get_feeds( $feed_url='http://feeds.feedburner.com/rtcamp' ) {
 
     // Get RSS Feed(s)
@@ -800,9 +859,7 @@ function rtp_get_feeds( $feed_url='http://feeds.feedburner.com/rtcamp' ) {
 
         // Build an array of all the items, starting with element 0 (first element).
         $rss_items = $rss->get_items( 0, $maxitems );
-    endif;
-?>
-
+    endif; ?>
     <ul>
         <?php
         if ( $maxitems == 0 ) {
@@ -826,6 +883,8 @@ function rtp_get_feeds( $feed_url='http://feeds.feedburner.com/rtcamp' ) {
  * @param string $screen_id The Page on which to show
  * @param object $screen The screen information
  * @return string
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_contextual_help( $contextual_help, $screen_id, $screen ) {
 
@@ -900,6 +959,8 @@ add_filter('contextual_help', 'rtp_contextual_help', 10, 3);
 
 /**
  *  Checks whether the links in the admin bar should be displayed or not
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_admin_bar_init() {
     // Is the user sufficiently leveled, or has the bar been disabled?
@@ -912,7 +973,42 @@ function rtp_admin_bar_init() {
 add_action( 'admin_bar_init', 'rtp_admin_bar_init' );
 
 /**
- *  Outputs the neccessary js to hide the regenerate thumbnal notice
+ * Adds rtPanel link on the admin bar
+ *
+ * @uses object $wp_admin_bar
+ *
+ * @since rtPanel Theme 2.0
+ */
+function rtp_admin_bar_links() {
+    global $wp_admin_bar, $rt_panel_theme;
+
+    // Links to add, in the form: 'Label' => 'URL'
+    foreach( $rt_panel_theme->theme_pages as $key=>$theme_page ) {
+            if ( is_array( $theme_page ) )
+                $links[$theme_page['menu_title']] = admin_url( 'themes.php?page='.$theme_page['menu_slug'] );
+    }
+
+    //  Add the Parent link.
+    $wp_admin_bar->add_menu( array(
+        'title' => 'rtPanel',
+        'href' => admin_url( 'themes.php?page=rtp_general' ),
+        'id' => 'rt_links',
+    ) );
+
+    // Add the submenu links.
+    foreach ( $links as $label => $url ) {
+        $wp_admin_bar->add_menu( array(
+            'title' => $label,
+            'href' => $url,
+            'parent' => 'rt_links',
+        ) );
+    }
+}
+
+/**
+ * Outputs the neccessary js to hide the regenerate thumbnal notice
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_regenerate_thumbnail_notice_js() { ?>
     <script type="text/javascript" >
@@ -932,8 +1028,11 @@ function rtp_regenerate_thumbnail_notice_js() { ?>
 add_action( 'admin_head', 'rtp_regenerate_thumbnail_notice_js' );
 
 /**
- *  Handles the ajax call to remove the regenerate thumbnail notice
+ * Handles the ajax call to remove the regenerate thumbnail notice
+ *
  * @uses $rtp_post_comments array
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_handle_regenerate_notice() {
     global $rtp_post_comments;
@@ -945,43 +1044,13 @@ function rtp_handle_regenerate_notice() {
 add_action( 'wp_ajax_hide_regenerate_thumbnail_notice', 'rtp_handle_regenerate_notice' );
 
 /**
- *  Adds rtPanel link on the admin bar
- *
- * @uses object $wp_admin_bar
- */
-function rtp_admin_bar_links() {
-    global $wp_admin_bar, $rt_panel_theme;
-
-    /* Links to add, in the form: 'Label' => 'URL' */
-    foreach( $rt_panel_theme->theme_pages as $key=>$theme_page ) {
-            if ( is_array( $theme_page ) )
-                $links[$theme_page['menu_title']] = admin_url( 'themes.php?page='.$theme_page['menu_slug'] );
-
-    }
-
-    /*  Add the Parent link. */
-    $wp_admin_bar->add_menu( array(
-        'title' => 'rtPanel',
-        'href' => admin_url( 'themes.php?page=rtp_general' ),
-        'id' => 'rt_links',
-    ) );
-
-    /* Add the submenu links. */
-    foreach ( $links as $label => $url ) {
-        $wp_admin_bar->add_menu( array(
-            'title' => $label,
-            'href' => $url,
-            'parent' => 'rt_links',
-        ) );
-    }
-}
-
-/**
  * Used to handle the src for Logo and Favicon
  *
  * @uses $rtp_general array
  * @param string $type Optional. Deafult is 'logo'. logo' or 'favicon'
  * @return string
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_logo_fav_src( $type = 'logo' ) {
     global $rtp_general;
@@ -1004,20 +1073,23 @@ function rtp_logo_fav_src( $type = 'logo' ) {
 }
 
 /**
- * Control the files that are allowd
+ * Control the files that are allowed
+ * 
  * @param array $mime_types The allowed mime types
  * @return string
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_allowed_upload_extensions( $mime_types ) {
 	//Creating a new array will reset the allowed filetypes
 	if ( preg_match( '/logo_or_favicon=Logo/', @$_SERVER['HTTP_REFERER'] ) || ( ( preg_match( '/rtp_theme=rtp_true/i', $_SERVER['REQUEST_URI'] ) ) && ( preg_match( '/logo_or_favicon=Logo/', $_SERVER['REQUEST_URI'] ) ) ) ) {
             $mime_types = array(
                 'jpg|jpeg|jpe' => 'image/jpeg',
-                'gif' => 'image/gif',
-                'png' => 'image/png',
-                'bmp' => 'image/bmp',
-                'ico' => 'image/x-icon',
-                'tif|tiff' => 'image/tiff'
+                'gif'          => 'image/gif',
+                'png'          => 'image/png',
+                'bmp'          => 'image/bmp',
+                'ico'          => 'image/x-icon',
+                'tif|tiff'     => 'image/tiff'
             );
         } elseif ( preg_match( '/logo_or_favicon=Favicon/', @$_SERVER['HTTP_REFERER'] ) || ( ( preg_match( '/rtp_theme=rtp_true/i', $_SERVER['REQUEST_URI'] ) ) && ( preg_match( '/logo_or_favicon=Favicon/', $_SERVER['REQUEST_URI'] ) ) ) ) {
             $mime_types = array(
@@ -1030,9 +1102,11 @@ add_filter( 'upload_mimes', 'rtp_allowed_upload_extensions', 1, 1 );
 
 /**
  * Used to bypass the Flash Media Upload and append some fields
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_media_upload_flash_bypass() {
-        echo "<input type='hidden' name='rtp_theme_true' value='rtp_theme_true' />";
+        echo "<input type='hidden' name='rtp_theme' value='rtp_true' />";
         if ( preg_match( '/logo_or_favicon=Favicon/', @$_SERVER['HTTP_REFERER'] ) || preg_match("/logo_or_favicon=Favicon/", $_SERVER['REQUEST_URI']) ) {
             echo '<script type="text/javascript">
                       jQuery("#tab-type a").attr("href","/wp-admin/media-upload.php?post_id=0&rtp_theme=rtp_true&logo_or_favicon=Favicon&type=image&TB_iframe=true&tab=type" );
@@ -1048,9 +1122,11 @@ function rtp_media_upload_flash_bypass() {
 
 /**
  * Used to bypass the Browser Media Upload and append some fields
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_media_upload_html_bypass( $flash = true ) {
-    echo "<input type='hidden' name='rtp_theme_true' value='rtp_theme_true' />";
+    echo "<input type='hidden' name='rtp_theme' value='rtp_true' />";
     if ( preg_match( '/logo_or_favicon=Favicon/', @$_SERVER['HTTP_REFERER'] ) || preg_match( "/logo_or_favicon=Favicon/", $_SERVER['REQUEST_URI'] ) ) {
         $favicon = '<script type="text/javascript">
                         jQuery("#tab-type a").attr("href","/wp-admin/media-upload.php?post_id=0&rtp_theme=rtp_true&logo_or_favicon=Favicon&type=image&TB_iframe=true&tab=type" );
@@ -1066,11 +1142,12 @@ function rtp_media_upload_html_bypass( $flash = true ) {
     }
 }
 
-/* Added filter on rtPanel Options Page Only */
-if ( ( preg_match( '/rtp_theme=rtp_true/i', @$_SERVER['HTTP_REFERER'] ) ) || ( preg_match( '/rtp_theme=rtp_true/i', $_SERVER['REQUEST_URI'] ) ) || ( isset( $_POST['rtp_theme_true'] ) && preg_match( '/rtp_theme_true/i', $_POST['rtp_theme_true'] ) ) ) {
+// Added filter on rtPanel Options Page Only
+if ( ( preg_match( '/rtp_theme=rtp_true/i', @$_SERVER['HTTP_REFERER'] ) ) || ( preg_match( '/rtp_theme=rtp_true/i', $_SERVER['REQUEST_URI'] ) ) || ( isset( $_POST['rtp_theme'] ) && preg_match( '/rtp_theme/i', $_POST['rtp_theme'] ) ) ) {
     add_filter( 'flash_uploader', create_function('$flash', 'return false;'), 7 );
     add_action( 'post-flash-upload-ui', 'rtp_media_upload_flash_bypass' );
     add_action( 'post-html-upload-ui', 'rtp_media_upload_html_bypass' );
+    add_action('admin_print_footer_scripts', 'add_hidden_rtp_variable');
 }
 
 /**
@@ -1078,15 +1155,17 @@ if ( ( preg_match( '/rtp_theme=rtp_true/i', @$_SERVER['HTTP_REFERER'] ) ) || ( p
  * 
  * @param string $location Location to redirect
  * @return string
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_media_library_redirect( $location ) {
     $logo_or_favicon = ( preg_match( "/logo_or_favicon=Logo/", @$_SERVER['HTTP_REFERER'] ) || preg_match( "/logo_or_favicon=Logo/", @$_SERVER['REQUEST_URI'] ) ) ? "Logo" : "Favicon";
     $location .= '&rtp_theme=rtp_true&logo_or_favicon='.$logo_or_favicon;
     return $location;
 }
-/* Added filter for the redirection in the iframe on rtPanel Options Page Only*/
+
+// Added filter for the redirection in the iframe on rtPanel Options Page Only
 if( preg_match( "/rtp_theme=rtp_true/i", @$_SERVER['HTTP_REFERER'] ) || preg_match( "/rtp_theme=rtp_true/i", $_SERVER['REQUEST_URI'] ) ) {
-    add_action( 'restrict_manage_posts', 'rtp_post_query' );
     add_filter( 'media_upload_form_url', 'rtp_media_library_redirect', 99, 1 );
     if ( isset( $_POST['save'] ) ) {
         wp_redirect(str_replace('tab=type', 'tab=library', @$_SERVER['HTTP_REFERER']));
@@ -1098,24 +1177,43 @@ if( preg_match( "/rtp_theme=rtp_true/i", @$_SERVER['HTTP_REFERER'] ) || preg_mat
 }
 
 /**
+ * Used to add a hidden input field in the media library iframe
+ *
+ * @since rtPanel Theme 2.0
+ */
+function add_hidden_rtp_variable(){
+    echo "<script type='text/javascript'>
+            jQuery('p#media-search').append('<input type=\"hidden\" name=\"rtp_theme\" value=\"rtp_true\" />');
+          </script>";
+}
+
+/**
  * Creates a backup file of rtPanel Options
+ * 
  * @uses $wpdb object
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_export( ) {
     global $wpdb;
     $sitename = sanitize_key( get_bloginfo( 'name' ) );
-	if ( ! empty($sitename) ) $sitename .= '.';
-	$filename = $sitename . 'rtpanel.' . date( 'Y-m-d' ) . '.rtp';
-	header( 'Content-Description: File Transfer' );
-	header( 'Content-Disposition: attachment; filename=' . $filename );
-	header( 'Content-Type: text/xml; charset=' . get_option( 'blog_charset' ), true );
-        $general = "WHERE option_name = 'rtp_general'";
-        $post_comments = "WHERE option_name = 'rtp_post_comments'";
-        $hooks = "WHERE option_name = 'rtp_hooks'";
-        $args['rtp_general'] = $wpdb->get_var( "SELECT option_value FROM {$wpdb->options} $general" );
-        $args['rtp_post_comments'] = $wpdb->get_var( "SELECT option_value FROM {$wpdb->options} $post_comments" );
-        $args['rtp_hooks'] = $wpdb->get_var( "SELECT option_value FROM {$wpdb->options} $hooks" );
-?><rtpanel>
+
+    if ( ! empty($sitename) ) $sitename .= '.';
+
+    $filename = $sitename . 'rtpanel.' . date( 'Y-m-d' ) . '.rtp';
+  
+    $general = "WHERE option_name = 'rtp_general'";
+    $post_comments = "WHERE option_name = 'rtp_post_comments'";
+    $hooks = "WHERE option_name = 'rtp_hooks'";
+    $args['rtp_general'] = $wpdb->get_var( "SELECT option_value FROM {$wpdb->options} $general" );
+    $args['rtp_post_comments'] = $wpdb->get_var( "SELECT option_value FROM {$wpdb->options} $post_comments" );
+    $args['rtp_hooks'] = $wpdb->get_var( "SELECT option_value FROM {$wpdb->options} $hooks" ); 
+    
+    header( 'Content-Description: File Transfer' );
+    header( 'Content-Disposition: attachment; filename=' . $filename );
+    header( 'Content-Type: text/xml; charset=' . get_option( 'blog_charset' ), true ); ?>
+<rtpanel>
+    <rtp_version><?php echo maybe_serialize( rtp_export_version() ); ?></rtp_version>
     <rtp_general><?php echo $args['rtp_general']; ?></rtp_general>
     <rtp_post_comments><?php echo $args['rtp_post_comments']; ?></rtp_post_comments>
 </rtpanel>
@@ -1123,12 +1221,15 @@ function rtp_export( ) {
 }
 
 /**
+ * Restores rtPanel Options
  *
  * @uses $rtp_general array
  * @uses $rtp_post_comments array
  * @uses $rtp_hooks array
  * @param string $file The
  * @return bool|array
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_import( $file ) {
     global $rtp_general, $rtp_post_comments;
@@ -1155,45 +1256,63 @@ function rtp_import( $file ) {
 
 /**
  * Add Custom Logo to Admin Dashboard
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_custom_admin_logo() {
-   echo '<style type="text/css"> #header-logo { background: url("' . RTP_IMG_FOLDER_URL . '/icon-rtpanel.jpg") repeat scroll 0 0 transparent !important; height: 32px; width: 32px; } </style>';
+   echo '<style type="text/css"> #header-logo { background: url("' . RTP_IMG_FOLDER_URL . '/icon-rtpanel-small.jpg") repeat scroll 0 0 transparent !important; } </style>';
 }
 add_action( 'admin_head', 'rtp_custom_admin_logo' );
 
 /**
  * Add Custom footer text
+ *
+ * @since rtPanel Theme 2.0
  */
-function rtl_custom_admin_footer() {
+function rtp_custom_admin_footer() {
     printf( '<span id="footer-thankyou">' . __( 'Thank you for creating with <a href="%s" target="_blank">WordPress</a>.', 'rtPanel' ) . '</span> | ' . __( '<a href="%s" target="_blank">Documentation</a>', 'rtPanel' ) . ' | ' . __( '<a href="%s" target="_blank">Feedback</a>', 'rtPanel' ) . '
         <br /><br />' . __( 'Currently using <a href="%s" title="rtPanel.com" target="_blank">rtPanel</a>', 'rtPanel' ) . ' |
         ' . __( '<a href="%s" title="Click here for rtPanel Free Support" target="_blank">Support</a>', 'rtPanel' ) . ' |
         ' . __( '<a href="%s" title="Click here for rtPanel Documentation" target="_blank">Documentation</a>', 'rtPanel' ), 'http://wordpress.org/', 'http://codex.wordpress.org/', 'http://wordpress.org/support/forum/4', 'http://rtpanel.com/', 'http://rtpanel.com/support', 'http://rtpanel.com/docs' );
 }
-add_filter( 'admin_footer_text', 'rtl_custom_admin_footer' );
+add_filter( 'admin_footer_text', 'rtp_custom_admin_footer' );
 
 /**
- * Add rtPanel Version in Admin Footer
+ * Get rtPanel Version and WordPress Version
+ *
+ * @since rtPanel Theme 2.0
  */
-function rtp_version() {
-    global $ct;
+function rtp_export_version() {
+    global $wp_version;
     require_once( ABSPATH . '/wp-admin/includes/update.php' );
-
-    $themes_info = '';
-    $ct = get_current_theme();
-    $themes_info = get_themes();
-    $theme_version = core_update_footer() . '<br /><br />' . __( 'rtPanel Version ', 'rtPanel' ) . $themes_info[$ct]['Version'];
+    $theme_info = get_theme( get_current_theme() );
+    $theme_version = array( 'wp' => $wp_version, 'rtPanel' => $theme_info['Version'] );
     return $theme_version;
 }
+
+/**
+ * Get rtPanel Version along with WordPress version in text for footer
+ *
+ * @since rtPanel Theme 2.0
+ */
+function rtp_version() {
+    require_once( ABSPATH . '/wp-admin/includes/update.php' );
+    $theme_info = get_theme( get_current_theme() );
+    $theme_version = core_update_footer() . '<br /><br />' . __( 'rtPanel Version ', 'rtPanel' ) . $theme_info['Version'];
+    return $theme_version;
+}
+// Add rtPanel Version in Admin Footer
 add_filter( 'update_footer', 'rtp_version', 9999 );
 
-/* Apply the regenerate thumbnail notice */
+// Apply the regenerate thumbnail notice
 if ( is_admin() && @$rtp_post_comments['notices'] ) {
     add_action( 'admin_notices', 'rtp_regenerate_thumbnail_notice');
 }
 
 /**
  *  Display the regenerate thumbnail notice
+ *
+ * @since rtPanel Theme 2.0
  */
 function rtp_regenerate_thumbnail_notice( $return = false ) {
     if ( is_plugin_active( RTP_REGENERATE_THUMBNAILS ) ) {
@@ -1209,17 +1328,16 @@ function rtp_regenerate_thumbnail_notice( $return = false ) {
     } else {
         echo '<div class="error regenerate_thumbnail_notice"><p>' . sprintf( __( 'The Thumbnail Settings have been updated. Please <a href="%s" title="Regenerate Thumbnails">Regenerate Thumbnails</a>', 'rtPanel' ), $regenerate_link ) . ' <a class="alignright regenerate_thumbanil_notice_close" href="#">X</a></p></div>';
     }
-
 }
 
-/* Switch off the regenerate thumbnail notice */
+// Switch off the regenerate thumbnail notice
 if ( is_admin() && $pagenow == 'tools.php' && ( @$_GET['page'] == 'regenerate-thumbnails' ) && @$_POST['regenerate-thumbnails'] ) {
     $rtp_notice = get_option('rtp_post_comments');
     $rtp_notice['notices'] = '0';
     update_option( 'rtp_post_comments', $rtp_notice );
 }
 
-/* Check if regeneration of thumbnail is required */
+// Check if regeneration of thumbnail is required
 if ( is_array( $rtp_post_comments ) && ( @$rtp_post_comments['thumbnail_width'] != get_option( 'thumbnail_size_w' ) || @$rtp_post_comments['thumbnail_height'] != get_option( 'thumbnail_size_h' ) || @$rtp_post_comments['thumbnail_crop'] != get_option( 'thumbnail_crop' ) ) ) {
     $rtp_post_comments['notices'] = '1';
     $rtp_post_comments['thumbnail_width'] = get_option( 'thumbnail_size_w' );

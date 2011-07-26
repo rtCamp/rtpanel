@@ -1,7 +1,9 @@
-/*
-Theme Name: rtPanel Theme
-Description: Used to style the TinyMCE editor.
-*/
+/**
+ * Custom CSS for TinyMCE Editor
+ *
+ * @package rtPanel
+ * @since rtPanel Theme 2.0
+ */
 
 html .mceContentBody { max-width: 640px; }
 * { color: #444444; font-family: Georgia, "Bitstream Charter", serif; line-height: 1.5; }
@@ -11,7 +13,6 @@ pre { font-family: "Courier 10 Pitch", Courier, monospace; }
 code, code var { font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace; }
 body, input, textarea { font-size: 12px; line-height: 18px; }
 hr { background: none repeat scroll 0 0 #e7e7e7; border: 0; clear: both; height: 1px; margin-bottom: 18px; }
-/* Text elements */
 p { margin-bottom: 18px; }
 ul, ol { margin: 0 0 22px 12px }
 ul ul, ul ol,

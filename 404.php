@@ -16,14 +16,14 @@ get_sidebar();
 rtp_hook_begin_content();
 ?>
 <div id="content" class="rtp-home-posts"> <!-- content begins -->
- <?php    
-    global $rtp_post_comments;
-    /* ========== [ Breadcrumb Support ] ========== */
-    if ( function_exists( 'bcn_display' ) ) {
-        echo '<div class="breadcrumb">';
-            bcn_display();
-        echo '</div>';
-    }
+    <?php
+        global $rtp_post_comments;
+        /* ========== [ Breadcrumb Support ] ========== */
+        if ( function_exists( 'bcn_display' ) ) {
+            echo '<div class="breadcrumb">';
+                bcn_display();
+            echo '</div>';
+        }
     ?>
     <div id="post-0" <?php post_class('rtp-post-box'); ?>> <!-- post_class begins -->
         <?php rtp_hook_begin_post(); /* rtpanel_hook for adding content after .rtp-post-box begins */?>
@@ -33,7 +33,7 @@ rtp_hook_begin_content();
         <div class="post-content">
             <p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'rtPanel' ); ?></p>
             <?php get_search_form(); ?>
-        </div><!-- .entry-content -->
+        </div>
         <?php rtp_hook_end_post();/* rtpanel_hook for adding content before .rtp-post-box ends */ ?>
     </div><!-- end post_class -->
 </div><!-- end content -->
