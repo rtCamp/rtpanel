@@ -3,7 +3,7 @@
  * rtPanel Hooks Tab.
  *
  * @package rtPanel
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 
 

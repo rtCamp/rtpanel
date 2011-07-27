@@ -3,7 +3,7 @@
  * The template containing functions related to rtPanel Admin.
  *
  * @package rtPanel
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 
 global $rtp_general, $rtp_post_comments, $rtp_hooks;
@@ -25,7 +25,7 @@ if ( is_admin() && isset ( $_GET['activated'] ) && $pagenow ==	'themes.php' ) {
  * @uses $rtp_general array
  * @return Array
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_general_validate( $input ) {
     global $rtp_general;
@@ -52,7 +52,7 @@ function rtp_general_validate( $input ) {
                         @unlink( $logo_file['file'] );
                 }
 
-                if ( in_array( $logo_extension, array( 'jpg', 'jpeg', 'jpe', 'gif', 'png', 'bmp', 'ico', 'tif', 'tiff' ) ) && ( $wp_remote_get['response'] == 200 ) && $input['logo_url'] != RT_BASE_IMG_FOLDER_URL . '/rtpanel-logo.jpg' ) {
+                if ( in_array( $logo_extension, array( 'jpg', 'jpeg', 'jpe', 'gif', 'png', 'bmp', 'ico', 'tif', 'tiff' ) ) && ( $wp_remote_get['response'] == 200 ) && $input['logo_url'] != RT_BASE_IMG_FOLDER_URL . '/rtp-logo.jpg' ) {
                     $input['logo_url']    = $logo_file['url'];
                     $input['logo_upload'] = $rtp_general['logo_upload'];
                     add_settings_error( 'logo_upload', 'valid_logo_upload', __( 'The Logo Settings have been updated.', 'rtPanel' ), 'updated' );
@@ -311,7 +311,7 @@ function rtp_general_validate( $input ) {
  * @param array $input all post & comments options inputs.
  * @return Array
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_post_comments_validate( $input ) {
     global $rtp_post_comments;
@@ -505,15 +505,15 @@ function rtp_post_comments_validate( $input ) {
  *
  * @return array.
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_theme_setup_values() {
     global $rtp_general, $rtp_post_comments;
     $default_general = array(
         'logo_show'       => '1',
         'use_logo'        => 'use_logo_url',
-        'logo_url'        => RTP_IMG_FOLDER_URL . '/rtpanel-logo.jpg',
-        'logo_upload'     => RTP_IMG_FOLDER_URL . '/rtpanel-logo.jpg',
+        'logo_url'        => RTP_IMG_FOLDER_URL . '/rtp-logo.jpg',
+        'logo_upload'     => RTP_IMG_FOLDER_URL . '/rtp-logo.jpg',
         'login_head'      => '0',
         'use_favicon'     => 'use_favicon_url',
         'favicon_url'     => RTP_IMG_FOLDER_URL . '/favicon.ico',
@@ -610,7 +610,7 @@ function rtp_theme_setup_values() {
  * @uses string $feed
  * @uses array $rtp_general
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_feed_redirect() {
     global $feed, $rtp_general, $withcomments;
@@ -629,7 +629,7 @@ function rtp_feed_redirect() {
  *
  * @uses $rtp_general array
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_check_url() {
     global $rtp_general;
@@ -670,7 +670,7 @@ if ( $rtp_general['login_head'] && $rtp_general['logo_show'] ) {
  *
  * @uses $rtp_general array
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_custom_login_logo() {
     $custom_logo = rtp_logo_fav_src( $type = 'logo' );
@@ -687,7 +687,7 @@ function rtp_custom_login_logo() {
  * 
  * @return string
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_login_site_url() {
     return home_url('/');
@@ -700,7 +700,7 @@ function rtp_login_site_url() {
  * @param object $post Global Post Object or similar object
  * @return Array
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_theme_options_upload( $form_fields, $post ) {
     /* Can now see $post becaue the filter accepts two args, as defined in the add_fitler */
@@ -761,7 +761,7 @@ function rtp_theme_options_upload( $form_fields, $post ) {
  * @param array $tabs Array of all the Tabs present
  * @return Array
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_remove_url_tab( $tabs ) {
     unset($tabs['type_url']);
@@ -778,7 +778,7 @@ if ( is_admin() && isset ( $_SERVER['HTTP_REFERER'] ) && ( preg_match( "/rtp_gen
  *
  * @return rtPanel_admin_sidebar
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_default_sidebar() { ?>
     <div class="postbox" id="social">
@@ -844,7 +844,7 @@ function rtp_default_sidebar() { ?>
  *
  * @param string $feed_url The Feed URL.
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_get_feeds( $feed_url='http://feeds.feedburner.com/rtcamp' ) {
 
@@ -884,7 +884,7 @@ function rtp_get_feeds( $feed_url='http://feeds.feedburner.com/rtcamp' ) {
  * @param object $screen The screen information
  * @return string
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_contextual_help( $contextual_help, $screen_id, $screen ) {
 
@@ -960,7 +960,7 @@ add_filter('contextual_help', 'rtp_contextual_help', 10, 3);
 /**
  *  Checks whether the links in the admin bar should be displayed or not
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_admin_bar_init() {
     // Is the user sufficiently leveled, or has the bar been disabled?
@@ -977,7 +977,7 @@ add_action( 'admin_bar_init', 'rtp_admin_bar_init' );
  *
  * @uses object $wp_admin_bar
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_admin_bar_links() {
     global $wp_admin_bar, $rt_panel_theme;
@@ -1008,7 +1008,7 @@ function rtp_admin_bar_links() {
 /**
  * Outputs the neccessary js to hide the regenerate thumbnal notice
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_regenerate_thumbnail_notice_js() { ?>
     <script type="text/javascript" >
@@ -1032,7 +1032,7 @@ add_action( 'admin_head', 'rtp_regenerate_thumbnail_notice_js' );
  *
  * @uses $rtp_post_comments array
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_handle_regenerate_notice() {
     global $rtp_post_comments;
@@ -1050,7 +1050,7 @@ add_action( 'wp_ajax_hide_regenerate_thumbnail_notice', 'rtp_handle_regenerate_n
  * @param string $type Optional. Deafult is 'logo'. logo' or 'favicon'
  * @return string
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_logo_fav_src( $type = 'logo' ) {
     global $rtp_general;
@@ -1078,7 +1078,7 @@ function rtp_logo_fav_src( $type = 'logo' ) {
  * @param array $mime_types The allowed mime types
  * @return string
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_allowed_upload_extensions( $mime_types ) {
 	//Creating a new array will reset the allowed filetypes
@@ -1103,7 +1103,7 @@ add_filter( 'upload_mimes', 'rtp_allowed_upload_extensions', 1, 1 );
 /**
  * Used to bypass the Flash Media Upload and append some fields
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_media_upload_flash_bypass() {
         echo "<input type='hidden' name='rtp_theme' value='rtp_true' />";
@@ -1123,7 +1123,7 @@ function rtp_media_upload_flash_bypass() {
 /**
  * Used to bypass the Browser Media Upload and append some fields
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_media_upload_html_bypass( $flash = true ) {
     echo "<input type='hidden' name='rtp_theme' value='rtp_true' />";
@@ -1156,7 +1156,7 @@ if ( ( preg_match( '/rtp_theme=rtp_true/i', @$_SERVER['HTTP_REFERER'] ) ) || ( p
  * @param string $location Location to redirect
  * @return string
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_media_library_redirect( $location ) {
     $logo_or_favicon = ( preg_match( "/logo_or_favicon=Logo/", @$_SERVER['HTTP_REFERER'] ) || preg_match( "/logo_or_favicon=Logo/", @$_SERVER['REQUEST_URI'] ) ) ? "Logo" : "Favicon";
@@ -1179,7 +1179,7 @@ if( preg_match( "/rtp_theme=rtp_true/i", @$_SERVER['HTTP_REFERER'] ) || preg_mat
 /**
  * Used to add a hidden input field in the media library iframe
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function add_hidden_rtp_variable(){
     echo "<script type='text/javascript'>
@@ -1192,7 +1192,7 @@ function add_hidden_rtp_variable(){
  * 
  * @uses $wpdb object
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_export( ) {
     global $wpdb;
@@ -1229,7 +1229,7 @@ function rtp_export( ) {
  * @param string $file The
  * @return bool|array
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_import( $file ) {
     global $rtp_general, $rtp_post_comments;
@@ -1257,17 +1257,17 @@ function rtp_import( $file ) {
 /**
  * Add Custom Logo to Admin Dashboard
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_custom_admin_logo() {
-   echo '<style type="text/css"> #header-logo { background: url("' . RTP_IMG_FOLDER_URL . '/icon-rtpanel-small.jpg") no-repeat scroll center center transparent !important; } </style>';
+   echo '<style type="text/css"> #header-logo { background: url("' . RTP_IMG_FOLDER_URL . '/rtp-icon-small.jpg") no-repeat scroll center center transparent !important; } </style>';
 }
 add_action( 'admin_head', 'rtp_custom_admin_logo' );
 
 /**
  * Add Custom footer text
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_custom_admin_footer() {
     printf( '<span id="footer-thankyou">' . __( 'Thank you for creating with <a href="%s" target="_blank">WordPress</a>.', 'rtPanel' ) . '</span> | ' . __( '<a href="%s" target="_blank">Documentation</a>', 'rtPanel' ) . ' | ' . __( '<a href="%s" target="_blank">Feedback</a>', 'rtPanel' ) . '
@@ -1280,7 +1280,7 @@ add_filter( 'admin_footer_text', 'rtp_custom_admin_footer' );
 /**
  * Get rtPanel Version and WordPress Version
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_export_version() {
     global $wp_version;
@@ -1293,7 +1293,7 @@ function rtp_export_version() {
 /**
  * Get rtPanel Version along with WordPress version in text for footer
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_version() {
     require_once( ABSPATH . '/wp-admin/includes/update.php' );
@@ -1312,7 +1312,7 @@ if ( is_admin() && @$rtp_post_comments['notices'] ) {
 /**
  *  Display the regenerate thumbnail notice
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_regenerate_thumbnail_notice( $return = false ) {
     if ( is_plugin_active( RTP_REGENERATE_THUMBNAILS ) ) {

@@ -2,14 +2,15 @@
  * Custom CSS for rtPanel Admin
  *
  * @package rtPanel
- * @since rtPanel Theme 2.0
+
+ * @since rtPanel 2.0
  */
 
 /* ========== [ Layout Style ] ========== */
 .rtpanel { color: #333333 !important; font-weight: bold; }
 .wrap { width: 76%; overflow: hidden; }
     .wrap div.updated p { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; background-color: #FFFFE0; border: 1px solid #E6DB55; margin: 0 auto; padding: 7px; width: 95%; }
-#icon-rtpanel { background: url("../../img/icon-rtpanel.jpg") no-repeat scroll 0 0 transparent; }
+#icon-rtpanel { background: url("../../img/rtp-icon.jpg") no-repeat scroll 0 0 transparent; }
 .wrap h2 { border-bottom: 1px solid #CCCCCC; padding-bottom: 0; }
 h2 .nav-tab { font-size: 20px; padding: 4px 6px; }
 .nav-tab { margin: 0 5px -1px 0; }
@@ -65,7 +66,7 @@ div.inside { margin: 10px; }
 #gravatar_size { width: 120px; }
 
 /* ========== [ Social Share and Connect Style ] ========== */
-#social .inside a { background: url("../../img/rt-social-icons.png") no-repeat scroll 0 0 transparent; display: inline-block; font-size: 0; height: 23px; margin: 0 5px; text-indent: -9999px; text-transform: uppercase; vertical-align: middle; width: 23px; }
+#social .inside a { background: url("../../img/rtp-social-icons.png") no-repeat scroll 0 0 transparent; display: inline-block; font-size: 0; height: 23px; margin: 0 5px; text-indent: -9999px; text-transform: uppercase; vertical-align: middle; width: 23px; }
     #social .inside a.rtpanel-facebook { background-position: -215px 0; }
     #social .inside a.rtpanel-twitter { background-position: -559px 0; }
     #social .inside a.rtpanel-rss { background-position: -430px 0; }

@@ -1,8 +1,8 @@
 /**
- * The template for displaying custom Scripts for browsers
+ * Custom Scripts
  *
  * @package rtPanel
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 
 jQuery(document).ready(function() {

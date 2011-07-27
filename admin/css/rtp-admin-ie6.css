@@ -1,8 +1,8 @@
 /**
- * Custom CSS for IE6 Browser
+ * Custom CSS for rtPanel Admin ( IE6 )
  *
  * @package rtPanel
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 #social .inside { overflow: hidden; margin: 10px 10px 10px 65px; }
 #social .inside a { display: block; float: left; }

@@ -2,7 +2,7 @@
  * The template for displaying custom jQuery for IE6 browser only
  *
  * @package rtPanel
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 
 jQuery(document).ready(function() {

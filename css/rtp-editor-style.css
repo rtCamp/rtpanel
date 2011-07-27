@@ -2,7 +2,8 @@
  * Custom CSS for TinyMCE Editor
  *
  * @package rtPanel
- * @since rtPanel Theme 2.0
+ * 
+ * @since rtPanel 2.0
  */
 
 html .mceContentBody { max-width: 640px; }

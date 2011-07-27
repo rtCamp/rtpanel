@@ -2,7 +2,7 @@
  * The template for displaying custom jQuery for rtPanel Admin
  *
  * @package rtPanel
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 
 jQuery(document).ready(function() {
@@ -112,7 +112,7 @@ jQuery(document).ready(function() {
             tb_show( 'Upload '+iframe_title, 'media-upload.php?post_id=0&amp;rtp_theme=rtp_true&amp;logo_or_favicon='+iframe_title+'&amp;type=image&amp;TB_iframe=true&amp;width='+W+'&amp;height='+H);
             window.send_to_editor = function(html) {
                 imgurl = jQuery('img',html).attr('src');
-                if( ( typeof(imgurl) !== 'undefined' ) && ( imgurl.match(/(.jpg|.jpeg|.jpe|.gif|.bmp|.ico|.tif|.tiff)$/i) ) ){
+                if( ( typeof(imgurl) !== 'undefined' ) && ( imgurl.match(/(.jpg|.jpeg|.jpe|.gif|.png|.bmp|.ico|.tif|.tiff)$/i) ) ){
                     jQuery(textbox_id).val(imgurl);
                     jQuery(main_metabox_id+' .image-preview img').attr('src', imgurl);
                     tb_remove();

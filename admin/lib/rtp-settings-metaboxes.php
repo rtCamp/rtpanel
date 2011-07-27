@@ -3,13 +3,13 @@
  * rtPanel Metaboxes.
  *
  * @package rtPanel
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 
 /**
  * Used to register the General and Post Comments Tab on admin_init tag
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_admin_init_general() {
     // Registers our settings.
@@ -22,7 +22,7 @@ add_action( 'admin_init', 'rtp_admin_init_general' );
  * Metabox for Logo Settings (General Tab)
  * @uses $rtp_general array
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_logo_option_metabox() {
     global $rtp_general; ?>
@@ -85,7 +85,7 @@ function rtp_logo_option_metabox() {
  *
  * @uses $rtp_general array
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_fav_option_metabox() {
     global $rtp_general; ?>
@@ -131,7 +131,7 @@ function rtp_fav_option_metabox() {
  *
  * @uses $rtp_general array
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_feed_option_metabox() {
     global $rtp_general; ?>
@@ -159,7 +159,7 @@ function rtp_feed_option_metabox() {
  * 
  * @uses $rtp_general array
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_sidebar_options_metabox() {
     global $rtp_general; ?>
@@ -188,7 +188,7 @@ function rtp_sidebar_options_metabox() {
  * 
  * @uses $rtp_general array
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_google_search_metabox() {
     global $rtp_general; ?>
@@ -207,7 +207,7 @@ function rtp_google_search_metabox() {
                 <td>
                     <input type="hidden" name="rtp_general[search_layout]" value="0" />
                         <input type="checkbox" name="rtp_general[search_layout]" value="1" id="search_layout" <?php checked( $rtp_general['search_layout'] ); ?> />
-                    <span class="description"><label for="search_layout"><?php _e( 'Do not show sidebar on Search Results Page', 'rtPanel' ); ?></label></span>
+                    <span class="description"><label for="search_layout"><?php _e( 'Do not show sidebar on Search Results Page ( When using Google Custom Search )', 'rtPanel' ); ?></label></span>
                 </td>
             </tr>
         </tbody>
@@ -225,7 +225,7 @@ function rtp_google_search_metabox() {
  * 
  * @uses $rtp_general array
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_custom_styles_metabox() {
     global $rtp_general; ?>
@@ -251,7 +251,7 @@ function rtp_custom_styles_metabox() {
 /**
  * Metabox for Plugin Support (General Tab)
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_plugin_metabox() {
     $plugins = get_plugins();
@@ -369,7 +369,7 @@ function rtp_plugin_metabox() {
  * 
  * @uses $rtp_general array
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_backup_metabox() {
     global $rtp_general; ?>
@@ -398,7 +398,7 @@ function rtp_backup_metabox() {
  * 
  * @uses $rtp_post_comments array
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_post_summaries_metabox() {
         global $rtp_post_comments; ?>
@@ -440,7 +440,7 @@ function rtp_post_summaries_metabox() {
  * 
  * @uses $rtp_post_comments array
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_post_thumbnail_metabox() {
         global $rtp_post_comments;
@@ -513,7 +513,7 @@ function rtp_post_thumbnail_metabox() {
  *
  * @uses $rtp_post_comments array
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_post_meta_metabox() {
         global $rtp_post_comments;
@@ -657,7 +657,7 @@ function rtp_post_meta_metabox() {
  *
  * @uses $rtp_post_comments array
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_comment_form_metabox() {
         global $rtp_post_comments; ?>
@@ -701,7 +701,7 @@ function rtp_comment_form_metabox() {
  *
  * @uses $rtp_post_comments array
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_gravatar_metabox() {
         global $rtp_post_comments; ?>

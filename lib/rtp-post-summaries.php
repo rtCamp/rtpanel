@@ -3,7 +3,7 @@
  * The template containing functions related to Post Summaries
  *
  * @package rtPanel
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 
 
@@ -13,7 +13,7 @@
  * @param string $text
  * @return string
  * 
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_no_ellipsis( $text ) {
     global $post, $rtp_post_comments;
@@ -29,7 +29,7 @@ add_filter( 'the_excerpt', 'rtp_no_ellipsis' );
  *
  * @return string The gallery style filter, with the styles themselves removed.
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_remove_gallery_css( $css ) {
     return preg_replace( "#<style type='text/css'>(.*?)</style>#s", '', $css );
@@ -43,7 +43,7 @@ add_filter( 'gallery_style', 'rtp_remove_gallery_css' );
  * @param int $length length
  * @return int
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_new_excerpt_length($length) {
     global $rtp_post_comments;
@@ -56,23 +56,45 @@ function rtp_new_excerpt_length($length) {
 }
 add_filter( 'excerpt_length', 'rtp_new_excerpt_length' );
 
+// Nofollow external links only
+
 /**
- * Prepends and Appends Braces to Read More text
+ * Callback to rt_nofollow()
  *
- * @param int $text read more text
+ * @param array $matches
  * @return string
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
-function rtp_readmore_braces($text) {
-   return '<span class="rtp-courly-bracket">[ </span>'. $text .'<span class="rtp-courly-bracket"> ]</span>';
+function rt_nofollow_callback( $matches ) {
+    $link = $matches[0];
+    $site_link = get_bloginfo( 'url' );
+    if ( strpos( $link, 'rel' ) === false ) {
+        $link = preg_replace( "%(href=\S(?!$site_link))%i", 'rel="nofollow" $1', $link );
+    } elseif ( preg_match( "%href=\S(?!$site_link)%i", $link ) ) {
+        $link = preg_replace( '/rel=\S(?!nofollow)\S*/i', 'rel="nofollow"', $link );
+    }
+    return $link;
 }
-add_filter( 'rtp_readmore', 'rtp_readmore_braces' );
+
+/**
+ * Sets 'nofollow' to external links
+ *
+ * @param string $content
+ * @return mixed
+ *
+ * @since rtPanel 2.0
+ */
+function rt_nofollow( $content ) {
+    return preg_replace_callback( '/<a[^>]+/', 'rt_nofollow_callback', $content );
+}
+add_filter( 'the_content', 'rt_nofollow' );
+add_filter( 'the_excerpt', 'rt_nofollow' );
 
 /**
  * Displays Attachment Image Thumbnail
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_show_post_thumbnail() {
     global $rtp_post_comments;
@@ -106,7 +128,7 @@ function rtp_show_post_thumbnail() {
  * @param int $the_id The current post should be passed if function is used outside the loop
  * @return string
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 
 function rtp_generate_thumbs( $attach_id = null, $size = 'thumbnail', $the_id = '' ) {
@@ -179,7 +201,7 @@ function rtp_generate_thumbs( $attach_id = null, $size = 'thumbnail', $the_id = 
  * @param array $double_check_tag Used to take care of the misleading wp-image class
  * @return string
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_create_external_thumb( $match, $post, $size, $double_check_tag = '' ) {
             $img_path = urldecode( $match[1] );
@@ -323,7 +345,7 @@ function rtp_create_external_thumb( $match, $post, $size, $double_check_tag = ''
  * @param string $image_src The Image Source
  * @return int
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_get_attachment_id_from_src( $image_src ) {
     global $wpdb;

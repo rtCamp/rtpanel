@@ -3,7 +3,7 @@
  * rtPanel General Tab.
  *
  * @package rtPanel
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 
 /**
@@ -12,7 +12,7 @@
  * @uses $screen_layout_columns int
  * @param string $pagehook The page hook
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_general_options_page( $pagehook ) {
     global $screen_layout_columns; ?>

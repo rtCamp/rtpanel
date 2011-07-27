@@ -3,7 +3,7 @@
  * rtPanel Post and Comments Tab.
  *
  * @package rtPanel
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 
 /**
@@ -12,7 +12,7 @@
  * @uses $screen_layout_columns int
  * @param srting $pagehook The page hook
  * 
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_post_comments_options_page( $pagehook ) {
     global $screen_layout_columns; ?>

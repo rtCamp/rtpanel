@@ -2,12 +2,14 @@
  * Custom CSS for Reset Browser CSS
  *
  * @package rtPanel
- * @since rtPanel Theme 2.0
+ *
+ * @since rtPanel 2.0
  */
-/*
-  html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)
-  v1.4 2009-07-27 | Authors: Eric Meyer & Richard Clark
-  html5doctor.com/html-5-reset-stylesheet/
+
+ /*
+    html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)
+    v1.4 2009-07-27 | Authors: Eric Meyer & Richard Clark
+    html5doctor.com/html-5-reset-stylesheet/
 */
 
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,

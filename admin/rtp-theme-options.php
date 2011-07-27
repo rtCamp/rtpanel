@@ -3,7 +3,7 @@
  * rtPanel Theme Options.
  *
  * @package rtPanel
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 
 // Include all PHP files inside 'admin/php/' folder.
@@ -15,7 +15,7 @@ foreach ( glob( get_template_directory() . "/admin/lib/*.php" ) as $lib_filename
  * rtPanel Theme Class.
  * Used to generate the rtPanel admin Panel Options.
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 class rtp_theme {
 
@@ -24,7 +24,7 @@ class rtp_theme {
     /**
      * Constructor of class, PHP4 compatible construction for backward compatibility.
      *
-     * @since rtPanel Theme 2.0
+     * @since rtPanel 2.0
      */
     function rtp_theme() {
         $this->theme_pages = apply_filters( 'rtp_add_theme_pages', array(
@@ -56,7 +56,7 @@ class rtp_theme {
      * @param string $screen screen name
      * @return array.
      * 
-     * @since rtPanel Theme 2.0
+     * @since rtPanel 2.0
      */
     function rtp_on_screen_layout_columns($columns, $screen) {
         $tab = isset($_GET['page'] )  ? $_GET['page'] : "rtp_general";
@@ -69,7 +69,7 @@ class rtp_theme {
     /**
      * Set Screen Layout columns to 1 by default for any user for first time
      *
-     * @since rtPanel Theme 2.0
+     * @since rtPanel 2.0
      */
     function rtp_init() {
         $tab = isset($_GET['page'] )  ? $_GET['page'] : "rtp_general";
@@ -86,7 +86,7 @@ class rtp_theme {
      * Extend the admin menu.
      * Adding options for rtPanel in admin menu.
      *
-     * @since rtPanel Theme 2.0
+     * @since rtPanel 2.0
      */
     function rtp_theme_option_page(  ) {
         // Add options page, you can also add it to different sections or use your own one
@@ -106,7 +106,7 @@ class rtp_theme {
     /**
      * Includes js for theme options page.
      *
-     * @since rtPanel Theme 2.0
+     * @since rtPanel 2.0
      */
     function rtp_admin_page_scripts() {
         wp_enqueue_script( 'rtp-admin-scripts', RTP_TEMPLATE_URL . '/admin/js/rtp-admin.js' );
@@ -116,7 +116,7 @@ class rtp_theme {
     /**
      * Includes css for theme options page.
      *
-     * @since rtPanel Theme 2.0
+     * @since rtPanel 2.0
      */
     function rtp_admin_page_styles() {
         wp_enqueue_style( 'rtp-admin-styles', RTP_TEMPLATE_URL . '/admin/css/rtp-admin.css' );
@@ -132,7 +132,7 @@ class rtp_theme {
     /**
      * Browser Fixing for IE7 and IE6
      *
-     * @since rtPanel Theme 2.0
+     * @since rtPanel 2.0
      */
     function rtp_browser_compatability_admin_styles() { ?>
         <!--[if IE 7 ]>
@@ -146,7 +146,7 @@ class rtp_theme {
     /**
      * Dividing the page into Tabs ( General, Post & Comments )
      *
-     * @since rtPanel Theme 2.0
+     * @since rtPanel 2.0
      */
     function rtp_admin_options() {
         // Separate the options page into two tabs - General , Post & Comments.
@@ -193,7 +193,7 @@ class rtp_theme {
     /**
      * Will be executed if wordpress core detects this page has to be rendered
      *
-     * @since rtPanel Theme 2.0
+     * @since rtPanel 2.0
      */
     function rtp_on_load_page() {
         // Javascripts loaded to allow drag/drop, expand/collapse and hide/show of boxes. */

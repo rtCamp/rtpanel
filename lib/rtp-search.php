@@ -3,7 +3,7 @@
  * The template for over riding WordPress default search mechanism
  * 
  * @package rtPanel
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 
 /**
@@ -13,7 +13,7 @@
  * @param string $form
  * @return string
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_custom_search_form( $form ) {
     $form = '<form class="searchform" action="' . home_url() . '/" >

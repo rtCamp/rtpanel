@@ -2,11 +2,15 @@
  * Custom CSS for Typography
  *
  * @package rtPanel
- * @since rtPanel Theme 2.0
+ *
+ * @since rtPanel 2.0
  */
-/* fonts.css from the YUI Library: developer.yahoo.com/yui/
-   Refer to developer.yahoo.com/yui/3/cssfonts/ for font sizing percentages
+
+/*
+    fonts.css from the YUI Library: developer.yahoo.com/yui/
+    Refer to developer.yahoo.com/yui/3/cssfonts/ for font sizing percentages
 */
+
 body { font-size: 13px; line-height: 150%; font-family: Georgia,"Times New Roman",Times,serif; }
 h1, h2, h3, h4, h5, h6 { font-weight: normal; letter-spacing: 1px; line-height: 136.4%; margin: 0; padding: 0; }
 

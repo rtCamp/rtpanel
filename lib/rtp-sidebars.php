@@ -3,13 +3,13 @@
  * The template used to register sidebars
  *
  * @package rtPanel
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 
 /**
  * Registers the sidebars
  *
- * @since rtPanel Theme 2.0
+ * @since rtPanel 2.0
  */
 function rtp_widgets_init() {
     global $rtp_general;

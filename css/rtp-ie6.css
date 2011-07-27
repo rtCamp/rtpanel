@@ -2,7 +2,8 @@
  * Custom CSS for IE6 Browser
  *
  * @package rtPanel
- * @since rtPanel Theme 2.0
+ *
+ * @since rtPanel 2.0
  */
 
 legend { margin-left: -7px; } /* thnx ivannikolic! */
