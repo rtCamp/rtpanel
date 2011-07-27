@@ -29,19 +29,3 @@
 
     // Includes rtPanel Theme Options
     require_once( get_template_directory() . "/admin/rtp-theme-options.php" );
-
-
-function people_init() {
-	// create a new taxonomy
-	register_taxonomy(
-		'people',
-		'post',
-		array(
-			'label' => __( 'People' ),
-			'sort' => true,
-			'args' => array( 'orderby' => 'term_order' ),
-			'rewrite' => array( 'slug' => 'person' )
-		)
-	);
-}
-add_action( 'init', 'people_init' );

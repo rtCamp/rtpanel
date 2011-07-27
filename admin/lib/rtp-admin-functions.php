@@ -246,6 +246,16 @@ function rtp_general_validate( $input ) {
         $input['favicon_url']    = $default[0]['favicon_url'];
         $input['favicon_upload'] = $default[0]['favicon_upload'];
         add_settings_error( 'favicon_upload', 'fav_reset', __( 'The Favicon Settings have been restored to Default.', 'rtPanel' ), 'updated' );
+    } elseif ( isset($_POST['rtp_fb_ogp_reset'] ) ) {
+        $options = maybe_unserialize( $rtp_general );
+        unset($input);
+
+        foreach ( $options as $option => $value )
+            $input[$option] = $value;
+
+        $input['fb_app_id'] = $default[0]['fb_app_id'];
+        $input['fb_admins'] = $default[0]['fb_admins'];
+        add_settings_error( 'facebook_ogp', 'reset_facebook_ogp', __( 'The Facebook Open Graph Settings have been restored to Default.', 'rtPanel' ), 'updated' );
     } elseif ( isset($_POST['rtp_feed_reset'] ) ) {
         $options = maybe_unserialize( $rtp_general );
         unset($input);
@@ -518,6 +528,8 @@ function rtp_theme_setup_values() {
         'use_favicon'     => 'use_favicon_url',
         'favicon_url'     => RTP_IMG_FOLDER_URL . '/favicon.ico',
         'favicon_upload'  => RTP_IMG_FOLDER_URL . '/favicon.ico',
+        'fb_app_id'       => '',
+        'fb_admins'     => '',
         'feedburner_url'  => '',
         'footer_sidebar'  => '1',
         'custom_styles'   => '',

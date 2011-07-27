@@ -127,6 +127,41 @@ function rtp_fav_option_metabox() {
 }
 
 /**
+ * Metabox for Facebook Open Graph (General Tab)
+ *
+ * @uses $rtp_general array
+ *
+ * @since rtPanel 2.0
+ */
+function rtp_facebook_ogp_metabox() {
+    global $rtp_general; ?>
+    <table class="form-table">
+        <tbody>
+            <tr valign="top">
+                <th scope="row"><label for="fb_app_id"><?php _e( 'Facebook App ID', 'rtPanel' ); ?></label></th>
+                <td>
+                    <input type="text" value="<?php echo $rtp_general['fb_app_id'] ?>" size="40" name="rtp_general[fb_app_id]" id="fb_app_id" />
+                    <span class="description"><label for="fb_app_id"><?php _e( 'Specify Facebook App ID', 'rtPanel' ); ?></label></span>
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row"><label for="fb_admins"><?php _e( 'Facebook Admin ID(s)', 'rtPanel' ); ?></label></th>
+                <td>
+                    <input type="text" value="<?php echo $rtp_general['fb_admins'] ?>" size="40" name="rtp_general[fb_admins]" id="fb_admins" />
+                    <span class="description"><label for="fb_admins"><?php _e( 'Specify Facebook Admin ID(s) ( Comma separated )', 'rtPanel' ); ?></label></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="rtp_submit">
+        <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
+        <input class="button-secondary" value="<?php _e( 'Reset Facebook OGP Settings', 'rtPanel' ); ?>" name="rtp_fb_ogp_reset" type="submit" />
+        <div class="clear"></div>
+    </div>
+<?php
+}
+
+/**
  * Metabox for Feedburner Settings (General Tab)
  *
  * @uses $rtp_general array
