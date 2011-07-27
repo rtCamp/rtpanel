@@ -1,0 +1,98 @@
+# Translation of the WordPress theme rtPanel 1.1 by the rtCamp team.
+# Copyright (C) 2010 the WordPress team
+# This file is distributed under the same license as the rtPanel package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+
+msgid ""
+msgstr ""
+"Project-Id-Version: rtPanel 2.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/rtPanel\n"
+"POT-Creation-Date: 2010-07-14 16:21+0000\n"
+"PO-Revision-Date: 2010-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: comments.php:35
+msgid "<span class=\"comment-title\">Leave a Comment</span>"
+msgstr ""
+
+#: comments.php:14
+msgid "<span class=\"count\">%</span> Comments"
+msgstr ""
+
+#: comments.php:14
+msgid "<span class=\"count\">0</span> Comments"
+msgstr ""
+
+#: comments.php:14
+msgid "<span class=\"count\">1</span> Comment"
+msgstr ""
+
+#: comments.php:35
+msgid "Cancel reply"
+msgstr ""
+
+#: comments.php:115
+msgid "Comment"
+msgstr ""
+
+#: comments.php:58 comments.php:51
+msgid "Email"
+msgstr ""
+
+#: comments.php:16
+msgid "Manage Comments"
+msgstr ""
+
+#: comments.php:35
+msgid "Name"
+msgstr ""
+
+#: comments.php:31
+msgid "Next Comments"
+msgstr ""
+
+#: comments.php:115
+msgid "Pingback"
+msgstr ""
+
+#: comments.php:30
+msgid "Previous Comments"
+msgstr ""
+
+#: comments.php:35
+msgid "Submit"
+msgstr ""
+
+#: comments.php:7
+msgid "This post is password protected. Enter the password to view comments."
+msgstr ""
+
+#: comments.php:109 comments.php:115
+msgid "Trackback"
+msgstr ""
+
+#: comments.php:109
+msgid "Trackbacks"
+msgstr ""
+
+#: comments.php:35
+msgid "Website"
+msgstr ""
+
+#: comments.php:35
+msgid "Your email address will not be published."
+msgstr ""
+
+#: comments.php:14
+msgid "read %s below or <a href=\"#respond\" title=\"add your comment\">add one</a>"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "rtPanel"
+msgstr ""
