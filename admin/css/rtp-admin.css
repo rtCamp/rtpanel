@@ -99,8 +99,8 @@ input[disabled][type='text'], input[disabled][type='radio'], input[disabled][typ
 .postbox input[type="text"], .stuffbox input[type="text"] { width: auto; padding: 5px; }
 .postbox textarea, .stuffbox textarea { color: #333333; padding: 5px; }
 input[type="checkbox"], input[type="radio"] { margin: 1px 5px 1px 1px }
-input[type=submit].button-link { background: none; border: none; color: #21759B; cursor: pointer; }
-input[type=submit].button-link:hover { text-decoration: underline; }
+input.button-link { background: none; border: none; color: #21759B; cursor: pointer; }
+input.button-link:hover { color: #D54E21; }
 input { outline: medium none; }
 .has-right-sidebar .postbox input[type="text"], .has-right-sidebar .stuffbox input[type="text"], .has-right-sidebar .postbox textarea, .has-right-sidebar .stuffbox textarea { width: 98%; }
 .rtp_submit { padding: 10px 0; text-align: right; }

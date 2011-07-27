@@ -140,6 +140,16 @@ function rtp_general_validate( $input ) {
             }
         }
 
+        if ( trim( $input['fb_app_id'] ) !=  $rtp_general['fb_app_id'] ) {
+                $input['fb_app_id'] = trim( $input['fb_app_id'] );
+                add_settings_error( 'fb_app_id', 'valid_fb_app_id', __( 'The Facebook App ID has been updated.', 'rtPanel' ), 'updated' );
+        }
+
+        if ( trim( $input['fb_admins'] ) !=  $rtp_general['fb_admins'] ) {
+                $input['fb_admins'] = trim( $input['fb_admins'] );
+                add_settings_error( 'fb_admins', 'valid_fb_admins', __( 'The Facebook Admin ID(s) has been updated.', 'rtPanel' ), 'updated' );
+        }
+
         if ( !empty( $input['search_code'] ) ) {
             if ( !preg_match( '/customSearchControl.draw\(\'cse\'\);/i', $input['search_code'] ) ){
                 $input['search_code'] = $rtp_general['search_code'];
@@ -330,8 +340,8 @@ function rtp_post_comments_validate( $input ) {
     if ( isset ( $_POST['rtp_submit'] ) ) {
         $input['notices'] = $rtp_post_comments['notices'];
         if ( $input['summary_show'] ) {
-            if ( $input['read_text'] != $rtp_post_comments['read_text'] ) {
-                $input['read_text'] = trim( $input['read_text']);
+            if ( trim( $input['read_text'] ) != $rtp_post_comments['read_text'] ) {
+                $input['read_text'] = trim( $input['read_text'] );
                 add_settings_error( 'read_text', 'valid_read_text', __( 'The Post Summary Settings have been updated.', 'rtPanel' ), 'updated' );
             }
             if ( !preg_match( '/^[0-9]{1,3}$/i', $input['word_limit'] ) ) {

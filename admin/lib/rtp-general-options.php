@@ -19,6 +19,7 @@ function rtp_general_options_page( $pagehook ) {
 
     <div class="options-main-container">
         <?php settings_errors(); ?>
+<!--        <a href="#" class="expand-collapse button-link" title="Expand All">Expand All</a>-->
         <div class="options-container">
             <form name="rt_general_form" id="rt_general_form" action="options.php" method="post" enctype="multipart/form-data">
                 <?php

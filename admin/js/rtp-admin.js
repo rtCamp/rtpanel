@@ -12,6 +12,26 @@ jQuery(document).ready(function() {
             return false;
     });
 
+//    var expand = true;
+//
+//    jQuery('.expand-collapse').click( function(){
+//        jQuery('#normal-sortables .postbox').each( function() {
+//            if( jQuery(this).attr('class') == 'postbox closed' ) {
+//                expand = false;
+//            } else {
+//                expand = true
+//            }
+//        });
+//
+//        jQuery('#normal-sortables .postbox').each( function(){
+//            if ( expand ) {
+//                jQuery(this).removeClass('closed');
+//            } else {
+//                jQuery(this).addClass('closed');
+//            }
+//        });
+//    } );
+
     function date_format( position ) {
         jQuery('input[name="rtp_post_comments[post_date_format_'+position+']"]').click(function(){
             if ( 'post_date_custom_format_'+position != jQuery(this).attr('id') ) {

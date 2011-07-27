@@ -121,7 +121,7 @@ select, input, textarea { color: #111111; }
 /* Default Links */
 a, a:link, a:hover, a:active, a:visited { outline: none; }
 a, a:active, a:visited { color: #2361A1; text-decoration: none; }
-a:hover { color: #2361A1; text-decoration: underline; }
+a:hover { color: #D54E21; text-decoration: underline; }
 *:link, *:visited, *:hover, *:active, *:focus {
     -webkit-transition:
         color .25s linear,
@@ -149,7 +149,7 @@ h2 a, h2 a:visited, h2 a:active { color: #111111; text-decoration: none; }
 .post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 { margin: 0 0 12px; }
 
 /* Read More Links */
-.post-content .rtp-readmore { color: #7B7B7B; font-size: 85.7%; font-style: normal; padding: 0 2px; }
+.post-content .rtp-readmore { color: #7B7B7B; font-size: 85.7%; font-style: normal; padding: 0 2px; text-decoration: none; }
 .post-content .rtp-readmore:hover { color: #111111 }
 
 /* Header */
@@ -246,6 +246,7 @@ h2 a, h2 a:visited, h2 a:active { color: #111111; text-decoration: none; }
 .rtp-main-title { border-bottom: 2px solid #DDDDDD; padding: 22px 0; }
 .post-content { font-size: 140%; line-height: 171.5%; overflow: hidden; }
     .post-content p { margin-bottom: 24px; }
+    .post-content a { text-decoration: underline; }
     .post-content img { margin: 2px 5px; }
     .post-content .rtp-courly-bracket { font-size: 157.2%; }
     .post-content pre { background: none repeat scroll 0 0 #F1F1F1; overflow: auto; }

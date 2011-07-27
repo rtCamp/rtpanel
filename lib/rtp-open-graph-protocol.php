@@ -28,29 +28,29 @@ class rtp_ogp {
         $data = array();
         global $post, $rtp_general;
         $append = '';
-        if( strlen( $post->post_content ) >= 200 )
+        if( strlen( wp_html_excerpt( $post->post_content, 130 ) ) >= 130 )
                 $append = '...';
 
-        if( $rtp_general['fb_app_id'] )
+        if ( !empty( $rtp_general['fb_app_id'] ) )
             $data['fb:app_id'] = $rtp_general['fb_app_id'];
 
-        if ($rtp_general['fb_admins'] )
+        if ( !empty( $rtp_general['fb_admins'] ) )
             $data['fb:admins'] = $rtp_general['fb_admins'];
 
-        if (is_single() || is_page()) {
+        $data['og:site_name'] = get_bloginfo('name');
+
+        if ( is_singular () ) {
             $data['og:title'] = get_the_title();
             $data['og:type'] = 'article';
             $data['og:image'] = $this->rtp_ogp_image_url();
             $data['og:url'] = get_permalink();
-            $data['og:site_name'] = get_bloginfo('name');
-            $data['og:description'] = wp_html_excerpt($post->post_content, 200 ).$append;
+            $data['og:description'] = wp_html_excerpt( $post->post_content, 130 ).$append;
         }
         else {
             $data['og:title'] = get_bloginfo('name');
             $data['og:type'] = 'website';
             $data['og:image'] = $this->rtp_ogp_image_url();
-            $data['og:url'] = home_url( '/' );
-            $data['og:site_name'] = get_bloginfo('name');
+            $data['og:url'] = home_url( $_SERVER['REQUEST_URI'] );
             $data['og:description'] = get_bloginfo('description');
         }
         return $data;
@@ -76,7 +76,7 @@ class rtp_ogp {
     function rtp_ogp_image_url() {
         global $post;
         $image = '';
-        if (is_singular ()) {
+        if ( is_singular() ) {
             if (has_post_thumbnail($post->ID)) {
                 $thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'post-thumbnail' );
                 if ( !empty ( $thumbnail ) ) {
