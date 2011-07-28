@@ -242,5 +242,5 @@ class rtp_theme {
     }
 }
 
-// ★ of the show: rtPanel ;)
+// ★ of the show: rtPanel ... we ♥ it ;)
 $rt_panel_theme = new rtp_theme();
