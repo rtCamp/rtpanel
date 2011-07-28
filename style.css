@@ -22,7 +22,7 @@ ul li { list-style: square outside none; }
     ol li { list-style: decimal outside none; }
 
 /* Generic Table */
-th {  }
+th { background: none repeat scroll 0 0 #F1F1F1; }
 td, td img { vertical-align: top; }
 
 /* Generic Definitions ( Lists ) */
@@ -95,10 +95,10 @@ img.wp-smiley,
     #wpstats { display: none; }
 
 /* Table */
-#content table { border: 1px solid #F1F1F1; text-align: left; width: 100%; }
+#content table { border: 1px solid #CCCCCC; text-align: left; width: 100%;margin-bottom: 10px; }
 #content tr th,
-#content th { border: 1px solid #F1F1F1; padding: 2px; }
-#content tr td { border: 1px solid #F1F1F1; padding: 2px; }
+#content th { background: none repeat scroll 0 0 #F1F1F1; border: 1px solid #CCCCCC; padding: 2px; }
+#content tr td { border: 1px solid #CCCCCC; padding: 2px; }
 
 /* Layout */
 body { background-color: #FFFFFF; color: #111111;font-size: 10px; }
@@ -249,7 +249,7 @@ h2 a, h2 a:visited, h2 a:active { color: #111111; text-decoration: none; }
     .post-content a { text-decoration: underline; }
     .post-content img { margin: 2px 5px; }
     .post-content .rtp-courly-bracket { font-size: 157.2%; }
-    .post-content pre { background: none repeat scroll 0 0 #F1F1F1; overflow: auto; }
+    .post-content pre { background: none repeat scroll 0 0 #F1F1F1; overflow: auto; margin-bottom: 20px; }
 
 /* Post Paging Links */
     .post-content .page-link { clear: both; overflow: hidden; padding: 0 0 10px; }
@@ -297,7 +297,7 @@ p.attachment img { margin: 10px 0; }
 .searchform { overflow: hidden; }
     .searchform .search-text { padding: 3px; }
     #content .search-text { border: 1px double #666666; font-size: 85%; margin: 0; padding: 3px 4px 4px; width: 30%; }
-    #content .searchsubmit { background: -webkit-gradient(linear, left top, left bottom, from(#F5F5F5), to(#E2E2E2)); background: -moz-linear-gradient(top, #F5F5F5, #E2E2E2); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F5F5F5, endColorstr=#E2E2E2); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#F5F5F5, endColorstr=#E2E2E2)"; border: 3px double #666666; cursor: pointer; font-size: 13px; font-weight: bold; margin: 0; padding: 0 5px; width: auto !important; }
+    #content .searchsubmit { background: -webkit-gradient(linear, left top, left bottom, from(#F5F5F5), to(#E2E2E2)); background: -moz-linear-gradient(top, #F5F5F5, #E2E2E2); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F5F5F5, endColorstr=#E2E2E2); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#F5F5F5, endColorstr=#E2E2E2)"; border: 3px double #666666; cursor: pointer; font-size: 13px; font-weight: bold; margin: 0; padding: 1px 5px; width: auto !important; }
     #content .searchsubmit:hover { background: -webkit-gradient(linear, left top, left bottom, from(#E2E2E2), to(#F5F5F5)); background: -moz-linear-gradient(top, #E2E2E2, #F5F5F5); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#E2E2E2, endColorstr=#F5F5F5); -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#E2E2E2, endColorstr=#F5F5F5)"; }
 
 .search #main-wrapper .search-layout-wrapper { background: none; }
@@ -363,7 +363,7 @@ q:before, q:after { content: &ldquo; &rdquo; }
         div.comment-body div.reply p { font-size: 78.6%; letter-spacing: 1px; padding: 10px 0; text-transform: uppercase; }
             div.comment-body div.reply p a { color: #7B7B7B; text-decoration: none; }
             div.comment-body div.reply p a:hover { color: #555555; text-decoration: underline; }
-            div.comment-body div.reply p .rtp-courly-bracket { color: #7B7B7B; font-size: 20px; }
+            div.comment-body div.reply p .rtp-courly-bracket { color: #7B7B7B; font-size: 17px; }
             ol.commentlist li.comment .comment-body .comment-text ul { margin: 0 0 0 25px; }
             ol.commentlist li.comment .comment-body .comment-text ol { margin: 0 0 0 25px; }
             ol.commentlist li.comment .comment-body .comment-text ul li { list-style: square outside none !important; }
@@ -462,7 +462,7 @@ q:before, q:after { content: &ldquo; &rdquo; }
     .tagcloud a { line-height: 25px; }
     
     /* Subscribe Widget */
-    .rtp-subscribe-widget-container .social-icons { clear: both; margin: 10px auto 0; overflow: hidden; }
+    .rtp-subscribe-widget-container .social-icons { clear: both; margin: 10px auto 0 !important; overflow: hidden; }
     .rtp-subscribe-widget-container .email-subscription-container p { margin: 0 0 10px; }
         .rtp-subscribe-widget-container .email-subscription-container p .email { color: #666666; font-size: 85%; margin: 0; padding: 3px; width: 70%; }
         .rtp-subscribe-widget-container .email-subscription-container p .btn { display: none !important; font-size: 80%; margin: 0; padding: 0 5px; width: 22%; }

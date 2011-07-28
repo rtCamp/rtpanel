@@ -7,18 +7,18 @@
  */
 
 .rtpanel { color: #333333 !important; font-weight: bold; }
-.wrap { width: 76%; overflow: hidden; }
-    .wrap div.updated p { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; background-color: #FFFFE0; border: 1px solid #E6DB55; margin: 0 auto; padding: 7px; width: 95%; }
+.rtpanel-admin { width: 76%; overflow: hidden; }
+    .rtpanel-admin div.updated p { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; background-color: #FFFFE0; border: 1px solid #E6DB55; margin: 0 auto; padding: 7px; width: 95%; }
 #icon-rtpanel { background: url("../../img/rtp-icon.jpg") no-repeat scroll 0 0 transparent; }
-.wrap h2 { border-bottom: 1px solid #CCCCCC; padding-bottom: 0; }
+.rtpanel-admin h2 { border-bottom: 1px solid #CCCCCC; padding-bottom: 0; }
 h2 .nav-tab { font-size: 20px; padding: 4px 6px; }
 .nav-tab { margin: 0 5px -1px 0; }
 .options-main-container { overflow: hidden; border: 1px solid #CCCCCC; border-top: none; padding: 0; margin-bottom: 15px; }
 .options-container { margin: 5px 10px; overflow: hidden; padding: 0; }
 #wpbody-content .metabox-holder { margin-bottom: 10px; padding: 10px 0 0; width: 100%; }
 div.inside { margin: 10px 5px; }
-.wrap div.updated, .wrap div.error { -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; background: none repeat scroll 0 0 transparent; border-left: 1px solid #CCCCCC; border-right: 1px solid #CCCCCC; border-top: none; border-bottom: none; display: block; margin: 0; padding: 10px 0; text-align: center; }
-    .wrap div.error p { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; background: #FFEBE8; border: 1px solid #CC0000; margin: 0 auto; padding: 7px; width: 95%; }
+.rtpanel-admin div.updated, .rtpanel-admin div.error { -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; background: none repeat scroll 0 0 transparent; border-left: 1px solid #CCCCCC; border-right: 1px solid #CCCCCC; border-top: none; border-bottom: none; display: block; margin: 0; padding: 10px 0; text-align: center; }
+    .rtpanel-admin div.error p { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; background: #FFEBE8; border: 1px solid #CC0000; margin: 0 auto; padding: 7px; width: 95%; }
 .admin-main-heading h2 { border-bottom: 1px solid #EAEAEA; font-size: 153.9%; padding: 14px 0 3px 0; }
 .admin-sub-module { clear: both; overflow: hidden; }
 .admin-or { color: #888888; display: block; float: left; font-family: Georgia,"Times New Roman","Bitstream Charter",Times,serif; font-size: 153.9%; font-style: italic; padding: 30px 25px 30px 0; }

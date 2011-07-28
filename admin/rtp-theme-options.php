@@ -180,7 +180,7 @@ class rtp_theme {
             <?php rtp_default_sidebar(); ?>
         </div>
 
-        <div class="wrap">
+        <div class="wrap rtpanel-admin">
             <?php screen_icon( 'rtpanel' ); ?>
             <h2 class="rtp-tab-wrapper"><?php foreach ( $links as $link ) echo $link; ?></h2><?php
             if ( $pagenow == 'themes.php' ) {

@@ -556,7 +556,7 @@ function rtp_theme_setup_values() {
         'word_limit'                 => 55,
         'read_text'                  => __( 'Continue Reading...', 'rtPanel' ),
         'thumbnail_show'             => '1',
-        'thumbnail_position'         => __( 'Right', 'rtPanel' ),
+        'thumbnail_position'         => 'Right',
         'thumbnail_width'            => get_option( 'thumbnail_size_w' ),
         'thumbnail_height'           => get_option( 'thumbnail_size_h' ),
         'thumbnail_crop'             => get_option( 'thumbnail_crop' ),
@@ -1303,23 +1303,27 @@ function rtp_version() {
 add_filter( 'update_footer', 'rtp_version', 9999 );
 
 /**
- *  Display the regenerate thumbnail notice
+ *  Displays the regenerate thumbnail notice
  *
  * @since rtPanel 2.0
  */
 function rtp_regenerate_thumbnail_notice( $return = false ) {
-    if ( is_plugin_active( RTP_REGENERATE_THUMBNAILS ) ) {
-        $regenerate_link = admin_url( '/tools.php?page=regenerate-thumbnails' );
-    } elseif ( array_key_exists( RTP_REGENERATE_THUMBNAILS, get_plugins() ) ) {
-        $regenerate_link = admin_url( '/plugins.php#regenerate-thumbnails' );
-    } else {
-        $regenerate_link = wp_nonce_url( admin_url( 'update.php?action=install-plugin&plugin=regenerate-thumbnails' ), 'install-plugin_regenerate-thumbnails' );
-    }
+    if( current_user_can( 'administrator' ) ) {
+        if ( is_plugin_active( RTP_REGENERATE_THUMBNAILS ) ) {
+            $regenerate_link = admin_url( '/tools.php?page=regenerate-thumbnails' );
+        } elseif ( array_key_exists( RTP_REGENERATE_THUMBNAILS, get_plugins() ) ) {
+            $regenerate_link = admin_url( '/plugins.php#regenerate-thumbnails' );
+        } else {
+            $regenerate_link = wp_nonce_url( admin_url( 'update.php?action=install-plugin&plugin=regenerate-thumbnails' ), 'install-plugin_regenerate-thumbnails' );
+        }
 
-    if( $return ) {
-        return $regenerate_link;
+        if( $return ) {
+            return $regenerate_link;
+        } else {
+            echo '<div class="error regenerate_thumbnail_notice"><p>' . sprintf( __( 'The Thumbnail Settings have been updated. Please <a href="%s" title="Regenerate Thumbnails">Regenerate Thumbnails</a>', 'rtPanel' ), $regenerate_link ) . ' <span class="alignright regenerate_thumbanil_notice_close" href="#">X</a></p></div>';
+        }
     } else {
-        echo '<div class="error regenerate_thumbnail_notice"><p>' . sprintf( __( 'The Thumbnail Settings have been updated. Please <a href="%s" title="Regenerate Thumbnails">Regenerate Thumbnails</a>', 'rtPanel' ), $regenerate_link ) . ' <a class="alignright regenerate_thumbanil_notice_close" href="#">X</a></p></div>';
+        return;
     }
 }
 
@@ -1336,6 +1340,8 @@ if ( is_admin() && @$rtp_post_comments['notices'] ) {
 function rtp_regenerate_thumbnail_notice_js() { ?>
     <script type="text/javascript" >
     jQuery(function(){
+        jQuery('.regenerate_thumbanil_notice_close').css( 'color', '#CC0000' );
+        jQuery('.regenerate_thumbanil_notice_close').css( 'cursor', 'pointer' );
         jQuery('.regenerate_thumbanil_notice_close').click(function(){
             jQuery('.regenerate_thumbnail_notice').hide();
             // call ajax
