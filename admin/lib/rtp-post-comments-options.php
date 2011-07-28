@@ -1,13 +1,14 @@
 <?php
 /**
- * rtPanel Post and Comments Tab.
+ * rtPanel Post & Comments options
  *
  * @package rtPanel
+ *
  * @since rtPanel 2.0
  */
 
 /**
- * Displays the Post Comments Options tab
+ * Displays rtPanel Post & Comments options tab
  *
  * @uses $screen_layout_columns int
  * @param srting $pagehook The page hook
@@ -24,7 +25,7 @@ function rtp_post_comments_options_page( $pagehook ) {
         <div class="options-container">
             <form name="rt_post_comments_form" id="rt_post_comments_form" action="options.php" method="post" enctype="multipart/form-data">
                 <?php
-                //nonce for security purpose
+                /* nonce for security purpose */
                 wp_nonce_field( 'closedpostboxes', 'closedpostboxesnonce', false );
                 wp_nonce_field( 'meta-box-order', 'meta-box-order-nonce', false );
                 ?>

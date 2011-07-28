@@ -1,13 +1,14 @@
 <?php
 /**
- * rtPanel General Tab.
+ * rtPanel General options
  *
  * @package rtPanel
+ *
  * @since rtPanel 2.0
  */
 
 /**
- * Displays The General Options tab
+ * Displays rtPanel General options tab
  *
  * @uses $screen_layout_columns int
  * @param string $pagehook The page hook
@@ -24,7 +25,7 @@ function rtp_general_options_page( $pagehook ) {
         <div class="options-container">
             <form name="rt_general_form" id="rt_general_form" action="options.php" method="post" enctype="multipart/form-data">
                 <?php
-                //nonce for security purpose
+                /* nonce for security purpose */
                 wp_nonce_field( 'closedpostboxes', 'closedpostboxesnonce', false );
                 wp_nonce_field( 'meta-box-order', 'meta-box-order-nonce', false ); ?>
                 
