@@ -1,35 +1,55 @@
 <?php
 /**
- * rtPanel Open Graph Protocol
+ * rtPanel support for Facebook Open Graph Protocol
  *
  * @package rtPanel
  *
  * @since rtPanel 2.0
  */
 
-
 /**
- * class for open graph protocol
+ * Facebook Open Graph Protocol
+ *
+ * @since rtPanel 2.0
  */
 class rtp_ogp {
     
     var $data;
 
+    /**
+     * Constructor
+     *
+     * @return void
+     *
+     * @since rtPanel 2.0
+     **/
     function rtp_ogp() {
         add_action('wp_head', array($this, 'rtp_ogp_add_head'));
     }
 
+    /**
+     * Outputs Open Graph meta tags
+     *
+     * @since rtPanel 2.0
+     **/
     function rtp_ogp_add_head() {
         $this->data = $this->rtp_ogp_set_data();
         echo $this->rtp_ogp_get_headers($this->data);
     }
 
+    /**
+     * Sets Open Graph meta tags
+     *
+     * @return array
+     *
+     * @since rtPanel 2.0
+     **/
     function rtp_ogp_set_data() {
-        $data = array();
         global $post, $rtp_general;
+        $data = array();
         $append = '';
         if( strlen( wp_html_excerpt( $post->post_content, 130 ) ) >= 130 )
-                $append = '...';
+            $append = '...';
 
         if ( !empty( $rtp_general['fb_app_id'] ) )
             $data['fb:app_id'] = $rtp_general['fb_app_id'];
@@ -56,6 +76,13 @@ class rtp_ogp {
         return $data;
     }
 
+    /**
+     * Returns Formatted Open Graph meta tags
+     *
+     * @return array
+     *
+     * @since rtPanel 2.0
+     **/
     function rtp_ogp_get_headers($data) {
         if (!count($data)) {
             return;
@@ -73,6 +100,13 @@ class rtp_ogp {
         return implode("\n", $out);
     }
 
+    /**
+     * Returns Open Graph image meta tag value
+     *
+     * @return string
+     *
+     * @since rtPanel 2.0
+     **/
     function rtp_ogp_image_url() {
         global $post;
         $image = '';
@@ -91,4 +125,8 @@ class rtp_ogp {
         }
         return $image;
     }
-} ?>
+}
+
+// Facebook Open Graph Protocol
+$rtp_ogp = new rtp_ogp();
+?>

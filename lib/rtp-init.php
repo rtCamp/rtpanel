@@ -27,12 +27,12 @@ if ( !function_exists( 'rtpanel_setup' ) ) {
     function rtpanel_setup() {
         global $rtp_general;
         rtp_theme_setup_values();
-	add_theme_support( 'post-thumbnails' ); // This theme uses post thumbnails
-	add_theme_support( 'automatic-feed-links' ); // Add default posts and comments RSS feed links to head
+        add_theme_support( 'post-thumbnails' ); // This theme uses post thumbnails
+        add_theme_support( 'automatic-feed-links' ); // Add default posts and comments RSS feed links to head
         add_editor_style( './css/rtp-editor-style.css' ); // This theme styles the visual editor with editor-style.css to match the theme style.
         load_theme_textdomain( 'rtPanel', TEMPLATEPATH . '/languages' ); // Load the text domain
         add_custom_background(); // Add support for custom background
-        
+
         // Don't support text inside the header image
         if ( !defined( 'NO_HEADER_TEXT' ) ) {
             define( 'NO_HEADER_TEXT', true );
@@ -45,62 +45,63 @@ if ( !function_exists( 'rtpanel_setup' ) ) {
         // adding support for the header image
         add_custom_image_header( 'rtp_header_style', 'rt_admin_header_style' );
 
-        if ( !function_exists( 'rt_admin_header_style' ) ) {
-            /**
-             * Admin header preview styling
-             *
-             * @since rtPanel 2.0
-             */
-            function rt_admin_header_style() { ?>
-                <style type="text/css">  #headimg { width: <?php echo HEADER_IMAGE_WIDTH; ?>px; height: <?php echo HEADER_IMAGE_HEIGHT; ?>px; } </style><?php
-            }
-        }
-
-        if ( !function_exists( 'rtp_header_style' ) ) {
-            /**
-             * Site header styling
-             *
-             * @since rtPanel 2.0
-             */
-            function rtp_header_style() {
-                if ( get_header_image() ) { ?>
-                    <style type="text/css"> #header-wrapper { background: url(<?php header_image(); ?>) no-repeat;width: <?php echo HEADER_IMAGE_WIDTH; ?>px; height: <?php echo HEADER_IMAGE_HEIGHT; ?>px; } </style><?php
-                }
-            }
-        }
-
         // Make use of wp_nav_menu() for navigation purpose
-	register_nav_menus( array(
+        register_nav_menus( array(
             'primary' => __( 'Primary Navigation', 'rtPanel' )
-	) );
+        ) );
 
-        if ( !function_exists( 'rtp_meta_description' ) ) {
-            /**
-             * Returns meta description
-             *
-             * @return string
-             *
-             * @since rtPanel 2.0
-             */
-            function rtp_meta_description() {
-                global $post;
-                the_excerpt_rss();
-                $rawcontent = $post->post_content;
-                if ( empty( $rawcontent ) ) {
-                    $rawcontent = html_entity_decode( get_bloginfo( 'description', 'abc' ) );
-                } else {
-                    $rawcontent = apply_filters( 'the_content_rss', strip_tags( $rawcontent ) );
-                    $rawcontent = strip_shortcodes( $rawcontent );
-                    $chars = array( "", "\n", "\r", "chr(13)",  "\t", "\0", "\x0B" );
-                    $rawcontent = str_replace( $chars, " ", $rawcontent );
-                    $rawcontent = html_entity_decode( $rawcontent );
-                }
-                return substr( $rawcontent, 0, 155 );
-            }
-        }
     }
 }
 add_action( 'after_setup_theme', 'rtpanel_setup' );// Tell WordPress to run rtpanel_setup() when the 'after_setup_theme' hook is run
+
+if ( !function_exists( 'rtp_header_style' ) ) {
+    /**
+     * Site header styling
+     *
+     * @since rtPanel 2.0
+     */
+    function rtp_header_style() {
+        if ( get_header_image() ) { ?>
+            <style type="text/css"> #header-wrapper { background: url(<?php header_image(); ?>) no-repeat;width: <?php echo HEADER_IMAGE_WIDTH; ?>px; height: <?php echo HEADER_IMAGE_HEIGHT; ?>px; } </style><?php
+        }
+    }
+}
+
+if ( !function_exists( 'rt_admin_header_style' ) ) {
+    /**
+     * Admin header preview styling
+     *
+     * @since rtPanel 2.0
+     */
+    function rt_admin_header_style() { ?>
+        <style type="text/css">  #headimg { width: <?php echo HEADER_IMAGE_WIDTH; ?>px; height: <?php echo HEADER_IMAGE_HEIGHT; ?>px; } </style><?php
+    }
+}
+
+if ( !function_exists( 'rtp_meta_description' ) ) {
+    /**
+     * Returns meta description
+     *
+     * @return string
+     *
+     * @since rtPanel 2.0
+     */
+    function rtp_meta_description() {
+        global $post;
+        the_excerpt_rss();
+        $rawcontent = $post->post_content;
+        if ( empty( $rawcontent ) ) {
+            $rawcontent = html_entity_decode( get_bloginfo( 'description', 'abc' ) );
+        } else {
+            $rawcontent = apply_filters( 'the_content_rss', strip_tags( $rawcontent ) );
+            $rawcontent = strip_shortcodes( $rawcontent );
+            $chars = array( "", "\n", "\r", "chr(13)",  "\t", "\0", "\x0B" );
+            $rawcontent = str_replace( $chars, " ", $rawcontent );
+            $rawcontent = html_entity_decode( $rawcontent );
+        }
+        return substr( $rawcontent, 0, 155 );
+    }
+}
 
 /**
  * Enqueues IE Specific CSS
@@ -122,10 +123,9 @@ add_action( 'wp_print_styles', 'rtp_ie_css' );
  *
  * @since rtPanel 2.0
  */
-function rtp_custom_styles() { ?>
-    <?php
-        global $rtp_general;
-        echo ( $rtp_general['custom_styles'] ) ? '<style type="text/css" media="screen">' . $rtp_general['custom_styles'] . '</style>' : '';
+function rtp_custom_styles() { 
+    global $rtp_general;
+    echo ( $rtp_general['custom_styles'] ) ? '<style type="text/css" media="screen">' . $rtp_general['custom_styles'] . '</style>' : '';
 }
 add_action( 'wp_print_styles', 'rtp_custom_styles' );
 

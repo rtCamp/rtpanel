@@ -1,37 +1,50 @@
 /**
- * The template for displaying custom jQuery for rtPanel Admin
+ * rtPanel Admin Scripts
  *
  * @package rtPanel
+ *
  * @since rtPanel 2.0
  */
 
 jQuery(document).ready(function() {
+
+    var expand = false;
+    var post_date_u = jQuery('#post_date_u').attr('checked');
+    var post_date_l = jQuery('#post_date_l').attr('checked');
+    var post_author_u = jQuery('#post_author_u').attr('checked');
+    var post_author_l = jQuery('#post_author_l').attr('checked');
+    var gravatar_fields = jQuery('#gravatar_show').attr('checked');
+    var logo_show = jQuery('#logo_show').attr('checked');
+    var summary_show = jQuery('#summary_show').attr('checked');
 
     jQuery('input[name=rtp_reset]').click( function(){
         if ( !confirm('Are you sure you want to reset all the options?'))
             return false;
     });
 
-//    var expand = true;
-//
-//    jQuery('.expand-collapse').click( function(){
-//        jQuery('#normal-sortables .postbox').each( function() {
-//            if( jQuery(this).attr('class') == 'postbox closed' ) {
-//                expand = false;
-//            } else {
-//                expand = true
-//            }
-//        });
-//
-//        jQuery('#normal-sortables .postbox').each( function(){
-//            if ( expand ) {
-//                jQuery(this).removeClass('closed');
-//            } else {
-//                jQuery(this).addClass('closed');
-//            }
-//        });
-//    } );
+    jQuery('.expand-collapse').live( 'click', function(){
+        expand = false;
+        jQuery('#normal-sortables .postbox').each( function() {
+            if( jQuery(this).hasClass('closed') ) {
+                expand = true;
+            }
+        });
 
+        jQuery('#normal-sortables .postbox').each( function(){
+            if ( expand ) {
+                if( jQuery(this).hasClass('closed') ) {
+                    jQuery(this).children('h3').trigger('click');
+                }
+            } else {
+                if( !jQuery(this).hasClass('closed') ) {
+                    jQuery(this).children('h3').trigger('click');
+                }
+            }
+        });
+        return false;
+    } );
+
+    /* Format date according to changes in custom date field */
     function date_format( position ) {
         jQuery('input[name="rtp_post_comments[post_date_format_'+position+']"]').click(function(){
             if ( 'post_date_custom_format_'+position != jQuery(this).attr('id') ) {
@@ -64,7 +77,6 @@ jQuery(document).ready(function() {
             jQuery.post(ajaxurl, { action: 'date_format', date : format.val() }, function(d) { format.siblings('img').css('visibility','hidden'); format.siblings('span').text(d); } );
         });
     }
-
     date_format('u');
     date_format('l');
 
@@ -124,8 +136,8 @@ jQuery(document).ready(function() {
 
     });
 
-    /*Function to upload files using the media library*/
-    function media_upload( button_id, textbox_id, main_metabox_id, iframe_title ){
+    /* Function to upload files using the media library */
+    function media_upload( button_id, textbox_id, main_metabox_id, iframe_title ) {
         jQuery(button_id).click(function() {
             formfield = jQuery(textbox_id).attr('name');
             H = jQuery(window).height() - 80, W = ( 640 < jQuery(window).width() ) ? 640 : jQuery(window).width();
@@ -141,98 +153,39 @@ jQuery(document).ready(function() {
                     tb_remove();
                 }
             }
-             return false;
-            });
+            return false;
+        });
     }
-
     media_upload( '#logo_upload', '#logo_upload_url', '#logo_options', 'Logo' );
     media_upload( '#favicon_upload', '#favicon_upload_url', '#fav_options', 'Favicon' );
 
-    var post_date_u = jQuery('#post_date_u').attr('checked');
-    var post_date_l = jQuery('#post_date_l').attr('checked');
-    var post_author_u = jQuery('#post_author_u').attr('checked');
-    var post_author_l = jQuery('#post_author_l').attr('checked');
-    var gravatar_fields = jQuery('#gravatar_show').attr('checked');
-    var logo_show = jQuery('#logo_show').attr('checked');
-    var summary_show = jQuery('#summary_show').attr('checked');
-
-    if (typeof post_date_u !== 'undefined' && post_date_u !== false) {
-        jQuery('.post_date_format_u').show();
-        jQuery('#post_date_u').click(function(){
-            jQuery('.post_date_format_u').toggle();
-        });
-    } else {
-        jQuery('.post_date_format_u').hide();
-        jQuery('#post_date_u').click(function(){
-            jQuery('.post_date_format_u').toggle();
-        });
+    /* Function to handle toggling of sub options */
+    function toggle_handler( the_option, the_class, the_id ) {
+        if (typeof the_option !== 'undefined' && the_option !== false) {
+            jQuery(the_class).show();
+            jQuery(the_id).click(function(){
+                jQuery(the_class).toggle();
+            });
+        } else {
+            jQuery(the_class).hide();
+            jQuery(the_id).click(function(){
+                jQuery(the_class).toggle();
+            });
+        }
     }
-
-    if (typeof post_date_l !== 'undefined' && post_date_l !== false) {
-        jQuery('.post_date_format_l').show();
-        jQuery('#post_date_l').click(function(){
-            jQuery('.post_date_format_l').toggle();
-        });
-    } else {
-        jQuery('.post_date_format_l').hide()
-        jQuery('#post_date_l').click(function(){
-            jQuery('.post_date_format_l').toggle();
-        });
-    }
-
-    if (typeof post_author_u !== 'undefined' && post_author_u !== false) {
-        jQuery('.post_author_u-sub').show();
-        jQuery('#post_author_u').click(function(){
-            jQuery('.post_author_u-sub').toggle();
-        });
-    } else {
-        jQuery('.post_author_u-sub').hide();
-        jQuery('#post_author_u').click(function(){
-            jQuery('.post_author_u-sub').toggle();
-        });
-    }
-
-    if (typeof post_author_l !== 'undefined' && post_author_l !== false) {
-        jQuery('.post_author_l-sub').show();
-        jQuery('#post_author_l').click(function(){
-            jQuery('.post_author_l-sub').toggle();
-        });
-    } else {
-        jQuery('.post_author_l-sub').hide();
-        jQuery('#post_author_l').click(function(){
-            jQuery('.post_author_l-sub').toggle();
-        });
-    }
-
-    if (typeof gravatar_fields !== 'undefined' && gravatar_fields !== false) {
-        jQuery('.gravatar-size').show();
-        jQuery('#gravatar_show').click(function(){
-            jQuery('.gravatar-size').toggle();
-        });
-    } else {
-        jQuery('.gravatar-size').hide();
-        jQuery('#gravatar_show').click(function(){
-            jQuery('.gravatar-size').toggle();
-        });
-    }
-
-    if (typeof logo_show !== 'undefined' && logo_show !== false) {
-        jQuery('.show-fields-logo').show();
-        jQuery('#logo_show').click(function(){
-            jQuery('.show-fields-logo').toggle();
-        });
-    } else {
-        jQuery('.show-fields-logo').hide();
-        jQuery('#logo_show').click(function(){
-            jQuery('.show-fields-logo').toggle();
-        });
-    }
+    toggle_handler( post_date_u, '.post_date_format_u', '#post_date_u' );
+    toggle_handler( post_date_l, '.post_date_format_l', '#post_date_l' );
+    toggle_handler( post_author_u, '.post_author_u-sub', '#post_author_u' );
+    toggle_handler( post_author_l, '.post_author_l-sub', '#post_author_l' );
+    toggle_handler( gravatar_fields, '.gravatar-size', '#gravatar_show' );
+    toggle_handler( logo_show, '.show-fields-logo', '#logo_show' );
 
     if (typeof summary_show !== 'undefined' && summary_show !== false) {
         jQuery('#post_thumbnail_options .inside .form-table').show();
         jQuery('#post_thumbnail_options .inside .rtp_submit').show();
         jQuery('#post_thumbnail_options .inside .post-summary-hide').hide();
-        jQuery('#summary_show').click(function(){
+
+        jQuery('#summary_show').click(function() {
             jQuery('#post_thumbnail_options .inside .form-table').toggle();
             jQuery('#post_thumbnail_options .inside .rtp_submit').toggle();
             jQuery('#post_thumbnail_options .inside .post-summary-hide').toggle();
@@ -241,19 +194,15 @@ jQuery(document).ready(function() {
         jQuery('#post_thumbnail_options .inside .form-table').hide();
         jQuery('#post_thumbnail_options .inside .rtp_submit').hide();
         jQuery('#post_thumbnail_options .inside .post-summary-hide').show();
-        jQuery('#summary_show').click(function(){
+        
+        jQuery('#summary_show').click(function() {
             jQuery('#post_thumbnail_options .inside .form-table').toggle();
             jQuery('#post_thumbnail_options .inside .rtp_submit').toggle();
             jQuery('#post_thumbnail_options .inside .post-summary-hide').toggle();
         });
     }
 
-    //Show and hide sections on checked
-    init_content('#post_summaries_options');
-    init_content('#post_thumbnail_options');
-    contentshow_table('#post_summaries_options .inside .form-table tr.custom', '#summary_show');
-    contentshow_table('#post_thumbnail_options .inside .form-table tr.custom', '#thumbnail_show');
-
+    /* Show and hide sections on checked */
     function init_content( container ) {
         jQuery(container+' .inside .form-table tr:first').css('visibility','visible');
         jQuery(container+' .inside .form-table tr:first').css('display', 'block');
@@ -279,26 +228,14 @@ jQuery(document).ready(function() {
             }
           });
     }
+    init_content('#post_summaries_options');
+    init_content('#post_thumbnail_options');
+    contentshow_table('#post_summaries_options .inside .form-table tr.custom', '#summary_show');
+    contentshow_table('#post_thumbnail_options .inside .form-table tr.custom', '#thumbnail_show');
 
-    function contentshow_div( container, event_handler ) {
-        if( jQuery(event_handler).attr('checked') != 'undefined' && jQuery(event_handler).attr('checked') != false )
-            jQuery( jQuery(container) ).css('display','block');
-        else
-            jQuery( jQuery(container) ).css('display','none');
-
-        jQuery(event_handler).live('click', function () {
-            if (jQuery( jQuery(container) ).is(":hidden")) {
-                if( jQuery(event_handler).attr('checked') != 'undefined' && jQuery(event_handler).attr('checked') != false )
-                    jQuery( jQuery(container) ).css('display','block');
-            } else {
-                if( jQuery(event_handler).attr('checked') == 'undefined' || jQuery(event_handler).attr('checked') == false )
-                    jQuery( jQuery(container) ).css('display','none');
-            }
-          });
-    }
 });
 
-function delete_plugin_confirmation(plugin){
+function delete_plugin_confirmation(plugin) {
     if (! confirm('Are you sure you want to delete \''+plugin+'\' plugin?')) { return false; }
     if ( plugin == 'Subscribe To Comments'){
         jQuery('#subscribe-delete').val(1);
@@ -313,7 +250,7 @@ function delete_plugin_confirmation(plugin){
     jQuery('#rt_general_form').submit();
 }
 
-function activate_plugin(plugin){
+function activate_plugin(plugin) {
     if ( plugin == 'Subscribe To Comments'){
         jQuery('#subscribe-activate').val(1);
         jQuery('#subscribe-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
@@ -327,7 +264,7 @@ function activate_plugin(plugin){
     jQuery('#rt_general_form').submit();
 }
 
-function deactivate_plugin(plugin){
+function deactivate_plugin(plugin) {
     if ( plugin == 'Subscribe To Comments'){
         jQuery('#subscribe-deactivate').val(1);
         jQuery('#subscribe-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
@@ -341,7 +278,7 @@ function deactivate_plugin(plugin){
     jQuery('#rt_general_form').submit();
 }
 
-function reset_settings(plugin){
+function reset_settings(plugin) {
     if ( plugin == 'Subscribe To Comments'){
         jQuery('#subscribe-deactivate').val(1);
         jQuery('#subscribe-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
@@ -354,3 +291,7 @@ function reset_settings(plugin){
     }
     jQuery('#rt_general_form').submit();
 }
+
+jQuery(window).load( function() {
+    jQuery('.updated').delay(10000).slideUp(1500);
+});

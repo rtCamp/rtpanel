@@ -480,7 +480,7 @@ function rtp_post_summaries_metabox() {
 function rtp_post_thumbnail_metabox() {
         global $rtp_post_comments;
         $alignment = ( isset ( $rtp_post_comments['thumbnail_position'] ) ) ? $rtp_post_comments['thumbnail_position'] : ''; ?> <br />
-        <span class="description post-summary-hide"><strong><?php _e( 'Enable Summary^ must be checked on the Post Summary Settings to show these Options', 'rtPanel' ); ?></strong></span>
+        <span class="description post-summary-hide"><strong><?php _e( 'Enable Summary must be checked on the Post Summary Settings to show these Options', 'rtPanel' ); ?></strong></span>
         <table class="form-table">
             <tbody>
                 <tr valign="top">

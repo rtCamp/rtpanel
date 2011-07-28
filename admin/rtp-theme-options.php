@@ -1,18 +1,20 @@
 <?php
 /**
- * rtPanel Theme Options.
+ * rtPanel Theme Options
  *
  * @package rtPanel
+ *
  * @since rtPanel 2.0
  */
 
-// Include all PHP files inside 'admin/php/' folder.
+// Includes PHP files located in 'admin/php/' folder
 foreach ( glob( get_template_directory() . "/admin/lib/*.php" ) as $lib_filename ) {
     require_once( $lib_filename );
 }
 
 /**
- * rtPanel Theme Class.
+ * rtPanel Theme Class
+ *
  * Used to generate the rtPanel admin Panel Options.
  *
  * @since rtPanel 2.0
@@ -22,10 +24,12 @@ class rtp_theme {
     var $theme_pages;
 
     /**
-     * Constructor of class, PHP4 compatible construction for backward compatibility.
+     * Constructor
+     *
+     * @return void
      *
      * @since rtPanel 2.0
-     */
+     **/
     function rtp_theme() {
         $this->theme_pages = apply_filters( 'rtp_add_theme_pages', array(
             'rtp_general' => array(
@@ -37,6 +41,7 @@ class rtp_theme {
                             'menu_slug' => 'rtp_post_comments'
                             ) )
         );
+
         // Add filter for WordPress 2.8 changed backend box system !
         add_filter( 'screen_layout_columns', array( &$this, 'rtp_on_screen_layout_columns' ), 10, 2 );
 
@@ -48,16 +53,16 @@ class rtp_theme {
     }
 
     /**
-     * Screen option for 1 or 2 columns layout.
-     * For WordPress 2.8 we have to tell, that we support 2 columns !
-     * by default it is 1 column.
+     * Screen options for 1 or 2 columns layout
+     * 
+     * For WordPress 2.8 we have to tell, that we support 2 columns ( Default is 1 column )
      *
      * @param array $columns number of columns.
      * @param string $screen screen name
      * @return array.
      * 
      * @since rtPanel 2.0
-     */
+     **/
     function rtp_on_screen_layout_columns($columns, $screen) {
         $tab = isset($_GET['page'] )  ? $_GET['page'] : "rtp_general";
         if ( $screen == 'appearance_page_' . $tab ) {
@@ -70,7 +75,7 @@ class rtp_theme {
      * Set Screen Layout columns to 1 by default for any user for first time
      *
      * @since rtPanel 2.0
-     */
+     **/
     function rtp_init() {
         $tab = isset($_GET['page'] )  ? $_GET['page'] : "rtp_general";
         $blog_users = get_users();
@@ -83,11 +88,10 @@ class rtp_theme {
     }
 
     /**
-     * Extend the admin menu.
-     * Adding options for rtPanel in admin menu.
+     * Extends the admin menu, to add rtPanel
      *
      * @since rtPanel 2.0
-     */
+     **/
     function rtp_theme_option_page(  ) {
         // Add options page, you can also add it to different sections or use your own one
         add_theme_page( 'rtPanel - ' . $this->theme_pages['rtp_general']['menu_title'], '<strong class="rtpanel">rtPanel</strong>', 'edit_theme_options', 'rtp_general', array( &$this, 'rtp_admin_options' ) );
@@ -97,27 +101,28 @@ class rtp_theme {
         }
 
         $tab = isset( $_GET['page'] )  ? $_GET['page'] : "rtp_general";
-        // Register  callback gets call prior the own page gets rendered.
+
+        /* Register  callback gets call prior the own page gets rendered */
         add_action( 'load-appearance_page_' . $tab, array( &$this, 'rtp_on_load_page' ) );
         add_action( 'admin_print_styles-appearance_page_' . $tab, array( &$this, 'rtp_admin_page_styles' ) );
         add_action( 'admin_print_scripts-appearance_page_' . $tab, array( &$this, 'rtp_admin_page_scripts' ) );
     }
 
     /**
-     * Includes js for theme options page.
+     * Includes scripts for theme options page
      *
      * @since rtPanel 2.0
-     */
+     **/
     function rtp_admin_page_scripts() {
         wp_enqueue_script( 'rtp-admin-scripts', RTP_TEMPLATE_URL . '/admin/js/rtp-admin.js' );
         wp_enqueue_script( 'thickbox' );
     }
 
     /**
-     * Includes css for theme options page.
+     * Includes styles for theme options page
      *
      * @since rtPanel 2.0
-     */
+     **/
     function rtp_admin_page_styles() {
         wp_enqueue_style( 'rtp-admin-styles', RTP_TEMPLATE_URL . '/admin/css/rtp-admin.css' );
         wp_register_style( 'rtp-admin-styles-ie7', RTP_TEMPLATE_URL . '/admin/css/rtp-admin-ie7.css', 'rtp-admin-styles' );
@@ -130,10 +135,10 @@ class rtp_theme {
     }
 
     /**
-     * Browser Fixing for IE7 and IE6
+     * Browser compatible styles for IE7 and IE6
      *
      * @since rtPanel 2.0
-     */
+     **/
     function rtp_browser_compatability_admin_styles() { ?>
         <!--[if IE 7 ]>
             <link rel="stylesheet" href="<?php echo RTP_TEMPLATE_URL ; ?>/admin/css/rtp-admin-ie7.css"  />
@@ -144,14 +149,17 @@ class rtp_theme {
     }
  
     /**
+     * rtPanel Tabs
+     * 
      * Dividing the page into Tabs ( General, Post & Comments )
      *
      * @since rtPanel 2.0
-     */
+     **/
     function rtp_admin_options() {
-        // Separate the options page into two tabs - General , Post & Comments.
         global $pagenow;
         $tabs = array();
+
+        /* Separate the options page into two tabs - General , Post & Comments */
         foreach( $this->theme_pages as $key=>$theme_page ) {
             if ( is_array( $theme_page ) )
             $tabs[$theme_page['menu_slug']] = $theme_page['menu_title'];
@@ -166,46 +174,47 @@ class rtp_theme {
             } else {
                 $links[] = "<a class='nav-tab' href='?page=$tab'>$name</a>";
             }
-        }
-?>
-    <div class="metabox-fixed metabox-holder alignright">
-        <?php rtp_default_sidebar(); ?>
-    </div>
+        } ?>
 
-    <div class="wrap"><!-- wrap begins -->
-        <?php screen_icon( 'rtpanel' ); ?>
-        <h2 class="rtp-tab-wrapper"><?php foreach ( $links as $link ) echo $link; ?></h2><?php
-        if ( $pagenow == 'themes.php' ) {
-            foreach( $this->theme_pages as $key=>$theme_page ) {
-                if ( is_array( $theme_page ) ) {
-                    switch ( $current ) {
-                        case $theme_page['menu_slug'] :
-                            if ( function_exists( $theme_page['menu_slug'].'_options_page' ) )
-                            call_user_func( $theme_page['menu_slug'].'_options_page', 'appearance_page_' . $current );
-                            break;
+        <div class="metabox-fixed metabox-holder alignright">
+            <?php rtp_default_sidebar(); ?>
+        </div>
+
+        <div class="wrap">
+            <?php screen_icon( 'rtpanel' ); ?>
+            <h2 class="rtp-tab-wrapper"><?php foreach ( $links as $link ) echo $link; ?></h2><?php
+            if ( $pagenow == 'themes.php' ) {
+                foreach( $this->theme_pages as $key=>$theme_page ) {
+                    if ( is_array( $theme_page ) ) {
+                        switch ( $current ) {
+                            case $theme_page['menu_slug'] :
+                                if ( function_exists( $theme_page['menu_slug'].'_options_page' ) )
+                                call_user_func( $theme_page['menu_slug'].'_options_page', 'appearance_page_' . $current );
+                                break;
+                        }
                     }
                 }
-            }
-        } ?>
-        </div><!-- end wrap --><?php
+            } ?>
+        </div><!-- .wrap --><?php
     }
 
     /**
-     * Will be executed if wordpress core detects this page has to be rendered
+     * Applies WordPress metabox funtionality to rtPanel metaboxes
      *
      * @since rtPanel 2.0
-     */
+     **/
     function rtp_on_load_page() {
-        // Javascripts loaded to allow drag/drop, expand/collapse and hide/show of boxes. */
+        /* Javascripts loaded to allow drag/drop, expand/collapse and hide/show of boxes. */
         wp_enqueue_script( 'common' );
         wp_enqueue_script( 'wp-lists' );
         wp_enqueue_script( 'postbox' );
 
-        // Check to see which tab we are on.
+        // Check to see which tab we are on
         $tab = isset( $_GET['page'] )  ? $_GET['page'] : "rtp_general";
+        
         switch ( $tab ) {
             case 'rtp_general' :
-                // All metaboxes registered during load page can be switched off/on at "Screen Options" automatically, nothing special to do therefore.
+                // All metaboxes registered during load page can be switched off/on at "Screen Options" automatically, nothing special to do therefore
                 add_meta_box( 'logo_options', __( 'Logo Settings', 'rtPanel'), 'rtp_logo_option_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'fav_options', __( 'Favicon Settings', 'rtPanel'), 'rtp_fav_option_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'fb_ogp_options', __( 'Facebook Open Graph Settings', 'rtPanel'), 'rtp_facebook_ogp_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
@@ -218,7 +227,7 @@ class rtp_theme {
                 do_action( $tab .'_metaboxes' );
                 break;
             case 'rtp_post_comments' :
-                // All metaboxes registered during load page can be switched off/on at "Screen Options" automatically, nothing special to do therefore.
+                // All metaboxes registered during load page can be switched off/on at "Screen Options" automatically, nothing special to do therefore
                 add_meta_box( 'post_summaries_options', __('Post Summary Settings', 'rtPanel'), 'rtp_post_summaries_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'post_thumbnail_options', __('Post Thumbnail Settings', 'rtPanel'), 'rtp_post_thumbnail_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'post_meta_options', __('Post Meta Settings', 'rtPanel'), 'rtp_post_meta_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
@@ -233,5 +242,5 @@ class rtp_theme {
     }
 }
 
-// rtPanel :)
+// ★ of the show: rtPanel ;)
 $rt_panel_theme = new rtp_theme();

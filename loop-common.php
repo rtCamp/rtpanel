@@ -105,7 +105,6 @@
             // Comment Form
             is_singular() ? comments_template( '', true ) : '';
         }
-
         
         if ( !is_singular() ) {
             /* Page-Navi Plugin Support with WordPress Default Pagination */

@@ -19,6 +19,8 @@ function rtp_post_comments_options_page( $pagehook ) {
 
     <div class="options-main-container">
         <?php settings_errors(); ?>
+        <a href="#" class="expand-collapse button-link" title="Show/Hide All">Show/Hide All</a>
+        <div class="clear"></div>
         <div class="options-container">
             <form name="rt_post_comments_form" id="rt_post_comments_form" action="options.php" method="post" enctype="multipart/form-data">
                 <?php

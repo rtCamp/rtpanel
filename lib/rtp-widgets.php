@@ -79,7 +79,7 @@ class rtp_subscribe_widget extends WP_Widget {
                 <ul class="social-icons"><?php
                     echo ( $rt_facebook_show ) ? '<li><a rel="nofollow" ' . $target . ' class="facebook" href="' . $facebook_link . '" title="' . __( 'Follow Us on Facebook', 'rtPanel' ) . '">Facebook</a></li>' : '';
                     echo ( $rt_twitter_show ) ? '<li><a rel="nofollow" ' . $target . ' class="twitter" href="' . $twitter_link . '" title="' . __( 'Follow Us on Twitter', 'rtPanel' ) . '">Twitter</a></li>' : '';
-                    echo ( $rt_rss_show ) ? '<li><a rel="nofollow" ' . $target . ' class="rss" href="' . $rss_link . '" title="' . __( 'Follow Us on RSS', 'rtPanel' ) . '">RSS</a></li>' : '';
+                    echo ( $rt_rss_show ) ? '<li><a rel="nofollow" ' . $target . ' class="rss" href="' . $rss_link . '" title="' . __( 'Subscribe via RSS', 'rtPanel' ) . '">RSS</a></li>' : '';
                     echo ( $rt_linkedin_show ) ? '<li><a rel="nofollow" ' . $target . ' class="linkedin" href="' . $linkedin_link . '" title="' . __( 'Follow Us on LinkedIn', 'rtPanel' ) . '">LinkedIn</a></li>' : '';
                     echo ( $rt_myspace_show ) ? '<li><a rel="nofollow" ' . $target . ' class="myspace" href="' . $myspace_link . '" title="' . __( 'Follow Us on MySpace', 'rtPanel' ) . '">MySpace</a></li>' : '';
                     echo ( $rt_stumbleupon_show ) ? '<li><a rel="nofollow" ' . $target . ' class="stumbleupon" href="' . $stumbleupon_link . '" title="' . __( 'Follow Us on StumbleUpon', 'rtPanel' ) . '">StumbleUpon</a></li>' : ''; ?>

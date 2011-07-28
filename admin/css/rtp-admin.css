@@ -1,12 +1,11 @@
 /**
- * Custom CSS for rtPanel Admin
+ * rtPanel Admin CSS
  *
  * @package rtPanel
 
  * @since rtPanel 2.0
  */
 
-/* ========== [ Layout Style ] ========== */
 .rtpanel { color: #333333 !important; font-weight: bold; }
 .wrap { width: 76%; overflow: hidden; }
     .wrap div.updated p { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; background-color: #FFFFE0; border: 1px solid #E6DB55; margin: 0 auto; padding: 7px; width: 95%; }
@@ -17,21 +16,19 @@ h2 .nav-tab { font-size: 20px; padding: 4px 6px; }
 .options-main-container { overflow: hidden; border: 1px solid #CCCCCC; border-top: none; padding: 0; margin-bottom: 15px; }
 .options-container { margin: 5px 10px; overflow: hidden; padding: 0; }
 #wpbody-content .metabox-holder { margin-bottom: 10px; padding: 10px 0 0; width: 100%; }
-div.inside { margin: 10px; }
+div.inside { margin: 10px 5px; }
 .wrap div.updated, .wrap div.error { -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; background: none repeat scroll 0 0 transparent; border-left: 1px solid #CCCCCC; border-right: 1px solid #CCCCCC; border-top: none; border-bottom: none; display: block; margin: 0; padding: 10px 0; text-align: center; }
     .wrap div.error p { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; background: #FFEBE8; border: 1px solid #CC0000; margin: 0 auto; padding: 7px; width: 95%; }
 .admin-main-heading h2 { border-bottom: 1px solid #EAEAEA; font-size: 153.9%; padding: 14px 0 3px 0; }
 .admin-sub-module { clear: both; overflow: hidden; }
 .admin-or { color: #888888; display: block; float: left; font-family: Georgia,"Times New Roman","Bitstream Charter",Times,serif; font-size: 153.9%; font-style: italic; padding: 30px 25px 30px 0; }
 
-/* ========== [ Sections Style ] ========== */
 .logo-upload, .logo-url, .fav-upload, .fav-url { display: block; float: left; height: 100px; padding: 0 25px 0 0; }
 .logo-preview, .fav-preview { float: left; display: block; }
 .fav-preview { padding: 33px 0 0; }
 #logo, #logo_url, #fav, #fav_url { clear: both; }
 .logo-url, .fav-url { width: 200px; }
 
-/* ========== [ Feedburner Style ] ========== */
 .feedburner { padding: 22px 0; }
 .custom-search-main { padding: 22px 0 0; }
     .feedburner label, .custom-search-main label { padding: 0 0 3px; }
@@ -45,14 +42,12 @@ div.inside { margin: 10px; }
 #poststuff .postbox .inside th p { font-size: 11px; margin-bottom: 8px; }
 .post-meta-common { margin-left: 30px; }
 
-/* ========== [ Common Style ] ========== */
 .show { visibility: visible; display: block; }
 .hideme { visibility: hidden; display: none; }
 .clear { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
 .clearfix:before, .clearfix:after { content: "."; display: block; height: 0; overflow: hidden; }
 .clearfix:after { clear: both }
 
-/* ========== [ Plugin Support Style ] ========== */
 #plugin_support .active { color: #4F8A10; }
 #plugin_support .inactive { color: orange; }
 #plugin_support .not-installed { color: red; }
@@ -65,24 +60,20 @@ div.inside { margin: 10px; }
     .inner-sidebar #side-sortables { width: 99.7%; }
 #gravatar_size { width: 120px; }
 
-/* ========== [ Social Share and Connect Style ] ========== */
 #social .inside a { background: url("../../img/rtp-social-icons.png") no-repeat scroll 0 0 transparent; display: inline-block; font-size: 0; height: 23px; margin: 0 5px; text-indent: -9999px; text-transform: uppercase; vertical-align: middle; width: 23px; }
     #social .inside a.rtpanel-facebook { background-position: -215px 0; }
     #social .inside a.rtpanel-twitter { background-position: -559px 0; }
     #social .inside a.rtpanel-rss { background-position: -430px 0; }
     #social .inside a.rtpanel-linkedin { background-position: -301px 0; }
 
-/* ========== [ Latest News Style ] ========== */
 #latest_news .inside ul { margin: 0 0 0 12px; }
     #latest_news .inside ul li { list-style: square outside none; padding: 0 0 7px; }
 a.regenerate_thumbanil_notice_close { text-decoration: none; }
 .has-right-sidebar .inside #logo_metabox img { width: 230px; }
 .postbox-title-action { position: absolute; right: 35px; top: 0; }
 
-/* ========== [ Sidebar Style ] ========== */
 #wpbody-content .metabox-fixed { margin: 0 10px 0 0; width: 22%; clear: both; }
 
-/* ========== [ Table Element Style ] ========== */
 .form-table * { word-wrap: break-word; }
 .form-table th { width: 170px; }
 .has-right-sidebar .form-table td.img-preview, .has-right-sidebar .form-table td.img-url { float: left; }
@@ -92,7 +83,6 @@ a.regenerate_thumbanil_notice_close { text-decoration: none; }
 .form-table label.example { font-size: 100%; }
 .form-table a { text-decoration: none; }
 
-/* ========== [ Form Element Style ] ========== */
 input.reset-link { border: 0; background: none; color: #21759B; }
 input.reset-link:hover { text-decoration: underline; cursor: pointer; }
 input[disabled][type='text'], input[disabled][type='radio'], input[disabled][type='checkbox'], textarea[disabled] { background-color: Silver; }
@@ -104,3 +94,6 @@ input.button-link:hover { color: #D54E21; }
 input { outline: medium none; }
 .has-right-sidebar .postbox input[type="text"], .has-right-sidebar .stuffbox input[type="text"], .has-right-sidebar .postbox textarea, .has-right-sidebar .stuffbox textarea { width: 98%; }
 .rtp_submit { padding: 10px 0; text-align: right; }
+
+a.expand-collapse { background: none repeat scroll 0 0 #CCCCCC; color: #333333; float: right; font-size: 85%; padding: 5px 8px; text-decoration: none; }
+a:hover.expand-collapse { text-decoration: underline; }

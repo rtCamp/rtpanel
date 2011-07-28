@@ -1,14 +1,16 @@
 <?php
 /**
- * The template for over riding WordPress default search mechanism
+ * Over-riding WordPress default search mechanism
+ *
+ * Support for Google Custom Search ( Bonus !!! )
  * 
  * @package rtPanel
+ *
  * @since rtPanel 2.0
  */
 
 /**
- * Overrides WordPress default search mechanism
- * Support for Google custom search
+ * rtPanel Custom Search Form
  *
  * @param string $form
  * @return string
@@ -27,7 +29,7 @@ function rtp_custom_search_form( $form ) {
 add_filter( 'get_search_form', 'rtp_custom_search_form' );
 
 
-// Used for changing the URL
+/* Customizing URLs, when using Google Custom Search */
 if( is_search() ) {
     $result_url = get_site_url( '', '?s=' );
         header( 'Location:' . $result_url . $s );
