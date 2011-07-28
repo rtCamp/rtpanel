@@ -1328,7 +1328,6 @@ if ( is_admin() && @$rtp_post_comments['notices'] ) {
     add_action( 'admin_notices', 'rtp_regenerate_thumbnail_notice');
 }
 
-
 /**
  * Outputs neccessary script to hide 'regenerate thumbnail' notice
  *
