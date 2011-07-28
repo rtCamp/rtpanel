@@ -139,17 +139,22 @@ function rtp_facebook_ogp_metabox() {
     <table class="form-table">
         <tbody>
             <tr valign="top">
-                <th scope="row"><label for="fb_app_id"><?php _e( 'Facebook App ID', 'rtPanel' ); ?></label></th>
-                <td>
-                    <input type="text" value="<?php echo $rtp_general['fb_app_id'] ?>" size="40" name="rtp_general[fb_app_id]" id="fb_app_id" />
-                    <span class="description"><label for="fb_app_id"><?php _e( 'Specify Facebook App ID', 'rtPanel' ); ?></label></span>
-                </td>
-            </tr>
-            <tr valign="top">
                 <th scope="row"><label for="fb_admins"><?php _e( 'Facebook Admin ID(s)', 'rtPanel' ); ?></label></th>
                 <td>
                     <input type="text" value="<?php echo $rtp_general['fb_admins'] ?>" size="40" name="rtp_general[fb_admins]" id="fb_admins" />
                     <span class="description"><label for="fb_admins"><?php _e( 'Specify Facebook Admin ID(s) ( Comma separated )', 'rtPanel' ); ?></label></span>
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row"><label for="fb_app_id"><?php _e( 'Facebook App ID', 'rtPanel' ); ?></label></th>
+                <td>
+                    <input type="text" value="<?php echo $rtp_general['fb_app_id'] ?>" size="40" name="rtp_general[fb_app_id]" id="fb_app_id" />
+                    <span class="description"><label for="fb_app_id"><?php printf( __( '<a href="%s" target="_blank" title="Find your App ID Here">Find your App ID Here</a>', 'rtPanel' ), 'https://developers.facebook.com/apps/' ); ?></label></span>
+                </td>
+            </tr>
+            <tr valign="top">
+                <td colspan="2">
+                    <strong><?php _e( 'Note', 'rtPanel' ); ?> : </strong><span class="description"><?php _e( 'Anyone would be sufficient.', 'rtPanel' ); ?></span>
                 </td>
             </tr>
         </tbody>
@@ -177,7 +182,7 @@ function rtp_feed_option_metabox() {
                 <th scope="row"><label for="feedburner_url"><?php _e( 'FeedBurner URL', 'rtPanel' ); ?></label></th>
                 <td>
                     <input type="text" value="<?php echo $rtp_general['feedburner_url'] ?>" size="40" name="rtp_general[feedburner_url]" id="feedburner_url" />
-                    <span class="description"><label for="feedburner_url"><?php printf( __( 'Specify <a href="%s" title="FeedBurner">FeedBurner</a> URL to redirect feeds', 'rtPanel' ), 'http://www.feedburner.com/' ); ?></label><br /><label class="example" for="feedburner_url"><?php _e( 'Eg. http://www.example.com', 'rtPanel' ); ?></label></span>
+                    <span class="description"><label for="feedburner_url"><?php printf( __( 'Specify <a href="%s" target="_blank" title="FeedBurner">FeedBurner</a> URL to redirect feeds', 'rtPanel' ), 'http://www.feedburner.com/' ); ?></label><br /><label class="example" for="feedburner_url"><?php _e( 'Eg. http://www.example.com', 'rtPanel' ); ?></label></span>
                 </td>
             </tr>
         </tbody>

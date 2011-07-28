@@ -237,7 +237,7 @@ class rtp_comments_widget extends WP_Widget {
             if ( $title )
                 echo $before_title . $title . $after_title;
                     global $wpdb;
-                    $total_comments = $wpdb->get_results( "SELECT comment_date_gmt,comment_content, comment_author, comment_ID, comment_post_ID, comment_author_email, comment_date_gmt FROM " . $wpdb->comments . " WHERE comment_approved = '1' and comment_type != 'trackback' ORDER BY comment_date_gmt DESC LIMIT $count" );
+                    $total_comments = get_comments('type=comment');
 
                     if ( !empty( $total_comments ) ) {
                         echo '<ul>';
@@ -300,8 +300,8 @@ class rtp_comments_widget extends WP_Widget {
      **/
     function update( $new_instance, $old_instance ) {
         global $wpdb;
-        $total_comments = get_comment_count();
-        $comment_total = $total_comments['approved'];
+        $comment_query = "SELECT count(*) FROM $wpdb->comments WHERE comment_approved = 1 AND trim(comment_type) = ''";
+        $comment_total = $wpdb->get_var($comment_query);
         $instance = $old_instance;
         $instance['title'] = strip_tags ( $new_instance['title'] );
         $instance['show_grav'] = strip_tags ( $new_instance['show_grav'] );
@@ -346,8 +346,8 @@ class rtp_comments_widget extends WP_Widget {
             <input class="widefat show-comments" id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" type="text" value="<?php echo $count; ?>" />
         </p><?php
         global $wpdb;
-        $total_comments = get_comment_count();
-        $comment_total = $total_comments['approved']; ?>
+        $comment_query = "SELECT count(*) FROM $wpdb->comments WHERE comment_approved = 1 AND trim(comment_type) = ''";
+        $comment_total = $wpdb->get_var($comment_query); ?>
         <div style='color: #444444; font-size: 11px; padding: 0 0 12px;'><?php printf( __( 'You have total \'%d\' comments to display', 'rtPanel' ) , $comment_total ); ?></div>
         <p>
             <label for="<?php echo $this->get_field_id( 'alternative' ); ?>"><?php _e( 'Show Alternate Comments', 'rtPanel' ); ?>: </label>

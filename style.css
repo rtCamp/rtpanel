@@ -242,9 +242,9 @@ h2 a, h2 a:visited, h2 a:active { color: #111111; text-decoration: none; }
 .post { overflow: hidden; }
 #post-0 { border-bottom: 1px dotted #BBBBBB; clear: both; overflow: hidden; padding: 0 0 22px; position: relative; }
 .hentry { border-bottom: 1px dotted #BBBBBB; clear: both; overflow: hidden; padding: 22px 0; position: relative; }
-.post-title { }
+.post-title { font-family: Georgia, "Times New Roman", Times, serif; }
 .rtp-main-title { border-bottom: 2px solid #DDDDDD; padding: 22px 0; }
-.post-content { font-size: 140%; line-height: 171.5%; overflow: hidden; }
+.post-content { font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif; font-size: 140%; line-height: 171.5%; overflow: hidden; }
     .post-content p { margin-bottom: 24px; }
     .post-content a { text-decoration: underline; }
     .post-content img { margin: 2px 5px; }
@@ -254,13 +254,15 @@ h2 a, h2 a:visited, h2 a:active { color: #111111; text-decoration: none; }
 /* Post Paging Links */
     .post-content .page-link { clear: both; overflow: hidden; padding: 0 0 10px; }
         .post-content .page-link span { background: none repeat scroll 0 0 #F1F1F1; margin: 0 0 0 5px; padding: 0 5px 4px; vertical-align: top; }
+        .post-content .page-link a {  text-decoration: none; border: none medium; }
+        .post-content .page-link a:hover {  text-decoration: none; border: none medium; }
             .post-content .page-link a span { background: none repeat scroll 0 0 #F8F8F8; }
             .post-content .page-link a:hover span { background: none repeat scroll 0 0 #F1F1F1; }
 
 /* Prevent Images from Running Outside Content Area */
     .post-content .wp-caption { max-width: 90% !important; }
         .post-content .wp-caption img { max-width: 100%; height: auto; }
-    .post-content img { max-width: 96% !important; height: auto; }
+    .single .post-content img { max-width: 96% !important; height: auto; }
 
 /* Post Images */
 p.attachment img { margin: 10px 0; }

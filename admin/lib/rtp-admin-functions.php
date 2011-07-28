@@ -805,7 +805,7 @@ function rtp_default_sidebar() { ?>
         <h3 class="hndle"><span><?php _e('Getting Social is Good', 'rtPanel'); ?></span></h3>
         <div class="inside" style="text-align:center;">
             <a href="<?php printf( '%s', 'http://www.facebook.com/rtPanel' ); ?>" target="_blank" title="<?php _e( 'Become a fan on Facebook', 'rtPanel' ); ?>" class="rtpanel-facebook"><?php _e( 'Facebook', 'rtPanel' ); ?></a>
-            <a href="<?php printf( '%s', 'http://twitter.com/#!/rtPanel' ); ?>" target="_blank" title="<?php _e( 'Follow us on Twitter', 'rtPanel' ); ?>" class="rtpanel-twitter"><?php _e( 'Twitter', 'rtPanel' ); ?></a>
+            <a href="<?php printf( '%s', 'http://twitter.com/rtPanel' ); ?>" target="_blank" title="<?php _e( 'Follow us on Twitter', 'rtPanel' ); ?>" class="rtpanel-twitter"><?php _e( 'Twitter', 'rtPanel' ); ?></a>
             <a href="<?php printf( '%s', 'http://feeds.feedburner.com/rtpanel' ); ?>" target="_blank" title="<?php _e( 'Subscribe to our feeds', 'rtPanel' ); ?>" class="rtpanel-rss"><?php _e( 'RSS Feed', 'rtPanel' ); ?></a>
         </div>
     </div>
@@ -833,7 +833,7 @@ function rtp_default_sidebar() { ?>
                     <a style=" text-align:center;" name="fb_share" type="box_count" share_url="http://bloggertowp.org/blogger-to-wordpress-redirection-plugin/"></a>
                 </div>
                 <div class="rt-twitter" style="">
-                    <a href="<?php printf( '%s', 'http://twitter.com/share' ); ?>"  class="twitter-share-button" data-text="#rtPanel is awesome"  data-url="http://rtpanel.com" data-count="vertical" data-via="rtPanel"><?php _e( 'Tweet', 'rtPanel' ); ?></a>
+                    <a href="<?php printf( '%s', 'http://twitter.com/share' ); ?>"  class="twitter-share-button" data-text="I &hearts; #rtPanel"  data-url="http://rtpanel.com" data-count="vertical" data-via="rtPanel"><?php _e( 'Tweet', 'rtPanel' ); ?></a>
                     <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
                 </div>
                 <div class="clear"></div>

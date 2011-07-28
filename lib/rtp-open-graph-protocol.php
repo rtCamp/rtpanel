@@ -127,6 +127,9 @@ class rtp_ogp {
     }
 }
 
+global $rtp_general;
+if( !empty( $rtp_general['fb_app_id'] ) || !empty( $rtp_general['fb_admins'] ) ) {
 // Facebook Open Graph Protocol
-$rtp_ogp = new rtp_ogp();
+    $rtp_ogp = new rtp_ogp();
+}
 ?>
