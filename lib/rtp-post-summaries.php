@@ -80,7 +80,7 @@ add_filter( 'the_excerpt', 'rt_nofollow' );
  */
 function rt_nofollow_callback( $matches ) {
     $link = $matches[0];
-    $site_link = get_bloginfo( 'url' );
+    $site_link = home_url();
     if ( strpos( $link, 'rel' ) === false ) {
         $link = preg_replace( "%(href=\S(?!$site_link))%i", 'rel="nofollow" $1', $link );
     } elseif ( preg_match( "%href=\S(?!$site_link)%i", $link ) ) {

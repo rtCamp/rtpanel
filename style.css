@@ -16,8 +16,10 @@ html { overflow-y: scroll; }
 
 /* Generic Lists */
 ul, ol { margin: 0 0 22px 25px; }
-ul ul, ul ol,
-    ol ol, ol ul { margin: 0 0 0 22px; }
+ul ol li,
+ol ol li { list-style: decimal outside none; }
+ul ul li,
+ol ul li { list-style: square outside none; }
 ul li { list-style: square outside none; }
     ol li { list-style: decimal outside none; }
 
@@ -95,10 +97,10 @@ img.wp-smiley,
     #wpstats { display: none; }
 
 /* Table */
-#content table { border: 1px solid #CCCCCC; text-align: left; width: 100%;margin-bottom: 10px; }
-#content tr th,
-#content th { background: none repeat scroll 0 0 #F1F1F1; border: 1px solid #CCCCCC; padding: 2px; }
-#content tr td { border: 1px solid #CCCCCC; padding: 2px; }
+.post-content table, .commentlist table { border: 1px solid #CCCCCC; text-align: left; width: 100%;margin-bottom: 10px; }
+.post-content tr th, .commentlist tr th,
+.post-content th, .commentlist tr th, { background: none repeat scroll 0 0 #F1F1F1; border: 1px solid #CCCCCC; padding: 2px; }
+.post-content tr td, .commentlist tr td { border: 1px solid #CCCCCC; padding: 2px; }
 
 /* Layout */
 body { background-color: #FFFFFF; color: #111111;font-size: 10px; }
@@ -114,6 +116,10 @@ body { background-color: #FFFFFF; color: #111111;font-size: 10px; }
 #content-wrapper .rtp-multiple-post {  }
 #content-wrapper .rtp-single-post {  }
 #content-wrapper .rtp-blog-post {  }
+#content-wrapper .full-width { width: 960px; }
+
+/* Full-Width Template */
+.page-template-template-full-width-php #content-wrapper { background: none repeat scroll 0 0 transparent;  }
 
 /* Default Colors */
 select, input, textarea { color: #111111; }

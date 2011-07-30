@@ -727,8 +727,11 @@ function rtp_theme_options_upload( $form_fields, $post ) {
     /* Can now see $post becaue the filter accepts two args, as defined in the add_fitler */
     if ( substr( $post->post_mime_type, 0, 5 ) == 'image' && ( preg_match( '/rtp_theme=rtp_true/i', @$_SERVER['HTTP_REFERER'] ) ) || preg_match( '/rtp_theme=rtp_true/i', $_SERVER['REQUEST_URI'] ) || isset( $_POST['rtp_theme'] ) ) {
 
-        $form_fields['url']['label'] = 'Image Path';
+        $form_fields['url']['label'] = 'Path';
         $form_fields['url']['input'] = 'html';
+        $form_fields['url']['html'] = preg_replace( '/<button.*\/button>/i', '', $form_fields['url']['html'] );
+        $form_fields['url']['html'] = preg_replace('/<input/i', '<input readonly="readonly"', $form_fields['url']['html'] );
+        $form_fields['url']['helps'] = '';
 
         $form_fields['post_excerpt']['value'] = '';
         $form_fields['post_excerpt']['input'] = 'hidden';
@@ -744,7 +747,7 @@ function rtp_theme_options_upload( $form_fields, $post ) {
 
         $form_fields['image-caption']['value'] = 'caption';
         $form_fields['image-caption']['input'] = 'hidden';
-
+        
         $form_fields['buttons'] = array(
             'label' => '',
             'value' => '',
