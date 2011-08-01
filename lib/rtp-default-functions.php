@@ -42,7 +42,7 @@ function rtp_default_post_meta( $placement ) { ?>
                         } ?>
                 
                 <?php   // Comment Count
-                        if ( comments_open() && $position == 'u' ) { // If post meta is set to top then only display the comment count. ?>
+                        if ( @comments_open() && $position == 'u' ) { // If post meta is set to top then only display the comment count. ?>
                             <p class="alignright rtp-post-comment-count"><span class="rtp-courly-bracket">{</span><?php comments_popup_link( __( '<span>0</span> Comments', 'rtPanel' ), __( '<span>1</span> Comment', 'rtPanel' ), __( '<span>%</span> Comments', 'rtPanel' ), 'rtp-post-comment' ); ?><span class="rtp-courly-bracket">}</span></p><?php
                         } ?>
 

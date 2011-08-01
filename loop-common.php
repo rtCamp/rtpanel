@@ -81,7 +81,7 @@
                                 the_content( 'Read More &rarr;' );
                                 wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'rtPanel' ), 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) );
                             } else {
-                                the_excerpt();
+                                @the_excerpt();
                             } ?>
 
                     <?php rtp_hook_end_post_content(); ?>
