@@ -9,6 +9,7 @@
 
     $rtp_general = get_option( 'rtp_general' ); // rtPanel General Options
     $rtp_post_comments = get_option( 'rtp_post_comments' ); // rtPanel Post & Comments Options
+    $rtp_version = get_option( 'rtp_version' ); // rtPanel Version
 
     /* Define Directory Constants */
     define( 'RTP_ADMIN', get_template_directory() . '/admin' );

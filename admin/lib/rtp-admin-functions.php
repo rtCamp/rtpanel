@@ -1277,11 +1277,11 @@ add_action( 'admin_head', 'rtp_custom_admin_logo' );
  *
  * @since rtPanel 2.0
  */
-function rtp_custom_admin_footer() {
-    printf( '<span id="footer-thankyou">' . __( 'Thank you for creating with <a href="%s" target="_blank">WordPress</a>.', 'rtPanel' ) . '</span> | ' . __( '<a href="%s" target="_blank">Documentation</a>', 'rtPanel' ) . ' | ' . __( '<a href="%s" target="_blank">Feedback</a>', 'rtPanel' ) . '
-        <br /><br />' . __( 'Currently using <a href="%s" title="rtPanel.com" target="_blank">rtPanel</a>', 'rtPanel' ) . ' |
-        ' . __( '<a href="%s" title="Click here for rtPanel Free Support" target="_blank">Support</a>', 'rtPanel' ) . ' |
-        ' . __( '<a href="%s" title="Click here for rtPanel Documentation" target="_blank">Documentation</a>', 'rtPanel' ), 'http://wordpress.org/', 'http://codex.wordpress.org/', 'http://wordpress.org/support/forum/4', 'http://rtpanel.com/', 'http://rtpanel.com/support', 'http://rtpanel.com/docs' );
+function rtp_custom_admin_footer( $footer_text ) {
+    echo $footer_text;
+    printf( '<br /><br />' . __( 'Currently using <a href="%s" title="rtPanel.com" target="_blank">rtPanel</a>', 'rtPanel' ) . ' | '
+            . __( '<a href="%s" title="Click here for rtPanel Free Support" target="_blank">Support</a>', 'rtPanel' ) . ' | '
+            . __( '<a href="%s" title="Click here for rtPanel Documentation" target="_blank">Documentation</a>', 'rtPanel' ), 'http://rtpanel.com/', 'http://rtpanel.com/support', 'http://rtpanel.com/docs' );
 }
 add_filter( 'admin_footer_text', 'rtp_custom_admin_footer' );
 
@@ -1291,7 +1291,7 @@ add_filter( 'admin_footer_text', 'rtp_custom_admin_footer' );
  * @since rtPanel 2.0
  */
 function rtp_export_version() {
-    global $wp_version;
+    global $wp_version, $rtp_version;
     require_once( ABSPATH . '/wp-admin/includes/update.php' );
     $theme_info = get_theme( get_current_theme() );
     $theme_version = array( 'wp' => $wp_version, 'rtPanel' => $theme_info['Version'] );
@@ -1303,11 +1303,10 @@ function rtp_export_version() {
  *
  * @since rtPanel 2.0
  */
-function rtp_version() {
-    require_once( ABSPATH . '/wp-admin/includes/update.php' );
-    $theme_info = get_theme( get_current_theme() );
-    $theme_version = core_update_footer() . '<br /><br />' . __( 'rtPanel Version ', 'rtPanel' ) . $theme_info['Version'];
-    return $theme_version;
+function rtp_version( $update_footer ) {
+    global $rtp_version;
+    $update_footer .= '<br /><br />' . __( 'rtPanel Version ', 'rtPanel' ) . $rtp_version;
+    return $update_footer;
 }
 add_filter( 'update_footer', 'rtp_version', 9999 );
 
@@ -1349,6 +1348,7 @@ if ( is_admin() && @$rtp_post_comments['notices'] ) {
 function rtp_regenerate_thumbnail_notice_js() { ?>
     <script type="text/javascript" >
     jQuery(function(){
+        jQuery('#wpbody-content').css( 'padding-bottom', '85px' );
         jQuery('.regenerate_thumbanil_notice_close').css( 'color', '#CC0000' );
         jQuery('.regenerate_thumbanil_notice_close').css( 'cursor', 'pointer' );
         jQuery('.regenerate_thumbanil_notice_close').click(function(){
