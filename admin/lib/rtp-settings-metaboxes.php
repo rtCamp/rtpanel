@@ -302,9 +302,15 @@ function rtp_plugin_metabox() {
     $pagenavi_activate = wp_create_nonce( RTP_WP_PAGENAVI . '-activate' );
     $pagenavi_deactivate = wp_create_nonce( RTP_WP_PAGENAVI . '-deactivate' );
     $pagenavi_delete = wp_create_nonce( RTP_WP_PAGENAVI . '-delete' );
-    $breadcrumb_activate = wp_create_nonce( RTP_BREADECRUMB_NAVXT . '-activate' );
-    $breadcrumb_deactivate = wp_create_nonce( RTP_BREADECRUMB_NAVXT . '-deactivate' );
-    $breadcrumb_delete = wp_create_nonce( RTP_BREADECRUMB_NAVXT . '-delete' ); ?>
+    $yoast_seo_activate = wp_create_nonce( RTP_YOAST_SEO . '-activate' );
+    $yoast_seo_deactivate = wp_create_nonce( RTP_YOAST_SEO . '-deactivate' );
+    $yoast_seo_delete = wp_create_nonce( RTP_YOAST_SEO . '-delete' );
+    $breadcrumb_activate = wp_create_nonce( RTP_BREADCRUMB_NAVXT . '-activate' );
+    $breadcrumb_deactivate = wp_create_nonce( RTP_BREADCRUMB_NAVXT . '-deactivate' );
+    $breadcrumb_delete = wp_create_nonce( RTP_BREADCRUMB_NAVXT . '-delete' );
+    $regenerate_activate = wp_create_nonce( RTP_REGENERATE_THUMBNAILS . '-activate' );
+    $regenerate_deactivate = wp_create_nonce( RTP_REGENERATE_THUMBNAILS . '-deactivate' );
+    $regenerate_delete = wp_create_nonce( RTP_REGENERATE_THUMBNAILS . '-delete' ); ?>
     <table class="form-table">
         <tr>
             <th><?php _e( 'Name', 'rtPanel' ); ?></th>
@@ -356,7 +362,7 @@ function rtp_plugin_metabox() {
                 ?>
             </td>
             <td>
-                <?php if ( is_plugin_active(RTP_WP_PAGENAVI ) ) { ?>
+                <?php if ( is_plugin_active( RTP_WP_PAGENAVI ) ) { ?>
                     <input type="hidden" value="<?php echo $pagenavi_deactivate; ?>" name="_wpnonce_pagenavi_deactivate" id="_wpnonce_pagenavi_deactivate" /><input id="pagenavi-deactivate" type="hidden" name="pagenavi-deactivate" value="0" /><a class="pagenavi-deactivate" href="#pagenavi-deactivate" onclick="deactivate_plugin('WP PageNavi')"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
                 <?php } elseif ( array_key_exists( RTP_WP_PAGENAVI, $plugins ) ) { ?>
                     <input type="hidden" value="<?php echo $pagenavi_activate; ?>" name="_wpnonce_pagenavi_activate" id="_wpnonce_pagenavi_activate" /><input id="pagenavi-activate" type="hidden" name="pagenavi-activate" value="0" /><a class="pagenavi-activate" href="#pagenavi-activate" onclick="activate_plugin( 'WP PageNavi' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo $pagenavi_delete; ?>" name="_wpnonce_pagenavi_delete" id="_wpnonce_pagenavi_delete" /><input id="pagenavi-delete" type="hidden" name="pagenavi-delete" value="0" /><a class="pagenavi-delete" href="#pagenavi-delete" onclick="delete_plugin_confirmation( 'WP PageNavi' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
@@ -373,29 +379,88 @@ function rtp_plugin_metabox() {
             </td>
         </tr>
         <tr>
-            <td class="last-child"><a href="http://wordpress.org/extend/plugins/breadcrumb-navxt/"><?php _e( 'Breadcrumb NavXT', 'rtPanel' ); ?></a></td>
+            <td><a href="http://wordpress.org/extend/plugins/wordpress-seo/"><?php _e( 'Yoast WordPress SEO', 'rtPanel' ); ?></a></td>
+            <td>
+                <?php
+                if ( is_plugin_active( RTP_YOAST_SEO ) ) {
+                    echo '<span class="active">' . __( 'Active', 'rtPanel' ) . '</span>';
+                } elseif ( array_key_exists( RTP_YOAST_SEO, $plugins ) ) {
+                    echo '<span class="inactive">' . __( 'Inactive', 'rtPanel' ) . '</span>';
+                } else {
+                    echo '<span class="not-installed">' . __( 'Not Installed', 'rtPanel' ) . '</span>';
+                }
+                ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_YOAST_SEO ) ) { ?>
+                    <input type="hidden" value="<?php echo $yoast_seo_deactivate; ?>" name="_wpnonce_yoast_seo_deactivate" id="_wpnonce_yoast_seo_deactivate" /><input id="yoast_seo-deactivate" type="hidden" name="yoast_seo-deactivate" value="0" /><a class="yoast_seo-deactivate" href="#yoast_seo-deactivate" onclick="deactivate_plugin('Yoast WordPress SEO')"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
+                <?php } elseif ( array_key_exists( RTP_YOAST_SEO, $plugins ) ) { ?>
+                    <input type="hidden" value="<?php echo $yoast_seo_activate; ?>" name="_wpnonce_yoast_seo_activate" id="_wpnonce_yoast_seo_activate" /><input id="yoast_seo-activate" type="hidden" name="yoast_seo-activate" value="0" /><a class="yoast_seo-activate" href="#yoast_seo-activate" onclick="activate_plugin( 'Yoast WordPress SEO' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo $yoast_seo_delete; ?>" name="_wpnonce_yoast_seo_delete" id="_wpnonce_yoast_seo_delete" /><input id="yoast_seo-delete" type="hidden" name="yoast_seo-delete" value="0" /><a class="yoast_seo-delete" href="#yoast_seo-delete" onclick="delete_plugin_confirmation( 'Yoast WordPress SEO' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&plugin=wordpress-seo' ), 'install-plugin_wordpress-seo' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
+                <?php } ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_YOAST_SEO ) || array_key_exists( RTP_YOAST_SEO, $plugins ) ) { ?>
+                    <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_YOAST_SEO ) ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <span class="not-installed"> ----- </span>
+                <?php } ?>
+            </td>
+        </tr>
+        <tr>
+            <td><a href="http://wordpress.org/extend/plugins/breadcrumb-navxt/"><?php _e( 'Breadcrumb NavXT', 'rtPanel' ); ?></a></td>
+            <td>
+                <?php
+                if ( is_plugin_active( RTP_BREADCRUMB_NAVXT ) ) {
+                    echo '<span class="active">Active</span>';
+                } elseif ( array_key_exists( RTP_BREADCRUMB_NAVXT, $plugins ) ) {
+                    echo '<span class="inactive">Inactive</span>';
+                } else {
+                    echo '<span class="not-installed">Not Installed</span>';
+                } ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_BREADCRUMB_NAVXT ) ) { ?>
+                    <input type="hidden" value="<?php echo $breadcrumb_deactivate; ?>" name="_wpnonce_breadcrumb_deactivate" id="_wpnonce_breadcrumb_deactivate" /><input id="breadcrumb-deactivate" type="hidden" name="breadcrumb-deactivate" value="0" /><a class="breadcrumb-deactivate" href="#breadcrumb-deactivate" onclick="deactivate_plugin( 'Breadcrumb NavXT' )"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
+                <?php } elseif ( array_key_exists( RTP_BREADCRUMB_NAVXT, $plugins ) ) { ?>
+                    <input type="hidden" value="<?php echo $breadcrumb_activate; ?>" name="_wpnonce_breadcrumb_activate" id="_wpnonce_breadcrumb_activate" /><input id="breadcrumb-activate" type="hidden" name="breadcrumb-activate" value="0" /><a class="breadcrumb-activate" href="#breadcrumb-activate" onclick="activate_plugin( 'Breadcrumb NavXT' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo $breadcrumb_delete; ?>" name="_wpnonce_breadcrumb_delete" id="_wpnonce_breadcrumb_delete" /><input id="breadcrumb-delete" type="hidden" name="breadcrumb-delete" value="0" /><a class="breadcrumb-delete" href="#breadcrumb-delete" onclick="delete_plugin_confirmation( 'Breadcrumb NavXT' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&plugin=breadcrumb-navxt' ), 'install-plugin_breadcrumb-navxt' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
+                <?php } ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_BREADCRUMB_NAVXT ) || array_key_exists( RTP_BREADCRUMB_NAVXT, $plugins ) ) { ?>
+                    <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_BREADCRUMB_NAVXT ); ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <span class="not-installed"> ----- </span>
+                <?php } ?>
+            </td>
+        </tr>
+        <tr>
+            <td class="last-child"><a href="http://wordpress.org/extend/plugins/regenerate-thumbnails/"><?php _e( 'Regenerate Thumbnails', 'rtPanel' ); ?></a></td>
             <td class="last-child">
                 <?php
-                if ( is_plugin_active( RTP_BREADECRUMB_NAVXT ) ) {
+                if ( is_plugin_active( RTP_REGENERATE_THUMBNAILS ) ) {
                     echo '<span class="active">Active</span>';
-                } elseif ( array_key_exists( RTP_BREADECRUMB_NAVXT, $plugins ) ) {
+                } elseif ( array_key_exists( RTP_REGENERATE_THUMBNAILS, $plugins ) ) {
                     echo '<span class="inactive">Inactive</span>';
                 } else {
                     echo '<span class="not-installed">Not Installed</span>';
                 } ?>
             </td>
             <td class="last-child">
-                <?php if ( is_plugin_active( RTP_BREADECRUMB_NAVXT ) ) { ?>
-                    <input type="hidden" value="<?php echo $breadcrumb_deactivate; ?>" name="_wpnonce_breadcrumb_deactivate" id="_wpnonce_breadcrumb_deactivate" /><input id="breadcrumb-deactivate" type="hidden" name="breadcrumb-deactivate" value="0" /><a class="breadcrumb-deactivate" href="#breadcrumb-deactivate" onclick="deactivate_plugin( 'Breadcrumb NavXT' )"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
-                <?php } elseif ( array_key_exists( RTP_BREADECRUMB_NAVXT, $plugins ) ) { ?>
-                    <input type="hidden" value="<?php echo $breadcrumb_activate; ?>" name="_wpnonce_breadcrumb_activate" id="_wpnonce_breadcrumb_activate" /><input id="breadcrumb-activate" type="hidden" name="breadcrumb-activate" value="0" /><a class="breadcrumb-activate" href="#breadcrumb-activate" onclick="activate_plugin( 'Breadcrumb NavXT' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo $breadcrumb_delete; ?>" name="_wpnonce_breadcrumb_delete" id="_wpnonce_breadcrumb_delete" /><input id="breadcrumb-delete" type="hidden" name="breadcrumb-delete" value="0" /><a class="breadcrumb-delete" href="#breadcrumb-delete" onclick="delete_plugin_confirmation( 'Breadcrumb NavXT' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
+                <?php if ( is_plugin_active( RTP_REGENERATE_THUMBNAILS ) ) { ?>
+                    <input type="hidden" value="<?php echo $regenerate_deactivate; ?>" name="_wpnonce_regenerate_deactivate" id="_wpnonce_regenerate_deactivate" /><input id="regenerate-deactivate" type="hidden" name="regenerate-deactivate" value="0" /><a class="regenerate-deactivate" href="#regenerate-deactivate" onclick="deactivate_plugin( 'Regenerate Thumbnails' )"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
+                <?php } elseif ( array_key_exists( RTP_REGENERATE_THUMBNAILS, $plugins ) ) { ?>
+                    <input type="hidden" value="<?php echo $regenerate_activate; ?>" name="_wpnonce_regenerate_activate" id="_wpnonce_regenerate_activate" /><input id="regenerate-activate" type="hidden" name="regenerate-activate" value="0" /><a class="regenerate-activate" href="#regenerate-activate" onclick="activate_plugin( 'Regenerate Thumbnails' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo $regenerate_delete; ?>" name="_wpnonce_regenerate_delete" id="_wpnonce_regenerate_delete" /><input id="regenerate-delete" type="hidden" name="regenerate-delete" value="0" /><a class="regenerate-delete" href="#regenerate-delete" onclick="delete_plugin_confirmation( 'Regenerate Thumbnails' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
                 <?php } else { ?>
-                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&plugin=breadcrumb-navxt' ), 'install-plugin_breadcrumb-navxt' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
+                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&plugin=regenerate-thumbnails' ), 'install-plugin_regenerate-thumbnails' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
                 <?php } ?>
             </td>
             <td class="last-child">
-                <?php if ( is_plugin_active( RTP_BREADECRUMB_NAVXT ) || array_key_exists( RTP_BREADECRUMB_NAVXT, $plugins ) ) { ?>
-                    <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_BREADECRUMB_NAVXT ); ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
+                <?php if ( is_plugin_active( RTP_REGENERATE_THUMBNAILS ) || array_key_exists( RTP_REGENERATE_THUMBNAILS, $plugins ) ) { ?>
+                    <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_REGENERATE_THUMBNAILS ); ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
                 <?php } else { ?>
                     <span class="not-installed"> ----- </span>
                 <?php } ?>

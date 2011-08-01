@@ -243,9 +243,15 @@ function delete_plugin_confirmation(plugin) {
     } else if ( plugin == 'WP PageNavi'){
         jQuery('#pagenavi-delete').val(1);
         jQuery('#pagenavi-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin == 'Yoast WordPress SEO'){
+        jQuery('#yoast_seo-delete').val(1);
+        jQuery('#yoast_seo-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
     } else if ( plugin == 'Breadcrumb NavXT'){
         jQuery('#breadcrumb-delete').val(1);
         jQuery('#breadcrumb-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin == 'Regenerate Thumbnails'){
+        jQuery('#regenerate-delete').val(1);
+        jQuery('#regenerate-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
     }
     jQuery('#rt_general_form').submit();
 }
@@ -257,9 +263,15 @@ function activate_plugin(plugin) {
     } else if ( plugin == 'WP PageNavi'){
         jQuery('#pagenavi-activate').val(1);
         jQuery('#pagenavi-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin == 'Yoast WordPress SEO'){
+        jQuery('#yoast_seo-activate').val(1);
+        jQuery('#yoast_seo-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
     } else if ( plugin == 'Breadcrumb NavXT'){
         jQuery('#breadcrumb-activate').val(1);
         jQuery('#breadcrumb-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin == 'Regenerate Thumbnails'){
+        jQuery('#regenerate-activate').val(1);
+        jQuery('#regenerate-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
     }
     jQuery('#rt_general_form').submit();
 }
@@ -271,23 +283,15 @@ function deactivate_plugin(plugin) {
     } else if ( plugin == 'WP PageNavi'){
         jQuery('#pagenavi-deactivate').val(1);
         jQuery('#pagenavi-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin == 'Yoast WordPress SEO'){
+        jQuery('#yoast_seo-deactivate').val(1);
+        jQuery('#yoast_seo-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
     } else if ( plugin == 'Breadcrumb NavXT'){
         jQuery('#breadcrumb-deactivate').val(1);
         jQuery('#breadcrumb-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    }
-    jQuery('#rt_general_form').submit();
-}
-
-function reset_settings(plugin) {
-    if ( plugin == 'Subscribe To Comments'){
-        jQuery('#subscribe-deactivate').val(1);
-        jQuery('#subscribe-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin == 'WP PageNavi'){
-        jQuery('#pagenavi-deactivate').val(1);
-        jQuery('#pagenavi-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin == 'Breadcrumb NavXT'){
-        jQuery('#breadcrumb-deactivate').val(1);
-        jQuery('#breadcrumb-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin == 'Regenerate Thumbnails'){
+        jQuery('#regenerate-deactivate').val(1);
+        jQuery('#regenerate-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
     }
     jQuery('#rt_general_form').submit();
 }
