@@ -23,7 +23,7 @@ h5 { font-size: 100%; font-weight: bold; } /* 14px */
 h6 { font-size: 85.7%; font-weight: bold; } /* 12px */
 
 .post-title h1,
-.post-title h2 { font-size: 260%; }
+.post-title h2 { font-size: 280%; }
 select, input, textarea, button { font:99% sans-serif; }
 /* normalize monospace sizing
  * en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome
