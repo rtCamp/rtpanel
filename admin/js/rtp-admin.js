@@ -295,7 +295,3 @@ function deactivate_plugin(plugin) {
     }
     jQuery('#rt_general_form').submit();
 }
-
-jQuery(window).load( function() {
-    jQuery('.updated').delay(10000).slideUp(1500);
-});
