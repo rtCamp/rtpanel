@@ -48,7 +48,7 @@ class rtp_ogp {
         global $post, $rtp_general;
         $data = array();
         $append = '';
-        if( strlen( wp_html_excerpt( $post->post_content, 130 ) ) >= 130 )
+        if( strlen( wp_html_excerpt( @$post->post_content, 130 ) ) >= 130 )
             $append = '...';
 
         if ( !empty( $rtp_general['fb_app_id'] ) )
