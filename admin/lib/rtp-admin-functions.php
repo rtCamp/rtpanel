@@ -896,7 +896,7 @@ function rtp_default_sidebar() { ?>
     <div class="postbox" id="support">
         <div title="<?php _e( 'Click to toggle', 'rtPanel'); ?>" class="handlediv"><br /></div>
         <h3 class="hndle"><span><?php _e( 'Free Support', 'rtPanel' ); ?></span></h3>
-        <div class="inside"><p><?php printf( __( 'If you have any problems with this plugin or good ideas for improvements, please talk about them in the <a href="%s" target="_blank" title="Click here for rtPanel Free Support">Support forums</a>', 'rtPanel' ), 'http://rtpanel.com/support' ); ?>.</p></div>
+        <div class="inside"><p><?php printf( __( 'If you have any problems with this theme or good ideas for improvements, please talk about them in the <a href="%s" target="_blank" title="Click here for rtPanel Free Support">Support forums</a>', 'rtPanel' ), 'http://rtpanel.com/support' ); ?>.</p></div>
     </div>
 
     <div class="postbox" id="latest_news">
