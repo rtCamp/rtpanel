@@ -49,7 +49,7 @@ function rtp_logo_option_metabox() {
                 <td class="img-preview" rowspan="2">
                     <div class="image-preview" id="logo_metabox">
                         <p><?php _e( 'Preview', 'rtPanel' ); ?></p>
-                        <img height="90" alt="Logo" src="<?php echo rtp_logo_fav_src(); ?>" />
+                        <img alt="Logo" src="<?php echo rtp_logo_fav_src(); ?>" />
                     </div>
                 </td>
             </tr>
