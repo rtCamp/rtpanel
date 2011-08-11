@@ -199,7 +199,7 @@ function rtp_general_validate( $input ) {
         } elseif ( $_POST['pagenavi-deactivate'] == 1 ) {
             $nonce = $_REQUEST['_wpnonce_pagenavi_deactivate'];
             if ( !wp_verify_nonce( $nonce, RTP_WP_PAGENAVI . '-deactivate' ) ) {
-                add_settings_error( 'deactivate-plugin', 'failure_plugin_deactivation', __( 'You do not have sufficient permissions to deactivate this plugin.' ) );
+                add_settings_error( 'deactivate-plugin', 'failure_plugin_deactivation', __( 'You do not have sufficient permissions to deactivate this plugin.', 'rtPanel' ) );
             } else {
                 deactivate_plugins( array ( RTP_WP_PAGENAVI ) );
                 add_settings_error( 'deactivate-plugin', 'plugin_deactivation', __( 'WP PageNavi Plugin has been Deactivated.', 'rtPanel' ), 'updated' );
@@ -223,7 +223,7 @@ function rtp_general_validate( $input ) {
         } elseif ( $_POST['yoast_seo-deactivate'] == 1 ) {
             $nonce = $_REQUEST['_wpnonce_yoast_seo_deactivate'];
             if ( !wp_verify_nonce( $nonce, RTP_YOAST_SEO . '-deactivate' ) ) {
-                add_settings_error( 'deactivate-plugin', 'failure_plugin_deactivation', __( 'You do not have sufficient permissions to deactivate this plugin.' ) );
+                add_settings_error( 'deactivate-plugin', 'failure_plugin_deactivation', __( 'You do not have sufficient permissions to deactivate this plugin.', 'rtPanel' ) );
             } else {
                 deactivate_plugins( array ( RTP_YOAST_SEO ) );
                 add_settings_error( 'deactivate-plugin', 'plugin_deactivation', __( 'Yoast WordPress SEO Plugin has been Deactivated.', 'rtPanel' ), 'updated' );
@@ -774,7 +774,7 @@ function rtp_login_site_url() {
  */
 function rtp_theme_options_upload( $form_fields, $post ) {
     /* Can now see $post becaue the filter accepts two args, as defined in the add_fitler */
-    if ( substr( $post->post_mime_type, 0, 5 ) == 'image' && ( preg_match( '/rtp_theme=rtp_true/i', @$_SERVER['HTTP_REFERER'] ) ) || preg_match( '/rtp_theme=rtp_true/i', $_SERVER['REQUEST_URI'] ) || isset( $_POST['rtp_theme'] ) ) {
+    if ( substr( $post->post_mime_type, 0, 5 ) == 'image' && ( preg_match( '/rtp_theme=rtp_true/i', wp_get_referer() ) ) || preg_match( '/rtp_theme=rtp_true/i', $_SERVER['REQUEST_URI'] ) || isset( $_POST['rtp_theme'] ) ) {
 
         $form_fields['url']['label'] = 'Path';
         $form_fields['url']['input'] = 'html';
@@ -802,21 +802,21 @@ function rtp_theme_options_upload( $form_fields, $post ) {
             'value' => '',
             'input' => 'html'
         );
-        $logo_or_favicon = ( preg_match( '/logo_or_favicon=Logo/', @$_SERVER['REQUEST_URI'] ) || preg_match( '/logo_or_favicon=Logo/', @$_SERVER['HTTP_REFERER'] ) ) ? 'Logo' : 'Favicon';
+        $logo_or_favicon = ( preg_match( '/logo_or_favicon=Logo/', @$_SERVER['REQUEST_URI'] ) || preg_match( '/logo_or_favicon=Logo/', wp_get_referer() ) ) ? 'Logo' : 'Favicon';
         $filename = basename( $post->guid );
         $attachment_id = $post->ID;
         if ( current_user_can( 'delete_post', $attachment_id ) ) {
             if ( !EMPTY_TRASH_DAYS ) {
-                $form_fields['buttons']['html'] = "<input type='hidden' name='rtp_theme' value='rtp_true' /><a href='" . wp_nonce_url( "post.php?action=delete&amp;post=$attachment_id", 'delete-attachment_' . $attachment_id ) . "' id='del[$attachment_id]' class='delete'>" . __( 'Delete Permanently' ) . '</a>';
+                $form_fields['buttons']['html'] = "<input type='hidden' name='rtp_theme' value='rtp_true' /><a href='" . wp_nonce_url( "post.php?action=delete&amp;post=$attachment_id", 'delete-attachment_' . $attachment_id ) . "' id='del[$attachment_id]' class='delete'>" . __( 'Delete Permanently', 'rtPanel' ) . '</a>';
             } elseif ( !MEDIA_TRASH ) {
-                $form_fields['buttons']['html'] = "<input type='submit' class='button' name='send[$attachment_id]' value='" . esc_attr__('Use This', 'rtPanel' ) . "' /><a href='#' class='del-link' onclick=\"document.getElementById('del_attachment_$attachment_id').style.display='block';return false;\">" . __( 'Delete' ) . "</a>
-                                                     <div id='del_attachment_$attachment_id' class='del-attachment' style='display:none;'>" . sprintf( __( 'You are about to delete <strong>%s</strong>.' ), $filename) . "
-                                                     <a href='" . wp_nonce_url( "post.php?action=delete&amp;post=$attachment_id&amp;rtp_theme=rtp_true&amp;logo_or_favicon=$logo_or_favicon" , 'delete-attachment_' . $attachment_id ) . "' id='del[$attachment_id]' class='button'>" . __( 'Continue' ) . "</a>
-                                                     <a href='#' class='button' onclick=\"this.parentNode.style.display='none';return false;\">" . __( 'Cancel' ) . "</a>
+                $form_fields['buttons']['html'] = "<input type='submit' class='button' name='send[$attachment_id]' value='" . esc_attr__('Use This', 'rtPanel' ) . "' /><a href='#' class='del-link' onclick=\"document.getElementById('del_attachment_$attachment_id').style.display='block';return false;\">" . __( 'Delete', 'rtPanel' ) . "</a>
+                                                     <div id='del_attachment_$attachment_id' class='del-attachment' style='display:none;'>" . sprintf( __( 'You are about to delete <strong>%s</strong>.', 'rtPanel' ), $filename) . "
+                                                     <a href='" . wp_nonce_url( "post.php?action=delete&amp;post=$attachment_id&amp;rtp_theme=rtp_true&amp;logo_or_favicon=$logo_or_favicon" , 'delete-attachment_' . $attachment_id ) . "' id='del[$attachment_id]' class='button'>" . __( 'Continue', 'rtPanel' ) . "</a>
+                                                     <a href='#' class='button' onclick=\"this.parentNode.style.display='none';return false;\">" . __( 'Cancel', 'rtPanel' ) . "</a>
                                                      <input type='hidden' name='rtp_theme' value='rtp_true' />
                                                      </div>";
             } else {
-                $form_fields['buttons']['html'] = "<input type='hidden' name='rtp_theme' value='rtp_true' /><a href='" . wp_nonce_url( "post.php?action=trash&amp;post=$attachment_id", 'trash-attachment_' . $attachment_id ) . "' id='del[$attachment_id]' class='delete'>" . __( 'Move to Trash' ) . "</a><a href='" . wp_nonce_url( "post.php?action=untrash&amp;post=$attachment_id", 'untrash-attachment_' . $attachment_id ) . "' id='undo[$attachment_id]' class='undo hidden'>" . __( 'Undo' ) . "</a>";
+                $form_fields['buttons']['html'] = "<input type='hidden' name='rtp_theme' value='rtp_true' /><a href='" . wp_nonce_url( "post.php?action=trash&amp;post=$attachment_id", 'trash-attachment_' . $attachment_id ) . "' id='del[$attachment_id]' class='delete'>" . __( 'Move to Trash', 'rtPanel' ) . "</a><a href='" . wp_nonce_url( "post.php?action=untrash&amp;post=$attachment_id", 'untrash-attachment_' . $attachment_id ) . "' id='undo[$attachment_id]' class='undo hidden'>" . __( 'Undo', 'rtPanel' ) . "</a>";
             }
         } else {
             $form_fields['buttons']['html'] = "<input type='hidden' name='rtp_theme' value='rtp_true' />";
@@ -840,7 +840,7 @@ function rtp_remove_url_tab( $tabs ) {
 }
 
 // Check to see if we are in rtPanel Options Page and modify the Media Upload iframe
-if ( is_admin() && isset ( $_SERVER['HTTP_REFERER'] ) && ( preg_match( "/rtp_general/i", $_SERVER['HTTP_REFERER'] ) || preg_match( '/rtp_theme=rtp_true/i', $_SERVER['REQUEST_URI'] ) || preg_match( "/rtp_theme=rtp_true/i", $_SERVER['HTTP_REFERER'] )  || ( isset( $_POST['rtp_theme'] ) && preg_match( '/rtp_theme/i', $_POST['rtp_theme'] ) ) ) ) {
+if ( is_admin() && isset ( $_SERVER['HTTP_REFERER'] ) && ( preg_match( "/rtp_general/i", wp_get_referer() ) || preg_match( '/rtp_theme=rtp_true/i', @$_SERVER['REQUEST_URI'] ) || preg_match( "/rtp_theme=rtp_true/i", wp_get_referer() )  || ( isset( $_POST['rtp_theme'] ) && preg_match( '/rtp_theme/i', $_POST['rtp_theme'] ) ) ) ) {
     add_filter( 'media_upload_tabs', 'rtp_remove_url_tab', 1, 2 );
 }
 
@@ -917,7 +917,7 @@ function rtp_get_feeds( $feed_url='http://feeds.feedburner.com/rtpanel' ) {
 
     // Get RSS Feed(s)
     include_once( ABSPATH . WPINC . '/feed.php' );
-
+    $maxitems = 0;
     // Get a SimplePie feed object from the specified feed source.
     $rss = fetch_feed( $feed_url );
     if ( !is_wp_error( $rss ) ) { // Checks that the object is created correctly
@@ -967,9 +967,9 @@ function rtp_contextual_help( $contextual_help, $screen_id, $screen ) {
             $contextual_help .= __( ' rtPanel provides you with some theme options to manage some basic settings for your theme.', 'rtPanel' );
             $contextual_help .= __( ' Options provided for your convenience on this page are:', 'rtPanel' );
             $contextual_help .= '</p><p>';
-            $contextual_help .= __( '<strong>Logo Settings:</strong> You can manage your theme’s logo from this setting.', 'rtPanel' );
+            $contextual_help .= __( '<strong>Logo Settings:</strong> You can manage your theme&#8217;s logo from this setting.', 'rtPanel' );
             $contextual_help .= '</p><p>';
-            $contextual_help .= __( '<strong>Favicon Settings:</strong> You can manage your theme’s favicon from this setting.', 'rtPanel' );
+            $contextual_help .= __( '<strong>Favicon Settings:</strong> You can manage your theme&#8217;s favicon from this setting.', 'rtPanel' );
             $contextual_help .= '</p><p>';
             $contextual_help .= __( '<strong>Facebook Open Graph Settings:</strong> You can specify your Faceboook App ID/Admin ID(s) with this setting.', 'rtPanel' );
             $contextual_help .= '</p><p>';
@@ -1135,7 +1135,7 @@ function rtp_logo_fav_src( $type = 'logo' ) {
  */
 function rtp_allowed_upload_extensions( $mime_types ) {
 	//Creating a new array will reset the allowed filetypes
-	if ( preg_match( '/logo_or_favicon=Logo/', @$_SERVER['HTTP_REFERER'] ) || ( ( preg_match( '/rtp_theme=rtp_true/i', $_SERVER['REQUEST_URI'] ) ) && ( preg_match( '/logo_or_favicon=Logo/', $_SERVER['REQUEST_URI'] ) ) ) ) {
+	if ( preg_match( '/logo_or_favicon=Logo/', wp_get_referer() ) || ( ( preg_match( '/rtp_theme=rtp_true/i', $_SERVER['REQUEST_URI'] ) ) && ( preg_match( '/logo_or_favicon=Logo/', $_SERVER['REQUEST_URI'] ) ) ) ) {
             $mime_types = array(
                 'jpg|jpeg|jpe' => 'image/jpeg',
                 'gif'          => 'image/gif',
@@ -1144,7 +1144,7 @@ function rtp_allowed_upload_extensions( $mime_types ) {
                 'ico'          => 'image/x-icon',
                 'tif|tiff'     => 'image/tiff'
             );
-        } elseif ( preg_match( '/logo_or_favicon=Favicon/', @$_SERVER['HTTP_REFERER'] ) || ( ( preg_match( '/rtp_theme=rtp_true/i', $_SERVER['REQUEST_URI'] ) ) && ( preg_match( '/logo_or_favicon=Favicon/', $_SERVER['REQUEST_URI'] ) ) ) ) {
+        } elseif ( preg_match( '/logo_or_favicon=Favicon/', wp_get_referer() ) || ( ( preg_match( '/rtp_theme=rtp_true/i', $_SERVER['REQUEST_URI'] ) ) && ( preg_match( '/logo_or_favicon=Favicon/', $_SERVER['REQUEST_URI'] ) ) ) ) {
             $mime_types = array(
                 'ico' => 'image/x-icon'
             );
@@ -1160,7 +1160,7 @@ add_filter( 'upload_mimes', 'rtp_allowed_upload_extensions', 1, 1 );
  */
 function rtp_media_upload_flash_bypass() {
         echo "<input type='hidden' name='rtp_theme' value='rtp_true' />";
-        if ( preg_match( '/logo_or_favicon=Favicon/', @$_SERVER['HTTP_REFERER'] ) || preg_match("/logo_or_favicon=Favicon/", $_SERVER['REQUEST_URI']) ) {
+        if ( preg_match( '/logo_or_favicon=Favicon/', wp_get_referer() ) || preg_match("/logo_or_favicon=Favicon/", $_SERVER['REQUEST_URI']) ) {
             echo '<script type="text/javascript">
                       jQuery("#tab-type a").attr("href","/wp-admin/media-upload.php?post_id=0&rtp_theme=rtp_true&logo_or_favicon=Favicon&type=image&TB_iframe=true&tab=type" );
                       jQuery("#tab-library a").attr("href","/wp-admin/media-upload.php?post_id=0&rtp_theme=rtp_true&logo_or_favicon=Favicon&type=image&TB_iframe=true&tab=library" );
@@ -1180,7 +1180,7 @@ function rtp_media_upload_flash_bypass() {
  */
 function rtp_media_upload_html_bypass( $flash = true ) {
     echo "<input type='hidden' name='rtp_theme' value='rtp_true' />";
-    if ( preg_match( '/logo_or_favicon=Favicon/', @$_SERVER['HTTP_REFERER'] ) || preg_match( "/logo_or_favicon=Favicon/", $_SERVER['REQUEST_URI'] ) ) {
+    if ( preg_match( '/logo_or_favicon=Favicon/', wp_get_referer() ) || preg_match( "/logo_or_favicon=Favicon/", $_SERVER['REQUEST_URI'] ) ) {
         $favicon = '<script type="text/javascript">
                         jQuery("#tab-type a").attr("href","/wp-admin/media-upload.php?post_id=0&rtp_theme=rtp_true&logo_or_favicon=Favicon&type=image&TB_iframe=true&tab=type" );
                         jQuery("#tab-library a").attr("href","/wp-admin/media-upload.php?post_id=0&rtp_theme=rtp_true&logo_or_favicon=Favicon&type=image&TB_iframe=true&tab=library" );
@@ -1207,7 +1207,7 @@ function add_hidden_rtp_variable(){
 }
 
 /* Added filter on rtPanel Options Page Only */
-if ( ( preg_match( '/rtp_theme=rtp_true/i', @$_SERVER['HTTP_REFERER'] ) ) || ( preg_match( '/rtp_theme=rtp_true/i', $_SERVER['REQUEST_URI'] ) ) || ( isset( $_POST['rtp_theme'] ) && preg_match( '/rtp_theme/i', $_POST['rtp_theme'] ) ) ) {
+if ( ( preg_match( '/rtp_theme=rtp_true/i', wp_get_referer() ) ) || ( preg_match( '/rtp_theme=rtp_true/i', $_SERVER['REQUEST_URI'] ) ) || ( isset( $_POST['rtp_theme'] ) && preg_match( '/rtp_theme/i', $_POST['rtp_theme'] ) ) ) {
     add_filter( 'flash_uploader', create_function('$flash', 'return false;'), 7 );
     add_action( 'post-flash-upload-ui', 'rtp_media_upload_flash_bypass' );
     add_action( 'post-html-upload-ui', 'rtp_media_upload_html_bypass' );
@@ -1223,19 +1223,19 @@ if ( ( preg_match( '/rtp_theme=rtp_true/i', @$_SERVER['HTTP_REFERER'] ) ) || ( p
  * @since rtPanel 2.0
  */
 function rtp_media_library_redirect( $location ) {
-    $logo_or_favicon = ( preg_match( "/logo_or_favicon=Logo/", @$_SERVER['HTTP_REFERER'] ) || preg_match( "/logo_or_favicon=Logo/", @$_SERVER['REQUEST_URI'] ) ) ? "Logo" : "Favicon";
+    $logo_or_favicon = ( preg_match( "/logo_or_favicon=Logo/", wp_get_referer() ) || preg_match( "/logo_or_favicon=Logo/", @$_SERVER['REQUEST_URI'] ) ) ? "Logo" : "Favicon";
     $location .= '&rtp_theme=rtp_true&logo_or_favicon='.$logo_or_favicon;
     return $location;
 }
 
 /* Added filter for the redirection in the iframe on rtPanel Options Page Only */
-if( preg_match( "/rtp_theme=rtp_true/i", @$_SERVER['HTTP_REFERER'] ) || preg_match( "/rtp_theme=rtp_true/i", $_SERVER['REQUEST_URI'] ) ) {
+if( preg_match( "/rtp_theme=rtp_true/i", wp_get_referer() ) || preg_match( "/rtp_theme=rtp_true/i", $_SERVER['REQUEST_URI'] ) ) {
     add_filter( 'media_upload_form_url', 'rtp_media_library_redirect', 99, 1 );
     if ( isset( $_POST['save'] ) ) {
-        wp_redirect(str_replace('tab=type', 'tab=library', @$_SERVER['HTTP_REFERER']));
+        wp_redirect(str_replace('tab=type', 'tab=library', wp_get_referer()));
     }
     elseif ( ( @$_GET['post-query-submit'] || @$_GET['s']) && !@$_GET['rtp_theme'] ) {
-        $logo_or_favicon = ( preg_match( '/Logo/', $_SERVER['HTTP_REFERER'] ) ) ? 'Logo' : 'Favicon';
+        $logo_or_favicon = ( preg_match( '/Logo/', wp_get_referer() ) ) ? 'Logo' : 'Favicon';
         wp_redirect( $_SERVER['REQUEST_URI'].'&rtp_theme=rtp_true&logo_or_favicon='.$logo_or_favicon );
     }
 }

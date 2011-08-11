@@ -211,7 +211,7 @@ jQuery(document).ready(function() {
     }
 
     function contentshow_table( container, event_handler ) {
-        if( jQuery(event_handler).attr('checked') != 'undefined' && jQuery(event_handler).attr('checked') != false ) {
+        if( typeof jQuery(event_handler).attr('checked') !== 'undefined' && jQuery(event_handler).attr('checked') != false ) {
             jQuery( jQuery(container) ).css('visibility','visible');
             jQuery( jQuery(container) ).css('display','block');
         } else {

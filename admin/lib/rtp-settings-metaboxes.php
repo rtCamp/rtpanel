@@ -337,7 +337,7 @@ function rtp_plugin_metabox() {
                 <?php } elseif ( array_key_exists( RTP_SUBSCRIBE_TO_COMMENTS, $plugins ) ) { ?>
                     <input type="hidden" value="<?php echo $subscribe_activate; ?>" name="_wpnonce_subscribe_activate" id="_wpnonce_subscribe_activate" /><input id="subscribe-activate" type="hidden" name="subscribe-activate" value="0" /><a class="subscribe-activate" href="#subscribe-activate" onclick="activate_plugin('Subscribe To Comments')"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo $subscribe_delete; ?>" name="_wpnonce_subscribe_delete" id="_wpnonce_subscribe_delete" /><input id="subscribe-delete" type="hidden" name="subscribe-delete" value="0" /><a class="subscribe-delete" href="#subscribe-delete" onclick="delete_plugin_confirmation( 'Subscribe To Comments' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
                 <?php } else { ?>
-                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&plugin=subscribe-to-comments' ), 'install-plugin_subscribe-to-comments' ); ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
+                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=subscribe-to-comments' ), 'install-plugin_subscribe-to-comments' ); ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
                 <?php } ?>
             </td>
             <td>
@@ -367,7 +367,7 @@ function rtp_plugin_metabox() {
                 <?php } elseif ( array_key_exists( RTP_WP_PAGENAVI, $plugins ) ) { ?>
                     <input type="hidden" value="<?php echo $pagenavi_activate; ?>" name="_wpnonce_pagenavi_activate" id="_wpnonce_pagenavi_activate" /><input id="pagenavi-activate" type="hidden" name="pagenavi-activate" value="0" /><a class="pagenavi-activate" href="#pagenavi-activate" onclick="activate_plugin( 'WP PageNavi' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo $pagenavi_delete; ?>" name="_wpnonce_pagenavi_delete" id="_wpnonce_pagenavi_delete" /><input id="pagenavi-delete" type="hidden" name="pagenavi-delete" value="0" /><a class="pagenavi-delete" href="#pagenavi-delete" onclick="delete_plugin_confirmation( 'WP PageNavi' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
                 <?php } else { ?>
-                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&plugin=wp-pagenavi' ), 'install-plugin_wp-pagenavi' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
+                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=wp-pagenavi' ), 'install-plugin_wp-pagenavi' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
                 <?php } ?>
             </td>
             <td>
@@ -397,7 +397,7 @@ function rtp_plugin_metabox() {
                 <?php } elseif ( array_key_exists( RTP_YOAST_SEO, $plugins ) ) { ?>
                     <input type="hidden" value="<?php echo $yoast_seo_activate; ?>" name="_wpnonce_yoast_seo_activate" id="_wpnonce_yoast_seo_activate" /><input id="yoast_seo-activate" type="hidden" name="yoast_seo-activate" value="0" /><a class="yoast_seo-activate" href="#yoast_seo-activate" onclick="activate_plugin( 'Yoast WordPress SEO' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo $yoast_seo_delete; ?>" name="_wpnonce_yoast_seo_delete" id="_wpnonce_yoast_seo_delete" /><input id="yoast_seo-delete" type="hidden" name="yoast_seo-delete" value="0" /><a class="yoast_seo-delete" href="#yoast_seo-delete" onclick="delete_plugin_confirmation( 'Yoast WordPress SEO' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
                 <?php } else { ?>
-                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&plugin=wordpress-seo' ), 'install-plugin_wordpress-seo' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
+                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=wordpress-seo' ), 'install-plugin_wordpress-seo' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
                 <?php } ?>
             </td>
             <td>
@@ -426,7 +426,7 @@ function rtp_plugin_metabox() {
                 <?php } elseif ( array_key_exists( RTP_BREADCRUMB_NAVXT, $plugins ) ) { ?>
                     <input type="hidden" value="<?php echo $breadcrumb_activate; ?>" name="_wpnonce_breadcrumb_activate" id="_wpnonce_breadcrumb_activate" /><input id="breadcrumb-activate" type="hidden" name="breadcrumb-activate" value="0" /><a class="breadcrumb-activate" href="#breadcrumb-activate" onclick="activate_plugin( 'Breadcrumb NavXT' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo $breadcrumb_delete; ?>" name="_wpnonce_breadcrumb_delete" id="_wpnonce_breadcrumb_delete" /><input id="breadcrumb-delete" type="hidden" name="breadcrumb-delete" value="0" /><a class="breadcrumb-delete" href="#breadcrumb-delete" onclick="delete_plugin_confirmation( 'Breadcrumb NavXT' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
                 <?php } else { ?>
-                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&plugin=breadcrumb-navxt' ), 'install-plugin_breadcrumb-navxt' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
+                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=breadcrumb-navxt' ), 'install-plugin_breadcrumb-navxt' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
                 <?php } ?>
             </td>
             <td>
@@ -455,7 +455,7 @@ function rtp_plugin_metabox() {
                 <?php } elseif ( array_key_exists( RTP_REGENERATE_THUMBNAILS, $plugins ) ) { ?>
                     <input type="hidden" value="<?php echo $regenerate_activate; ?>" name="_wpnonce_regenerate_activate" id="_wpnonce_regenerate_activate" /><input id="regenerate-activate" type="hidden" name="regenerate-activate" value="0" /><a class="regenerate-activate" href="#regenerate-activate" onclick="activate_plugin( 'Regenerate Thumbnails' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo $regenerate_delete; ?>" name="_wpnonce_regenerate_delete" id="_wpnonce_regenerate_delete" /><input id="regenerate-delete" type="hidden" name="regenerate-delete" value="0" /><a class="regenerate-delete" href="#regenerate-delete" onclick="delete_plugin_confirmation( 'Regenerate Thumbnails' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
                 <?php } else { ?>
-                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&plugin=regenerate-thumbnails' ), 'install-plugin_regenerate-thumbnails' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
+                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=regenerate-thumbnails' ), 'install-plugin_regenerate-thumbnails' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
                 <?php } ?>
             </td>
             <td class="last-child">
@@ -637,10 +637,10 @@ function rtp_post_meta_metabox() {
                     <span class="description"><label for="post_date_u"><?php _e( 'Check this box to include Post Dates in meta', 'rtPanel' ); ?></label></span>
                     <div class="post-meta-common post_date_format_u">
                         <strong><?php _e( 'Select a Date Format', 'rtPanel' ); ?> :</strong><br />
-                        <input type="radio" name="rtp_post_comments[post_date_format_u]" id="full-date-u" value="F j, Y" <?php checked( 'F j, Y', $rtp_post_comments['post_date_format_u'] ); ?> /><label class="full-date-u" for="full-date-u" title="F j, Y"><?php echo date_i18n( __( 'F j, Y' ) ); ?></label><br />
-                        <input type="radio" name="rtp_post_comments[post_date_format_u]" id="y-m-d-u" value="Y/m/d" <?php checked( 'Y/m/d', $rtp_post_comments['post_date_format_u'] ); ?> /><label class="y-m-d-u" for="y-m-d-u" title="Y/m/d"><?php echo date_i18n( __( 'Y/m/d' ) ); ?></label><br />
-                        <input type="radio" name="rtp_post_comments[post_date_format_u]" id="m-d-y-u" value="m/d/Y" <?php checked( 'm/d/Y', $rtp_post_comments['post_date_format_u'] ); ?> /><label class="m-d-y-u" for="m-d-y-u" title="m/d/Y"><?php echo date_i18n( __( 'm/d/Y' ) ); ?></label><br />
-                        <input type="radio" name="rtp_post_comments[post_date_format_u]" id="d-m-y-u" value="d/m/Y" <?php checked( 'd/m/Y', $rtp_post_comments['post_date_format_u'] ); ?> /><label class="d-m-y-u" for="d-m-y-u" title="d/m/Y"><?php echo date_i18n( __( 'd/m/Y' ) ); ?></label><br />
+                        <input type="radio" name="rtp_post_comments[post_date_format_u]" id="full-date-u" value="F j, Y" <?php checked( 'F j, Y', $rtp_post_comments['post_date_format_u'] ); ?> /><label class="full-date-u" for="full-date-u" title="F j, Y"><?php echo date_i18n( __( 'F j, Y', 'rtPanel' ) ); ?></label><br />
+                        <input type="radio" name="rtp_post_comments[post_date_format_u]" id="y-m-d-u" value="Y/m/d" <?php checked( 'Y/m/d', $rtp_post_comments['post_date_format_u'] ); ?> /><label class="y-m-d-u" for="y-m-d-u" title="Y/m/d"><?php echo date_i18n( __( 'Y/m/d', 'rtPanel' ) ); ?></label><br />
+                        <input type="radio" name="rtp_post_comments[post_date_format_u]" id="m-d-y-u" value="m/d/Y" <?php checked( 'm/d/Y', $rtp_post_comments['post_date_format_u'] ); ?> /><label class="m-d-y-u" for="m-d-y-u" title="m/d/Y"><?php echo date_i18n( __( 'm/d/Y', 'rtPanel' ) ); ?></label><br />
+                        <input type="radio" name="rtp_post_comments[post_date_format_u]" id="d-m-y-u" value="d/m/Y" <?php checked( 'd/m/Y', $rtp_post_comments['post_date_format_u'] ); ?> /><label class="d-m-y-u" for="d-m-y-u" title="d/m/Y"><?php echo date_i18n( __( 'd/m/Y', 'rtPanel' ) ); ?></label><br />
                         <input type="radio" name="rtp_post_comments[post_date_format_u]" id="post_date_custom_format_u" value="<?php echo esc_attr( $rtp_post_comments['post_date_custom_format_u'] ) ;  ?>" <?php checked( $date_format_u ); ?> /><label for="custom-date-u" title="<?php echo esc_attr( $rtp_post_comments['post_date_custom_format_u'] ); ?>">Custom :<input id="custom-date-u" value="<?php echo esc_attr( $rtp_post_comments['post_date_custom_format_u'] ) ; ?>" type="text" size="5" name="rtp_post_comments[post_date_custom_format_u]" /> <span><?php echo date_i18n( __( $rtp_post_comments['post_date_custom_format_u'] ) ); ?></span><img class="ajax-loading" alt="loading.." src="<?php echo admin_url( '/images/wpspin_light.gif' ); ?>" /></label><br />
                     </div>
                 </td>
@@ -698,10 +698,10 @@ function rtp_post_meta_metabox() {
                     <span class="description"><label for="post_date_l"><?php _e( 'Check this box to include Post Dates in meta', 'rtPanel' ); ?></label></span>
                     <div class="post-meta-common post_date_format_l">
                         <strong><?php _e( 'Select a Date Format', 'rtPanel' ); ?> :</strong><br />
-                        <input type="radio" name="rtp_post_comments[post_date_format_l]" id="full-date-l" value="F j, Y" <?php checked( 'F j, Y', $rtp_post_comments['post_date_format_l'] ); ?> /><label class="full-date-l" for="full-date-l" title="F j, Y"><?php echo date_i18n( __( 'F j, Y' ) ); ?></label><br />
-                        <input type="radio" name="rtp_post_comments[post_date_format_l]" id="y-m-d-l" value="Y/m/d" <?php checked( 'Y/m/d', $rtp_post_comments['post_date_format_l'] ); ?> /><label class="y-m-d-l" for="y-m-d-l" title="Y/m/d"><?php echo date_i18n( __( 'Y/m/d' ) ); ?></label><br />
-                        <input type="radio" name="rtp_post_comments[post_date_format_l]" id="m-d-y-l" value="m/d/Y" <?php checked( 'm/d/Y', $rtp_post_comments['post_date_format_l'] ); ?> /><label class="m-d-y-l" for="m-d-y-l" title="m/d/Y"><?php echo date_i18n( __( 'm/d/Y' ) ); ?></label><br />
-                        <input type="radio" name="rtp_post_comments[post_date_format_l]" id="d-m-y-l" value="d/m/Y" <?php checked( 'd/m/Y', $rtp_post_comments['post_date_format_l'] ); ?> /><label class="d-m-y-l" for="d-m-y-l" title="d/m/Y"><?php echo date_i18n( __( 'd/m/Y' ) ); ?></label><br />
+                        <input type="radio" name="rtp_post_comments[post_date_format_l]" id="full-date-l" value="F j, Y" <?php checked( 'F j, Y', $rtp_post_comments['post_date_format_l'] ); ?> /><label class="full-date-l" for="full-date-l" title="F j, Y"><?php echo date_i18n( __( 'F j, Y', 'rtPanel' ) ); ?></label><br />
+                        <input type="radio" name="rtp_post_comments[post_date_format_l]" id="y-m-d-l" value="Y/m/d" <?php checked( 'Y/m/d', $rtp_post_comments['post_date_format_l'] ); ?> /><label class="y-m-d-l" for="y-m-d-l" title="Y/m/d"><?php echo date_i18n( __( 'Y/m/d', 'rtPanel' ) ); ?></label><br />
+                        <input type="radio" name="rtp_post_comments[post_date_format_l]" id="m-d-y-l" value="m/d/Y" <?php checked( 'm/d/Y', $rtp_post_comments['post_date_format_l'] ); ?> /><label class="m-d-y-l" for="m-d-y-l" title="m/d/Y"><?php echo date_i18n( __( 'm/d/Y', 'rtPanel' ) ); ?></label><br />
+                        <input type="radio" name="rtp_post_comments[post_date_format_l]" id="d-m-y-l" value="d/m/Y" <?php checked( 'd/m/Y', $rtp_post_comments['post_date_format_l'] ); ?> /><label class="d-m-y-l" for="d-m-y-l" title="d/m/Y"><?php echo date_i18n( __( 'd/m/Y', 'rtPanel' ) ); ?></label><br />
                         <input type="radio" name="rtp_post_comments[post_date_format_l]" id="post_date_custom_format_l" value="<?php echo esc_attr( $rtp_post_comments['post_date_custom_format_l'] ) ;  ?>" <?php checked( $date_format_l ); ?> /><label for="custom-date-l" title="<?php echo esc_attr( $rtp_post_comments['post_date_custom_format_l'] ); ?>">Custom :<input id="custom-date-l" value="<?php echo esc_attr( $rtp_post_comments['post_date_custom_format_l'] ) ; ?>" type="text" size="5" name="rtp_post_comments[post_date_custom_format_l]" /> <span><?php echo date_i18n( __( $rtp_post_comments['post_date_custom_format_l'] ) ); ?></span><img class="ajax-loading" alt="loading.." src="<?php echo admin_url( '/images/wpspin_light.gif' ); ?>" /></label><br />
                     </div>
                 </td>

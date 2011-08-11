@@ -99,7 +99,7 @@ img.wp-smiley,
 /* Table */
 .post-content table, .commentlist table { border: 1px solid #CCCCCC; text-align: left; width: 100%;margin-bottom: 10px; }
 .post-content tr th, .commentlist tr th,
-.post-content th, .commentlist tr th, { background: none repeat scroll 0 0 #F1F1F1; border: 1px solid #CCCCCC; padding: 2px; }
+.post-content th, .commentlist tr th { background: none repeat scroll 0 0 #F1F1F1; border: 1px solid #CCCCCC; padding: 2px; }
 .post-content tr td, .commentlist tr td { border: 1px solid #CCCCCC; padding: 2px; }
 
 /* Layout */
@@ -324,9 +324,6 @@ blockquote { border-left: 1px solid #DDDDDD; color: #666666; margin: 0 0 22px 11
 
 blockquote { quotes: none; }
 blockquote { font-style: italic; }
-blockquote:before, /* before blockquote */
-blockquote:after { content: &ldquo; &rdquo; }
-q:before, q:after { content: &ldquo; &rdquo; }
 
 /* Paged Navigation */
 .rtp-navigation,

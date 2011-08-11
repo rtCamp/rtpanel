@@ -34,7 +34,7 @@ global $rtp_general; ?>
 
                 <div id="footer">
                     <p>&copy; <?php echo date( 'Y' ); echo ' - '; bloginfo( 'name' ); ?></p>
-                    <p><em><?php printf( __( '<a href="%s" title="%s" target="_blank">%s</a> Theme by <a href="%s" title="This WordPress theme is designed by %s" target="_blank">%s</a>', 'rtPanel' ), 'http://rtpanel.com/', 'Click here for rtPanel documentation and free support.', 'rtPanel', 'http://rtcamp.com', 'rtCamp', 'rtCamp' ); ?></em></p>
+                    <p><em><?php printf( __( 'Designed on <a href="%s" title="Click here to know more about rtPanel - WordPress Theme Framework with Free Commerical Support">rtPanel WordPress Theme Framework</a>.', 'rtPanel' ), 'http://rtpanel.com/' ); ?></em></p>
                 </div><!-- #footer -->
 
                 <?php rtp_hook_after_footer(); ?>

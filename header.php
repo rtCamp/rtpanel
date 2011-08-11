@@ -30,7 +30,7 @@
         <!-- Nested Comment Support -->
         <?php ( is_singular() && get_option( 'thread_comments' ) ) ? wp_enqueue_script('comment-reply') : ''; ?>
 
-        <?php wp_enqueue_script( 'custom', RTP_JS_FOLDER_URL . '/rtp-custom.js', array( 'jquery' ), '', true ); ?>
+        <?php wp_enqueue_script( 'rtp-custom', RTP_JS_FOLDER_URL . '/rtp-custom.js', array( 'jquery' ), '', true ); ?>
             
         <?php wp_head(); ?>
     </head>
