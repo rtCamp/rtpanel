@@ -104,7 +104,7 @@ function rtp_fav_option_metabox() {
                 <td class="img-preview" rowspan="2">
                     <div class="alignleft image-preview"  id="favicon_metabox">
                         <p><?php _e( 'Preview', 'rtPanel' ); ?></p>
-                        <img width="16" height="16" alt="favicon" src="<?php echo rtp_logo_fav_src('favicon'); ?>" />
+                        <img width="16" alt="favicon" src="<?php echo rtp_logo_fav_src('favicon'); ?>" />
                     </div>
                 </td>
             </tr>

@@ -32,7 +32,8 @@
 div.inside { margin: 10px 5px; }
 .inside .image-uploader { float: left; overflow: hidden; width: 395px; }
 .inside .image-preview { margin: 0 auto; overflow: hidden; text-align: center; }
-.inside #logo_metabox img { display: block; max-width: 240px; max-height: 90px; margin: 0 auto; }
+.inside #logo_metabox img { display: block; max-width: 240px; width: 100%; margin: 0 auto; }
+.postbox { min-width: 175px; }
 .postbox .inside h3, .postbox .inside h3:hover { background: none repeat scroll 0 0 transparent; cursor: default; display: none; }
 #poststuff .postbox .inside p { margin: 0 0 5px 0; }
 #poststuff .postbox .inside th p { font-size: 11px; margin-bottom: 8px; }
@@ -70,7 +71,7 @@ div.inside { margin: 10px 5px; }
 
 .has-right-sidebar #post-body { margin-right: 0; width: 50%; }
     .has-right-sidebar #post-body-content { margin-right: 8px; }
-    .has-right-sidebar .inside #logo_metabox img { max-width: 230px; }
+    .has-right-sidebar .inside #logo_metabox img { max-width: 230px; width: 100%; }
     .has-right-sidebar .form-table td.img-preview,
     .has-right-sidebar .form-table td.img-url { float: left; }
     .has-right-sidebar .postbox input[type="text"],

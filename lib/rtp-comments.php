@@ -45,18 +45,37 @@ function rtp_comment_list( $comment, $args, $depth ) {
 }
 
 /**
- * Displays the Comment List
+ * Displays the Pingback/Trackback List
  *
  * @uses $rtp_post_comments Array
  * @param Object $comment The Comment Objects
- * @param Array $args The default arguments to override
- * @param Int $depth The Depth of threaded comments
  *
  * @since rtPanel 2.0
  */
-function rtp_ping_list( $comment, $args, $depth ) {
+function rtp_ping_list( $comment ) {
     $GLOBALS['comment'] = $comment;
     global $rtp_post_comments;
 ?>
         <li id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>><?php comment_author_link(); ?> <em>(<?php comment_type( __( 'Comment', 'rtPanel' ), __( 'Trackback', 'rtPanel' ), __( 'Pingback', 'rtPanel' ) ); ?>)</em></li><?php
-} ?>
+}
+
+/**
+ * Retrieve the amount of Pingback/Trackbacks a post has.
+ *
+ * @param int $count The Comment Count
+ * @param int $post_id The Post ID
+ * @return int The number of comments a post has
+ *
+ * @since rtPanel 2.0
+ */
+function pingback_trackback_count( $count, $post_id ) {
+    $comments = get_approved_comments( $post_id );
+    $pingtrack_count = 0;
+    foreach( $comments as $comment ){
+            if( $comment->comment_type != '' ){
+                $pingtrack_count++;
+            }
+    }
+    return $pingtrack_count;
+}
+?>

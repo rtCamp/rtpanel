@@ -115,11 +115,13 @@
         /*
          * Pingbacks and/or Trackbacks
          */
-        if ( $rtp_post_comments['comment_separate'] ) { ?>
-                <h3 class="rtp-comments-header"><span class="rtp-courly-bracket">{</span> <span class="count"><?php echo $num_ping_backs; ?></span> <?php ( $num_ping_backs == 1 ) ? _e( 'Trackback', 'rtPanel') : _e( 'Trackbacks', 'rtPanel' ); ?> <span class="rtp-courly-bracket">}</span></h3>
+        add_filter( 'get_comments_number', 'pingback_trackback_count', '', 2 );
+        if ( $rtp_post_comments['comment_separate'] && get_comments_number() ) { ?>
+                <h3 class="rtp-comments-header"><span class="rtp-courly-bracket">{</span> <span class="count"><?php echo get_comments_number(); ?></span> <?php ( 1 == get_comments_number() ) ? _e( 'Trackback', 'rtPanel') : _e( 'Trackbacks', 'rtPanel' ); ?> <span class="rtp-courly-bracket">}</span></h3>
                 <ol id="trackbacks"><?php
                         $args = 'callback=rtp_ping_list&type=pings';
                         wp_list_comments( $args ); ?>
                 </ol><?php
-        } // End of Pingbacks and/or Trackbacks ?>
+        } // End of Pingbacks and/or Trackbacks
+        remove_filter( 'get_comments_number', 'pingback_trackback_count' )?>
     </div>
