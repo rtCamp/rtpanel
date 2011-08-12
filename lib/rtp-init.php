@@ -78,31 +78,6 @@ if ( !function_exists( 'rt_admin_header_style' ) ) {
     }
 }
 
-if ( !function_exists( 'rtp_meta_description' ) ) {
-    /**
-     * Returns meta description
-     *
-     * @return string
-     *
-     * @since rtPanel 2.0
-     */
-    function rtp_meta_description() {
-        global $post;
-        the_excerpt_rss();
-        $rawcontent = $post->post_content;
-        if ( empty( $rawcontent ) ) {
-            $rawcontent = html_entity_decode( get_bloginfo( 'description', 'abc' ) );
-        } else {
-            $rawcontent = apply_filters( 'the_content_rss', strip_tags( $rawcontent ) );
-            $rawcontent = strip_shortcodes( $rawcontent );
-            $chars = array( "", "\n", "\r", "chr(13)",  "\t", "\0", "\x0B" );
-            $rawcontent = str_replace( $chars, " ", $rawcontent );
-            $rawcontent = html_entity_decode( $rawcontent );
-        }
-        return substr( $rawcontent, 0, 155 );
-    }
-}
-
 /**
  * Enqueues IE Specific CSS
  *
