@@ -187,3 +187,15 @@ function rt_body_class( $classes ) {
     return $classes;
 }
 add_filter( 'body_class', 'rt_body_class' );
+
+/**
+ * Add styles to Main Wrapper incase Background Image is set
+ *
+ * @since rtPanel 2.0
+ */
+function rtp_add_bg_color( ) {
+    echo '<style type="text/css">#main-wrapper { background: none repeat scroll 0 0 #FFFFFF; opacity: 0.97; padding: 0 5px; }</style>';
+}
+if ( get_background_image() ) {
+    add_filter( 'wp_head', 'rtp_add_bg_color' );
+}
