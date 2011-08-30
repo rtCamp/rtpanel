@@ -160,7 +160,7 @@ function rtp_general_validate( $input ) {
                 $input['search_code'] = $rtp_general['search_code'];
                 add_settings_error( 'search_code', 'invalid_search_code', __( 'Google Search Code Error : While generating the code the hosting option must be "Search Element" and layout either "full-width" or "compact". The changes made have been reverted.', 'rtPanel' ) );
             } elseif ( $input['search_code'] != $rtp_general['search_code'] ) {
-                    add_settings_error( 'search_code', 'valid_search_code', __( 'Google Custom Search Integration has been updated.', 'rtPanel' ), 'updated' );
+                add_settings_error( 'search_code', 'valid_search_code', __( 'Google Custom Search Integration has been updated.', 'rtPanel' ), 'updated' );
             }
         }
         
@@ -778,8 +778,10 @@ function rtp_theme_options_upload( $form_fields, $post ) {
 
         $form_fields['url']['label'] = 'Path';
         $form_fields['url']['input'] = 'html';
+        preg_match('/<button.*urlfile.*title=\'(.*)\'.*\/button>/iU', $form_fields['url']['html'], $file_path );
         $form_fields['url']['html'] = preg_replace( '/<button.*\/button>/i', '', $form_fields['url']['html'] );
         $form_fields['url']['html'] = preg_replace('/<input/i', '<input readonly="readonly"', $form_fields['url']['html'] );
+        $form_fields['url']['html'] = preg_replace('/value=\'.*\'/iU', 'value=\'' . $file_path[1] . '\'', $form_fields['url']['html'] );
         $form_fields['url']['helps'] = '';
 
         $form_fields['post_excerpt']['value'] = '';

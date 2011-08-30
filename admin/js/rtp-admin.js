@@ -144,12 +144,16 @@ jQuery(document).ready(function() {
             tb_show( 'Upload '+iframe_title, 'media-upload.php?post_id=0&amp;rtp_theme=rtp_true&amp;logo_or_favicon='+iframe_title+'&amp;type=image&amp;TB_iframe=true&amp;width='+W+'&amp;height='+H);
             window.send_to_editor = function(html) {
                 imgurl = jQuery('img',html).attr('src');
-                if( ( typeof(imgurl) !== 'undefined' ) && ( imgurl.match(/(.jpg|.jpeg|.jpe|.gif|.png|.bmp|.ico|.tif|.tiff)$/i) ) ){
+                if( ( typeof(imgurl) !== 'undefined' ) && ( ( imgurl.match(/(.jpg|.jpeg|.jpe|.gif|.png|.bmp|.ico|.tif|.tiff)$/i) && ( iframe_title != 'Favicon' ) ) || ( imgurl.match(/(.ico)$/i) &&  ( iframe_title == 'Favicon' ) ) ) ) {
                     jQuery(textbox_id).val(imgurl);
                     jQuery(main_metabox_id+' .image-preview img').attr('src', imgurl);
                     tb_remove();
                 } else {
-                    alert("Please select a valid image file.");
+                    if( iframe_title == 'Favicon' ) {
+                        alert("Please select a valid favicon file (.ico)")
+                    } else {
+                        alert("Please select a valid image file.");
+                    }
                     tb_remove();
                 }
             }
