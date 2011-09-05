@@ -24,7 +24,7 @@ class rtp_subscribe_widget extends WP_Widget {
      **/
     function rtp_subscribe_widget() {
         $widget_ops = array( 'classname' => 'rtp-subscribe-widget-container', 'description' => __( 'Widget for email subscription form and Social Icons such as Facebook, Twitter, etc.', 'rtPanel' ) );
-        $this->WP_Widget( 'rt-subscribe-widget', __( 'rt&para;: Subscribe Widget', 'rtPanel' ), $widget_ops );
+        $this->WP_Widget( 'rt-subscribe-widget', __( 'rtPanel: Subscribe Widget', 'rtPanel' ), $widget_ops );
     }
 
     /**
@@ -46,14 +46,15 @@ class rtp_subscribe_widget extends WP_Widget {
         $linkedin_link = empty ( $instance['linkedin_link'] ) ? '' : $instance['linkedin_link'];
         $myspace_link = empty ( $instance['myspace_link'] ) ? '' : $instance['myspace_link'];
         $stumbleupon_link = empty ( $instance['stumbleupon_link'] ) ? '' : $instance['stumbleupon_link'];
-        $rt_link_target = empty ( $instance['rt_link_target'] ) ? '' : $instance['rt_link_target'];
-        $rt_subscription_show = empty ( $instance['rt_show_subscription'] ) ? '' : $instance['rt_show_subscription'];
-        $rt_facebook_show = empty ( $instance['rt_show_facebook'] ) ? '' : $instance['rt_show_facebook'];
-        $rt_twitter_show = empty ( $instance['rt_show_twitter'] ) ? '' : $instance['rt_show_twitter'];
-        $rt_rss_show = empty ( $instance['rt_show_rss'] ) ? '' : $instance['rt_show_rss'];
-        $rt_linkedin_show = empty ( $instance['rt_show_linkedin'] ) ? '' : $instance['rt_show_linkedin'];
-        $rt_myspace_show = empty ( $instance['rt_show_myspace'] ) ? '' : $instance['rt_show_myspace'];
-        $rt_stumbleupon_show = empty ( $instance['rt_show_stumbleupon'] ) ? '' : $instance['rt_show_stumbleupon'];
+        $rt_link_target = isset( $instance['rt_link_target'] ) ? $instance['rt_link_target'] : true;
+        $rt_subscription_show = isset( $instance['rt_show_subscription'] ) ? $instance['rt_show_subscription'] : true;
+        $rt_facebook_show = isset( $instance['rt_show_facebook'] ) ? $instance['rt_show_facebook'] : true;
+        $rt_twitter_show = isset( $instance['rt_show_twitter'] ) ? $instance['rt_show_twitter'] : true;
+        $rt_rss_show = isset( $instance['rt_show_rss'] ) ? $instance['rt_show_rss'] : true;
+        $rt_linkedin_show = isset( $instance['rt_show_linkedin'] ) ? $instance['rt_show_linkedin'] : true;
+        $rt_myspace_show = isset( $instance['rt_show_myspace'] ) ? $instance['rt_show_myspace'] : true;
+        $rt_stumbleupon_show = isset( $instance['rt_show_stumbleupon'] ) ? $instance['rt_show_stumbleupon'] : true;
+        $no_options = 0;
 
         echo $before_widget;
         if ( $title )
@@ -61,7 +62,8 @@ class rtp_subscribe_widget extends WP_Widget {
 
         <div class="email-subscription-container"> <!-- email-subscription-container begins -->
         <?php
-            if ( $rt_subscription_show && $sub_link ) { ?>
+            if ( $rt_subscription_show && $sub_link ) {
+                $no_options++; ?>
                 <form onsubmit="window.open( 'http://feedburner.google.com/fb/a/mailverify?uri=<?php echo $sub_link; ?>', 'popupwindow', 'scrollbars=yes,width=700px,height=700px' ); return true" target="popupwindow" method="post" action="http://feedburner.google.com/fb/a/mailverify">
                     <p>
                         <label for="email"><?php _e( 'Sign up for our email news letter', 'rtPanel' ); ?></label>
@@ -72,19 +74,26 @@ class rtp_subscribe_widget extends WP_Widget {
                     </p>
                 </form><?php
             }
-            $target = ( $rt_link_target ) ? 'target="_blank"' : '';
 
-            if ( ( $rt_facebook_show && $facebook_link ) || ( $rt_twitter_show && $twitter_link ) || ( $rt_rss_show && $rss_link ) || ( $rt_linkedin_show && $linkedin_link ) || ( $rt_myspace_show && $myspace_link ) || ( $rt_stumbleupon_show && $stumbleupon_link ) ) { ?>
+            $target = ( $rt_link_target ) ? ' target="_blank"' : '';
+
+            if ( ( $rt_facebook_show && $facebook_link ) || ( $rt_twitter_show && $twitter_link ) || ( $rt_rss_show && $rss_link ) || ( $rt_linkedin_show && $linkedin_link ) || ( $rt_myspace_show && $myspace_link ) || ( $rt_stumbleupon_show && $stumbleupon_link ) ) {
+                $no_options++; ?>
                 <h4 class="stay-connected"><?php _e( 'Stay Connected', 'rtPanel' ); ?></h4>
                 <ul class="social-icons"><?php
-                    echo ( $rt_facebook_show && $facebook_link ) ? '<li><a rel="nofollow" ' . $target . ' class="facebook" href="' . $facebook_link . '" title="' . __( 'Follow Us on Facebook', 'rtPanel' ) . '">Facebook</a></li>' : '';
-                    echo ( $rt_twitter_show && $twitter_link ) ? '<li><a rel="nofollow" ' . $target . ' class="twitter" href="' . $twitter_link . '" title="' . __( 'Follow Us on Twitter', 'rtPanel' ) . '">Twitter</a></li>' : '';
-                    echo ( $rt_rss_show && $rss_link ) ? '<li><a rel="nofollow" ' . $target . ' class="rss" href="' . $rss_link . '" title="' . __( 'Subscribe via RSS', 'rtPanel' ) . '">RSS</a></li>' : '';
-                    echo ( $rt_linkedin_show && $linkedin_link ) ? '<li><a rel="nofollow" ' . $target . ' class="linkedin" href="' . $linkedin_link . '" title="' . __( 'Follow Us on LinkedIn', 'rtPanel' ) . '">LinkedIn</a></li>' : '';
-                    echo ( $rt_myspace_show && $myspace_link ) ? '<li><a rel="nofollow" ' . $target . ' class="myspace" href="' . $myspace_link . '" title="' . __( 'Follow Us on MySpace', 'rtPanel' ) . '">MySpace</a></li>' : '';
-                    echo ( $rt_stumbleupon_show && $stumbleupon_link ) ? '<li><a rel="nofollow" ' . $target . ' class="stumbleupon" href="' . $stumbleupon_link . '" title="' . __( 'Follow Us on StumbleUpon', 'rtPanel' ) . '">StumbleUpon</a></li>' : ''; ?>
+                    echo ( $rt_facebook_show && $facebook_link ) ? '<li><a rel="nofollow"' . $target . ' class="facebook" href="' . $facebook_link . '" title="' . __( 'Follow Us on Facebook', 'rtPanel' ) . '">Facebook</a></li>' : '';
+                    echo ( $rt_twitter_show && $twitter_link ) ? '<li><a rel="nofollow"' . $target . ' class="twitter" href="' . $twitter_link . '" title="' . __( 'Follow Us on Twitter', 'rtPanel' ) . '">Twitter</a></li>' : '';
+                    echo ( $rt_rss_show && $rss_link ) ? '<li><a rel="nofollow"' . $target . ' class="rss" href="' . $rss_link . '" title="' . __( 'Subscribe via RSS', 'rtPanel' ) . '">RSS</a></li>' : '';
+                    echo ( $rt_linkedin_show && $linkedin_link ) ? '<li><a rel="nofollow"' . $target . ' class="linkedin" href="' . $linkedin_link . '" title="' . __( 'Follow Us on LinkedIn', 'rtPanel' ) . '">LinkedIn</a></li>' : '';
+                    echo ( $rt_myspace_show && $myspace_link ) ? '<li><a rel="nofollow"' . $target . ' class="myspace" href="' . $myspace_link . '" title="' . __( 'Follow Us on MySpace', 'rtPanel' ) . '">MySpace</a></li>' : '';
+                    echo ( $rt_stumbleupon_show && $stumbleupon_link ) ? '<li><a rel="nofollow"' . $target . ' class="stumbleupon" href="' . $stumbleupon_link . '" title="' . __( 'Follow Us on StumbleUpon', 'rtPanel' ) . '">StumbleUpon</a></li>' : ''; ?>
                 </ul><?php
-            } ?>
+            }
+
+            if( !$no_options ) { ?>
+                <p>Please configure this widget.</p><?php
+            }
+            ?>
             <div class="clear"></div>
         </div> <!-- end email-subscription-container -->
     <?php echo $after_widget;
@@ -98,21 +107,21 @@ class rtp_subscribe_widget extends WP_Widget {
     function update( $new_instance, $old_instance ) {
         $instance = $old_instance;
         $instance['title'] = strip_tags ( $new_instance['title'] );
-        $instance['sub_link'] = strip_tags ( $new_instance['sub_link'] );
-        $instance['rss_link'] = strip_tags ( $new_instance['rss_link'] );
-        $instance['twitter_link'] = strip_tags ( $new_instance['twitter_link'] );
-        $instance['facebook_link'] = strip_tags ( $new_instance['facebook_link'] );
-        $instance['linkedin_link'] = strip_tags ( $new_instance['linkedin_link'] );
-        $instance['myspace_link'] = strip_tags ( $new_instance['myspace_link'] );
-        $instance['stumbleupon_link'] = strip_tags ( $new_instance['stumbleupon_link'] );
-        $instance['rt_link_target'] = strip_tags ( $new_instance['rt_link_target'] );
-        $instance['rt_show_subscription'] = $new_instance['rt_show_subscription'];
-        $instance['rt_show_rss'] = $new_instance['rt_show_rss'];
-        $instance['rt_show_facebook'] = $new_instance['rt_show_facebook'];
-        $instance['rt_show_twitter'] =  $new_instance['rt_show_twitter'];
-        $instance['rt_show_linkedin'] = $new_instance['rt_show_linkedin'];
-        $instance['rt_show_myspace'] = $new_instance['rt_show_myspace'];
-        $instance['rt_show_stumbleupon'] = $new_instance['rt_show_stumbleupon'];
+        $instance['sub_link'] = esc_url_raw( $new_instance['sub_link'] );
+        $instance['rss_link'] = esc_url_raw( $new_instance['rss_link'] );
+        $instance['twitter_link'] = esc_url_raw( $new_instance['twitter_link'] );
+        $instance['facebook_link'] = esc_url_raw( $new_instance['facebook_link'] );
+        $instance['linkedin_link'] = esc_url_raw( $new_instance['linkedin_link'] );
+        $instance['myspace_link'] = esc_url_raw( $new_instance['myspace_link'] );
+        $instance['stumbleupon_link'] = esc_url_raw( $new_instance['stumbleupon_link'] );
+        $instance['rt_link_target'] = !empty( $new_instance['rt_link_target'] ) ? 1 : 0;
+        $instance['rt_show_subscription'] = !empty( $new_instance['rt_show_subscription'] ) ? 1 : 0;
+        $instance['rt_show_rss'] = !empty( $new_instance['rt_show_rss'] ) ? 1 : 0;
+        $instance['rt_show_facebook'] = !empty( $new_instance['rt_show_facebook'] ) ? 1 : 0;
+        $instance['rt_show_twitter'] =  !empty( $new_instance['rt_show_twitter'] ) ? 1 : 0;
+        $instance['rt_show_linkedin'] = !empty( $new_instance['rt_show_linkedin'] ) ? 1 : 0;
+        $instance['rt_show_myspace'] = !empty( $new_instance['rt_show_myspace'] ) ? 1 : 0;
+        $instance['rt_show_stumbleupon'] = !empty( $new_instance['rt_show_stumbleupon'] ) ? 1 : 0;
         return $instance;
     }
 
@@ -131,68 +140,60 @@ class rtp_subscribe_widget extends WP_Widget {
         $myspace_link = isset ( $instance['myspace_link'] ) ? $instance['myspace_link'] : '';
         $stumbleupon_link = isset ( $instance['stumbleupon_link'] ) ? $instance['stumbleupon_link'] : '';
 
-        $defaults = array( 'rt_show_subscription' => '1', 'rt_show_rss' => '0', 'rt_show_facebook' => '0', 'rt_show_twitter' => '0', 'rt_show_linkedin' => '0', 'rt_show_myspace' => '0', 'rt_show_stumbleupon' => '0', 'rt_link_target' => '1' );
+        $defaults = array( 'rt_show_subscription' => '0', 'rt_show_rss' => '0', 'rt_show_facebook' => '0', 'rt_show_twitter' => '0', 'rt_show_linkedin' => '0', 'rt_show_myspace' => '0', 'rt_show_stumbleupon' => '0', 'rt_link_target' => '1' );
 
         // update instance's default options
         $instance = wp_parse_args( (array) $instance, $defaults );
-        $rt_show_subscription = empty ( $instance['rt_show_subscription'] ) ? 0 : 1;
-        $rt_show_rss = empty ( $instance['rt_show_rss'] ) ? 0 : 1;
-        $rt_show_facebook = empty ( $instance['rt_show_facebook'] ) ? 0 : 1;
-        $rt_show_twitter = empty ( $instance['rt_show_twitter'] )  ? 0 : 1 ;
-        $rt_show_linkedin = empty ( $instance['rt_show_linkedin'] ) ? 0 : 1;
-        $rt_show_myspace = empty ( $instance['rt_show_myspace'] ) ? 0 : 1;
-        $rt_show_stumbleupon = empty ( $instance['rt_show_stumbleupon'] ) ? 0 : 1;
-        $rt_link_target = empty ( $instance['rt_link_target'] ) ? 0 : 1; ?>
+        $rt_show_subscription = isset( $instance['rt_show_subscription'] ) ? (bool) $instance['rt_show_subscription'] :false;
+        $rt_show_rss = isset( $instance['rt_show_rss'] ) ? (bool) $instance['rt_show_rss'] :false;
+        $rt_show_facebook = isset( $instance['rt_show_facebook'] ) ? (bool) $instance['rt_show_facebook'] :false;
+        $rt_show_twitter = isset( $instance['rt_show_twitter'] ) ? (bool) $instance['rt_show_twitter'] :false;
+        $rt_show_linkedin = isset( $instance['rt_show_linkedin'] ) ? (bool) $instance['rt_show_linkedin'] :false;
+        $rt_show_myspace = isset( $instance['rt_show_myspace'] ) ? (bool) $instance['rt_show_myspace'] :false;
+        $rt_show_stumbleupon = isset( $instance['rt_show_stumbleupon'] ) ? (bool) $instance['rt_show_stumbleupon'] :false;
+        $rt_link_target = isset( $instance['rt_link_target'] ) ? (bool) $instance['rt_link_target'] :false; ?>
 
         <p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title', 'rtPanel' ); ?>: </label><input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" /></p>
         <p><strong><?php _e( 'RSS Subscribe', 'rtPanel' ); ?>: </strong></p><small>(<?php _e( 'Check to display. If checked value should not be empty.', 'rtPanel' ); ?>)</small>
         <p>
-            <input name="<?php echo $this->get_field_name( 'rt_show_subscription' ); ?>" type="hidden" value="0" />
-            <input type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_subscription' ); ?>" value="1" id="<?php echo $this->get_field_id( 'rt_show_subscription' ); ?>" <?php checked( $rt_show_subscription ); ?> />
-            <label for="<?php echo $this->get_field_id( 'sub_link' ); ?>"><?php _e( 'RSS Subscription', 'rtPanel' ); ?> <abbr title="<?php _e( 'Uniform Resource Identifier', 'rtPanel' ); ?>"><?php _e( ' URI', 'rtPanel' ); ?></abbr>: </label>
+            <input type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_subscription' ); ?>" id="<?php echo $this->get_field_id( 'rt_show_subscription' ); ?>" <?php checked( $rt_show_subscription ); ?> />
+            <label for="<?php echo $this->get_field_id( 'rt_show_subscription' ); ?>"><?php _e( 'RSS Subscription', 'rtPanel' ); ?> <abbr title="<?php _e( 'Uniform Resource Identifier', 'rtPanel' ); ?>"><?php _e( ' URI', 'rtPanel' ); ?></abbr>: </label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'sub_link' ); ?>" name="<?php echo $this->get_field_name( 'sub_link' ); ?>" type="text" value="<?php echo esc_attr( $sub_link ); ?>" />
         </p>
         <p><strong><?php _e( 'Social Share', 'rtPanel' ); ?>:</strong></p>
         <small>(<?php _e( 'Check to display', 'rtPanel' ); ?>)</small>
         <p>
-            <input name="<?php echo $this->get_field_name( 'rt_show_rss' ); ?>" type="hidden" value="0" />
-            <input type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_rss' ); ?>" value="1" id="<?php echo $this->get_field_id( 'rt_show_rss' ); ?>" <?php checked( $rt_show_rss ); ?> />
+            <input type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_rss' ); ?>" id="<?php echo $this->get_field_id( 'rt_show_rss' ); ?>" <?php checked( $rt_show_rss ); ?> />
             <label for="<?php echo $this->get_field_id( 'rt_show_rss' ); ?>"><?php _e( 'RSS Feed Link', 'rtPanel' ); ?>: </label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'rss_link' ); ?>" name="<?php echo $this->get_field_name( 'rss_link' ); ?>" type="text" value="<?php echo esc_attr( $rss_link ); ?>" />
         </p>
         <p>
-            <input name="<?php echo $this->get_field_name( 'rt_show_facebook' ); ?>" type="hidden" value="0" />
-            <input type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_facebook' ); ?>" value="1" id="<?php echo $this->get_field_id( 'rt_show_facebook' ); ?>" <?php  checked( $rt_show_facebook ) ; ?> />
+            <input type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_facebook' ); ?>" id="<?php echo $this->get_field_id( 'rt_show_facebook' ); ?>" <?php  checked( $rt_show_facebook ) ; ?> />
             <label for="<?php echo $this->get_field_id( 'rt_show_facebook' ); ?>"><?php _e( 'Facebook Link', 'rtPanel' ); ?>: </label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'facebook_link' ); ?>" name="<?php echo $this->get_field_name( 'facebook_link' ); ?>" type="text" value="<?php echo esc_attr( $facebook_link ); ?>" />
         </p>
         <p>
-            <input name="<?php echo $this->get_field_name( 'rt_show_twitter' ); ?>" type="hidden" value="0" />
-            <input type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_twitter' ); ?>" value="1" id="<?php echo $this->get_field_id( 'rt_show_twitter' ); ?>" <?php checked( $rt_show_twitter ) ; ?> />
+            <input type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_twitter' ); ?>" id="<?php echo $this->get_field_id( 'rt_show_twitter' ); ?>" <?php checked( $rt_show_twitter ) ; ?> />
             <label for="<?php echo $this->get_field_id( 'rt_show_twitter' ); ?>"><?php _e( 'Twitter Link', 'rtPanel' ); ?>: </label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'twitter_link' ); ?>" name="<?php echo $this->get_field_name( 'twitter_link' ); ?>" type="text" value="<?php echo esc_attr( $twitter_link ); ?>" />
         </p>
         <p>
-            <input name="<?php echo $this->get_field_name( 'rt_show_linkedin' ); ?>" type="hidden" value="0" />
-            <input type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_linkedin' ); ?>" value="1" id="<?php echo $this->get_field_id( 'rt_show_linkedin' ); ?>" <?php checked( $rt_show_linkedin ); ?> />
+            <input type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_linkedin' ); ?>" id="<?php echo $this->get_field_id( 'rt_show_linkedin' ); ?>" <?php checked( $rt_show_linkedin ); ?> />
             <label for="<?php echo $this->get_field_id( 'rt_show_linkedin' ); ?>"><?php _e( 'LinkedIn Link', 'rtPanel' ); ?>: </label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'linkedin_link' ); ?>" name="<?php echo $this->get_field_name( 'linkedin_link' ); ?>" type="text" value="<?php echo esc_attr( $linkedin_link ); ?>" />
         </p>
         <p>
-            <input name="<?php echo $this->get_field_name( 'rt_show_myspace' ); ?>" type="hidden" value="0" />
-            <input type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_myspace' ); ?>" value="1" id="<?php echo $this->get_field_id( 'rt_show_myspace' ); ?>" <?php checked( $rt_show_myspace ); ?> />
+            <input type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_myspace' ); ?>" id="<?php echo $this->get_field_id( 'rt_show_myspace' ); ?>" <?php checked( $rt_show_myspace ); ?> />
             <label for="<?php echo $this->get_field_id( 'rt_show_myspace' ); ?>"><?php _e( 'MySpace Link', 'rtPanel' ); ?>: </label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'myspace_link' ); ?>" name="<?php echo $this->get_field_name( 'myspace_link' ); ?>" type="text" value="<?php echo esc_attr( $myspace_link ); ?>" />
         </p>
         <p>
-            <input name="<?php echo $this->get_field_name( 'rt_show_stumbleupon' ); ?>" type="hidden" value="0" />
-            <input type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_stumbleupon' ); ?>" value="1" id="<?php echo $this->get_field_id( 'rt_show_stumbleupon' ); ?>" <?php checked( $rt_show_stumbleupon ); ?> />
+            <input type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_stumbleupon' ); ?>" id="<?php echo $this->get_field_id( 'rt_show_stumbleupon' ); ?>" <?php checked( $rt_show_stumbleupon ); ?> />
             <label for="<?php echo $this->get_field_id( 'rt_show_stumbleupon' ); ?>"><?php _e( 'StumbleUpon Link', 'rtPanel' ); ?>: </label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'stumbleupon_link' ); ?>" name="<?php echo $this->get_field_name( 'stumbleupon_link' ); ?>" type="text" value="<?php echo esc_attr( $stumbleupon_link ); ?>" />
         </p>
         <p>
-            <input name="<?php echo $this->get_field_name( 'rt_link_target' ); ?>" type="hidden" value="0" />
-            <input class="link_target" id="<?php echo $this->get_field_id( 'rt_link_target' ); ?>" value="1" name="<?php echo $this->get_field_name( 'rt_link_target' ); ?>" type="checkbox" <?php checked( $rt_link_target ); ?> />
+            <input class="link_target" id="<?php echo $this->get_field_id( 'rt_link_target' ); ?>" name="<?php echo $this->get_field_name( 'rt_link_target' ); ?>" type="checkbox" <?php checked( $rt_link_target ); ?> />
             <label for="<?php echo $this->get_field_id( 'rt_link_target' ); ?>"><?php _e( 'Open Social Links in New Tab/Window', 'rtPanel' ); ?>: </label>
         </p><?php
     }
@@ -214,7 +215,7 @@ class rtp_comments_widget extends WP_Widget {
      **/
     function rtp_comments_widget() {
         $widget_ops = array( 'classname' => 'rtp-comments-widget', 'description' => __( 'Widget for Show Recent Comment with Author Gravatar in Sidebar.', 'rtPanel' ) );
-        $this->WP_Widget( 'rt-comments-widget', __( 'rt&para;: Comments with Gravatar', 'rtPanel' ), $widget_ops );
+        $this->WP_Widget( 'rt-comments-widget', __( 'rtPanel: Comments with Gravatar', 'rtPanel' ), $widget_ops );
     }
 
     /**
@@ -229,10 +230,10 @@ class rtp_comments_widget extends WP_Widget {
     function widget( $args, $instance ) {
         extract( $args, EXTR_SKIP );
         $title = empty( $instance['title'] ) ? __( 'Recent Comments', 'rtPanel' ) : apply_filters('widget_title', $instance['title'] );
-        $show_grav = empty( $instance['show_grav'] ) ? '' : $instance['show_grav'];
+        $show_grav = $instance['show_grav'] ? '1' : '0';
         $gravatar = empty( $instance['gravatar'] ) ? 64 : $instance['gravatar'];
         $count = empty( $instance['count'] ) ? 0 : $instance['count'];
-        $alternative = empty( $instance['alternative'] ) ? '' : $instance['alternative'];
+        $alternative = $instance['alternative'] ? '1' : '0';
         echo $before_widget;
             if ( $title )
                 echo $before_title . $title . $after_title;
@@ -247,14 +248,14 @@ class rtp_comments_widget extends WP_Widget {
                             $left_readmore = '';
                             $show_grav_on = '';
 
-                            if ( $alternative == 'on' ) {
+                            if ( $alternative ) {
                                 $right_grav = $comments % 2 ? ' float:right; ' : '' ;
                                 $left_readmore = $comments % 2 ? ' float:left; ' : '' ;
                             } else {
                                 $right_grav = '';
                                 $left_readmore = '';
                             }
-                            if ( $show_grav == 'on' ) {
+                            if ( $show_grav ) {
                                 $show_grav_on = '';
                             } else {
                                 $show_grav_on = ' display:none !important; ';
@@ -304,10 +305,15 @@ class rtp_comments_widget extends WP_Widget {
         $comment_total = $wpdb->get_var($comment_query);
         $instance = $old_instance;
         $instance['title'] = strip_tags ( $new_instance['title'] );
-        $instance['show_grav'] = strip_tags ( $new_instance['show_grav'] );
+        $instance['show_grav'] = !empty( $new_instance['show_grav'] ) ? 1 : 0;
         $instance['gravatar'] = strip_tags ( $new_instance['gravatar'] );
-        $instance['count'] = strip_tags ( $new_instance['count']) > $comment_total ? $comment_total : strip_tags ( $new_instance['count'] );
-        $instance['alternative'] = strip_tags ( $new_instance['alternative'] );
+        if ( in_array( $new_instance['gravatar'], array( 32, 40, 48, 56, 64 ) ) ) {
+            $instance['gravatar'] = $new_instance['gravatar'];
+        } else {
+            $instance['gravatar'] = 64;
+        }
+        $instance['count'] = strip_tags ( $new_instance['count'] ) > $comment_total ? $comment_total : strip_tags ( $new_instance['count'] );
+        $instance['alternative'] = !empty( $new_instance['alternative'] ) ? 1 : 0;
         return $instance;
     }
 
@@ -318,18 +324,21 @@ class rtp_comments_widget extends WP_Widget {
      **/
     function form($instance) {
         $title = isset ( $instance['title'] ) ? ( $instance['title'] ) : '';
-        $show_grav = empty( $instance['show_grav'] ) ? 'on' : $instance['show_grav'];
+        $show_grav = isset( $instance['show_grav'] ) ? (bool) $instance['show_grav'] :false;
         $gravatar = empty( $instance['gravatar'] ) ? 64 : $instance['gravatar'];
-        $count = empty( $instance['count'] ) ? 0 : $instance['count'];
-        $alternative = empty( $instance['alternative'] ) ? '' : $instance['alternative']; ?>
+        global $wpdb;
+        $comment_query = "SELECT count(*) FROM $wpdb->comments WHERE comment_approved = 1 AND trim(comment_type) = ''";
+        $comment_total = $wpdb->get_var($comment_query);
+        $def_count = ( $comment_total > 5 ) ? 5 : $comment_total;
+        $count = empty( $instance['count'] ) ? $def_count : $instance['count'];
+        $alternative = isset( $instance['alternative'] ) ? (bool) $instance['alternative'] :false; ?>
         <p>
             <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title', 'rtPanel' ); ?>: </label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
         </p>
         <p>
             <label for="<?php echo $this->get_field_id( 'show_grav' ); ?>"><?php _e( 'Show Gravatar', 'rtPanel' ); ?>: </label>
-            <input name="<?php echo $this->get_field_name( 'show_grav' ); ?>" type="hidden" value="off" />
-            <input class="show_grav" id="<?php echo $this->get_field_id( 'show_grav' ); ?>" value="on" name="<?php echo $this->get_field_name( 'show_grav' ); ?>" type="checkbox" <?php checked( 'on', $show_grav ); ?> />
+            <input class="show_grav" id="<?php echo $this->get_field_id( 'show_grav' ); ?>" name="<?php echo $this->get_field_name( 'show_grav' ); ?>" type="checkbox" <?php checked( $show_grav ); ?> />
         </p>
         <p>
             <label for="<?php echo $this->get_field_id( 'gravatar' ); ?>"><?php _e( 'Gravatar Size', 'rtPanel' ); ?>: </label>
@@ -344,15 +353,11 @@ class rtp_comments_widget extends WP_Widget {
         <p>
             <label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php _e( 'Show Comments', 'rtPanel' ); ?>: </label>
             <input class="widefat show-comments" id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" type="text" value="<?php echo $count; ?>" />
-        </p><?php
-        global $wpdb;
-        $comment_query = "SELECT count(*) FROM $wpdb->comments WHERE comment_approved = 1 AND trim(comment_type) = ''";
-        $comment_total = $wpdb->get_var($comment_query); ?>
+        </p>
         <div style='color: #444444; font-size: 11px; padding: 0 0 12px;'><?php printf( __( 'You have total \'%d\' comments to display', 'rtPanel' ) , $comment_total ); ?></div>
         <p>
             <label for="<?php echo $this->get_field_id( 'alternative' ); ?>"><?php _e( 'Show Alternate Comments', 'rtPanel' ); ?>: </label>
-            <input name="<?php echo $this->get_field_name( 'alternative' ); ?>" type="hidden" value="off" />
-            <input class="alternate" id="<?php echo $this->get_field_id( 'alternative' ); ?>" value="on" name="<?php echo $this->get_field_name( 'alternative' ); ?>" type="checkbox" <?php checked( 'on', $alternative ); ?> />
+            <input class="alternate" id="<?php echo $this->get_field_id( 'alternative' ); ?>" name="<?php echo $this->get_field_name( 'alternative' ); ?>" type="checkbox" <?php checked( $alternative ); ?> />
         </p>
         <script type="text/javascript">
             jQuery('.show-comments').keyup(function(){
@@ -396,12 +401,12 @@ class rtp_category_widget extends WP_Widget {
         $sortby = empty( $instance['sortby'] ) ? 'name' : $instance['sortby'];
         $showstyle = empty( $instance['showstyle'] ) ? 'list' : $instance['showstyle'];
         $order = empty( $instance['order'] ) ? 'ASC' : $instance['order'];
-        $show_cat = empty( $instance['show_cat'] ) ? 1 : $instance['show_cat'];
+        $show_cat = empty( $instance['show_cat'] ) ? 10 : $instance['show_cat'];
         $exclude = empty( $instance['exclude'] ) ? '' : $instance['exclude'];
         $exclude = preg_replace( '/\,$/', '', $exclude );
-        $hierarchical = ( $instance['hierarchical'] == 'true' ) ? true : false;
-        $show_count = ( $instance['show_count'] == '0' ) ? 0 : 1;
-        $hideempty = ( $instance['hideempty'] == '0' ) ? 0 : 1;
+        $hierarchical = isset($instance['hierarchical']) ? $instance['hierarchical'] : true;
+        $show_count = isset($instance['show_count']) ? $instance['show_count'] : true;
+        $hide_empty = isset($instance['hide_empty']) ? $instance['hide_empty'] : true;
 
         echo $before_widget;
             if ( $title )
@@ -410,10 +415,10 @@ class rtp_category_widget extends WP_Widget {
 
                 if ( $showstyle == 'list' ) {
                     echo '<ul>';
-                        wp_list_categories( array( 'hierarchical' => $hierarchical, 'style' => '' . $showstyle . '', 'hide_empty' => $hideempty, 'show_count' => $show_count, 'number' => $show_cat, 'exclude' => $exclude, 'orderby' => '' . $sortby . '', 'title_li' => '', 'order' => '' . $order . '' ) );
+                        wp_list_categories( array( 'hierarchical' => $hierarchical, 'style' => $showstyle, 'hide_empty' => $hide_empty, 'show_count' => $show_count, 'number' => $show_cat, 'exclude' => $exclude, 'orderby' => $sortby, 'title_li' => '', 'order' => $order ) );
                     echo '</ul>';
                 } else {
-                        wp_dropdown_categories( array( 'id' => 'rt_cat', 'name' => 'rt_cat', 'hierarchical' => $hierarchical, 'orderby' => '' . $sortby . '', 'order' => '' . $order . '', 'show_count' => $show_count, 'hide_empty' => $hideempty, 'exclude' => $exclude, 'class' => 'postform rt_cat_dropdown' ) ); ?>
+                        wp_dropdown_categories( array( 'id' => 'rt_cat', 'name' => 'rt_cat', 'hierarchical' => $hierarchical, 'orderby' => $sortby, 'order' => $order, 'show_count' => $show_count, 'hide_empty' => $hide_empty, 'exclude' => $exclude, 'class' => 'postform rt_cat_dropdown' ) ); ?>
                         <script type="text/javascript">
                         /* <![CDATA[ */
                                 var dropdown = document.getElementById("rt_cat");
@@ -439,14 +444,26 @@ class rtp_category_widget extends WP_Widget {
         $total_category = count( get_categories() );
         $instance = $old_instance;
         $instance['title'] = strip_tags ( $new_instance['title'] );
-        $instance['showstyle'] = strip_tags ( $new_instance['showstyle'] );
-        $instance['hideempty'] = strip_tags ( $new_instance['hideempty'] );
-        $instance['sortby'] = $new_instance['sortby'];
-        $instance['order'] = $new_instance['order'];
+        if ( in_array( $new_instance['showstyle'], array( 'list', 'dropdown' ) ) ) {
+            $instance['showstyle'] = $new_instance['showstyle'];
+        } else {
+            $instance['showstyle'] = 'list';
+        }
+        $instance['hide_empty'] = !empty( $new_instance['hide_empty'] ) ? 1 : 0;
+        if ( in_array( $new_instance['sortby'], array( 'name', 'ID', 'count', 'slug' ) ) ) {
+            $instance['sortby'] = $new_instance['sortby'];
+        } else {
+            $instance['sortby'] = 'name';
+        }
+        if ( in_array( $new_instance['order'], array( 'ASC', 'DESC' ) ) ) {
+            $instance['order'] = $new_instance['order'];
+        } else {
+            $instance['order'] = 'ASC';
+        }
         $instance['show_cat'] = strip_tags ( $new_instance['show_cat']) > $total_category ? $total_category : strip_tags ( $new_instance['show_cat'] );
         $instance['exclude'] = strip_tags ( $new_instance['exclude'] );
-        $instance['hierarchical'] = $new_instance['hierarchical'];
-        $instance['show_count'] = $new_instance['show_count'];
+        $instance['hierarchical'] = !empty( $new_instance['hierarchical'] ) ? 1 : 0;
+        $instance['show_count'] = !empty( $new_instance['show_count'] ) ? 1 : 0;
         return $instance;
     }
 
@@ -458,13 +475,13 @@ class rtp_category_widget extends WP_Widget {
     function form($instance) {
         $title = isset ( $instance['title'] ) ? ( $instance['title'] ) : '';
         $showstyle = isset ( $instance['showstyle'] ) ? ( $instance['showstyle'] ) : 'list';
-        $hideempty = isset ( $instance['hideempty'] ) ? ( $instance['hideempty'] ) : 1;
+        $hide_empty = isset( $instance['hide_empty']) ? (bool) $instance['hide_empty'] :false;
         $sortby = empty( $instance['sortby'] ) ? 'name' : $instance['sortby'];
         $order = empty( $instance['order'] ) ? 'ASC' : $instance['order'];
-        $show_cat = empty( $instance['show_cat'] ) ? 1 : $instance['show_cat'];
+        $show_cat = empty( $instance['show_cat'] ) ? 10 : $instance['show_cat'];
         $exclude = empty( $instance['exclude'] ) ? '' : $instance['exclude'];
-        $hierarchical = empty( $instance['hierarchical'] ) ? 'true' : $instance['hierarchical'];
-        $show_count = empty( $instance['show_count'] ) ? 0 : $instance['show_count']; ?>
+        $hierarchical = isset( $instance['hierarchical']) ? (bool) $instance['hierarchical'] :false;
+        $show_count = isset( $instance['show_count']) ? (bool) $instance['show_count'] :false; ?>
         <p style="overflow: hidden;">
             <label for="<?php echo $this->get_field_id( 'title' ); ?>" style="display: block; float: left; padding: 0 0 3px;"><?php _e( 'Title', 'rtPanel' ); ?>: </label>
             <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
@@ -498,30 +515,21 @@ class rtp_category_widget extends WP_Widget {
             </select>
         </p>
         <p style="overflow: hidden;">
-            <label for="<?php echo $this->get_field_id( 'hierarchical' ); ?>" style="display: block;float: left;padding: 3px 0 0;"><?php _e( 'Hierarchy', 'rtPanel' ); ?>: </label>
-            <select id="<?php echo $this->get_field_id( 'hierarchical' ); ?>" name="<?php echo $this->get_field_name( 'hierarchical' ); ?>" style="float: right; width: 120px;">
-                <option value="true" <?php selected( 'true', $hierarchical ); ?>>Yes</option>
-                <option value="false" <?php selected( 'false', $hierarchical ); ?>>No</option>
-            </select>
-        </p>
-        <p style="overflow: hidden;">
-            <label for="<?php echo $this->get_field_id( 'hideempty' ); ?>" style="display: block;float: left;padding: 3px 0 0;"><?php _e( 'Hide Empty', 'rtPanel' ); ?>: </label>
-            <select id="<?php echo $this->get_field_id( 'hideempty' ); ?>" name="<?php echo $this->get_field_name( 'hideempty' ); ?>" style="float: right; width: 120px;">
-                <option value="1" <?php selected( '1', $hideempty ); ?>>Yes</option>
-                <option value="0" <?php selected( '0', $hideempty ); ?>>No</option>
-            </select>
-        </p>
-        <p style="overflow: hidden;">
-            <label for="<?php echo $this->get_field_id( 'show_count' ); ?>" style="display: block;float: left;padding: 3px 0 0;"><?php _e( 'Show Count', 'rtPanel' ); ?>: </label>
-            <select id="<?php echo $this->get_field_id( 'show_count' ); ?>" name="<?php echo $this->get_field_name( 'show_count' ); ?>" style="float: right; width: 120px;">
-                <option value="1" <?php selected( 1, $show_count ); ?>>Yes</option>
-                <option value="0" <?php selected( 0, $show_count ); ?>>No</option>
-            </select>
-        </p>
-        <p style="overflow: hidden;">
             <label for="<?php echo $this->get_field_id( 'exclude' ); ?>" style="display: block; float: left; padding: 3px 0 0;"><?php _e( 'Exclude', 'rtPanel' ); ?>:</label>
             <input class="widefat exclude" id="<?php echo $this->get_field_id( 'exclude' ); ?>" name="<?php echo $this->get_field_name( 'exclude' ); ?>" type="text" value="<?php echo $exclude; ?>" style="float: right; clear: right; margin: 0 0 0 3px; width: 120px;" /><br />
             <span style="clear: both; display: block; color: #444444; font-size: 11px; padding: 5px 0 0;"><?php _e( 'Separate Category ID with ","', 'rtPanel' ); ?>: <br />eg. 1,5,15</span>
+        </p>
+        <p style="overflow: hidden;">
+            <input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id('hierarchical'); ?>" name="<?php echo $this->get_field_name('hierarchical'); ?>"<?php checked( $hierarchical ); ?> />
+            <label for="<?php echo $this->get_field_id('hierarchical'); ?>"><?php _e( 'Show Hierarchy' ); ?></label><br />
+        </p>
+        <p style="overflow: hidden;">
+            <input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id('hide_empty'); ?>" name="<?php echo $this->get_field_name('hide_empty'); ?>"<?php checked( $hide_empty ); ?> />
+            <label for="<?php echo $this->get_field_id('hide_empty'); ?>"><?php _e( 'Hide Empty' ); ?></label><br />
+        </p>
+        <p style="overflow: hidden;">
+            <input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id('show_count'); ?>" name="<?php echo $this->get_field_name('show_count'); ?>"<?php checked( $show_count ); ?> />
+            <label for="<?php echo $this->get_field_id('show_count'); ?>"><?php _e( 'Show post counts' ); ?></label><br />
         </p>
         <script type="text/javascript">
             jQuery('.show-cat').keyup( function () { this.value = this.value.replace(/[^0-9\/]/g,''); } );
