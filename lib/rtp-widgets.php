@@ -91,7 +91,7 @@ class rtp_subscribe_widget extends WP_Widget {
             }
 
             if( !$no_options ) { ?>
-                <p>Please configure this widget.</p><?php
+                <p><?php _e( 'Please configure this widget.', 'rtPanel' ); ?></p><?php
             }
             ?>
             <div class="clear"></div>
@@ -521,15 +521,15 @@ class rtp_category_widget extends WP_Widget {
         </p>
         <p style="overflow: hidden;">
             <input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id('hierarchical'); ?>" name="<?php echo $this->get_field_name('hierarchical'); ?>"<?php checked( $hierarchical ); ?> />
-            <label for="<?php echo $this->get_field_id('hierarchical'); ?>"><?php _e( 'Show Hierarchy' ); ?></label><br />
+            <label for="<?php echo $this->get_field_id('hierarchical'); ?>"><?php _e( 'Show Hierarchy', 'rtPanel' ); ?></label><br />
         </p>
         <p style="overflow: hidden;">
             <input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id('hide_empty'); ?>" name="<?php echo $this->get_field_name('hide_empty'); ?>"<?php checked( $hide_empty ); ?> />
-            <label for="<?php echo $this->get_field_id('hide_empty'); ?>"><?php _e( 'Hide Empty' ); ?></label><br />
+            <label for="<?php echo $this->get_field_id('hide_empty'); ?>"><?php _e( 'Hide Empty', 'rtPanel' ); ?></label><br />
         </p>
         <p style="overflow: hidden;">
             <input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id('show_count'); ?>" name="<?php echo $this->get_field_name('show_count'); ?>"<?php checked( $show_count ); ?> />
-            <label for="<?php echo $this->get_field_id('show_count'); ?>"><?php _e( 'Show post counts' ); ?></label><br />
+            <label for="<?php echo $this->get_field_id('show_count'); ?>"><?php _e( 'Show post counts', 'rtPanel' ); ?></label><br />
         </p>
         <script type="text/javascript">
             jQuery('.show-cat').keyup( function () { this.value = this.value.replace(/[^0-9\/]/g,''); } );
