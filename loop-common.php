@@ -37,14 +37,16 @@
     /* If there are no posts to display */
     if ( ! have_posts() ) { ?>
         <div id="post-0" <?php post_class('rtp-post-box'); ?>>
-            <?php rtp_hook_begin_post(); ?>
+            <div class="hentry rtp-not-found">
+                <?php rtp_hook_begin_post(); ?>
 
-            <div class="post-content">
-                <p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'rtPanel' ); ?></p>
-                <?php get_search_form(); ?>
+                <div class="post-content">
+                    <p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'rtPanel' ); ?></p>
+                    <?php get_search_form(); ?>
+                </div>
+
+                <?php rtp_hook_end_post();  ?>
             </div>
-            
-            <?php rtp_hook_end_post();  ?>
         </div><!-- #post-0 --><?php
     }
 

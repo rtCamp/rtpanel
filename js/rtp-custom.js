@@ -8,6 +8,8 @@
 jQuery(document).ready(function() {
     jQuery( 'input[type=submit]' ).css( 'cursor', 'pointer' );
     
+    jQuery('#footerbar .footerbar-widget:nth-child(3n+1)').css('border', '0');
+    
     /* added for search field default value */
     jQuery( '.search-text' ).blur( function() { if( this.value == '' ) this.value='Search Here...'; } );
     jQuery( '.search-text' ).focus( function() { if( this.value == 'Search Here...' ) this.value=''; } );
@@ -40,6 +42,14 @@ jQuery(document).ready(function() {
 });
 
 jQuery(window).load( function(){
+    
+    var sidebar_h = jQuery( '#sidebar' ).height();
+    var content_h = jQuery( '#content' ).height()*1 + jQuery('#content').css( 'padding-bottom' ).replace( 'px', '' )*1 + jQuery('#content').css( 'padding-top' ).replace( 'px', '' )*1 - ( jQuery( '#sidebar' ).css( 'padding-bottom' ).replace( 'px', '' )*1 + jQuery( '#sidebar' ).css( 'padding-bottom' ).replace( 'px', '' )*1 );
+    
+    if ( content_h > sidebar_h ) {
+        jQuery( '#sidebar' ).height( content_h );
+    }
+    
     var count = 0;
     var max = null;
     var id = new Array();

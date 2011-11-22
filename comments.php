@@ -115,7 +115,7 @@
         /*
          * Pingbacks and/or Trackbacks
          */
-        add_filter( 'get_comments_number', 'pingback_trackback_count', '', 2 );
+        add_filter( 'get_comments_number', 'pingback_trackback_count', 11, 2 );
         if ( $rtp_post_comments['comment_separate'] && get_comments_number() ) { ?>
                 <h3 class="rtp-comments-header"><span class="rtp-courly-bracket">{</span> <span class="count"><?php echo get_comments_number(); ?></span> <?php ( 1 == get_comments_number() ) ? _e( 'Trackback', 'rtPanel') : _e( 'Trackbacks', 'rtPanel' ); ?> <span class="rtp-courly-bracket">}</span></h3>
                 <ol id="trackbacks"><?php

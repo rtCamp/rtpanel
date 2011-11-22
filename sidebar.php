@@ -5,7 +5,6 @@
  * @package rtPanel
  * @since rtPanel 2.0
  */
-
 ?>
     <div id="sidebar">
         <?php rtp_hook_begin_sidebar(); ?>

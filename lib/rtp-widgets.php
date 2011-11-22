@@ -107,7 +107,7 @@ class rtp_subscribe_widget extends WP_Widget {
     function update( $new_instance, $old_instance ) {
         $instance = $old_instance;
         $instance['title'] = strip_tags ( $new_instance['title'] );
-        $instance['sub_link'] = esc_url_raw( $new_instance['sub_link'] );
+        $instance['sub_link'] = !empty( $new_instance['sub_link'] ) ? $new_instance['sub_link'] : '';
         $instance['rss_link'] = esc_url_raw( $new_instance['rss_link'] );
         $instance['twitter_link'] = esc_url_raw( $new_instance['twitter_link'] );
         $instance['facebook_link'] = esc_url_raw( $new_instance['facebook_link'] );

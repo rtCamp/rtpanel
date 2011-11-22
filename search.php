@@ -6,16 +6,14 @@
  * 
  * @since rtPanel 2.0
  */
+get_header(); ?>
 
-global $rtp_general; ?>
-
-<?php get_header(); ?>
-
-    <?php if ( !$rtp_general['search_code'] || !$rtp_general['search_layout'] ) get_sidebar(); ?>
-
-    <?php rtp_hook_begin_content(); ?>
+<?php global $rtp_general; ?>
 
     <div id="content" class="rtp-multiple-post<?php echo (  $rtp_general['search_code'] && $rtp_general['search_layout'] )?' search-layout-content':''; ?>"> <!-- content begins --><?php
+        
+        rtp_hook_begin_content();
+        
         if ( preg_match( '/customSearchControl.draw\(\'cse\'\);/i', @$rtp_general["search_code"] ) ) {
             // Breadcrumb Support
             if ( function_exists( 'bcn_display' ) ) {
@@ -37,8 +35,11 @@ global $rtp_general; ?>
             get_template_part( 'loop', 'common' );
         }
         ?>
-    </div><!-- #content -->
+        
+        <?php rtp_hook_end_content(); ?>
 
-    <?php rtp_hook_end_content(); ?>
+    </div><!-- #content -->
+    
+    <?php if ( !$rtp_general['search_code'] || !$rtp_general['search_layout'] ) get_sidebar(); ?>
 
 <?php get_footer(); ?>

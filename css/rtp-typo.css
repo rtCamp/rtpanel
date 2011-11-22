@@ -11,7 +11,7 @@
     Refer to developer.yahoo.com/yui/3/cssfonts/ for font sizing percentages
 */
 
-body { font-size: 13px; line-height: 150%; font-family: Georgia,"Times New Roman",Times,serif; }
+body { font-size: 13px; line-height: 150%; font-family: Georgia, "Times New Roman", Times, serif; }
 h1, h2, h3, h4, h5, h6 { font-weight: normal; letter-spacing: 1px; line-height: 136.4%; margin: 0; padding: 0; }
 
 /* Default Heading Style */

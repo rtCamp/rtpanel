@@ -111,12 +111,10 @@ add_action( 'wp_print_styles', 'rtp_custom_styles' );
  * @since rtPanel 2.0
  */
 function rtp_footer_scripts() { ?>
-    <!--[if lt IE 9]>
-        <script type="text/javascript" src="<?php echo RTP_JS_FOLDER_URL; ?>/rtp-custom-ie.js"></script>
-    <![endif]-->
     <!--[if lte IE 7]>
         <script type="text/javascript" src="<?php echo RTP_JS_FOLDER_URL; ?>/rtp-custom-ie7.js"></script>
     <![endif]-->
+    
     <!--[if IE 6]>
         <script type="text/javascript" src="<?php echo RTP_JS_FOLDER_URL; ?>/rtp-custom-ie6.js"></script>
     <![endif]--><?php

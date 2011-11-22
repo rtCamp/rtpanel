@@ -14,8 +14,9 @@ jQuery(document).ready(function() {
 
     /* Navigation Support */
     jQuery('li.current-menu-item > a').addClass('current-menu');
-    jQuery('#rtp-nav-menu ul ul li:first').css('border-top', '1px solid #DDDDDD');
-    jQuery('#rtp-nav-menu li:last').css('border-right', '1px solid #DDDDDD');
+    jQuery('ul#rtp-nav-menu li:first').css('border-left', '1px solid #DDD');
+    jQuery('#rtp-nav-menu ul li:first').css('border-left', '0');
+    jQuery('#rtp-nav-menu li:first').css('border-top', '1px solid #DDD');
         
     /* Footer Widgets Support */
     jQuery('#footerbar .footerbar-widget:last').css('border', 'none');
