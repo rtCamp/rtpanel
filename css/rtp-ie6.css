@@ -13,7 +13,7 @@ input { vertical-align: text-bottom; }
 .hentry { width: 610px; }
 .rtp-blog-post .sticky { width: 580px; }
 .post-content img { width: expression( this.width > 580 ? "580px" : true ); }
-.post-content .wp-caption { width: expression( this.width > 558 ? "558px" : true ); }
+.post-content .wp-caption { width: expression( this.width > 550 ? "550px" : true ); }
 .post-content .wp-caption img { width: expression( this.width > 535 ? "535px" : true ); }
 #rtp-nav-menu, #rtp-primary-menu { height:100%; position: relative; }
-#respond, .commentlist .comment .comment-body, .post-meta, div.comment-body, .rtp-post-comment-count, #content-wrapper, .hentry { height: 100%; }
+#respond, .commentlist .comment .comment-body, .post-meta, div.comment-body, .rtp-post-comment-count, #content-wrapper, .hentry, #footerbar, #footer { height: 100%; }
