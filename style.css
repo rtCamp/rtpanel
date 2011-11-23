@@ -53,11 +53,8 @@ code { padding: 0; }
     input[type="checkbox"] { vertical-align: bottom; }
 
     label, input[type=button], input[type=submit], button { cursor: pointer; }/* hand cursor on clickable input elements */
-
     button, input, select, textarea { margin: 0 0 4px; }/* for webkit browsers, add a 2px margin outside form elements */
-
     button { width: auto; overflow: visible; }/* make buttons play nice in IE: http://www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
-
     input { text-decoration: none; outline: none; }/* Disable Outline and Decoration for Input */
 
 /* Non-semantic helper classes */
@@ -110,13 +107,18 @@ body { background-color: #FFF; color: #111; font-size: 10px; }
         #content-wrapper { border-bottom: 3px double #DDD; clear: both; height: 100%; overflow: hidden; padding: 0 5px; position: relative; z-index: 10; }
             #content { float: left; padding: 0 0 40px; width: 615px; overflow: hidden; }
             #sidebar { border-left: 1px solid #DDD; float: right; padding: 12px 0 12px 9px; width: 315px; }
-    #footer-wrapper { clear: both; overflow: hidden; padding: 0 0 20px; position: relative; }
+        #footer-wrapper { clear: both; overflow: hidden; padding: 0 0 20px; position: relative; }
 
 /* Specific Page */
 #content-wrapper .full-width { width: 960px; }
 
 /* Default Colors */
 select, input, textarea { color: #111; }
+
+/* Default Fonts */
+.post-content { font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif; }
+.post-title, .rtp-edit-link,
+#respond form, select, input, textarea, button { font-family: Georgia, "Times New Roman", Times, serif; }
 
 /* Default Links */
 a, a:link, a:hover, a:active, a:visited { outline: none; }
@@ -211,7 +213,6 @@ h2 a, h2 a:visited, h2 a:active { color: #111; text-decoration: none; }
 
     /* Post Edit Style */
     .post-meta-top { position: relative; }
-    .rtp-edit-link { font-family: Georgia, "Times New Roman", Times, serif; }
     .post-meta-top .rtp-edit-link { bottom: 5px; clear: both; color: #888; font-style: normal; letter-spacing: 1px; position: absolute; left: 0; text-transform: uppercase; visibility: hidden; }
         .post-meta-top .rtp-edit-link a { border-bottom: 1px solid #EEE; color: #888; text-decoration: none; }
         .post-meta-top .rtp-edit-link a:hover { color: #111; text-decoration: none; }
@@ -219,9 +220,8 @@ h2 a, h2 a:visited, h2 a:active { color: #111; text-decoration: none; }
 /* Post Loop */
 .hentry { border-bottom: 1px dotted #BBB; clear: both; overflow: hidden; padding: 22px 0px 22px 5px; position: relative; }
 #post-0 .hentry { padding: 0 0 22px; }
-    .post-title { font-family: Georgia, "Times New Roman", Times, serif; }
     .rtp-main-title { border-bottom: 2px solid #DDD; height: 100%; overflow: hidden; padding: 22px 5px; }
-    .post-content { font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif; font-size: 140%; line-height: 171.5%; overflow: hidden; }
+    .post-content { font-size: 140%; line-height: 171.5%; overflow: hidden; }
         .post-content p { margin-bottom: 24px; }
         .post-content a { text-decoration: underline; }
         .post-content img { margin: 2px 5px; }
@@ -258,25 +258,25 @@ p.attachment img { margin: 10px 0; }
 .post-content .post-img-center { float: none; margin: 0 auto; text-align: center; display: block; }
     .post-content .post-img-center img { margin: 7px 10px 7px 10px; }
 .thumbnail-shadow { box-shadow: 1px 1px 5px #999; }
-#content .gallery { margin: 0 auto 18px; }
-    #content .gallery .gallery-item { float: left; margin-top: 0; text-align: center; width: 33%; }
-    #content .gallery img { border: 2px solid #CFCFCF; }
-    #content .gallery .gallery-caption { color: #888; font-size: 85.7%; margin: 0 0 12px; }
-    #content .gallery dl { margin: 0; }
-    #content .gallery img { border: 10px solid #F1F1F1; }
-    #content .gallery br+br { display: none; }
-#content .attachment img { display: block; margin: 0 auto; }
 
 /* Image Gallery */
-.gallery-icon .attachment-thumbnail { margin: 5px auto; }
-#gallery-1 .gallery-caption { margin: 0; padding: 0; }
-#gallery-1 .gallery-item dt { background: none; font-weight: normal; padding: 0; }
+#content .gallery { margin: 0 auto 18px; }
+    #content .gallery .gallery-item { float: left; margin-top: 0; text-align: center; width: 33%; }
+        #content .gallery img { border: 2px solid #CFCFCF; }
+        #content .gallery .gallery-caption { color: #888; font-size: 85.7%; margin: 0 0 12px; }
+        #content .gallery dl { margin: 0; }
+        #content .gallery img { border: 10px solid #F1F1F1; }
+        #content .gallery br+br { display: none; }
+    #content .attachment img { display: block; margin: 0 auto; }
+    .gallery-icon .attachment-thumbnail { margin: 5px auto; }
+    #gallery-1 .gallery-caption { margin: 0; padding: 0; }
+    #gallery-1 .gallery-item dt { background: none; font-weight: normal; padding: 0; }
 
 /* Search Form & Search Page */
 .searchform { overflow: hidden; }
     .searchform .search-text { padding: 3px; }
     #content .search-text { border: 1px double #666; font-size: 85%; margin: 0; padding: 3px 4px 4px; width: 30%; }
-    #content .searchsubmit { border: 1px solid #CCC; cursor: pointer; font-size: 13px; font-weight: bold; margin: 0; padding: 2px 7px; width: auto !important; }
+    #content .searchsubmit { border: 1px solid #CCC; cursor: pointer; font-size: 13px; font-weight: bold; margin: 0; padding: 2px 7px; width: auto; }
     #content .searchsubmit:hover { border: 1px solid #999; color: #000; }
 
 .search #main-wrapper .search-layout-wrapper { background: none; }
@@ -299,7 +299,6 @@ blockquote { border-left: 1px solid #DDD; color: #666; font-style: italic; margi
         .rtp-comments-pagination a { text-decoration: none; }
         .rtp-navigation a:hover,
         .rtp-comments-pagination a:hover { text-decoration: underline; }
-        .rtp-navigation span.georgia { font-family: georgia, serif; }
 
 .wp-pagenavi { clear: both; color: #444; margin: 15px 0 0; overflow: hidden; }
     .wp-pagenavi a,
@@ -340,9 +339,8 @@ blockquote { border-left: 1px solid #DDD; color: #666; font-style: italic; margi
 
                 ol.commentlist li.trackback,
                 ol.commentlist li.pingback { border-bottom: 1px solid #EAEAEA; overflow: hidden; padding: 0 0 15px; }
-
-                ol.commentlist li.trackback em,
-                ol.commentlist li.pingback em { padding: 0 0 0 5px; color: #666; font-size: 71.4%; }
+                    ol.commentlist li.trackback em,
+                    ol.commentlist li.pingback em { padding: 0 0 0 5px; color: #666; font-size: 71.4%; }
 
     /* Admin Comments */
     li.comment-author-admin > .comment-body,
@@ -356,7 +354,7 @@ blockquote { border-left: 1px solid #DDD; color: #666; font-style: italic; margi
     #respond { border-bottom: 3px double #CCC; clear: both; margin: 0 0 30px; overflow: hidden; padding: 10px 0 5px; }
         #respond h3 { color: #555; font-size: 17px; overflow: hidden; padding: 0 0 11px; }
             #respond h3 small { font-size: 11px; }
-        #respond form { border-top: 1px dotted #BBB; clear: both; font-family: Georgia,"Times New Roman", Times, serif; font-size: 14px; line-height: 180%; padding: 11px 0; }
+        #respond form { border-top: 1px dotted #BBB; clear: both; font-size: 14px; line-height: 180%; padding: 11px 0; }
             #respond p { margin: 0 0 14px; overflow: hidden; }
             #respond p.compact-comment-form { float: left; width:33%; }
             #respond p.comment-notes { margin-bottom: 11px; }
@@ -372,10 +370,10 @@ blockquote { border-left: 1px solid #DDD; color: #666; font-style: italic; margi
             #respond input:focus,
             #respond textarea:focus { background: #FFF; border: 1px solid #CCC; }
             #respond .comment-form-comment { clear: both; font-size: 12px; margin: 0 0 14px; }
-            #respond input { color: #444; font-family: Georgia, serif; font-size: 14px; margin: 0; padding: 4px; width: 45%; }
+            #respond input { color: #444; font-size: 14px; margin: 0; padding: 4px; width: 45%; }
             #respond p.compact-comment-form input { width: 90%; }
-            #respond textarea { color: #444; font-family: Georgia, serif; font-size: 100%; margin: 0; padding: 4px; width: 96%; }
-            #respond #submit { border: 1px solid #CCC; font-size: 13px; font-weight: bold; padding: 5px 7px; width: auto !important; }
+            #respond textarea { color: #444; font-size: 100%; margin: 0; padding: 4px; width: 96%; }
+            #respond #submit { border: 1px solid #CCC; font-size: 13px; font-weight: bold; padding: 5px 7px; width: auto; }
             #respond .form-submit { clear:both; }
             #respond .submit-over,
             #respond #submit:hover { border: 1px solid #999; color: #000; }
@@ -447,7 +445,6 @@ blockquote { border-left: 1px solid #DDD; color: #666; font-style: italic; margi
             .rtp-subscribe-widget-container .social-icons li a.stumbleupon { background-position: -473px 0; }
 
     /* Sidebar Form Elements */
-    .widget input { font-family: Georgia, serif; }
     .widget select { border-color: #AAA #DDD #DDD #AAA; border-style: solid; border-width: 1px; outline: none; width: 95%; }
     .widget input.search-text,
     .widget input.email { background: #EEE; border-color: #AAA #DDD #DDD #AAA; border-style: solid; border-width: 1px; color: #444; font-size: 100%; margin: 0; padding: 4px; width: 92%; }
@@ -466,8 +463,8 @@ blockquote { border-left: 1px solid #DDD; color: #666; font-style: italic; margi
         #footerbar ul ol,
         #footerbar ol ol
         #footerbar ol ul { margin: 0 0 0 22px; padding: 0; }
-    #footerbar li { padding: 0 0 9px; }
-        #footerbar li li { padding: 9px 0 0; }
+            #footerbar li { padding: 0 0 9px; }
+                #footerbar li li { padding: 9px 0 0; }
 
 /* Copyrights */
 #footer { color: #888; font-size: 130%; height: 100%; overflow: hidden; padding: 20px 5px 0; text-align: right; }
