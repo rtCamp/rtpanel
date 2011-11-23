@@ -44,10 +44,12 @@ jQuery(document).ready(function() {
 jQuery(window).load( function(){
     
     var sidebar_h = jQuery( '#sidebar' ).height();
-    var content_h = jQuery( '#content' ).height()*1 + jQuery('#content').css( 'padding-bottom' ).replace( 'px', '' )*1 + jQuery('#content').css( 'padding-top' ).replace( 'px', '' )*1 - ( jQuery( '#sidebar' ).css( 'padding-bottom' ).replace( 'px', '' )*1 + jQuery( '#sidebar' ).css( 'padding-bottom' ).replace( 'px', '' )*1 );
+    if( sidebar_h != undefined ) {
+        var content_h = jQuery( '#content' ).height()*1 + jQuery('#content').css( 'padding-bottom' ).replace( 'px', '' )*1 + jQuery('#content').css( 'padding-top' ).replace( 'px', '' )*1 - ( jQuery( '#sidebar' ).css( 'padding-bottom' ).replace( 'px', '' )*1 + jQuery( '#sidebar' ).css( 'padding-bottom' ).replace( 'px', '' )*1 );
     
-    if ( content_h > sidebar_h ) {
-        jQuery( '#sidebar' ).height( content_h );
+        if ( content_h > sidebar_h ) {
+            jQuery( '#sidebar' ).height( content_h );
+        }
     }
     
     var count = 0;
