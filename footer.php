@@ -23,7 +23,7 @@ global $rtp_general; ?>
                             dynamic_sidebar('footer-widgets');
                         } else { // Default Widgets ( Fallback ) ?>
                             <div class="widget footerbar-widget"><h3 class="widgettitle"><?php _e( 'Archives', 'rtPanel' ); ?></h3><ul><?php wp_get_archives( array( 'type' => 'monthly' ) ); ?></ul></div>
-                            <div class="widget footerbar-widget"><h3 class="widgettitle"><?php _e( 'Tag Cloud', 'rtPanel' ); ?></h3> <?php wp_tag_cloud(); ?> </div>
+                            <div class="widget footerbar-widget"><h3 class="widgettitle"><?php _e( 'Tags', 'rtPanel' ); ?></h3><div class="tagcloud"><?php wp_tag_cloud(); ?></div></div>
                             <div class="widget footerbar-widget"><h3 class="widgettitle"><?php _e( 'Meta', 'rtPanel' ); ?></h3><ul><?php wp_register(); ?><li><?php wp_loginout(); ?></li><?php wp_meta(); ?></ul></div><?php
                         } ?>
                     </div><!-- #footerbar -->

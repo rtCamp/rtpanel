@@ -109,16 +109,16 @@ body { background-color: #FFF; color: #111; font-size: 10px; }
             #sidebar { border-left: 1px solid #DDD; float: right; padding: 12px 0 12px 9px; width: 315px; }
         #footer-wrapper { clear: both; overflow: hidden; padding: 0 0 20px; position: relative; }
 
-/* Specific Page */
+/* Specific Pages */
 #content-wrapper .full-width { width: 960px; }
 
 /* Default Colors */
 select, input, textarea { color: #111; }
 
 /* Default Fonts */
-.post-content { font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif; }
-.post-title, .rtp-edit-link,
-#respond form, select, input, textarea, button { font-family: Georgia, "Times New Roman", Times, serif; }
+.post-content, .widget,
+#respond form, select, input, textarea, button { font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif; }
+.post-title, .rtp-edit-link, .widgettitle { font-family: Georgia, "Times New Roman", Times, serif; }
 
 /* Default Links */
 a, a:link, a:hover, a:active, a:visited { outline: none; }
@@ -128,11 +128,10 @@ a:hover { color: #D54E21; text-decoration: underline; }
 /* Heading Links */
 h1 a, h1 a:visited, h1 a:active,
 h2 a, h2 a:visited, h2 a:active { color: #111; text-decoration: none; }
-    h1 a:hover,
-    h2 a:hover { color: #2361A1; text-decoration: none; }
+h1 a:hover, h2 a:hover { color: #2361A1; text-decoration: none; }
 
-    /* Post Heading Style */
-    .post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 { margin: 0 0 12px; }
+/* Post Heading Style */
+.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 { margin: 0 0 12px; }
 
 /* Read More Links */
 .post-content .rtp-readmore { color: #7B7B7B; font-size: 85.7%; font-style: normal; padding: 0 2px; text-decoration: none; }
@@ -147,8 +146,7 @@ h2 a, h2 a:visited, h2 a:active { color: #111; text-decoration: none; }
 
 /* Navigation */
 #rtp-primary-menu { clear: both; }
-#rtp-nav-menu,
-#rtp-nav-menu ul { list-style: none; margin: 0; }
+#rtp-nav-menu, #rtp-nav-menu ul { list-style: none; margin: 0; }
 #rtp-nav-menu { border-bottom: 3px double #DDD; float: left; width: 100%; }
     #rtp-nav-menu li { border-top: 1px solid #DDD; border-right: 1px solid #DDD; border-bottom: 0; float: left; list-style: none; position: relative; }
     ul#rtp-nav-menu li:first-child { border-left: 1px solid #DDD; }
@@ -161,7 +159,7 @@ h2 a, h2 a:visited, h2 a:active { color: #111; text-decoration: none; }
     #rtp-nav-menu ul { border-left: 1px solid #DDD; border-right: 1px solid #DDD; display: none; position: absolute; top: 34px; left: 0; float: left; width: 180px; z-index: 999; }
         #rtp-nav-menu ul li { border-bottom: 1px solid #DDD; border-right: 0; border-top: 0; min-width: 180px; }
         #rtp-nav-menu ul li:first-child { border-left: 0; }
-        #rtp-nav-menu ul ul { left: 100%; top: -1px; }
+            #rtp-nav-menu ul ul { left: 100%; top: -1px; }
             #rtp-nav-menu li:first-child { border-top: 1px solid #DDD; }
 
 /* Submenu Links */
@@ -186,7 +184,6 @@ h2 a, h2 a:visited, h2 a:active { color: #111; text-decoration: none; }
     .post-meta span { font-style: normal; letter-spacing: 1px; text-transform: uppercase; }
     .rtp-courly-bracket { color: #CCC; line-height: 22px; }
     .post-meta .rtp-courly-bracket { font-size: 220%; }
-    .post-meta div.alignleft, .post-meta div.alignright { width: 45%; }
 
     /* Post Author and Date */
     .post-meta .post-publish { font-size: 110%; width: 76%; }
@@ -359,27 +356,25 @@ blockquote { border-left: 1px solid #DDD; color: #666; font-style: italic; margi
             #respond p.compact-comment-form { float: left; width:33%; }
             #respond p.comment-notes { margin-bottom: 11px; }
             #respond .subscribe-to-comments { line-height: 14px; }
-            #respond label { color: #111; padding: 0 0 0 11px; }
-            #respond p.compact-comment-form label { padding-left: 0; }
-            #respond .required { color: #DD0000; }
-            #respond .comment-form-author,
-            #respond .comment-form-email,
-            #respond .comment-form-url { font-size: 14px; line-height: 22px; margin-bottom: 14px; text-align: left; }
-            #respond input,
-            #respond textarea { background: #EEE; border: 1px solid #DDD; }
-            #respond input:focus,
-            #respond textarea:focus { background: #FFF; border: 1px solid #CCC; }
-            #respond .comment-form-comment { clear: both; font-size: 12px; margin: 0 0 14px; }
-            #respond input { color: #444; font-size: 14px; margin: 0; padding: 4px; width: 45%; }
-            #respond p.compact-comment-form input { width: 90%; }
-            #respond textarea { color: #444; font-size: 100%; margin: 0; padding: 4px; width: 96%; }
-            #respond #submit { border: 1px solid #CCC; font-size: 13px; font-weight: bold; padding: 5px 7px; width: auto; }
-            #respond .form-submit { clear:both; }
-            #respond .submit-over,
-            #respond #submit:hover { border: 1px solid #999; color: #000; }
-            #respond small a { color: #DD0000; padding-left: 10px; text-transform: uppercase; }
-            #respond small a:hover { color: #AC0000; text-decoration: none; }
-            #respond .form-allowed-tags { background: #FAFAFA; border: 1px solid #DDD; color: #666; font-size: 11px; line-height: 150%; margin: 0 0 14px; padding: 4px; width: 96%; }
+                #respond label { color: #111; padding: 0 0 0 11px; }
+                #respond p.compact-comment-form label { padding-left: 0; }
+                #respond .required { color: #DD0000; }
+                #respond .comment-form-author,
+                #respond .comment-form-email,
+                #respond .comment-form-url { font-size: 14px; line-height: 22px; margin-bottom: 14px; text-align: left; }
+                #respond input, #respond textarea { background: #EEE; border: 1px solid #DDD; }
+                #respond input:focus, #respond textarea:focus { background: #FFF; border: 1px solid #CCC; }
+                #respond .comment-form-comment { clear: both; font-size: 12px; margin: 0 0 14px; }
+                #respond input { color: #444; font-size: 14px; margin: 0; padding: 4px; width: 45%; }
+                #respond p.compact-comment-form input { width: 90%; }
+                #respond textarea { color: #444; font-size: 100%; margin: 0; padding: 4px; width: 96%; }
+                #respond #submit { border: 1px solid #CCC; font-size: 13px; font-weight: bold; padding: 5px 7px; width: auto; }
+                #respond .form-submit { clear:both; }
+                #respond .submit-over,
+                #respond #submit:hover { border: 1px solid #999; color: #000; }
+                #respond small a { color: #DD0000; padding-left: 10px; text-transform: uppercase; }
+                #respond small a:hover { color: #AC0000; text-decoration: none; }
+                #respond .form-allowed-tags { background: #FAFAFA; border: 1px solid #DDD; color: #666; font-size: 11px; line-height: 150%; margin: 0 0 14px; padding: 4px; width: 96%; }
 
     /* Trackback Comments */
     #trackbacks { font-size: 140%; }
@@ -420,10 +415,6 @@ blockquote { border-left: 1px solid #DDD; color: #666; font-style: italic; margi
                 .widget_calendar table .pad { text-align: center; }
                 .widget_calendar table #next { text-align: right; }
                 .widget_calendar table #today { font-weight: bold; }
-                .widget_calendar table #prev a:hover,
-                .widget_calendar table .pad a:hover,
-                .widget_calendar table #next a:hover,
-                .widget_calendar table #today a:hover { background: #EFEFEF; text-decoration: none; }
 
     /* Tag Cloud Widget */
     .tagcloud a { line-height: 25px; }
@@ -431,7 +422,7 @@ blockquote { border-left: 1px solid #DDD; color: #666; font-style: italic; margi
     /* Subscribe Widget */
     .rtp-subscribe-widget-container .social-icons { clear: both; margin: 10px auto 0; overflow: hidden; }
         .rtp-subscribe-widget-container .email-subscription-container p { margin: 0 0 10px; }
-            .rtp-subscribe-widget-container .email-subscription-container p .email { color: #666; margin: 0; padding: 4px; width: 92%; }
+            .rtp-subscribe-widget-container .email-subscription-container p .email { color: #666; margin: 5px 0 0; padding: 4px; width: 92%; }
             .rtp-subscribe-widget-container .email-subscription-container p .btn { display: none; font-size: 80%; margin: 0; padding: 0 5px; width: 22%; }
 
     .rtp-subscribe-widget-container .stay-connected { clear: both; font-weight: normal; padding: 5px 0 0; }
@@ -459,17 +450,16 @@ blockquote { border-left: 1px solid #DDD; color: #666; font-style: italic; margi
         #footerbar .footerbar-widget:nth-child(3n+1){ border: 0; }
         
     #footerbar ul { margin: 0 0 0 20px; padding: 0; }
-        #footerbar ul ul,
-        #footerbar ul ol,
-        #footerbar ol ol
-        #footerbar ol ul { margin: 0 0 0 22px; padding: 0; }
+        #footerbar ul ul, #footerbar ul ol,
+        #footerbar ol ol, #footerbar ol ul { margin: 0 0 0 22px; padding: 0; }
             #footerbar li { padding: 0 0 9px; }
                 #footerbar li li { padding: 9px 0 0; }
 
 /* Copyrights */
 #footer { color: #888; font-size: 130%; height: 100%; overflow: hidden; padding: 20px 5px 0; text-align: right; }
-    #footer a { color: #888; border-bottom: 1px solid #CCC; }
-    #footer a:hover { color: #666; text-decoration: none; }
+    #footer p { margin-bottom: 5px; }
+        #footer a { color: #888; border-bottom: 1px solid #CCC; }
+        #footer a:hover { color: #666; text-decoration: none; }
 
 /* Misc. */
 .info, .success, .warning, .error { border: 1px solid; font-weight: bold; margin: 10px 0; padding: 5px 10px; }
