@@ -111,3 +111,31 @@ function rtp_readmore_braces($text) {
    return '<span class="rtp-courly-bracket">[ </span>'. $text .'<span class="rtp-courly-bracket"> ]</span>';
 }
 add_filter( 'rtp_readmore', 'rtp_readmore_braces' );
+
+/**
+ * Adds breadcrumb support to the theme.
+ *
+ * @since rtPanel 2.1
+ */
+function rtp_breadcrumb_support($text) { 
+   // Breadcrumb Support
+    if ( function_exists( 'bcn_display' ) ) {
+        echo '<div class="breadcrumb">';
+            bcn_display();
+        echo '</div>';
+    }
+}
+add_action( 'rtp_hook_begin_content', 'rtp_breadcrumb_support' );
+
+/**
+ * Adds Site Description
+ *
+ * @since rtPanel 2.1
+ */
+function rtp_blog_description(){
+    if ( get_bloginfo( 'description' ) ) { ?>
+            <h2 class="tagline"><?php bloginfo( 'description' ); ?></h2>
+    <?php }
+}
+add_action( 'rtp_hook_after_logo', 'rtp_blog_description' );
+

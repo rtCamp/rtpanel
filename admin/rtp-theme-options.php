@@ -77,13 +77,12 @@ class rtp_theme {
      * @since rtPanel 2.0
      **/
     function rtp_init() {
+        global $current_user;
         $tab = isset($_GET['page'] )  ? $_GET['page'] : "rtp_general";
-        $blog_users = get_users();
-        foreach ( $blog_users as $blog_user ) {
-            $blog_user_id = $blog_user->ID;
-            if ( !get_user_meta( $blog_user_id, 'screen_layout_appearance_page_' . $tab ) ) {
-                update_user_meta( $blog_user_id, 'screen_layout_appearance_page_' . $tab, 1, NULL );
-            }
+        get_currentuserinfo();
+        $user_id = $current_user->ID;
+        if ( !get_user_meta( $user_id, 'screen_layout_appearance_page_' . $tab, true ) ) {
+            update_user_meta( $user_id, 'screen_layout_appearance_page_' . $tab, 1, NULL );
         }
     }
 

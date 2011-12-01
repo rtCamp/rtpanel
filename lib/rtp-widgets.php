@@ -9,7 +9,7 @@
  */
 
 /**
- * Custom Widget for RSS Subscription and Social Share
+ * Custom Widget for FeedBurner RSS Subscription and Social Share
  *
  * @since rtPanel 2.0
  */
@@ -152,16 +152,17 @@ class rtp_subscribe_widget extends WP_Widget {
         $rt_show_myspace = isset( $instance['rt_show_myspace'] ) ? (bool) $instance['rt_show_myspace'] :false;
         $rt_show_stumbleupon = isset( $instance['rt_show_stumbleupon'] ) ? (bool) $instance['rt_show_stumbleupon'] :false;
         $rt_link_target = isset( $instance['rt_link_target'] ) ? (bool) $instance['rt_link_target'] :false; ?>
-
+        
         <p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title', 'rtPanel' ); ?>: </label><input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" /></p>
-        <p><strong><?php _e( 'RSS Subscribe', 'rtPanel' ); ?>: </strong></p><small>(<?php _e( 'Check to display. If checked value should not be empty.', 'rtPanel' ); ?>)</small>
+        <span class="description">(<?php _e( 'Check to display the options. If checked, the value should not be empty.', 'rtPanel' ); ?>)</span><br /><br />
+        <p><strong><?php _e( 'FeedBurner RSS Subscription', 'rtPanel' ); ?>: </strong></p>
         <p>
             <input type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_subscription' ); ?>" id="<?php echo $this->get_field_id( 'rt_show_subscription' ); ?>" <?php checked( $rt_show_subscription ); ?> />
-            <label for="<?php echo $this->get_field_id( 'rt_show_subscription' ); ?>"><?php _e( 'RSS Subscription', 'rtPanel' ); ?> <abbr title="<?php _e( 'Uniform Resource Identifier', 'rtPanel' ); ?>"><?php _e( ' URI', 'rtPanel' ); ?></abbr>: </label>
+            <label for="<?php echo $this->get_field_id( 'rt_show_subscription' ); ?>"><?php _e( 'Feedburner Subscription Handler', 'rtPanel' ); ?>: </label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'sub_link' ); ?>" name="<?php echo $this->get_field_name( 'sub_link' ); ?>" type="text" value="<?php echo esc_attr( $sub_link ); ?>" />
+            <span class="description"><?php printf( __( 'Ex: %s', 'rtPanel' ), 'http://feeds.feedburner.com/<code>rtpanel</code>' ); ?></span>
         </p>
         <p><strong><?php _e( 'Social Share', 'rtPanel' ); ?>:</strong></p>
-        <small>(<?php _e( 'Check to display', 'rtPanel' ); ?>)</small>
         <p>
             <input type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_rss' ); ?>" id="<?php echo $this->get_field_id( 'rt_show_rss' ); ?>" <?php checked( $rt_show_rss ); ?> />
             <label for="<?php echo $this->get_field_id( 'rt_show_rss' ); ?>"><?php _e( 'RSS Feed Link', 'rtPanel' ); ?>: </label>
@@ -353,8 +354,8 @@ class rtp_comments_widget extends WP_Widget {
         <p>
             <label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php _e( 'Show Comments', 'rtPanel' ); ?>: </label>
             <input class="widefat show-comments" id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" type="text" value="<?php echo $count; ?>" />
+            <span class="description"><?php printf( __( 'You have total \'%d\' comments to display', 'rtPanel' ) , $comment_total ); ?></span>
         </p>
-        <div style='color: #444444; font-size: 11px; padding: 0 0 12px;'><?php printf( __( 'You have total \'%d\' comments to display', 'rtPanel' ) , $comment_total ); ?></div>
         <p>
             <label for="<?php echo $this->get_field_id( 'alternative' ); ?>"><?php _e( 'Show Alternate Comments', 'rtPanel' ); ?>: </label>
             <input class="alternate" id="<?php echo $this->get_field_id( 'alternative' ); ?>" name="<?php echo $this->get_field_name( 'alternative' ); ?>" type="checkbox" <?php checked( $alternative ); ?> />
@@ -411,7 +412,6 @@ class rtp_category_widget extends WP_Widget {
         echo $before_widget;
             if ( $title )
                 echo $before_title . $title . $after_title;
-            //$total_category = count( get_categories() );
 
                 if ( $showstyle == 'list' ) {
                     echo '<ul>';
@@ -504,8 +504,8 @@ class rtp_category_widget extends WP_Widget {
         </p>
         <p style="overflow: hidden;">
             <label for="<?php echo $this->get_field_id( 'show_cat' ); ?>" style="display: block;float: left;padding: 3px 0 0;"><?php _e( 'Show Category', 'rtPanel' ); ?>:</label>
-            <input class="widefat show-cat" id="<?php echo $this->get_field_id( 'show_cat' ); ?>" name="<?php echo $this->get_field_name( 'show_cat' ); ?>" type="text" value="<?php echo $show_cat; ?>" style="clear: right; float: right; width: 120px;" />
-            <span style="clear: both; display: block; color: #444444; font-size: 11px; padding: 5px 0 0;"><?php _e( 'Total Categories', 'rtPanel' ); ?>: <?php echo count( get_categories() ); ?></span>
+            <input class="widefat show-cat" id="<?php echo $this->get_field_id( 'show_cat' ); ?>" name="<?php echo $this->get_field_name( 'show_cat' ); ?>" type="text" value="<?php echo $show_cat; ?>" style="float: right; clear: right; width: 120px;" /><div class="clear"></div>
+            <span class="description"><?php _e( 'Total Categories', 'rtPanel' ); ?>: <?php echo count( get_categories() ); ?></span>
         </p>
         <p style="overflow: hidden;">
             <label for="<?php echo $this->get_field_id( 'showstyle' ); ?>" style="display: block;float: left;padding: 3px 0 0;"><?php _e( 'Style', 'rtPanel' ); ?>: </label>
@@ -516,8 +516,8 @@ class rtp_category_widget extends WP_Widget {
         </p>
         <p style="overflow: hidden;">
             <label for="<?php echo $this->get_field_id( 'exclude' ); ?>" style="display: block; float: left; padding: 3px 0 0;"><?php _e( 'Exclude', 'rtPanel' ); ?>:</label>
-            <input class="widefat exclude" id="<?php echo $this->get_field_id( 'exclude' ); ?>" name="<?php echo $this->get_field_name( 'exclude' ); ?>" type="text" value="<?php echo $exclude; ?>" style="float: right; clear: right; margin: 0 0 0 3px; width: 120px;" /><br />
-            <span style="clear: both; display: block; color: #444444; font-size: 11px; padding: 5px 0 0;"><?php _e( 'Separate Category ID with ","', 'rtPanel' ); ?>: <br />eg. 1,5,15</span>
+            <input class="widefat exclude" id="<?php echo $this->get_field_id( 'exclude' ); ?>" name="<?php echo $this->get_field_name( 'exclude' ); ?>" type="text" value="<?php echo $exclude; ?>" style="float: right; clear: right; margin: 0 0 0 3px; width: 120px;" /><div class="clear"></div>
+            <span class="description"><?php _e( 'Separate Category ID with ","', 'rtPanel' ); ?><br /><?php _e( 'Ex: 1,5,15' ); ?></span>
         </p>
         <p style="overflow: hidden;">
             <input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id('hierarchical'); ?>" name="<?php echo $this->get_field_name('hierarchical'); ?>"<?php checked( $hierarchical ); ?> />

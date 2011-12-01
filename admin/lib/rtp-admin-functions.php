@@ -977,9 +977,9 @@ function rtp_contextual_help( $contextual_help, $screen_id, $screen ) {
             $contextual_help .= '</p><p>';
             $contextual_help .= __( '<strong>FeedBurner Settings:</strong> You can specify your FeedBurner URL from this setting to redirect your feeds.', 'rtPanel' );
             $contextual_help .= '</p><p>';
-            $contextual_help .= __( '<strong>Google Custom Search Element Code:</strong> You can specify Google Custom Search Code here to use Google Search instead of default WordPress search.', 'rtPanel' );
+            $contextual_help .= __( '<strong>Google Custom Search Integration:</strong> You can specify the Google Custom Search Code here to harness the power of Google Search instead of the default WordPress search. You also have the option of rendering the Google Search Page without the sidebar.', 'rtPanel' );
             $contextual_help .= '</p><p>';
-            $contextual_help .= __( '<strong>Misc Settings:</strong> Tweak options like the footer sidebar, header image width and height.', 'rtPanel' );
+            $contextual_help .= __( '<strong>Sidebar Settings:</strong> Enable / Disable the Footer Sidebar from here.', 'rtPanel' );
             $contextual_help .= '</p><p>';
             $contextual_help .= __( '<strong>Custom Styles:</strong> You can specify your own CSS styles in this option to override the default Style.', 'rtPanel' );
             $contextual_help .= '</p><p>';
@@ -1009,7 +1009,7 @@ function rtp_contextual_help( $contextual_help, $screen_id, $screen ) {
             $contextual_help .= '</p><p>';
             $contextual_help .= __( '<strong>Post Summaries Options:</strong> You can specify the different excerpt parameters like word count etc.', 'rtPanel' );
             $contextual_help .= '</p><p>';
-            $contextual_help .= __( '<strong>Post Thumbnail Options:</strong> This specify the post thumbnail options like position, size etc.', 'rtPanel' );
+            $contextual_help .= __( '<strong>Post Thumbnail Options:</strong> You can specify the post thumbnail options like position, size etc.', 'rtPanel' );
             $contextual_help .= '<br />';
             $contextual_help .= __( '<small><strong><em>NOTE:</em></strong> If you use this option to change height or width of the thumbnail, then please use Regenerate Thumbnails Plugin to apply the new dimension settings to your thumbnails.</small>', 'rtPanel' );
             $contextual_help .= '</p><p>';

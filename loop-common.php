@@ -9,13 +9,6 @@
 
     global $rtp_post_comments;
 
-    // Breadcrumb Support
-    if ( function_exists( 'bcn_display' ) ) {
-        echo '<div class="breadcrumb">';
-            bcn_display();
-        echo '</div>';
-    }
-
     /* Archive Page Titles */
     if ( is_search() ) { ?>
         <div class="post-title rtp-main-title"><h1><?php printf( __( 'Search Results for: %s', 'rtPanel' ), '<span>' . get_search_query() . '</span>' ); ?></h1></div><?php
@@ -32,22 +25,6 @@
     } elseif ( get_query_var( 'author_name' ) ) {
         $cur_auth = get_user_by( 'slug', get_query_var( 'author_name' ) ); ?>
         <div class="post-title rtp-main-title"><h1><?php printf( __( 'Author: %s', 'rtPanel' ), '<span>' . trim( ucfirst( $cur_auth->display_name ) ) . '</span>' ); ?></h1></div><?php
-    }
-
-    /* If there are no posts to display */
-    if ( ! have_posts() ) { ?>
-        <div id="post-0" <?php post_class('rtp-post-box'); ?>>
-            <div class="hentry rtp-not-found">
-                <?php rtp_hook_begin_post(); ?>
-
-                <div class="post-content">
-                    <p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'rtPanel' ); ?></p>
-                    <?php get_search_form(); ?>
-                </div>
-
-                <?php rtp_hook_end_post();  ?>
-            </div>
-        </div><!-- #post-0 --><?php
     }
 
     /* the loop */
@@ -99,8 +76,8 @@
             /* Post Pagination */
             if ( is_single() ) { ?>
                 <div class="rtp-navigation clearfix">
-                    <div class="alignleft"><?php previous_post_link( '%link', '&larr; %title' ); ?></div>
-                    <div class="alignright"><?php next_post_link( '%link', '%title &rarr;' ); ?></div>
+                    <div class="alignleft"><?php previous_post_link( '%link', __( '&larr; %title' ) ); ?></div>
+                    <div class="alignright"><?php next_post_link( '%link', __( '%title &rarr;' ) ); ?></div>
                 </div><!-- .rtp-navigation --><?php
             }
 
@@ -114,9 +91,23 @@
                 wp_pagenavi();
             } elseif ( get_next_posts_link() || get_previous_posts_link() ) { ?>
                 <div class="rtp-navigation clearfix">
-                    <div class="alignleft"><?php next_posts_link( '&larr; Older Entries' ); ?></div>
-                    <div class="alignright"><?php previous_posts_link( 'Newer Entries &rarr;' ); ?></div>
+                    <div class="alignleft"><?php next_posts_link( __( '&larr; Older Entries' ) ); ?></div>
+                    <div class="alignright"><?php previous_posts_link( __( 'Newer Entries &rarr;' ) ); ?></div>
                 </div><!-- .rtp-navigation --><?php
             }
         }
+    } else {
+        /* If there are no posts to display */ ?>
+        <div id="post-0" <?php post_class('rtp-post-box'); ?>>
+            <div class="hentry rtp-not-found">
+                <?php rtp_hook_begin_post(); ?>
+
+                <div class="post-content">
+                    <p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'rtPanel' ); ?></p>
+                    <?php get_search_form(); ?>
+                </div>
+
+                <?php rtp_hook_end_post();  ?>
+            </div>
+        </div><!-- #post-0 --><?php
     } ?>

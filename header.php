@@ -49,8 +49,6 @@
                         <p class="rtp-site-logo"><a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name' ); ?>"><?php echo ( $rtp_general['logo_show'] ) ? '<img alt="' . get_bloginfo( 'name' ) . '" src="' . rtp_logo_fav_src('logo') . '" />' : get_bloginfo( 'name' ); ?></a></p>
                     <?php } ?>
 
-                    <?php if ( get_bloginfo( 'description' ) ) { ?><h2 class="tagline"><?php bloginfo( 'description' ); ?></h2><?php } ?>
-                    
                     <?php rtp_hook_after_logo(); ?>
 
                     <div class="clear"></div>

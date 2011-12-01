@@ -14,13 +14,7 @@ get_header(); ?>
         
         rtp_hook_begin_content();
         
-        if ( preg_match( '/customSearchControl.draw\(\'cse\'\);/i', @$rtp_general["search_code"] ) ) {
-            // Breadcrumb Support
-            if ( function_exists( 'bcn_display' ) ) {
-                echo '<div class="breadcrumb">';
-                    bcn_display();
-                echo '</div>';
-            } ?>
+        if ( preg_match( '/customSearchControl.draw\(\'cse\'\);/i', @$rtp_general["search_code"] ) ) { ?>
 
             <div class="post-title rtp-main-title">
                 <h1><?php printf( __( 'Search Results for: %s', 'rtPanel' ), '<span>' . get_search_query() . '</span>' ); ?></h1>

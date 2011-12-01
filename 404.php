@@ -8,15 +8,8 @@
  */
 get_header(); ?>
 
-    <div id="content" class="rtp-home-posts"><?php
-            rtp_hook_begin_content();
-            
-            // Breadcrumb Support
-            if ( function_exists( 'bcn_display' ) ) {
-                echo '<div class="breadcrumb">';
-                    bcn_display();
-                echo '</div>';
-            } ?>
+    <div id="content" class="rtp-home-posts">
+        <?php rtp_hook_begin_content();?>
 
         <div id="post-0" <?php post_class('rtp-post-box'); ?>>
             <div class="hentry rtp-not-found">
