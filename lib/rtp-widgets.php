@@ -154,13 +154,12 @@ class rtp_subscribe_widget extends WP_Widget {
         $rt_link_target = isset( $instance['rt_link_target'] ) ? (bool) $instance['rt_link_target'] :false; ?>
         
         <p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title', 'rtPanel' ); ?>: </label><input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" /></p>
-        <span class="description">(<?php _e( 'Check to display the options. If checked, the value should not be empty.', 'rtPanel' ); ?>)</span><br /><br />
         <p><strong><?php _e( 'FeedBurner RSS Subscription', 'rtPanel' ); ?>: </strong></p>
         <p>
             <input type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_subscription' ); ?>" id="<?php echo $this->get_field_id( 'rt_show_subscription' ); ?>" <?php checked( $rt_show_subscription ); ?> />
             <label for="<?php echo $this->get_field_id( 'rt_show_subscription' ); ?>"><?php _e( 'Feedburner Subscription Handler', 'rtPanel' ); ?>: </label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'sub_link' ); ?>" name="<?php echo $this->get_field_name( 'sub_link' ); ?>" type="text" value="<?php echo esc_attr( $sub_link ); ?>" />
-            <span class="description"><?php printf( __( 'Ex: %s', 'rtPanel' ), 'http://feeds.feedburner.com/<code>rtpanel</code>' ); ?></span>
+            <span class="description"><?php printf( __( 'Ex: %s would be the FeedBurner Subscription Handler for %s', 'rtPanel' ), '<strong><code>rtpanel</code></strong>', '<code>http://feeds.feedburner.com/<strong>rtpanel</strong></code>' ); ?></span>
         </p>
         <p><strong><?php _e( 'Social Share', 'rtPanel' ); ?>:</strong></p>
         <p>
@@ -195,7 +194,7 @@ class rtp_subscribe_widget extends WP_Widget {
         </p>
         <p>
             <input class="link_target" id="<?php echo $this->get_field_id( 'rt_link_target' ); ?>" name="<?php echo $this->get_field_name( 'rt_link_target' ); ?>" type="checkbox" <?php checked( $rt_link_target ); ?> />
-            <label for="<?php echo $this->get_field_id( 'rt_link_target' ); ?>"><?php _e( 'Open Social Links in New Tab/Window', 'rtPanel' ); ?>: </label>
+            <label for="<?php echo $this->get_field_id( 'rt_link_target' ); ?>"><?php _e( 'Open Social Links in New Tab/Window', 'rtPanel' ); ?></label>
         </p><?php
     }
 }

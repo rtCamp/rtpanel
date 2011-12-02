@@ -78,7 +78,7 @@ class rtp_theme {
      **/
     function rtp_init() {
         global $current_user;
-        $tab = isset($_GET['page'] )  ? $_GET['page'] : "rtp_general";
+        $tab = isset( $_GET['page'] )  ? $_GET['page'] : "rtp_general";
         get_currentuserinfo();
         $user_id = $current_user->ID;
         if ( !get_user_meta( $user_id, 'screen_layout_appearance_page_' . $tab, true ) ) {

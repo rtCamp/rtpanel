@@ -2,7 +2,7 @@
 Theme Name: rtPanel
 Theme URI: http://rtpanel.com
 Description: WordPress theme framework with Custom Menu, Header and Background along with Logo, Favicon, Featured Image, Feedburner, Facebook Open Graph, Google Custom Search Integration and more options. This theme comes with free technical support by team of 20+ full-time developers.
-Version: 2.1
+Version: 2.0.7
 Author: rtCamp
 Author URI: http://rtcamp.com
 Contributors: rtCampers ( http://rtcamp.com/about/rtcampers/ )
@@ -118,7 +118,7 @@ select, input, textarea { color: #111; }
 /* Default Fonts */
 .post-content, .widget,
 #respond form, select, input, textarea, button { font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif; }
-.post-title, .rtp-edit-link, .widgettitle { font-family: "Nimbus Roman No9 L", "Times New Roman", Times, serif; }
+.post-title, .rtp-edit-link, .widgettitle { font-family: "Nimbus Roman No9 L", "Times New Roman", Georgia, Times, serif; }
 
 /* Default Links */
 a, a:link, a:hover, a:active, a:visited { outline: none; }
