@@ -118,7 +118,7 @@ select, input, textarea { color: #111; }
 /* Default Fonts */
 .post-content, .widget,
 #respond form, select, input, textarea, button { font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif; }
-.post-title, .rtp-edit-link, .widgettitle { font-family: Georgia, "Times New Roman", Times, serif; }
+.post-title, .rtp-edit-link, .widgettitle { font-family: Georgia, "Times New Roman", "Nimbus Roman No9 L", Freeserif, Times, serif; }
 
 /* Default Links */
 a, a:link, a:hover, a:active, a:visited { outline: none; }
