@@ -264,7 +264,7 @@ class rtp_comments_widget extends WP_Widget {
                             echo '<li>';
                                 echo "<div class='comment-container clearfix'>";
                                     echo "<div class='author-vcard' style='" . $show_grav_on . ' ' . $right_grav . "' title='" . $total_comments[$comments]->comment_author . "'>";
-                                        echo get_avatar( $total_comments[$comments]->comment_author_email, $gravatar, $default='<path_to_url>' );
+                                        echo get_avatar( $total_comments[$comments]->comment_author_email, $gravatar );
                                     echo "</div>";
                                     echo "<div class='comment-section'>";
                                         echo '<div class="comment-date">';

@@ -117,7 +117,7 @@ select, input, textarea { color: #111; }
 
 /* Default Fonts */
 .post-content, .widget,
-#respond form, select, input, textarea, button { font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif; }
+#respond form, select, input, textarea, button { font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
 .post-title, .rtp-edit-link, .widgettitle { font-family: "Nimbus Roman No9 L", "Times New Roman", Georgia, Times, serif; }
 
 /* Default Links */
@@ -273,7 +273,7 @@ p.attachment img { margin: 10px 0; }
 .searchform { overflow: hidden; }
     .searchform .search-text { padding: 3px; }
     #content .search-text { border: 1px double #666; font-size: 85%; margin: 0; padding: 3px 4px 4px; width: 30%; }
-    #content .searchsubmit { border: 1px solid #CCC; cursor: pointer; font-size: 13px; font-weight: bold; margin: 0; padding: 2px 7px; width: auto; }
+    #content .searchsubmit { border: 1px solid #CCC; cursor: pointer; font-size: 13px; margin: 0; padding: 2px 7px; width: auto; }
     #content .searchsubmit:hover { border: 1px solid #999; color: #000; }
 
 .search #main-wrapper .search-layout-wrapper { background: none; }
