@@ -429,6 +429,7 @@ blockquote { border-left: 1px solid #DDD; color: #666; font-style: italic; margi
     .rtp-subscribe-widget-container .social-icons li { float: left; list-style: none; }
         .rtp-subscribe-widget-container .social-icons li a { background: url("./img/rtp-social-icons.png") no-repeat; display: block; height: 23px; margin: 0 10px 0 0; padding: 0; text-indent: -9999px; text-transform: uppercase; width: 23px; }
             .rtp-subscribe-widget-container .social-icons li a.facebook { background-position: -215px 0; }
+            .rtp-subscribe-widget-container .social-icons li a.google { background-position: -689px 0; }
             .rtp-subscribe-widget-container .social-icons li a.twitter { background-position: -559px 0; }
             .rtp-subscribe-widget-container .social-icons li a.rss { background-position: -430px 0; }
             .rtp-subscribe-widget-container .social-icons li a.linkedin { background-position: -301px 0; }

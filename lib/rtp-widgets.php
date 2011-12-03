@@ -42,6 +42,7 @@ class rtp_subscribe_widget extends WP_Widget {
         $sub_link = empty ( $instance['sub_link'] ) ? '' : $instance['sub_link'];
         $facebook_link = empty ( $instance['facebook_link'] ) ? '' : $instance['facebook_link'];
         $twitter_link = empty ( $instance['twitter_link'] ) ? '' : $instance['twitter_link'];
+        $google_link = empty ( $instance['google_link'] ) ? '' : $instance['google_link'];
         $rss_link = empty ( $instance['rss_link'] ) ? '' : $instance['rss_link'];
         $linkedin_link = empty ( $instance['linkedin_link'] ) ? '' : $instance['linkedin_link'];
         $myspace_link = empty ( $instance['myspace_link'] ) ? '' : $instance['myspace_link'];
@@ -49,6 +50,7 @@ class rtp_subscribe_widget extends WP_Widget {
         $rt_link_target = isset( $instance['rt_link_target'] ) ? $instance['rt_link_target'] : true;
         $rt_subscription_show = isset( $instance['rt_show_subscription'] ) ? $instance['rt_show_subscription'] : true;
         $rt_facebook_show = isset( $instance['rt_show_facebook'] ) ? $instance['rt_show_facebook'] : true;
+        $rt_google_show = isset( $instance['rt_show_google'] ) ? $instance['rt_show_google'] : true;
         $rt_twitter_show = isset( $instance['rt_show_twitter'] ) ? $instance['rt_show_twitter'] : true;
         $rt_rss_show = isset( $instance['rt_show_rss'] ) ? $instance['rt_show_rss'] : true;
         $rt_linkedin_show = isset( $instance['rt_show_linkedin'] ) ? $instance['rt_show_linkedin'] : true;
@@ -77,12 +79,13 @@ class rtp_subscribe_widget extends WP_Widget {
 
             $target = ( $rt_link_target ) ? ' target="_blank"' : '';
 
-            if ( ( $rt_facebook_show && $facebook_link ) || ( $rt_twitter_show && $twitter_link ) || ( $rt_rss_show && $rss_link ) || ( $rt_linkedin_show && $linkedin_link ) || ( $rt_myspace_show && $myspace_link ) || ( $rt_stumbleupon_show && $stumbleupon_link ) ) {
+            if ( ( $rt_facebook_show && $facebook_link ) || ( $rt_twitter_show && $twitter_link ) || ( $rt_google_show && $google_link ) || ( $rt_rss_show && $rss_link ) || ( $rt_linkedin_show && $linkedin_link ) || ( $rt_myspace_show && $myspace_link ) || ( $rt_stumbleupon_show && $stumbleupon_link ) ) {
                 $no_options++; ?>
                 <h4 class="stay-connected"><?php _e( 'Stay Connected', 'rtPanel' ); ?></h4>
                 <ul class="social-icons"><?php
                     echo ( $rt_facebook_show && $facebook_link ) ? '<li><a rel="nofollow"' . $target . ' class="facebook" href="' . $facebook_link . '" title="' . __( 'Follow Us on Facebook', 'rtPanel' ) . '">Facebook</a></li>' : '';
                     echo ( $rt_twitter_show && $twitter_link ) ? '<li><a rel="nofollow"' . $target . ' class="twitter" href="' . $twitter_link . '" title="' . __( 'Follow Us on Twitter', 'rtPanel' ) . '">Twitter</a></li>' : '';
+                    echo ( $rt_google_show && $google_link ) ? '<li><a rel="nofollow"' . $target . ' class="google" href="' . $google_link . '" title="' . __( 'Follow Us on Google+', 'rtPanel' ) . '">Google</a></li>' : '';
                     echo ( $rt_rss_show && $rss_link ) ? '<li><a rel="nofollow"' . $target . ' class="rss" href="' . $rss_link . '" title="' . __( 'Subscribe via RSS', 'rtPanel' ) . '">RSS</a></li>' : '';
                     echo ( $rt_linkedin_show && $linkedin_link ) ? '<li><a rel="nofollow"' . $target . ' class="linkedin" href="' . $linkedin_link . '" title="' . __( 'Follow Us on LinkedIn', 'rtPanel' ) . '">LinkedIn</a></li>' : '';
                     echo ( $rt_myspace_show && $myspace_link ) ? '<li><a rel="nofollow"' . $target . ' class="myspace" href="' . $myspace_link . '" title="' . __( 'Follow Us on MySpace', 'rtPanel' ) . '">MySpace</a></li>' : '';
@@ -111,6 +114,7 @@ class rtp_subscribe_widget extends WP_Widget {
         $instance['rss_link'] = esc_url_raw( $new_instance['rss_link'] );
         $instance['twitter_link'] = esc_url_raw( $new_instance['twitter_link'] );
         $instance['facebook_link'] = esc_url_raw( $new_instance['facebook_link'] );
+        $instance['google_link'] = esc_url_raw( $new_instance['google_link'] );
         $instance['linkedin_link'] = esc_url_raw( $new_instance['linkedin_link'] );
         $instance['myspace_link'] = esc_url_raw( $new_instance['myspace_link'] );
         $instance['stumbleupon_link'] = esc_url_raw( $new_instance['stumbleupon_link'] );
@@ -119,6 +123,7 @@ class rtp_subscribe_widget extends WP_Widget {
         $instance['rt_show_rss'] = !empty( $new_instance['rt_show_rss'] ) ? 1 : 0;
         $instance['rt_show_facebook'] = !empty( $new_instance['rt_show_facebook'] ) ? 1 : 0;
         $instance['rt_show_twitter'] =  !empty( $new_instance['rt_show_twitter'] ) ? 1 : 0;
+        $instance['rt_show_google'] =  !empty( $new_instance['rt_show_google'] ) ? 1 : 0;
         $instance['rt_show_linkedin'] = !empty( $new_instance['rt_show_linkedin'] ) ? 1 : 0;
         $instance['rt_show_myspace'] = !empty( $new_instance['rt_show_myspace'] ) ? 1 : 0;
         $instance['rt_show_stumbleupon'] = !empty( $new_instance['rt_show_stumbleupon'] ) ? 1 : 0;
@@ -136,11 +141,12 @@ class rtp_subscribe_widget extends WP_Widget {
         $rss_link = isset ( $instance['rss_link'] ) ? $instance['rss_link'] : '';
         $twitter_link = isset ( $instance['twitter_link'] ) ? $instance['twitter_link'] : '';
         $facebook_link = isset ( $instance['facebook_link'] ) ? $instance['facebook_link'] : '';
+        $google_link = isset ( $instance['google_link'] ) ? $instance['google_link'] : '';
         $linkedin_link = isset ( $instance['linkedin_link'] ) ? $instance['linkedin_link'] : '';
         $myspace_link = isset ( $instance['myspace_link'] ) ? $instance['myspace_link'] : '';
         $stumbleupon_link = isset ( $instance['stumbleupon_link'] ) ? $instance['stumbleupon_link'] : '';
 
-        $defaults = array( 'rt_show_subscription' => '0', 'rt_show_rss' => '0', 'rt_show_facebook' => '0', 'rt_show_twitter' => '0', 'rt_show_linkedin' => '0', 'rt_show_myspace' => '0', 'rt_show_stumbleupon' => '0', 'rt_link_target' => '1' );
+        $defaults = array( 'rt_show_subscription' => '0', 'rt_show_rss' => '0', 'rt_show_facebook' => '0', 'rt_show_twitter' => '0', 'rt_show_google' => '0', 'rt_show_linkedin' => '0', 'rt_show_myspace' => '0', 'rt_show_stumbleupon' => '0', 'rt_link_target' => '1' );
 
         // update instance's default options
         $instance = wp_parse_args( (array) $instance, $defaults );
@@ -148,6 +154,7 @@ class rtp_subscribe_widget extends WP_Widget {
         $rt_show_rss = isset( $instance['rt_show_rss'] ) ? (bool) $instance['rt_show_rss'] :false;
         $rt_show_facebook = isset( $instance['rt_show_facebook'] ) ? (bool) $instance['rt_show_facebook'] :false;
         $rt_show_twitter = isset( $instance['rt_show_twitter'] ) ? (bool) $instance['rt_show_twitter'] :false;
+        $rt_show_google = isset( $instance['rt_show_google'] ) ? (bool) $instance['rt_show_google'] :false;
         $rt_show_linkedin = isset( $instance['rt_show_linkedin'] ) ? (bool) $instance['rt_show_linkedin'] :false;
         $rt_show_myspace = isset( $instance['rt_show_myspace'] ) ? (bool) $instance['rt_show_myspace'] :false;
         $rt_show_stumbleupon = isset( $instance['rt_show_stumbleupon'] ) ? (bool) $instance['rt_show_stumbleupon'] :false;
@@ -176,6 +183,11 @@ class rtp_subscribe_widget extends WP_Widget {
             <input type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_twitter' ); ?>" id="<?php echo $this->get_field_id( 'rt_show_twitter' ); ?>" <?php checked( $rt_show_twitter ) ; ?> />
             <label for="<?php echo $this->get_field_id( 'rt_show_twitter' ); ?>"><?php _e( 'Twitter Link', 'rtPanel' ); ?>: </label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'twitter_link' ); ?>" name="<?php echo $this->get_field_name( 'twitter_link' ); ?>" type="text" value="<?php echo esc_attr( $twitter_link ); ?>" />
+        </p>
+        <p>
+            <input type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_google' ); ?>" id="<?php echo $this->get_field_id( 'rt_show_google' ); ?>" <?php checked( $rt_show_google ) ; ?> />
+            <label for="<?php echo $this->get_field_id( 'rt_show_google' ); ?>"><?php _e( 'Google Link', 'rtPanel' ); ?>: </label>
+            <input class="widefat" id="<?php echo $this->get_field_id( 'google_link' ); ?>" name="<?php echo $this->get_field_name( 'google_link' ); ?>" type="text" value="<?php echo esc_attr( $google_link ); ?>" />
         </p>
         <p>
             <input type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_linkedin' ); ?>" id="<?php echo $this->get_field_id( 'rt_show_linkedin' ); ?>" <?php checked( $rt_show_linkedin ); ?> />
