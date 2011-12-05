@@ -960,9 +960,9 @@ function rtp_contextual_help( $contextual_help, $screen_id, $screen ) {
     switch( $screen_id ) {
         case 'appearance_page_rtp_general' :
             $contextual_help .= '<p>';
-            $contextual_help = __( 'rtPanel is the world\'s easiest and smartest WordPress Theme. You can customize this theme and use it at your ease. You will find many state of the art options and widgets with rtPanel. ', 'rtPanel' );
+            $contextual_help = __( 'rtPanel is the most easy to use WordPress Theme Framework. You will find many state of the art options and widgets with rtPanel. ', 'rtPanel' );
             $contextual_help .= '</p><p>';
-            $contextual_help .= __( 'rtPanel is a theme for the world. Keeping this in mind our developers have made it localization ready. ', 'rtPanel' );
+            $contextual_help .= __( 'rtPanel is a theme framework for the world. Keeping this in mind our developers have made it localization ready. ', 'rtPanel' );
             $contextual_help .= __( 'Developers can use rtPanel as a basic and stripped to bones theme framework for developing their own creative and wonderful WordPress Themes.', 'rtPanel' );
             $contextual_help .= '</p><p>';
             $contextual_help .= __( 'With the use of rtPanel developers and users can specify settings for basic functions (like date format, excerpt word count etc.) directly from theme options.', 'rtPanel' );

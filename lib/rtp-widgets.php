@@ -186,7 +186,7 @@ class rtp_subscribe_widget extends WP_Widget {
         </p>
         <p>
             <input type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_google' ); ?>" id="<?php echo $this->get_field_id( 'rt_show_google' ); ?>" <?php checked( $rt_show_google ) ; ?> />
-            <label for="<?php echo $this->get_field_id( 'rt_show_google' ); ?>"><?php _e( 'Google Link', 'rtPanel' ); ?>: </label>
+            <label for="<?php echo $this->get_field_id( 'rt_show_google' ); ?>"><?php _e( 'Google+ Link', 'rtPanel' ); ?>: </label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'google_link' ); ?>" name="<?php echo $this->get_field_name( 'google_link' ); ?>" type="text" value="<?php echo esc_attr( $google_link ); ?>" />
         </p>
         <p>
