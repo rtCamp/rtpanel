@@ -528,7 +528,7 @@ class rtp_category_widget extends WP_Widget {
         <p style="overflow: hidden;">
             <label for="<?php echo $this->get_field_id( 'exclude' ); ?>" style="display: block; float: left; padding: 3px 0 0;"><?php _e( 'Exclude', 'rtPanel' ); ?>:</label>
             <input class="widefat exclude" id="<?php echo $this->get_field_id( 'exclude' ); ?>" name="<?php echo $this->get_field_name( 'exclude' ); ?>" type="text" value="<?php echo $exclude; ?>" style="float: right; clear: right; margin: 0 0 0 3px; width: 120px;" /><div class="clear"></div>
-            <span class="description"><?php _e( 'Separate Category ID with ","', 'rtPanel' ); ?><br /><?php _e( 'Ex: 1,5,15' ); ?></span>
+            <span class="description"><?php _e( 'Separate Category ID with ","', 'rtPanel' ); ?><br /><?php _e( 'Ex: 1,5,15', 'rtPanel' ); ?></span>
         </p>
         <p style="overflow: hidden;">
             <input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id('hierarchical'); ?>" name="<?php echo $this->get_field_name('hierarchical'); ?>"<?php checked( $hierarchical ); ?> />
