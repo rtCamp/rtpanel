@@ -746,7 +746,7 @@ function rtp_custom_login_logo() {
     $custom_logo = rtp_logo_fav_src( $type = 'logo' );
     $size = @getimagesize( $custom_logo );
     echo '<style type="text/css">
-        h1 a { background: url(' . $custom_logo . ') no-repeat scroll center top transparent;
+        .login h1 a { background: url(' . $custom_logo . ') no-repeat scroll center top transparent;
                height: ' . $size[1] . 'px;
                width: ' . $size[0] . 'px; margin: 0 auto 15px; padding: 0; }
 	</style>';
@@ -1062,7 +1062,7 @@ function rtp_admin_bar_links() {
     // Links to add, in the form: 'Label' => 'URL'
     foreach( $rt_panel_theme->theme_pages as $key=>$theme_page ) {
             if ( is_array( $theme_page ) )
-                $links[$theme_page['menu_title']] = admin_url( 'themes.php?page='.$theme_page['menu_slug'] );
+                $links[$theme_page['menu_title']] = array( 'url' => admin_url( 'themes.php?page='.$theme_page['menu_slug'] ), 'slug' => $theme_page['menu_slug'] );
     }
 
     //  Add parent link
@@ -1073,11 +1073,12 @@ function rtp_admin_bar_links() {
     ) );
 
     // Add submenu links
-    foreach ( $links as $label => $url ) {
+    foreach ( $links as $label => $menu ) {
         $wp_admin_bar->add_menu( array(
             'title' => $label,
-            'href' => $url,
+            'href' => $menu['url'],
             'parent' => 'rt_links',
+            'id' => $menu['slug']
         ) );
     }
 }

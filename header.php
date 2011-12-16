@@ -21,16 +21,8 @@
         <link rel="shortcut icon" type="image/x-icon" href="<?php echo rtp_logo_fav_src('favicon'); ?>" />
         <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
-        <link rel="stylesheet" href="<?php echo RTP_CSS_FOLDER_URL; ?>/rtp-reset.css" type="text/css" media="screen" />
-        <link rel="stylesheet" href="<?php echo RTP_CSS_FOLDER_URL; ?>/rtp-typo.css" type="text/css" media="screen" />
         <link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>" type="text/css" media="screen" />
-        <link rel="stylesheet" href="<?php echo RTP_CSS_FOLDER_URL; ?>/rtp-print.css" type="text/css" media="print" />
-
-        <!-- Nested Comment Support -->
-        <?php ( is_singular() && get_option( 'thread_comments' ) ) ? wp_enqueue_script('comment-reply') : ''; ?>
-
-        <?php wp_enqueue_script( 'rtp-custom', RTP_JS_FOLDER_URL . '/rtp-custom.js', array( 'jquery' ), '', true ); ?>
-            
+                   
         <?php wp_head(); ?>
     </head>
     <body <?php body_class(); ?>><!-- ends in footer.php -->

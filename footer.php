@@ -18,10 +18,8 @@ global $rtp_general; ?>
             <div id="footer-wrapper"><?php
                 if ( $rtp_general['footer_sidebar'] ) { ?>
                     <div id="footerbar"><?php
-                        //If footer widgets are set by user
-                        if ( function_exists('dynamic_sidebar') && is_active_sidebar('footer-widgets') ) {
-                            dynamic_sidebar('footer-widgets');
-                        } else { // Default Widgets ( Fallback ) ?>
+                        // Default Widgets ( Fallback )
+                        if ( !dynamic_sidebar( 'footer-widgets' ) ) {  ?>
                             <div class="widget footerbar-widget"><h3 class="widgettitle"><?php _e( 'Archives', 'rtPanel' ); ?></h3><ul><?php wp_get_archives( array( 'type' => 'monthly' ) ); ?></ul></div>
                             <div class="widget footerbar-widget"><h3 class="widgettitle"><?php _e( 'Tags', 'rtPanel' ); ?></h3><div class="tagcloud"><?php wp_tag_cloud(); ?></div></div>
                             <div class="widget footerbar-widget"><h3 class="widgettitle"><?php _e( 'Meta', 'rtPanel' ); ?></h3><ul><?php wp_register(); ?><li><?php wp_loginout(); ?></li><?php wp_meta(); ?></ul></div><?php

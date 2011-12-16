@@ -136,15 +136,15 @@ class rtp_subscribe_widget extends WP_Widget {
      * @since rtPanel 2.0
      **/
     function form( $instance ) {
-        $title = isset ( $instance['title'] ) ? ( $instance['title'] ) : '';
-        $sub_link = isset ( $instance['sub_link'] ) ? $instance['sub_link'] : '';
-        $rss_link = isset ( $instance['rss_link'] ) ? $instance['rss_link'] : '';
-        $twitter_link = isset ( $instance['twitter_link'] ) ? $instance['twitter_link'] : '';
-        $facebook_link = isset ( $instance['facebook_link'] ) ? $instance['facebook_link'] : '';
-        $google_link = isset ( $instance['google_link'] ) ? $instance['google_link'] : '';
-        $linkedin_link = isset ( $instance['linkedin_link'] ) ? $instance['linkedin_link'] : '';
-        $myspace_link = isset ( $instance['myspace_link'] ) ? $instance['myspace_link'] : '';
-        $stumbleupon_link = isset ( $instance['stumbleupon_link'] ) ? $instance['stumbleupon_link'] : '';
+        $title = isset ( $instance['title'] ) ? esc_attr( ( $instance['title'] ) ) : '';
+        $sub_link = isset ( $instance['sub_link'] ) ? esc_url( $instance['sub_link'] ) : '';
+        $rss_link = isset ( $instance['rss_link'] ) ? esc_url( $instance['rss_link'] ) : '';
+        $twitter_link = isset ( $instance['twitter_link'] ) ? esc_url( $instance['twitter_link'] ) : '';
+        $facebook_link = isset ( $instance['facebook_link'] ) ? esc_url( $instance['facebook_link'] ) : '';
+        $google_link = isset ( $instance['google_link'] ) ? esc_url( $instance['google_link'] ) : '';
+        $linkedin_link = isset ( $instance['linkedin_link'] ) ? esc_url( $instance['linkedin_link'] ) : '';
+        $myspace_link = isset ( $instance['myspace_link'] ) ? esc_url( $instance['myspace_link'] ) : '';
+        $stumbleupon_link = isset ( $instance['stumbleupon_link'] ) ? esc_url( $instance['stumbleupon_link'] ) : '';
 
         $defaults = array( 'rt_show_subscription' => '0', 'rt_show_rss' => '0', 'rt_show_facebook' => '0', 'rt_show_twitter' => '0', 'rt_show_google' => '0', 'rt_show_linkedin' => '0', 'rt_show_myspace' => '0', 'rt_show_stumbleupon' => '0', 'rt_link_target' => '1' );
 
@@ -335,7 +335,7 @@ class rtp_comments_widget extends WP_Widget {
      * @since rtPanel 2.0
      **/
     function form($instance) {
-        $title = isset ( $instance['title'] ) ? ( $instance['title'] ) : '';
+        $title = isset ( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
         $show_grav = isset( $instance['show_grav'] ) ? (bool) $instance['show_grav'] :false;
         $gravatar = empty( $instance['gravatar'] ) ? 64 : $instance['gravatar'];
         global $wpdb;
@@ -471,7 +471,7 @@ class rtp_category_widget extends WP_Widget {
         } else {
             $instance['order'] = 'ASC';
         }
-        $instance['show_cat'] = strip_tags ( $new_instance['show_cat']) > $total_category ? $total_category : strip_tags ( $new_instance['show_cat'] );
+        $instance['show_cat'] = (int) $new_instance['show_cat'] > $total_category ? $total_category : (int) $new_instance['show_cat'];
         $instance['exclude'] = strip_tags ( $new_instance['exclude'] );
         $instance['hierarchical'] = !empty( $new_instance['hierarchical'] ) ? 1 : 0;
         $instance['show_count'] = !empty( $new_instance['show_count'] ) ? 1 : 0;
@@ -484,12 +484,12 @@ class rtp_category_widget extends WP_Widget {
      * @since rtPanel 2.0
      **/
     function form($instance) {
-        $title = isset ( $instance['title'] ) ? ( $instance['title'] ) : '';
+        $title = isset ( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
         $showstyle = isset ( $instance['showstyle'] ) ? ( $instance['showstyle'] ) : 'list';
         $hide_empty = isset( $instance['hide_empty']) ? (bool) $instance['hide_empty'] :false;
         $sortby = empty( $instance['sortby'] ) ? 'name' : $instance['sortby'];
         $order = empty( $instance['order'] ) ? 'ASC' : $instance['order'];
-        $show_cat = empty( $instance['show_cat'] ) ? 10 : $instance['show_cat'];
+        $show_cat = empty( $instance['show_cat'] ) ? 10 : absint( $instance['show_cat'] );
         $exclude = empty( $instance['exclude'] ) ? '' : $instance['exclude'];
         $hierarchical = isset( $instance['hierarchical']) ? (bool) $instance['hierarchical'] :false;
         $show_count = isset( $instance['show_count']) ? (bool) $instance['show_count'] :false; ?>

@@ -57,7 +57,7 @@
                     <?php rtp_show_post_thumbnail(); ?>
 
                     <?php   if ( is_singular() || !$rtp_post_comments['summary_show'] ) {
-                                the_content( 'Read More &rarr;' );
+                                the_content( __( 'Read More &rarr;', 'rtPanel' ) );
                                 wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'rtPanel' ), 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) );
                             } else {
                                 @the_excerpt();

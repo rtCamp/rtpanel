@@ -30,7 +30,7 @@ function rtp_logo_option_metabox() {
     <table class="form-table">
         <tbody>
             <tr valign="top">
-                <th scope="row"><label for="logo_show">Show Logo</label></th>
+                <th scope="row"><label for="logo_show"><?php _e( 'Show Logo', 'rtPanel' ); ?></label></th>
                 <td>
                     <input type="hidden" name="rtp_general[logo_show]" value="0" />
                     <input type="checkbox" name="rtp_general[logo_show]" value="1" id="logo_show" <?php checked( $rtp_general['logo_show'] ); ?> />
@@ -43,7 +43,7 @@ function rtp_logo_option_metabox() {
                     <label for="use_logo_url"><?php _e( 'Logo URL', 'rtPanel' ); ?></label>
                 </th>
                 <td class="img-url">
-                    <input<?php disabled( 'use_logo_upload', $rtp_general['use_logo'] ); ?> type="text" value="<?php echo $rtp_general['logo_url']; ?>" name="rtp_general[logo_url]" size="40" id="logo_url" /><br />
+                    <input<?php disabled( 'use_logo_upload', $rtp_general['use_logo'] ); ?> type="text" value="<?php echo esc_url( $rtp_general['logo_url'] ); ?>" name="rtp_general[logo_url]" size="40" id="logo_url" /><br />
                     <span class="description"><label class="example" for="logo_url"><?php _e( 'Eg. http://www.example.com/logo.jpg', 'rtPanel' ); ?></label></span>
                 </td>
                 <td class="img-preview" rowspan="2">
@@ -98,7 +98,7 @@ function rtp_fav_option_metabox() {
                     <label for="use_favicon_url"><?php _e( 'Favicon URL', 'rtPanel' ); ?></label>
                 </th>
                 <td class="img-url">
-                    <input<?php disabled( 'use_favicon_upload', $rtp_general['use_favicon'] ); ?> type="text" value="<?php echo $rtp_general['favicon_url']; ?>" name="rtp_general[favicon_url]" size="40" id="favicon_url" /><br />
+                    <input<?php disabled( 'use_favicon_upload', $rtp_general['use_favicon'] ); ?> type="text" value="<?php echo esc_url( $rtp_general['favicon_url'] ); ?>" name="rtp_general[favicon_url]" size="40" id="favicon_url" /><br />
                     <span class="description"><label class="example" for="favicon_url"><?php _e( 'Eg. http://www.example.com/favicon.ico', 'rtPanel' ); ?></label></span>
                 </td>
                 <td class="img-preview" rowspan="2">
@@ -141,14 +141,14 @@ function rtp_facebook_ogp_metabox() {
             <tr valign="top">
                 <th scope="row"><label for="fb_admins"><?php _e( 'Facebook Admin ID(s)', 'rtPanel' ); ?></label></th>
                 <td>
-                    <input type="text" value="<?php echo $rtp_general['fb_admins'] ?>" size="40" name="rtp_general[fb_admins]" id="fb_admins" />
+                    <input type="text" value="<?php echo esc_attr( $rtp_general['fb_admins'] ); ?>" size="40" name="rtp_general[fb_admins]" id="fb_admins" />
                     <span class="description"><label for="fb_admins"><?php _e( 'Specify Facebook Admin ID(s) ( Comma separated )', 'rtPanel' ); ?></label></span>
                 </td>
             </tr>
             <tr valign="top">
                 <th scope="row"><label for="fb_app_id"><?php _e( 'Facebook App ID', 'rtPanel' ); ?></label></th>
                 <td>
-                    <input type="text" value="<?php echo $rtp_general['fb_app_id'] ?>" size="40" name="rtp_general[fb_app_id]" id="fb_app_id" />
+                    <input type="text" value="<?php echo esc_attr( $rtp_general['fb_app_id'] ); ?>" size="40" name="rtp_general[fb_app_id]" id="fb_app_id" />
                     <span class="description"><label for="fb_app_id"><?php printf( __( '<a href="%s" target="_blank" title="Find your App ID Here">Find your App ID Here</a>', 'rtPanel' ), 'https://developers.facebook.com/apps/' ); ?></label></span>
                 </td>
             </tr>
@@ -181,7 +181,7 @@ function rtp_feed_option_metabox() {
             <tr valign="top">
                 <th scope="row"><label for="feedburner_url"><?php _e( 'FeedBurner URL', 'rtPanel' ); ?></label></th>
                 <td>
-                    <input type="text" value="<?php echo $rtp_general['feedburner_url'] ?>" size="40" name="rtp_general[feedburner_url]" id="feedburner_url" />
+                    <input type="text" value="<?php echo esc_attr( $rtp_general['feedburner_url'] ); ?>" size="40" name="rtp_general[feedburner_url]" id="feedburner_url" />
                     <span class="description"><label for="feedburner_url"><?php printf( __( 'Specify <a href="%s" target="_blank" title="FeedBurner">FeedBurner</a> URL to redirect feeds', 'rtPanel' ), 'http://www.feedburner.com/' ); ?></label><br /><label class="example" for="feedburner_url"><?php _e( 'Eg. http://www.example.com', 'rtPanel' ); ?></label></span>
                 </td>
             </tr>
@@ -238,7 +238,7 @@ function rtp_google_search_metabox() {
             <tr valign="top">
                 <th scope="row"><label for="search_code"><?php _e( 'Google Custom Search Element Code', 'rtPanel' ); ?></label></th>
                 <td>
-                    <textarea cols="33" rows="5" name="rtp_general[search_code]" id="search_code"><?php echo $rtp_general['search_code']; ?></textarea><br />
+                    <textarea cols="33" rows="5" name="rtp_general[search_code]" id="search_code"><?php echo esc_textarea( $rtp_general['search_code'] ); ?></textarea><br />
                     <label for="search_code"><span class="description"><?php printf( __( 'The Google Search Code Obtained by Default. You can obtain the Google Custom Search Code <a href="%s" title="Googel Custom Search">here</a><br />', 'rtPanel' ), 'http://www.google.com/cse/' ); ?></span>
                     <strong><?php _e( 'NOTE', 'rtPanel' ); ?>: </strong><span class="description"><?php _e( 'The hosting option must be "Search Element" and layout either "full-width" or "compact".', 'rtPanel' ); ?></span></label>
                 </td>
@@ -275,7 +275,7 @@ function rtp_custom_styles_metabox() {
             <tr valign="top">
                 <th scope="row"><label for="custom_styles"><?php _e( 'Add your CSS here &rarr;', 'rtPanel' ); ?></label></th>
                 <td>
-                    <textarea cols="33" rows="5" name="rtp_general[custom_styles]" id="custom_styles"><?php echo $rtp_general['custom_styles']; ?></textarea><br />
+                    <textarea cols="33" rows="5" name="rtp_general[custom_styles]" id="custom_styles"><?php echo esc_textarea( $rtp_general['custom_styles'] ); ?></textarea><br />
                     <span class="description"><label for="custom_styles"><?php _e( 'Add your extra CSS rules here. No need to use !important. Rules written above will be loaded last.', 'rtPanel' ); ?></label></span>
                 </td>
             </tr>
