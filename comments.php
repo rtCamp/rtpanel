@@ -17,7 +17,11 @@
     <div class="comments-container"><?php
         if ( have_comments() ) { ?>
             <div class="rtp-comment-count" id="comments">
-                <span class="alignleft"><span class="rtp-courly-bracket">{ </span><?php printf( _n( '<span class="count">%1$s</span> Comment', '<span class="count">%1$s</span> Comments', get_comments_number(), 'rtPanel' ), number_format_i18n( get_comments_number() ) ); ?>... <?php printf( __( 'Add your <a href="%s" title="Add your thoughts">thoughts</a>', 'rtPanel' ), '#respond' ); ?> <span class="rtp-courly-bracket"> }</span></span>
+                <?php 
+                $comment_count = sprintf( _n( '<span class="count">%1$s</span> Comment', '<span class="count">%1$s</span> Comments', get_comments_number(), 'rtPanel' ), number_format_i18n( get_comments_number() ) ) . '... ';
+                $comment_count .= ( comments_open() ) ? sprintf( __( 'Add your <a href="%s" title="Add your thoughts">thoughts</a>', 'rtPanel' ), '#respond' ) : '';
+                ?>
+                <span class="alignleft"><?php echo apply_filters( 'rtp_comment_braces', $comment_count ); ?></span>
                 <?php if ( current_user_can( 'moderate_comments' ) ) { ?>
                         <span class="alignright rtp-manage-comments"><span class="rtp-courly-bracket">{ </span><a href="<?php echo get_admin_url( '', 'edit-comments.php?p=' . get_the_ID() ); ?>"><?php _e( 'Manage Comments', 'rtPanel' ); ?></a><span class="rtp-courly-bracket"> }</span></span>
                 <?php } ?>
@@ -36,12 +40,6 @@
                     <div class="alignright"><?php next_comments_link( __( 'Next Comments', 'rtPanel' ) . ' &rarr;' ); ?></div>
                     <div class="clear"></div>
                 </div><?php
-            }
-        } else { // this is displayed if there are no comments so far
-            if ( comments_open() ) {
-                // If comments are open, but there are no comments.
-            } else {
-                // comments are closed
             }
         }
 

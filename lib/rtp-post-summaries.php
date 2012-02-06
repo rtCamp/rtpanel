@@ -94,17 +94,17 @@ function rt_nofollow_callback( $matches ) {
  *
  * @since rtPanel 2.0
  */
-function rtp_show_post_thumbnail() {
+function rtp_show_post_thumbnail( $post_id = null, $thumbnail_size = 'thumbnail', $default_img_path = '' ) {
     global $rtp_post_comments;
     if ( !is_singular() && $rtp_post_comments['summary_show'] && $rtp_post_comments['thumbnail_show'] ) {
         $thumbnail_frame = ( $rtp_post_comments['thumbnail_frame'] ) ? ' thumbnail-shadow' : '';
         if ( has_post_thumbnail() ) { ?>
             <span class="post-img<?php echo '-' . strtolower( $rtp_post_comments['thumbnail_position'] ); ?>">
-                    <a href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( 'thumbnail', array( 'class' => 'post_thumb'.$thumbnail_frame  ) ); ?></a>
+                    <a href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( $thumbnail_size, array( 'class' => 'post_thumb'.$thumbnail_frame  ) ); ?></a>
             </span><?php
         } else {
-            $image = rtp_generate_thumbs();
-            $image = ( $image ) ? $image : apply_filters( 'rtp_default_image_path', '' );
+            $image = rtp_generate_thumbs( '', $thumbnail_size, $post_id );
+            $image = ( $image ) ? $image : apply_filters( 'rtp_default_image_path', $default_img_path );
             if ( $image ) { ?>
                 <span class="post-img<?php echo '-' . strtolower( $rtp_post_comments['thumbnail_position'] ); ?>">
                     <a href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><img class="post-thumb<?php echo $thumbnail_frame; ?> wp-post-image" alt="<?php the_title_attribute(); ?>" src="<?php echo $image; ?>" /></a>

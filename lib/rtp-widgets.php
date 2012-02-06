@@ -226,7 +226,7 @@ class rtp_comments_widget extends WP_Widget {
      * @since rtPanel 2.0
      **/
     function rtp_comments_widget() {
-        $widget_ops = array( 'classname' => 'rtp-comments-widget', 'description' => __( 'Widget for Show Recent Comment with Author Gravatar in Sidebar.', 'rtPanel' ) );
+        $widget_ops = array( 'classname' => 'rtp-comments-widget', 'description' => __( 'Shows Recent Comments with an option for displaying Author Gravatar also.', 'rtPanel' ) );
         $this->WP_Widget( 'rt-comments-widget', __( 'rtPanel: Comments with Gravatar', 'rtPanel' ), $widget_ops );
     }
 
@@ -394,7 +394,7 @@ class rtp_category_widget extends WP_Widget {
      * @since rtPanel 2.0
      **/
     function rtp_category_widget() {
-        $widget_ops = array( 'classname' => 'widget_rtp_category_widget', 'description' => __( 'Widget for Show Recent Comment with Author Gravatar in Sidebar.', 'rtPanel' ) );
+        $widget_ops = array( 'classname' => 'widget_rtp_category_widget', 'description' => __( 'A list or dropdown of categories with extra options.', 'rtPanel' ) );
         $this->WP_Widget( 'rt-categories-widget', __( 'rtPanel: Categories', 'rtPanel' ), $widget_ops );
     }
 

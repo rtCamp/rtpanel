@@ -320,6 +320,7 @@ blockquote { border-left: 1px solid #DDD; color: #666; font-style: italic; margi
     /* Comments Display */
     #content .comments-container { padding: 0 5px; overflow: hidden; height: 100%; }
     ol.commentlist { clear: both; font-size: 140%; line-height: 157.2%; margin: 0; }
+        ol.commentlist ol li { list-style: decimal; }
         ol.commentlist li.comment { list-style: none; margin: 15px 0 10px; padding: 5px 0;overflow: hidden; }
         ol.commentlist li.comment .comment-body { border-bottom: 1px solid #EAEAEA; clear: both; margin: 0; overflow: hidden; padding: 10px; position: relative; }
             ol.commentlist li.comment li { margin-bottom: 0; }

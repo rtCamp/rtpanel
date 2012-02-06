@@ -114,6 +114,7 @@ class rtp_theme {
      **/
     function rtp_admin_page_scripts() {
         wp_enqueue_script( 'rtp-admin-scripts', RTP_TEMPLATE_URL . '/admin/js/rtp-admin.js' );
+        wp_enqueue_script( 'rtp-fb-share', ('http://static.ak.fbcdn.net/connect.php/js/FB.Share'),'', '', true );
         wp_enqueue_script( 'thickbox' );
     }
 

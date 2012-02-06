@@ -16,7 +16,7 @@
  * @since rtPanel 2.0
  */
 function rtp_default_post_meta( $placement ) { ?>
-    <?php if ( !is_page() ) {
+    <?php if ( !is_page() || has_action( 'rtp_hook_begin_post_meta_bottom' ) ) {
             global $post, $rtp_post_comments; ?>
 
             <div class="post-meta post-meta-<?php echo $placement; ?>">
@@ -42,24 +42,24 @@ function rtp_default_post_meta( $placement ) { ?>
                         } ?>
                 
                 <?php   // Comment Count
-                        if ( @comments_open() && $position == 'u' ) { // If post meta is set to top then only display the comment count. ?>
-                            <p class="alignright rtp-post-comment-count"><span class="rtp-courly-bracket">{</span><?php comments_popup_link( __( '<span>0</span> Comments', 'rtPanel' ), __( '<span>1</span> Comment', 'rtPanel' ), __( '<span>%</span> Comments', 'rtPanel' ), 'rtp-post-comment' ); ?><span class="rtp-courly-bracket">}</span></p><?php
+                        if ( @comments_open() && $position == 'u' ) { // If post meta is set to top then only display the comment count. 
+                            rtp_hook_post_meta_top_comment();      
                         } ?>
 
                 <?php   // Post Categories
                         echo ( get_the_category_list() && $rtp_post_comments['post_category_'.$position] ) ? '<p class="post-category alignleft">' . __( 'Category', 'rtPanel' ) . ': <span>' . get_the_category_list( ', ' ) . '</span></p>' : ''; ?>
 
                 <?php   // Post Tags
-                        echo ( $rtp_post_comments['post_tags_'.$position] ) ? '<p class="post-tags alignleft">' . get_the_tag_list( __( 'Tagged in', 'rtPanel' ) . ': <span>', ', ', '</span>' ) . '</p>' : ''; ?>
+                        echo ( get_the_tag_list() && $rtp_post_comments['post_tags_'.$position] ) ? '<p class="post-tags alignleft">' . get_the_tag_list( __( 'Tagged in', 'rtPanel' ) . ': <span>', ', ', '</span>' ) . '</p>' : ''; ?>
 
                 <?php   // Post Custom Taxonomies
                         $args = array( '_builtin' => false );
                         $taxonomies = get_taxonomies( $args, 'names' );
                         foreach ( $taxonomies as $taxonomy ) {
-                            ( isset( $rtp_post_comments['post_'.$taxonomy.'_'.$position] ) && $rtp_post_comments['post_'.$taxonomy.'_'.$position] ) ? the_terms( $post->ID, $taxonomy, '<p class="post-custom-tax post-' . $taxonomy . ' alignleft">' . ucfirst( $taxonomy ) . ': ', ', ', '</p>' ) : '';
+                            ( get_the_terms( $post->ID, $taxonomy ) && isset( $rtp_post_comments['post_'.$taxonomy.'_'.$position] ) && $rtp_post_comments['post_'.$taxonomy.'_'.$position] ) ? the_terms( $post->ID, $taxonomy, '<p class="post-custom-tax post-' . $taxonomy . ' alignleft">' . ucfirst( $taxonomy ) . ': ', ', ', '</p>' ) : '';
                         }
 
-                if( $placement == 'bottom' )
+                if ( $placement == 'bottom' )
                     rtp_hook_end_post_meta_bottom();
                 else
                     rtp_hook_end_post_meta_top(); ?>
@@ -102,22 +102,48 @@ add_action('rtp_hook_end_post_meta_top', 'rtp_edit_link');
 /**
  * Prepends and Appends Braces to Read More text
  *
- * @param int $text read more text
+ * @param string $text read more text
  * @return string
  *
  * @since rtPanel 2.0
  */
-function rtp_readmore_braces($text) {
+function rtp_readmore_braces( $text ) {
    return '<span class="rtp-courly-bracket">[ </span>'. $text .'<span class="rtp-courly-bracket"> ]</span>';
 }
 add_filter( 'rtp_readmore', 'rtp_readmore_braces' );
+
+/**
+ * Prepends and Appends Braces to Comment Number
+ *
+ * @param string $text comment count text
+ * @return string
+ *
+ * @since rtPanel 2.0.9
+ */
+function rtp_comment_braces( $text ) {
+   return '<span class="rtp-courly-bracket">{ </span>'. $text .'<span class="rtp-courly-bracket"> }</span>';
+}
+add_filter( 'rtp_comment_count', 'rtp_comment_braces' );
+
+/**
+ * Prepends and Appends Braces to Read More text
+ *
+ * @param string $text comment count text
+ * @return string
+ *
+ * @since rtPanel 2.0.9
+ */
+function rtp_comment_count() { ?>
+   <p class="alignright rtp-post-comment-count"><span class="rtp-courly-bracket">{</span><?php comments_popup_link( __( '<span>0</span> Comments', 'rtPanel' ), __( '<span>1</span> Comment', 'rtPanel' ), __( '<span>%</span> Comments', 'rtPanel' ), 'rtp-post-comment' ); ?><span class="rtp-courly-bracket">}</span></p><?php
+}
+add_action( 'rtp_hook_post_meta_top_comment', 'rtp_comment_count' );
 
 /**
  * Adds breadcrumb support to the theme.
  *
  * @since rtPanel 2.0.7
  */
-function rtp_breadcrumb_support($text) { 
+function rtp_breadcrumb_support( $text ) { 
    // Breadcrumb Support
     if ( function_exists( 'bcn_display' ) ) {
         echo '<div class="breadcrumb">';
@@ -138,4 +164,39 @@ function rtp_blog_description(){
     }
 }
 add_action( 'rtp_hook_after_logo', 'rtp_blog_description' );
+
+/**
+ * Appends a "last-menu-item" class to the last item of the nav menu.
+ *
+ * @since rtPanel 2.0.9
+ */
+function add_markup_pages( $output ) {
+    $output = substr_replace( $output, "last-menu-item menu-item", strripos( $output, "menu-item" ), strlen( "menu-item" ) );
+    return $output;
+}
+add_filter('wp_nav_menu', 'add_markup_pages');
+
+function has_default_post_meta( $placement = 'bottom' ){
+    global $rtp_post_comments;
+    $position = ( $placement == 'bottom' ) ? 'l' : 'u';
+    if( has_action( 'rtp_hook_begin_post_meta_' . $placement ) || has_action( 'rtp_hook_end_post_meta_' . $placement ) ) {
+        return true;
+    } elseif ( $rtp_post_comments['post_author_'.$position] || $rtp_post_comments['post_date_'.$position] ) {
+        return true;
+    } elseif ( @comments_open() && $position == 'u' && has_action( 'rtp_hook_post_meta_top_comment' ) ) {
+        return true;
+    } elseif ( get_the_category_list() && $rtp_post_comments['post_category_'.$position] ) {
+        return true;
+    } elseif ( get_the_tag_list && $rtp_post_comments['post_tags_'.$position] ) {
+        return true;
+    } else {
+        $args = array( '_builtin' => false );
+        $taxonomies = get_taxonomies( $args, 'names' );
+        foreach ( $taxonomies as $taxonomy ) {
+            if ( get_the_terms( $post->ID, $taxonomy ) && isset( $rtp_post_comments['post_'.$taxonomy.'_'.$position] ) && $rtp_post_comments['post_'.$taxonomy.'_'.$position] ) {
+                return true;
+            }
+        }
+    }
+}
 

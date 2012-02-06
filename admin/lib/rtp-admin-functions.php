@@ -1165,13 +1165,13 @@ function rtp_media_upload_flash_bypass() {
         echo "<input type='hidden' name='rtp_theme' value='rtp_true' />";
         if ( preg_match( '/logo_or_favicon=Favicon/', wp_get_referer() ) || preg_match("/logo_or_favicon=Favicon/", $_SERVER['REQUEST_URI']) ) {
             echo '<script type="text/javascript">
-                      jQuery("#tab-type a").attr("href","/wp-admin/media-upload.php?post_id=0&rtp_theme=rtp_true&logo_or_favicon=Favicon&type=image&TB_iframe=true&tab=type" );
-                      jQuery("#tab-library a").attr("href","/wp-admin/media-upload.php?post_id=0&rtp_theme=rtp_true&logo_or_favicon=Favicon&type=image&TB_iframe=true&tab=library" );
+                      jQuery("#tab-type a").attr("href","' . admin_url( '/media-upload.php?post_id=0&rtp_theme=rtp_true&logo_or_favicon=Favicon&type=image&TB_iframe=true&tab=type' ) . '" );
+                      jQuery("#tab-library a").attr("href","' . admin_url( '/media-upload.php?post_id=0&rtp_theme=rtp_true&logo_or_favicon=Favicon&type=image&TB_iframe=true&tab=library' ) . '" );
                   </script>';
         } else {
             echo '<script type="text/javascript">
-                      jQuery("#tab-type a").attr("href","/wp-admin/media-upload.php?post_id=0&rtp_theme=rtp_true&logo_or_favicon=Logo&type=image&TB_iframe=true&tab=type" );
-                      jQuery("#tab-library a").attr("href","/wp-admin/media-upload.php?post_id=0&rtp_theme=rtp_true&logo_or_favicon=Logo&type=image&TB_iframe=true&tab=library" );
+                      jQuery("#tab-type a").attr("href","' . admin_url( '/media-upload.php?post_id=0&rtp_theme=rtp_true&logo_or_favicon=Logo&type=image&TB_iframe=true&tab=type' ) . '" );
+                      jQuery("#tab-library a").attr("href","' . admin_url( '/media-upload.php?post_id=0&rtp_theme=rtp_true&logo_or_favicon=Logo&type=image&TB_iframe=true&tab=library' ) . '" );
                   </script>';
         }
 }
@@ -1185,14 +1185,14 @@ function rtp_media_upload_html_bypass( $flash = true ) {
     echo "<input type='hidden' name='rtp_theme' value='rtp_true' />";
     if ( preg_match( '/logo_or_favicon=Favicon/', wp_get_referer() ) || preg_match( "/logo_or_favicon=Favicon/", $_SERVER['REQUEST_URI'] ) ) {
         $favicon = '<script type="text/javascript">
-                        jQuery("#tab-type a").attr("href","/wp-admin/media-upload.php?post_id=0&rtp_theme=rtp_true&logo_or_favicon=Favicon&type=image&TB_iframe=true&tab=type" );
-                        jQuery("#tab-library a").attr("href","/wp-admin/media-upload.php?post_id=0&rtp_theme=rtp_true&logo_or_favicon=Favicon&type=image&TB_iframe=true&tab=library" );
+                        jQuery("#tab-type a").attr("href","' . admin_url( '/media-upload.php?post_id=0&rtp_theme=rtp_true&logo_or_favicon=Favicon&type=image&TB_iframe=true&tab=type' ) . '" );
+                        jQuery("#tab-library a").attr("href","' . admin_url( '/media-upload.php?post_id=0&rtp_theme=rtp_true&logo_or_favicon=Favicon&type=image&TB_iframe=true&tab=library' ) . '" );
                     </script>';
         echo $favicon;
     } else {
         $logo = '<script type="text/javascript">
-                        jQuery("#tab-type a").attr("href","/wp-admin/media-upload.php?post_id=0&rtp_theme=rtp_true&logo_or_favicon=Logo&type=image&TB_iframe=true&tab=type" );
-                        jQuery("#tab-library a").attr("href","/wp-admin/media-upload.php?post_id=0&rtp_theme=rtp_true&logo_or_favicon=Logo&type=image&TB_iframe=true&tab=library" );
+                        jQuery("#tab-type a").attr("href","' . admin_url( '/media-upload.php?post_id=0&rtp_theme=rtp_true&logo_or_favicon=Logo&type=image&TB_iframe=true&tab=type' ) . '" );
+                        jQuery("#tab-library a").attr("href","' . admin_url( '/media-upload.php?post_id=0&rtp_theme=rtp_true&logo_or_favicon=Logo&type=image&TB_iframe=true&tab=library' ) . '" );
                  </script>';
         echo $logo;
     }
@@ -1343,9 +1343,12 @@ add_filter( 'admin_footer_text', 'rtp_custom_admin_footer' );
  * @since rtPanel 2.0
  */
 function rtp_export_version() {
-    global $wp_version, $rtp_version;
+    global $wp_version;
     require_once( ABSPATH . '/wp-admin/includes/update.php' );
     $theme_info = get_theme( get_current_theme() );
+    if ( is_child_theme() ) {
+        $theme_info = get_theme( $theme_info['Parent Theme'] );
+    }
     $theme_version = array( 'wp' => $wp_version, 'rtPanel' => $theme_info['Version'] );
     return $theme_version;
 }
