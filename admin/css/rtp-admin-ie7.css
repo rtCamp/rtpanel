@@ -1,0 +1,14 @@
+/**
+ * rtPanel Admin CSS for IE7 Browser
+ *
+ * @package rtPanel
+
+ * @since rtPanel 2.0
+ */
+
+#social .inside { overflow: hidden; margin: 10px 10px 10px 65px; }
+#social .inside a { display: block; float: left; }
+.has-right-sidebar .form-table td.img-preview div { display:none; }
+input#thumbnail_height, input#thumbnail_width, input#word_limit { width: auto !important; }
+.has-right-sidebar #post_thumbnail_options .custom .alignleft { word-wrap: normal; }
+.button-primary, .button-secondary, .button-link { overflow: visible; }
