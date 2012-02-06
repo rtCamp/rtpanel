@@ -1,0 +1,17 @@
+/**
+ * Custom CSS for IE6 Browser
+ *
+ * @package rtPanel
+ *
+ * @since rtPanel 2.0
+ */
+
+legend { margin-left: -7px; } /* thnx ivannikolic! */
+input { vertical-align: text-bottom; }
+.clear { height: 0px; overflow: hidden; } /* height issue */
+.clearfix { zoom: 1; } /* IE < 8 */
+.post-content img { width: expression( this.width > 600 ? "600px" : true ); }
+.post-content .wp-caption { width: expression( this.width > 558 ? "558px" : true ); }
+.post-content .wp-caption img { width: expression( this.width > 535 ? "535px" : true ); }
+#rtp-nav-menu, #rtp-primary-menu { height:100%; position: relative; }
+#respond, .commentlist .comment .comment-body, .post-meta, div.comment-body, .rtp-post-comment-count, #content-wrapper, .hentry { height: 100%; }
