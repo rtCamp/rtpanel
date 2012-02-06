@@ -1,0 +1,125 @@
+/**
+ * rtPanel Admin CSS
+ *
+ * @package rtPanel
+
+ * @since rtPanel 2.0
+ */
+
+.rtpanel { color: #333333 !important; font-weight: bold; }
+
+.show { visibility: visible; display: block; }
+.hideme { visibility: hidden; display: none; }
+.clear { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+.clearfix:before, .clearfix:after { content: "."; display: block; height: 0; overflow: hidden; }
+.clearfix:after { clear: both }
+
+.rtpanel-admin { width: 76%; overflow: hidden; }
+    .rtpanel-admin h2 { border-bottom: 1px solid #CCCCCC; padding-bottom: 0; }
+    .rtpanel-admin div.updated p { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; background-color: #FFFFE0; border: 1px solid #E6DB55; margin: 0 auto; padding: 7px; width: 95%; }
+
+#icon-rtpanel { background: url("../../img/rtp-icon.jpg") no-repeat scroll 0 0 transparent; }
+
+.nav-tab { margin: 0 5px -1px 0; }
+    h2 .nav-tab { font-size: 20px; padding: 4px 6px; }
+
+.options-main-container { overflow: hidden; border: 1px solid #CCCCCC; border-top: none; padding: 0; margin-bottom: 15px; }
+    .options-container { margin: 5px 10px; overflow: hidden; padding: 0; }
+
+#wpbody-content .metabox-holder { margin-bottom: 10px; padding: 10px 0 0; width: 100%; }
+#wpbody-content .metabox-fixed { margin: 0 10px 0 0; width: 22%; clear: both; }
+
+div.inside { margin: 10px 5px; }
+.inside .image-uploader { float: left; overflow: hidden; width: 395px; }
+.inside .image-preview { margin: 0 auto; overflow: hidden; text-align: center; }
+.inside #logo_metabox img { display: block; width: 240px; height: 90px; margin: 0 auto; }
+.postbox .inside h3, .postbox .inside h3:hover { background: none repeat scroll 0 0 transparent; cursor: default; display: none; }
+#poststuff .postbox .inside p { margin: 0 0 5px 0; }
+#poststuff .postbox .inside th p { font-size: 11px; margin-bottom: 8px; }
+
+.rtpanel-admin div.updated, .rtpanel-admin div.error { -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; background: none repeat scroll 0 0 transparent; border-left: 1px solid #CCCCCC; border-right: 1px solid #CCCCCC; border-top: none; border-bottom: none; display: block; margin: 0; padding: 10px 0; text-align: center; }
+    .rtpanel-admin div.error p { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; background: #FFEBE8; border: 1px solid #CC0000; margin: 0 auto; padding: 7px; width: 95%; }
+.admin-main-heading h2 { border-bottom: 1px solid #EAEAEA; font-size: 153.9%; padding: 14px 0 3px 0; }
+.admin-sub-module { clear: both; overflow: hidden; }
+.admin-or { color: #888888; display: block; float: left; font-family: Georgia,"Times New Roman","Bitstream Charter",Times,serif; font-size: 153.9%; font-style: italic; padding: 30px 25px 30px 0; }
+
+.logo-upload, .logo-url, .fav-upload, .fav-url { display: block; float: left; height: 100px; padding: 0 25px 0 0; }
+.logo-url, .fav-url { width: 200px; }
+.logo-preview, .fav-preview { float: left; display: block; }
+.fav-preview { padding: 33px 0 0; }
+#logo, #logo_url, #fav, #fav_url { clear: both; }
+
+.feedburner { padding: 22px 0; }
+    .feedburner label { padding: 0 0 3px; }
+
+.custom-search-main { padding: 22px 0 0; }
+    .custom-search-main label { padding: 0 0 3px; }
+
+.custom-search-scripts { padding: 10px 0 0 0; }
+    .custom-search-scripts textarea { margin-left: 6px; margin-bottom: 10px; vertical-align: middle; }
+
+.post-meta-common { margin-left: 30px; }
+
+#plugin_support .active { color: #4F8A10; }
+#plugin_support .inactive { color: orange; }
+#plugin_support .not-installed { color: red; }
+    #plugin_support th { font-weight: bold; }
+    #plugin_support .form-table th,
+        #plugin_support .form-table td { border-bottom: 1px solid #DFDFDF; font-size: 11px; padding: 7px; }
+        #plugin_support .form-table td.last-child { border: none; }
+
+.has-right-sidebar #post-body { margin-right: 0; width: 50%; }
+    .has-right-sidebar #post-body-content { margin-right: 8px; }
+    .has-right-sidebar .inside #logo_metabox img { width: 230px; }
+    .has-right-sidebar .form-table td.img-preview,
+    .has-right-sidebar .form-table td.img-url { float: left; }
+    .has-right-sidebar .postbox input[type="text"],
+    .has-right-sidebar .postbox textarea,
+    .has-right-sidebar .stuffbox input[type="text"],
+    .has-right-sidebar .stuffbox textarea { width: 98%; }
+
+.inner-sidebar { width: 50%; }
+    .inner-sidebar #side-sortables { width: 99.7%; }
+#gravatar_size { width: 120px; }
+
+#social .inside a { background: url("../../img/rtp-social-icons.png") no-repeat scroll 0 0 transparent; display: inline-block; font-size: 0; height: 23px; margin: 0 5px; text-indent: -9999px; text-transform: uppercase; vertical-align: middle; width: 23px; }
+    #social .inside a.rtpanel-facebook { background-position: -215px 0; }
+    #social .inside a.rtpanel-twitter { background-position: -559px 0; }
+    #social .inside a.rtpanel-rss { background-position: -430px 0; }
+    #social .inside a.rtpanel-linkedin { background-position: -301px 0; }
+
+#latest_news .inside ul { margin: 0 0 0 12px; }
+    #latest_news .inside ul li { list-style: square outside none; padding: 0 0 7px; }
+a.regenerate_thumbanil_notice_close { text-decoration: none; }
+
+.postbox-title-action { position: absolute; right: 35px; top: 0; }
+
+.form-table * { word-wrap: break-word; }
+.form-table th { width: 170px; }
+.form-table label { font-size: 13px; }
+.form-table label.example { font-size: 100%; }
+.form-table a { text-decoration: none; }
+
+#post_thumbnail_options .form-table label { margin: 0 20px 0 0; }
+#google_search .form-table label { line-height: 20px; }
+
+input.reset-link { border: 0; background: none; color: #21759B; }
+input.reset-link:hover { text-decoration: underline; cursor: pointer; }
+input { outline: medium none; }
+input[disabled][type='text'],
+input[disabled][type='radio'],
+input[disabled][type='checkbox'] { background-color: Silver; }
+input[type="checkbox"],
+input[type="radio"] { margin: 1px 5px 1px 1px }
+input.button-link { background: none; border: none; color: #21759B; cursor: pointer; }
+input.button-link:hover { color: #D54E21; }
+
+.postbox input[type="text"], .stuffbox input[type="text"] { width: auto; padding: 5px; }
+.postbox textarea, .stuffbox textarea { color: #333333; padding: 5px; }
+
+textarea[disabled] { background-color: Silver; }
+
+.rtp_submit { padding: 10px 0; text-align: right; }
+
+a.expand-collapse { background: none repeat scroll 0 0 #CCCCCC; color: #333333; float: right; font-size: 85%; padding: 5px 8px; text-decoration: none; }
+a.expand-collapse:hover { text-decoration: underline; }
