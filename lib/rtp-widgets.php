@@ -68,7 +68,7 @@ class rtp_subscribe_widget extends WP_Widget {
                 $no_options++; ?>
                 <form onsubmit="window.open( 'http://feedburner.google.com/fb/a/mailverify?uri=<?php echo $sub_link; ?>', 'popupwindow', 'scrollbars=yes,width=700px,height=700px' ); return true" target="popupwindow" method="post" action="http://feedburner.google.com/fb/a/mailverify">
                     <p>
-                        <label for="email"><?php _e( 'Sign up for our email newsletter', 'rtPanel' ); ?></label>
+                        <label for="email"><?php _e( 'Sign up for our email news letter', 'rtPanel' ); ?></label>
                         <input id="email" type="text" name="email" onblur="if ( this.value == '' ) { this.value = '<?php _e( 'Enter Email Id', 'rtPanel' ); ?>'; }" onfocus="if ( this.value == '<?php _e( 'Enter Email Id', 'rtPanel' ); ?>') { this.value = ''; }" value="<?php _e( 'Enter Email Id', 'rtPanel' ); ?>" class="email" title="<?php _e( 'Email Id', 'rtPanel' ); ?>" size="15" />
                         <input type="hidden" name="uri" value="<?php echo $sub_link; ?>" />
                         <input type="hidden" value="en_US" name="loc" />
