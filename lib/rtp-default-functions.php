@@ -7,6 +7,15 @@
  * @since rtPanel 2.0
  */
 
+/**
+ * Checks whether the post meta div needs to be displayed or not
+ *
+ * @uses $rtp_post_comments Post Comments DB array
+ * @uses $post Post Data
+ * @param string $position Specify the position of the post meta (u/l)
+ *
+ * @since rtPanel 2.1
+ */
 function rtp_has_postmeta( $position = 'u' ) {
     global $post, $rtp_post_comments; 
     $flag = 0;
@@ -49,6 +58,7 @@ function rtp_has_postmeta( $position = 'u' ) {
  * Default post meta
  *
  * @uses $rtp_post_comments Post Comments DB array
+ * @uses $post Post Data
  * @param string $placement Specify the position of the post meta (top/bottom)
  *
  * @since rtPanel 2.0
