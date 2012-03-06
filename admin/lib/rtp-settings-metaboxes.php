@@ -624,7 +624,7 @@ function rtp_post_meta_metabox() {
     $date_format_u = ( $rtp_post_comments['post_date_format_u'] != 'F j, Y' && $rtp_post_comments['post_date_format_u'] != 'Y/m/d' && $rtp_post_comments['post_date_format_u'] != 'm/d/Y' && $rtp_post_comments['post_date_format_u'] != 'd/m/Y' ) ? true : false;
     $date_format_l = ( $rtp_post_comments['post_date_format_l'] != 'F j, Y' && $rtp_post_comments['post_date_format_l'] != 'Y/m/d' && $rtp_post_comments['post_date_format_l'] != 'm/d/Y' && $rtp_post_comments['post_date_format_l'] != 'd/m/Y' ) ? true : false;
     $args = array( '_builtin' => false );
-    $taxonomies = get_taxonomies( $args, 'names' ); ?><br />
+    $taxonomies = get_taxonomies( $args, 'objects' ); ?><br />
     <span class="description"><strong><?php _e( 'This option will allow you to specify the post meta attributes and their position', 'rtPanel' ); ?></strong></span><br /><br />
     <strong><?php _e( 'These Post Meta will be displayed above content', 'rtPanel' ); ?></strong>
     <table class="form-table">
@@ -674,12 +674,13 @@ function rtp_post_meta_metabox() {
                 </td>
             </tr><?php
             if ( !empty( $taxonomies ) ) {
-                foreach ( $taxonomies as $taxonomy ) { ?>
+                foreach ( $taxonomies as $key => $taxonomy ) {
+                    $rtp_post_comments['post_' . $key . '_u'] = ( isset( $rtp_post_comments['post_' . $key . '_u'] ) ) ? $rtp_post_comments['post_' . $key . '_u'] : 0; ?>
                     <tr valign="top">
-                        <th scope="row"><p><label for="<?php echo 'post_' . $taxonomy . '_u'; ?>"><?php printf( __( 'Post %s', 'rtPanel' ), ucfirst( $taxonomy ) ); ?></label></p></th>
+                        <th scope="row"><p><label for="<?php echo 'post_' . $key . '_u'; ?>"><?php printf( __( '%s', 'rtPanel' ), $taxonomy->labels->name ); ?></label></p></th>
                         <td>
-                            <input type="hidden" name="rtp_post_comments[<?php echo 'post_' . $taxonomy . '_u'; ?>]" value="0" />
-                            <input type="checkbox" name="rtp_post_comments[<?php echo 'post_' . $taxonomy . '_u'; ?>]" value="1" id="<?php echo 'post_' . $taxonomy . '_u'; ?>" <?php checked( $rtp_post_comments['post_' . $taxonomy . '_u'] ); ?> />
+                            <input type="hidden" name="rtp_post_comments[<?php echo 'post_' . $key . '_u'; ?>]" value="0" />
+                            <input type="checkbox" name="rtp_post_comments[<?php echo 'post_' . $key . '_u'; ?>]" value="1" id="<?php echo 'post_' . $key . '_u'; ?>" <?php checked( $rtp_post_comments['post_' . $key . '_u'] ); ?> />
                         </td>
                     </tr><?php
                 }
@@ -735,12 +736,13 @@ function rtp_post_meta_metabox() {
                 </td>
             </tr><?php
             if ( !empty( $taxonomies ) ) {
-                foreach ( $taxonomies as $taxonomy ) { ?>
+                foreach ( $taxonomies as $key => $taxonomy ) { 
+                    $rtp_post_comments['post_' . $key . '_l'] = ( isset( $rtp_post_comments['post_' . $key . '_l'] ) ) ? $rtp_post_comments['post_' . $key . '_l'] : 0; ?>
                     <tr valign="top">
-                        <th scope="row"><p><label for="<?php echo 'post_' . $taxonomy . '_l'; ?>"><?php printf( __( 'Post %s', 'rtPanel' ), ucfirst( $taxonomy ) ); ?></label></p></th>
+                        <th scope="row"><p><label for="<?php echo 'post_' . $key . '_l'; ?>"><?php printf( __( '%s', 'rtPanel' ), $taxonomy->labels->name ); ?></label></p></th>
                         <td>
-                            <input type="hidden" name="rtp_post_comments[<?php echo 'post_' . $taxonomy . '_l'; ?>]" value="0" />
-                            <input type="checkbox" name="rtp_post_comments[<?php echo 'post_' . $taxonomy . '_l'; ?>]" value="1" id="<?php echo 'post_' . $taxonomy . '_l'; ?>" <?php checked( $rtp_post_comments['post_' . $taxonomy . '_l'] ); ?> />
+                            <input type="hidden" name="rtp_post_comments[<?php echo 'post_' . $key . '_l'; ?>]" value="0" />
+                            <input type="checkbox" name="rtp_post_comments[<?php echo 'post_' . $key . '_l'; ?>]" value="1" id="<?php echo 'post_' . $key . '_l'; ?>" <?php checked( $rtp_post_comments['post_' . $key . '_l'] ); ?> />
                         </td>
                     </tr><?php
                 }
