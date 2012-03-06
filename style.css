@@ -2,7 +2,7 @@
 Theme Name: rtPanel
 Theme URI: http://rtpanel.com
 Description: WordPress theme framework with Custom Menu, Header and Background along with Logo, Favicon, Featured Image, Feedburner, Facebook Open Graph, Google Custom Search Integration and more options. This theme comes with free technical support by team of 20+ full-time developers.
-Version: 2.0.8
+Version: 2.1
 Author: rtCamp
 Author URI: http://rtcamp.com
 Contributors: rtCampers ( http://rtcamp.com/about/rtcampers/ )
@@ -11,8 +11,69 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: black, blue, gray, orange, white, light, two-columns, right-sidebar, fixed-width, custom-background, custom-header, custom-menu, featured-images, sticky-post, theme-options, threaded-comments, translation-ready
 */
 
-@import url("./css/rtp-reset.css");
-@import url("./css/rtp-typo.css");
+/* CSS for Reset Browser CSS http://code.google.com/p/html5resetcss/downloads/list */
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, 
+kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, 
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav,
+section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; outline:0; font-size: 100%; vertical-align: baseline; background: transparent; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+nav ul { list-style: none; }
+blockquote, q { quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after { content: ''; content: none; }
+
+a { margin: 0; padding: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
+
+/* change colours to suit your needs */
+ins { background-color: #ff9; color: #000; text-decoration: none; }
+
+/* change colours to suit your needs */
+mark { background-color: #ff9; color: #000; font-style: italic; font-weight: bold; }
+del { text-decoration: line-through; }
+abbr[title], dfn[title] { border-bottom: 1px dotted; cursor: help; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+/* change border colour to suit your needs */
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #CCC; margin: 1em 0; padding:0; }
+input, select { vertical-align: middle; }
+
+/* Typography Css*/
+body { font-size: 62.5%; line-height: 100%; font-family: sans-serif; }
+h1, h2, h3, h4, h5, h6 { clear: both; font-weight: normal; letter-spacing: 1px; }
+
+/* Default Heading Style */
+h1 { font-size: 200%; } /* 28px */
+h2 { font-size: 171.4%; } /* 24px */
+h3 { font-size: 142.8%; } /* 20px */
+h4 { font-size: 114.3%; font-weight: bold; } /* 16px */
+h5 { font-size: 100%; font-weight: bold; } /* 14px */
+h6 { font-size: 85.7%; font-weight: bold; } /* 12px */
+
+.post-title h1,
+.post-title h2 { font-size: 280%; }
+
+/* normalize monospace sizing
+ * en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome
+ */
+pre, code, kbd, samp, tt, var { font-family: monospace; }
+small { font-size: 80%; }
+sub, sup { font-size: smaller; font-weight: 400; }
+acronym, abbr { border-bottom: 1px dotted #BFBFBF; cursor: help; }
+dl dt, th, b, strong { font-weight: 700; }
+i, cite, em, var, dfn, address { font-style: italic; }
+u, ins { text-decoration: underline; }
+s, strike, del { text-decoration: line-through; }
+:focus { outline: 0; }/* removes gray dotted outline */
+sub { vertical-align: sub; font-size: smaller; }
+sup { vertical-align: super; font-size: smaller; }
+.post-meta abbr,
+.post-meta acronym { font-style: normal; border: none; }
 
 /* always force a scrollbar in non-IE */
 html { overflow-y: scroll; }

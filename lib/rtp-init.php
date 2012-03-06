@@ -85,11 +85,8 @@ if ( !function_exists( 'rt_admin_header_style' ) ) {
  */
 function rtp_ie_css() {
     wp_register_style( 'rtp-styles-ie7', RTP_CSS_FOLDER_URL . '/rtp-ie7.css', '', '', 'screen, projection' );
-    wp_register_style( 'rtp-styles-ie6', RTP_CSS_FOLDER_URL . '/rtp-ie6.css', '', '', 'screen, projection' );
     $GLOBALS['wp_styles']->add_data( 'rtp-styles-ie7', 'conditional', 'IE 7' );
-    $GLOBALS['wp_styles']->add_data( 'rtp-styles-ie6', 'conditional', 'IE 6' );
     wp_enqueue_style( 'rtp-styles-ie7' );
-    wp_enqueue_style( 'rtp-styles-ie6' );
 }
 add_action( 'wp_enqueue_scripts', 'rtp_ie_css' );
 
@@ -136,10 +133,6 @@ add_action( 'wp_enqueue_scripts', 'rtp_default_scripts' );
 function rtp_footer_scripts() { ?>
     <!--[if lte IE 7]>
         <script type="text/javascript" src="<?php echo RTP_JS_FOLDER_URL; ?>/rtp-custom-ie7.js"></script>
-    <![endif]-->
-    
-    <!--[if IE 6]>
-        <script type="text/javascript" src="<?php echo RTP_JS_FOLDER_URL; ?>/rtp-custom-ie6.js"></script>
     <![endif]--><?php
 }
 add_action( 'wp_footer', 'rtp_footer_scripts' );
