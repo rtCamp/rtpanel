@@ -11,20 +11,20 @@
 
     /* Archive Page Titles */
     if ( is_search() ) { ?>
-        <div class="post-title rtp-main-title"><h1><?php printf( __( 'Search Results for: %s', 'rtPanel' ), '<span>' . get_search_query() . '</span>' ); ?></h1></div><?php
+        <h1 class="post-title rtp-main-title"><?php printf( __( 'Search Results for: %s', 'rtPanel' ), '<span>' . get_search_query() . '</span>' ); ?></h1><?php
     } elseif ( is_tag() ) { ?>
-        <div class="post-title rtp-main-title"><h1><?php printf( __( 'Tags: %s', 'rtPanel' ), '<span>' . single_tag_title( '', false ) . '</span>' ); ?></h1></div><?php
+        <h1 class="post-title rtp-main-title"><?php printf( __( 'Tags: %s', 'rtPanel' ), '<span>' . single_tag_title( '', false ) . '</span>' ); ?></h1><?php
     } elseif ( is_category() ) { ?>
-        <div class="post-title rtp-main-title"><h1><?php printf( __( 'Category: %s', 'rtPanel' ), '<span>' . single_cat_title( '', false ) . '</span>' ); ?></h1></div><?php
+        <h1 class="post-title rtp-main-title"><?php printf( __( 'Category: %s', 'rtPanel' ), '<span>' . single_cat_title( '', false ) . '</span>' ); ?></h1><?php
     } elseif ( is_day() ) { ?>
-        <div class="post-title rtp-main-title"><h1><?php printf( __( 'Archive for %s', 'rtPanel' ), '<span>' . get_the_time( 'F jS, Y' ) . '</span>' ); ?></h1></div><?php
+        <h1 class="post-title rtp-main-title"><?php printf( __( 'Archive for %s', 'rtPanel' ), '<span>' . get_the_time( 'F jS, Y' ) . '</span>' ); ?></h1><?php
     } elseif ( is_month() ) { ?>
-        <div class="post-title rtp-main-title"><h1><?php printf( __( 'Archive for  %s', 'rtPanel' ), '<span>' . get_the_time( 'F, Y' ) . '</span>' ); ?></h1></div><?php
+        <h1 class="post-title rtp-main-title"><?php printf( __( 'Archive for  %s', 'rtPanel' ), '<span>' . get_the_time( 'F, Y' ) . '</span>' ); ?></h1><?php
     } elseif ( is_year() ) { ?>
-        <div class="post-title rtp-main-title"><h1><?php printf( __( 'Archive for  %s', 'rtPanel' ), '<span>' . get_the_time( 'Y' ) . '</span>' ); ?></h1></div><?php
+        <h1 class="post-title rtp-main-title"><?php printf( __( 'Archive for  %s', 'rtPanel' ), '<span>' . get_the_time( 'Y' ) . '</span>' ); ?></h1><?php
     } elseif ( get_query_var( 'author_name' ) ) {
         $cur_auth = get_user_by( 'slug', get_query_var( 'author_name' ) ); ?>
-        <div class="post-title rtp-main-title"><h1><?php printf( __( 'Author: %s', 'rtPanel' ), '<span>' . trim( ucfirst( $cur_auth->display_name ) ) . '</span>' ); ?></h1></div><?php
+        <h1 class="post-title rtp-main-title"><?php printf( __( 'Author: %s', 'rtPanel' ), '<span>' . trim( ucfirst( $cur_auth->display_name ) ) . '</span>' ); ?></h1><?php
     }
 
     /* the loop */
@@ -32,24 +32,25 @@
         while( have_posts() ) {
             the_post(); ?>
 
-            <div <?php post_class( 'rtp-post-box' ); ?>>
+            <article <?php post_class( 'rtp-post-box' ); ?>>
                 <?php rtp_hook_begin_post(); ?>
 
-                <div class="post-title">
+                <header class="post-header">
                     <?php rtp_hook_begin_post_title(); ?>
 
                     <?php   if ( is_singular() ) { ?>
-                                <h1><?php the_title(); ?></h1><?php
+                                <h1 class="post-title"><?php the_title(); ?></h1><?php
                             } else { ?>
-                                <h2><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permanent Link to %s', 'rtPanel' ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a></h2><?php
+                                <h2 class="post-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permanent Link to %s', 'rtPanel' ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a></h2><?php
                             } ?>
 
                     <?php rtp_hook_end_post_title(); ?>
 
                     <div class="clear"></div>
-                </div><!-- .post-title -->
 
-                <?php rtp_hook_post_meta( 'top' ); ?>
+                    <?php rtp_hook_post_meta( 'top' ); ?>
+
+                </header><!-- .post-title -->
 
                 <div class="post-content">
                     <?php rtp_hook_begin_post_content(); ?>
@@ -67,11 +68,11 @@
 
                     <div class="clear"></div>
                 </div><!-- .post-content -->
-
+                
                 <?php rtp_hook_post_meta( 'bottom' ); ?>
-
+                
                 <?php rtp_hook_end_post(); ?>
-            </div><!-- .rtp-post-box --><?php
+            </article><!-- .rtp-post-box --><?php
 
             /* Post Pagination */
             if ( is_single() ) { ?>
@@ -98,16 +99,14 @@
         }
     } else {
         /* If there are no posts to display */ ?>
-        <div id="post-0" <?php post_class('rtp-post-box'); ?>>
-            <div class="hentry rtp-not-found">
-                <?php rtp_hook_begin_post(); ?>
+        <article id="post-0" <?php post_class('rtp-not-found'); ?>>
+            <?php rtp_hook_begin_post(); ?>
 
-                <div class="post-content">
-                    <p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'rtPanel' ); ?></p>
-                    <?php get_search_form(); ?>
-                </div>
-
-                <?php rtp_hook_end_post();  ?>
+            <div class="post-content">
+                <p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'rtPanel' ); ?></p>
+                <?php get_search_form(); ?>
             </div>
-        </div><!-- #post-0 --><?php
+
+            <?php rtp_hook_end_post();  ?>
+        </article><!-- #post-0 --><?php
     } ?>

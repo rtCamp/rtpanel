@@ -10,15 +10,13 @@ get_header(); ?>
 
 <?php global $rtp_general; ?>
 
-    <div id="content" class="rtp-multiple-post<?php echo (  $rtp_general['search_code'] && $rtp_general['search_layout'] )?' search-layout-content':''; ?>"> <!-- content begins --><?php
+    <section id="content" role="main" class="rtp-multiple-post<?php echo (  $rtp_general['search_code'] && $rtp_general['search_layout'] )?' search-layout-content':''; ?>"> <!-- content begins --><?php
         
         rtp_hook_begin_content();
         
         if ( preg_match( '/customSearchControl.draw\(\'cse\'\);/i', @$rtp_general["search_code"] ) ) { ?>
 
-            <div class="post-title rtp-main-title">
-                <h1><?php printf( __( 'Search Results for: %s', 'rtPanel' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-            </div><?php
+            <h1 class="post-title rtp-main-title"><?php printf( __( 'Search Results for: %s', 'rtPanel' ), '<span>' . get_search_query() . '</span>' ); ?></h1><?php
             
             $search_code = preg_split('/customSearchControl.draw\(\'cse\'\);/i', $rtp_general["search_code"]);
             echo $search_code[0];
@@ -32,7 +30,7 @@ get_header(); ?>
         
         <?php rtp_hook_end_content(); ?>
 
-    </div><!-- #content -->
+    </section><!-- #content -->
     
     <?php if ( !$rtp_general['search_code'] || !$rtp_general['search_layout'] ) get_sidebar(); ?>
 

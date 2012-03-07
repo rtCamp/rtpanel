@@ -3,7 +3,7 @@ About rtPanel
 Theme Name: rtPanel
 Theme URI: http://rtpanel.com
 Description: WordPress theme framework with Custom Menu/Header/Background/Logo/Favicon options, Featured Image, Feedburner/Facebook Open Graph/Google Custom Search integration and more. This theme comes with free technical support by team of 20+ full-time developers. Support Links: <a href="http://rtpanel.com/support" title="rtPanel Free Support" rel="follow">rtPanel Support forum</a>, <a href="http://rtpanel.com/docs" title="rtPanel Documentation" rel="follow">Documentation</a> or visit <a href="http://rtpanel.com/" title="rtPanel" rel="follow">rtPanel</a>.
-Version: 2.0
+Version: 2.1
 Author: rtCamp
 Author URI: http://rtcamp.com
 Contributors: rtCampers ( http://rtcamp.com/about/rtcampers/ )

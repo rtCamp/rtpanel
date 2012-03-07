@@ -11,43 +11,37 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: black, blue, gray, orange, white, light, two-columns, right-sidebar, fixed-width, custom-background, custom-header, custom-menu, featured-images, sticky-post, theme-options, threaded-comments, translation-ready
 */
 
-/* CSS for Reset Browser CSS http://code.google.com/p/html5resetcss/downloads/list */
-
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
-blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, 
-kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, 
-fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav,
-section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; outline:0; font-size: 100%; vertical-align: baseline; background: transparent; }
+/* Reset Browser CSS Source: http://code.google.com/p/html5resetcss/downloads/list 1.6.1 */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr,
+address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var,
+b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot,
+thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header,
+hgroup, menu, nav, section, summary, time, mark, audio, video { background: transparent; border: 0; font-size: 100%; margin: 0; outline: 0; padding: 0; vertical-align: baseline; }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
-nav ul { list-style: none; }
-blockquote, q { quotes: none; }
 
+blockquote, q { quotes: none; }
 blockquote:before, blockquote:after,
 q:before, q:after { content: ''; content: none; }
 
-a { margin: 0; padding: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
-
-/* change colours to suit your needs */
-ins { background-color: #ff9; color: #000; text-decoration: none; }
-
-/* change colours to suit your needs */
-mark { background-color: #ff9; color: #000; font-style: italic; font-weight: bold; }
-del { text-decoration: line-through; }
+a { background: transparent; font-size: 100%; margin: 0; padding: 0; vertical-align: baseline; }
 abbr[title], dfn[title] { border-bottom: 1px dotted; cursor: help; }
-
+del, s, strike { text-decoration: line-through; }
+input, select { vertical-align: middle; }
+nav ul { list-style: none; }
 table { border-collapse: collapse; border-spacing: 0; }
 
-/* change border colour to suit your needs */
-hr { display: block; height: 1px; border: 0; border-top: 1px solid #CCC; margin: 1em 0; padding:0; }
-input, select { vertical-align: middle; }
+/* change colours to suit your needs */
+ins { background-color: #FF9; color: #000; text-decoration: none; }
+mark { background-color: #FF9; color: #000; font-style: italic; font-weight: bold; }
+hr { border: 0; border-top: 1px solid #CCC; display: block; height: 1px; margin: 15px 0; padding:0; }
 
-/* Typography Css*/
-body { font-size: 62.5%; line-height: 100%; font-family: sans-serif; }
-h1, h2, h3, h4, h5, h6 { clear: both; font-weight: normal; letter-spacing: 1px; }
+/* Typography */
+body { font-family: sans-serif; font-size: 10px; line-height: 100%; }
+pre, code, kbd, samp, tt, var { font-family: monospace; }
+h1, h2, h3, h4, h5, h6 { clear: both; font-family: serif; font-weight: normal; letter-spacing: 1px; }
 
-/* Default Heading Style */
+/* Heading Style */
 h1 { font-size: 200%; } /* 28px */
 h2 { font-size: 171.4%; } /* 24px */
 h3 { font-size: 142.8%; } /* 20px */
@@ -55,42 +49,30 @@ h4 { font-size: 114.3%; font-weight: bold; } /* 16px */
 h5 { font-size: 100%; font-weight: bold; } /* 14px */
 h6 { font-size: 85.7%; font-weight: bold; } /* 12px */
 
-.post-title h1,
-.post-title h2 { font-size: 280%; }
-
-/* normalize monospace sizing
- * en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome
- */
-pre, code, kbd, samp, tt, var { font-family: monospace; }
-small { font-size: 80%; }
-sub, sup { font-size: smaller; font-weight: 400; }
 acronym, abbr { border-bottom: 1px dotted #BFBFBF; cursor: help; }
 dl dt, th, b, strong { font-weight: 700; }
 i, cite, em, var, dfn, address { font-style: italic; }
 u, ins { text-decoration: underline; }
-s, strike, del { text-decoration: line-through; }
-:focus { outline: 0; }/* removes gray dotted outline */
-sub { vertical-align: sub; font-size: smaller; }
-sup { vertical-align: super; font-size: smaller; }
-.post-meta abbr,
-.post-meta acronym { font-style: normal; border: none; }
+small { font-size: 80%; }
+sub { font-size: smaller; font-weight: 400; vertical-align: sub; }
+sup { font-size: smaller; font-weight: 400; vertical-align: super; }
 
 /* always force a scrollbar in non-IE */
 html { overflow-y: scroll; }
 
 /* Generic Lists */
 ul, ol { margin: 0 0 22px 25px; }
+
 ul ol, ul ul,
 ol ul, ol ol { margin-bottom: 0; }
 
+ol li,
 ul ol li,
 ol ol li { list-style: decimal outside none; }
 
+ul li,
 ul ul li,
 ol ul li { list-style: square outside none; }
-
-ul li { list-style: square outside none; }
-ol li { list-style: decimal outside none; }
 
 /* Generic Table */
 th { background: #F1F1F1; }
@@ -101,33 +83,26 @@ dl dt { background: #F1F1F1; color: #333; padding: 5px; }
 dl dd { margin: 2px 0; padding: 5px 0; }
 
 /* Code and Pre */
-pre, code {
-	white-space: pre;           /* CSS 2.0 */
-	white-space: pre-wrap;      /* CSS 2.1 */
-        padding: 15px;
-        overflow: hidden;
-}
-code { padding: 0; }
+pre, code { overflow: hidden; padding: 15px; white-space: pre-wrap; }
 
 /* Generic Form Elements */
-    textarea { overflow: auto; }/* thnx ivannikolic! http://www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */
-
-    /* align checkboxes, radios, text inputs with their label by: Thierry Koblentz tjkdesign.com/ez-css/css/base.css  */
-    input[type="radio"] { vertical-align: text-bottom; }
-    input[type="checkbox"] { vertical-align: bottom; }
-
-    label, input[type=button], input[type=submit], button { cursor: pointer; }/* hand cursor on clickable input elements */
-    button, input, select, textarea { margin: 0 0 4px; }/* for webkit browsers, add a 2px margin outside form elements */
-    button { width: auto; overflow: visible; }/* make buttons play nice in IE: http://www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
-    input { text-decoration: none; outline: none; }/* Disable Outline and Decoration for Input */
+textarea { overflow: auto; }
+/* align checkboxes, radios, text inputs with their label by: Thierry Koblentz tjkdesign.com/ez-css/css/base.css  */
+input[type="radio"] { vertical-align: text-bottom; }
+input[type="checkbox"] { vertical-align: bottom; }
+label, input[type=button], input[type=submit], button { cursor: pointer; }/* hand cursor on clickable input elements */
+button, input, select, textarea { margin: 0 0 4px; }/* for webkit browsers, add a 2px margin outside form elements */
+button { overflow: visible; width: auto; }/* make buttons play nice in IE: http://www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
+input { outline: none; text-decoration: none; }/* Disable Outline and Decoration for Input */
 
 /* Non-semantic helper classes */
-.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
-.hidden { display: none; visibility: hidden; }
+.ir { background-repeat: no-repeat; direction: ltr; display: block; overflow: hidden; text-align: left; text-indent: -999em; }
+.hidden { display: none; }
 .invisible { visibility: hidden; }
+.visible { visibility: visible; }
 
 /* "The Magnificent Clear" fix */
-.clear { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+.clear { clear: both; content: "\0020"; display: block; height: 0; visibility: hidden; }
 .clearfix:before,
 .clearfix:after { content: "."; display: block; height: 0; overflow: hidden; }
 .clearfix:after { clear: both; }
@@ -138,28 +113,25 @@ code { padding: 0; }
 .alignright { float: right; }
 
 /* Image Caption Style */
-.wp-caption { border-radius: 3px; background: #F3F3F3; border: 1px solid #DDD; margin: 8px 0; padding-top: 4px; text-align: center; }
+.wp-caption { background: #F3F3F3; border: 1px solid #DDD; border-radius: 3px; margin: 8px 0; padding-top: 4px; text-align: center; }
 .wp-caption.aligncenter { margin: 8px auto; }
 .wp-caption.alignleft { margin: 8px 15px 8px 0; }
 .wp-caption.alignright { margin: 8px 0 8px 15px; }
 p.wp-caption { margin: 0; }
 #content .wp-caption p.wp-caption-text { margin: 5px; }
 #content .post-content .wp-caption a, 
-#content .post-content .wp-caption a:hover { border: none; text-decoration: none; }
-#content .post-content .wp-caption img { border: medium none; margin: 0; max-width: 100%; padding: 0; }
+#content .post-content .wp-caption a:hover { border: 0; text-decoration: none; }
+#content .post-content .wp-caption img { border: 0; margin: 0; max-width: 100%; padding: 0; }
 
 /* Video Object Style */
 embed, object { margin-bottom: 10px; }
 
 /* Smiley ;) */
-img.wp-smiley,
-.post-content img.wp-smiley { border: medium none; margin: 0; padding: 0; float: none; }
-
-/* hide smiley added by wordpress stats plugin */
-#wpstats { display: none; }
+img.wp-smiley, .post-content img.wp-smiley { border: 0; float: none; margin: 0; padding: 0; }
+#wpstats { display: none; }/* hide smiley added by wordpress stats plugin */
 
 /* Table */
-.post-content table, .commentlist table { border: 1px solid #CCC; text-align: left; width: 100%; margin-bottom: 10px; }
+.post-content table, .commentlist table { border: 1px solid #CCC; margin-bottom: 10px; text-align: left; width: 100%; }
 .post-content tr th, .commentlist tr th,
 .post-content th, .commentlist tr th { background: #F1F1F1; border: 1px solid #CCC; padding: 2px; text-align: left; }
 .post-content tr td, .commentlist tr td { border: 1px solid #CCC; padding: 2px; }
@@ -175,14 +147,6 @@ body { background-color: #FFF; color: #111; font-size: 62.5%; }
 
 /* Specific Pages */
 #content-wrapper .full-width { width: 960px; }
-
-/* Default Colors */
-select, input, textarea { color: #111; }
-
-/* Default Fonts */
-.post-content, .widget,
-#respond form, select, input, textarea, button { font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
-.post-title, .rtp-edit-link, .widgettitle { font-family: "Nimbus Roman No9 L", "Times New Roman", Georgia, Times, serif; }
 
 /* Default Links */
 a, a:link, a:hover, a:active, a:visited { outline: none; }
@@ -251,6 +215,7 @@ h1 a:hover, h2 a:hover { color: #2361A1; text-decoration: none; }
 
     /* Post Author and Date */
     .post-meta .post-publish { font-size: 110%; width: 76%; }
+    .post-meta abbr, .post-meta acronym { font-style: normal; border: 0; }
 
     /* Post Comment */
     .post-meta .rtp-post-comment-count { text-align: right; width: 22%; }
@@ -281,6 +246,7 @@ h1 a:hover, h2 a:hover { color: #2361A1; text-decoration: none; }
 /* Post Loop */
 .hentry { border-bottom: 1px dotted #BBB; clear: both; overflow: hidden; padding: 22px 0px 22px 5px; position: relative; }
 #post-0 .hentry { padding: 0 0 22px; }
+    h1.post-title, h2.post-title { font-size: 280%; }
     .rtp-main-title { border-bottom: 2px solid #DDD; height: 100%; overflow: hidden; padding: 22px 5px; }
     .post-content { font-size: 140%; line-height: 171.5%; overflow: hidden; }
         .post-content p { margin-bottom: 24px; }

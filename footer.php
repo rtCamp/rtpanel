@@ -15,14 +15,14 @@ global $rtp_general; ?>
 
             </div><!-- #content-wrapper -->
            
-            <div id="footer-wrapper"><?php
+            <footer id="footer-wrapper"  role="contentinfo"><?php
                 if ( $rtp_general['footer_sidebar'] ) { ?>
                     <div id="footerbar"><?php
                         // Default Widgets ( Fallback )
                         if ( !dynamic_sidebar( 'footer-widgets' ) ) {  ?>
-                            <div class="widget footerbar-widget"><h3 class="widgettitle"><?php _e( 'Archives', 'rtPanel' ); ?></h3><ul><?php wp_get_archives( array( 'type' => 'monthly' ) ); ?></ul></div>
-                            <div class="widget footerbar-widget"><h3 class="widgettitle"><?php _e( 'Tags', 'rtPanel' ); ?></h3><div class="tagcloud"><?php wp_tag_cloud(); ?></div></div>
-                            <div class="widget footerbar-widget"><h3 class="widgettitle"><?php _e( 'Meta', 'rtPanel' ); ?></h3><ul><?php wp_register(); ?><li><?php wp_loginout(); ?></li><?php wp_meta(); ?></ul></div><?php
+                            <aside class="widget footerbar-widget"><h3 class="widgettitle"><?php _e( 'Archives', 'rtPanel' ); ?></h3><ul><?php wp_get_archives( array( 'type' => 'monthly' ) ); ?></ul></aside>
+                            <aside class="widget footerbar-widget"><h3 class="widgettitle"><?php _e( 'Tags', 'rtPanel' ); ?></h3><div class="tagcloud"><?php wp_tag_cloud(); ?></div></aside>
+                            <aside class="widget footerbar-widget"><h3 class="widgettitle"><?php _e( 'Meta', 'rtPanel' ); ?></h3><ul><?php wp_register(); ?><li><?php wp_loginout(); ?></li><?php wp_meta(); ?></ul></aside><?php
                         } ?>
                     </div><!-- #footerbar -->
                     <div class="clear"></div><?php
@@ -37,7 +37,7 @@ global $rtp_general; ?>
 
                 <?php rtp_hook_after_footer(); ?>
 
-            </div><!-- #footer-wrapper-->
+            </footer><!-- #footer-wrapper-->
 	</div><!-- #main-wrapper -->
 
         <?php wp_footer(); ?>

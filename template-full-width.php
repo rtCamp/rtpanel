@@ -8,12 +8,12 @@
  */
 get_header(); ?>
 
-    <div id="content" class="full-width">
+    <section id="content" class="full-width">
         <?php rtp_hook_begin_content(); ?>
 
         <?php get_template_part( 'loop', 'common' ); ?>
 
         <?php rtp_hook_end_content(); ?>
-    </div><!-- #content -->
+    </section><!-- #content -->
 
 <?php get_footer(); ?>

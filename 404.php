@@ -8,29 +8,28 @@
  */
 get_header(); ?>
 
-    <div id="content" class="rtp-home-posts">
+    <section id="content" role="main" class="rtp-home-posts">
+        
         <?php rtp_hook_begin_content();?>
 
-        <div id="post-0" <?php post_class('rtp-post-box'); ?>>
-            <div class="hentry rtp-not-found">
-                <?php rtp_hook_begin_post(); ?>
+        <article id="post-0" <?php post_class('rtp-not-found'); ?>>
+            <?php rtp_hook_begin_post(); ?>
 
-                <div class="post-title rtp-main-title">
-                    <h1><?php _e( 'Not Found', 'rtPanel' ); ?></h1>
-                </div>
+            <header class="post-header">
+                <h1 class="post-title rtp-main-title"><?php _e( 'Not Found', 'rtPanel' ); ?></h1>
+            </header>
 
-                <div class="post-content">
-                    <p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'rtPanel' ); ?></p>
-                    <?php get_search_form(); ?>
-                </div>
-
-                <?php rtp_hook_end_post();?>
+            <div class="post-content">
+                <p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'rtPanel' ); ?></p>
+                <?php get_search_form(); ?>
             </div>
-        </div><!-- #post-0 -->
+
+            <?php rtp_hook_end_post();?>
+        </article><!-- #post-0 -->
         
         <?php rtp_hook_end_content(); ?>
 
-    </div><!-- #content -->
+    </section><!-- #content -->
     
     <?php get_sidebar(); ?>
 
