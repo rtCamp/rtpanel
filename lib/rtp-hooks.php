@@ -220,8 +220,26 @@ function rtp_hook_after_footer() {
 /**
  * Adds content inside post meta top ( Basically to show comment count )
  *
- * @since rtPanel 2.0
+ * @since rtPanel 2.1
  */
 function rtp_hook_post_meta_top_comment() {
     do_action( 'rtp_hook_post_meta_top_comment' );
+}
+
+/**
+ * Hook used basically for single pagination
+ *
+ * @since rtPanel 2.1
+ */
+function rtp_hook_single_pagination() {
+    do_action( 'rtp_hook_single_pagination' );
+}
+
+/**
+ * Hook used basically for archive pagination
+ *
+ * @since rtPanel 2.1
+ */
+function rtp_hook_archive_pagination() {
+    do_action( 'rtp_hook_archive_pagination' );
 }

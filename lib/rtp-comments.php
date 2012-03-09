@@ -60,11 +60,31 @@ function rtp_ping_list( $comment ) {
 }
 
 /**
+ * Retrieve the only the amount of comments ( excluding Pingback/Trackbacks ) a post has.
+ *
+ * @param int $count The Comment Count
+ * @param int $post_id The Post ID
+ * @return int The number of Comments a post has
+ *
+ * @since rtPanel 2.1
+ */
+function rtp_only_comment_count( $count, $post_id ) {
+    $comments = get_approved_comments( $post_id );
+    $comment_count = 0;
+    foreach( $comments as $comment ){
+            if( $comment->comment_type == '' ){
+                $comment_count++;
+            }
+    }
+    return $comment_count;
+}
+
+/**
  * Retrieve the amount of Pingback/Trackbacks a post has.
  *
  * @param int $count The Comment Count
  * @param int $post_id The Post ID
- * @return int The number of comments a post has
+ * @return int The number of Pingback/Trackbacks a post has
  *
  * @since rtPanel 2.0
  */

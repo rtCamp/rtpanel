@@ -75,11 +75,8 @@
             </article><!-- .rtp-post-box --><?php
 
             /* Post Pagination */
-            if ( is_single() ) { ?>
-                <div class="rtp-navigation clearfix">
-                    <div class="alignleft"><?php previous_post_link( '%link', __( '&larr; %title', 'rtPanel' ) ); ?></div>
-                    <div class="alignright"><?php next_post_link( '%link', __( '%title &rarr;', 'rtPanel' ) ); ?></div>
-                </div><!-- .rtp-navigation --><?php
+            if ( is_single() ) {
+                rtp_hook_single_pagination();
             }
 
             // Comment Form
@@ -87,16 +84,9 @@
         }
         
         if ( !is_singular() ) {
-            /* Page-Navi Plugin Support with WordPress Default Pagination */
-            if ( function_exists( 'wp_pagenavi' ) ) {
-                wp_pagenavi();
-            } elseif ( get_next_posts_link() || get_previous_posts_link() ) { ?>
-                <div class="rtp-navigation clearfix">
-                    <div class="alignleft"><?php next_posts_link( __( '&larr; Older Entries', 'rtPanel' ) ); ?></div>
-                    <div class="alignright"><?php previous_posts_link( __( 'Newer Entries &rarr;', 'rtPanel' ) ); ?></div>
-                </div><!-- .rtp-navigation --><?php
-            }
+            rtp_hook_archive_pagination();
         }
+        
     } else {
         /* If there are no posts to display */ ?>
         <article id="post-0" <?php post_class('rtp-not-found'); ?>>

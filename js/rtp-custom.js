@@ -29,6 +29,14 @@ jQuery(document).ready(function() {
     /* added for comment field default value */
     jQuery( '#comment' ).blur( function() { if( this.value == '' ) this.value='Comment...'; } );
     jQuery( '#comment' ).focus( function() { if( this.value == 'Comment...' ) this.value=''; } );
+    
+    /* Check if comment fields have default value and make it null if so */
+    jQuery('.comments-container #submit').click( function(){
+        if( jQuery( '.hide-labels #author' ).val() == 'Name*' ) jQuery( '.hide-labels #author' ).val('');
+        if( jQuery( '.hide-labels #e-mail' ).val() == 'Email*' ) jQuery( '.hide-labels #e-mail' ).val('');
+        if( jQuery( '.hide-labels #url' ).val() == 'Website' ) jQuery( '.hide-labels #url' ).val('');
+        if( jQuery( '#comment' ).val() == 'Comment...' ) jQuery( '#comment' ).val('');
+    });
 
     /* Show post edit and comment edit while over on post or comment */
     function rtp_edit_link( container ) {

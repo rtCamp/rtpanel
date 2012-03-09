@@ -17,14 +17,15 @@
  * @since rtPanel 2.1
  */
 function rtp_has_postmeta( $position = 'u' ) {
-    global $post, $rtp_post_comments; 
+    global $post, $rtp_post_comments;
+    $can_edit = ( get_edit_post_link() ) ? 1 : 0;
     $flag = 0;
     // Show Author?
     if ( $rtp_post_comments['post_author_'.$position] ) {
         $flag = 1;
     }
     // Comments ?
-    elseif ( @comments_open() && $position == 'u' ){
+    elseif ( @comments_open() && has_action( 'rtp_hook_post_meta_top_comment' ) && $position == 'u' ){
         $flag = 1;
     } 
     // Show Date?
@@ -37,6 +38,16 @@ function rtp_has_postmeta( $position = 'u' ) {
     }
     // Show Tags?
     elseif ( get_the_tag_list() && $rtp_post_comments['post_tags_'.$position] ) {
+        $flag = 1;
+    } 
+    // Checked if logged in and post meta top
+    else if ( $can_edit && $position == 'u' ) {
+        $flag = 1;
+    } 
+    elseif ( ( has_action( 'rtp_hook_begin_post_meta_top' ) || ( has_action( 'rtp_hook_end_post_meta_top' ) && $can_edit ) ) && $position == 'u' ) {
+        $flag = 1;
+    }
+    elseif ( ( has_action( 'rtp_hook_begin_post_meta_bottom' ) || has_action( 'rtp_hook_end_post_meta_bottom' ) ) && $position == 'l' ) {
         $flag = 1;
     }
     else {
@@ -63,29 +74,27 @@ function rtp_has_postmeta( $position = 'u' ) {
  *
  * @since rtPanel 2.0
  */
-function rtp_default_post_meta( $placement = 'top' ) { ?>
-    <?php if ( !is_page() || has_action( 'rtp_hook_begin_post_meta_bottom' ) ) {
+function rtp_default_post_meta( $placement = 'top' ) { 
+    
+        if ( is_page() ) {
+            if ( get_edit_post_link() && ( 'top' == $placement ) ) { ?>
+                <div class="post-meta post-meta-top"><?php rtp_hook_end_post_meta_top(); ?></div><?php
+            }
+        } else {
             global $post, $rtp_post_comments;
-            if( $placement == 'bottom' )
-                        rtp_hook_begin_post_meta_bottom();
-                    else
-                        rtp_hook_begin_post_meta_top();
-
-                    $position = ( $placement == 'bottom' ) ? 'l' : 'u'; // l = Lower/Bottom , u = Upper/Top
+            $position = ( 'bottom' == $placement ) ? 'l' : 'u'; // l = Lower/Bottom , u = Upper/Top
             ?>
             
             <?php if ( rtp_has_postmeta( $position ) ) {
                     if ( $position == 'l' ) { echo '<footer class="post-footer">'; } ?>
                     <div class="post-meta post-meta-<?php echo $placement; ?>">
 
-                    <?php if( $placement == 'bottom' )
-                                rtp_hook_begin_post_meta_bottom();
-                            else
-                                rtp_hook_begin_post_meta_top();
-
-                            $position = ( $placement == 'bottom' ) ? 'l' : 'u'; // l = Lower/Bottom , u = Upper/Top ?>
-
-                        <?php   // Author Link
+                        <?php   
+                        if( 'bottom' == $placement )
+                            rtp_hook_begin_post_meta_bottom();
+                        else
+                            rtp_hook_begin_post_meta_top();
+                        // Author Link
                                 if ( $rtp_post_comments['post_author_'.$position] || $rtp_post_comments['post_date_'.$position] ) { ?>
                                     <p class="alignleft post-publish"><?php
                                         if ( $rtp_post_comments['post_author_'.$position] ) {
@@ -100,7 +109,9 @@ function rtp_default_post_meta( $placement = 'top' ) { ?>
 
                         <?php   // Comment Count
                                 if ( @comments_open() && $position == 'u' ) { // If post meta is set to top then only display the comment count. 
+                                    add_filter( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
                                     rtp_hook_post_meta_top_comment();      
+                                    remove_filter( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
                                 } ?>
 
                         <?php   // Post Categories
@@ -116,7 +127,7 @@ function rtp_default_post_meta( $placement = 'top' ) { ?>
                                     ( get_the_terms( $post->ID, $key ) && isset( $rtp_post_comments['post_'.$key.'_'.$position] ) && $rtp_post_comments['post_'.$key.'_'.$position] ) ? the_terms( $post->ID, $key, '<p class="post-custom-tax post-' . $key . ' alignleft">' . $taxonomy->labels->singular_name . ': ', ', ', '</p>' ) : '';
                                 }
 
-                        if ( $placement == 'bottom' )
+                        if ( 'bottom' == $placement )
                             rtp_hook_end_post_meta_bottom();
                         else
                             rtp_hook_end_post_meta_top(); ?>
@@ -154,7 +165,7 @@ add_action('rtp_hook_after_header','rtp_default_nav_menu'); // Adds default nav 
  */
 function rtp_edit_link() {
     // Call Edit Link
-    edit_post_link( __( 'Edit this post', 'rtPanel' ), '<p class="rtp-edit-link">[', ']</p>');
+    edit_post_link( __( 'Edit', 'rtPanel' ), '<p class="rtp-edit-link">[', ']</p>');
 }
 add_action('rtp_hook_end_post_meta_top', 'rtp_edit_link');
 
@@ -229,32 +240,39 @@ add_action( 'rtp_hook_after_logo', 'rtp_blog_description' );
  *
  * @since rtPanel 2.0.9
  */
-function add_markup_pages( $output ) {
+function rtp_add_markup_pages( $output ) {
     $output = substr_replace( $output, "last-menu-item menu-item", strripos( $output, "menu-item" ), strlen( "menu-item" ) );
     return $output;
 }
-add_filter('wp_nav_menu', 'add_markup_pages');
+add_filter('wp_nav_menu', 'rtp_add_markup_pages');
 
-function has_default_post_meta( $placement = 'bottom' ){
-    global $rtp_post_comments;
-    $position = ( $placement == 'bottom' ) ? 'l' : 'u';
-    if( has_action( 'rtp_hook_begin_post_meta_' . $placement ) || has_action( 'rtp_hook_end_post_meta_' . $placement ) ) {
-        return true;
-    } elseif ( $rtp_post_comments['post_author_'.$position] || $rtp_post_comments['post_date_'.$position] ) {
-        return true;
-    } elseif ( @comments_open() && $position == 'u' && has_action( 'rtp_hook_post_meta_top_comment' ) ) {
-        return true;
-    } elseif ( get_the_category_list() && $rtp_post_comments['post_category_'.$position] ) {
-        return true;
-    } elseif ( get_the_tag_list && $rtp_post_comments['post_tags_'.$position] ) {
-        return true;
-    } else {
-        $args = array( '_builtin' => false );
-        $taxonomies = get_taxonomies( $args, 'names' );
-        foreach ( $taxonomies as $taxonomy ) {
-            if ( get_the_terms( $post->ID, $taxonomy ) && isset( $rtp_post_comments['post_'.$taxonomy.'_'.$position] ) && $rtp_post_comments['post_'.$taxonomy.'_'.$position] ) {
-                return true;
-            }
-        }
+/**
+ * Adds pagination to single
+ *
+ * @since rtPanel 2.1
+ */
+function rtp_default_single_pagination() { ?>
+    <div class="rtp-navigation clearfix">
+        <div class="alignleft"><?php previous_post_link( '%link', __( '&larr; %title', 'rtPanel' ) ); ?></div>
+        <div class="alignright"><?php next_post_link( '%link', __( '%title &rarr;', 'rtPanel' ) ); ?></div>
+    </div><!-- .rtp-navigation --><?php
+}
+add_action( 'rtp_hook_single_pagination', 'rtp_default_single_pagination' );
+
+/**
+ * Adds pagination to archives
+ *
+ * @since rtPanel 2.1
+ */
+function rtp_default_archive_pagination() { 
+    /* Page-Navi Plugin Support with WordPress Default Pagination */
+    if ( function_exists( 'wp_pagenavi' ) ) {
+        wp_pagenavi();
+    } elseif ( get_next_posts_link() || get_previous_posts_link() ) { ?>
+        <div class="rtp-navigation clearfix">
+            <div class="alignleft"><?php next_posts_link( __( '&larr; Older Entries', 'rtPanel' ) ); ?></div>
+            <div class="alignright"><?php previous_posts_link( __( 'Newer Entries &rarr;', 'rtPanel' ) ); ?></div>
+        </div><!-- .rtp-navigation --><?php
     }
 }
+add_action( 'rtp_hook_archive_pagination', 'rtp_default_archive_pagination' );
