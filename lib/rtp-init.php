@@ -91,17 +91,6 @@ function rtp_ie_css() {
 add_action( 'wp_enqueue_scripts', 'rtp_ie_css' );
 
 /**
- * Enqueues rtPanel Default Styles
- *
- * @since rtPanel 2.0.7
- */
-function rtp_default_css() {
-    wp_register_style( 'rtp-print-css', RTP_CSS_FOLDER_URL . '/rtp-print.css', '', '', 'print' );
-    wp_enqueue_style( 'rtp-print-css' );
-}
-add_action( 'wp_enqueue_scripts', 'rtp_default_css' );
-
-/**
  * Displays Custom Styles
  *
  * @since rtPanel 2.0

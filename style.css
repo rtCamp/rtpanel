@@ -37,9 +37,9 @@ mark { background-color: #FF9; color: #000; font-style: italic; font-weight: bol
 hr { border: 0; border-top: 1px solid #CCC; display: block; height: 1px; margin: 15px 0; padding:0; }
 
 /* Typography */
-body { font-family: sans-serif; font-size: 10px; line-height: 100%; }
-pre, code, kbd, samp, tt, var { font-family: monospace; }
-h1, h2, h3, h4, h5, h6 { clear: both; font-family: serif; font-weight: normal; letter-spacing: 1px; }
+body { font-family: Arial, Helvetica, sans-serif; font-size: 10px; line-height: 100%; }
+pre, code, kbd, samp, tt, var { font-family: Consolas, monaco, monospace; }
+h1, h2, h3, h4, h5, h6 { clear: both; font-family: Georgia, Times, "Times New Roman", serif; font-weight: normal; letter-spacing: 1px; line-height: 136.4%; }
 
 /* Heading Style */
 h1 { font-size: 200%; } /* 28px */
@@ -84,16 +84,16 @@ dl dd { margin: 2px 0; padding: 5px 0; }
 
 /* Code and Pre */
 pre, code { overflow: hidden; padding: 15px; white-space: pre-wrap; }
+code { padding: 0; }
 
 /* Generic Form Elements */
 textarea { overflow: auto; }
-/* align checkboxes, radios, text inputs with their label by: Thierry Koblentz tjkdesign.com/ez-css/css/base.css  */
-input[type="radio"] { vertical-align: text-bottom; }
-input[type="checkbox"] { vertical-align: bottom; }
-label, input[type=button], input[type=submit], button { cursor: pointer; }/* hand cursor on clickable input elements */
-button, input, select, textarea { margin: 0 0 4px; }/* for webkit browsers, add a 2px margin outside form elements */
-button { overflow: visible; width: auto; }/* make buttons play nice in IE: http://www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
-input { outline: none; text-decoration: none; }/* Disable Outline and Decoration for Input */
+input[type="radio"] { vertical-align: text-bottom; } /* align checkboxes, radios, text inputs with their label */
+input[type="checkbox"] { vertical-align: bottom; } /* align checkboxes, radios, text inputs with their label */
+label, input[type="button"], input[type="submit"], button { cursor: pointer; } /* hand cursor on clickable input elements */
+button, input, select, textarea { margin: 0 0 4px; } /* for webkit browsers, add a 2px margin outside form elements */
+button { overflow: visible; width: auto; } /* make buttons play nice in IE: http://www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
+input { outline: none; text-decoration: none; } /* Disable Outline and Decoration for Input */
 
 /* Non-semantic helper classes */
 .ir { background-repeat: no-repeat; direction: ltr; display: block; overflow: hidden; text-align: left; text-indent: -999em; }
@@ -124,6 +124,7 @@ p.wp-caption { margin: 0; }
 #content .post-content .wp-caption img { border: 0; margin: 0; max-width: 100%; padding: 0; }
 
 /* Video Object Style */
+iframe { max-width: 100%; }
 embed, object { margin-bottom: 10px; }
 
 /* Smiley ;) */
@@ -265,8 +266,8 @@ h1 a:hover, h2 a:hover { color: #2361A1; text-decoration: none; }
 
 /* Prevent Images from Running Outside Content Area */
     .post-content .wp-caption { max-width: 90%; }
-        .post-content .wp-caption img { max-width: 100%; height: auto; }
-    .single .post-content img { max-width: 98%; height: auto; }
+        .post-content .wp-caption img { height: auto; max-width: 100%; width: auto; }
+    .single .post-content img { height: auto; max-width: 100%; }
 
 /* Post Images */
 .post-content img.alignnone { margin: 10px 10px 10px 0; }
@@ -300,7 +301,7 @@ p.attachment img { margin: 10px 0; }
     #content .gallery-columns-9 .gallery-item { width: 11.111% }
         #content .gallery .gallery-caption { color: #888; font-size: 85.7%; margin: 0 0 12px; }
         #content .gallery dl { margin: 0; }
-        #content .gallery br+br { display: none; }
+        #content .gallery br + br { display: none; }
     #content .attachment img { display: block; margin: 0 auto; }
     .gallery-icon .attachment-thumbnail { margin: 5px auto; }
     #gallery-1 .gallery-caption { margin: 0; padding: 0; }
@@ -497,8 +498,8 @@ blockquote { border-left: 1px solid #DDD; color: #666; font-style: italic; margi
 /* Copyrights */
 #footer { color: #888; font-size: 130%; height: 100%; overflow: hidden; padding: 20px 5px 0; text-align: right; }
     #footer p { margin-bottom: 5px; }
-        #footer a { color: #888; border-bottom: 1px solid #CCC; }
-        #footer a:hover { color: #666; text-decoration: none; }
+    #footer a { color: #888; border-bottom: 1px solid #CCC; }
+    #footer a:hover { color: #666; text-decoration: none; }
 
 /* Misc. */
 .info, .success, .warning, .error { border: 1px solid; font-weight: bold; margin: 10px 0; padding: 5px 10px; }
@@ -507,3 +508,19 @@ blockquote { border-left: 1px solid #DDD; color: #666; font-style: italic; margi
 .warning { background: #FEEFB3; color: #9F6000; }
 .error { background: #FFBABA; color: #D8000C; }
 .alert { background: #FDFDC8; font-size: 130%; margin-top: 5px; padding: 10px 5px; }
+
+/* Print Style Sheet */
+@media print {
+    * { background: transparent; color: #444; text-shadow: none; }
+    a, a:visited { color: #444; text-decoration: underline; }
+    pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+    img { height: auto; max-width: 100%; page-break-inside: avoid; }
+    p, h2, h3 { orphans: 3; widows: 3; }
+    h2, h3{ page-break-after: avoid; }
+
+    /* Remove unwanted elements */
+    #header-wrapper, #sidebar, .rtp-navigation, .comments-container, #footer-wrapper, .noprint { display: none; }
+
+    /* Ensure the content spans the full width */
+    #content { width: 100%; margin: 0; float: none; }
+}
