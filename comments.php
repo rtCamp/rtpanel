@@ -50,12 +50,11 @@
             if ( $rtp_post_comments['hide_labels'] ) {
                 $hide_class = ' hide-labels';
                 $label_author = '';
-                $author_value = 'Name*';
+                $author_value = __( 'Name*', 'rtPanel' );
                 $label_email = '';
-                $email_value = 'Email*';
+                $email_value = __( 'Email*', 'rtPanel' );
                 $label_url = '';
-                $url_value = 'Website';
-                $comment_value = 'Comment';
+                $url_value = __( 'Website', 'rtPanel' );
             } else {
                 $hide_class = '';
                 $label_author = '<label for="author">' . __( 'Name', 'rtPanel' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' );
@@ -64,34 +63,33 @@
                 $email_value = '';
                 $label_url = '<label for="url">' . __( 'Website', 'rtPanel' ) . '</label> ';
                 $url_value = '';
-                $comment_value = '';
             }
 
             if ( $rtp_post_comments['comment_textarea'] && !is_user_logged_in() ) {
                 $fields = '';
                 if ( $rtp_post_comments['compact_form'] ) {
-                    $comments_after = '<p class="comment-form-author compact-comment-form' . $hide_class . '">' . $label_author . '<input id="author" name="author" type="text" value="' . ( $commenter['comment_author'] ? esc_attr( $commenter['comment_author'] ) : $author_value ) . '" size="30" /></p>
-                                        <p class="comment-form-email compact-comment-form' . $hide_class . '">' . $label_email . '<input id="e-mail" name="email" type="text" value="' . ( $commenter['comment_author_email'] ? esc_attr( $commenter['comment_author_email'] ) : $email_value ) . '" size="30" /></p>
-                                        <p class="comment-form-url compact-comment-form' . $hide_class . '">' . $label_url . '<input id="url" name="url" type="text" value="' . ( $commenter['comment_author_url'] ? esc_attr( $commenter['comment_author_url'] ) : $url_value ) . '" size="30" /></p>';
+                    $comments_after = '<p class="comment-form-author compact-comment-form' . $hide_class . '">' . $label_author . '<input id="author" name="author" type="text" value="' . ( $commenter['comment_author'] ? esc_attr( $commenter['comment_author'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_name_placeholder', $author_value ). '" size="30" /></p>
+                                        <p class="comment-form-email compact-comment-form' . $hide_class . '">' . $label_email . '<input id="e-mail" name="email" type="text" value="' . ( $commenter['comment_author_email'] ? esc_attr( $commenter['comment_author_email'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_email_placeholder', $email_value ) . '" size="30" /></p>
+                                        <p class="comment-form-url compact-comment-form' . $hide_class . '">' . $label_url . '<input id="url" name="url" type="text" value="' . ( $commenter['comment_author_url'] ? esc_attr( $commenter['comment_author_url'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_website_placeholder', $url_value ) . '" size="30" /></p>';
                 } else {
-                    $comments_after = '<p class="comment-form-author' . $hide_class . '"><input class="alignleft" id="author" name="author" type="text" value="' . ( $commenter['comment_author'] ? esc_attr( $commenter['comment_author'] ) : $author_value ) . '" size="30" />' . $label_author . '</p>
-                                        <p class="comment-form-email' . $hide_class . '"><input class="alignleft" id="e-mail" name="email" type="text" value="' . ( $commenter['comment_author_email'] ? esc_attr( $commenter['comment_author_email'] ) : $email_value ) . '" size="30" />' . $label_email . '</p>
-                                        <p class="comment-form-url' . $hide_class . '"><input class="alignleft" id="url" name="url" type="text" value="' . ( $commenter['comment_author_url'] ? esc_attr( $commenter['comment_author_url'] ) : $url_value ) . '" size="30" />' . $label_url . '</p>';
+                    $comments_after = '<p class="comment-form-author' . $hide_class . '"><input class="alignleft" id="author" name="author" type="text" value="' . ( $commenter['comment_author'] ? esc_attr( $commenter['comment_author'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_name_placeholder', $author_value ) . '" size="30" />' . $label_author . '</p>
+                                        <p class="comment-form-email' . $hide_class . '"><input class="alignleft" id="e-mail" name="email" type="text" value="' . ( $commenter['comment_author_email'] ? esc_attr( $commenter['comment_author_email'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_email_placeholder', $email_value ) . '" size="30" />' . $label_email . '</p>
+                                        <p class="comment-form-url' . $hide_class . '"><input class="alignleft" id="url" name="url" type="text" value="' . ( $commenter['comment_author_url'] ? esc_attr( $commenter['comment_author_url'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_website_placeholder', $url_value ) . '" size="30" />' . $label_url . '</p>';
                 }
             } else {
                if ( $rtp_post_comments['compact_form'] ) {
                     $comments_after = '';
                     $fields =  array(
-                              'author' => '<p class="comment-form-author compact-comment-form' . $hide_class . '">' . $label_author . '<input id="author" name="author" type="text" value="' . ( $commenter['comment_author'] ? esc_attr( $commenter['comment_author'] ) : $author_value ) . '" size="30" /></p>',
-                              'email'  => '<p class="comment-form-email compact-comment-form' . $hide_class . '">' . $label_email . '<input id="e-mail" name="email" type="text" value="' . ( $commenter['comment_author_email'] ? esc_attr( $commenter['comment_author_email'] ) : $email_value ) . '" size="30" /></p>',
-                              'url'    => '<p class="comment-form-url compact-comment-form' . $hide_class . '">' . $label_url . '<input id="url" name="url" type="text" value="' . ( $commenter['comment_author_url'] ? esc_attr( $commenter['comment_author_url'] ) : $url_value ) . '" size="30" /></p>',
+                              'author' => '<p class="comment-form-author compact-comment-form' . $hide_class . '">' . $label_author . '<input id="author" name="author" type="text" value="' . ( $commenter['comment_author'] ? esc_attr( $commenter['comment_author'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_name_placeholder', $author_value ) . '" size="30" /></p>',
+                              'email'  => '<p class="comment-form-email compact-comment-form' . $hide_class . '">' . $label_email . '<input id="e-mail" name="email" type="text" value="' . ( $commenter['comment_author_email'] ? esc_attr( $commenter['comment_author_email'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_email_placeholder', $email_value ) . '" size="30" /></p>',
+                              'url'    => '<p class="comment-form-url compact-comment-form' . $hide_class . '">' . $label_url . '<input id="url" name="url" type="text" value="' . ( $commenter['comment_author_url'] ? esc_attr( $commenter['comment_author_url'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_website_placeholder', $url_value ) . '" size="30" /></p>',
                      );
                } else {
                    $comments_after = '';
                    $fields =  array(
-                              'author' => '<p class="comment-form-author' . $hide_class . '"><input class="alignleft" id="author" name="author" type="text" value="' . ( $commenter['comment_author'] ? esc_attr( $commenter['comment_author'] ) : $author_value ) . '" size="30" />' . $label_author . '</p>',
-                              'email'  => '<p class="comment-form-email' . $hide_class . '"><input class="alignleft" id="e-mail" name="email" type="text" value="' . ( $commenter['comment_author_email'] ? esc_attr( $commenter['comment_author_email'] ) : $email_value ) . '" size="30" />' . $label_email . '</p>',
-                              'url'    => '<p class="comment-form-url' . $hide_class . '"><input class="alignleft" id="url" name="url" type="text" value="' . ( $commenter['comment_author_url'] ? esc_attr( $commenter['comment_author_url'] ) : $url_value ) . '" size="30" />' . $label_url . '</p>',
+                              'author' => '<p class="comment-form-author' . $hide_class . '"><input class="alignleft" id="author" name="author" type="text" value="' . ( $commenter['comment_author'] ? esc_attr( $commenter['comment_author'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_name_placeholder', $author_value ) . '" size="30" />' . $label_author . '</p>',
+                              'email'  => '<p class="comment-form-email' . $hide_class . '"><input class="alignleft" id="e-mail" name="email" type="text" value="' . ( $commenter['comment_author_email'] ? esc_attr( $commenter['comment_author_email'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_email_placeholder', $email_value ) . '" size="30" />' . $label_email . '</p>',
+                              'url'    => '<p class="comment-form-url' . $hide_class . '"><input class="alignleft" id="url" name="url" type="text" value="' . ( $commenter['comment_author_url'] ? esc_attr( $commenter['comment_author_url'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_website_placeholder', $url_value ) . '" size="30" />' . $label_url . '</p>',
                    );
                }
             }
@@ -102,7 +100,7 @@
                     'fields' => apply_filters( 'comment_form_default_fields', $fields ) ,
                     'comment_notes_before' => $comments_before,
                     'comment_notes_after' => $comments_after,
-                    'comment_field' => '<p class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="8">Comment...</textarea></p>',
+                    'comment_field' => '<p class="comment-form-comment"><textarea id="comment"  placeholder="' . apply_filters( 'rtp_comment_placeholder', 'Comment...' ) . '" name="comment" cols="45" rows="8"></textarea></p>',
                     'title_reply' => __( '<span class="comment-title">Leave a Comment</span>', 'rtPanel' ),
                     'title_reply_to' => __( '<span class="comment-title">Leave a Comment</span>', 'rtPanel' ),
                     'cancel_reply_link' => __( 'Cancel reply', 'rtPanel' ),

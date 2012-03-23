@@ -251,11 +251,13 @@ add_filter('wp_nav_menu', 'rtp_add_markup_pages');
  *
  * @since rtPanel 2.1
  */
-function rtp_default_single_pagination() { ?>
-    <div class="rtp-navigation clearfix">
-        <div class="alignleft"><?php previous_post_link( '%link', __( '&larr; %title', 'rtPanel' ) ); ?></div>
-        <div class="alignright"><?php next_post_link( '%link', __( '%title &rarr;', 'rtPanel' ) ); ?></div>
-    </div><!-- .rtp-navigation --><?php
+function rtp_default_single_pagination() {
+    if ( get_adjacent_post( '', '', true ) || get_adjacent_post( '', '', false ) ){ ?>
+        <div class="rtp-navigation clearfix">
+            <?php if ( get_adjacent_post( '', '', true ) ) { ?><div class="alignleft"><?php previous_post_link( '%link', __( '&larr; %title', 'rtPanel' ) ); ?></div><?php } ?>
+            <?php if ( get_adjacent_post( '', '', false ) ) { ?><div class="alignright"><?php next_post_link( '%link', __( '%title &rarr;', 'rtPanel' ) ); ?></div><?php } ?>
+        </div><!-- .rtp-navigation --><?php
+    }
 }
 add_action( 'rtp_hook_single_pagination', 'rtp_default_single_pagination' );
 
@@ -270,8 +272,8 @@ function rtp_default_archive_pagination() {
         wp_pagenavi();
     } elseif ( get_next_posts_link() || get_previous_posts_link() ) { ?>
         <div class="rtp-navigation clearfix">
-            <div class="alignleft"><?php next_posts_link( __( '&larr; Older Entries', 'rtPanel' ) ); ?></div>
-            <div class="alignright"><?php previous_posts_link( __( 'Newer Entries &rarr;', 'rtPanel' ) ); ?></div>
+            <?php if ( get_next_posts_link() ) { ?><div class="alignleft"><?php next_posts_link( __( '&larr; Older Entries', 'rtPanel' ) ); ?></div><?php } ?>
+            <?php if ( get_previous_posts_link() ) { ?><div class="alignright"><?php previous_posts_link( __( 'Newer Entries &rarr;', 'rtPanel' ) ); ?></div><?php } ?>
         </div><!-- .rtp-navigation --><?php
     }
 }

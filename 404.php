@@ -12,7 +12,7 @@ get_header(); ?>
         
         <?php rtp_hook_begin_content();?>
 
-        <article id="post-0" <?php post_class('rtp-not-found'); ?>>
+        <article id="post-0" class="rtp-not-found">
             <?php rtp_hook_begin_post(); ?>
 
             <header class="post-header">

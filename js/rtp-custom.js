@@ -10,34 +10,6 @@ jQuery(document).ready(function() {
     
     jQuery('#footerbar .footerbar-widget:nth-child(3n+1)').css('border', '0');
     
-    /* added for search field default value */
-    jQuery( '.search-text' ).blur( function() { if( this.value == '' ) this.value='Search Here...'; } );
-    jQuery( '.search-text' ).focus( function() { if( this.value == 'Search Here...' ) this.value=''; } );
-
-    /* added for name field when label is hidden */
-    jQuery( '.hide-labels #author' ).blur( function() { if( this.value == '' ) this.value='Name*'; } );
-    jQuery( '.hide-labels #author' ).focus( function() { if( this.value == 'Name*' ) this.value=''; } );
-
-    /* added for email field when label is hidden */
-    jQuery( '.hide-labels #e-mail' ).blur( function() { if( this.value == '' ) this.value='Email*'; } );
-    jQuery( '.hide-labels #e-mail' ).focus( function() { if( this.value == 'Email*' ) this.value=''; } );
-
-    /* added for url field when label is hidden */
-    jQuery( '.hide-labels #url' ).blur( function() { if( this.value == '' ) this.value='Website'; } );
-    jQuery( '.hide-labels #url' ).focus( function() { if( this.value == 'Website' ) this.value=''; } );
-
-    /* added for comment field default value */
-    jQuery( '#comment' ).blur( function() { if( this.value == '' ) this.value='Comment...'; } );
-    jQuery( '#comment' ).focus( function() { if( this.value == 'Comment...' ) this.value=''; } );
-    
-    /* Check if comment fields have default value and make it null if so */
-    jQuery('.comments-container #submit').click( function(){
-        if( jQuery( '.hide-labels #author' ).val() == 'Name*' ) jQuery( '.hide-labels #author' ).val('');
-        if( jQuery( '.hide-labels #e-mail' ).val() == 'Email*' ) jQuery( '.hide-labels #e-mail' ).val('');
-        if( jQuery( '.hide-labels #url' ).val() == 'Website' ) jQuery( '.hide-labels #url' ).val('');
-        if( jQuery( '#comment' ).val() == 'Comment...' ) jQuery( '#comment' ).val('');
-    });
-
     /* Show post edit and comment edit while over on post or comment */
     function rtp_edit_link( container ) {
         jQuery(container).hover(

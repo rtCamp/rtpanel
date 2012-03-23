@@ -31,6 +31,8 @@
     </head>
     <body <?php body_class(); ?>><!-- ends in footer.php -->
         
+        <?php rtp_hook_begin_body(); ?>
+        
         <div id="main-wrapper"><!-- ends in footer.php -->
             
             <header id="header-wrapper" role="banner">

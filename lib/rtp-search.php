@@ -20,7 +20,7 @@
 function rtp_custom_search_form( $form ) {
     $form = '<form class="searchform" action="' . home_url() . '/" >
                 <div><label class="hidden">' . __( 'Search for:', 'rtPanel' ) . '</label>
-                    <input type="text" value="' . ( ( get_search_query() ) ? esc_attr( apply_filters( 'the_search_query', get_search_query() ) ) : __( 'Search Here...', 'rtPanel' ) ) . '" name="s" class="search-text" title="' . __( 'Search Here...', 'rtPanel' ). '" />
+                    <input type="text" placeholder="'. apply_filters( 'rtp_search_placeholder', __( 'Search Here...', 'rtPanel' ) ).'" value="' . esc_attr( apply_filters( 'the_search_query', get_search_query() ) ).'" name="s" class="search-text" title="' . __( 'Search Here...', 'rtPanel' ). '" x-webkit-speech="x-webkit-speech" speech="speech" onwebkitspeechchange="this.form.submit();" />
                     <input type="submit" class="searchsubmit" value="' . esc_attr( __( 'Search', 'rtPanel' ) ) . '" title="Search" />
                 </div>
              </form>';

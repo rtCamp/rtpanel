@@ -1410,7 +1410,7 @@ function rtp_regenerate_thumbnail_notice_js() { ?>
             jQuery('.regenerate_thumbnail_notice').hide();
             // call ajax
             jQuery.ajax({
-                url:"/wp-admin/admin-ajax.php",
+                url:"<?php echo admin_url('admin-ajax.php'); ?>",
                 type:'POST',
                 data:'action=hide_regenerate_thumbnail_notice&hide_notice=1'
             });

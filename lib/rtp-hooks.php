@@ -8,6 +8,24 @@
  */
 
 /**
+ * Adds content at the beginning of body
+ *
+ * @since rtPanel 2.1
+ */
+function rtp_hook_begin_body() {
+    do_action( 'rtp_hook_begin_body' );
+}
+
+/**
+ * Adds content at the end of body
+ *
+ * @since rtPanel 2.1
+ */
+function rtp_hook_end_body() {
+    do_action( 'rtp_hook_end_body' );
+}
+
+/**
  * Adds content before #header
  *
  * @since rtPanel 2.0
