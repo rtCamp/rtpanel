@@ -79,18 +79,6 @@ if ( !function_exists( 'rt_admin_header_style' ) ) {
 }
 
 /**
- * Enqueues IE Specific CSS
- *
- * @since rtPanel 2.0
- */
-function rtp_ie_css() {
-    wp_register_style( 'rtp-styles-ie7', RTP_CSS_FOLDER_URL . '/rtp-ie7.css', '', '', 'screen, projection' );
-    $GLOBALS['wp_styles']->add_data( 'rtp-styles-ie7', 'conditional', 'IE 7' );
-    wp_enqueue_style( 'rtp-styles-ie7' );
-}
-add_action( 'wp_enqueue_scripts', 'rtp_ie_css' );
-
-/**
  * Displays Custom Styles
  *
  * @since rtPanel 2.0
@@ -112,19 +100,6 @@ function rtp_default_scripts() {
     wp_enqueue_script( 'rtp-custom', RTP_JS_FOLDER_URL . '/rtp-custom.js', array( 'jquery' ), '', true );
 }
 add_action( 'wp_enqueue_scripts', 'rtp_default_scripts' );
-
-/**
- * Outputs Scripts in the footer
- * Files which are attached in rtp_footer_scripts() should append in wp_footer();
- *
- * @since rtPanel 2.0
- */
-function rtp_footer_scripts() { ?>
-    <!--[if lte IE 7]>
-        <script type="text/javascript" src="<?php echo RTP_JS_FOLDER_URL; ?>/rtp-custom-ie7.js"></script>
-    <![endif]--><?php
-}
-add_action( 'wp_footer', 'rtp_footer_scripts' );
 
 /**
  * Browser detection and OS detection

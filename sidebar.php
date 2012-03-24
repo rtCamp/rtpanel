@@ -6,7 +6,7 @@
  * @since rtPanel 2.0
  */
 ?>
-    <section id="sidebar" role="complementary">
+    <div id="sidebar" role="complementary">
         <?php rtp_hook_begin_sidebar(); ?>
 
             <?php   // Default Widgets ( Fallback )
@@ -17,4 +17,4 @@
                 } ?>
 
         <?php rtp_hook_end_sidebar(); ?>
-    </section><!-- #sidebar -->
+    </div><!-- #sidebar -->

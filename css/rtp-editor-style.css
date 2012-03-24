@@ -6,12 +6,11 @@
  * @since rtPanel 2.0
  */
 
-/*html .mceContentBody { max-width: 640px; }*/ /* Remove this line cause textarea width issue*/
-* { color: #444; font-family: Georgia, "Bitstream Charter", serif; line-height: 1.5; }
+* { color: #444; font-family: serif; line-height: 1.5; }
 p, dl, td, th, ul, ol, blockquote { font-size: 14px; }
-tr th, thead th, label, tr th, thead th { font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif; }
+tr th, thead th, label, tr th, thead th { font-family: sans-serif; }
 pre { font-family: "Courier 10 Pitch", Courier, monospace; }
-code, code var { font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace; }
+code, code var { font-family: monospace; }
 body, input, textarea { font-size: 12px; line-height: 18px; }
 hr { background: #e7e7e7; border: 0; clear: both; height: 1px; margin-bottom: 18px; }
 p { margin-bottom: 18px; }

@@ -8,7 +8,7 @@
  */
 get_header(); ?>
 
-    <section id="content" role="main" class="rtp-home-posts">
+    <div id="content" role="main" class="rtp-home-posts">
         
         <?php rtp_hook_begin_content();?>
 
@@ -29,7 +29,7 @@ get_header(); ?>
         
         <?php rtp_hook_end_content(); ?>
 
-    </section><!-- #content -->
+    </div><!-- #content -->
     
     <?php get_sidebar(); ?>
 

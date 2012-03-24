@@ -20,13 +20,13 @@ get_header(); ?>
             $rtp_content_class = '';
         }
     ?>
-    <section id="content"  role="main"<?php echo $rtp_content_class; ?>>
+    <div id="content"  role="main"<?php echo $rtp_content_class; ?>>
         <?php rtp_hook_begin_content(); ?>
 
         <?php get_template_part( 'loop', 'common' ); ?>
 
         <?php rtp_hook_end_content(); ?>
-    </section><!-- #content -->
+    </div><!-- #content -->
     
     <?php get_sidebar(); ?>
 
