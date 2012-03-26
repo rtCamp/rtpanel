@@ -10,7 +10,7 @@ get_header(); ?>
 
 <?php global $rtp_general; ?>
 
-    <div id="content" role="main" class="rtp-multiple-post<?php echo (  $rtp_general['search_code'] && $rtp_general['search_layout'] )?' search-layout-content':''; ?>"> <!-- content begins --><?php
+    <div id="content" role="main" class="rtp-multiple-post<?php echo (  $rtp_general['search_code'] && $rtp_general['search_layout'] )?' full-width':''; ?>"> <!-- content begins --><?php
         
         rtp_hook_begin_content();
         

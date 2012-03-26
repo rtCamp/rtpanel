@@ -40,7 +40,7 @@ function rtp_comment_list( $comment, $args, $depth ) {
                         </div><!-- .vcard -->
                 <?php } ?>
                 <div class="comment-text"><?php comment_text(); ?></div>
-                <div class="reply"><?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'], 'before' => '<p>', 'after' => '</p>', 'reply_text' => __( 'Reply <span class="rtp-courly-bracket">&rarr;</span>', 'rtPanel' ), ) ) ); ?></div>
+                <div class="reply"><?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'], 'reply_text' => __( 'Reply <span class="rtp-courly-bracket">&rarr;</span>', 'rtPanel' ), ) ) ); ?></div>
             </div><!-- .comment-body --><?php
 }
 
