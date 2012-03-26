@@ -372,9 +372,9 @@ blockquote { border-left: 1px solid #DDD; color: #666; font-style: italic; margi
                 #respond .form-allowed-tags { background: #FAFAFA; border: 1px solid #DDD; color: #666; font-size: 11px; line-height: 150%; margin: 0 0 14px; padding: 4px; width: 96%; }
 
                 /* compact comment form style */
-                .compact-comment-form { float: left; width:33%; }
-                    .compact-comment-form label { padding-left: 0; }
-                    .compact-comment-form input { width: 90%; }
+                #respond .compact-comment-form { float: left; width:33%; }
+                    #respond .compact-comment-form label { padding-left: 0; }
+                    #respond .compact-comment-form input { width: 90%; }
                     
     /* trackback and pingback inside comments */
     .commentlist .trackback,
