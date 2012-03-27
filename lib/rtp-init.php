@@ -43,7 +43,7 @@ if ( !function_exists( 'rtpanel_setup' ) ) {
         define( 'HEADER_IMAGE_HEIGHT' , apply_filters( 'rtp_header_image_height', 190 ) );
 
         // adding support for the header image
-        add_custom_image_header( 'rtp_header_style', 'rt_admin_header_style' );
+        add_custom_image_header( 'rtp_header_style', 'rtp_admin_header_style' );
 
         // Make use of wp_nav_menu() for navigation purpose
         register_nav_menus( array(
@@ -67,13 +67,13 @@ if ( !function_exists( 'rtp_header_style' ) ) {
     }
 }
 
-if ( !function_exists( 'rt_admin_header_style' ) ) {
+if ( !function_exists( 'rtp_admin_header_style' ) ) {
     /**
      * Admin header preview styling
      *
      * @since rtPanel 2.0
      */
-    function rt_admin_header_style() { ?>
+    function rtp_admin_header_style() { ?>
         <style type="text/css">  #headimg { width: <?php echo HEADER_IMAGE_WIDTH; ?>px; height: <?php echo HEADER_IMAGE_HEIGHT; ?>px; } </style><?php
     }
 }
@@ -111,7 +111,7 @@ add_action( 'wp_enqueue_scripts', 'rtp_default_scripts' );
  *
  * @since rtPanel 2.0
  */
-function rt_body_class( $classes ) {
+function rtp_body_class( $classes ) {
     global $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone;
 
     if ( $is_lynx ) $classes[] = 'lynx';
@@ -139,4 +139,16 @@ function rt_body_class( $classes ) {
 
     return $classes;
 }
-add_filter( 'body_class', 'rt_body_class' );
+add_filter( 'body_class', 'rtp_body_class' );
+
+/**
+ * Remove category from rel attribute
+ *
+ * @since rtPanel 2.1
+ */
+function rtp_remove_category_list_rel( $output ) {
+    $output = str_replace( ' rel="category tag"', ' rel="tag"', $output );
+    return $output;
+}
+add_filter( 'wp_list_categories', 'rtp_remove_category_list_rel' );
+add_filter( 'the_category', 'rtp_remove_category_list_rel' );
