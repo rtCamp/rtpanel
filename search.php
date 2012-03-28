@@ -14,13 +14,13 @@ get_header(); ?>
         
         rtp_hook_begin_content();
         
-        if ( preg_match( '/customSearchControl.draw\(\'cse\'\);/i', @$rtp_general["search_code"] ) ) { ?>
+        if ( preg_match( '/customSearchControl.draw\(\'cse\'(.*)\)\;/i', @$rtp_general["search_code"], $split_code ) ) { ?>
 
             <h1 class="post-title rtp-main-title"><?php printf( __( 'Search Results for: %s', 'rtPanel' ), '<span>' . get_search_query() . '</span>' ); ?></h1><?php
             
-            $search_code = preg_split('/customSearchControl.draw\(\'cse\'\);/i', $rtp_general["search_code"]);
+            $search_code = preg_split('/customSearchControl.draw\(\'cse\'(.*)\)\;/i', $rtp_general["search_code"]);
             echo $search_code[0];
-            echo "customSearchControl.draw('cse');";
+            echo $split_code[0];
             echo "customSearchControl.execute('" . get_search_query() . "');";
             echo $search_code[1];
         } else {
