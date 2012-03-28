@@ -156,7 +156,7 @@ function rtp_general_validate( $input ) {
         }
 
         if ( !empty( $input['search_code'] ) ) {
-            if ( !preg_match( '/customSearchControl.draw\(\'cse\'\);/i', $input['search_code'] ) ){
+            if ( !preg_match( '/customSearchControl.draw\(\'cse\'(.*)\)\;/i', $input['search_code'] ) ){
                 $input['search_code'] = $rtp_general['search_code'];
                 add_settings_error( 'search_code', 'invalid_search_code', __( 'Google Search Code Error : While generating the code the hosting option must be "Search Element" and layout either "full-width" or "compact". The changes made have been reverted.', 'rtPanel' ) );
             } elseif ( $input['search_code'] != $rtp_general['search_code'] ) {
@@ -884,7 +884,7 @@ function rtp_default_sidebar() { ?>
             </div>
             <div class="rt-social-share" style="text-align:center; width: 127px; margin: 2px auto">
                 <div class="rt-facebook" style="float:left; margin-right:5px;">
-                    <a style=" text-align:center;" name="fb_share" type="box_count" share_url="http://bloggertowp.org/blogger-to-wordpress-redirection-plugin/"></a>
+                    <a style=" text-align:center;" name="fb_share" type="box_count" share_url="http://rtpanel.com/"></a>
                 </div>
                 <div class="rt-twitter" style="">
                     <a href="<?php printf( '%s', 'http://twitter.com/share' ); ?>"  class="twitter-share-button" data-text="I &hearts; #rtPanel"  data-url="http://rtpanel.com" data-count="vertical" data-via="rtPanel"><?php _e( 'Tweet', 'rtPanel' ); ?></a>

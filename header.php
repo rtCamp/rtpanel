@@ -15,9 +15,9 @@
         <title><?php wp_title( '', true ); ?></title>
 
         <!-- Mobile Viewport Fix ( j.mp/mobileviewport & davidbcalhoun.com/2010/viewport-metatag ) -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        <meta name="viewport" content="<?php echo apply_filters( 'rtp_viewport', 'width=device-width, initial-scale=1.0, maximum-scale=1.0' ); ?>" />
 
-        <link rel="profile" href="http://gmpg.org/xfn/11" />
+         <link rel="profile" href="http://gmpg.org/xfn/11" />
         <link rel="shortcut icon" type="image/x-icon" href="<?php echo rtp_logo_fav_src('favicon'); ?>" />
         <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
