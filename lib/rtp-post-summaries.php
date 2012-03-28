@@ -64,21 +64,21 @@ add_filter( 'excerpt_length', 'rtp_new_excerpt_length' );
  *
  * @since rtPanel 2.0
  */
-function rt_nofollow( $content ) {
-    return preg_replace_callback( '/<a[^>]+/', 'rt_nofollow_callback', $content );
+function rtp_nofollow( $content ) {
+    return preg_replace_callback( '/<a[^>]+/', 'rtp_nofollow_callback', $content );
 }
-add_filter( 'the_content', 'rt_nofollow' );
-add_filter( 'the_excerpt', 'rt_nofollow' );
+add_filter( 'the_content', 'rtp_nofollow' );
+add_filter( 'the_excerpt', 'rtp_nofollow' );
 
 /**
- * Callback to rt_nofollow()
+ * Callback to rtp_nofollow()
  *
  * @param array $matches
  * @return string
  *
  * @since rtPanel 2.0
  */
-function rt_nofollow_callback( $matches ) {
+function rtp_nofollow_callback( $matches ) {
     $link = $matches[0];
     $site_link = home_url();
     if ( strpos( $link, 'rel' ) === false ) {
@@ -101,7 +101,7 @@ function rtp_show_post_thumbnail( $post_id = null, $thumbnail_size = 'thumbnail'
         $image_align = 'align' . strtolower( $rtp_post_comments['thumbnail_position'] );
         if ( has_post_thumbnail() ) {
             echo ( $thumbnail_frame ) ? '<span class="thumbnail-shadow">' : ''; ?>
-                <a href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( $thumbnail_size, array( 'class' => 'post_thumb ' . $image_align ) ); ?></a><?php
+                <a href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( $thumbnail_size, array( 'class' => 'post-thumb ' . $image_align ) ); ?></a><?php
             echo ( $thumbnail_frame ) ? '</span>' : ''; ?>
         <?php
         } else {
@@ -109,7 +109,7 @@ function rtp_show_post_thumbnail( $post_id = null, $thumbnail_size = 'thumbnail'
             $image = ( $image ) ? $image : apply_filters( 'rtp_default_image_path', $default_img_path );
             if ( $image ) {
                 echo ( $thumbnail_frame ) ? '<span class="thumbnail-shadow">' : ''; ?>
-                    <a href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><img class="<?php echo $image_align; ?> wp-post-image" alt="<?php the_title_attribute(); ?>" src="<?php echo $image; ?>" /></a><?php
+                    <a href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><img class="<?php echo 'post-thumb ' . $image_align; ?> wp-post-image" alt="<?php the_title_attribute(); ?>" <?php echo rtp_get_image_dimensions( $image ); ?> src="<?php echo $image; ?>" /></a><?php
                 echo ( $thumbnail_frame ) ? '</span>' : ''; ?>
             <?php
             }
@@ -376,4 +376,17 @@ function rtp_get_attachment_id_from_src( $image_src ) {
     $query = "SELECT ID FROM {$wpdb->posts} WHERE post_type='attachment' AND guid='$image_src' LIMIT 1";
     $id = $wpdb->get_var( $query );
     return $id;
+}
+
+/**
+ * Used to get the attachment id provided 'src'
+ * 
+ * @param string $image_src The Image Source
+ * @return width &amp; height parameters in attributes
+ *
+ * @since rtPanel 2.1
+ */
+function rtp_get_image_dimensions( $src ) {
+    $img_details = getimagesize( $src );
+    return $img_details[3];
 }

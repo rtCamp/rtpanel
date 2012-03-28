@@ -9,23 +9,26 @@
 * { color: #444; font-family: sans-serif; line-height: 1.5; }
 p, dl, td, th, ul, ol, blockquote { font-family: sans-serif; font-size: 14px; }
 tr th, thead th, label, tr th, thead th { font-family: serif; }
-pre { font-family: "Courier 10 Pitch", Courier, monospace; }
+pre { font-family: monospace; }
 code, code var { font-family: monospace; }
 body, input, textarea { font-size: 12px; line-height: 18px; }
 hr { background: #e7e7e7; border: 0; clear: both; height: 1px; margin-bottom: 18px; }
 p { margin-bottom: 18px; }
-ul, ol { margin: 0 0 22px 12px }
-ul ul, ul ol,
-ol ol, ol ul { margin: 0 0 0 22px }
-ul li { list-style-position: inside; list-style-type: square; }
-ol li { list-style-position: inside; list-style-type: decimal; }
+ul, ol { margin: 0 0 22px 25px; }
+ul ol, ul ul,
+ol ul, ol ol { margin-bottom: 0; }
+ul { list-style: disc; }
+ol { list-style: decimal; }
+ol ol { list-style: upper-alpha; }
+ol ol ol { list-style: lower-roman; }
+ol ol ol ol { list-style: lower-alpha; }
 dl { margin: 0 0 24px 0; }
 dt { font-weight: bold; }
 dd { margin-bottom: 18px; }
 strong { color: #000; font-weight: bold; }
 cite, em, i { border: none; font-style: italic; }
 big { font-size: 131.25%; }
-ins { background: #ffc; border: none; color: #333; }
+ins { background: #FFC; border: 0; color: #333; }
 del { text-decoration: line-through; color: #555; }
 blockquote { font-style: italic; padding: 0 3em; }
 blockquote cite, blockquote em, blockquote i { font-style: normal; }

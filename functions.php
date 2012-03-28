@@ -23,10 +23,10 @@
     define( 'RTP_JS_FOLDER_URL', get_template_directory_uri() . '/js' );
     define( 'RTP_IMG_FOLDER_URL', get_template_directory_uri() . '/img' );
 
-    // Includes PHP files located in 'lib' folder
+    /* Includes PHP files located in 'lib' folder */
     foreach( glob ( get_template_directory() . "/lib/*.php" ) as $lib_filename ) {
         require_once( $lib_filename );
     }
 
-    // Includes rtPanel Theme Options
+    /* Includes rtPanel Theme Options */
     require_once( get_template_directory() . "/admin/rtp-theme-options.php" );
