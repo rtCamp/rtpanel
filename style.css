@@ -90,7 +90,7 @@ code { padding: 0; }
 /* Generic Form Elements */
 textarea { overflow: auto; }
 input[type='radio'] { vertical-align: text-bottom; } /* align checkboxes, radios, text inputs with their label */
-input[type='checkbox'] { vertical-align: bottom; } /* align checkboxes, radios, text inputs with their label */
+input[type='checkbox'] { vertical-align: bottom; }
 label, input[type='button'], input[type='submit'], button { cursor: pointer; } /* hand cursor on clickable input elements */
 button, input, select, textarea { margin: 0 0 4px; } /* for webkit browsers, add a 2px margin outside form elements */
 button { overflow: visible; width: auto; } /* make buttons play nice in IE: http://www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
@@ -102,7 +102,6 @@ input[type='text'] { border: 1px solid #DDD; padding: 2px 4px; }
 .hide, .hidden { display: none; }
 .show { display: block; }
 .invisible { visibility: hidden; }
-.visible { visibility: visible; }
 .placeholder { color: #AAA; }
 
 /* "The Magnificent Clear" fix */
@@ -133,7 +132,7 @@ embed, object { margin-bottom: 10px; }
 #wpstats { display: none; }/* hide smiley added by wordpress stats plugin */
 
 /* Layout */
-body { background-color: #FFF; color: #111; font-size: 62.5%; padding: 0 10px; }
+body { background-color: #FFF; color: #111; font-size: 62.5%; padding: 0 5px; }
     #main-wrapper { background: #FFF; max-width: 960px; margin: 0 auto; width: 100%; }
         #header-wrapper { position: relative; z-index: 100; } 
         #content-wrapper { border-bottom: 3px double #DDD; clear: both; overflow: hidden; padding: 0 5px; position: relative; z-index: 10; }
@@ -164,7 +163,7 @@ h1 a:hover, h2 a:hover { color: #2361A1; text-decoration: none; }
 /* Header */
 #header { overflow: hidden; padding: 22px 5px; }
     .rtp-site-logo { font-size: 360%; font-weight: bold; letter-spacing: 1px; line-height: 117.2%; margin: 0; padding: 0; }
-        .rtp-site-logo img { display: block; float: left; }
+        .rtp-site-logo img { float: left; height: auto; max-width: 100%; }
     .tagline { color: #888; font-size: 140%; line-height: 142.9%; }
 
 /* Navigation */
@@ -187,7 +186,7 @@ h1 a:hover, h2 a:hover { color: #2361A1; text-decoration: none; }
 
 /* Submenu Links */
     #rtp-nav-menu ul a { height: auto; width: 162px; }
-        #rtp-nav-menu li:hover > a { background: #DDD; color: #111; }
+    #rtp-nav-menu li:hover > a { background: #DDD; color: #111; }
 
 /* Show Dropdown on Mouse Hover */
     #rtp-nav-menu li:hover > ul { display: block }
@@ -213,17 +212,13 @@ h1 a:hover, h2 a:hover { color: #2361A1; text-decoration: none; }
 
     /* Post Comment */
     .rtp-post-comment-count { text-align: right; width: 22%; }
-    .rtp-post-comment { border-bottom: 1px solid #EEE; color: #666; font-size: 120%; font-style: normal; padding: 0 3px 0 2px; text-transform: lowercase; }
+    .rtp-post-comment, .rtp-post-comment:visited { color: #666; font-size: 120%; font-style: normal; padding: 0 3px 0 2px; text-transform: lowercase; }
     .rtp-post-comment:hover { color: #111; text-decoration: none; }
     .rtp-post-comment span { color: #111; font-size: 183.4%; }
 
-    /* Post Category */
-    .post-category { font-size: 110%; overflow: hidden; width: 76%; }
-    .post-meta-bottom .post-category { width: 100%; }
-
-    /* Post Tags */
-    .post-tags, .post-custom-tax { font-size: 110%; overflow: hidden; padding: 0; width: 76%; }
-        .post-meta-bottom .post-tags, .post-meta-bottom .post-custom-tax { width: 100%; }
+    /* Post Meta */
+    post-tags, .post-custom-tax, .post-category { font-size: 110%; overflow: hidden; width: 76%; }
+    .post-meta-bottom .post-tags, .post-meta-bottom .post-custom-tax, .post-meta-bottom .post-category { width: 100%; }
 
     /* Post Edit Style */
     .rtp-edit-link { bottom: 5px; clear: both; color: #888; font-style: normal; letter-spacing: 1px; position: absolute; left: 0; text-transform: uppercase; visibility: hidden; }
@@ -287,7 +282,7 @@ h1 a:hover, h2 a:hover { color: #2361A1; text-decoration: none; }
     .gallery-caption { color: #888; font-size: 85.7%; margin: 0 0 12px; padding: 0; }
     .gallery br + br { display: none; }
     .post-content .attachment img { margin: 0 auto; }
-    .gallery-icon .attachment-thumbnail { float: left; margin: 0 auto; }
+    .gallery-icon .attachment-thumbnail { margin: 0 auto; }
 
 /* Search Form & Search Page */
 .searchform { overflow: hidden; }
@@ -476,6 +471,11 @@ blockquote { border-left: 1px solid #DDD; color: #666; font-style: italic; margi
         #content { width: 100%; }
         #sidebar { height: auto !important; width: 100%; }
         #footerbar .widget { width: 29%; }
+        
+        /* Font size reduce for small screen */
+        .post-content { font-size: 120%; }
+        .post-title { font-size: 220%; }
+        .post-publish, .post-category { font-size: 100%; }
 }
 
 @media screen and (max-width: 480px) {
@@ -485,7 +485,19 @@ blockquote { border-left: 1px solid #DDD; color: #666; font-style: italic; margi
 
 @media screen and (max-width: 320px) {
     #main-wrapper { max-width: 320px; }
-        #rtp-nav-menu li { float: none; }
+        #rtp-nav-menu li { border-left: 1px solid #DDD; float: none; }
+        #rtp-nav-menu ul, #rtp-nav-menu ul li { border: 0; max-width: 250px; width: 100%; }
+        #rtp-nav-menu ul a { background: #CCC; max-width: 250px; width: 100%; }
+        #rtp-nav-menu ul a:hover { background: #DDD; }
+        #rtp-nav-menu ul ul { left: 8px; top: 34px; }
+        .rtp-post-comment-count { float: none; width: 90%; clear: both; text-align: left; font-size: 8px; padding: 5px 0; }
+}
+
+@media screen and (max-width: 240px) {
+    #main-wrapper { max-width: 240px; }
+        #rtp-nav-menu ul, #rtp-nav-menu ul li { max-width: 180px; }
+        #rtp-nav-menu ul a { max-width: 180px; }
+        #rtp-nav-menu ul ul { left: 4px; }
 }
 
 /* Print Style Sheet */

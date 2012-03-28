@@ -154,7 +154,7 @@ function rtp_default_nav_menu() {
                 wp_list_pages( array( 'title_li' => '', 'sort_column' => 'menu_order', 'number' => '5', 'depth' => apply_filters( 'rtp_nav_menu_depth', 4 ) ) );
             echo '</ul>';
         }
-    echo '</nav>';
+    echo '<div class="clear"></div></nav>';
 }
 add_action('rtp_hook_after_header','rtp_default_nav_menu'); // Adds default nav menu after #header
 
