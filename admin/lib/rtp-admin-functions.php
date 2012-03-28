@@ -884,7 +884,7 @@ function rtp_default_sidebar() { ?>
             </div>
             <div class="rt-social-share" style="text-align:center; width: 127px; margin: 2px auto">
                 <div class="rt-facebook" style="float:left; margin-right:5px;">
-                    <a style=" text-align:center;" name="fb_share" type="box_count" share_url="http://bloggertowp.org/blogger-to-wordpress-redirection-plugin/"></a>
+                    <a style=" text-align:center;" name="fb_share" type="box_count" share_url="http://rtpanel.com/"></a>
                 </div>
                 <div class="rt-twitter" style="">
                     <a href="<?php printf( '%s', 'http://twitter.com/share' ); ?>"  class="twitter-share-button" data-text="I &hearts; #rtPanel"  data-url="http://rtpanel.com" data-count="vertical" data-via="rtPanel"><?php _e( 'Tweet', 'rtPanel' ); ?></a>

@@ -91,7 +91,7 @@ class rtp_ogp {
         $out[] = "\n<!-- BEGIN: Open Graph Protocol : http://opengraphprotocol.org/ for more info -->";
         foreach ($data as $property => $content) {
             if ($content != '') {
-                $out[] = "<meta property=\"{$property}\" content=\"" . htmlentities($content) . "\" />";
+                $out[] = "<meta property=\"{$property}\" content=\"" . apply_filters( 'rtp_og_content', $content ) . "\" />";
             } else {
                 $out[] = "<!--{$property} value was blank-->";
             }
