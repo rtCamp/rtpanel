@@ -410,8 +410,8 @@ blockquote { border-left: 1px solid #DDD; color: #666; font-style: italic; margi
     
     /* Subscribe Widget */
     .email-subscription-container p { margin: 0 0 10px; }
-    .email-subscription-container .email { margin: 5px 0 0; padding: 4px; width: 92%; }
-    .email-subscription-container .btn { display: none; font-size: 80%; margin: 0; padding: 0 5px; width: 22%; }
+        .email-subscription-container label { float: left; margin: 0 0 5px; }
+    .email { width: 60%; }
 
     .stay-connected { clear: both; font-weight: normal; padding: 5px 0 0; }
     .widget .social-icons { clear: both; margin: 10px auto 0; overflow: hidden; }
