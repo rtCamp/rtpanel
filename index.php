@@ -28,6 +28,6 @@ get_header(); ?>
         <?php rtp_hook_end_content(); ?>
     </div><!-- #content -->
     
-    <?php get_sidebar(); ?>
+    <?php rtp_hook_sidebar(); ?>
 
 <?php get_footer(); ?>

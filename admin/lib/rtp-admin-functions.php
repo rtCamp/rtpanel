@@ -853,7 +853,7 @@ if ( is_admin() && isset ( $_SERVER['HTTP_REFERER'] ) && ( preg_match( "/rtp_gen
  *
  * @since rtPanel 2.0
  */
-function rtp_default_sidebar() { ?>
+function rtp_default_admin_sidebar() { ?>
     <div class="postbox" id="social">
         <div title="<?php _e('Click to toggle', 'rtPanel'); ?>" class="handlediv"><br /></div>
         <h3 class="hndle"><span><?php _e('Getting Social is Good', 'rtPanel'); ?></span></h3>

@@ -32,6 +32,6 @@ get_header(); ?>
 
     </div><!-- #content -->
     
-    <?php if ( !$rtp_general['search_code'] || !$rtp_general['search_layout'] ) get_sidebar(); ?>
+    <?php if ( !$rtp_general['search_code'] || !$rtp_general['search_layout'] ) rtp_hook_sidebar(); ?>
 
 <?php get_footer(); ?>

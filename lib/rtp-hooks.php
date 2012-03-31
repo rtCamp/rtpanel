@@ -200,6 +200,24 @@ function rtp_hook_end_post_content() {
 }
 
 /**
+ * Basically used for displaying the comment form and comments.
+ *
+ * @since rtPanel 2.1
+ */
+function rtp_hook_comments() {
+    do_action( 'rtp_hook_comments' );
+}
+
+/**
+ * Basically used for displaying the sidebar.
+ *
+ * @since rtPanel 2.1
+ */
+function rtp_hook_sidebar() {
+    do_action( 'rtp_hook_sidebar' );
+}
+
+/**
  * Adds content at the beginning of #sidebar
  *
  * @since rtPanel 2.0

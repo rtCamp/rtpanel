@@ -177,7 +177,7 @@ class rtp_theme {
         } ?>
 
         <div class="metabox-fixed metabox-holder alignright">
-            <?php rtp_default_sidebar(); ?>
+            <?php rtp_default_admin_sidebar(); ?>
         </div>
 
         <div class="wrap rtpanel-admin">

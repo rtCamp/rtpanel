@@ -75,17 +75,13 @@
             </article><!-- .rtp-post-box --><?php
 
             /* Post Pagination */
-            if ( is_single() ) {
-                rtp_hook_single_pagination();
-            }
+            rtp_hook_single_pagination();
 
             // Comment Form
-            is_singular() ? comments_template( '', true ) : '';
+            rtp_hook_comments();
         }
         
-        if ( !is_singular() ) {
-            rtp_hook_archive_pagination();
-        }
+        rtp_hook_archive_pagination();
         
     } else {
         /* If there are no posts to display */ ?>

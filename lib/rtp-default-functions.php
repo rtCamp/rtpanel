@@ -252,7 +252,7 @@ add_filter('wp_nav_menu', 'rtp_add_markup_pages');
  * @since rtPanel 2.1
  */
 function rtp_default_single_pagination() {
-    if ( get_adjacent_post( '', '', true ) || get_adjacent_post( '', '', false ) ){ ?>
+    if ( is_single() && ( get_adjacent_post( '', '', true ) || get_adjacent_post( '', '', false ) ) ){ ?>
         <div class="rtp-navigation clearfix">
             <?php if ( get_adjacent_post( '', '', true ) ) { ?><div class="alignleft"><?php previous_post_link( '%link', __( '&larr; %title', 'rtPanel' ) ); ?></div><?php } ?>
             <?php if ( get_adjacent_post( '', '', false ) ) { ?><div class="alignright"><?php next_post_link( '%link', __( '%title &rarr;', 'rtPanel' ) ); ?></div><?php } ?>
@@ -268,13 +268,37 @@ add_action( 'rtp_hook_single_pagination', 'rtp_default_single_pagination' );
  */
 function rtp_default_archive_pagination() { 
     /* Page-Navi Plugin Support with WordPress Default Pagination */
-    if ( function_exists( 'wp_pagenavi' ) ) {
-        wp_pagenavi();
-    } elseif ( get_next_posts_link() || get_previous_posts_link() ) { ?>
-        <div class="rtp-navigation clearfix">
-            <?php if ( get_next_posts_link() ) { ?><div class="alignleft"><?php next_posts_link( __( '&larr; Older Entries', 'rtPanel' ) ); ?></div><?php } ?>
-            <?php if ( get_previous_posts_link() ) { ?><div class="alignright"><?php previous_posts_link( __( 'Newer Entries &rarr;', 'rtPanel' ) ); ?></div><?php } ?>
-        </div><!-- .rtp-navigation --><?php
+    if ( !is_singular() ) {
+        if ( function_exists( 'wp_pagenavi' ) ) {
+            wp_pagenavi();
+        } elseif ( get_next_posts_link() || get_previous_posts_link() ) { ?>
+            <div class="rtp-navigation clearfix">
+                <?php if ( get_next_posts_link() ) { ?><div class="alignleft"><?php next_posts_link( __( '&larr; Older Entries', 'rtPanel' ) ); ?></div><?php } ?>
+                <?php if ( get_previous_posts_link() ) { ?><div class="alignright"><?php previous_posts_link( __( 'Newer Entries &rarr;', 'rtPanel' ) ); ?></div><?php } ?>
+            </div><!-- .rtp-navigation --><?php
+        }
     }
 }
 add_action( 'rtp_hook_archive_pagination', 'rtp_default_archive_pagination' );
+
+/**
+ * Displays the sidebar.
+ *
+ * @since rtPanel 2.1
+ */
+function rtp_default_sidebar() {
+    get_sidebar();
+}
+add_action( 'rtp_hook_sidebar', 'rtp_default_sidebar' );
+
+/**
+ * Displays the sidebar.
+ *
+ * @since rtPanel 2.1
+ */
+function rtp_default_comments() {
+    if ( is_singular() ) {
+        comments_template( '', true );
+    }
+}
+add_action( 'rtp_hook_comments', 'rtp_default_comments' );
