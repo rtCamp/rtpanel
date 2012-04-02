@@ -27,13 +27,13 @@
                 <?php if ( current_user_can( 'moderate_comments' ) ) { ?>
                         <span class="alignright rtp-manage-comments"><span class="rtp-courly-bracket">{ </span><a href="<?php echo get_admin_url( '', 'edit-comments.php?p=' . get_the_ID() ); ?>"><?php _e( 'Manage Comments', 'rtPanel' ); ?></a><span class="rtp-courly-bracket"> }</span></span>
                 <?php } ?>
-            </div>
+            </div><!-- .rtp-comment-count -->
             <div class="clear"></div>
 
             <ol class="commentlist"><?php
                 $args = ( $rtp_post_comments['comment_separate'] ) ? 'callback=rtp_comment_list&type=comment' : 'callback=rtp_comment_list&type=all';
                 wp_list_comments( $args ); ?>
-            </ol>
+            </ol><!-- .commentlist -->
 
             <!-- Comment Pagination --><?php
             if ( get_previous_comments_link() || get_next_comments_link() ) { ?>
@@ -100,9 +100,9 @@
                     'fields' => apply_filters( 'comment_form_default_fields', $fields ) ,
                     'comment_notes_before' => $comments_before,
                     'comment_notes_after' => $comments_after,
-                    'comment_field' => '<p class="comment-form-comment"><textarea id="comment"  placeholder="' . apply_filters( 'rtp_comment_placeholder', 'Comment...' ) . '" name="comment" cols="45" rows="8"></textarea></p>',
-                    'title_reply' => __( '<span class="comment-title">Leave a Comment</span>', 'rtPanel' ),
-                    'title_reply_to' => __( '<span class="comment-title">Leave a Comment</span>', 'rtPanel' ),
+                    'comment_field' => '<p class="comment-form-comment"><textarea id="comment"  placeholder="' . apply_filters( 'rtp_comment_placeholder', __( 'Comment...', 'rtPanel' ) ) . '" name="comment" cols="45" rows="8"></textarea></p>',
+                    'title_reply' => '<span class="comment-title">' . __( 'Leave a Comment', 'rtPanel' ) . '</span>',
+                    'title_reply_to' => '<span class="comment-title">' . __( 'Leave a Comment', 'rtPanel' ) . '</span>',
                     'cancel_reply_link' => __( 'Cancel reply', 'rtPanel' ),
                     'label_submit' => __( 'Submit', 'rtPanel' ),
                 )
