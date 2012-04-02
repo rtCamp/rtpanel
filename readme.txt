@@ -9,7 +9,7 @@ Author URI: http://rtcamp.com
 Contributors: rtCampers ( http://rtcamp.com/about/rtcampers/ )
 License: GNU General Public License, v2 (or newer)
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: black, blue, white, light, two-columns, right-sidebar, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready
+Tags: black, blue, white, light, one-column, two-columns, right-sidebar, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, flexible-width, full-width-template
 
 Description
 =============
@@ -23,6 +23,12 @@ Plugin Supported:
 	2. WP-PageNavi (Paged Navigation) - http://wordpress.org/extend/plugins/wp-pagenavi/
 			
 	3. Subscribe To Comments - http://wordpress.org/extend/plugins/subscribe-to-comments/
+
+        4. Yoast WordPress SEO - http://wordpress.org/extend/plugins/wordpress-seo/
+        
+        5. Regenerate Thumbnails - http://wordpress.org/extend/plugins/regenerate-thumbnails/
+
+        6. rtPanel Hooks Editor - http://wordpress.org/extend/plugins/rtpanel-hooks-editor/
 
 Important Note:
 =================
