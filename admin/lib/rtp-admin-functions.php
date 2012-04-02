@@ -973,91 +973,86 @@ function rtp_get_feeds( $feed_url='http://feeds.feedburner.com/rtpanel' ) {
 /**
  * Adds rtPanel Contextual help
  *
- * @param string $contextual_help The Text to show
- * @param string $screen_id The Page on which to show
- * @param object $screen The screen information
  * @return string
  *
- * @since rtPanel 2.0
+ * @since rtPanel 2.1
  */
-function rtp_contextual_help( $contextual_help, $screen_id, $screen ) {
+function rtp_theme_options_help() {
+    
+        $general_help = '<p>';
+        $general_help .= __( 'rtPanel is the most easy to use WordPress Theme Framework. You will find many state of the art options and widgets with rtPanel. ', 'rtPanel' );
+        $general_help .= '</p><p>';
+        $general_help .= __( 'rtPanel is a theme framework for the world. Keeping this in mind our developers have made it localization ready. ', 'rtPanel' );
+        $general_help .= __( 'Developers can use rtPanel as a basic and stripped to bones theme framework for developing their own creative and wonderful WordPress Themes.', 'rtPanel' );
+        $general_help .= '</p><p>';
+        $general_help .= __( 'With the use of rtPanel developers and users can specify settings for basic functions (like date format, excerpt word count etc.) directly from theme options.', 'rtPanel' );
+        $general_help .= __( ' rtPanel provides you with some theme options to manage some basic settings for your theme.', 'rtPanel' );
+        $general_help .= __( ' Options provided for your convenience on this page are:', 'rtPanel' );
+        $general_help .= '</p><p>';
+        $general_help .= __( '<strong>Logo Settings:</strong> You can manage your theme&#8217;s logo from this setting.', 'rtPanel' );
+        $general_help .= '</p><p>';
+        $general_help .= __( '<strong>Favicon Settings:</strong> You can manage your theme&#8217;s favicon from this setting.', 'rtPanel' );
+        $general_help .= '</p><p>';
+        $general_help .= __( '<strong>Facebook Open Graph Settings:</strong> You can specify your Faceboook App ID/Admin ID(s) with this setting.', 'rtPanel' );
+        $general_help .= '</p><p>';
+        $general_help .= __( '<strong>FeedBurner Settings:</strong> You can specify your FeedBurner URL from this setting to redirect your feeds.', 'rtPanel' );
+        $general_help .= '</p><p>';
+        $general_help .= __( '<strong>Google Custom Search Integration:</strong> You can specify the Google Custom Search Code here to harness the power of Google Search instead of the default WordPress search. You also have the option of rendering the Google Search Page without the sidebar.', 'rtPanel' );
+        $general_help .= '</p><p>';
+        $general_help .= __( '<strong>Sidebar Settings:</strong> Enable / Disable the Footer Sidebar from here.', 'rtPanel' );
+        $general_help .= '</p><p>';
+        $general_help .= __( '<strong>Custom Styles:</strong> You can specify your own CSS styles in this option to override the default Style.', 'rtPanel' );
+        $general_help .= '</p><p>';
+        $general_help .= __( '<strong>Plugin Support:</strong> You will get a summary of plugins status that are supported by rtPanel. This information box will allow you to manipulate the plugin settings on the fly.', 'rtPanel' );
+        $general_help .= '</p><p>';
+        $general_help .= __( '<strong>Backup rtPanel Options:</strong> You can export or import all settings that you have configured in rtPanel.', 'rtPanel' );
+        $general_help .= '</p>';
+        $general_help .= '<p>' . __( 'Remember to click "<strong>Save All Changes</strong>" to save any changes you have made to the theme options.', 'rtPanel' ) . '</p>';
 
-    switch( $screen_id ) {
-        case 'appearance_page_rtp_general' :
-            $contextual_help .= '<p>';
-            $contextual_help = __( 'rtPanel is the most easy to use WordPress Theme Framework. You will find many state of the art options and widgets with rtPanel. ', 'rtPanel' );
-            $contextual_help .= '</p><p>';
-            $contextual_help .= __( 'rtPanel is a theme framework for the world. Keeping this in mind our developers have made it localization ready. ', 'rtPanel' );
-            $contextual_help .= __( 'Developers can use rtPanel as a basic and stripped to bones theme framework for developing their own creative and wonderful WordPress Themes.', 'rtPanel' );
-            $contextual_help .= '</p><p>';
-            $contextual_help .= __( 'With the use of rtPanel developers and users can specify settings for basic functions (like date format, excerpt word count etc.) directly from theme options.', 'rtPanel' );
-            $contextual_help .= __( ' rtPanel provides you with some theme options to manage some basic settings for your theme.', 'rtPanel' );
-            $contextual_help .= __( ' Options provided for your convenience on this page are:', 'rtPanel' );
-            $contextual_help .= '</p><p>';
-            $contextual_help .= __( '<strong>Logo Settings:</strong> You can manage your theme&#8217;s logo from this setting.', 'rtPanel' );
-            $contextual_help .= '</p><p>';
-            $contextual_help .= __( '<strong>Favicon Settings:</strong> You can manage your theme&#8217;s favicon from this setting.', 'rtPanel' );
-            $contextual_help .= '</p><p>';
-            $contextual_help .= __( '<strong>Facebook Open Graph Settings:</strong> You can specify your Faceboook App ID/Admin ID(s) with this setting.', 'rtPanel' );
-            $contextual_help .= '</p><p>';
-            $contextual_help .= __( '<strong>FeedBurner Settings:</strong> You can specify your FeedBurner URL from this setting to redirect your feeds.', 'rtPanel' );
-            $contextual_help .= '</p><p>';
-            $contextual_help .= __( '<strong>Google Custom Search Integration:</strong> You can specify the Google Custom Search Code here to harness the power of Google Search instead of the default WordPress search. You also have the option of rendering the Google Search Page without the sidebar.', 'rtPanel' );
-            $contextual_help .= '</p><p>';
-            $contextual_help .= __( '<strong>Sidebar Settings:</strong> Enable / Disable the Footer Sidebar from here.', 'rtPanel' );
-            $contextual_help .= '</p><p>';
-            $contextual_help .= __( '<strong>Custom Styles:</strong> You can specify your own CSS styles in this option to override the default Style.', 'rtPanel' );
-            $contextual_help .= '</p><p>';
-            $contextual_help .= __( '<strong>Plugin Support:</strong> You will get a summary of plugins status that are supported by rtPanel. This information box will allow you to manipulate the plugin settings on the fly.', 'rtPanel' );
-            $contextual_help .= '</p><p>';
-            $contextual_help .= __( '<strong>Backup rtPanel Options:</strong> You can export or import all settings that you have configured in rtPanel.', 'rtPanel' );
-            $contextual_help .= '</p><p>';
-            $contextual_help .= __( '<strong>For more information, you can always visit:</strong>' , 'rtPanel' );
-            $contextual_help .= '</p><p>';
-            $contextual_help .= __( '<a href="http://rtpanel.com" title="rtPanel Official Page">rtPanel Official Page</a>' , 'rtPanel' );
-            $contextual_help .= '</p><p>';
-            $contextual_help .= __( '<a href="http://rtpanel.com/docs" title="rtPanel Documentation">rtPanel Documentation</a>' , 'rtPanel' );
-            $contextual_help .= '</p><p>';
-            $contextual_help .= __( '<a href="http://rtpanel.com/support" title="rtPanel Forum">rtPanel Forum</a>' , 'rtPanel' );
-            $contextual_help .= '</p>';
-            break;
-        case 'appearance_page_rtp_post_comments' :
-            $contextual_help .= '<p>';
-            $contextual_help = __( 'rtPanel is the world\'s easiest and smartest WordPress Theme. You can customize this theme and use it at your ease. You will find many state of the art options and widgets with rtPanel. ', 'rtPanel' );
-            $contextual_help .= '</p><p>';
-            $contextual_help .= __( 'rtPanel is a theme for the world. Keeping this in mind our developers have made it localization ready. ', 'rtPanel' );
-            $contextual_help .= __( 'Developers can use rtPanel as a basic and stripped to bones theme framework for developing their own creative and wonderful WordPress Themes.', 'rtPanel' );
-            $contextual_help .= '</p><p>';
-            $contextual_help .= __( 'With the use of rtPanel developers and users can specify settings for basic functions (like date format, excerpt word count etc.) directly from theme options.', 'rtPanel' );
-            $contextual_help .= __( ' rtPanel provides you with some theme options to manage some basic settings for your theme.', 'rtPanel' );
-            $contextual_help .= __( ' Options provided for your convenience on this page are:', 'rtPanel' );
-            $contextual_help .= '</p><p>';
-            $contextual_help .= __( '<strong>Post Summaries Options:</strong> You can specify the different excerpt parameters like word count etc.', 'rtPanel' );
-            $contextual_help .= '</p><p>';
-            $contextual_help .= __( '<strong>Post Thumbnail Options:</strong> You can specify the post thumbnail options like position, size etc.', 'rtPanel' );
-            $contextual_help .= '<br />';
-            $contextual_help .= __( '<small><strong><em>NOTE:</em></strong> If you use this option to change height or width of the thumbnail, then please use Regenerate Thumbnails Plugin to apply the new dimension settings to your thumbnails.</small>', 'rtPanel' );
-            $contextual_help .= '</p><p>';
-            $contextual_help .= __( '<strong>Post Meta Options:</strong> You can specify the post meta options like post date format, display or hide author name and their positions in relation with the content.', 'rtPanel' );
-            $contextual_help .= '</p><p>';
-            $contextual_help .= __( '<strong>Comment Form Settings:</strong> You can specify the comment form settings from this option.', 'rtPanel' );
-            $contextual_help .= '</p><p>';
-            $contextual_help .= __( '<strong>Gravtar Settings:</strong> You can specify the general Gravtar support from this option.', 'rtPanel' );
-            $contextual_help .= '</p><p>';
-            $contextual_help .= __( '<strong>For more information, you can always visit:</strong>' , 'rtPanel' );
-            $contextual_help .= '</p><p>';
-            $contextual_help .= __( '<a href="http://rtpanel.com" title="rtPanel Official Page">rtPanel Official Page</a>' , 'rtPanel' );
-            $contextual_help .= '</p><p>';
-            $contextual_help .= __( '<a href="http://rtpanel.com/docs" title="rtPanel Documentation">rtPanel Documentation</a>' , 'rtPanel' );
-            $contextual_help .= '</p><p>';
-            $contextual_help .= __( '<a href="http://rtpanel.com/support" title="rtPanel Forum">rtPanel Forum</a>' , 'rtPanel' );
-            $contextual_help .= '</p>';
-            break;
-    }
+        $post_comment_help = '<p>';
+        $post_comment_help .= __( 'rtPanel is the world\'s easiest and smartest WordPress Theme. You can customize this theme and use it at your ease. You will find many state of the art options and widgets with rtPanel. ', 'rtPanel' );
+        $post_comment_help .= '</p><p>';
+        $post_comment_help .= __( 'rtPanel is a theme for the world. Keeping this in mind our developers have made it localization ready. ', 'rtPanel' );
+        $post_comment_help .= __( 'Developers can use rtPanel as a basic and stripped to bones theme framework for developing their own creative and wonderful WordPress Themes.', 'rtPanel' );
+        $post_comment_help .= '</p><p>';
+        $post_comment_help .= __( 'With the use of rtPanel developers and users can specify settings for basic functions (like date format, excerpt word count etc.) directly from theme options.', 'rtPanel' );
+        $post_comment_help .= __( ' rtPanel provides you with some theme options to manage some basic settings for your theme.', 'rtPanel' );
+        $post_comment_help .= __( ' Options provided for your convenience on this page are:', 'rtPanel' );
+        $post_comment_help .= '</p><p>';
+        $post_comment_help .= __( '<strong>Post Summaries Options:</strong> You can specify the different excerpt parameters like word count etc.', 'rtPanel' );
+        $post_comment_help .= '</p><p>';
+        $post_comment_help .= __( '<strong>Post Thumbnail Options:</strong> You can specify the post thumbnail options like position, size etc.', 'rtPanel' );
+        $post_comment_help .= '<br />';
+        $post_comment_help .= __( '<small><strong><em>NOTE:</em></strong> If you use this option to change height or width of the thumbnail, then please use Regenerate Thumbnails Plugin to apply the new dimension settings to your thumbnails.</small>', 'rtPanel' );
+        $post_comment_help .= '</p><p>';
+        $post_comment_help .= __( '<strong>Post Meta Options:</strong> You can specify the post meta options like post date format, display or hide author name and their positions in relation with the content.', 'rtPanel' );
+        $post_comment_help .= '</p><p>';
+        $post_comment_help .= __( '<strong>Comment Form Settings:</strong> You can specify the comment form settings from this option.', 'rtPanel' );
+        $post_comment_help .= '</p><p>';
+        $post_comment_help .= __( '<strong>Gravtar Settings:</strong> You can specify the general Gravtar support from this option.', 'rtPanel' );
+        $post_comment_help .= '</p>';
+        $post_comment_help .= '<p>' . __( 'Remember to click "<strong>Save All Changes</strong>" to save any changes you have made to the theme options.', 'rtPanel' ) . '</p>';
+        
+	$sidebar = '<p><strong>' . __( 'For more information, <br />you can always visit:', 'rtPanel' ) . '</strong></p>' .
+		'<p>' . __( '<a href="http://rtpanel.com" target="_blank" title="rtPanel Official Page">rtPanel Official Page</a>', 'rtPanel' ) . '</p>' .
+		'<p>' . __( '<a href="http://rtpanel.com/docs" target="_blank" title="rtPanel Documentation">rtPanel Documentation</a>', 'rtPanel' ) . '</p>' .
+		'<p>' . __( '<a href="http://rtpanel.com/support" target="_blank" title="rtPanel Forum">rtPanel Forum</a>', 'rtPanel' ) . '</p>';
 
-    return $contextual_help;
+	$screen = get_current_screen();
+        
+        if ( method_exists( $screen, 'add_help_tab' ) ) {
+		// WordPress 3.3
+		$screen->add_help_tab( array( 'title' => __( 'General', 'rtPanel' ), 'id' => 'rtp-general-help', 'content' => $general_help ) );
+		$screen->add_help_tab( array( 'title' => __( 'Post &amp; Comment', 'rtPanel' ), 'id' => 'post-comments-help', 'content' => $post_comment_help ) );
+		$screen->set_help_sidebar( $sidebar );
+	} else {
+		// WordPress 3.2
+		add_contextual_help( $screen, $general_help . $sidebar );
+		add_contextual_help( $screen, $post_comment_help . $sidebar );
+	}
 }
-add_filter('contextual_help', 'rtp_contextual_help', 10, 3);
+add_action( 'load-appearance_page_rtp_general', 'rtp_theme_options_help' );
+add_action( 'load-appearance_page_rtp_post_comments', 'rtp_theme_options_help' );
 
 /**
  * Show rtPanel only to Admin Users ( Admin-Bar only !!! )
