@@ -241,7 +241,10 @@ jQuery(document).ready(function() {
 
 function delete_plugin_confirmation(plugin) {
     if (! confirm('Are you sure you want to delete \''+plugin+'\' plugin?')) { return false; }
-    if ( plugin == 'Subscribe To Comments'){
+    if ( plugin == 'rtPanel Hooks Editor'){
+        jQuery('#rtp-hooks-editor-delete').val(1);
+        jQuery('#rtp-hooks-editor-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin == 'Subscribe To Comments'){
         jQuery('#subscribe-delete').val(1);
         jQuery('#subscribe-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
     } else if ( plugin == 'WP PageNavi'){
@@ -261,7 +264,10 @@ function delete_plugin_confirmation(plugin) {
 }
 
 function activate_plugin(plugin) {
-    if ( plugin == 'Subscribe To Comments'){
+    if ( plugin == 'rtPanel Hooks Editor'){
+        jQuery('#rtp-hooks-editor-activate').val(1);
+        jQuery('#rtp-hooks-editor-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin == 'Subscribe To Comments'){
         jQuery('#subscribe-activate').val(1);
         jQuery('#subscribe-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
     } else if ( plugin == 'WP PageNavi'){
@@ -281,7 +287,10 @@ function activate_plugin(plugin) {
 }
 
 function deactivate_plugin(plugin) {
-    if ( plugin == 'Subscribe To Comments'){
+    if ( plugin == 'rtPanel Hooks Editor'){
+        jQuery('#rtp-hooks-editor-deactivate').val(1);
+        jQuery('#rtp-hooks-editor-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin == 'Subscribe To Comments'){
         jQuery('#subscribe-deactivate').val(1);
         jQuery('#subscribe-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
     } else if ( plugin == 'WP PageNavi'){

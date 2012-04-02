@@ -10,6 +10,7 @@
 global $rtp_general, $rtp_post_comments, $rtp_hooks;
 
 /* Define plugin support constants */
+define( 'RTP_HOOKS_EDITOR', 'rtpanel-hooks-editor/rtpanel-hooks-editor.php' );
 define( 'RTP_SUBSCRIBE_TO_COMMENTS', 'subscribe-to-comments/subscribe-to-comments.php' );
 define( 'RTP_WP_PAGENAVI', 'wp-pagenavi/wp-pagenavi.php' );
 define( 'RTP_YOAST_SEO', 'wordpress-seo/wp-seo.php' );
@@ -164,7 +165,31 @@ function rtp_general_validate( $input ) {
             }
         }
         
-        if ( $_POST['subscribe-activate'] == 1 ) {
+        if ( $_POST['rtp-hooks-editor-activate'] == 1 ) {
+            $nonce = $_REQUEST['_wpnonce_rtp_hooks_editor_activate'];
+            if ( !wp_verify_nonce( $nonce, RTP_HOOKS_EDITOR . '-activate' ) ) {
+                add_settings_error( 'activate-plugin', 'failure_plugin_activation', __( 'You do not have sufficient permissions to activate this plugin.', 'rtPanel' ) );
+            } else {
+                activate_plugin( RTP_HOOKS_EDITOR );
+                add_settings_error( 'activate-plugin', 'plugin_activation', __( 'rtPanel Hooks Editor Plugin has been Activated.', 'rtPanel' ), 'updated' );
+            }
+        } elseif ( $_POST['rtp-hooks-editor-deactivate'] == 1 ) {
+            $nonce = $_REQUEST['_wpnonce_rtp_hooks_editor_deactivate'];
+            if (!wp_verify_nonce( $nonce, RTP_HOOKS_EDITOR . '-deactivate' ) ) {
+                add_settings_error( 'deactivate-plugin', 'failure_plugin_deactivation', __( 'You do not have sufficient permissions to deactivate this plugin.', 'rtPanel' ) );
+            } else {
+                deactivate_plugins( array( RTP_HOOKS_EDITOR ) );
+                add_settings_error( 'deactivate-plugin', 'plugin_activation', __( 'rtPanel Hooks Editor Plugin has been Deactivated.', 'rtPanel' ), 'updated' );
+            }
+        } elseif ( $_POST['rtp-hooks-editor-delete'] == 1 ) {
+            $nonce = $_REQUEST['_wpnonce_rtp_hooks_editor_delete'];
+            if ( !wp_verify_nonce( $nonce, RTP_HOOKS_EDITOR . '-delete' ) ) {
+                add_settings_error( 'delete-plugin', 'failure_plugin_deletion', __( 'You do not have sufficient permissions to delete this plugin.', 'rtPanel' ) );
+            } else {
+                delete_plugins( array( RTP_HOOKS_EDITOR ) );
+                add_settings_error( 'delete-plugin', 'plugin_deletion', __( 'rtPanel Hooks Editor Plugin has been Deleted.', 'rtPanel' ), 'updated' );
+            }
+        } elseif ( $_POST['subscribe-activate'] == 1 ) {
             $nonce = $_REQUEST['_wpnonce_subscribe_activate'];
             if ( !wp_verify_nonce( $nonce, RTP_SUBSCRIBE_TO_COMMENTS . '-activate' ) ) {
                 add_settings_error( 'activate-plugin', 'failure_plugin_activation', __( 'You do not have sufficient permissions to activate this plugin.', 'rtPanel' ) );

@@ -296,6 +296,9 @@ function rtp_custom_styles_metabox() {
  */
 function rtp_plugin_metabox() {
     $plugins = get_plugins();
+    $rtp_hooks_editor_activate = wp_create_nonce( RTP_HOOKS_EDITOR . '-activate' );
+    $rtp_hooks_editor_deactivate = wp_create_nonce( RTP_HOOKS_EDITOR . '-deactivate' );
+    $rtp_hooks_editor_delete = wp_create_nonce( RTP_HOOKS_EDITOR . '-delete' );
     $subscribe_activate = wp_create_nonce( RTP_SUBSCRIBE_TO_COMMENTS . '-activate' );
     $subscribe_deactivate = wp_create_nonce( RTP_SUBSCRIBE_TO_COMMENTS . '-deactivate' );
     $subscribe_delete = wp_create_nonce( RTP_SUBSCRIBE_TO_COMMENTS . '-delete' );
@@ -319,7 +322,37 @@ function rtp_plugin_metabox() {
             <th><?php _e( 'Edit', 'rtPanel' ); ?></th>
         </tr>
         <tr>
-            <td><a href="http://wordpress.org/extend/plugins/subscribe-to-comments/"><?php _e( 'Subscribe to Comments', 'rtPanel' ); ?></a></td>
+            <td><a target="_blank" href="http://wordpress.org/extend/plugins/rtpanel-hooks-editor/"><?php _e( 'rtPanel Hooks Editor', 'rtPanel' ); ?></a></td>
+            <td>
+                <?php
+                if ( is_plugin_active( RTP_HOOKS_EDITOR ) ) {
+                    echo '<span class="active">' . __( 'Active', 'rtPanel' ) . '</span>';
+                } elseif ( array_key_exists( RTP_HOOKS_EDITOR, $plugins ) ) {
+                    echo '<span class="inactive">' . __( 'Inactive', 'rtPanel' ) . '</span>';
+                } else {
+                    echo '<span class="not-installed">' . __( 'Not Installed', 'rtPanel' ) . '</span>';
+                }
+                ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_HOOKS_EDITOR ) ) { ?>
+                    <input type="hidden" value="<?php echo $rtp_hooks_editor_deactivate; ?>" name="_wpnonce_rtp_hooks_editor_deactivate" id="_wpnonce_rtp_hooks_editor_deactivate" /><input id="rtp-hooks-editor-deactivate" type="hidden" name="rtp-hooks-editor-deactivate" value="0" /><a class="rtp-hooks-editor-deactivate" href="#rtp-hooks-editor-deactivate" onclick="deactivate_plugin('rtPanel Hooks Editor')"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
+                <?php } elseif ( array_key_exists( RTP_HOOKS_EDITOR, $plugins ) ) { ?>
+                    <input type="hidden" value="<?php echo $rtp_hooks_editor_activate; ?>" name="_wpnonce_rtp_hooks_editor_activate" id="_wpnonce_rtp_hooks_editor_activate" /><input id="rtp-hooks-editor-activate" type="hidden" name="rtp-hooks-editor-activate" value="0" /><a class="rtp-hooks-editor-activate" href="#rtp-hooks-editor-activate" onclick="activate_plugin('rtPanel Hooks Editor')"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo $rtp_hooks_editor_delete; ?>" name="_wpnonce_rtp_hooks_editor_delete" id="_wpnonce_rtp_hooks_editor_delete" /><input id="rtp-hooks-editor-delete" type="hidden" name="rtp-hooks-editor-delete" value="0" /><a class="rtp-hooks-editor-delete" href="#rtp-hooks-editor-delete" onclick="delete_plugin_confirmation( 'rtPanel Hooks Editor' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=rtpanel-hooks-editor' ), 'install-plugin_rtpanel-hooks-editor' ); ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
+                <?php } ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_HOOKS_EDITOR ) || array_key_exists( RTP_HOOKS_EDITOR, $plugins ) ) { ?>
+                    <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_HOOKS_EDITOR ) ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <span class="not-installed"> ----- </span>
+                <?php } ?>
+            </td>
+        </tr>
+        <tr>
+            <td><a target="_blank" href="http://wordpress.org/extend/plugins/subscribe-to-comments/"><?php _e( 'Subscribe to Comments', 'rtPanel' ); ?></a></td>
             <td>
                 <?php
                 if ( is_plugin_active( RTP_SUBSCRIBE_TO_COMMENTS ) ) {
@@ -349,7 +382,7 @@ function rtp_plugin_metabox() {
             </td>
         </tr>
         <tr>
-            <td><a href="http://wordpress.org/extend/plugins/wp-pagenavi/"><?php _e( 'WP PageNavi', 'rtPanel' ); ?></a></td>
+            <td><a target="_blank" href="http://wordpress.org/extend/plugins/wp-pagenavi/"><?php _e( 'WP PageNavi', 'rtPanel' ); ?></a></td>
             <td>
                 <?php
                 if ( is_plugin_active( RTP_WP_PAGENAVI ) ) {
@@ -379,7 +412,7 @@ function rtp_plugin_metabox() {
             </td>
         </tr>
         <tr>
-            <td><a href="http://wordpress.org/extend/plugins/wordpress-seo/"><?php _e( 'Yoast WordPress SEO', 'rtPanel' ); ?></a></td>
+            <td><a target="_blank" href="http://wordpress.org/extend/plugins/wordpress-seo/"><?php _e( 'Yoast WordPress SEO', 'rtPanel' ); ?></a></td>
             <td>
                 <?php
                 if ( is_plugin_active( RTP_YOAST_SEO ) ) {
@@ -409,7 +442,7 @@ function rtp_plugin_metabox() {
             </td>
         </tr>
         <tr>
-            <td><a href="http://wordpress.org/extend/plugins/breadcrumb-navxt/"><?php _e( 'Breadcrumb NavXT', 'rtPanel' ); ?></a></td>
+            <td><a target="_blank" href="http://wordpress.org/extend/plugins/breadcrumb-navxt/"><?php _e( 'Breadcrumb NavXT', 'rtPanel' ); ?></a></td>
             <td>
                 <?php
                 if ( is_plugin_active( RTP_BREADCRUMB_NAVXT ) ) {
