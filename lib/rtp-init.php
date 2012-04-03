@@ -142,7 +142,7 @@ function rtp_body_class( $classes ) {
 add_filter( 'body_class', 'rtp_body_class' );
 
 /**
- * Remove category from rel attribute
+ * Remove category from rel attribute to solve validation error.
  *
  * @since rtPanel 2.1
  */

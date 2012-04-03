@@ -907,7 +907,7 @@ function rtp_default_admin_sidebar() { ?>
                     <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
                 </form>
             </div>
-            <div class="rt-social-share" style="text-align:center; width: 127px; margin: 2px auto">
+            <div class="rt-social-share" style="text-align:center; width: 135px; margin: 2px auto">
                 <div class="rt-facebook" style="float:left; margin-right:5px;">
                     <a style=" text-align:center;" name="fb_share" type="box_count" share_url="http://rtpanel.com/"></a>
                 </div>

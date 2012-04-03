@@ -21,8 +21,7 @@ hgroup, menu, nav, section, summary, time, mark, audio, video { background: tran
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
 
 blockquote, q { quotes: none; }
-blockquote:before, blockquote:after,
-q:before, q:after { content: ''; content: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
 
 a { background: transparent; font-size: 100%; margin: 0; padding: 0; vertical-align: baseline; }
 abbr[title], dfn[title] { border-bottom: 1px dotted; cursor: help; }
@@ -76,8 +75,8 @@ ol ol ol ol { list-style: lower-alpha; }
 /* Generic Table */
 table { border: 1px solid #CCC; margin-bottom: 10px; text-align: left; width: 98%; }
     th { background: #F1F1F1; border: 1px solid #CCC; font-weight: bold; padding: 2px; text-align: left; }
-    td { border: 1px solid #CCC; padding: 2px; vertical-align: top; }
-        td img { vertical-align: top; }
+        td { border: 1px solid #CCC; padding: 2px; vertical-align: top; }
+            td img { vertical-align: top; }
 
 /* Generic Definitions ( Lists ) */
 dt { background: #F1F1F1; color: #333; overflow: hidden; padding: 5px; }
@@ -133,10 +132,10 @@ embed, object { margin-bottom: 10px; }
 
 /* Layout */
 body { background-color: #FFF; color: #111; font-size: 62.5%; padding: 0 5px; }
-    #main-wrapper { background: #FFF; max-width: 960px; margin: 0 auto; width: 100%; }
+    #main-wrapper { background: #FFF; margin: 0 auto; max-width: 960px; width: 100%; }
         #header-wrapper { position: relative; z-index: 100; } 
         #content-wrapper { border-bottom: 3px double #DDD; clear: both; overflow: hidden; padding: 0 5px; position: relative; z-index: 10; }
-            #content { float: left; padding: 0 0 40px; width: 64.7%; overflow: hidden; }
+            #content { float: left; overflow: hidden; padding: 0 0 40px; width: 64.74%; }
             #sidebar { border-left: 1px solid #DDD; float: right; padding: 12px 0 12px 9px; width: 33.2%; }
         #footer-wrapper { clear: both; overflow: hidden; padding: 0 0 20px; position: relative; }
 
@@ -163,7 +162,7 @@ h1 a:hover, h2 a:hover { color: #2361A1; text-decoration: none; }
 /* Header */
 #header { overflow: hidden; padding: 22px 5px; }
     .rtp-site-logo { font-size: 360%; font-weight: bold; letter-spacing: 1px; line-height: 117.2%; margin: 0; padding: 0; }
-        .rtp-site-logo img { float: left; height: auto; max-width: 100%; }
+        .rtp-site-logo img { height: auto; max-width: 100%; }
     .tagline { color: #888; font-size: 140%; line-height: 142.9%; }
 
 /* Navigation */
@@ -178,7 +177,7 @@ h1 a:hover, h2 a:hover { color: #2361A1; text-decoration: none; }
     #rtp-nav-menu a:hover { background: #DDD; color: #111; text-decoration: none; }
 
 /* Submenu Support */
-    #rtp-nav-menu ul { border-left: 1px solid #DDD; border-right: 1px solid #DDD; display: none; position: absolute; top: 34px; left: 0; float: left; width: 180px; z-index: 999; }
+    #rtp-nav-menu ul { border-left: 1px solid #DDD; border-right: 1px solid #DDD; display: none; float: left; left: 0; position: absolute; top: 34px; width: 180px; z-index: 999; }
         #rtp-nav-menu ul li { border-bottom: 1px solid #DDD; border-right: 0; border-top: 0; min-width: 180px; }
         #rtp-nav-menu ul li:first-child { border-left: 0; }
             #rtp-nav-menu ul ul { left: 100%; top: -1px; }
@@ -197,7 +196,7 @@ h1 a:hover, h2 a:hover { color: #2361A1; text-decoration: none; }
     #rtp-nav-menu .current_page_item > a { background: #DDD; color: #111; }
 
 /* Sticky */
-.rtp-blog-post .sticky { background-color: #FDFDC8; border: 1px dotted #BBB; padding-left: 15px; padding-right: 15px; }
+.rtp-blog-post .sticky { background-color: #FDFDC8; border: 1px dotted #BBB; padding: 22px 15px; }
 
 /* Post Meta */
 .post-meta { clear: both; color: #888; font-style: italic; line-height: 190%; overflow: hidden; padding: 0 0 20px; position: relative; }
@@ -397,7 +396,7 @@ blockquote { border-left: 1px solid #DDD; color: #666; font-style: italic; margi
                 .rtp-comments-widget .rtp-sidebar-readmore { float: right; padding: 3px 0 5px; }
 
     /* Calendar Widget */
-    .widget_calendar caption { background: #E5E5E5; font-size: 12px; font-weight: bold; padding: 2px; }
+    .widget_calendar caption { background: #E5E5E5; border: 1px solid #CCC; border-bottom: 0; font-size: 12px; font-weight: bold; padding: 2px; }
         .widget_calendar th { font-size: 84.6%; text-align: center; }
         .widget_calendar td { color: #888; font-size: 84.6%; text-align: center; }
         .widget_calendar #today { background: #E5E5E5; font-weight: bold; }
@@ -407,6 +406,9 @@ blockquote { border-left: 1px solid #DDD; color: #666; font-style: italic; margi
 
     /* Tag Cloud Widget */
     .tagcloud a { line-height: 25px; }
+    
+    /* Text Widget */
+    .textwidget p { margin-bottom: 24px; }
     
     /* Subscribe Widget */
     .email-subscription-container p { margin: 0 0 10px; }
@@ -453,9 +455,14 @@ blockquote { border-left: 1px solid #DDD; color: #666; font-style: italic; margi
 /* IE 7 Fixing */
 .ie7 legend { margin-left: -7px; }
 .ie7 input[type='checkbox'] { vertical-align: baseline; }
-.ie7 #respond, .ie7 #content-wrapper, .ie7 .commentlist .comment .comment-body, .ie7 .post-meta, .ie7 div.comment-body, .ie7 .rtp-post-comment-count, .ie7 .hentry { height: 100%; }
+.ie7 #content-wrapper, .ie7 .hentry, .ie7 .post-meta, .ie7 .comment-body, .ie7 .rtp-post-comment-count, .ie7 #respond { height: 100%; }
 
 /* Responsive Structure */
+@media screen and (min-width: 1024px) {
+    #content { min-width: 615px; }
+    #sidebar { min-width: 315px; }
+}
+
 /* --- iPad Portrait --- */
 @media screen and (max-width: 880px) {
     #main-wrapper { max-width: 880px; }

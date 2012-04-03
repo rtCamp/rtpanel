@@ -126,25 +126,19 @@ class rtp_theme {
     function rtp_admin_page_styles() {
         wp_enqueue_style( 'rtp-admin-styles', RTP_TEMPLATE_URL . '/admin/css/rtp-admin.css' );
         wp_register_style( 'rtp-admin-styles-ie7', RTP_TEMPLATE_URL . '/admin/css/rtp-admin-ie7.css', 'rtp-admin-styles' );
-        wp_register_style( 'rtp-admin-styles-ie6', RTP_TEMPLATE_URL . '/admin/css/rtp-admin-ie6.css', 'rtp-admin-styles' );
         $GLOBALS['wp_styles']->add_data( 'rtp-admin-styles-ie7', 'conditional', 'IE 7' );
-        $GLOBALS['wp_styles']->add_data( 'rtp-admin-styles-ie6', 'conditional', 'IE 6' );
         wp_enqueue_style( 'rtp-admin-styles-ie7' );
-        wp_enqueue_style( 'rtp-admin-styles-ie6' );
         wp_enqueue_style( 'thickbox'); //thickbox for logo and favicon upload option
     }
 
     /**
-     * Browser compatible styles for IE7 and IE6
+     * Browser compatible style for IE7
      *
      * @since rtPanel 2.0
      **/
     function rtp_browser_compatability_admin_styles() { ?>
         <!--[if IE 7 ]>
             <link rel="stylesheet" href="<?php echo RTP_TEMPLATE_URL ; ?>/admin/css/rtp-admin-ie7.css"  />
-        <![endif]-->
-        <!--[if IE 6 ]>
-            <link rel="stylesheet" href="<?php echo RTP_TEMPLATE_URL; ?>/admin/css/rtp-admin-ie6.css"  />
         <![endif]--><?php
     }
  
