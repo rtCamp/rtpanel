@@ -61,5 +61,5 @@
                 
             </header><!-- #header-wrapper -->
 
-            <div id="content-wrapper"<?php echo ( $rtp_general['search_code'] && $rtp_general['search_layout'] )?' class="search-layout-wrapper"':''; ?>><!-- ends in footer.php -->
+            <div id="content-wrapper"<?php echo ( is_search() && $rtp_general['search_code'] && $rtp_general['search_layout'] )?' class="search-layout-wrapper"':''; ?>><!-- ends in footer.php -->
                 <?php rtp_hook_begin_content_wrapper(); ?>
