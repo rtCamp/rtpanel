@@ -84,16 +84,13 @@
         rtp_hook_archive_pagination();
         
     } else {
-        /* If there are no posts to display */ ?>
+        /* If there are no posts to display */ 
+        if ( !is_search() ) { ?>
+            <h1 class="post-title rtp-main-title"><?php _e( 'Not Found', 'rtPanel' ); ?></h1><?php
+        } ?>
+        
         <article id="post-0" class="rtp-not-found">
             <?php rtp_hook_begin_post(); ?>
-            
-            <?php if ( !is_search() ) { ?>
-                <header class="post-header">
-                    <h1 class="post-title rtp-main-title"><?php _e( 'Not Found', 'rtPanel' ); ?></h1>
-                </header><?php
-            } ?>
-            
             
             <div class="post-content">
                 <p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'rtPanel' ); ?></p>
