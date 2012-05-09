@@ -137,7 +137,7 @@ class rtp_subscribe_widget extends WP_Widget {
      **/
     function form( $instance ) {
         $title = isset ( $instance['title'] ) ? esc_attr( ( $instance['title'] ) ) : '';
-        $sub_link = isset ( $instance['sub_link'] ) ? esc_url( $instance['sub_link'] ) : '';
+        $sub_link = isset ( $instance['sub_link'] ) ? esc_attr( $instance['sub_link'] ) : '';
         $rss_link = isset ( $instance['rss_link'] ) ? esc_url( $instance['rss_link'] ) : '';
         $twitter_link = isset ( $instance['twitter_link'] ) ? esc_url( $instance['twitter_link'] ) : '';
         $facebook_link = isset ( $instance['facebook_link'] ) ? esc_url( $instance['facebook_link'] ) : '';
