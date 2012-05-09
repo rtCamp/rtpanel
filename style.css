@@ -335,10 +335,10 @@ blockquote { border-left: 1px solid #DDD; color: #666; font-style: italic; margi
                 .comment-text ol { margin: 0 0 0 25px; }
         
         /* Comment Reply Link */
-        .reply { clear: both; float: left; font-size: 78.6%; letter-spacing: 1px; padding: 10px 0; text-transform: uppercase; }
-            .reply a { color: #7B7B7B; text-decoration: none; }
-            .reply a:hover { color: #555; text-decoration: underline; }
-            .reply .rtp-courly-bracket { color: #7B7B7B; font-size: 17px; }
+        .rtp-reply { clear: both; float: left; font-size: 78.6%; letter-spacing: 1px; padding: 10px 0; text-transform: uppercase; }
+            .rtp-reply a { color: #7B7B7B; text-decoration: none; }
+            .rtp-reply a:hover { color: #555; text-decoration: underline; }
+            .rtp-reply .rtp-courly-bracket { color: #7B7B7B; font-size: 17px; }
 
     /* Admin Comments */
     .comment-author-admin > .comment-body,
