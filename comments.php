@@ -22,8 +22,9 @@
                 $comment_count = sprintf( _n( '<span class="count">%1$s</span> Comment', '<span class="count">%1$s</span> Comments', get_comments_number(), 'rtPanel' ), number_format_i18n( get_comments_number() ) ) . '... ';
                 $comment_count .= ( comments_open() ) ? sprintf( __( 'Add your <a href="%s" title="Add your thoughts">thoughts</a>', 'rtPanel' ), '#respond' ) : '';
                 remove_filter( 'get_comments_number', 'rtp_only_comment_count' );
-                ?>
-                <span class="alignleft"><?php echo apply_filters( 'rtp_comment_braces', $comment_count ); ?></span>
+                if ( ( get_comments_number && comments_open() ) || get_comments_number() ) { ?>
+                    <span class="alignleft"><?php echo apply_filters( 'rtp_comment_braces', $comment_count ); ?></span><?php
+                } ?>
                 <?php if ( current_user_can( 'moderate_comments' ) ) { ?>
                         <span class="alignright rtp-manage-comments"><span class="rtp-courly-bracket">{ </span><a href="<?php echo get_admin_url( '', 'edit-comments.php?p=' . get_the_ID() ); ?>"><?php _e( 'Manage Comments', 'rtPanel' ); ?></a><span class="rtp-courly-bracket"> }</span></span>
                 <?php } ?>
