@@ -29,7 +29,7 @@ if ( !function_exists( 'rtpanel_setup' ) ) {
         rtp_theme_setup_values();
         add_theme_support( 'post-thumbnails' ); // This theme uses post thumbnails
         add_theme_support( 'automatic-feed-links' ); // Add default posts and comments RSS feed links to head
-        add_editor_style( './css/rtp-editor-style.css' ); // This theme styles the visual editor with editor-style.css to match the theme style.
+        add_editor_style( 'css/rtp-editor-style.css' ); // This theme styles the visual editor with editor-style.css to match the theme style.
         load_theme_textdomain( 'rtPanel', TEMPLATEPATH . '/languages' ); // Load the text domain
         add_custom_background(); // Add support for custom background
 
