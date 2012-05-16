@@ -35,6 +35,8 @@
         
         <div id="main-wrapper"><!-- ends in footer.php -->
             
+            <?php rtp_hook_begin_main_wrapper(); ?>
+            
             <header id="header-wrapper" role="banner">
                 
                 <?php global $rtp_general; ?>

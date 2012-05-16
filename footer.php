@@ -38,6 +38,9 @@ global $rtp_general; ?>
                 <?php rtp_hook_after_footer(); ?>
 
             </footer><!-- #footer-wrapper-->
+            
+            <?php rtp_hook_end_main_wrapper(); ?>
+            
 	</div><!-- #main-wrapper -->
 
         <?php wp_footer(); ?>
