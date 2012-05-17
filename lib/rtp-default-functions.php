@@ -104,10 +104,8 @@ function rtp_default_post_meta( $placement = 'top' ) {
                                 } ?>
 
                         <?php   // Comment Count
-                                if ( @comments_open() && $position == 'u' ) { // If post meta is set to top then only display the comment count. 
-                                    add_filter( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
+                                if ( @comments_open() && $position == 'u' ) { // If post meta is set to top then only display the comment count.                                     
                                     rtp_hook_post_meta_top_comment();      
-                                    remove_filter( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
                                 } ?>
 
                         <?php   // Post Categories
@@ -203,8 +201,10 @@ add_filter( 'rtp_comment_count', 'rtp_comment_braces' );
  *
  * @since rtPanel 2.0.9
  */
-function rtp_comment_count() { ?>
-   <p class="alignright rtp-post-comment-count"><span class="rtp-curly-bracket">{</span><?php comments_popup_link( __( '<span>0</span> Comments', 'rtPanel' ), __( '<span>1</span> Comment', 'rtPanel' ), __( '<span>%</span> Comments', 'rtPanel' ), 'rtp-post-comment' ); ?><span class="rtp-curly-bracket">}</span></p><?php
+function rtp_comment_count() { 
+    add_filter( 'get_comments_number', 'rtp_only_comment_count', 11, 2 ); ?>
+    <p class="alignright rtp-post-comment-count"><span class="rtp-curly-bracket">{</span><?php comments_popup_link( __( '<span>0</span> Comments', 'rtPanel' ), __( '<span>1</span> Comment', 'rtPanel' ), __( '<span>%</span> Comments', 'rtPanel' ), 'rtp-post-comment' ); ?><span class="rtp-curly-bracket">}</span></p><?php
+    remove_filter( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
 }
 add_action( 'rtp_hook_post_meta_top_comment', 'rtp_comment_count' );
 
