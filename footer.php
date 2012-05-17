@@ -39,7 +39,7 @@ global $rtp_general; ?>
             </footer><!-- #footer-wrapper-->
             
             <?php rtp_hook_end_main_wrapper(); ?>
-            
+            <div class="clear"></div>
 	</div><!-- #main-wrapper -->
 
         <?php wp_footer(); ?>
