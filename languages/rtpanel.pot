@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: rtPanel 2.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-17 12:41+0530\n"
-"PO-Revision-Date: 2012-05-17 12:41+0530\n"
+"POT-Creation-Date: 2012-05-17 17:08+0530\n"
+"PO-Revision-Date: 2012-05-17 17:08+0530\n"
 "Last-Translator: rtPanel <manish.songirkar@rtcamp.com>\n"
 "Language-Team: rtCampers\n"
 "MIME-Version: 1.0\n"
@@ -119,9 +119,9 @@ msgstr ""
 msgid "Meta"
 msgstr ""
 
-#: ../footer.php:35
+#: ../footer.php:34
 #, php-format
-msgid "Designed on <a href=\"%s\" title=\"rtPanel WordPress Theme Framework\">rtPanel WordPress Theme Framework</a>."
+msgid "Designed on <a href=\"%s\" class=\"rtp-common-link\" title=\"rtPanel WordPress Theme Framework\">rtPanel WordPress Theme Framework</a>."
 msgstr ""
 
 #: ../loop-common.php:14
@@ -1437,23 +1437,23 @@ msgstr ""
 msgid "on <time class=\"published\" datetime=\"%s\">%s</time>"
 msgstr ""
 
-#: ../lib/rtp-default-functions.php:114
+#: ../lib/rtp-default-functions.php:112
 msgid "Category"
 msgstr ""
 
-#: ../lib/rtp-default-functions.php:117
+#: ../lib/rtp-default-functions.php:115
 msgid "Tagged in"
 msgstr ""
 
-#: ../lib/rtp-default-functions.php:207
+#: ../lib/rtp-default-functions.php:206
 msgid "<span>0</span> Comments"
 msgstr ""
 
-#: ../lib/rtp-default-functions.php:207
+#: ../lib/rtp-default-functions.php:206
 msgid "<span>1</span> Comment"
 msgstr ""
 
-#: ../lib/rtp-default-functions.php:207
+#: ../lib/rtp-default-functions.php:206
 msgid "<span>%</span> Comments"
 msgstr ""
 
@@ -1507,11 +1507,11 @@ msgid "rtPanel: Subscribe Widget"
 msgstr ""
 
 #: ../lib/rtp-widgets.php:71
-msgid "Sign up for our email news letter"
+msgid "Sign up for our email newsletter"
 msgstr ""
 
 #: ../lib/rtp-widgets.php:72
-msgid "Enter Email Id"
+msgid "Enter Email Address"
 msgstr ""
 
 #: ../lib/rtp-widgets.php:72

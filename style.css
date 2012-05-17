@@ -143,6 +143,7 @@ button { overflow: visible;  } /* make buttons play nice in IE: http://www.viget
 .clearfix { zoom: 1; }
 .clearfix:before, .clearfix:after { content: '\0020'; display: block; overflow: hidden; visibility: hidden; width: 0; height: 0; }
 .clearfix:after { clear: both; }
+.rtp-clear-widget { clear: both; }
 
 /* Layout */
 body { background-color: #FFF; color: #111; padding: 0 5px; }
