@@ -163,7 +163,7 @@ add_action('rtp_hook_after_header','rtp_default_nav_menu'); // Adds default nav 
  */
 function rtp_edit_link() {
     // Call Edit Link
-    edit_post_link( __( 'Edit', 'rtPanel' ), '<p class="rtp-edit-link">[', ']</p>');
+    edit_post_link( __( 'Edit', 'rtPanel' ), '<p class="rtp-edit-link rtp-common-link">[', ']</p>');
 }
 add_action('rtp_hook_end_post_meta_top', 'rtp_edit_link');
 
@@ -203,7 +203,7 @@ add_filter( 'rtp_comment_count', 'rtp_comment_braces' );
  */
 function rtp_comment_count() { 
     add_filter( 'get_comments_number', 'rtp_only_comment_count', 11, 2 ); ?>
-    <p class="alignright rtp-post-comment-count"><span class="rtp-curly-bracket">{</span><?php comments_popup_link( __( '<span>0</span> Comments', 'rtPanel' ), __( '<span>1</span> Comment', 'rtPanel' ), __( '<span>%</span> Comments', 'rtPanel' ), 'rtp-post-comment' ); ?><span class="rtp-curly-bracket">}</span></p><?php
+    <p class="alignright rtp-post-comment-count"><span class="rtp-curly-bracket">{</span><?php comments_popup_link( __( '<span>0</span> Comments', 'rtPanel' ), __( '<span>1</span> Comment', 'rtPanel' ), __( '<span>%</span> Comments', 'rtPanel' ), 'rtp-post-comment rtp-common-link' ); ?><span class="rtp-curly-bracket">}</span></p><?php
     remove_filter( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
 }
 add_action( 'rtp_hook_post_meta_top_comment', 'rtp_comment_count' );

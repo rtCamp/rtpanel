@@ -29,7 +29,7 @@ rtp_hook_begin_content();
 
                 <div class="post-meta">
                     <!-- ========== [ Edit Post ] ========== -->
-                    <?php edit_post_link( 'Edit this post', '<p class="rtp-edit-link">[', ']</p>' ); ?>
+                    <?php edit_post_link( 'Edit this post', '<p class="rtp-edit-link rtp-common-link">[', ']</p>' ); ?>
                 </div><!-- .post-meta -->
 
                 <div class="post-content">

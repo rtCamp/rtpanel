@@ -12,7 +12,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
     <head>
         <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
-        <title><?php wp_title( '', true ); ?></title>
+        <title><?php wp_title( '' ); ?></title>
 
         <!-- Mobile Viewport Fix ( j.mp/mobileviewport & davidbcalhoun.com/2010/viewport-metatag ) -->
         <meta name="viewport" content="<?php echo apply_filters( 'rtp_viewport', 'width=device-width, initial-scale=1.0, maximum-scale=1.0' ); ?>" />
@@ -33,11 +33,11 @@
         
         <?php rtp_hook_begin_body(); ?>
         
-        <div id="main-wrapper"><!-- ends in footer.php -->
+        <div id="main-wrapper" class="rtp-container-12"><!-- ends in footer.php -->
             
             <?php rtp_hook_begin_main_wrapper(); ?>
             
-            <header id="header-wrapper" role="banner">
+            <header id="header-wrapper" role="banner" class="rtp-grid-12">
                 
                 <?php global $rtp_general; ?>
 
@@ -63,5 +63,5 @@
                 
             </header><!-- #header-wrapper -->
 
-            <div id="content-wrapper"<?php echo ( is_search() && $rtp_general['search_code'] && $rtp_general['search_layout'] )?' class="search-layout-wrapper"':''; ?>><!-- ends in footer.php -->
+            <div id="content-wrapper"<?php echo ( is_search() && $rtp_general['search_code'] && $rtp_general['search_layout'] ) ? ' class="search-layout-wrapper"' : ''; ?>><!-- ends in footer.php -->
                 <?php rtp_hook_begin_content_wrapper(); ?>

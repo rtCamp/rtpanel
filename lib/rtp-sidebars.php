@@ -19,7 +19,7 @@ function rtp_widgets_init() {
     register_sidebar( array(
         'name' => __( 'Sidebar Widgets', 'rtPanel' ),
         'id' => 'sidebar-widgets',
-        'before_widget' => '<aside id="%1$s" class="widget sidebar-widget %2$s">',
+        'before_widget' => '<aside id="%1$s" class="widget rtp-grid-4 rtp-alpha rtp-omega sidebar-widget %2$s">',
         'after_widget' => '</aside>',
         'before_title' => '<h3 class="widgettitle">',
         'after_title' => '</h3>',
@@ -30,7 +30,7 @@ function rtp_widgets_init() {
          register_sidebar( array(
             'name' => __( 'Footer Widgets', 'rtPanel' ),
             'id' => "footer-widgets",
-            'before_widget' => '<aside id="%1$s" class="widget footerbar-widget %2$s">',
+            'before_widget' => '<aside id="%1$s" class="widget rtp-grid-4 footerbar-widget %2$s">',
             'after_widget' => '</aside>',
             'before_title' => '<h3 class="widgettitle">',
             'after_title' => '</h3>',
