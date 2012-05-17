@@ -150,11 +150,10 @@ body { background-color: #FFF; color: #111; padding: 0 5px; }
         #header-wrapper { position: relative; z-index: 100; } 
         #content-wrapper { border-bottom: 3px double #DDD; clear: both; overflow: hidden; position: relative; z-index: 10; }
             #content, #sidebar { overflow: hidden; }
-        #footer-wrapper { clear: both; overflow: hidden; padding: 0 0 10px; position: relative; }
+        #footer-wrapper { clear: both; overflow: hidden; }
 
 /* Specific Pages */
-#content-wrapper .full-width { max-width: 960px; width: 100%; }
-.search .full-width { line-height: 150%; }
+.search .rtp-grid-12 { line-height: 150%; }
 
 /* Default Links */
 a, a:active, a:visited { color: #0279B5; text-decoration: none; }
@@ -441,12 +440,9 @@ blockquote { border-left: 1px solid #DDD; color: #666; font-style: italic; margi
 
 /* Footer */
 #footerbar { border-bottom: 3px double #DDD; overflow: hidden; }
-    .footerbar-widget ul, .footerbar-widget ol { margin: 0 0 0 20px; padding: 0; }
-        .footerbar-widget li { padding: 0 0 9px; }
-            .footerbar-widget li li { padding: 9px 0 0; }
 
 /* Copyrights */
-#footer { color: #666;font-size: 13px;line-height: 150%;overflow: hidden;padding: 10px 0 0;text-align: right; }
+#footer { clear: both; color: #666; font-size: 14px; margin: 10px 0; overflow: hidden; text-align: right; }
     #footer a { border-bottom: 1px solid #DDD; }
     #footer a:hover { text-decoration: none; }
 

@@ -6,7 +6,7 @@
  * @since rtPanel 2.0
  */
 ?>
-    <div id="sidebar" class="rtp-grid-4" role="complementary">
+    <div id="sidebar" class="rtp-grid-4 rtp-omega" role="complementary">
         <?php rtp_hook_begin_sidebar(); ?>
 
             <?php   // Default Widgets ( Fallback )
