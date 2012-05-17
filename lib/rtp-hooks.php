@@ -26,6 +26,24 @@ function rtp_hook_end_body() {
 }
 
 /**
+ * Adds content at the beginning of #main-wrapper
+ *
+ * @since rtPanel 2.1
+ */
+function rtp_hook_begin_main_wrapper() {
+    do_action( 'rtp_hook_begin_main_wrapper' );
+}
+
+/**
+ * Adds content at the end of #main-wrapper
+ *
+ * @since rtPanel 2.1
+ */
+function rtp_hook_end_main_wrapper() {
+    do_action( 'rtp_hook_end_main_wrapper' );
+}
+
+/**
  * Adds content before #header
  *
  * @since rtPanel 2.0

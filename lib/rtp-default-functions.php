@@ -76,11 +76,7 @@ function rtp_has_postmeta( $position = 'u' ) {
  */
 function rtp_default_post_meta( $placement = 'top' ) { 
     
-        if ( is_page() ) {
-            if ( get_edit_post_link() && ( 'top' == $placement ) ) { ?>
-                <div class="post-meta post-meta-top"><?php rtp_hook_end_post_meta_top(); ?></div><?php
-            }
-        } else {
+        if ( 'post' == get_post_type() ) {
             global $post, $rtp_post_comments;
             $position = ( 'bottom' == $placement ) ? 'l' : 'u'; // l = Lower/Bottom , u = Upper/Top
             ?>
@@ -133,6 +129,10 @@ function rtp_default_post_meta( $placement = 'top' ) {
                             rtp_hook_end_post_meta_top(); ?>
                     </div><!-- .post-meta --><?php
                 if ( $position == 'l' ) { echo '</footer>'; }
+            }
+        } else {
+            if ( get_edit_post_link() && ( 'top' == $placement ) ) { ?>
+                <div class="post-meta post-meta-top"><?php rtp_hook_end_post_meta_top(); ?></div><?php
             }
         }
  }
