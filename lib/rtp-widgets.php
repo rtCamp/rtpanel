@@ -68,8 +68,8 @@ class rtp_subscribe_widget extends WP_Widget {
                 $no_options++; ?>
                 <form onsubmit="window.open( 'http://feedburner.google.com/fb/a/mailverify?uri=<?php echo $sub_link; ?>', 'popupwindow', 'scrollbars=yes,width=700px,height=700px' ); return true" target="popupwindow" method="post" action="http://feedburner.google.com/fb/a/mailverify">
                     <p>
-                        <label for="email"><?php _e( 'Sign up for our email news letter', 'rtPanel' ); ?></label>
-                        <input id="email" type="text" name="email" placeholder="<?php _e( 'Enter Email Id', 'rtPanel' ); ?>" class="email" title="<?php _e( 'Email Id', 'rtPanel' ); ?>" size="15" />
+                        <label for="email"><?php _e( 'Sign up for our email newsletter', 'rtPanel' ); ?></label>
+                        <input id="email" type="text" name="email" placeholder="<?php _e( 'Enter Email Address', 'rtPanel' ); ?>" class="email" title="<?php _e( 'Email Id', 'rtPanel' ); ?>" size="15" />
                         <input type="hidden" name="uri" value="<?php echo $sub_link; ?>" />
                         <input type="hidden" value="en_US" name="loc" />
                         <input type="submit" value="<?php _e( 'Sign Up', 'rtPanel' ); ?>" title="<?php _e( 'Subscribe', 'rtPanel' ); ?>" class="btn" />
@@ -261,8 +261,8 @@ class rtp_comments_widget extends WP_Widget {
                             $show_grav_on = '';
 
                             if ( $alternative ) {
-                                $right_grav = $comments % 2 ? ' float:right; ' : '' ;
-                                $left_readmore = $comments % 2 ? ' float:left; ' : '' ;
+                                $right_grav = $comments % 2 ? 'alignright' : 'alignleft' ;
+                                $left_readmore = $comments % 2 ? 'alignleft' : 'alignright' ;
                             } else {
                                 $right_grav = '';
                                 $left_readmore = '';
@@ -275,7 +275,7 @@ class rtp_comments_widget extends WP_Widget {
                             }
                             echo '<li>';
                                 echo "<div class='comment-container clearfix'>";
-                                    echo "<div class='author-vcard' style='" . $show_grav_on . ' ' . $right_grav . "' title='" . $total_comments[$comments]->comment_author . "'>";
+                                    echo "<div class='author-vcard " . $right_grav . "' style='" . $show_grav_on . "' title='" . $total_comments[$comments]->comment_author . "'>";
                                         echo get_avatar( $total_comments[$comments]->comment_author_email, $gravatar );
                                     echo "</div>";
                                     echo "<div class='comment-section'>";
@@ -292,7 +292,7 @@ class rtp_comments_widget extends WP_Widget {
                                                 echo $str;
                                             }
                                         echo "</div>";
-                                        echo '<div class="rtp-sidebar-readmore" style="' . $left_readmore . '" >';
+                                        echo '<div class="rtp-reply rtp-common-link ' . $left_readmore . '">';
                                             echo '<a title="Read More" href="' . get_permalink($total_comments[$comments]->comment_post_ID) . '#comment-' . $total_comments[$comments]->comment_ID . '">';
                                             echo 'Read More &rarr;';
                                             echo '</a>';
@@ -334,7 +334,7 @@ class rtp_comments_widget extends WP_Widget {
      *
      * @since rtPanel 2.0
      **/
-    function form($instance) {
+    function form( $instance ) {
         $title = isset ( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
         $show_grav = isset( $instance['show_grav'] ) ? (bool) $instance['show_grav'] :false;
         $gravatar = empty( $instance['gravatar'] ) ? 64 : $instance['gravatar'];
@@ -355,11 +355,11 @@ class rtp_comments_widget extends WP_Widget {
         <p>
             <label for="<?php echo $this->get_field_id( 'gravatar' ); ?>"><?php _e( 'Gravatar Size', 'rtPanel' ); ?>: </label>
             <select id="<?php echo $this->get_field_id( 'gravatar' ); ?>" name="<?php echo $this->get_field_name( 'gravatar' ); ?>" style="width: 120px;">
-                <option value="32" <?php selected( '32', $gravatar ); ?>>32px X 32px</option>
-                <option value="40" <?php selected( '40', $gravatar ); ?>>40px X 40px</option>
-                <option value="48" <?php selected( '48', $gravatar ); ?>>48px X 48px</option>
-                <option value="56" <?php selected( '56', $gravatar ); ?>>56px X 56px</option>
-                <option value="64" <?php selected( '64', $gravatar ); ?>>64px X 64px</option>
+                <option value="32" <?php selected( '32', $gravatar ); ?>><?php _e( '32px X 32px', 'rtPanel' ); ?></option>
+                <option value="40" <?php selected( '40', $gravatar ); ?>><?php _e( '40px X 40px', 'rtPanel' ); ?></option>
+                <option value="48" <?php selected( '48', $gravatar ); ?>><?php _e( '48px X 48px', 'rtPanel' ); ?></option>
+                <option value="56" <?php selected( '56', $gravatar ); ?>><?php _e( '56px X 56px', 'rtPanel' ); ?></option>
+                <option value="64" <?php selected( '64', $gravatar ); ?>><?php _e( '64px X 64px', 'rtPanel' ); ?></option>
             </select>
         </p>
         <p>
