@@ -292,7 +292,7 @@ function rtp_default_sidebar() {
 add_action( 'rtp_hook_sidebar', 'rtp_default_sidebar' );
 
 /**
- * Displays the sidebar.
+ * Displays the comments and comment form.
  *
  * @since rtPanel 2.1
  */
@@ -313,9 +313,9 @@ function rtp_footer_widget_grid_fix_helper($sidebars_widgets) {
     if ( isset( $sidebars_widgets['footer-widgets'] ) && !isset( $rtp_footer_widget_array ) ) {
         $count = 1;
         foreach( $sidebars_widgets['footer-widgets'] as $fw ) {
-            if ( 1 == $count % 3 ) {
+            if ( 1 == $count % apply_filters( 'rtp_footer_widgets_per_row', 3 ) ) {
                 $rtp_footer_widget_array[$fw] = 'rtp-alpha rtp-clear-widget ';
-            } elseif ( 0 == $count % 3 ) {
+            } elseif ( 0 == $count % apply_filters( 'rtp_footer_widgets_per_row', 3 ) ) {
                 $rtp_footer_widget_array[$fw] = 'rtp-omega ';
             }
             $count++;
