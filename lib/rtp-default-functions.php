@@ -178,7 +178,7 @@ add_action('rtp_hook_end_post_meta_top', 'rtp_edit_link');
  * @since rtPanel 2.0
  */
 function rtp_readmore_braces( $text ) {
-   return '<span class="rtp-courly-bracket">[ </span>'. $text .'<span class="rtp-courly-bracket"> ]</span>';
+   return '<span class="rtp-curly-bracket">[ </span>'. $text .'<span class="rtp-curly-bracket"> ]</span>';
 }
 add_filter( 'rtp_readmore', 'rtp_readmore_braces' );
 
@@ -191,7 +191,7 @@ add_filter( 'rtp_readmore', 'rtp_readmore_braces' );
  * @since rtPanel 2.0.9
  */
 function rtp_comment_braces( $text ) {
-   return '<span class="rtp-courly-bracket">{ </span>'. $text .'<span class="rtp-courly-bracket"> }</span>';
+   return '<span class="rtp-curly-bracket">{ </span>'. $text .'<span class="rtp-curly-bracket"> }</span>';
 }
 add_filter( 'rtp_comment_count', 'rtp_comment_braces' );
 
@@ -204,7 +204,7 @@ add_filter( 'rtp_comment_count', 'rtp_comment_braces' );
  * @since rtPanel 2.0.9
  */
 function rtp_comment_count() { ?>
-   <p class="alignright rtp-post-comment-count"><span class="rtp-courly-bracket">{</span><?php comments_popup_link( __( '<span>0</span> Comments', 'rtPanel' ), __( '<span>1</span> Comment', 'rtPanel' ), __( '<span>%</span> Comments', 'rtPanel' ), 'rtp-post-comment' ); ?><span class="rtp-courly-bracket">}</span></p><?php
+   <p class="alignright rtp-post-comment-count"><span class="rtp-curly-bracket">{</span><?php comments_popup_link( __( '<span>0</span> Comments', 'rtPanel' ), __( '<span>1</span> Comment', 'rtPanel' ), __( '<span>%</span> Comments', 'rtPanel' ), 'rtp-post-comment' ); ?><span class="rtp-curly-bracket">}</span></p><?php
 }
 add_action( 'rtp_hook_post_meta_top_comment', 'rtp_comment_count' );
 
