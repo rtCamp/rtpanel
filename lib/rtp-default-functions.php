@@ -314,7 +314,7 @@ function rtp_footer_widget_grid_fix_helper($sidebars_widgets) {
         $count = 1;
         foreach( $sidebars_widgets['footer-widgets'] as $fw ) {
             if ( 1 == $count % 3 ) {
-                $rtp_footer_widget_array[$fw] = 'rtp-alpha ';
+                $rtp_footer_widget_array[$fw] = 'rtp-alpha rtp-clear-widget ';
             } elseif ( 0 == $count % 3 ) {
                 $rtp_footer_widget_array[$fw] = 'rtp-omega ';
             }
