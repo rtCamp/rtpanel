@@ -234,8 +234,10 @@ jQuery(document).ready(function() {
     }
     init_content('#post_summaries_options');
     init_content('#post_thumbnail_options');
+    init_content('#pagination_options');
     contentshow_table('#post_summaries_options .inside .form-table tr.custom', '#summary_show');
     contentshow_table('#post_thumbnail_options .inside .form-table tr.custom', '#thumbnail_show');
+    contentshow_table('#pagination_options .inside .form-table tr.custom', '#pagination_show');
 
 });
 

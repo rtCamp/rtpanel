@@ -790,6 +790,62 @@ function rtp_post_meta_metabox() {
 }
 
 /**
+ * Pagination Settings Metabox - Post & Comments Tab
+ * 
+ * @uses $rtp_post_comments array
+ *
+ * @since rtPanel 2.1
+ */
+function rtp_pagination_metabox() {
+    global $rtp_post_comments; ?>
+    <table class="form-table">
+        <tbody>
+            <tr valign="top">
+                <th scope="row"><label for="pagination_show"><?php _e( 'Enable Pagination', 'rtPanel' ); ?></label></th>
+                <td>
+                    <input type="hidden" name="rtp_post_comments[pagination_show]" value="0" />
+                    <input type="checkbox" name="rtp_post_comments[pagination_show]" value="1" id="pagination_show" <?php checked( $rtp_post_comments['pagination_show'] ); ?> />
+                    <span class="description"><label for="pagination_show"><?php _e( 'Check this to enable default WordPress Pagination on Archive pages ( Pages with multiple posts on them )', 'rtPanel' ); ?></label></span>
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row"><label for="prev_text"><?php _e( 'Prev Text', 'rtPanel' ); ?></label></th>
+                <td>
+                    <input type="text" value="<?php echo esc_attr( $rtp_post_comments['prev_text'] ); ?>" size="30" name="rtp_post_comments[prev_text]" id="prev_text" />
+                    <span class="description"><label for="prev_text"><?php _e( 'Text to display for Previous Page', 'rtPanel' ); ?></label></span>
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row"><label for="next_text"><?php _e( 'Next Text', 'rtPanel' ); ?></label></th>
+                <td>
+                    <input type="text" value="<?php echo esc_attr( $rtp_post_comments['next_text'] ); ?>" size="30" name="rtp_post_comments[next_text]" id="next_text" />
+                    <span class="description"><label for="next_text"><?php _e( 'Text to display for Next Page', 'rtPanel' ); ?></label></span>
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row"><label for="end_size"><?php _e( 'End Size', 'rtPanel' ); ?></label></th>
+                <td>
+                    <input  maxlength="4" type="number" value="<?php echo $rtp_post_comments['end_size']; ?>" size="4" name="rtp_post_comments[end_size]" id="end_size" />
+                    <span class="description"><label for="end_size"><?php _e( 'How many numbers on either the start and the end list edges?', 'rtPanel' ); ?></label></span>
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row"><label for="mid_size"><?php _e( 'Mid Size', 'rtPanel' ); ?></label></th>
+                <td>
+                    <input  maxlength="4" type="number" value="<?php echo $rtp_post_comments['mid_size']; ?>" size="4" name="rtp_post_comments[mid_size]" id="mid_size" />
+                    <span class="description"><label for="mid_size"><?php _e( 'How many numbers to either side of current page, but not including current page?', 'rtPanel' ); ?></label></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="rtp_submit">
+        <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
+        <input class="button-secondary" value="<?php _e( 'Reset Pagination Settings', 'rtPanel' ); ?>" name="rtp_pagination_reset" type="submit" />
+        <div class="clear"></div>
+    </div><?php
+}
+
+/**
  * Comment Form Settings Metabox - Post & Comments Tab
  *
  * @uses $rtp_post_comments array

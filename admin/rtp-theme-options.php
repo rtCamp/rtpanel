@@ -225,6 +225,7 @@ class rtp_theme {
                 add_meta_box( 'post_summaries_options', __('Post Summary Settings', 'rtPanel'), 'rtp_post_summaries_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'post_thumbnail_options', __('Post Thumbnail Settings', 'rtPanel'), 'rtp_post_thumbnail_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'post_meta_options', __('Post Meta Settings', 'rtPanel'), 'rtp_post_meta_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
+                add_meta_box( 'pagination_options', __('Pagination Settings', 'rtPanel'), 'rtp_pagination_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'comment_form_options', __('Comment Form Settings', 'rtPanel'), 'rtp_comment_form_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'gravatar_options', __('Gravatar Settings', 'rtPanel'), 'rtp_gravatar_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 do_action( $tab .'_metaboxes' );
