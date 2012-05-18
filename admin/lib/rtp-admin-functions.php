@@ -461,36 +461,60 @@ function rtp_post_comments_validate( $input ) {
             $input['thumbnail_frame'] = $rtp_post_comments['thumbnail_frame'];
         }
 
-    if ( !in_array( $input['post_date_format_u'], array( $rtp_post_comments['post_date_format_u'], 'F j, Y', 'Y/m/d', 'm/d/Y', 'd/m/Y' ) ) ) {
-        $input['post_date_format_u'] = str_replace( '<', '', $input['post_date_format_u'] );
-        $input['post_date_format_l'] = str_replace( '<', '', $input['post_date_format_l'] );
-        $input['post_date_custom_format_u'] = str_replace( '<', '', $input['post_date_custom_format_u'] );
-        $input['post_date_custom_format_l'] = str_replace( '<', '', $input['post_date_custom_format_l'] );
-    }
+        if ( !in_array( $input['post_date_format_u'], array( $rtp_post_comments['post_date_format_u'], 'F j, Y', 'Y/m/d', 'm/d/Y', 'd/m/Y' ) ) ) {
+            $input['post_date_format_u'] = str_replace( '<', '', $input['post_date_format_u'] );
+            $input['post_date_format_l'] = str_replace( '<', '', $input['post_date_format_l'] );
+            $input['post_date_custom_format_u'] = str_replace( '<', '', $input['post_date_custom_format_u'] );
+            $input['post_date_custom_format_l'] = str_replace( '<', '', $input['post_date_custom_format_l'] );
+        }
 
-    if ( !$input['post_date_u'] ) {
-        $input['post_date_format_u']        = $rtp_post_comments['post_date_format_u'];
-        $input['post_date_custom_format_u'] = $rtp_post_comments['post_date_custom_format_u'];
-    }
+        if ( !$input['post_date_u'] ) {
+            $input['post_date_format_u']        = $rtp_post_comments['post_date_format_u'];
+            $input['post_date_custom_format_u'] = $rtp_post_comments['post_date_custom_format_u'];
+        }
 
-    if ( !$input['post_date_l'] ) {
-        $input['post_date_format_l']        = $rtp_post_comments['post_date_format_l'];
-        $input['post_date_custom_format_l'] = $rtp_post_comments['post_date_custom_format_l'];
-    }
+        if ( !$input['post_date_l'] ) {
+            $input['post_date_format_l']        = $rtp_post_comments['post_date_format_l'];
+            $input['post_date_custom_format_l'] = $rtp_post_comments['post_date_custom_format_l'];
+        }
 
-    if ( !$input['post_author_u'] ) {
-        $input['author_count_u'] = $rtp_post_comments['author_count_u'];
-        $input['author_link_u']  = $rtp_post_comments['author_link_u'];
-    }
+        if ( !$input['post_author_u'] ) {
+            $input['author_count_u'] = $rtp_post_comments['author_count_u'];
+            $input['author_link_u']  = $rtp_post_comments['author_link_u'];
+        }
 
-    if ( !$input['post_author_l'] ) {
-        $input['author_count_l'] = $rtp_post_comments['author_count_l'];
-        $input['author_link_l']  = $rtp_post_comments['author_link_l'];
-    }
+        if ( !$input['post_author_l'] ) {
+            $input['author_count_l'] = $rtp_post_comments['author_count_l'];
+            $input['author_link_l']  = $rtp_post_comments['author_link_l'];
+        }
 
-    if ( !$input['gravatar_show'] ) {
-        $input['gravatar_size'] = $rtp_post_comments['gravatar_size'];
-    }
+        if ( $input['pagination_show'] ) {
+            if ( trim( $input['prev_text'] ) != $rtp_post_comments['prev_text'] ) {
+                $input['prev_text'] = trim( $input['prev_text'] );
+                add_settings_error( 'prev_text', 'valid_prev_text', __( 'The Post Summary Settings have been updated.', 'rtPanel' ), 'updated' );
+            }
+            if ( trim( $input['end_text'] ) != $rtp_post_comments['end_text'] ) {
+                $input['end_text'] = trim( $input['end_text'] );
+                add_settings_error( 'end_text', 'valid_end_text', __( 'The Post Summary Settings have been updated.', 'rtPanel' ), 'updated' );
+            }
+            if ( !preg_match( '/^[0-9]{1,3}$/i', $input['end_size'] ) ) {
+                $input['end_size'] = $rtp_post_comments['end_size'];
+                add_settings_error( 'end_size', 'invalid_end_size', __( 'The End Size provided is invalid. Please provide a proper value.', 'rtPanel' ) );
+            }
+            if ( !preg_match( '/^[0-9]{1,3}$/i', $input['mid_size'] ) ) {
+                $input['mid_size'] = $rtp_post_comments['mid_size'];
+                add_settings_error( 'mid_size', 'invalid_mid_size', __( 'The Mid Size provided is invalid. Please provide a proper value.', 'rtPanel' ) );
+            }
+        } else {
+            $input['prev_text'] = $rtp_post_comments['prev_text'];
+            $input['next_text'] = $rtp_post_comments['next_text'];
+            $input['end_size']  = $rtp_post_comments['end_size'];
+            $input['mid_size']  = $rtp_post_comments['mid_size'];
+        }
+
+        if ( !$input['gravatar_show'] ) {
+            $input['gravatar_size'] = $rtp_post_comments['gravatar_size'];
+        }
 
     } elseif ( isset ( $_POST['rtp_summary_reset'] ) ) {
         $options = maybe_unserialize( $rtp_post_comments );
@@ -549,8 +573,21 @@ function rtp_post_comments_validate( $input ) {
                 $input['post_' . $taxonomy . '_l'] = '0';
             }
         }
-
         add_settings_error( 'post_meta', 'reset_post_meta', __( 'The Post Meta Settings have been restored to default.', 'rtPanel' ), 'updated' );
+    } elseif ( isset ( $_POST['rtp_pagination_reset'] ) ) {
+        $options = maybe_unserialize( $rtp_post_comments );
+        unset($input);
+
+        foreach ( $options as $option => $value )
+            $input[$option] = $value;
+
+        $input['notices']         = $rtp_post_comments['notices'];
+        $input['pagination_show'] = $default[1]['pagination_show'];
+        $input['prev_text']       = $default[1]['prev_text'];
+        $input['next_text']       = $default[1]['next_text'];
+        $input['end_size']        = $default[1]['end_size'];
+        $input['mid_size']        = $default[1]['mid_size'];
+        add_settings_error( 'pagination', 'reset_pagination', __( 'The Pagination Settings have been restored to default.', 'rtPanel' ), 'updated' );
     } elseif ( isset ( $_POST['rtp_comment_reset'] ) ) {
         $options = maybe_unserialize( $rtp_post_comments );
         unset($input);
@@ -651,6 +688,11 @@ function rtp_theme_setup_values() {
         'author_link_l'              => '1',
         'post_category_l'            => '0',
         'post_tags_l'                => '1',
+        'pagination_show'            => '1',
+        'prev_text'                  => '&laquo; Previous',
+        'next_text'                  => 'Next &raquo;',
+        'end_size'                   => '1',
+        'mid_size'                   => '2',
         'compact_form'               => '0',
         'hide_labels'                => '0',
         'comment_textarea'           => '0',
