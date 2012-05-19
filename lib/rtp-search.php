@@ -18,9 +18,16 @@
  * @since rtPanel 2.0
  */
 function rtp_custom_search_form( $form ) {
+    global $rtp_general;
+    $search_class = 'search-text';
+    if ( preg_match( '/customSearchControl.draw\(\'cse\'(.*)\)\;/i', @$rtp_general["search_code"] ) ) {
+        $search_class .= ' rtp-google-search';
+    } else {
+        $placeholder = 'placeholder="' . apply_filters( 'rtp_search_placeholder', __( 'Search Here...', 'rtPanel' ) ) . '" ';
+    }
     $form = '<form class="searchform" action="' . home_url() . '/" >
                 <div><label class="hidden">' . __( 'Search for:', 'rtPanel' ) . '</label>
-                    <input type="text" placeholder="'. apply_filters( 'rtp_search_placeholder', __( 'Search Here...', 'rtPanel' ) ).'" value="' . esc_attr( apply_filters( 'the_search_query', get_search_query() ) ).'" name="s" class="search-text" title="' . __( 'Search Here...', 'rtPanel' ). '" x-webkit-speech="x-webkit-speech" speech="speech" onwebkitspeechchange="this.form.submit();" />
+                    <input type="text" ' . $placeholder . 'value="' . esc_attr( apply_filters( 'the_search_query', get_search_query() ) ).'" name="s" class="' . $search_class . '" title="' . __( 'Search Here...', 'rtPanel' ). '" x-webkit-speech="x-webkit-speech" speech="speech" onwebkitspeechchange="this.form.submit();" />
                     <input type="submit" class="searchsubmit" value="' . esc_attr( __( 'Search', 'rtPanel' ) ) . '" title="Search" />
                 </div>
              </form>';
