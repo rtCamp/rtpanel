@@ -79,8 +79,8 @@ div.inside { margin: 10px 5px; }
     .has-right-sidebar .stuffbox input[type="text"],
     .has-right-sidebar .stuffbox textarea { width: 98%; }
 
-.inner-sidebar { width: 50%; }
-    .inner-sidebar #side-sortables { width: 99.7%; }
+.inner-sidebar { width: 50% !important; }
+    .inner-sidebar #side-sortables { width: 99.7% !important; }
 #gravatar_size { width: 120px; }
 
 #social .inside a { background: url("../../img/rtp-social-icons.png") no-repeat scroll 0 0 transparent; display: inline-block; font-size: 0; height: 23px; margin: 0 5px; text-indent: -9999px; text-transform: uppercase; vertical-align: middle; width: 23px; }
