@@ -501,6 +501,12 @@ blockquote { border-left: 1px solid #DDD; color: #666; font-style: italic; margi
     #main-wrapper { max-width: 99.7%; }
 }
 
+@media screen and (max-width: 640px) {
+    #content { width: 98%; }
+    #sidebar { width: 98%; }
+}
+
+
 /* Print Style Sheet */
 @media print {
     * { background: transparent; color: #444; text-shadow: none; }
