@@ -38,11 +38,11 @@ global $rtp_general; ?><!DOCTYPE html>
             
             <?php rtp_hook_begin_main_wrapper(); ?>
             
-            <header id="header-wrapper" role="banner" class="rtp-grid-12">
+            <header id="header-wrapper" role="banner" class="rtp-container-12">
                 
                 <?php rtp_hook_before_header(); ?>
 
-                <div id="header">
+                <div id="header" class="rtp-grid-12">
                     <?php rtp_hook_before_logo(); ?>
 
                         <?php if ( is_home() || is_front_page() ) { ?>
@@ -62,5 +62,5 @@ global $rtp_general; ?><!DOCTYPE html>
                 
             </header><!-- #header-wrapper -->
 
-            <div id="content-wrapper"<?php echo ( is_search() && $rtp_general['search_code'] && $rtp_general['search_layout'] ) ? ' class="search-layout-wrapper"' : ' class="rtp-grid-12"'; ?>><!-- ends in footer.php -->
+            <div id="content-wrapper"<?php echo ( is_search() && $rtp_general['search_code'] && $rtp_general['search_layout'] ) ? ' class="search-layout-wrapper"' : ' class="rtp-container-12"'; ?>><!-- ends in footer.php -->
                 <?php rtp_hook_begin_content_wrapper(); ?>

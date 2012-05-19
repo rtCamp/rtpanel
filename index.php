@@ -11,13 +11,13 @@ get_header(); ?>
     <?php
         $rtp_content_class = '';
         if ( is_search() || is_archive() ) {
-            $rtp_content_class = ' class="rtp-grid-8 rtp-alpha rtp-multiple-post" ';
+            $rtp_content_class = ' class="rtp-grid-8 rtp-multiple-post" ';
         } elseif ( is_page() || is_single() || is_404() ) {
-            $rtp_content_class = ' class="rtp-grid-8 rtp-alpha rtp-single-post" ';
+            $rtp_content_class = ' class="rtp-grid-8 rtp-single-post" ';
         } elseif ( is_home() ) {
-            $rtp_content_class = ' class="rtp-grid-8 rtp-alpha rtp-blog-post" ';
+            $rtp_content_class = ' class="rtp-grid-8 rtp-blog-post" ';
         } else {
-            $rtp_content_class = ' class="rtp-grid-8 rtp-alpha"';
+            $rtp_content_class = ' class="rtp-grid-8"';
         }
     ?>
     <div id="content" role="main"<?php echo $rtp_content_class; ?>>
