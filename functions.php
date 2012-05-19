@@ -11,6 +11,13 @@ $rtp_general = get_option( 'rtp_general' ); // rtPanel General Options
 $rtp_post_comments = get_option( 'rtp_post_comments' ); // rtPanel Post & Comments Options
 $rtp_version = get_option( 'rtp_version' ); // rtPanel Version
 
+/* Check if default values are present in the database else force defaults - Since rtPanel v2.1 */
+$rtp_general['favicon_show'] = isset( $rtp_general['favicon_show'] ) ? $rtp_general['favicon_show'] : 1;
+$rtp_post_comments['prev_text'] = isset( $rtp_post_comments['prev_text'] ) ? __( $rtp_post_comments['prev_text'], 'rtPanel' ) : __( '&laquo; Previous', 'rtPanel' );
+$rtp_post_comments['next_text'] = isset( $rtp_post_comments['next_text'] ) ? __( $rtp_post_comments['next_text'], 'rtPanel' ) : __( 'Next &raquo;', 'rtPanel' );
+$rtp_post_comments['end_size']  = isset( $rtp_post_comments['end_size'] ) ? $rtp_post_comments['end_size'] : 1;
+$rtp_post_comments['mid_size']  = isset( $rtp_post_comments['mid_size'] ) ? $rtp_post_comments['mid_size'] : 2;
+
 /* Define Directory Constants */
 define( 'RTP_ADMIN', get_template_directory() . '/admin' );
 define( 'RTP_CSS', get_template_directory() . '/css' );

@@ -15,6 +15,7 @@ jQuery(document).ready(function() {
     var post_author_l = jQuery('#post_author_l').attr('checked');
     var gravatar_fields = jQuery('#gravatar_show').attr('checked');
     var logo_show = jQuery('#logo_show').attr('checked');
+    var favicon_show = jQuery('#favicon_show').attr('checked');
     var summary_show = jQuery('#summary_show').attr('checked');
 
     jQuery('input[name=rtp_reset]').click( function(){
@@ -183,6 +184,7 @@ jQuery(document).ready(function() {
     toggle_handler( post_author_l, '.post_author_l-sub', '#post_author_l' );
     toggle_handler( gravatar_fields, '.gravatar-size', '#gravatar_show' );
     toggle_handler( logo_show, '.show-fields-logo', '#logo_show' );
+    toggle_handler( favicon_show, '.show-fields-favicon', '#favicon_show' );
 
     if (typeof summary_show !== 'undefined' && summary_show !== false) {
         jQuery('#post_thumbnail_options .inside .form-table').show();
