@@ -93,6 +93,14 @@ function rtp_fav_option_metabox() {
     <table class="form-table">
         <tbody>
             <tr valign="top">
+                <th scope="row"><label for="favicon_show"><?php _e( 'Show Favicon', 'rtPanel' ); ?></label></th>
+                <td>
+                    <input type="hidden" name="rtp_general[favicon_show]" value="0" />
+                    <input type="checkbox" name="rtp_general[favicon_show]" value="1" id="favicon_show" <?php checked( $rtp_general['favicon_show'] ); ?> />
+                    <span class="description"><label for="favicon_show"><?php _e( 'Check this box to use Favicon', 'rtPanel' ); ?></label></span>
+                </td>
+            </tr>
+            <tr valign="top" class="show-fields-favicon">
                 <th scope="row">
                     <input type="radio" name="rtp_general[use_favicon]" value="use_favicon_url" id="use_favicon_url" class="rtp_favicon" <?php checked( 'use_favicon_url', $rtp_general['use_favicon'] ); ?> />
                     <label for="use_favicon_url"><?php _e( 'Favicon URL', 'rtPanel' ); ?></label>
@@ -108,7 +116,7 @@ function rtp_fav_option_metabox() {
                     </div>
                 </td>
             </tr>
-            <tr>
+            <tr valign="top" class="show-fields-favicon">
                 <th>
                     <input type="radio" name="rtp_general[use_favicon]" value="use_favicon_upload" id="use_favicon_upload" class="rtp_favicon" <?php checked( 'use_favicon_upload', $rtp_general['use_favicon'] ); ?> />
                     <label for="use_favicon_upload"><?php _e( 'Upload Favicon', 'rtPanel' ); ?></label>

@@ -8,7 +8,7 @@
  * 
  * @since rtPanel 2.0
  */
-?><!DOCTYPE html>
+global $rtp_general; ?><!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
     <head>
         <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
@@ -16,9 +16,10 @@
 
         <!-- Mobile Viewport Fix ( j.mp/mobileviewport & davidbcalhoun.com/2010/viewport-metatag ) -->
         <meta name="viewport" content="<?php echo apply_filters( 'rtp_viewport', 'width=device-width, initial-scale=1.0, maximum-scale=1.0' ); ?>" />
-
+        
         <link rel="profile" href="http://gmpg.org/xfn/11" />
-        <link rel="shortcut icon" type="image/x-icon" href="<?php echo rtp_logo_fav_src('favicon'); ?>" />
+        <?php if ( $rtp_general['favicon_show'] ) { ?><link rel="shortcut icon" type="image/x-icon" href="<?php echo rtp_logo_fav_src('favicon'); ?>" /><?php } ?>
+        
         <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
         <link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>" type="text/css" media="all" />
@@ -39,8 +40,6 @@
             
             <header id="header-wrapper" role="banner" class="rtp-grid-12">
                 
-                <?php global $rtp_general; ?>
-
                 <?php rtp_hook_before_header(); ?>
 
                 <div id="header">

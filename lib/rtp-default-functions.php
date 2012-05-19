@@ -272,12 +272,6 @@ function rtp_default_archive_pagination() {
         global $wp_query, $rtp_post_comments;
         if ( isset( $rtp_post_comments['pagination_show'] ) && $rtp_post_comments['pagination_show'] ) {
             
-            /* Check if default values are present in the database else force defaults */
-            $prev_text = isset( $rtp_post_comments['prev_text'] ) ? __( $rtp_post_comments['prev_text'], 'rtPanel' ) : __( '&laquo; Previous', 'rtPanel' );
-            $next_text = isset( $rtp_post_comments['next_text'] ) ? __( $rtp_post_comments['next_text'], 'rtPanel' ) : __( 'Next &raquo;', 'rtPanel' );
-            $end_size  = isset( $rtp_post_comments['end_size'] ) ? $rtp_post_comments['end_size'] : 1;
-            $mid_size  = isset( $rtp_post_comments['mid_size'] ) ? $rtp_post_comments['mid_size'] : 2;
-            
             if ( ( $wp_query->max_num_pages > 1 ) ) { ?>
                 <div class="wp-pagenavi"><?php
                     echo paginate_links( array(
@@ -285,10 +279,10 @@ function rtp_default_archive_pagination() {
                             'format' => '?paged=%#%',
                             'current' => max( 1, get_query_var('paged') ),
                             'total' => $wp_query->max_num_pages,
-                            'prev_text' => esc_attr( $prev_text ),
-                            'next_text' => esc_attr( $next_text ),
-                            'end_size' => $end_size,
-                            'mid_size' => $mid_size
+                            'prev_text' => esc_attr( $rtp_post_comments['prev_text'] ),
+                            'next_text' => esc_attr( $rtp_post_comments['next_text'] ),
+                            'end_size' => $rtp_post_comments['end_size'],
+                            'mid_size' => $rtp_post_comments['mid_size']
                         ) ); ?>
                 </div><?php
             }
