@@ -159,19 +159,6 @@ function rtp_edit_link() {
 add_action('rtp_hook_end_post_meta_top', 'rtp_edit_link');
 
 /**
- * Prepends and Appends Braces to Comment Number
- *
- * @param string $text comment count text
- * @return string
- *
- * @since rtPanel 2.0.9
- */
-function rtp_comment_braces( $text ) {
-   return '<span class="rtp-curly-bracket">{ </span>'. $text .'<span class="rtp-curly-bracket"> }</span>';
-}
-add_filter( 'rtp_comment_count', 'rtp_comment_braces' );
-
-/**
  * Adds breadcrumb support to the theme.
  *
  * @since rtPanel 2.0.7
