@@ -17,6 +17,7 @@ $rtp_post_comments['prev_text'] = isset( $rtp_post_comments['prev_text'] ) ? __(
 $rtp_post_comments['next_text'] = isset( $rtp_post_comments['next_text'] ) ? __( $rtp_post_comments['next_text'], 'rtPanel' ) : __( 'Next &raquo;', 'rtPanel' );
 $rtp_post_comments['end_size']  = isset( $rtp_post_comments['end_size'] ) ? $rtp_post_comments['end_size'] : 1;
 $rtp_post_comments['mid_size']  = isset( $rtp_post_comments['mid_size'] ) ? $rtp_post_comments['mid_size'] : 2;
+$rtp_post_comments['attachment_comments']  = isset( $rtp_post_comments['attachment_comments'] ) ? $rtp_post_comments['attachment_comments'] : 0;
 
 /* Define Directory Constants */
 define( 'RTP_ADMIN', get_template_directory() . '/admin' );

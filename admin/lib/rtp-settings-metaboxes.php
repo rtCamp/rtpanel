@@ -883,6 +883,10 @@ function rtp_comment_form_metabox() {
                     <input type="hidden" name="rtp_post_comments[comment_separate]" value="0" />
                     <input type="checkbox" name="rtp_post_comments[comment_separate]" value="1" id="comment_separate" <?php checked( $rtp_post_comments['comment_separate'] ); ?> />
                     <span class="description"><label for="comment_separate"><?php _e( 'Separate Comments from Trackbacks &amp; Pingbacks', 'rtPanel' ); ?></label></span>
+                    <br />
+                    <input type="hidden" name="rtp_post_comments[attachment_comments]" value="0" />
+                    <input type="checkbox" name="rtp_post_comments[attachment_comments]" value="1" id="attachment_comments" <?php checked( $rtp_post_comments['attachment_comments'] ); ?> />
+                    <span class="description"><label for="attachment_comments"><?php _e( 'Enable the comment form on Attachments', 'rtPanel' ); ?></label></span>
                 </td>
             </tr>
         </tbody>

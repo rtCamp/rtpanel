@@ -24,10 +24,6 @@ function rtp_has_postmeta( $position = 'u' ) {
     if ( $rtp_post_comments['post_author_'.$position] ) {
         $flag = 1;
     }
-    // Comments ?
-    elseif ( @comments_open() && has_action( 'rtp_hook_post_meta_top_comment' ) && $position == 'u' ){
-        $flag = 1;
-    } 
     // Show Date?
     elseif ( $rtp_post_comments['post_date_'.$position] )  {
         $flag = 1;
@@ -103,11 +99,6 @@ function rtp_default_post_meta( $placement = 'top' ) {
                                     </p><?php
                                 } ?>
 
-                        <?php   // Comment Count
-                                if ( @comments_open() && $position == 'u' ) { // If post meta is set to top then only display the comment count.                                     
-                                    rtp_hook_post_meta_top_comment();      
-                                } ?>
-
                         <?php   // Post Categories
                                 echo ( get_the_category_list() && $rtp_post_comments['post_category_'.$position] ) ? '<p class="post-category alignleft">' . __( 'Category', 'rtPanel' ) . ': <span>' . get_the_category_list( ', ' ) . '</span></p>' : ''; ?>
 
@@ -179,21 +170,6 @@ function rtp_comment_braces( $text ) {
    return '<span class="rtp-curly-bracket">{ </span>'. $text .'<span class="rtp-curly-bracket"> }</span>';
 }
 add_filter( 'rtp_comment_count', 'rtp_comment_braces' );
-
-/**
- * Prepends and Appends Braces to Read More text
- *
- * @param string $text comment count text
- * @return string
- *
- * @since rtPanel 2.0.9
- */
-function rtp_comment_count() { 
-    add_filter( 'get_comments_number', 'rtp_only_comment_count', 11, 2 ); ?>
-    <p class="alignright rtp-post-comment-count"><span class="rtp-curly-bracket">{</span><?php comments_popup_link( __( '<span>0</span> Comments', 'rtPanel' ), __( '<span>1</span> Comment', 'rtPanel' ), __( '<span>%</span> Comments', 'rtPanel' ), 'rtp-post-comment rtp-common-link' ); ?><span class="rtp-curly-bracket">}</span></p><?php
-    remove_filter( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
-}
-add_action( 'rtp_hook_post_meta_top_comment', 'rtp_comment_count' );
 
 /**
  * Adds breadcrumb support to the theme.
@@ -312,7 +288,7 @@ add_action( 'rtp_hook_comments', 'rtp_default_comments' );
  *
  * @since rtPanel 2.1
  */
-function rtp_footer_widget_grid_fix_helper($sidebars_widgets) {
+function rtp_footer_widget_grid_fix_helper( $sidebars_widgets ) {
     global $rtp_footer_widget_array;
     if ( isset( $sidebars_widgets['footer-widgets'] ) && !isset( $rtp_footer_widget_array ) ) {
         $count = 1;
@@ -344,3 +320,18 @@ function rtp_footer_widget_grid_fix( $params ) {
     return $params;
 }
 add_filter( 'dynamic_sidebar_params', 'rtp_footer_widget_grid_fix' );
+
+/**
+ * Outputs the comment count linked to the comments of the particular post/page
+ *
+ * @since rtPanel 2.1
+ */
+function rtp_default_comment_count() {
+    // Comment Count
+    if ( @comments_open() ) { // If post meta is set to top then only display the comment count.                                     
+        add_filter( 'get_comments_number', 'rtp_only_comment_count', 11, 2 ); ?>
+        <p class="alignright rtp-post-comment-count"><span class="rtp-curly-bracket">{</span><?php comments_popup_link( __( '<span>0</span> Comments', 'rtPanel' ), __( '<span>1</span> Comment', 'rtPanel' ), __( '<span>%</span> Comments', 'rtPanel' ), 'rtp-post-comment rtp-common-link' ); ?><span class="rtp-curly-bracket">}</span></p><?php
+        remove_filter( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
+    }
+}
+add_action( 'rtp_hook_end_post_title', 'rtp_default_comment_count' );

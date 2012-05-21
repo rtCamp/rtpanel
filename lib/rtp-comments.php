@@ -25,11 +25,11 @@ function rtp_comment_list( $comment, $args, $depth ) {
             <div id="comment-<?php comment_ID(); ?>" class="comment-body">
                 <div class="comment-author">
                     <cite class="fn"><?php comment_author_link(); ?></cite>
-                    <span class="comment-meta rtp-common-link">
-                        <a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>" title="<?php comment_date(); ?>">
+                    <span class="comment-meta">
+                        <a class="rtp-common-link" href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>" title="<?php comment_date(); ?>">
                             <abbr title="<?php comment_date(); ?>"><?php printf( __( '%1$s at %2$s', 'rtPanel' ), get_comment_date(), get_comment_time() ); ?></abbr>
                         </a>
-                        <?php edit_comment_link( __( 'edit', 'rtPanel' ), '<span class="rtp-edit-link rtp-common-link">[ ', ' ]</span>' ); ?>
+                        <?php edit_comment_link( __( '[ edit ]', 'rtPanel' ) ); ?>
                     </span>
                     <?php echo ( $comment->comment_approved == '0' ) ? '<em>' . _e( 'Your comment is awaiting moderation. ', 'rtPanel' ) . '</em>' : ''; ?>
                 </div><!-- .comment-author --><?php
@@ -40,7 +40,7 @@ function rtp_comment_list( $comment, $args, $depth ) {
                         </div><!-- .vcard -->
                 <?php } ?>
                 <div class="comment-text"><?php comment_text(); ?></div>
-                <div class="rtp-reply rtp-common-link"><?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'], 'reply_text' => __( 'Reply <span class="rtp-curly-bracket">&rarr;</span>', 'rtPanel' ), ) ) ); ?></div>
+                <div class="rtp-reply rtp-common-link"><?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'], 'reply_text' => __( 'Reply &rarr;', 'rtPanel' ), ) ) ); ?></div>
             </div><!-- .comment-body --><?php
 }
 

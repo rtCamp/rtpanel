@@ -47,7 +47,7 @@
         }
 
         // Including Comment form using comment_form() function
-        if ( comments_open() ) {
+        if ( ( !is_attachment() && comments_open() ) || ( is_attachment() && $rtp_post_comments['attachment_comments'] ) ) {
             if ( $rtp_post_comments['hide_labels'] ) {
                 $hide_class = ' hide-labels';
                 $label_author = '';
