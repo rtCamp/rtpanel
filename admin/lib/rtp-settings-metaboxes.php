@@ -43,8 +43,7 @@ function rtp_logo_option_metabox() {
                     <label for="use_logo_url"><?php _e( 'Logo URL', 'rtPanel' ); ?></label>
                 </th>
                 <td class="img-url">
-                    <input<?php disabled( 'use_logo_upload', $rtp_general['use_logo'] ); ?> type="text" value="<?php echo esc_url( $rtp_general['logo_url'] ); ?>" name="rtp_general[logo_url]" size="40" id="logo_url" /><br />
-                    <span class="description"><label class="example" for="logo_url"><?php _e( 'Eg. http://www.example.com/logo.jpg', 'rtPanel' ); ?></label></span>
+                    <input<?php disabled( 'use_logo_upload', $rtp_general['use_logo'] ); ?> placeholder="http://www.example.com/logo.jpg" type="text" value="<?php echo esc_url( $rtp_general['logo_url'] ); ?>" name="rtp_general[logo_url]" size="40" id="logo_url" /><br />
                 </td>
                 <td class="img-preview" rowspan="2">
                     <div class="image-preview" id="logo_metabox">
@@ -106,8 +105,7 @@ function rtp_fav_option_metabox() {
                     <label for="use_favicon_url"><?php _e( 'Favicon URL', 'rtPanel' ); ?></label>
                 </th>
                 <td class="img-url">
-                    <input<?php disabled( 'use_favicon_upload', $rtp_general['use_favicon'] ); ?> type="text" value="<?php echo esc_url( $rtp_general['favicon_url'] ); ?>" name="rtp_general[favicon_url]" size="40" id="favicon_url" /><br />
-                    <span class="description"><label class="example" for="favicon_url"><?php _e( 'Eg. http://www.example.com/favicon.ico', 'rtPanel' ); ?></label></span>
+                    <input<?php disabled( 'use_favicon_upload', $rtp_general['use_favicon'] ); ?> placeholder="http://www.example.com/favicon.ico" type="text" value="<?php echo esc_url( $rtp_general['favicon_url'] ); ?>" name="rtp_general[favicon_url]" size="40" id="favicon_url" /><br />
                 </td>
                 <td class="img-preview" rowspan="2">
                     <div class="alignleft image-preview"  id="favicon_metabox">
@@ -189,8 +187,8 @@ function rtp_feed_option_metabox() {
             <tr valign="top">
                 <th scope="row"><label for="feedburner_url"><?php _e( 'FeedBurner URL', 'rtPanel' ); ?></label></th>
                 <td>
-                    <input type="text" value="<?php echo esc_attr( $rtp_general['feedburner_url'] ); ?>" size="40" name="rtp_general[feedburner_url]" id="feedburner_url" />
-                    <span class="description"><label for="feedburner_url"><?php printf( __( 'Specify <a href="%s" target="_blank" title="FeedBurner">FeedBurner</a> URL to redirect feeds', 'rtPanel' ), 'http://www.feedburner.com/' ); ?></label><br /><label class="example" for="feedburner_url"><?php _e( 'Eg. http://www.example.com', 'rtPanel' ); ?></label></span>
+                    <input type="text" placeholder="http://www.example.com" value="<?php echo esc_attr( $rtp_general['feedburner_url'] ); ?>" size="40" name="rtp_general[feedburner_url]" id="feedburner_url" />
+                    <span class="description"><label for="feedburner_url"><?php printf( __( 'Specify <a href="%s" target="_blank" title="FeedBurner">FeedBurner</a> URL to redirect feeds', 'rtPanel' ), 'http://www.feedburner.com/' ); ?></label></label></span>
                 </td>
             </tr>
         </tbody>
@@ -246,7 +244,7 @@ function rtp_google_search_metabox() {
             <tr valign="top">
                 <th scope="row"><label for="search_code"><?php _e( 'Google Custom Search Element Code', 'rtPanel' ); ?></label></th>
                 <td>
-                    <textarea cols="33" rows="5" name="rtp_general[search_code]" id="search_code"><?php echo esc_textarea( $rtp_general['search_code'] ); ?></textarea><br />
+                    <textarea cols="80" rows="5" name="rtp_general[search_code]" id="search_code"><?php echo esc_textarea( $rtp_general['search_code'] ); ?></textarea><br />
                     <label for="search_code"><span class="description"><?php printf( __( 'The Google Search Code Obtained by Default. You can obtain the Google Custom Search Code <a href="%s" title="Googel Custom Search">here</a><br />', 'rtPanel' ), 'http://www.google.com/cse/' ); ?></span>
                     <strong><?php _e( 'NOTE', 'rtPanel' ); ?>: </strong><span class="description"><?php _e( 'The hosting option must be "Search Element" and layout either "full-width" or "compact".', 'rtPanel' ); ?></span></label>
                 </td>
@@ -283,7 +281,7 @@ function rtp_custom_styles_metabox() {
             <tr valign="top">
                 <th scope="row"><label for="custom_styles"><?php _e( 'Add your CSS here &rarr;', 'rtPanel' ); ?></label></th>
                 <td>
-                    <textarea cols="33" rows="5" name="rtp_general[custom_styles]" id="custom_styles"><?php echo esc_textarea( $rtp_general['custom_styles'] ); ?></textarea><br />
+                    <textarea cols="80" rows="5" name="rtp_general[custom_styles]" id="custom_styles"><?php echo esc_textarea( $rtp_general['custom_styles'] ); ?></textarea><br />
                     <span class="description"><label for="custom_styles"><?php _e( 'Add your extra CSS rules here. No need to use !important. Rules written above will be loaded last.', 'rtPanel' ); ?></label></span>
                 </td>
             </tr>
@@ -517,8 +515,7 @@ function rtp_plugin_metabox() {
  *
  * @since rtPanel 2.0
  */
-function rtp_backup_metabox() {
-    global $rtp_general; ?>
+function rtp_backup_metabox() { ?>
     <table class="form-table">
         <tbody>
             <tr valign="top">
@@ -589,8 +586,8 @@ function rtp_post_summaries_metabox() {
  * @since rtPanel 2.0
  */
 function rtp_post_thumbnail_metabox() {
-    global $rtp_post_comments;
-    $alignment = ( isset ( $rtp_post_comments['thumbnail_position'] ) ) ? $rtp_post_comments['thumbnail_position'] : ''; ?> <br />
+    global $rtp_post_comments;?> 
+    <br />
     <span class="description post-summary-hide"><strong><?php _e( 'Enable Summary must be checked on the Post Summary Settings to show these Options', 'rtPanel' ); ?></strong></span>
     <table class="form-table">
         <tbody>
