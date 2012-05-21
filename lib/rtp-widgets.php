@@ -72,7 +72,7 @@ class rtp_subscribe_widget extends WP_Widget {
                         <input id="email" type="text" name="email" placeholder="<?php _e( 'Enter Email Address', 'rtPanel' ); ?>" class="email" title="<?php _e( 'Email Id', 'rtPanel' ); ?>" size="15" />
                         <input type="hidden" name="uri" value="<?php echo $sub_link; ?>" />
                         <input type="hidden" value="en_US" name="loc" />
-                        <input type="submit" value="<?php _e( 'Sign Up', 'rtPanel' ); ?>" title="<?php _e( 'Subscribe', 'rtPanel' ); ?>" class="btn" />
+                        <input type="submit" value="<?php _e( 'Subscribe', 'rtPanel' ); ?>" title="<?php _e( 'Subscribe', 'rtPanel' ); ?>" class="btn" />
                     </p>
                 </form><?php
             }

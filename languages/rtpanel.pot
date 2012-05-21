@@ -461,7 +461,7 @@ msgid "All the rtPanel Post & Comments Settings have been restored to default."
 msgstr ""
 
 #: ../admin/lib/rtp-admin-functions.php:631
-msgid "Continue Reading..."
+msgid "Read More..."
 msgstr ""
 
 #: ../admin/lib/rtp-admin-functions.php:837
