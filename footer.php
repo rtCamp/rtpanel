@@ -12,7 +12,7 @@ global $rtp_general; ?>
                 <div class="clear"></div>
 
                 <?php rtp_hook_end_content_wrapper(); ?>
-                <div class="rtp-horizontal-border rtp-grid-12"></div>
+                <hr class="rtp-horizontal-border rtp-grid-12" />
             </div><!-- #content-wrapper -->
            
             <footer id="footer-wrapper" role="contentinfo" class="rtp-container-12"><?php
@@ -28,7 +28,7 @@ global $rtp_general; ?>
                 } ?>
 
                 <?php rtp_hook_before_footer(); ?>
-                    <div class="rtp-horizontal-border rtp-grid-12"></div>
+                    <hr class="rtp-horizontal-border rtp-grid-12" />
                 <div id="footer" class="rtp-grid-12">
                     <div>&copy; <?php echo date( 'Y' ); echo ' - '; bloginfo( 'name' ); ?></div>
                     <div><em><?php printf( __( 'Designed on <a href="%s" class="rtp-common-link" title="rtPanel WordPress Theme Framework">rtPanel WordPress Theme Framework</a>.', 'rtPanel' ), 'http://rtpanel.com/' ); ?></em></div>

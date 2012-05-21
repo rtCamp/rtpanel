@@ -53,7 +53,6 @@ global $rtp_general; ?><!DOCTYPE html>
 
                     <?php rtp_hook_after_logo(); ?>
 
-                    <div class="clear"></div>
                 </div><!-- #header -->
 
                 <?php rtp_hook_after_header(); ?>

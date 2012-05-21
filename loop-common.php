@@ -46,8 +46,6 @@
 
                     <?php rtp_hook_end_post_title(); ?>
 
-                    <div class="clear"></div>
-
                     <?php rtp_hook_post_meta( 'top' ); ?>
 
                 </header><!-- .post-title -->
@@ -66,7 +64,6 @@
 
                     <?php rtp_hook_end_post_content(); ?>
 
-                    <div class="clear"></div>
                 </div><!-- .post-content -->
                 
                 <?php rtp_hook_post_meta( 'bottom' ); ?>
