@@ -95,9 +95,7 @@ class rtp_subscribe_widget extends WP_Widget {
 
             if( !$no_options ) { ?>
                 <p><?php _e( 'Please configure this widget.', 'rtPanel' ); ?></p><?php
-            }
-            ?>
-            <div class="clear"></div>
+            } ?>
         </div> <!-- end email-subscription-container -->
     <?php echo $after_widget;
     }

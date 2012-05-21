@@ -34,11 +34,11 @@ global $rtp_general; ?><!DOCTYPE html>
         
         <?php rtp_hook_begin_body(); ?>
         
-        <div id="main-wrapper" class="rtp-container-12"><!-- ends in footer.php -->
+        <div id="main-wrapper" class="rtp-container-12 clearfix"><!-- ends in footer.php -->
             
             <?php rtp_hook_begin_main_wrapper(); ?>
             
-            <header id="header-wrapper" role="banner" class="rtp-container-12">
+            <header id="header-wrapper" role="banner" class="rtp-container-12 clearfix">
                 
                 <?php rtp_hook_before_header(); ?>
 
@@ -57,9 +57,7 @@ global $rtp_general; ?><!DOCTYPE html>
 
                 <?php rtp_hook_after_header(); ?>
 
-                <div class="clear"></div>
-                
             </header><!-- #header-wrapper -->
 
-            <div id="content-wrapper"<?php echo ( is_search() && $rtp_general['search_code'] && $rtp_general['search_layout'] ) ? ' class="search-layout-wrapper"' : ' class="rtp-container-12"'; ?>><!-- ends in footer.php -->
+            <div id="content-wrapper"<?php echo ( is_search() && $rtp_general['search_code'] && $rtp_general['search_layout'] ) ? ' class="search-layout-wrapper clearfix"' : ' class="rtp-container-12 clearfix"'; ?>><!-- ends in footer.php -->
                 <?php rtp_hook_begin_content_wrapper(); ?>

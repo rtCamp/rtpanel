@@ -143,7 +143,7 @@ function rtp_default_nav_menu() {
                 wp_list_pages( array( 'title_li' => '', 'sort_column' => 'menu_order', 'number' => '5', 'depth' => apply_filters( 'rtp_nav_menu_depth', 4 ) ) );
             echo '</ul>';
         }
-    echo '<div class="clear"></div></nav>';
+    echo '</nav>';
 }
 add_action('rtp_hook_after_header','rtp_default_nav_menu'); // Adds default nav menu after #header
 
@@ -269,44 +269,6 @@ function rtp_default_comments() {
     }
 }
 add_action( 'rtp_hook_comments', 'rtp_default_comments' );
-
-/**
- * Helper to rtp_footer_widget_grid_fix in detecting the alpha-omega grid classes
- *
- * @since rtPanel 2.1
- */
-function rtp_footer_widget_grid_fix_helper( $sidebars_widgets ) {
-    global $rtp_footer_widget_array;
-    if ( isset( $sidebars_widgets['footer-widgets'] ) && !isset( $rtp_footer_widget_array ) ) {
-        $count = 1;
-        foreach( $sidebars_widgets['footer-widgets'] as $fw ) {
-            if ( 1 == $count % apply_filters( 'rtp_footer_widgets_per_row', 3 ) ) {
-                $rtp_footer_widget_array[$fw] = 'rtp-alpha rtp-clear-widget ';
-            } elseif ( 0 == $count % apply_filters( 'rtp_footer_widgets_per_row', 3 ) ) {
-                $rtp_footer_widget_array[$fw] = 'rtp-omega ';
-            }
-            $count++;
-        }
-    }
-    return $sidebars_widgets;
-}
-add_filter( 'sidebars_widgets', 'rtp_footer_widget_grid_fix_helper' );
-
-/**
- * Outputs neccessary alpha-omega grid classes to the footer widgets
- *
- * @since rtPanel 2.1
- */
-function rtp_footer_widget_grid_fix( $params ) {
-    global $rtp_footer_widget_array;
-    if ( 'footer-widgets' == $params[0]['id'] ) {
-        if ( isset( $rtp_footer_widget_array[$params[0]['widget_id']] ) ) {
-            $params[0]['before_widget'] = str_replace( 'class="', 'class="'.$rtp_footer_widget_array[$params[0]['widget_id']], $params[0]['before_widget'] );
-        }
-    }
-    return $params;
-}
-add_filter( 'dynamic_sidebar_params', 'rtp_footer_widget_grid_fix' );
 
 /**
  * Outputs the comment count linked to the comments of the particular post/page

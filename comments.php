@@ -19,17 +19,16 @@
             <div class="rtp-comment-count" id="comments">
                 <?php 
                 add_filter( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
-                $comment_count = sprintf( _n( '<h2><span class="count">%1$s</span> Comment</h2>', '<h2><span class="count">%1$s</span> Comments</h2>', get_comments_number(), 'rtPanel' ), number_format_i18n( get_comments_number() ) ) . '... ';
-                $comment_count .= ( comments_open() ) ? sprintf( __( 'Add your <a href="%s" title="Add your thoughts">thoughts</a>', 'rtPanel' ), '#respond' ) : '';
+                $comment_count = sprintf( _n( '<span class="count">%1$s</span> Comment', '<span class="count">%1$s</span> Comments', get_comments_number(), 'rtPanel' ), number_format_i18n( get_comments_number() ) ) . '... ';
+                $comment_count .= ( comments_open() ) ? sprintf( __( '<span class="rtp-thoughts">Add your <a href="%s" title="Add your thoughts">thoughts</a></span>', 'rtPanel' ), '#respond' ) : '';
                 remove_filter( 'get_comments_number', 'rtp_only_comment_count' );
                 if ( ( get_comments_number() && comments_open() ) || get_comments_number() ) { ?>
-                    <span class="alignleft"><?php echo $comment_count; ?></span><?php
+                    <h2><?php echo $comment_count; ?></h2><?php
                 } ?>
                 <?php if ( current_user_can( 'moderate_comments' ) ) { ?>
                         <span class="alignright rtp-manage-comments"><span class="rtp-curly-bracket">{ </span><a href="<?php echo get_admin_url( '', 'edit-comments.php?p=' . get_the_ID() ); ?>"><?php _e( 'Manage Comments', 'rtPanel' ); ?></a><span class="rtp-curly-bracket"> }</span></span>
                 <?php } ?>
             </div><!-- .rtp-comment-count -->
-            <div class="clear"></div>
 
             <ol class="commentlist"><?php
                 $args = ( $rtp_post_comments['comment_separate'] ) ? 'callback=rtp_comment_list&type=comment' : 'callback=rtp_comment_list&type=all';

@@ -8,7 +8,7 @@
  */
 get_header(); ?>
 
-    <div id="content" role="main" class="rtp-grid-8 rtp-alpha rtp-home-posts">
+    <div id="content" role="main" class="rtp-grid-8 rtp-home-posts">
         
         <?php rtp_hook_begin_content();?>
         <h1 class="post-title rtp-main-title"><?php _e( 'Not Found', 'rtPanel' ); ?></h1>

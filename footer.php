@@ -9,8 +9,6 @@
 
 global $rtp_general; ?>
 
-                <div class="clear"></div>
-
                 <?php rtp_hook_end_content_wrapper(); ?>
                 <hr class="rtp-horizontal-border rtp-grid-12" />
             </div><!-- #content-wrapper -->
@@ -39,8 +37,8 @@ global $rtp_general; ?>
             </footer><!-- #footer-wrapper-->
             
             <?php rtp_hook_end_main_wrapper(); ?>
-            <div class="clear"></div>
-	</div><!-- #main-wrapper -->
+
+        </div><!-- #main-wrapper -->
 
         <?php wp_footer(); ?>
         
