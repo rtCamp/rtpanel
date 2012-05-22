@@ -149,7 +149,6 @@ input[type="file"] { height: 28px; line-height: 28px;outline: none; text-decorat
 textarea { overflow: auto; }
 input[type='search'] { -webkit-appearance: textfield; height: auto; }
 ::-webkit-validation-bubble-message { padding: 5px; font-size: 13px; }
-input:required { border-color: green; -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none; }
 
 /* Disabled Form Field Style */
 input:disabled, isindex:disabled, textarea:disabled,
@@ -207,7 +206,7 @@ button { overflow: visible;  } /* make buttons play nice in IE: http://www.viget
 .rtp-container-12 .rtp-grid-9 { width: 700px; }
 .rtp-container-12 .rtp-grid-10 { width: 780px; }
 .rtp-container-12 .rtp-grid-11 { width: 860px; }
-.rtp-container-12 .rtp-grid-12 { width:940px; }
+.rtp-container-12 .rtp-grid-12 { width: 940px; }
 
 .rtp-horizontal-border { border-bottom: 3px double #DDD; border-top: 0 none; clear: both; }
 
@@ -521,12 +520,81 @@ blockquote { border-left: 1px solid #DDD;color: #666;margin: 0 0 20px 10px;paddi
 
 /* Responsive Structure */
 @media screen and (max-width: 1024px) {
-    #main-wrapper { max-width: 99.7%; }
+    
+}
+
+@media screen and (max-width: 880px) {
+    .rtp-container-12 { max-width: 848px; }
+    .rtp-grid-1, .rtp-grid-2, .rtp-grid-3, .rtp-grid-4, .rtp-grid-5, .rtp-grid-6, .rtp-grid-7, .rtp-grid-8, .rtp-grid-9, .rtp-grid-10, .rtp-grid-11, .rtp-grid-12 { margin-left: 5px; margin-right: 5px; }
+        .rtp-container-12 .rtp-grid-12 { width: 837px; }
+        .rtp-container-12 .rtp-grid-8 { width: 523px; }
+        .rtp-container-12 .rtp-grid-4 { width: 272px; }
+        
+        .social-icons li, .social-icons li:first-child { margin: 0 5px 9px; }
+        .widget input[type="button"], .widget input[type="submit"], .widget input[type="reset"], .widget button { padding: 5px 9px 4px; }
+}
+
+@media screen and (max-width: 800px) {
+    .rtp-container-12 { max-width: 768px; }
+        .rtp-container-12 .rtp-grid-12 { width: 757px; }
+        .rtp-container-12 .rtp-grid-8 { width: 502px; }
+        .rtp-container-12 .rtp-grid-4 { width: 246px; }
+        
+        .widget input[type="button"], .widget input[type="submit"],
+        .widget input[type="reset"], .widget button { margin-left: 2px; margin-right: 2px; }
+        .rtp-subscribe-widget-container .email,
+        .widget input[type="text"], .widget input[type="tel"], .widget input[type="color"], .widget input[type="search"],
+        .widget input[type="number"], .widget input[type="url"], .widget input[type="email"], .widget input[type="password"],
+        .widget textarea, .widget select { width: 90%; }
+}
+
+/* iPad Portrait 768 x 1024 */
+@media screen and (max-width: 768px) {
+    .rtp-container-12 { max-width: 735px; }
+        .rtp-container-12 .rtp-grid-12 { width: 724px; }
+        .rtp-container-12 .rtp-grid-8 { width: 480px; }
+        .rtp-container-12 .rtp-grid-4 { width: 235px; }
 }
 
 @media screen and (max-width: 640px) {
-    #content { width: 98%; }
-    #sidebar { width: 98%; }
+    .rtp-container-12 { max-width: 100%; }
+        .rtp-container-12 .rtp-grid-12 { width: 98%; }
+        .rtp-container-12 .rtp-grid-8,
+        .rtp-container-12 .rtp-grid-4 { width: 98%; }
+}
+
+/* Kindle Portrait 600 x 1024 */
+@media screen and (max-width: 600px) {
+    
+}
+
+/* Nicer Android landscape 515 x 295 */
+@media screen and (max-width: 515px) {
+    .rtp-container-12 .rtp-grid-12 { width: 97.7%; }
+        .rtp-container-12 .rtp-grid-8,
+        .rtp-container-12 .rtp-grid-4 { width: 97.7%; }
+}
+
+/* iPhone Landscape 480 x 320 */
+@media screen and (max-width: 480px) {
+    .rtp-container-12 .rtp-grid-12 { width: 97%; }
+        .rtp-container-12 .rtp-grid-8,
+        .rtp-container-12 .rtp-grid-4 { width: 97%; }
+}
+
+/* iPhone Portrait 320 x 480 & Crappy Android landscape 320 x 240 */
+@media screen and (max-width: 320px) {
+    .rtp-container-12 { max-width: 320px }
+}
+
+/* Nicer Android Portrait 295 x 515 */
+@media screen and (max-width: 295px) {
+    .rtp-container-12 { max-width: 295px }
+}
+
+/* Crappy Android Portrait 240 x 320 */
+@media screen and (max-width: 240px) {
+    .rtp-container-12 { max-width: 240px }
 }
 
 
