@@ -2,7 +2,7 @@
  * rtPanel Admin CSS
  *
  * @package rtPanel
-
+ *
  * @since rtPanel 2.0
  */
 
@@ -29,7 +29,7 @@
 #wpbody-content .metabox-holder { margin-bottom: 10px; padding: 10px 0 0; width: 100%; }
 #wpbody-content .metabox-fixed { margin: 0 10px 0 0; width: 22%; clear: both; }
 
-div.inside { margin: 10px 5px; }
+div.inside { margin: 10px 5px; overflow: hidden; }
 .inside .image-uploader { float: left; overflow: hidden; width: 395px; }
 .inside .image-preview { margin: 0 auto; overflow: hidden; text-align: center; }
 .inside #logo_metabox img { display: block; max-width: 240px; width: 100%; margin: 0 auto; }
@@ -83,11 +83,13 @@ div.inside { margin: 10px 5px; }
     .inner-sidebar #side-sortables { width: 99.7% !important; }
 #gravatar_size { width: 120px; }
 
-#social .inside a { background: url("../../img/rtp-social-icons.png") no-repeat scroll 0 0 transparent; display: inline-block; font-size: 0; height: 23px; margin: 0 5px; text-indent: -9999px; text-transform: uppercase; vertical-align: middle; width: 23px; }
-    #social .inside a.rtpanel-facebook { background-position: -215px 0; }
-    #social .inside a.rtpanel-twitter { background-position: -559px 0; }
-    #social .inside a.rtpanel-rss { background-position: -430px 0; }
-    #social .inside a.rtpanel-linkedin { background-position: -301px 0; }
+#social .inside a { background: url('../../img/social-icons-32-32.png') no-repeat; margin: 0 0 0 9px; display: inline-block; height: 35px; padding: 0; text-indent: -9999px; text-transform: uppercase; width: 35px; }
+    #social .inside a.rtpanel-facebook { background-position:  0 0; }
+        #social .inside a.rtpanel-facebook:hover { background-position:  0 -44px; }
+    #social .inside a.rtpanel-twitter { background-position:  -44px 0; }
+        #social .inside a.rtpanel-twitter:hover { background-position:  -44px -44px; }
+    #social .inside a.rtpanel-rss { background-position: -88px 0; }
+        #social .inside a.rtpanel-rss:hover { background-position: -88px -44px; }
 
 #latest_news .inside ul { margin: 0 0 0 12px; }
     #latest_news .inside ul li { list-style: square outside none; padding: 0 0 7px; }
