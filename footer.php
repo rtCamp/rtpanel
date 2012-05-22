@@ -29,7 +29,7 @@ global $rtp_general; ?>
                     <hr class="rtp-horizontal-border rtp-grid-12" />
                 <div id="footer" class="rtp-grid-12">
                     <div>&copy; <?php echo date( 'Y' ); echo ' - '; bloginfo( 'name' ); ?></div>
-                    <div><em><?php printf( __( 'Designed on <a href="%s" class="rtp-common-link" title="rtPanel WordPress Theme Framework">rtPanel WordPress Theme Framework</a>.', 'rtPanel' ), 'http://rtpanel.com/' ); ?></em></div>
+                    <div><em><?php printf( __( 'Designed on <a href="%s" class="rtp-common-link" title="rtPanel WordPress Theme Framework">rtPanel WordPress Theme Framework</a>.', 'rtPanel' ), 'http://rtcamp.com/rtpanel/' ); ?></em></div>
                 </div><!-- #footer -->
 
                 <?php rtp_hook_after_footer(); ?>

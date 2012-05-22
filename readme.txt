@@ -1,8 +1,8 @@
 About rtPanel
 ===============
 Theme Name: rtPanel
-Theme URI: http://rtpanel.com
-Description: WordPress theme framework with Custom Menu/Header/Background/Logo/Favicon options, Featured Image, Feedburner/Facebook Open Graph/Google Custom Search integration and more. This theme comes with free technical support by team of 20+ full-time developers. Support Links: <a href="http://rtpanel.com/support" title="rtPanel Free Support" rel="follow">rtPanel Support forum</a>, <a href="http://rtpanel.com/docs" title="rtPanel Documentation" rel="follow">Documentation</a> or visit <a href="http://rtpanel.com/" title="rtPanel" rel="follow">rtPanel</a>.
+Theme URI: http://rtcamp.com/rtpanel/
+Description: WordPress theme framework with Custom Menu/Header/Background/Logo/Favicon options, Featured Image, Feedburner/Facebook Open Graph/Google Custom Search integration and more. This theme comes with free technical support by team of 20+ full-time developers. Support Links: <a href="http://rtcamp.com/support/forum/rtpanel/" title="rtPanel Free Support" rel="follow">rtPanel Support forum</a>, <a href="http://rtcamp.com/rtpanel/docs/" title="rtPanel Documentation" rel="follow">Documentation</a> or visit <a href="http://rtcamp.com/rtpanel/" title="rtPanel" rel="follow">rtPanel</a>.
 Version: 2.1
 Author: rtCamp
 Author URI: http://rtcamp.com
@@ -18,13 +18,13 @@ rtPanel is a theme for the world. Keeping this in mind our developers have made 
 
 Plugin Supported:
 ===================
-	1. Breadcrumb NavXT Plugin - http://wordpress.org/extend/plugins/breadcrumb-navxt/
+	1. Breadcrumb NavXT - http://wordpress.org/extend/plugins/breadcrumb-navxt/
 			
 	2. WP-PageNavi (Paged Navigation) - http://wordpress.org/extend/plugins/wp-pagenavi/
 			
-	3. Subscribe To Comments - http://wordpress.org/extend/plugins/subscribe-to-comments/
+	3. Subscribe to Comments - http://wordpress.org/extend/plugins/subscribe-to-comments/
 
-        4. Yoast WordPress SEO - http://wordpress.org/extend/plugins/wordpress-seo/
+        4. WordPress SEO by Yoast - http://wordpress.org/extend/plugins/wordpress-seo/
         
         5. Regenerate Thumbnails - http://wordpress.org/extend/plugins/regenerate-thumbnails/
 
