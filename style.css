@@ -431,7 +431,7 @@ blockquote { border-left: 1px solid #DDD;color: #666;margin: 0 0 20px 10px;paddi
 
                 /* compact comment form style */
                 #respond .compact-comment-form { float: left; width:33%; }
-                    #respond .compact-comment-form label { padding-left: 0; }
+                    #respond .compact-comment-form label { margin-left: 0; }
                     #respond .compact-comment-form input { width: 90%; }
                     
     /* trackback and pingback inside comments */
@@ -479,21 +479,21 @@ blockquote { border-left: 1px solid #DDD;color: #666;margin: 0 0 20px 10px;paddi
     .stay-connected { clear: both; font-weight: normal; padding: 5px 0 0; }
     .widget .social-icons { clear: both; margin: 10px auto 0; overflow: hidden; }
         .social-icons li { float: left;list-style: none;margin: 0 10px 10px 0;padding: 0; }
-            .social-icons a { background: url('./img/rtp-social-icons.png') no-repeat; display: block; height: 50px; margin: 0; padding: 0; text-indent: -9999px; text-transform: uppercase; width: 50px; }
+            .social-icons a { background: url('./img/rtc-social-icons-35-35.png') no-repeat; display: block; height: 40px; margin: 0; padding: 0; text-indent: -9999px; text-transform: uppercase; width: 40px; }
             .social-icons a.facebook { background-position:  0 0; }
-                .social-icons a.facebook:hover { background-position:  0 -69px; }
-            .social-icons a.twitter { background-position:  -69px 0; }
-                .social-icons a.twitter:hover { background-position:  -69px -69px; }
-            .social-icons a.rss { background-position: -138px 0; }
-                .social-icons a.rss:hover { background-position: -138px -69px; }
-            .social-icons a.linkedin { background-position:  -210px 0; }
-                .social-icons a.linkedin:hover { background-position:  -210px -69px; }
-            .social-icons a.myspace { background-position: -279px 0; }
-                .social-icons a.myspace:hover { background-position: -279px -69px; }
-            .social-icons a.stumbleupon { background-position: -348px 0; }
-                .social-icons a.stumbleupon:hover { background-position: -348px -69px; }
-            .social-icons a.google { background-position:  -417px 0; }
-                .social-icons a.google:hover { background-position:  -417px -69px; }
+                .social-icons a.facebook:hover { background-position:  0 -54px; }
+            .social-icons a.twitter { background-position:  -55px 0; }
+                .social-icons a.twitter:hover { background-position:  -55px -54px; }
+            .social-icons a.rss { background-position: -110px 0; }
+                .social-icons a.rss:hover { background-position: -110px -54px; }
+            .social-icons a.linkedin { background-position:  -165px 0; }
+                .social-icons a.linkedin:hover { background-position:  -165px -54px; }
+            .social-icons a.myspace { background-position: -219px 0; }
+                .social-icons a.myspace:hover { background-position: -219px -54px; }
+            .social-icons a.stumbleupon { background-position: -274px 0; }
+                .social-icons a.stumbleupon:hover { background-position: -274px -54px; }
+            .social-icons a.google { background-position:  -328px 0; }
+                .social-icons a.google:hover { background-position:  -328px -54px; }
 
     /* Sidebar Form Elements */
     .widget select { outline: none; width: 95%; }
