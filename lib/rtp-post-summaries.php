@@ -19,7 +19,7 @@ function rtp_no_ellipsis( $text ) {
     global $post, $rtp_post_comments;
     $read_text =  ( !empty($rtp_post_comments['read_text'] ) ) ? $rtp_post_comments['read_text'] : '';
     $text = str_replace( '[...]', '&hellip;', $text );
-    $text .= apply_filters( 'rtp_readmore', ( ( $read_text ) ? '<a class="rtp-readmore rtp-common-link" title="' . sprintf( __( 'Read More On %s', 'rtPanel' ), get_the_title() ) . '" href="' . get_permalink( $post->ID ) . '" rel="nofollow">' . esc_attr( $read_text ) . '</a>' : '' ));
+    $text .= apply_filters( 'rtp_readmore', ( ( $read_text ) ? '<a class="rtp-readmore" title="' . sprintf( __( 'Read More On %s', 'rtPanel' ), get_the_title() ) . '" href="' . get_permalink( $post->ID ) . '" rel="nofollow">' . esc_attr( $read_text ) . '</a>' : '' ));
     return $text;
 }
 add_filter( 'the_excerpt', 'rtp_no_ellipsis' );
