@@ -58,26 +58,25 @@ function rtp_general_validate( $input ) {
                         $file_object->delete( $logo_file['file'] );
                 }
 
+                $input['logo_upload'] = $rtp_general['logo_upload'];
+                
                 if ( in_array( $logo_extension, array( 'jpg', 'jpeg', 'jpe', 'gif', 'png', 'bmp', 'ico', 'tif', 'tiff' ) ) && ( $wp_remote_get['response'] == 200 ) && $input['logo_url'] != RT_BASE_IMG_FOLDER_URL . '/rtp-logo.jpg' ) {
                     $input['logo_url']    = $logo_file['url'];
-                    $input['logo_upload'] = $rtp_general['logo_upload'];
                     add_settings_error( 'logo_upload', 'valid_logo_upload', __( 'The Logo Settings have been updated.', 'rtPanel' ), 'updated' );
                 } else {
                     $file_object->delete( $logo_file['file'] );
                     $input['logo_url']    = $rtp_general['logo_url'];
-                    $input['logo_upload'] = $rtp_general['logo_upload'];
                     add_settings_error('logo_upload', 'invalid_logo_upload', __( 'The Uploaded Image is invalid or is an invalid Logo Image type.', 'rtPanel' ) );
                 }
             } elseif ( $input['use_logo'] == 'use_logo_upload' && $rtp_general['logo_upload'] != $input['logo_upload'] ){
                 $logo_info           = pathinfo( $input['logo_upload'] );
                 $logo_extension      = strtolower( $logo_info['extension'] );
+                $input['logo_url'] = $rtp_general['logo_url'];
                 if ( in_array( $logo_extension, array( 'jpg', 'jpeg', 'jpe', 'gif', 'png', 'bmp', 'ico', 'tif', 'tiff' ) ) )
                 {
-                    $input['logo_url'] = $rtp_general['logo_url'];
                     add_settings_error( 'logo_upload', 'valid_logo_upload', __( 'The Logo Settings have been updated.', 'rtPanel' ), 'updated' );
                 } else {
                     $input['logo_upload'] = $rtp_general['logo_upload'];
-                    $input['logo_url']    = $rtp_general['logo_url'];
                     add_settings_error( 'logo_upload', 'invalid_logo_upload', __( 'The Uploaded Image is invalid or is an invalid Logo Image type.', 'rtPanel' ) );
                 }
             } else {
@@ -85,53 +84,55 @@ function rtp_general_validate( $input ) {
                 $input['logo_url']    = $rtp_general['logo_url'];
             }
         } else {
+            $input['use_logo']    = $rtp_general['use_logo'];
             $input['logo_url']    = $rtp_general['logo_url'];
             $input['logo_upload'] = $rtp_general['logo_upload'];
             $input['login_head']  = $rtp_general['login_head'];
         }
+        
+        if ( $input['favicon_show'] ) {
+            if ( $input['use_favicon'] == 'use_favicon_url' && $rtp_general['favicon_url'] != $input['favicon_url'] ) {
+                $favicon_info = pathinfo( $input['favicon_url'] );
+                $favicon_with_extension = urldecode( basename( $input['favicon_url'] ) );
+                $remote_get_path     = str_replace( ' ', '%20', urldecode($input['favicon_url']));
+                $favicon_extension      = strtolower( $favicon_info['extension'] );
 
-        if ( $input['use_favicon'] == 'use_favicon_url' && $rtp_general['favicon_url'] != $input['favicon_url'] ) {
-            $favicon_info = pathinfo( $input['favicon_url'] );
-            $favicon_with_extension = urldecode( basename( $input['favicon_url'] ) );
-            $remote_get_path     = str_replace( ' ', '%20', urldecode($input['favicon_url']));
-            $favicon_extension      = strtolower( $favicon_info['extension'] );
+                $favicon_with_extension = str_replace( '?', '-', $favicon_with_extension );
+                $favicon_with_extension = str_replace( '&', '-', $favicon_with_extension );
 
-            $favicon_with_extension = str_replace( '?', '-', $favicon_with_extension );
-            $favicon_with_extension = str_replace( '&', '-', $favicon_with_extension );
+                // get placeholder file in the upload dir with a unique, sanitized filename
+                $favicon_file = wp_upload_bits( $favicon_with_extension, 0, '');
 
-            // get placeholder file in the upload dir with a unique, sanitized filename
-            $favicon_file = wp_upload_bits( $favicon_with_extension, 0, '');
+                // fetch the remote url and write it to the placeholder file
+                $wp_remote_get = wp_get_http( $remote_get_path, $favicon_file['file'], 5);
 
-            // fetch the remote url and write it to the placeholder file
-            $wp_remote_get = wp_get_http( $remote_get_path, $favicon_file['file'], 5);
-
-            if ( $wp_remote_get == '' || $wp_remote_get == false ) {
+                if ( $wp_remote_get == '' || $wp_remote_get == false ) {
+                        $file_object->delete( $favicon_file['file'] );
+                }
+                
+                $input['favicon_upload'] = $rtp_general['favicon_upload'];
+                
+                if ( ( $favicon_extension == 'ico' ) && ( $wp_remote_get['response'] == 200 ) && $input['favicon_url'] != RT_BASE_IMG_FOLDER_URL . '/rtpanel-favicon.gif' ) {
+                    $input['favicon_url']    = $favicon_file['url'];
+                    add_settings_error( 'favicon_upload', 'valid_favicon_upload', __( 'The Favicon Settings have been updated.', 'rtPanel' ), 'updated' );
+                } else {
                     $file_object->delete( $favicon_file['file'] );
-            }
-
-            if ( ( $favicon_extension == 'ico' ) && ( $wp_remote_get['response'] == 200 ) && $input['favicon_url'] != RT_BASE_IMG_FOLDER_URL . '/rtpanel-favicon.gif' ) {
-                $input['favicon_url']    = $favicon_file['url'];
-                $input['favicon_upload'] = $rtp_general['favicon_upload'];
-                add_settings_error( 'favicon_upload', 'valid_favicon_upload', __( 'The Favicon Settings have been updated.', 'rtPanel' ), 'updated' );
-            } else {
-                $file_object->delete( $favicon_file['file'] );
+                    $input['favicon_url']    = $rtp_general['favicon_url'];
+                    add_settings_error('favicon_upload', 'invalid_favicon_upload', 'The Uploaded Image is invalid or is an invalid Favicon Image type.');
+                }
+            } elseif ( $input['use_favicon'] == 'use_favicon_upload' && $rtp_general['favicon_upload'] != $input['favicon_upload'] ){
+                $favicon_info      = pathinfo( $input['favicon_upload'] );
+                $favicon_extension = strtolower( $favicon_info['extension'] );
                 $input['favicon_url']    = $rtp_general['favicon_url'];
-                $input['favicon_upload'] = $rtp_general['favicon_upload'];
-                add_settings_error('favicon_upload', 'invalid_favicon_upload', 'The Uploaded Image is invalid or is an invalid Favicon Image type.');
-            }
-        }
-        elseif ( $input['use_favicon'] == 'use_favicon_upload' && $rtp_general['favicon_upload'] != $input['favicon_upload'] ){
-            $favicon_info      = pathinfo( $input['favicon_upload'] );
-            $favicon_extension = strtolower( $favicon_info['extension'] );
-            if ( $favicon_extension == 'ico' ) {
-                $input['favicon_url'] = $rtp_general['favicon_url'];
-                add_settings_error( 'favicon_upload', 'valid_favicon_upload', __( 'The Favicon Settings have been updated.', 'rtPanel' ), 'updated' );
-            } else {
-                $input['favicon_url']    = $rtp_general['favicon_url'];
-                $input['favicon_upload'] = $rtp_general['favicon_upload'];
-                add_settings_error( 'favicon_upload', 'invalid_favicon_upload', 'The Uploaded Image is invalid or is an invalid Favicon Image type.' );
+                if ( $favicon_extension == 'ico' ) {
+                    add_settings_error( 'favicon_upload', 'valid_favicon_upload', __( 'The Favicon Settings have been updated.', 'rtPanel' ), 'updated' );
+                } else {
+                    $input['favicon_upload'] = $rtp_general['favicon_upload'];
+                    add_settings_error( 'favicon_upload', 'invalid_favicon_upload', 'The Uploaded Image is invalid or is an invalid Favicon Image type.' );
+                }
             }
         } else {
+            $input['use_favicon']    = $rtp_general['use_favicon'];
             $input['favicon_url']    = $rtp_general['favicon_url'];
             $input['favicon_upload'] = $rtp_general['favicon_upload'];
         }
