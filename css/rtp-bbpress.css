@@ -29,3 +29,6 @@ div.bbp-template-notice { margin: 10px 0; padding: 8px 10px; }
 #content fieldset.bbp-form legend, #container fieldset.bbp-form legend, #wrapper fieldset.bbp-form legend { padding: 0 5px; }
 #content fieldset.bbp-form label, #container fieldset.bbp-form label, #wrapper fieldset.bbp-form label { font-size: 13px; margin: 0 2px; }
 div.bbp-template-notice p { margin: 0 !important; padding: 0; }
+.forum-archive .forum .post-title { font-size: 28px; }
+.bbp-breadcrumb-home { text-decoration: underline; }
+input[type="password"] { background: #FFF; border: 1px solid #DDD; padding: 5px; box-shadow: none; }
