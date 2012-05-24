@@ -23,7 +23,7 @@ function rtp_no_ellipsis( $text ) {
     }
     $read_text =  ( !empty($rtp_post_comments['read_text'] ) ) ? $rtp_post_comments['read_text'] : '';
     $text = str_replace( '[...]', '&hellip;', $text );
-    $text .= apply_filters( 'rtp_readmore', ( ( $read_text ) ? '<a class="rtp-readmore'.$alignment.'" title="' . sprintf( __( 'Read More On %s', 'rtPanel' ), get_the_title() ) . '" href="' . get_permalink( $post->ID ) . '" rel="nofollow">' . esc_attr( $read_text ) . '</a>' : '' ));
+    $text .= !is_attachment() ? apply_filters( 'rtp_readmore', ( ( $read_text ) ? '<a class="rtp-readmore'.$alignment.'" title="' . sprintf( __( 'Read More On %s', 'rtPanel' ), get_the_title() ) . '" href="' . get_permalink( $post->ID ) . '" rel="nofollow">' . esc_attr( $read_text ) . '</a>' : '' )) : '';
     return $text;
 }
 add_filter( 'the_excerpt', 'rtp_no_ellipsis' );
@@ -101,19 +101,19 @@ function rtp_nofollow_callback( $matches ) {
 function rtp_show_post_thumbnail( $post_id = null, $thumbnail_size = 'thumbnail', $default_img_path = '' ) {
     global $rtp_post_comments;
     if ( !is_singular() && $rtp_post_comments['summary_show'] && $rtp_post_comments['thumbnail_show'] ) {
-        $thumbnail_frame = ( $rtp_post_comments['thumbnail_frame'] ) ? ' thumbnail-shadow' : '';
+        $thumbnail_frame = ( $rtp_post_comments['thumbnail_frame'] ) ? ' rtp-thumbnail-shadow' : ' rtp-no-thumbnail-shadow';
         $image_align = 'align' . strtolower( $rtp_post_comments['thumbnail_position'] );
         if ( has_post_thumbnail() ) {
-            echo ( $thumbnail_frame ) ? '<span class="thumbnail-shadow">' : ''; ?>
-                <a href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( $thumbnail_size, array( 'class' => 'post-thumb ' . $image_align ) ); ?></a><?php
+            echo ( $thumbnail_frame || ( 'aligncenter' == $image_align ) ) ? '<span class="' . ( ( 'aligncenter' == $image_align ) ? 'aligncenter' : '' ) . $thumbnail_frame . '">' : ''; ?>
+                <a class="<?php echo ( 'aligncenter' == $image_align ) ? 'aligncenter ' : ''; ?>" href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( $thumbnail_size, array( 'class' => 'post-thumb ' . $image_align ) ); ?></a><?php
             echo ( $thumbnail_frame ) ? '</span>' : ''; ?>
         <?php
         } else {
             $image = rtp_generate_thumbs( '', $thumbnail_size, $post_id );
             $image = ( $image ) ? $image : apply_filters( 'rtp_default_image_path', $default_img_path );
             if ( $image ) {
-                echo ( $thumbnail_frame ) ? '<span class="thumbnail-shadow">' : ''; ?>
-                    <a href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><img class="<?php echo 'post-thumb ' . $image_align; ?> wp-post-image" alt="<?php the_title_attribute(); ?>" <?php echo rtp_get_image_dimensions( $image ); ?> src="<?php echo $image; ?>" /></a><?php
+                echo ( $thumbnail_frame || ( 'aligncenter' == $image_align ) ) ? '<span class="' . ( ( 'aligncenter' == $image_align ) ? 'aligncenter' : '' ) . $thumbnail_frame . '">' : ''; ?>
+                    <a class="<?php echo ( 'aligncenter' == $image_align ) ? 'aligncenter ' : ''; ?>" href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><img class="<?php echo 'post-thumb ' . $image_align; ?> wp-post-image" alt="<?php the_title_attribute(); ?>" <?php echo rtp_get_image_dimensions( $image ); ?> src="<?php echo $image; ?>" /></a><?php
                 echo ( $thumbnail_frame ) ? '</span>' : ''; ?>
             <?php
             }

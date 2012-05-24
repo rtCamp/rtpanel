@@ -14,7 +14,7 @@
         return;
     }
 
-    if ( have_comments() || ( ( !is_attachment() && comments_open() ) || ( is_attachment() && $rtp_post_comments['attachment_comments'] ) ) ) { ?>
+    if ( 1 ||have_comments() || ( ( !is_attachment() && comments_open() ) || ( is_attachment() && $rtp_post_comments['attachment_comments'] ) ) ) { ?>
         
         <div class="comments-container"><?php
             if ( have_comments() ) { ?>
@@ -79,36 +79,36 @@
                                             <p class="comment-form-url' . $hide_class . '"><input class="alignleft" id="url" name="url" type="url" value="' . ( $commenter['comment_author_url'] ? esc_attr( $commenter['comment_author_url'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_website_placeholder', $url_value ) . '" size="30" />' . $label_url . '</p>';
                     }
                 } else {
-                if ( $rtp_post_comments['compact_form'] ) {
+                    if ( $rtp_post_comments['compact_form'] ) {
+                            $comments_after = '';
+                            $fields =  array(
+                                    'author' => '<p class="comment-form-author compact-comment-form' . $hide_class . '">' . $label_author . '<input id="author" name="author" type="text" required="required" value="' . ( $commenter['comment_author'] ? esc_attr( $commenter['comment_author'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_name_placeholder', $author_value ) . '" size="30" /></p>',
+                                    'email'  => '<p class="comment-form-email compact-comment-form' . $hide_class . '">' . $label_email . '<input id="e-mail" name="email" type="email" required="required" value="' . ( $commenter['comment_author_email'] ? esc_attr( $commenter['comment_author_email'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_email_placeholder', $email_value ) . '" size="30" /></p>',
+                                    'url'    => '<p class="comment-form-url compact-comment-form' . $hide_class . '">' . $label_url . '<input id="url" name="url" type="url" value="' . ( $commenter['comment_author_url'] ? esc_attr( $commenter['comment_author_url'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_website_placeholder', $url_value ) . '" size="30" /></p>',
+                            );
+                    } else {
                         $comments_after = '';
                         $fields =  array(
-                                'author' => '<p class="comment-form-author compact-comment-form' . $hide_class . '">' . $label_author . '<input id="author" name="author" type="text" required="required" value="' . ( $commenter['comment_author'] ? esc_attr( $commenter['comment_author'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_name_placeholder', $author_value ) . '" size="30" /></p>',
-                                'email'  => '<p class="comment-form-email compact-comment-form' . $hide_class . '">' . $label_email . '<input id="e-mail" name="email" type="email" required="required" value="' . ( $commenter['comment_author_email'] ? esc_attr( $commenter['comment_author_email'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_email_placeholder', $email_value ) . '" size="30" /></p>',
-                                'url'    => '<p class="comment-form-url compact-comment-form' . $hide_class . '">' . $label_url . '<input id="url" name="url" type="url" value="' . ( $commenter['comment_author_url'] ? esc_attr( $commenter['comment_author_url'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_website_placeholder', $url_value ) . '" size="30" /></p>',
+                                    'author' => '<p class="comment-form-author' . $hide_class . '"><input class="alignleft" id="author" name="author" type="text" required="required" value="' . ( $commenter['comment_author'] ? esc_attr( $commenter['comment_author'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_name_placeholder', $author_value ) . '" size="30" />' . $label_author . '</p>',
+                                    'email'  => '<p class="comment-form-email' . $hide_class . '"><input class="alignleft" id="e-mail" name="email" type="email" required="required" value="' . ( $commenter['comment_author_email'] ? esc_attr( $commenter['comment_author_email'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_email_placeholder', $email_value ) . '" size="30" />' . $label_email . '</p>',
+                                    'url'    => '<p class="comment-form-url' . $hide_class . '"><input class="alignleft" id="url" name="url" type="url" value="' . ( $commenter['comment_author_url'] ? esc_attr( $commenter['comment_author_url'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_website_placeholder', $url_value ) . '" size="30" />' . $label_url . '</p>',
                         );
-                } else {
-                    $comments_after = '';
-                    $fields =  array(
-                                'author' => '<p class="comment-form-author' . $hide_class . '"><input class="alignleft" id="author" name="author" type="text" required="required" value="' . ( $commenter['comment_author'] ? esc_attr( $commenter['comment_author'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_name_placeholder', $author_value ) . '" size="30" />' . $label_author . '</p>',
-                                'email'  => '<p class="comment-form-email' . $hide_class . '"><input class="alignleft" id="e-mail" name="email" type="email" required="required" value="' . ( $commenter['comment_author_email'] ? esc_attr( $commenter['comment_author_email'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_email_placeholder', $email_value ) . '" size="30" />' . $label_email . '</p>',
-                                'url'    => '<p class="comment-form-url' . $hide_class . '"><input class="alignleft" id="url" name="url" type="url" value="' . ( $commenter['comment_author_url'] ? esc_attr( $commenter['comment_author_url'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_website_placeholder', $url_value ) . '" size="30" />' . $label_url . '</p>',
-                    );
-                }
+                    }
                 }
 
-            $comments_before = '<p class="comment-notes">' . __( 'Your email address will not be published.', 'rtPanel' ) . ( $req ? '<span class="required">*</span>' : '' ) . '</p>';
+                $comments_before = '<p class="comment-notes">' . __( 'Your email address will not be published.', 'rtPanel' ) . ( $req ? '<span class="required">*</span>' : '' ) . '</p>';
 
-            comment_form( array(
-                        'fields' => apply_filters( 'comment_form_default_fields', $fields ) ,
-                        'comment_notes_before' => $comments_before,
-                        'comment_notes_after' => $comments_after,
-                        'comment_field' => '<p class="comment-form-comment"><textarea id="comment" required="required" placeholder="' . apply_filters( 'rtp_comment_placeholder', __( 'Comment...', 'rtPanel' ) ) . '" name="comment" cols="45" rows="8"></textarea></p>',
-                        'title_reply' => '<span class="comment-title">' . __( 'Leave a Comment', 'rtPanel' ) . '</span>',
-                        'title_reply_to' => '<span class="comment-title">' . __( 'Leave a Comment', 'rtPanel' ) . '</span>',
-                        'cancel_reply_link' => __( 'Cancel reply', 'rtPanel' ),
-                        'label_submit' => __( 'Submit', 'rtPanel' ),
-                    )
-            );
+                comment_form( array(
+                            'fields' => apply_filters( 'comment_form_default_fields', $fields ) ,
+                            'comment_notes_before' => $comments_before,
+                            'comment_notes_after' => $comments_after,
+                            'comment_field' => '<p class="comment-form-comment"><textarea id="comment" required="required" placeholder="' . apply_filters( 'rtp_comment_placeholder', __( 'Comment...', 'rtPanel' ) ) . '" name="comment" cols="45" rows="8"></textarea></p>',
+                            'title_reply' => '<span class="comment-title">' . __( 'Leave a Comment', 'rtPanel' ) . '</span>',
+                            'title_reply_to' => '<span class="comment-title">' . __( 'Leave a Comment', 'rtPanel' ) . '</span>',
+                            'cancel_reply_link' => __( 'Cancel reply', 'rtPanel' ),
+                            'label_submit' => __( 'Submit', 'rtPanel' ),
+                        )
+                );
 
             } // if you delete this the sky will fall on your head
 

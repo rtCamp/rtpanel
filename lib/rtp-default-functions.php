@@ -72,7 +72,7 @@ function rtp_has_postmeta( $position = 'u' ) {
  */
 function rtp_default_post_meta( $placement = 'top' ) { 
     
-        if ( 'post' == get_post_type() ) {
+        if ( 'post' == get_post_type() && !rtp_is_bbPress() ) {
             global $post, $rtp_post_comments;
             $position = ( 'bottom' == $placement ) ? 'l' : 'u'; // l = Lower/Bottom , u = Upper/Top
             ?>
@@ -88,7 +88,7 @@ function rtp_default_post_meta( $placement = 'top' ) {
                             rtp_hook_begin_post_meta_top();
                         // Author Link
                                 if ( $rtp_post_comments['post_author_'.$position] || $rtp_post_comments['post_date_'.$position] ) { ?>
-                                    <p class="alignleft post-publish"><?php
+                                    <p class="post-publish"><?php
                                         if ( $rtp_post_comments['post_author_'.$position] ) {
                                             printf( __( 'by <span class="author vcard">%s</span>', 'rtPanel' ), ( !$rtp_post_comments['author_link_'.$position] ? get_the_author() . ( $rtp_post_comments['author_count_'.$position] ? '(' . get_the_author_posts() . ')' : '' ) : sprintf( __( '<a href="%1$s" title="%2$s">%3$s</a>', 'rtPanel' ), get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ), esc_attr( sprintf( __( 'Posts by %s', 'rtPanel' ), get_the_author() ) ), get_the_author() ) . ( $rtp_post_comments['author_count_'.$position] ? '(' . get_the_author_posts() . ')' : '' ) ) );
                                         }
@@ -100,16 +100,16 @@ function rtp_default_post_meta( $placement = 'top' ) {
                                 } ?>
 
                         <?php   // Post Categories
-                                echo ( get_the_category_list() && $rtp_post_comments['post_category_'.$position] ) ? '<p class="post-category alignleft">' . __( 'Category', 'rtPanel' ) . ': <span>' . get_the_category_list( ', ' ) . '</span></p>' : ''; ?>
+                                echo ( get_the_category_list() && $rtp_post_comments['post_category_'.$position] ) ? '<p class="post-category">' . __( 'Category', 'rtPanel' ) . ': <span>' . get_the_category_list( ', ' ) . '</span></p>' : ''; ?>
 
                         <?php   // Post Tags
-                                echo ( get_the_tag_list() && $rtp_post_comments['post_tags_'.$position] ) ? '<p class="post-tags alignleft">' . get_the_tag_list( __( 'Tagged in', 'rtPanel' ) . ': <span>', ', ', '</span>' ) . '</p>' : ''; ?>
+                                echo ( get_the_tag_list() && $rtp_post_comments['post_tags_'.$position] ) ? '<p class="post-tags">' . get_the_tag_list( __( 'Tagged in', 'rtPanel' ) . ': <span>', ', ', '</span>' ) . '</p>' : ''; ?>
 
                         <?php   // Post Custom Taxonomies
                                 $args = array( '_builtin' => false );
                                 $taxonomies = get_taxonomies( $args, 'objects' );
                                 foreach ( $taxonomies as $key => $taxonomy ) {
-                                    ( get_the_terms( $post->ID, $key ) && isset( $rtp_post_comments['post_'.$key.'_'.$position] ) && $rtp_post_comments['post_'.$key.'_'.$position] ) ? the_terms( $post->ID, $key, '<p class="post-custom-tax post-' . $key . ' alignleft">' . $taxonomy->labels->singular_name . ': ', ', ', '</p>' ) : '';
+                                    ( get_the_terms( $post->ID, $key ) && isset( $rtp_post_comments['post_'.$key.'_'.$position] ) && $rtp_post_comments['post_'.$key.'_'.$position] ) ? the_terms( $post->ID, $key, '<p class="post-custom-tax post-' . $key . '">' . $taxonomy->labels->singular_name . ': ', ', ', '</p>' ) : '';
                                 }
 
                         if ( 'bottom' == $placement )
@@ -218,31 +218,33 @@ add_action( 'rtp_hook_single_pagination', 'rtp_default_single_pagination' );
  */
 function rtp_default_archive_pagination() { 
     /* Page-Navi Plugin Support with WordPress Default Pagination */
-    if ( !is_singular() ) {
-        global $wp_query, $rtp_post_comments;
-        if ( isset( $rtp_post_comments['pagination_show'] ) && $rtp_post_comments['pagination_show'] ) {
-            
-            if ( ( $wp_query->max_num_pages > 1 ) ) { ?>
-                <div class="wp-pagenavi"><?php
-                    echo paginate_links( array(
-                            'base' => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
-                            'format' => '?paged=%#%',
-                            'current' => max( 1, get_query_var('paged') ),
-                            'total' => $wp_query->max_num_pages,
-                            'prev_text' => esc_attr( $rtp_post_comments['prev_text'] ),
-                            'next_text' => esc_attr( $rtp_post_comments['next_text'] ),
-                            'end_size' => $rtp_post_comments['end_size'],
-                            'mid_size' => $rtp_post_comments['mid_size']
-                        ) ); ?>
-                </div><?php
+    if ( !rtp_is_bbPress() ) {
+        if ( !is_singular() ) {
+            global $wp_query, $rtp_post_comments;
+            if ( isset( $rtp_post_comments['pagination_show'] ) && $rtp_post_comments['pagination_show'] ) {
+
+                if ( ( $wp_query->max_num_pages > 1 ) ) { ?>
+                    <nav class="wp-pagenavi"><?php
+                        echo paginate_links( array(
+                                'base' => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
+                                'format' => '?paged=%#%',
+                                'current' => max( 1, get_query_var('paged') ),
+                                'total' => $wp_query->max_num_pages,
+                                'prev_text' => esc_attr( $rtp_post_comments['prev_text'] ),
+                                'next_text' => esc_attr( $rtp_post_comments['next_text'] ),
+                                'end_size' => $rtp_post_comments['end_size'],
+                                'mid_size' => $rtp_post_comments['mid_size']
+                            ) ); ?>
+                    </nav><?php
+                }
+            } elseif ( function_exists( 'wp_pagenavi' ) ) {
+                wp_pagenavi();
+            } elseif ( get_next_posts_link() || get_previous_posts_link() ) { ?>
+                <nav class="rtp-navigation clearfix">
+                    <?php if ( get_next_posts_link() ) { ?><div class="alignleft"><?php next_posts_link( __( '&larr; Older Entries', 'rtPanel' ) ); ?></div><?php } ?>
+                    <?php if ( get_previous_posts_link() ) { ?><div class="alignright"><?php previous_posts_link( __( 'Newer Entries &rarr;', 'rtPanel' ) ); ?></div><?php } ?>
+                </nav><!-- .rtp-navigation --><?php
             }
-        } elseif ( function_exists( 'wp_pagenavi' ) ) {
-            wp_pagenavi();
-        } elseif ( get_next_posts_link() || get_previous_posts_link() ) { ?>
-            <div class="rtp-navigation clearfix">
-                <?php if ( get_next_posts_link() ) { ?><div class="alignleft"><?php next_posts_link( __( '&larr; Older Entries', 'rtPanel' ) ); ?></div><?php } ?>
-                <?php if ( get_previous_posts_link() ) { ?><div class="alignright"><?php previous_posts_link( __( 'Newer Entries &rarr;', 'rtPanel' ) ); ?></div><?php } ?>
-            </div><!-- .rtp-navigation --><?php
         }
     }
 }
@@ -276,11 +278,12 @@ add_action( 'rtp_hook_comments', 'rtp_default_comments' );
  * @since rtPanel 2.1
  */
 function rtp_default_comment_count() {
+    global $rtp_post_comments;
     // Comment Count
-    if ( @comments_open() ) { // If post meta is set to top then only display the comment count.                                     
-        add_filter( 'get_comments_number', 'rtp_only_comment_count', 11, 2 ); ?>
+    add_filter( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
+    if ( ( ( get_comments_number() || @comments_open() ) && !is_attachment() && !rtp_is_bbPress() ) || ( is_attachment() && $rtp_post_comments['attachment_comments'] ) ) { // If post meta is set to top then only display the comment count. ?>
         <p class="alignright rtp-post-comment-count"><span class="rtp-curly-bracket">{</span><?php comments_popup_link( __( '<span>0</span> Comments', 'rtPanel' ), __( '<span>1</span> Comment', 'rtPanel' ), __( '<span>%</span> Comments', 'rtPanel' ), 'rtp-post-comment rtp-common-link' ); ?><span class="rtp-curly-bracket">}</span></p><?php
-        remove_filter( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
     }
+    remove_filter( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
 }
 add_action( 'rtp_hook_end_post_title', 'rtp_default_comment_count' );

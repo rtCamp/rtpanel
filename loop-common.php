@@ -22,9 +22,8 @@
         <h1 class="post-title rtp-main-title"><?php printf( __( 'Archive for  %s', 'rtPanel' ), '<span>' . get_the_time( 'F, Y' ) . '</span>' ); ?></h1><?php
     } elseif ( is_year() ) { ?>
         <h1 class="post-title rtp-main-title"><?php printf( __( 'Archive for  %s', 'rtPanel' ), '<span>' . get_the_time( 'Y' ) . '</span>' ); ?></h1><?php
-    } elseif ( get_query_var( 'author_name' ) ) {
-        $cur_auth = get_user_by( 'slug', get_query_var( 'author_name' ) ); ?>
-        <h1 class="post-title rtp-main-title"><?php printf( __( 'Author: %s', 'rtPanel' ), '<span>' . trim( ucfirst( $cur_auth->display_name ) ) . '</span>' ); ?></h1><?php
+    } elseif ( is_author() ) { ?>
+        <h1 class="post-title rtp-main-title"><?php printf( __( 'Author: %s', 'rtPanel' ), '<span>' . get_the_author_meta( 'display_name' ) . '</span>' ); ?></h1><?php
     }
 
     /* the loop */
@@ -55,7 +54,7 @@
 
                     <?php rtp_show_post_thumbnail(); ?>
 
-                    <?php   if ( is_singular() || !$rtp_post_comments['summary_show'] || ( class_exists('bbPress') && is_bbpress() ) ) {
+                    <?php   if ( is_singular() || !$rtp_post_comments['summary_show'] || rtp_is_bbPress() ) {
                                 the_content( __( 'Read More &rarr;', 'rtPanel' ) );
                                 wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'rtPanel' ), 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) );
                             } else {
@@ -69,6 +68,7 @@
                 <?php rtp_hook_post_meta( 'bottom' ); ?>
                 
                 <?php rtp_hook_end_post(); ?>
+                
             </article><!-- .rtp-post-box --><?php
 
             /* Post Pagination */

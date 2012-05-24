@@ -79,25 +79,24 @@ if ( !function_exists( 'rtp_admin_header_style' ) ) {
 }
 
 /**
- * Displays Custom Styles
- *
- * @since rtPanel 2.0
- */
-function rtp_custom_styles() { 
-    global $rtp_general;
-    echo ( $rtp_general['custom_styles'] ) ? '<style type="text/css" media="screen">' . $rtp_general['custom_styles'] . '</style>' : '';
-}
-add_action( 'wp_enqueue_scripts', 'rtp_custom_styles' );
-
-/**
  * Enqueues rtPanel Default Scripts
  *
  * @since rtPanel 2.0.7
+ * @version 2.1
  */
-function rtp_default_scripts() { 
+function rtp_default_scripts() {
+    global $rtp_general;
+    echo ( $rtp_general['custom_styles'] ) ? '<style type="text/css" media="screen">' . $rtp_general['custom_styles'] . '</style>' . "\r\n" : '';
     // Nested Comment Support
     ( is_singular() && get_option( 'thread_comments' ) ) ? wp_enqueue_script('comment-reply') : '';
     wp_enqueue_script( 'rtp-custom', RTP_JS_FOLDER_URL . '/rtp-custom.js', array( 'jquery' ), '', true );
+
+    if ( rtp_is_bbPress() ) {
+        wp_enqueue_style( 'rtp-bbpress', RTP_CSS_FOLDER_URL . '/rtp-bbpress.css', array( 'bbpress-style' ) );
+    } else {
+        wp_dequeue_style( 'bbpress-style' );
+    }
+    
 }
 add_action( 'wp_enqueue_scripts', 'rtp_default_scripts' );
 
@@ -152,3 +151,12 @@ function rtp_remove_category_list_rel( $output ) {
 }
 add_filter( 'wp_list_categories', 'rtp_remove_category_list_rel' );
 add_filter( 'the_category', 'rtp_remove_category_list_rel' );
+
+/**
+ * Check if bbPress Exists and if on a bbPress Page
+ *
+ * @since rtPanel 2.1
+ */
+function rtp_is_bbPress() {
+    return ( class_exists( 'bbPress' ) && is_bbPress() );
+}
