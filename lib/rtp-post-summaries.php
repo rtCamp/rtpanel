@@ -394,3 +394,29 @@ function rtp_get_image_dimensions( $src ) {
     $img_details = getimagesize( $src );
     return $img_details[3];
 }
+
+/**
+ * Used to style password protected post form
+ * 
+ * @return string
+ *
+ * @since rtPanel 2.1
+ */
+function rtp_get_the_password_form() {
+    global $post;
+    $label = 'pwbox-' . ( empty( $post->ID ) ? rand() : $post->ID );
+    $output = '<form action="' . get_option( 'siteurl' ) . '/wp-pass.php" method="post">';
+        $output .= '<p class="info">' . __( 'This post is password protected. To view it please enter your password below:', 'rtPanel' ) . '</p>';
+        $output .= '<table><tbody>
+                <tr>
+                    <td><label for="' . $label . '">' . __( 'Password:', 'rtPanel' ) . '</label></td>
+                    <td><input name="post_password" id="' . $label . '" required="required" placeholder="' . __( 'Password', 'rtPanel' ) . '" type="password" size="20" /></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><input type="submit" name="submit" value="' . esc_attr__( 'Submit', 'rtPanel' ) . '" /></td>
+                </tr>
+            </tbody></table>';
+    return $output;
+}
+add_filter( 'the_password_form', 'rtp_get_the_password_form' );
