@@ -24,7 +24,7 @@ class rtp_ogp {
      * @since rtPanel 2.0
      **/
     function rtp_ogp() {
-        add_action('wp_head', array($this, 'rtp_ogp_add_head'));
+        add_action( 'wp_head', array( $this, 'rtp_ogp_add_head' ) );
     }
 
     /**
@@ -34,7 +34,7 @@ class rtp_ogp {
      **/
     function rtp_ogp_add_head() {
         $this->data = $this->rtp_ogp_set_data();
-        echo $this->rtp_ogp_get_headers($this->data);
+        echo $this->rtp_ogp_get_headers( $this->data );
     }
 
     /**
@@ -84,14 +84,14 @@ class rtp_ogp {
      * @since rtPanel 2.0
      **/
     function rtp_ogp_get_headers($data) {
-        if (!count($data)) {
+        if ( !count( $data ) ) {
             return;
         }
         $out = array();
         $out[] = "\n<!-- BEGIN: Open Graph Protocol : http://opengraphprotocol.org/ for more info -->";
         foreach ($data as $property => $content) {
             if ($content != '') {
-                $out[] = "<meta property=\"{$property}\" content=\"" . apply_filters( 'rtp_og_content', $content ) . "\" />";
+                $out[] = "<meta property=\"{$property}\" content=\"" . apply_filters( 'rtp_ogp_content_' . $property, $content ) . "\" />";
             } else {
                 $out[] = "<!--{$property} value was blank-->";
             }
@@ -118,7 +118,7 @@ class rtp_ogp {
                 }
             } else {
                 $image = rtp_generate_thumbs( get_post_thumbnail_id( $post->ID ) );
-                $image = ( $image ) ? $image : apply_filters( 'rtp_default_image_path', '' );
+                $image = ( $image ) ? $image : apply_filters( 'rtp_default_ogp_image_path', '' );
             }
         } else {
             $image = rtp_logo_fav_src('logo');

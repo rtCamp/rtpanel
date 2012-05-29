@@ -14,7 +14,7 @@
         return;
     }
 
-    if ( 1 ||have_comments() || ( ( !is_attachment() && comments_open() ) || ( is_attachment() && $rtp_post_comments['attachment_comments'] ) ) ) { ?>
+    if ( have_comments() || ( ( !is_attachment() && comments_open() ) || ( is_attachment() && $rtp_post_comments['attachment_comments'] ) ) ) { ?>
         
         <div class="comments-container"><?php
             if ( have_comments() ) { ?>

@@ -62,7 +62,7 @@ class rtp_subscribe_widget extends WP_Widget {
         if ( $title )
           echo $before_title . $title . $after_title; ?>
 
-        <div class="email-subscription-container"> <!-- email-subscription-container begins -->
+        <div class="email-subscription-container"><!-- email-subscription-container begins -->
         <?php
             if ( $rt_subscription_show && $sub_link ) {
                 $no_options++; ?>
@@ -256,41 +256,39 @@ class rtp_comments_widget extends WP_Widget {
                         for ( $comments = 0; $comments < $count; $comments++ ) {
                             $right_grav = '';
                             $left_readmore = '';
-                            $show_grav_on = '';
 
-                            if ( $alternative ) {
-                                $right_grav = $comments % 2 ? 'alignright' : 'alignleft' ;
-                                $left_readmore = $comments % 2 ? 'alignleft' : 'alignright' ;
+                            if ( $show_grav && $alternative ) {
+                                $right_grav = $comments % 2 ? ' alignright' : ' alignleft' ;
+                                $left_readmore = $comments % 2 ? ' alignleft' : ' alignright' ;
                             } else {
                                 $right_grav = '';
                                 $left_readmore = '';
                             }
-                            if ( $show_grav ) {
-                                $show_grav_on = '';
-                            } else {
-                                $show_grav_on = ' display:none !important; ';
+                            if ( !$show_grav ) {
                                 $left_readmore = '';
                             }
                             echo '<li>';
-                                echo "<div class='comment-container clearfix'>";
-                                    echo "<div class='author-vcard " . $right_grav . "' style='" . $show_grav_on . "' title='" . $total_comments[$comments]->comment_author . "'>";
-                                        echo get_avatar( $total_comments[$comments]->comment_author_email, $gravatar );
-                                    echo "</div>";
-                                    echo "<div class='comment-section'>";
+                                echo '<div class="comment-container clearfix">';
+                                    if ( $show_grav ) {
+                                        echo '<div class="author-vcard' . $right_grav . '" title="' . $total_comments[$comments]->comment_author . '">';
+                                            echo get_avatar( $total_comments[$comments]->comment_author_email, $gravatar );
+                                        echo '</div>';
+                                    }
+                                    echo '<div class="comment-section">';
                                         echo '<div class="comment-date">';
                                             echo '<a title="' . mysql2date( 'F j, Y - g:ia', $total_comments[$comments]->comment_date_gmt ) . '" href="' . get_permalink( $total_comments[$comments]->comment_post_ID ) . '#comment-' . $total_comments[$comments]->comment_ID . '">';
                                             echo mysql2date( 'F j, Y - g:ia', $total_comments[$comments]->comment_date_gmt );
                                             echo '</a>';
                                         echo '</div>';
-                                        echo "<div class='author-comment'>";
+                                        echo '<div class="author-comment">';
                                             $str = wp_html_excerpt ( $total_comments[$comments]->comment_content, 65 );
                                             if ( strlen( $str ) >= 65 ) {
                                                 echo $str.'&hellip;';
                                             } else {
                                                 echo $str;
                                             }
-                                        echo "</div>";
-                                        echo '<div class="rtp-reply rtp-common-link ' . $left_readmore . '">';
+                                        echo '</div>';
+                                        echo '<div class="rtp-reply rtp-common-link' . $left_readmore . '">';
                                             echo '<a title="Read More" href="' . get_permalink($total_comments[$comments]->comment_post_ID) . '#comment-' . $total_comments[$comments]->comment_ID . '">';
                                             echo 'Read More &rarr;';
                                             echo '</a>';
@@ -334,7 +332,7 @@ class rtp_comments_widget extends WP_Widget {
      **/
     function form( $instance ) {
         $title = isset ( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
-        $show_grav = isset( $instance['show_grav'] ) ? (bool) $instance['show_grav'] :false;
+        $show_grav = isset( $instance['show_grav'] ) ? (bool) $instance['show_grav'] :true;
         $gravatar = empty( $instance['gravatar'] ) ? 64 : $instance['gravatar'];
         global $wpdb;
         $comment_query = "SELECT count(*) FROM $wpdb->comments WHERE comment_approved = 1 AND trim(comment_type) = ''";
@@ -342,6 +340,24 @@ class rtp_comments_widget extends WP_Widget {
         $def_count = ( $comment_total > 5 ) ? 5 : $comment_total;
         $count = empty( $instance['count'] ) ? $def_count : $instance['count'];
         $alternative = isset( $instance['alternative'] ) ? (bool) $instance['alternative'] :false; ?>
+        <script type="text/javascript">
+            jQuery(document).ready( function(){
+                var show_grav = jQuery('#<?php echo $this->get_field_id( 'show_grav' ); ?>').attr('checked');
+                if (typeof show_grav !== 'undefined' && show_grav !== false) {
+                    jQuery('#<?php echo $this->get_field_id( 'alternative' ); ?>').parent().show();
+
+                    jQuery('#<?php echo $this->get_field_id( 'show_grav' ); ?>').click(function() {
+                        jQuery('#<?php echo $this->get_field_id( 'alternative' ); ?>').parent().toggle();
+                    });
+                } else {
+                    jQuery('#<?php echo $this->get_field_id( 'alternative' ); ?>').parent().hide();
+
+                    jQuery('#summary_show').click(function() {
+                        jQuery('#<?php echo $this->get_field_id( 'alternative' ); ?>').parent().toggle();
+                    });
+                }
+            });
+        </script>
         <p>
             <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title', 'rtPanel' ); ?>: </label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
@@ -349,6 +365,10 @@ class rtp_comments_widget extends WP_Widget {
         <p>
             <label for="<?php echo $this->get_field_id( 'show_grav' ); ?>"><?php _e( 'Show Gravatar', 'rtPanel' ); ?>: </label>
             <input class="show_grav" id="<?php echo $this->get_field_id( 'show_grav' ); ?>" name="<?php echo $this->get_field_name( 'show_grav' ); ?>" type="checkbox" <?php checked( $show_grav ); ?> />
+        </p>
+        <p>
+            <label for="<?php echo $this->get_field_id( 'alternative' ); ?>"><?php _e( 'Show Alternate Comments', 'rtPanel' ); ?>: </label>
+            <input class="alternate" id="<?php echo $this->get_field_id( 'alternative' ); ?>" name="<?php echo $this->get_field_name( 'alternative' ); ?>" type="checkbox" <?php checked( $alternative ); ?> />
         </p>
         <p>
             <label for="<?php echo $this->get_field_id( 'gravatar' ); ?>"><?php _e( 'Gravatar Size', 'rtPanel' ); ?>: </label>
@@ -364,10 +384,6 @@ class rtp_comments_widget extends WP_Widget {
             <label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php _e( 'Show Comments', 'rtPanel' ); ?>: </label>
             <input class="widefat show-comments" id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" type="text" value="<?php echo $count; ?>" />
             <span class="description"><?php printf( __( 'You have total \'%d\' comments to display', 'rtPanel' ) , $comment_total ); ?></span>
-        </p>
-        <p>
-            <label for="<?php echo $this->get_field_id( 'alternative' ); ?>"><?php _e( 'Show Alternate Comments', 'rtPanel' ); ?>: </label>
-            <input class="alternate" id="<?php echo $this->get_field_id( 'alternative' ); ?>" name="<?php echo $this->get_field_name( 'alternative' ); ?>" type="checkbox" <?php checked( $alternative ); ?> />
         </p>
         <script type="text/javascript">
             jQuery('.show-comments').keyup(function(){
