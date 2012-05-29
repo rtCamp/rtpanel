@@ -416,7 +416,7 @@ function rtp_get_the_password_form() {
                     <td>&nbsp;</td>
                     <td><input type="submit" name="submit" value="' . esc_attr__( 'Submit', 'rtPanel' ) . '" /></td>
                 </tr>
-            </tbody></table>';
+            </tbody></table></form>';
     return $output;
 }
 add_filter( 'the_password_form', 'rtp_get_the_password_form' );
