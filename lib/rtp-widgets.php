@@ -82,7 +82,7 @@ class rtp_subscribe_widget extends WP_Widget {
             if ( ( $rt_facebook_show && $facebook_link ) || ( $rt_twitter_show && $twitter_link ) || ( $rt_google_show && $google_link ) || ( $rt_rss_show && $rss_link ) || ( $rt_linkedin_show && $linkedin_link ) || ( $rt_myspace_show && $myspace_link ) || ( $rt_stumbleupon_show && $stumbleupon_link ) ) {
                 $no_options++; ?>
                 <p><?php _e( 'Stay Connected', 'rtPanel' ); ?></p>
-                <ul class="social-icons"><?php
+                <ul class="social-icons clearfix"><?php
                     echo ( $rt_facebook_show && $facebook_link ) ? '<li><a rel="nofollow"' . $target . ' class="facebook" href="' . $facebook_link . '" title="' . __( 'Follow Us on Facebook', 'rtPanel' ) . '">Facebook</a></li>' : '';
                     echo ( $rt_twitter_show && $twitter_link ) ? '<li><a rel="nofollow"' . $target . ' class="twitter" href="' . $twitter_link . '" title="' . __( 'Follow Us on Twitter', 'rtPanel' ) . '">Twitter</a></li>' : '';
                     echo ( $rt_google_show && $google_link ) ? '<li><a rel="nofollow"' . $target . ' class="google" href="' . $google_link . '" title="' . __( 'Follow Us on Google+', 'rtPanel' ) . '">Google</a></li>' : '';
@@ -274,7 +274,7 @@ class rtp_comments_widget extends WP_Widget {
                                             echo get_avatar( $total_comments[$comments]->comment_author_email, $gravatar );
                                         echo '</div>';
                                     }
-                                    echo '<div class="comment-section">';
+                                    echo '<div class="comment-section clearfix">';
                                         echo '<div class="comment-date">';
                                             echo '<a title="' . mysql2date( 'F j, Y - g:ia', $total_comments[$comments]->comment_date_gmt ) . '" href="' . get_permalink( $total_comments[$comments]->comment_post_ID ) . '#comment-' . $total_comments[$comments]->comment_ID . '">';
                                             echo mysql2date( 'F j, Y - g:ia', $total_comments[$comments]->comment_date_gmt );

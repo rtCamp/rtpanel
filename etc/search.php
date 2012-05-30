@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div id="content" class="multiple-posts">
+<section id="content" class="multiple-posts">
     <?php if (have_posts()) : ?>
         <h2><?php printf(__('Search Results for: %s', 'rtbase'), '<span class="search-title">' . get_search_query() . '</span>'); ?></h2>
 	<div class="wp-pagenavi clearfix">
@@ -13,7 +13,7 @@
                                 <p><strong>Posted on</strong> <?php the_time('l, F jS, Y') ?></p>
 				<p><?php the_tags('<strong>Tags:</strong> ', ', ', '<br />'); ?> <?php if( get_the_category_list() ) { ?><strong>Posted in</strong> <?php the_category(', '); ?> | <?php } ?> <?php edit_post_link('Edit', '', ' | '); ?>  <?php comments_popup_link( ' &#123; 0 Comment &#125; ', ' &#123; 1 Comment &#125; ', ' &#123; % Comments &#125; ' ); ?></p>
                             </div>
-                            <div class="post-content">
+                            <div class="post-content clearfix">
                                 <?php the_content(); ?>
                             </div>
                     </div>
@@ -30,6 +30,6 @@
  		<?php echo '</div>'; } ?>
 		
 	<?php endif; ?>
-</div>
+</section>
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

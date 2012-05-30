@@ -8,14 +8,14 @@
  */
 get_header(); ?>
 
-    <div id="content" role="main" class="rtp-grid-8 rtp-home-posts">
+    <section id="content" role="main" class="rtp-grid-8 rtp-home-posts">
         
         <?php rtp_hook_begin_content();?>
         <h1 class="post-title rtp-main-title"><?php _e( 'Not Found', 'rtPanel' ); ?></h1>
-        <article id="post-0" class="rtp-not-found">
+        <article id="post-0" class="rtp-not-found hentry">
             <?php rtp_hook_begin_post(); ?>
 
-            <div class="post-content">
+            <div class="post-content clearfix">
                 <p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'rtPanel' ); ?></p>
                 <?php get_search_form(); ?>
             </div>
@@ -25,7 +25,7 @@ get_header(); ?>
         
         <?php rtp_hook_end_content(); ?>
 
-    </div><!-- #content -->
+    </section><!-- #content -->
     
     <?php rtp_hook_sidebar(); ?>
 

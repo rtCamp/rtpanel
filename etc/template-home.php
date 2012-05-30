@@ -18,7 +18,7 @@ rtp_hook_end_sidebar();
 /* ========== [ rtpanel_hook for adding content before #content ] ========== */
 rtp_hook_begin_content();
 ?>
-<div id="content" class="rtp-home-posts"> <!-- content begins -->
+<section id="content" class="rtp-home-posts"> <!-- content begins -->
 
     <?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
             <div <?php post_class() ?>>
@@ -32,7 +32,7 @@ rtp_hook_begin_content();
                     <?php edit_post_link( 'Edit this post', '<p class="rtp-edit-link rtp-common-link">[', ']</p>' ); ?>
                 </div><!-- .post-meta -->
 
-                <div class="post-content">
+                <div class="post-content clearfix">
                     <?php the_content( 'Read More &rarr;' ); ?>
 		</div>
 
@@ -51,7 +51,7 @@ rtp_hook_begin_content();
                 </div> <!-- end rtp-navigation -->
         <?php } //if wp_pagenavi
     endif; ?>
-</div><!-- end content -->
+</section><!-- end content -->
 <?php
 /* ========== [ rtpanel_hook for adding content after #content ] ========== */
 rtp_hook_end_content();

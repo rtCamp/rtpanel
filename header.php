@@ -42,7 +42,7 @@ global $rtp_general; ?><!DOCTYPE html>
                 
                 <?php rtp_hook_before_header(); ?>
 
-                <div id="header" class="rtp-grid-12">
+                <div id="header" class="rtp-grid-12 clearfix">
                     <?php rtp_hook_before_logo(); ?>
 
                         <?php if ( is_home() || is_front_page() ) { ?>

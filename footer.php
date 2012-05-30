@@ -13,14 +13,14 @@ global $rtp_general; ?>
                 <hr class="rtp-horizontal-border rtp-grid-12" />
             </div><!-- #content-wrapper -->
            
-            <footer id="footer-wrapper" role="contentinfo" class="rtp-container-12"><?php
+            <footer id="footer-wrapper" role="contentinfo" class="rtp-container-12 clearfix"><?php
                 if ( $rtp_general['footer_sidebar'] ) { ?>
-                    <div id="footerbar"><?php
+                    <div id="footerbar" class="clearfix"><?php
                         // Default Widgets ( Fallback )
                         if ( !dynamic_sidebar( 'footer-widgets' ) ) {  ?>
-                            <aside class="widget rtp-grid-4 footerbar-widget"><h3 class="widgettitle"><?php _e( 'Archives', 'rtPanel' ); ?></h3><ul><?php wp_get_archives( array( 'type' => 'monthly' ) ); ?></ul></aside>
-                            <aside class="widget rtp-grid-4 footerbar-widget"><h3 class="widgettitle"><?php _e( 'Tags', 'rtPanel' ); ?></h3><div class="tagcloud"><?php wp_tag_cloud(); ?></div></aside>
-                            <aside class="widget rtp-grid-4 footerbar-widget"><h3 class="widgettitle"><?php _e( 'Meta', 'rtPanel' ); ?></h3><ul><?php wp_register(); ?><li><?php wp_loginout(); ?></li><?php wp_meta(); ?></ul></aside><?php
+                            <aside class="widget rtp-grid-4 footerbar-widget clearfix"><h3 class="widgettitle"><?php _e( 'Archives', 'rtPanel' ); ?></h3><ul><?php wp_get_archives( array( 'type' => 'monthly' ) ); ?></ul></aside>
+                            <aside class="widget rtp-grid-4 footerbar-widget clearfix"><h3 class="widgettitle"><?php _e( 'Tags', 'rtPanel' ); ?></h3><div class="tagcloud"><?php wp_tag_cloud(); ?></div></aside>
+                            <aside class="widget rtp-grid-4 footerbar-widget clearfix"><h3 class="widgettitle"><?php _e( 'Meta', 'rtPanel' ); ?></h3><ul><?php wp_register(); ?><li><?php wp_loginout(); ?></li><?php wp_meta(); ?></ul></aside><?php
                         } ?>
                     </div><!-- #footerbar --><?php
                 } ?>

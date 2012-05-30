@@ -16,9 +16,9 @@
 
     if ( have_comments() || ( ( !is_attachment() && comments_open() ) || ( is_attachment() && $rtp_post_comments['attachment_comments'] ) ) ) { ?>
         
-        <div class="comments-container"><?php
+        <div class="comments-container clearfix"><?php
             if ( have_comments() ) { ?>
-                <div class="rtp-comment-count" id="comments">
+                <div class="rtp-comment-count clearfix" id="comments">
                     <?php 
                     add_filter( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
                     $comment_count = sprintf( _n( '<span class="count">%1$s</span> Comment', '<span class="count">%1$s</span> Comments', get_comments_number(), 'rtPanel' ), number_format_i18n( get_comments_number() ) ) . '... ';

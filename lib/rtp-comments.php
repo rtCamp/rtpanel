@@ -21,8 +21,8 @@ function rtp_comment_list( $comment, $args, $depth ) {
     $GLOBALS['comment'] = $comment;
     global $rtp_post_comments;
 ?>
-        <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
-            <div id="comment-<?php comment_ID(); ?>" class="comment-body">
+        <li <?php comment_class( 'clearfix' ); ?> id="li-comment-<?php comment_ID(); ?>">
+            <div id="comment-<?php comment_ID(); ?>" class="comment-body clearfix">
                 <div class="comment-author">
                     <cite class="fn"><?php comment_author_link(); ?></cite>
                     <span class="comment-meta">
