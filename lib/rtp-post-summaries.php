@@ -100,7 +100,7 @@ function rtp_nofollow_callback( $matches ) {
  */
 function rtp_show_post_thumbnail( $post_id = null, $thumbnail_size = 'thumbnail', $default_img_path = '' ) {
     global $rtp_post_comments;
-    if ( !is_singular() && $rtp_post_comments['summary_show'] && $rtp_post_comments['thumbnail_show'] ) {
+    if ( !is_singular() && $rtp_post_comments['summary_show'] && $rtp_post_comments['thumbnail_show'] && !rtp_is_bbPress() ) {
         $thumbnail_frame = ( $rtp_post_comments['thumbnail_frame'] ) ? ' rtp-thumbnail-shadow' : ' rtp-no-thumbnail-shadow';
         $image_align = 'align' . strtolower( $rtp_post_comments['thumbnail_position'] );
         if ( has_post_thumbnail() ) {
