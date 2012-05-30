@@ -83,7 +83,7 @@ div.inside { margin: 10px 5px; overflow: hidden; }
     .inner-sidebar #side-sortables { width: 99.7% !important; }
 #gravatar_size { width: 120px; }
 
-#social .inside a { background: url('../../img/social-icons-32-32.png') no-repeat; margin: 0 0 0 9px; display: inline-block; height: 35px; padding: 0; text-indent: -9999px; text-transform: uppercase; width: 35px; }
+#social .inside a { background: url('../../img/rtp-social-icons-32-32.png') no-repeat; margin: 0 0 0 9px; display: inline-block; height: 35px; padding: 0; text-indent: -9999px; text-transform: uppercase; width: 35px; }
     #social .inside a.rtpanel-facebook { background-position:  0 0; }
         #social .inside a.rtpanel-facebook:hover { background-position:  0 -44px; }
     #social .inside a.rtpanel-twitter { background-position:  -44px 0; }
