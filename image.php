@@ -64,10 +64,18 @@ get_header(); ?>
                         $attachments = get_children( $args );
 
                         if ( $attachments ) { ?>
-                            <ul class="gallery"><?php
+                            <ul class="rtp-container-12 rtp-alpha rtp-omega"><?php
+                                $count = 1;
                                 foreach( $attachments as $attachment ) {
                                     if ( get_the_ID() != $attachment->ID ) {
-                                        echo '<li class="gallery-icon">' . wp_get_attachment_link( $attachment->ID, 'thumbnail', true ) . '</li>';
+                                        $alpha_omega = NULL;
+                                        if ( $count % 6 == 1 ) {
+                                            $alpha_omega = ' rtp-alpha';
+                                        } elseif ( $count %6 == 0 ) {
+                                            $alpha_omega = ' rtp-omega';
+                                        }
+                                        echo '<li class="rtp-grid-2' . $alpha_omega . '">' . wp_get_attachment_link( $attachment->ID, 'thumbnail', true ) . '</li>';
+                                        $count++;
                                     }
                                 } ?>
                             </ul><?php
