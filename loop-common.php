@@ -1,4 +1,5 @@
 <?php
+print_r($_SERVER['PATH_INFO']);
 /**
  * The loop that displays the post according to the query
  *
@@ -23,7 +24,7 @@
     } elseif ( is_year() ) { ?>
         <h1 class="post-title rtp-main-title"><?php printf( __( 'Archive for  %s', 'rtPanel' ), '<span>' . get_the_time( 'Y' ) . '</span>' ); ?></h1><?php
     } elseif ( is_author() ) { ?>
-        <h1 class="post-title rtp-main-title"><?php printf( __( 'Author: %s', 'rtPanel' ), '<span>' . get_the_author_meta( 'display_name' ) . '</span>' ); ?></h1><?php
+        <h1 class="post-title rtp-main-title"><?php printf( __( 'Author: %s', 'rtPanel' ), '<span>' . get_query_var('author_name') . '</span>' ); ?></h1><?php
     }
 
     /* the loop */
@@ -49,14 +50,14 @@
 
                 </header><!-- .post-title -->
 
-                <div class="post-content">
+                <div class="post-content clearfix">
                     <?php rtp_hook_begin_post_content(); ?>
 
                     <?php rtp_show_post_thumbnail(); ?>
 
                     <?php   if ( is_singular() || !$rtp_post_comments['summary_show'] || rtp_is_bbPress() ) {
                                 the_content( __( 'Read More &rarr;', 'rtPanel' ) );
-                                wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'rtPanel' ), 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) );
+                                wp_link_pages( array( 'before' => '<div class="page-link clearfix">' . __( 'Pages:', 'rtPanel' ), 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) );
                             } else {
                                 @the_excerpt();
                             } ?>
@@ -89,7 +90,7 @@
         <article id="post-0" class="rtp-not-found">
             <?php rtp_hook_begin_post(); ?>
             
-            <div class="post-content">
+            <div class="post-content clearfix">
                 <p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'rtPanel' ); ?></p>
                 <?php get_search_form(); ?>
             </div>
