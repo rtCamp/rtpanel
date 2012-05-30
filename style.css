@@ -231,7 +231,7 @@ pre, dt, .wp-caption, .avatar,
 input[type='text'], input[type='tel'], input[type='color'], input[type='search'], input[type='number'], input[type='url'], input[type='email'], input[type='password'], input[type='button'], input[type='submit'], input[type='reset'], textarea, select, button,
 input[type='date'], input[type='datetime'], input[type='datetime-local'], input[type='month'], input[type='tel'], input[type='time'], input[type='week'],
 .page-link > a, .page-link > span,
-.rtp-thumbnail-shadow img, .gallery-icon .attachment-thumbnail,
+.rtp-thumbnail-shadow img, .gallery-icon .attachment-thumbnail, .single-attachment .rtp-container-12 li img,
 #cse .gsc-results .gsc-cursor-box .gsc-cursor-page, .bbp-pagination-links > a, .bbp-pagination-links > span, #content .wp-pagenavi > a, #content .wp-pagenavi > span,
 #respond .form-allowed-tags, .widget_calendar table, .widget_calendar td { border: 1px solid #DDD; }
 /* End of Generic Border */
@@ -324,6 +324,9 @@ input[type='text'], input[type='tel'], input[type='color'], input[type='search']
     .single-attachment .rtp-navigation { margin: 10px 0 0; }
     ul.gallery li.gallery-icon { float: left; list-style: none; margin: 5px 5px 5px 0; text-align: left; vertical-align: top; width: 16%; }
     ul.gallery li.gallery-icon .attachment-thumbnail { width: 90%; }
+    .single-attachment .rtp-container-12 > li { line-height: 100%; margin-top: 10px; margin-bottom: 10px; }
+    .single-attachment .rtp-container-12 li img { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; background: #F5F5F5; height: auto; margin: 0; max-width: 100%; padding: 5px; }
+    .single-attachment .rtp-container-12 li a:hover img { border-color: #999; }
 
 /* Post Images */
 .post-content img.alignnone { margin: 7px 10px 7px 0; }
