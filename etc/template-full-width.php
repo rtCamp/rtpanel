@@ -6,7 +6,7 @@ Template Name: Full Width Page
 
 <?php get_header(); ?>
 
-<div id="content" class="single-post">
+<section id="content" class="single-post">
 
 	<?php	//breadcrumb support is here - please refer readme.txt for further instructions
 		if(function_exists('bcn_display')){
@@ -49,7 +49,7 @@ Template Name: Full Width Page
 				    <div class="clear"></div>
 				</div><!-- end of .post-meta -->
 
-				<div class="post-content">
+				<div class="post-content clearfix">
 					<?php the_content('Read the rest of this entry &raquo;'); ?>
 				</div>
 
@@ -69,6 +69,6 @@ Template Name: Full Width Page
 		?>
 
 	<?php endif; ?>
-</div><!--end of #content -->
+</section><!--end of #content -->
 
 <?php get_footer(); ?>

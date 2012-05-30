@@ -20,13 +20,13 @@ get_header(); ?>
             $rtp_content_class = ' class="rtp-grid-8"';
         }
     ?>
-    <div id="content" role="main"<?php echo $rtp_content_class; ?>>
+    <section id="content" role="main"<?php echo $rtp_content_class; ?>>
         <?php rtp_hook_begin_content(); ?>
 
         <?php get_template_part( 'loop', 'common' ); ?>
 
         <?php rtp_hook_end_content(); ?>
-    </div><!-- #content -->
+    </section><!-- #content -->
     
     <?php rtp_hook_sidebar(); ?>
 

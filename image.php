@@ -8,7 +8,7 @@
  */
 get_header(); ?>
 
-    <div id="content" class="rtp-grid-12">
+    <section id="content" class="rtp-grid-12">
         <?php rtp_hook_begin_content(); ?>
 
         <?php 
@@ -36,19 +36,16 @@ get_header(); ?>
 
                 </header><!-- .post-title -->
 
-                <div class="post-content">
+                <div class="post-content clearfix">
                     <?php rtp_hook_begin_post_content(); ?>
-                            
+                    
                     <?php 
-                    $img_info = wp_get_attachment_image_src( '', 'full' );
-                    if ( get_the_excerpt() ) { ?>
-                        <div class="wp-caption aligncenter"><?php
-                    } ?>
-                            <a href="<?php echo $img_info[0]; ?>" title="<?php the_title_attribute(); ?>" rel="attachment"><?php echo wp_get_attachment_image( '', 'full' ); ?></a><?php 
-                    if ( get_the_excerpt() ) { ?>
-                            <p class="wp-caption-text"><?php echo get_the_excerpt(); ?></p>
-                        </div>
-                    <?php } ?>
+                    $img_info = wp_get_attachment_image_src( '', 'full' ); ?>
+                    <div class="wp-caption aligncenter">
+                        <a href="<?php echo $img_info[0]; ?>" title="<?php the_title_attribute(); ?>" rel="attachment"><?php echo wp_get_attachment_image( '', 'full' ); ?></a><?php
+                        echo ( get_the_excerpt() ) ? '<p class="wp-caption-text">' . get_the_excerpt() . '</p>' : ''; ?>
+                    </div>
+                    
                     <?php the_content(); ?>
                     
                     <?php 
@@ -64,7 +61,7 @@ get_header(); ?>
                         $attachments = get_children( $args );
 
                         if ( $attachments ) { ?>
-                            <ul class="rtp-container-12 rtp-alpha rtp-omega"><?php
+                            <ul class="rtp-container-12 rtp-alpha rtp-omega clearfix"><?php
                                 $count = 1;
                                 foreach( $attachments as $attachment ) {
                                     if ( get_the_ID() != $attachment->ID ) {
@@ -95,6 +92,6 @@ get_header(); ?>
         ?>
 
         <?php rtp_hook_end_content(); ?>
-    </div><!-- #content -->
+    </section><!-- #content -->
 
 <?php get_footer(); ?>

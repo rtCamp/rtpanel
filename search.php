@@ -10,7 +10,7 @@ get_header(); ?>
 
 <?php global $rtp_general; ?>
 
-    <div id="content" role="main" class="rtp-multiple-post<?php echo (  $rtp_general['search_code'] && $rtp_general['search_layout'] ) ? ' rtp-grid-12' : ' rtp-grid-8'; ?>"> <!-- content begins --><?php
+    <section id="content" role="main" class="rtp-multiple-post<?php echo (  $rtp_general['search_code'] && $rtp_general['search_layout'] ) ? ' rtp-grid-12' : ' rtp-grid-8'; ?>"> <!-- content begins --><?php
         
         rtp_hook_begin_content();
         
@@ -30,7 +30,7 @@ get_header(); ?>
         
         <?php rtp_hook_end_content(); ?>
 
-    </div><!-- #content -->
+    </section><!-- #content -->
     
     <?php if ( !$rtp_general['search_code'] || !$rtp_general['search_layout'] ) rtp_hook_sidebar(); ?>
 
