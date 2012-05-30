@@ -1,5 +1,4 @@
 <?php
-print_r($_SERVER['PATH_INFO']);
 /**
  * The loop that displays the post according to the query
  *
