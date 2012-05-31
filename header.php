@@ -42,18 +42,18 @@ global $rtp_general; ?><!DOCTYPE html>
                 
                 <?php rtp_hook_before_header(); ?>
 
-                <div id="header" class="rtp-grid-12 clearfix">
+                <hgroup id="header" class="rtp-grid-12 clearfix" role="heading">
                     <?php rtp_hook_before_logo(); ?>
 
                         <?php if ( is_home() || is_front_page() ) { ?>
-                            <h1 class="rtp-site-logo"><a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name' ); ?>"><?php echo ( $rtp_general['logo_show'] ) ? '<img alt="' . get_bloginfo( 'name' ) . '" ' . rtp_get_image_dimensions( rtp_logo_fav_src('logo') ) . ' src="' . rtp_logo_fav_src('logo') . '" />' : get_bloginfo( 'name' ); ?></a></h1>
+                            <h1 class="rtp-site-logo" role="logo"><a role="link" href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name' ); ?>"><?php echo ( $rtp_general['logo_show'] ) ? '<img role="img" alt="' . get_bloginfo( 'name' ) . '" ' . rtp_get_image_dimensions( rtp_logo_fav_src('logo') ) . ' src="' . rtp_logo_fav_src('logo') . '" />' : get_bloginfo( 'name' ); ?></a></h1>
                         <?php } else { ?>
-                            <h2 class="rtp-site-logo"><a href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name' ); ?>"><?php echo ( $rtp_general['logo_show'] ) ? '<img alt="' . get_bloginfo( 'name' ) . '" ' . rtp_get_image_dimensions( rtp_logo_fav_src('logo') ) . ' src="' . rtp_logo_fav_src('logo') . '" />' : get_bloginfo( 'name' ); ?></a></h2>
+                            <h2 class="rtp-site-logo" role="logo"><a role="link" href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name' ); ?>"><?php echo ( $rtp_general['logo_show'] ) ? '<img role="img" alt="' . get_bloginfo( 'name' ) . '" ' . rtp_get_image_dimensions( rtp_logo_fav_src('logo') ) . ' src="' . rtp_logo_fav_src('logo') . '" />' : get_bloginfo( 'name' ); ?></a></h2>
                         <?php } ?>
 
                     <?php rtp_hook_after_logo(); ?>
 
-                </div><!-- #header -->
+                </hgroup><!-- #header -->
 
                 <?php rtp_hook_after_header(); ?>
 

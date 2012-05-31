@@ -27,8 +27,8 @@ function rtp_custom_search_form( $form ) {
     }
     $form = '<form class="searchform" action="' . home_url() . '/" >
                 <div><label class="hidden">' . __( 'Search for:', 'rtPanel' ) . '</label>
-                    <input type="search" required="required" ' . $placeholder . 'value="' . esc_attr( apply_filters( 'the_search_query', get_search_query() ) ).'" name="s" class="' . $search_class . '" title="' . apply_filters( 'rtp_search_placeholder', __( 'Search Here...', 'rtPanel' ) ). '" x-webkit-speech="x-webkit-speech" speech="speech" onwebkitspeechchange="this.form.submit();" />
-                    <input type="submit" class="searchsubmit" value="' . esc_attr( __( 'Search', 'rtPanel' ) ) . '" title="Search" />
+                    <input type="search" role="textbox" required="required" ' . $placeholder . 'value="' . esc_attr( apply_filters( 'the_search_query', get_search_query() ) ).'" name="s" class="' . $search_class . '" title="' . apply_filters( 'rtp_search_placeholder', __( 'Search Here...', 'rtPanel' ) ). '" x-webkit-speech="x-webkit-speech" speech="speech" onwebkitspeechchange="this.form.submit();" />
+                    <input type="submit" role="button" class="searchsubmit" value="' . esc_attr( __( 'Search', 'rtPanel' ) ) . '" title="Search" />
                 </div>
              </form>';
     return $form;

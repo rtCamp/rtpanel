@@ -6,15 +6,15 @@
  * @since rtPanel 2.0
  */
 ?>
-    <section id="sidebar" class="rtp-grid-4" role="complementary">
+    <aside id="sidebar" class="rtp-grid-4" role="complementary">
         <?php rtp_hook_begin_sidebar(); ?>
 
             <?php   // Default Widgets ( Fallback )
                 if ( !dynamic_sidebar( 'sidebar-widgets' ) ) { ?>
-                    <aside class="widget sidebar-widget clearfix"><h3 class="widgettitle"><?php _e( 'Search', 'rtPanel' ); ?></h3><?php get_search_form(); ?></aside>
-                    <aside class="widget sidebar-widget clearfix"><h3 class="widgettitle"><?php _e( 'Archives', 'rtPanel' ); ?></h3><ul><?php wp_get_archives( array( 'type' => 'monthly' ) ); ?></ul></aside>
-                    <aside class="widget sidebar-widget clearfix"><h3 class="widgettitle"><?php _e( 'Meta', 'rtPanel' ); ?></h3><ul><?php wp_register(); ?><li><?php wp_loginout(); ?></li><?php wp_meta(); ?></ul></aside><?php
+                    <div class="widget sidebar-widget clearfix"><h3 class="widgettitle"><?php _e( 'Search', 'rtPanel' ); ?></h3><?php get_search_form(); ?></div>
+                    <div class="widget sidebar-widget clearfix"><h3 class="widgettitle"><?php _e( 'Archives', 'rtPanel' ); ?></h3><ul role="list"><?php wp_get_archives( array( 'type' => 'monthly' ) ); ?></ul></div>
+                    <div class="widget sidebar-widget clearfix"><h3 class="widgettitle"><?php _e( 'Meta', 'rtPanel' ); ?></h3><ul role="list"><?php wp_register(); ?><li><?php wp_loginout(); ?></li><?php wp_meta(); ?></ul></div><?php
                 } ?>
 
         <?php rtp_hook_end_sidebar(); ?>
-    </section><!-- #sidebar -->
+    </aside><!-- #sidebar -->
