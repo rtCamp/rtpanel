@@ -22,17 +22,17 @@
                     <?php 
                     add_filter( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
                     $comment_count = sprintf( _n( '<span class="count">%1$s</span> Comment', '<span class="count">%1$s</span> Comments', get_comments_number(), 'rtPanel' ), number_format_i18n( get_comments_number() ) ) . '... ';
-                    $comment_count .= ( comments_open() ) ? sprintf( __( '<span class="rtp-thoughts">Add your <a href="%s" title="Add your thoughts">thoughts</a></span>', 'rtPanel' ), '#respond' ) : '';
+                    $comment_count .= ( comments_open() ) ? sprintf( __( '<span class="rtp-thoughts">Add your <a role="link" href="%s" title="Add your thoughts">thoughts</a></span>', 'rtPanel' ), '#respond' ) : '';
                     remove_filter( 'get_comments_number', 'rtp_only_comment_count' );
                     if ( ( get_comments_number() && comments_open() ) || get_comments_number() ) { ?>
                         <h2><?php echo $comment_count; ?></h2><?php
                     } ?>
                     <?php if ( current_user_can( 'moderate_comments' ) ) { ?>
-                            <span class="alignright rtp-manage-comments"><span class="rtp-curly-bracket">{ </span><a href="<?php echo get_admin_url( '', 'edit-comments.php?p=' . get_the_ID() ); ?>"><?php _e( 'Manage Comments', 'rtPanel' ); ?></a><span class="rtp-curly-bracket"> }</span></span>
+                            <span class="alignright rtp-manage-comments"><span class="rtp-curly-bracket">{ </span><a role="link" href="<?php echo get_admin_url( '', 'edit-comments.php?p=' . get_the_ID() ); ?>"><?php _e( 'Manage Comments', 'rtPanel' ); ?></a><span class="rtp-curly-bracket"> }</span></span>
                     <?php } ?>
                 </div><!-- .rtp-comment-count -->
 
-                <ol class="commentlist"><?php
+                <ol role="list" class="commentlist"><?php
                     $args = ( $rtp_post_comments['comment_separate'] ) ? 'callback=rtp_comment_list&type=comment' : 'callback=rtp_comment_list&type=all';
                     wp_list_comments( $args ); ?>
                 </ol><!-- .commentlist -->
@@ -70,9 +70,9 @@
                 if ( $rtp_post_comments['comment_textarea'] && !is_user_logged_in() ) {
                     $fields = '';
                     if ( $rtp_post_comments['compact_form'] ) {
-                        $comments_after = '<p class="comment-form-author compact-comment-form' . $hide_class . '">' . $label_author . '<input id="author" name="author" type="text" required="required" value="' . ( $commenter['comment_author'] ? esc_attr( $commenter['comment_author'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_name_placeholder', $author_value ). '" size="30" /></p>
-                                            <p class="comment-form-email compact-comment-form' . $hide_class . '">' . $label_email . '<input id="e-mail" name="email" type="email" required="required" value="' . ( $commenter['comment_author_email'] ? esc_attr( $commenter['comment_author_email'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_email_placeholder', $email_value ) . '" size="30" /></p>
-                                            <p class="comment-form-url compact-comment-form' . $hide_class . '">' . $label_url . '<input id="url" name="url" type="url" value="' . ( $commenter['comment_author_url'] ? esc_attr( $commenter['comment_author_url'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_website_placeholder', $url_value ) . '" size="30" /></p>';
+                        $comments_after = '<p class="comment-form-author compact-comment-form' . $hide_class . '">' . $label_author . '<input role="textbox" id="author" name="author" type="text" required="required" value="' . ( $commenter['comment_author'] ? esc_attr( $commenter['comment_author'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_name_placeholder', $author_value ). '" size="30" /></p>
+                                            <p class="comment-form-email compact-comment-form' . $hide_class . '">' . $label_email . '<input role="textbox" id="e-mail" name="email" type="email" required="required" value="' . ( $commenter['comment_author_email'] ? esc_attr( $commenter['comment_author_email'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_email_placeholder', $email_value ) . '" size="30" /></p>
+                                            <p class="comment-form-url compact-comment-form' . $hide_class . '">' . $label_url . '<input role="textbox" id="url" name="url" type="url" value="' . ( $commenter['comment_author_url'] ? esc_attr( $commenter['comment_author_url'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_website_placeholder', $url_value ) . '" size="30" /></p>';
                     } else {
                         $comments_after = '<p class="comment-form-author' . $hide_class . '"><input class="alignleft" id="author" name="author" type="text" required="required" value="' . ( $commenter['comment_author'] ? esc_attr( $commenter['comment_author'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_name_placeholder', $author_value ) . '" size="30" />' . $label_author . '</p>
                                             <p class="comment-form-email' . $hide_class . '"><input class="alignleft" id="e-mail" name="email" type="email" required="required" value="' . ( $commenter['comment_author_email'] ? esc_attr( $commenter['comment_author_email'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_email_placeholder', $email_value ) . '" size="30" />' . $label_email . '</p>
@@ -89,9 +89,9 @@
                     } else {
                         $comments_after = '';
                         $fields =  array(
-                                    'author' => '<p class="comment-form-author' . $hide_class . '"><input class="alignleft" id="author" name="author" type="text" required="required" value="' . ( $commenter['comment_author'] ? esc_attr( $commenter['comment_author'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_name_placeholder', $author_value ) . '" size="30" />' . $label_author . '</p>',
-                                    'email'  => '<p class="comment-form-email' . $hide_class . '"><input class="alignleft" id="e-mail" name="email" type="email" required="required" value="' . ( $commenter['comment_author_email'] ? esc_attr( $commenter['comment_author_email'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_email_placeholder', $email_value ) . '" size="30" />' . $label_email . '</p>',
-                                    'url'    => '<p class="comment-form-url' . $hide_class . '"><input class="alignleft" id="url" name="url" type="url" value="' . ( $commenter['comment_author_url'] ? esc_attr( $commenter['comment_author_url'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_website_placeholder', $url_value ) . '" size="30" />' . $label_url . '</p>',
+                                    'author' => '<p class="comment-form-author' . $hide_class . '"><input role="textbox" class="alignleft" id="author" name="author" type="text" required="required" value="' . ( $commenter['comment_author'] ? esc_attr( $commenter['comment_author'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_name_placeholder', $author_value ) . '" size="30" />' . $label_author . '</p>',
+                                    'email'  => '<p class="comment-form-email' . $hide_class . '"><input role="textbox" class="alignleft" id="e-mail" name="email" type="email" required="required" value="' . ( $commenter['comment_author_email'] ? esc_attr( $commenter['comment_author_email'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_email_placeholder', $email_value ) . '" size="30" />' . $label_email . '</p>',
+                                    'url'    => '<p class="comment-form-url' . $hide_class . '"><input role="textbox" class="alignleft" id="url" name="url" type="url" value="' . ( $commenter['comment_author_url'] ? esc_attr( $commenter['comment_author_url'] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_website_placeholder', $url_value ) . '" size="30" />' . $label_url . '</p>',
                         );
                     }
                 }
@@ -102,7 +102,7 @@
                             'fields' => apply_filters( 'comment_form_default_fields', $fields ) ,
                             'comment_notes_before' => $comments_before,
                             'comment_notes_after' => $comments_after,
-                            'comment_field' => '<p class="comment-form-comment"><textarea id="comment" required="required" placeholder="' . apply_filters( 'rtp_comment_placeholder', __( 'Comment...', 'rtPanel' ) ) . '" name="comment" cols="45" rows="8"></textarea></p>',
+                            'comment_field' => '<p class="comment-form-comment"><textarea role="textbox" aria-multiline="true" id="comment" required="required" placeholder="' . apply_filters( 'rtp_comment_placeholder', __( 'Comment...', 'rtPanel' ) ) . '" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
                             'title_reply' => '<span class="comment-title">' . __( 'Leave a Comment', 'rtPanel' ) . '</span>',
                             'title_reply_to' => '<span class="comment-title">' . __( 'Leave a Comment', 'rtPanel' ) . '</span>',
                             'cancel_reply_link' => __( 'Cancel reply', 'rtPanel' ),
@@ -118,7 +118,7 @@
             add_filter( 'get_comments_number', 'pingback_trackback_count', 11, 2 );
             if ( $rtp_post_comments['comment_separate'] && get_comments_number() ) { ?>
                     <h3 class="rtp-comments-header"><span class="rtp-curly-bracket">{</span> <span class="count"><?php echo get_comments_number(); ?></span> <?php ( 1 == get_comments_number() ) ? _e( 'Trackback', 'rtPanel') : _e( 'Trackbacks', 'rtPanel' ); ?> <span class="rtp-curly-bracket">}</span></h3>
-                    <ol id="trackbacks"><?php
+                    <ol role="list" id="trackbacks"><?php
                             $args = 'callback=rtp_ping_list&type=pings';
                             wp_list_comments( $args ); ?>
                     </ol><?php

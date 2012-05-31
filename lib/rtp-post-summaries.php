@@ -23,7 +23,7 @@ function rtp_no_ellipsis( $text ) {
     }
     $read_text =  ( !empty($rtp_post_comments['read_text'] ) ) ? $rtp_post_comments['read_text'] : '';
     $text = str_replace( '[...]', '&hellip;', $text );
-    $text .= !is_attachment() ? apply_filters( 'rtp_readmore', ( ( $read_text ) ? '<a class="rtp-readmore'.$alignment.'" title="' . sprintf( __( 'Read More On %s', 'rtPanel' ), get_the_title() ) . '" href="' . get_permalink( $post->ID ) . '" rel="nofollow">' . esc_attr( $read_text ) . '</a>' : '' )) : '';
+    $text .= !is_attachment() ? apply_filters( 'rtp_readmore', ( ( $read_text ) ? '<a role="link" class="rtp-readmore'.$alignment.'" title="' . sprintf( __( 'Read More On %s', 'rtPanel' ), get_the_title() ) . '" href="' . get_permalink( $post->ID ) . '" rel="nofollow">' . esc_attr( $read_text ) . '</a>' : '' )) : '';
     return $text;
 }
 add_filter( 'the_excerpt', 'rtp_no_ellipsis' );
@@ -105,7 +105,7 @@ function rtp_show_post_thumbnail( $post_id = null, $thumbnail_size = 'thumbnail'
         $image_align = 'align' . strtolower( $rtp_post_comments['thumbnail_position'] );
         if ( has_post_thumbnail() ) {
             echo ( $thumbnail_frame || ( 'aligncenter' == $image_align ) ) ? '<span class="' . ( ( 'aligncenter' == $image_align ) ? 'aligncenter' : '' ) . $thumbnail_frame . '">' : ''; ?>
-                <a class="<?php echo ( 'aligncenter' == $image_align ) ? 'aligncenter ' : ''; ?>" href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( $thumbnail_size, array( 'class' => 'post-thumb ' . $image_align ) ); ?></a><?php
+                <a role="link" class="<?php echo ( 'aligncenter' == $image_align ) ? 'aligncenter ' : ''; ?>" href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( $thumbnail_size, array( 'class' => 'post-thumb ' . $image_align ) ); ?></a><?php
             echo ( $thumbnail_frame ) ? '</span>' : ''; ?>
         <?php
         } else {
@@ -113,7 +113,7 @@ function rtp_show_post_thumbnail( $post_id = null, $thumbnail_size = 'thumbnail'
             $image = ( $image ) ? $image : apply_filters( 'rtp_default_image_path', $default_img_path );
             if ( $image ) {
                 echo ( $thumbnail_frame || ( 'aligncenter' == $image_align ) ) ? '<span class="' . ( ( 'aligncenter' == $image_align ) ? 'aligncenter' : '' ) . $thumbnail_frame . '">' : ''; ?>
-                    <a class="<?php echo ( 'aligncenter' == $image_align ) ? 'aligncenter ' : ''; ?>" href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><img class="<?php echo 'post-thumb ' . $image_align; ?> wp-post-image" alt="<?php the_title_attribute(); ?>" <?php echo rtp_get_image_dimensions( $image ); ?> src="<?php echo $image; ?>" /></a><?php
+                    <a role="link" class="<?php echo ( 'aligncenter' == $image_align ) ? 'aligncenter ' : ''; ?>" href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><img role="img" class="<?php echo 'post-thumb ' . $image_align; ?> wp-post-image" alt="<?php the_title_attribute(); ?>" <?php echo rtp_get_image_dimensions( $image ); ?> src="<?php echo $image; ?>" /></a><?php
                 echo ( $thumbnail_frame ) ? '</span>' : ''; ?>
             <?php
             }
@@ -324,7 +324,7 @@ function rtp_create_external_thumb( $match, $post, $size, $double_check_tag = ''
                     // Update the post
                     wp_update_post( $updated_post );
                 } else {
-                    $updated_image_tag = str_replace( '<img', '<img class="wp-image-'.$new_image_id.'"', $match[0] );
+                    $updated_image_tag = str_replace( '<img', '<img role="img" class="wp-image-'.$new_image_id.'"', $match[0] );
                     $updated_post['post_content'] = str_replace( $match[0], $updated_image_tag, $post->post_content );
 
                     // Update the post
@@ -351,7 +351,7 @@ function rtp_create_external_thumb( $match, $post, $size, $double_check_tag = ''
                     // Update the post
                     wp_update_post( $updated_post );
                 } else {
-                    $updated_image_tag = str_replace( '<img', '<img class="wp-image-' . $new_image_id . '"', $match[0] );
+                    $updated_image_tag = str_replace( '<img', '<img role="img" class="wp-image-' . $new_image_id . '"', $match[0] );
                     $updated_post['post_content'] = str_replace( $match[0], $updated_image_tag, $post->post_content );
 
                     // Update the post
@@ -414,7 +414,7 @@ function rtp_get_the_password_form() {
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
-                    <td><input type="submit" name="submit" value="' . esc_attr__( 'Submit', 'rtPanel' ) . '" /></td>
+                    <td><input type="submit" role="button" name="submit" value="' . esc_attr__( 'Submit', 'rtPanel' ) . '" /></td>
                 </tr>
             </tbody></table></form>';
     return $output;

@@ -69,10 +69,10 @@ class rtp_subscribe_widget extends WP_Widget {
                 <form onsubmit="window.open( 'http://feedburner.google.com/fb/a/mailverify?uri=<?php echo $sub_link; ?>', 'popupwindow', 'scrollbars=yes,width=700px,height=700px' ); return true" target="popupwindow" method="post" action="http://feedburner.google.com/fb/a/mailverify">
                     <p>
                         <label for="email"><?php _e( 'Sign up for our email newsletter', 'rtPanel' ); ?></label>
-                        <input id="email" type="email" required="required" name="email" placeholder="<?php _e( 'Enter Email Address', 'rtPanel' ); ?>" class="email" title="<?php _e( 'Enter Email Address', 'rtPanel' ); ?>" size="15" />
-                        <input type="hidden" name="uri" value="<?php echo $sub_link; ?>" />
-                        <input type="hidden" value="en_US" name="loc" />
-                        <input type="submit" value="<?php _e( 'Subscribe', 'rtPanel' ); ?>" title="<?php _e( 'Subscribe', 'rtPanel' ); ?>" class="btn" />
+                        <input id="email" type="email" role="textbox" required="required" name="email" placeholder="<?php _e( 'Enter Email Address', 'rtPanel' ); ?>" class="email" title="<?php _e( 'Enter Email Address', 'rtPanel' ); ?>" size="15" />
+                        <input type="hidden" aria-hidden="true" name="uri" value="<?php echo $sub_link; ?>" />
+                        <input type="hidden" aria-hidden="true" value="en_US" name="loc" />
+                        <input type="submit" role="button" value="<?php _e( 'Subscribe', 'rtPanel' ); ?>" title="<?php _e( 'Subscribe', 'rtPanel' ); ?>" class="btn" />
                     </p>
                 </form><?php
             }
@@ -82,14 +82,14 @@ class rtp_subscribe_widget extends WP_Widget {
             if ( ( $rt_facebook_show && $facebook_link ) || ( $rt_twitter_show && $twitter_link ) || ( $rt_google_show && $google_link ) || ( $rt_rss_show && $rss_link ) || ( $rt_linkedin_show && $linkedin_link ) || ( $rt_myspace_show && $myspace_link ) || ( $rt_stumbleupon_show && $stumbleupon_link ) ) {
                 $no_options++; ?>
                 <p><?php _e( 'Stay Connected', 'rtPanel' ); ?></p>
-                <ul class="social-icons clearfix"><?php
-                    echo ( $rt_facebook_show && $facebook_link ) ? '<li><a rel="nofollow"' . $target . ' class="facebook" href="' . $facebook_link . '" title="' . __( 'Follow Us on Facebook', 'rtPanel' ) . '">Facebook</a></li>' : '';
-                    echo ( $rt_twitter_show && $twitter_link ) ? '<li><a rel="nofollow"' . $target . ' class="twitter" href="' . $twitter_link . '" title="' . __( 'Follow Us on Twitter', 'rtPanel' ) . '">Twitter</a></li>' : '';
-                    echo ( $rt_google_show && $google_link ) ? '<li><a rel="nofollow"' . $target . ' class="google" href="' . $google_link . '" title="' . __( 'Follow Us on Google+', 'rtPanel' ) . '">Google</a></li>' : '';
-                    echo ( $rt_rss_show && $rss_link ) ? '<li><a rel="nofollow"' . $target . ' class="rss" href="' . $rss_link . '" title="' . __( 'Subscribe via RSS', 'rtPanel' ) . '">RSS</a></li>' : '';
-                    echo ( $rt_linkedin_show && $linkedin_link ) ? '<li><a rel="nofollow"' . $target . ' class="linkedin" href="' . $linkedin_link . '" title="' . __( 'Follow Us on LinkedIn', 'rtPanel' ) . '">LinkedIn</a></li>' : '';
-                    echo ( $rt_myspace_show && $myspace_link ) ? '<li><a rel="nofollow"' . $target . ' class="myspace" href="' . $myspace_link . '" title="' . __( 'Follow Us on MySpace', 'rtPanel' ) . '">MySpace</a></li>' : '';
-                    echo ( $rt_stumbleupon_show && $stumbleupon_link ) ? '<li><a rel="nofollow"' . $target . ' class="stumbleupon" href="' . $stumbleupon_link . '" title="' . __( 'Follow Us on StumbleUpon', 'rtPanel' ) . '">StumbleUpon</a></li>' : ''; ?>
+                <ul role="list" class="social-icons clearfix"><?php
+                    echo ( $rt_facebook_show && $facebook_link ) ? '<li><a role="link" rel="nofollow"' . $target . ' class="facebook" href="' . $facebook_link . '" title="' . __( 'Follow Us on Facebook', 'rtPanel' ) . '">Facebook</a></li>' : '';
+                    echo ( $rt_twitter_show && $twitter_link ) ? '<li><a role="link" rel="nofollow"' . $target . ' class="twitter" href="' . $twitter_link . '" title="' . __( 'Follow Us on Twitter', 'rtPanel' ) . '">Twitter</a></li>' : '';
+                    echo ( $rt_google_show && $google_link ) ? '<li><a role="link" rel="nofollow"' . $target . ' class="google" href="' . $google_link . '" title="' . __( 'Follow Us on Google+', 'rtPanel' ) . '">Google</a></li>' : '';
+                    echo ( $rt_rss_show && $rss_link ) ? '<li><a role="link" rel="nofollow"' . $target . ' class="rss" href="' . $rss_link . '" title="' . __( 'Subscribe via RSS', 'rtPanel' ) . '">RSS</a></li>' : '';
+                    echo ( $rt_linkedin_show && $linkedin_link ) ? '<li><a role="link" rel="nofollow"' . $target . ' class="linkedin" href="' . $linkedin_link . '" title="' . __( 'Follow Us on LinkedIn', 'rtPanel' ) . '">LinkedIn</a></li>' : '';
+                    echo ( $rt_myspace_show && $myspace_link ) ? '<li><a role="link" rel="nofollow"' . $target . ' class="myspace" href="' . $myspace_link . '" title="' . __( 'Follow Us on MySpace', 'rtPanel' ) . '">MySpace</a></li>' : '';
+                    echo ( $rt_stumbleupon_show && $stumbleupon_link ) ? '<li><a role="link" rel="nofollow"' . $target . ' class="stumbleupon" href="' . $stumbleupon_link . '" title="' . __( 'Follow Us on StumbleUpon', 'rtPanel' ) . '">StumbleUpon</a></li>' : ''; ?>
                 </ul><?php
             }
 
@@ -158,52 +158,52 @@ class rtp_subscribe_widget extends WP_Widget {
         $rt_show_stumbleupon = isset( $instance['rt_show_stumbleupon'] ) ? (bool) $instance['rt_show_stumbleupon'] :false;
         $rt_link_target = isset( $instance['rt_link_target'] ) ? (bool) $instance['rt_link_target'] :false; ?>
         
-        <p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title', 'rtPanel' ); ?>: </label><input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" /></p>
+        <p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title', 'rtPanel' ); ?>: </label><input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" role="textbox" value="<?php echo esc_attr( $title ); ?>" /></p>
         <p><strong><?php _e( 'FeedBurner RSS Subscription', 'rtPanel' ); ?>: </strong></p>
         <p>
-            <input type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_subscription' ); ?>" id="<?php echo $this->get_field_id( 'rt_show_subscription' ); ?>" <?php checked( $rt_show_subscription ); ?> />
+            <input role="checkbox" type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_subscription' ); ?>" id="<?php echo $this->get_field_id( 'rt_show_subscription' ); ?>" <?php checked( $rt_show_subscription ); ?> />
             <label for="<?php echo $this->get_field_id( 'rt_show_subscription' ); ?>"><?php _e( 'Feedburner Subscription Handler', 'rtPanel' ); ?>: </label>
-            <input class="widefat" id="<?php echo $this->get_field_id( 'sub_link' ); ?>" name="<?php echo $this->get_field_name( 'sub_link' ); ?>" type="text" value="<?php echo esc_attr( $sub_link ); ?>" />
+            <input class="widefat" id="<?php echo $this->get_field_id( 'sub_link' ); ?>" name="<?php echo $this->get_field_name( 'sub_link' ); ?>" type="text" role="textbox" value="<?php echo esc_attr( $sub_link ); ?>" />
             <span class="description"><?php printf( __( 'Ex: %s would be the FeedBurner Subscription Handler for %s', 'rtPanel' ), '<strong><code>rtpanel</code></strong>', '<code>http://feeds.feedburner.com/<strong>rtpanel</strong></code>' ); ?></span>
         </p>
         <p><strong><?php _e( 'Social Share', 'rtPanel' ); ?>:</strong></p>
         <p>
-            <input type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_rss' ); ?>" id="<?php echo $this->get_field_id( 'rt_show_rss' ); ?>" <?php checked( $rt_show_rss ); ?> />
+            <input role="checkbox" type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_rss' ); ?>" id="<?php echo $this->get_field_id( 'rt_show_rss' ); ?>" <?php checked( $rt_show_rss ); ?> />
             <label for="<?php echo $this->get_field_id( 'rt_show_rss' ); ?>"><?php _e( 'RSS Feed Link', 'rtPanel' ); ?>: </label>
-            <input class="widefat" id="<?php echo $this->get_field_id( 'rss_link' ); ?>" name="<?php echo $this->get_field_name( 'rss_link' ); ?>" type="text" value="<?php echo esc_attr( $rss_link ); ?>" />
+            <input class="widefat" id="<?php echo $this->get_field_id( 'rss_link' ); ?>" name="<?php echo $this->get_field_name( 'rss_link' ); ?>" type="text" role="textbox" value="<?php echo esc_attr( $rss_link ); ?>" />
         </p>
         <p>
-            <input type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_facebook' ); ?>" id="<?php echo $this->get_field_id( 'rt_show_facebook' ); ?>" <?php  checked( $rt_show_facebook ) ; ?> />
+            <input role="checkbox" type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_facebook' ); ?>" id="<?php echo $this->get_field_id( 'rt_show_facebook' ); ?>" <?php  checked( $rt_show_facebook ) ; ?> />
             <label for="<?php echo $this->get_field_id( 'rt_show_facebook' ); ?>"><?php _e( 'Facebook Link', 'rtPanel' ); ?>: </label>
-            <input class="widefat" id="<?php echo $this->get_field_id( 'facebook_link' ); ?>" name="<?php echo $this->get_field_name( 'facebook_link' ); ?>" type="text" value="<?php echo esc_attr( $facebook_link ); ?>" />
+            <input class="widefat" id="<?php echo $this->get_field_id( 'facebook_link' ); ?>" name="<?php echo $this->get_field_name( 'facebook_link' ); ?>" type="text" role="textbox" value="<?php echo esc_attr( $facebook_link ); ?>" />
         </p>
         <p>
-            <input type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_twitter' ); ?>" id="<?php echo $this->get_field_id( 'rt_show_twitter' ); ?>" <?php checked( $rt_show_twitter ) ; ?> />
+            <input role="checkbox" type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_twitter' ); ?>" id="<?php echo $this->get_field_id( 'rt_show_twitter' ); ?>" <?php checked( $rt_show_twitter ) ; ?> />
             <label for="<?php echo $this->get_field_id( 'rt_show_twitter' ); ?>"><?php _e( 'Twitter Link', 'rtPanel' ); ?>: </label>
-            <input class="widefat" id="<?php echo $this->get_field_id( 'twitter_link' ); ?>" name="<?php echo $this->get_field_name( 'twitter_link' ); ?>" type="text" value="<?php echo esc_attr( $twitter_link ); ?>" />
+            <input class="widefat" id="<?php echo $this->get_field_id( 'twitter_link' ); ?>" name="<?php echo $this->get_field_name( 'twitter_link' ); ?>" type="text" role="textbox" value="<?php echo esc_attr( $twitter_link ); ?>" />
         </p>
         <p>
-            <input type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_google' ); ?>" id="<?php echo $this->get_field_id( 'rt_show_google' ); ?>" <?php checked( $rt_show_google ) ; ?> />
+            <input role="checkbox" type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_google' ); ?>" id="<?php echo $this->get_field_id( 'rt_show_google' ); ?>" <?php checked( $rt_show_google ) ; ?> />
             <label for="<?php echo $this->get_field_id( 'rt_show_google' ); ?>"><?php _e( 'Google+ Link', 'rtPanel' ); ?>: </label>
-            <input class="widefat" id="<?php echo $this->get_field_id( 'google_link' ); ?>" name="<?php echo $this->get_field_name( 'google_link' ); ?>" type="text" value="<?php echo esc_attr( $google_link ); ?>" />
+            <input class="widefat" id="<?php echo $this->get_field_id( 'google_link' ); ?>" name="<?php echo $this->get_field_name( 'google_link' ); ?>" type="text" role="textbox" value="<?php echo esc_attr( $google_link ); ?>" />
         </p>
         <p>
-            <input type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_linkedin' ); ?>" id="<?php echo $this->get_field_id( 'rt_show_linkedin' ); ?>" <?php checked( $rt_show_linkedin ); ?> />
+            <input role="checkbox" type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_linkedin' ); ?>" id="<?php echo $this->get_field_id( 'rt_show_linkedin' ); ?>" <?php checked( $rt_show_linkedin ); ?> />
             <label for="<?php echo $this->get_field_id( 'rt_show_linkedin' ); ?>"><?php _e( 'LinkedIn Link', 'rtPanel' ); ?>: </label>
-            <input class="widefat" id="<?php echo $this->get_field_id( 'linkedin_link' ); ?>" name="<?php echo $this->get_field_name( 'linkedin_link' ); ?>" type="text" value="<?php echo esc_attr( $linkedin_link ); ?>" />
+            <input class="widefat" id="<?php echo $this->get_field_id( 'linkedin_link' ); ?>" name="<?php echo $this->get_field_name( 'linkedin_link' ); ?>" type="text" role="textbox" value="<?php echo esc_attr( $linkedin_link ); ?>" />
         </p>
         <p>
-            <input type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_myspace' ); ?>" id="<?php echo $this->get_field_id( 'rt_show_myspace' ); ?>" <?php checked( $rt_show_myspace ); ?> />
+            <input role="checkbox" type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_myspace' ); ?>" id="<?php echo $this->get_field_id( 'rt_show_myspace' ); ?>" <?php checked( $rt_show_myspace ); ?> />
             <label for="<?php echo $this->get_field_id( 'rt_show_myspace' ); ?>"><?php _e( 'MySpace Link', 'rtPanel' ); ?>: </label>
-            <input class="widefat" id="<?php echo $this->get_field_id( 'myspace_link' ); ?>" name="<?php echo $this->get_field_name( 'myspace_link' ); ?>" type="text" value="<?php echo esc_attr( $myspace_link ); ?>" />
+            <input class="widefat" id="<?php echo $this->get_field_id( 'myspace_link' ); ?>" name="<?php echo $this->get_field_name( 'myspace_link' ); ?>" type="text" role="textbox" value="<?php echo esc_attr( $myspace_link ); ?>" />
         </p>
         <p>
-            <input type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_stumbleupon' ); ?>" id="<?php echo $this->get_field_id( 'rt_show_stumbleupon' ); ?>" <?php checked( $rt_show_stumbleupon ); ?> />
+            <input role="checkbox" type="checkbox" name="<?php echo $this->get_field_name( 'rt_show_stumbleupon' ); ?>" id="<?php echo $this->get_field_id( 'rt_show_stumbleupon' ); ?>" <?php checked( $rt_show_stumbleupon ); ?> />
             <label for="<?php echo $this->get_field_id( 'rt_show_stumbleupon' ); ?>"><?php _e( 'StumbleUpon Link', 'rtPanel' ); ?>: </label>
-            <input class="widefat" id="<?php echo $this->get_field_id( 'stumbleupon_link' ); ?>" name="<?php echo $this->get_field_name( 'stumbleupon_link' ); ?>" type="text" value="<?php echo esc_attr( $stumbleupon_link ); ?>" />
+            <input class="widefat" id="<?php echo $this->get_field_id( 'stumbleupon_link' ); ?>" name="<?php echo $this->get_field_name( 'stumbleupon_link' ); ?>" type="text" role="textbox" value="<?php echo esc_attr( $stumbleupon_link ); ?>" />
         </p>
         <p>
-            <input class="link_target" id="<?php echo $this->get_field_id( 'rt_link_target' ); ?>" name="<?php echo $this->get_field_name( 'rt_link_target' ); ?>" type="checkbox" <?php checked( $rt_link_target ); ?> />
+            <input class="link_target" id="<?php echo $this->get_field_id( 'rt_link_target' ); ?>" name="<?php echo $this->get_field_name( 'rt_link_target' ); ?>" role="checkbox" role="checkbox" role="checkbox" role="checkbox" type="checkbox" <?php checked( $rt_link_target ); ?> />
             <label for="<?php echo $this->get_field_id( 'rt_link_target' ); ?>"><?php _e( 'Open Social Links in New Tab/Window', 'rtPanel' ); ?></label>
         </p><?php
     }
@@ -251,7 +251,7 @@ class rtp_comments_widget extends WP_Widget {
                     $total_comments = get_comments('type=comment');
 
                     if ( !empty( $total_comments ) ) {
-                        echo '<ul>';
+                        echo '<ul role="list">';
 
                         for ( $comments = 0; $comments < $count; $comments++ ) {
                             $right_grav = '';
@@ -360,19 +360,19 @@ class rtp_comments_widget extends WP_Widget {
         </script>
         <p>
             <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title', 'rtPanel' ); ?>: </label>
-            <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+            <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" role="textbox" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
         </p>
         <p>
             <label for="<?php echo $this->get_field_id( 'show_grav' ); ?>"><?php _e( 'Show Gravatar', 'rtPanel' ); ?>: </label>
-            <input class="show_grav" id="<?php echo $this->get_field_id( 'show_grav' ); ?>" name="<?php echo $this->get_field_name( 'show_grav' ); ?>" type="checkbox" <?php checked( $show_grav ); ?> />
+            <input class="show_grav" id="<?php echo $this->get_field_id( 'show_grav' ); ?>" name="<?php echo $this->get_field_name( 'show_grav' ); ?>" role="checkbox" type="checkbox" <?php checked( $show_grav ); ?> />
         </p>
         <p>
             <label for="<?php echo $this->get_field_id( 'alternative' ); ?>"><?php _e( 'Show Alternate Comments', 'rtPanel' ); ?>: </label>
-            <input class="alternate" id="<?php echo $this->get_field_id( 'alternative' ); ?>" name="<?php echo $this->get_field_name( 'alternative' ); ?>" type="checkbox" <?php checked( $alternative ); ?> />
+            <input class="alternate" id="<?php echo $this->get_field_id( 'alternative' ); ?>" name="<?php echo $this->get_field_name( 'alternative' ); ?>" role="checkbox" type="checkbox" <?php checked( $alternative ); ?> />
         </p>
         <p>
             <label for="<?php echo $this->get_field_id( 'gravatar' ); ?>"><?php _e( 'Gravatar Size', 'rtPanel' ); ?>: </label>
-            <select id="<?php echo $this->get_field_id( 'gravatar' ); ?>" name="<?php echo $this->get_field_name( 'gravatar' ); ?>" style="width: 120px;">
+            <select role="listbox" id="<?php echo $this->get_field_id( 'gravatar' ); ?>" name="<?php echo $this->get_field_name( 'gravatar' ); ?>" style="width: 120px;">
                 <option value="32" <?php selected( '32', $gravatar ); ?>><?php _e( '32px X 32px', 'rtPanel' ); ?></option>
                 <option value="40" <?php selected( '40', $gravatar ); ?>><?php _e( '40px X 40px', 'rtPanel' ); ?></option>
                 <option value="48" <?php selected( '48', $gravatar ); ?>><?php _e( '48px X 48px', 'rtPanel' ); ?></option>
@@ -382,7 +382,7 @@ class rtp_comments_widget extends WP_Widget {
         </p>
         <p>
             <label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php _e( 'Show Comments', 'rtPanel' ); ?>: </label>
-            <input class="widefat show-comments" id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" type="text" value="<?php echo $count; ?>" />
+            <input class="widefat show-comments" id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" type="text" role="textbox" value="<?php echo $count; ?>" />
             <span class="description"><?php printf( __( 'You have total \'%d\' comments to display', 'rtPanel' ) , $comment_total ); ?></span>
         </p>
         <script type="text/javascript">
@@ -439,7 +439,7 @@ class rtp_category_widget extends WP_Widget {
                 echo $before_title . $title . $after_title;
 
                 if ( $showstyle == 'list' ) {
-                    echo '<ul>';
+                    echo '<ul role="list">';
                         wp_list_categories( array( 'hierarchical' => $hierarchical, 'style' => $showstyle, 'hide_empty' => $hide_empty, 'show_count' => $show_count, 'number' => $show_cat, 'exclude' => $exclude, 'orderby' => $sortby, 'title_li' => '', 'order' => $order ) );
                     echo '</ul>';
                 } else {
@@ -509,11 +509,11 @@ class rtp_category_widget extends WP_Widget {
         $show_count = isset( $instance['show_count']) ? (bool) $instance['show_count'] :false; ?>
         <p style="overflow: hidden;">
             <label for="<?php echo $this->get_field_id( 'title' ); ?>" style="display: block; float: left; padding: 0 0 3px;"><?php _e( 'Title', 'rtPanel' ); ?>: </label>
-            <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+            <input class="widefat" role="textbox" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
         </p>
         <p style="overflow: hidden;">
             <label for="<?php echo $this->get_field_id( 'sortby' ); ?>" style="display: block;float: left;padding: 3px 0 0;"><?php _e( 'Order by', 'rtPanel' ); ?>: </label>
-            <select id="<?php echo $this->get_field_id( 'sortby' ); ?>" name="<?php echo $this->get_field_name( 'sortby' ); ?>" style="float: right; width: 120px;">
+            <select role="listbox" id="<?php echo $this->get_field_id( 'sortby' ); ?>" name="<?php echo $this->get_field_name( 'sortby' ); ?>" style="float: right; width: 120px;">
                 <option value="name" <?php selected( 'name', $sortby ); ?>><?php _e( 'Category Name', 'rtPanel' ); ?></option>
                 <option value="ID" <?php selected( 'ID', $sortby ); ?>><?php _e( 'Category ID', 'rtPanel' ); ?></option>
                 <option value="count" <?php selected( 'count', $sortby ); ?>><?php _e( 'Category Count', 'rtPanel' ); ?></option>
@@ -522,38 +522,38 @@ class rtp_category_widget extends WP_Widget {
         </p>
         <p style="overflow: hidden;">
             <label for="<?php echo $this->get_field_id( 'order' ); ?>" style="display: block;float: left;padding: 3px 0 0;"><?php _e( 'Sort by', 'rtPanel' ); ?>: </label>
-            <select id="<?php echo $this->get_field_id( 'order' ); ?>" name="<?php echo $this->get_field_name( 'order' ); ?>" style="float: right; width: 120px;">
+            <select role="listbox" id="<?php echo $this->get_field_id( 'order' ); ?>" name="<?php echo $this->get_field_name( 'order' ); ?>" style="float: right; width: 120px;">
                 <option value="ASC" <?php selected( 'ASC', $order ); ?>><?php _e( 'Ascending', 'rtPanel' ); ?></option>
                 <option value="DESC" <?php selected( 'DESC', $order ); ?>><?php _e( 'Descending', 'rtPanel' ); ?></option>
             </select>
         </p>
         <p style="overflow: hidden;">
             <label for="<?php echo $this->get_field_id( 'show_cat' ); ?>" style="display: block;float: left;padding: 3px 0 0;"><?php _e( 'Show Category', 'rtPanel' ); ?>:</label>
-            <input class="widefat show-cat" id="<?php echo $this->get_field_id( 'show_cat' ); ?>" name="<?php echo $this->get_field_name( 'show_cat' ); ?>" type="text" value="<?php echo $show_cat; ?>" style="float: right; clear: right; width: 120px;" /><div class="clear"></div>
+            <input class="widefat show-cat" id="<?php echo $this->get_field_id( 'show_cat' ); ?>" name="<?php echo $this->get_field_name( 'show_cat' ); ?>" type="text" role="textbox" value="<?php echo $show_cat; ?>" style="float: right; clear: right; width: 120px;" /><div class="clear"></div>
             <span class="description"><?php _e( 'Total Categories', 'rtPanel' ); ?>: <?php echo count( get_categories() ); ?></span>
         </p>
         <p style="overflow: hidden;">
             <label for="<?php echo $this->get_field_id( 'showstyle' ); ?>" style="display: block;float: left;padding: 3px 0 0;"><?php _e( 'Style', 'rtPanel' ); ?>: </label>
-            <select id="<?php echo $this->get_field_id( 'showstyle' ); ?>" name="<?php echo $this->get_field_name( 'showstyle' ); ?>" style="float: right; width: 120px;">
+            <select role="listbox" id="<?php echo $this->get_field_id( 'showstyle' ); ?>" name="<?php echo $this->get_field_name( 'showstyle' ); ?>" style="float: right; width: 120px;">
                 <option value="list" <?php selected( 'list', $showstyle ); ?>><?php _e( 'List', 'rtPanel' ); ?></option>
                 <option value="dropdown" <?php selected( 'dropdown', $showstyle ); ?>><?php _e( 'Dropdown', 'rtPanel' ); ?></option>
             </select>
         </p>
         <p style="overflow: hidden;">
             <label for="<?php echo $this->get_field_id( 'exclude' ); ?>" style="display: block; float: left; padding: 3px 0 0;"><?php _e( 'Exclude', 'rtPanel' ); ?>:</label>
-            <input class="widefat exclude" id="<?php echo $this->get_field_id( 'exclude' ); ?>" name="<?php echo $this->get_field_name( 'exclude' ); ?>" type="text" value="<?php echo $exclude; ?>" style="float: right; clear: right; margin: 0 0 0 3px; width: 120px;" /><div class="clear"></div>
+            <input class="widefat exclude" id="<?php echo $this->get_field_id( 'exclude' ); ?>" name="<?php echo $this->get_field_name( 'exclude' ); ?>" type="text" role="textbox" value="<?php echo $exclude; ?>" style="float: right; clear: right; margin: 0 0 0 3px; width: 120px;" /><div class="clear"></div>
             <span class="description"><?php _e( 'Separate Category ID with ","', 'rtPanel' ); ?><br /><?php _e( 'Ex: 1,5,15', 'rtPanel' ); ?></span>
         </p>
         <p style="overflow: hidden;">
-            <input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id('hierarchical'); ?>" name="<?php echo $this->get_field_name('hierarchical'); ?>"<?php checked( $hierarchical ); ?> />
+            <input role="checkbox" type="checkbox" class="checkbox" id="<?php echo $this->get_field_id('hierarchical'); ?>" name="<?php echo $this->get_field_name('hierarchical'); ?>"<?php checked( $hierarchical ); ?> />
             <label for="<?php echo $this->get_field_id('hierarchical'); ?>"><?php _e( 'Show Hierarchy', 'rtPanel' ); ?></label><br />
         </p>
         <p style="overflow: hidden;">
-            <input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id('hide_empty'); ?>" name="<?php echo $this->get_field_name('hide_empty'); ?>"<?php checked( $hide_empty ); ?> />
+            <input role="checkbox" type="checkbox" class="checkbox" id="<?php echo $this->get_field_id('hide_empty'); ?>" name="<?php echo $this->get_field_name('hide_empty'); ?>"<?php checked( $hide_empty ); ?> />
             <label for="<?php echo $this->get_field_id('hide_empty'); ?>"><?php _e( 'Hide Empty', 'rtPanel' ); ?></label><br />
         </p>
         <p style="overflow: hidden;">
-            <input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id('show_count'); ?>" name="<?php echo $this->get_field_name('show_count'); ?>"<?php checked( $show_count ); ?> />
+            <input role="checkbox" type="checkbox" class="checkbox" id="<?php echo $this->get_field_id('show_count'); ?>" name="<?php echo $this->get_field_name('show_count'); ?>"<?php checked( $show_count ); ?> />
             <label for="<?php echo $this->get_field_id('show_count'); ?>"><?php _e( 'Show post counts', 'rtPanel' ); ?></label><br />
         </p>
         <script type="text/javascript">
