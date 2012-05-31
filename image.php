@@ -43,7 +43,7 @@ get_header(); ?>
                     
                     <figure role="img" class="wp-caption aligncenter" aria-describedby="figcaption_attachment_<?php echo get_the_ID(); ?>">
                         <a role="link" href="<?php echo $img_info[0]; ?>" title="<?php the_title_attribute(); ?>" rel="attachment"><?php echo wp_get_attachment_image( '', 'full' ); ?></a><?php
-                        echo ( get_the_excerpt() ) ? '<figcaption class="wp-caption-text">' . get_the_excerpt() . '</figcaption>' : ''; ?>
+                        echo ( get_the_excerpt() ) ? '<figcaption id="figcaption_attachment_' . get_the_ID() . '" class="wp-caption-text">' . get_the_excerpt() . '</figcaption>' : ''; ?>
                     </figure>
                     
                     <?php the_content(); ?>

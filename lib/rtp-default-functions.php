@@ -94,7 +94,7 @@ function rtp_default_post_meta( $placement = 'top' ) {
                                         }
                                         echo ( $rtp_post_comments['post_author_'.$position] && $rtp_post_comments['post_date_'.$position] ) ? ' ' : '';
                                         if ( $rtp_post_comments['post_date_'.$position] ) {
-                                            printf( __( 'on <time class="published" datetime="%s">%s</time>', 'rtPanel' ), get_the_time( 'Y-m-d' ), get_the_time( $rtp_post_comments['post_date_format_'.$position] ) );
+                                            printf( __( 'on <time class="published" datetime="%s" pubdate="pubdate">%s</time>', 'rtPanel' ), get_the_date('c'), get_the_time( $rtp_post_comments['post_date_format_'.$position] ) );
                                         } ?>
                                     </p><?php
                                 } ?>

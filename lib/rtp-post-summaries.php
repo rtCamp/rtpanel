@@ -420,3 +420,28 @@ function rtp_get_the_password_form() {
     return $output;
 }
 add_filter( 'the_password_form', 'rtp_get_the_password_form' );
+
+/**
+ * Converts default caption markup to html5
+ * 
+ * @return string
+ *
+ * @since rtPanel 2.1
+ */
+function rtp_html5_caption( $output, $attr, $content ) {
+    extract(shortcode_atts(array(
+        'id'	=> '',
+        'align'	=> 'alignnone',
+        'width'	=> '',
+        'caption' => ''
+    ), $attr));
+
+    if ( 1 > (int) $width || empty($caption) )
+            return $content;
+
+    if ( $id ) $idtag = 'id="' . esc_attr($id) . '" ';
+
+    return '<figure ' . $idtag . 'aria-describedby="figcaption_' . $id . '" class="wp-caption ' . esc_attr($align) . '" style="width: ' . (10 + (int) $width) . 'px">'
+    . do_shortcode( $content ) . '<figcaption id="figcaption_' . $id . '" class="wp-caption-text">' . $caption . '</figcaption></figure>';
+}
+add_filter( 'img_caption_shortcode', 'rtp_html5_caption', '', 3 );
