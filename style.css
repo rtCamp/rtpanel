@@ -163,7 +163,7 @@ input[type='number']:disabled, input[type='search']:disabled, input[type='tel']:
 input[type='text']:disabled, input[type='time']:disabled, input[type='url']:disabled, 
 input[type='week']:disabled { background: #F5F5F5; color: #666; }
 input[type='button']:disabled:active, input[type='submit']:disabled:active, input[type='reset']:disabled:active, button:disabled:active,
-input[type='button']:disabled, input[type='submit']:disabled, input[type='reset']:disabled, button:disabled { box-shadow: none; background-color: #E6E6E6; background-position: 0 -15px; color: #666; cursor: not-allowed; text-decoration: none; }
+input[type='button']:disabled, input[type='submit']:disabled, input[type='reset']:disabled, button:disabled { box-shadow: none; background-color: #E6E6E6; background-position: 0 -15px; color: #666; cursor: not-allowed; text-decoration: none;-webkit-appearance:none; }
 
 /* Readonly Form Field Style */
 input[readonly]:focus, select[readonly]:focus, textarea[readonly]:focus,
@@ -318,7 +318,7 @@ h1 a:hover, h2 a:hover { color: #CD3517; text-decoration: none; }
 /* Attachment Style */
 .attachment .hentry { padding: 0 0 10px; }
     .attachment img.attachment-full { height: auto; margin: 0; max-width: 100%; }
-    .attachment .wp-caption img.attachment-full { margin: 5px 5px 0; max-width: 99%; }
+    .attachment .wp-caption img.attachment-full { margin: 5px 5px 0; max-width: 97%; }
     .post-content .attachment img { margin: 0 auto; }
     .single-attachment .rtp-navigation { margin: 10px 0 0; }
     ul.gallery li.gallery-icon { float: left; list-style: none; margin: 5px 5px 5px 0; text-align: left; vertical-align: top; width: 16%; }
@@ -529,6 +529,7 @@ h1 a:hover, h2 a:hover { color: #CD3517; text-decoration: none; }
 
 /* Responsive Structure */
 @media screen and (max-width: 880px) {
+    body { -webkit-text-size-adjust: none; }
     .rtp-container-12 { max-width: 99%; }
     .rtp-grid-1, .rtp-grid-2, .rtp-grid-3, .rtp-grid-4, .rtp-grid-5, .rtp-grid-6, .rtp-grid-7, .rtp-grid-8, .rtp-grid-9, .rtp-grid-10, .rtp-grid-11, .rtp-grid-12 { margin-left: 1%; margin-right: 1%; }
         .rtp-container-12 .rtp-grid-1 { width: 6.333%; }
@@ -586,6 +587,12 @@ h1 a:hover, h2 a:hover { color: #CD3517; text-decoration: none; }
 
 /* iPhone Portrait 320 x 480 & Crappy Android landscape 320 x 240 */
 @media screen and (max-width: 320px) {
+    h1 { font-size: 24px; }
+    h2 { font-size: 20px; }
+    h3 { font-size: 16px; }
+    h4 { font-size: 14px; }
+    h5 { font-size: 12px; }
+    h6 { font-size: 11px; }
     #rtp-nav-menu li { clear: both; width: 100%; }
     input[type="text"], input[type="tel"], input[type="color"], input[type="search"], input[type="number"], input[type="url"], input[type="email"], input[type="password"], textarea, select { width: 95%; }
     input[type="search"] { width: 99%; }

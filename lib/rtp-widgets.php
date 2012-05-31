@@ -69,10 +69,10 @@ class rtp_subscribe_widget extends WP_Widget {
                 <form onsubmit="window.open( 'http://feedburner.google.com/fb/a/mailverify?uri=<?php echo $sub_link; ?>', 'popupwindow', 'scrollbars=yes,width=700px,height=700px' ); return true" target="popupwindow" method="post" action="http://feedburner.google.com/fb/a/mailverify">
                     <p>
                         <label for="email"><?php _e( 'Sign up for our email newsletter', 'rtPanel' ); ?></label>
-                        <input id="email" type="email" role="textbox" required="required" name="email" placeholder="<?php _e( 'Enter Email Address', 'rtPanel' ); ?>" class="email" title="<?php _e( 'Enter Email Address', 'rtPanel' ); ?>" size="15" />
+                        <input id="email" type="email" required="required" name="email" placeholder="<?php _e( 'Enter Email Address', 'rtPanel' ); ?>" class="email" title="<?php _e( 'Enter Email Address', 'rtPanel' ); ?>" size="15" />
                         <input type="hidden" aria-hidden="true" name="uri" value="<?php echo $sub_link; ?>" />
                         <input type="hidden" aria-hidden="true" value="en_US" name="loc" />
-                        <input type="submit" role="button" value="<?php _e( 'Subscribe', 'rtPanel' ); ?>" title="<?php _e( 'Subscribe', 'rtPanel' ); ?>" class="btn" />
+                        <input type="submit" value="<?php _e( 'Subscribe', 'rtPanel' ); ?>" title="<?php _e( 'Subscribe', 'rtPanel' ); ?>" class="btn" />
                     </p>
                 </form><?php
             }
@@ -83,13 +83,13 @@ class rtp_subscribe_widget extends WP_Widget {
                 $no_options++; ?>
                 <p><?php _e( 'Stay Connected', 'rtPanel' ); ?></p>
                 <ul role="list" class="social-icons clearfix"><?php
-                    echo ( $rt_facebook_show && $facebook_link ) ? '<li><a role="link" rel="nofollow"' . $target . ' class="facebook" href="' . $facebook_link . '" title="' . __( 'Follow Us on Facebook', 'rtPanel' ) . '">Facebook</a></li>' : '';
-                    echo ( $rt_twitter_show && $twitter_link ) ? '<li><a role="link" rel="nofollow"' . $target . ' class="twitter" href="' . $twitter_link . '" title="' . __( 'Follow Us on Twitter', 'rtPanel' ) . '">Twitter</a></li>' : '';
-                    echo ( $rt_google_show && $google_link ) ? '<li><a role="link" rel="nofollow"' . $target . ' class="google" href="' . $google_link . '" title="' . __( 'Follow Us on Google+', 'rtPanel' ) . '">Google</a></li>' : '';
-                    echo ( $rt_rss_show && $rss_link ) ? '<li><a role="link" rel="nofollow"' . $target . ' class="rss" href="' . $rss_link . '" title="' . __( 'Subscribe via RSS', 'rtPanel' ) . '">RSS</a></li>' : '';
-                    echo ( $rt_linkedin_show && $linkedin_link ) ? '<li><a role="link" rel="nofollow"' . $target . ' class="linkedin" href="' . $linkedin_link . '" title="' . __( 'Follow Us on LinkedIn', 'rtPanel' ) . '">LinkedIn</a></li>' : '';
-                    echo ( $rt_myspace_show && $myspace_link ) ? '<li><a role="link" rel="nofollow"' . $target . ' class="myspace" href="' . $myspace_link . '" title="' . __( 'Follow Us on MySpace', 'rtPanel' ) . '">MySpace</a></li>' : '';
-                    echo ( $rt_stumbleupon_show && $stumbleupon_link ) ? '<li><a role="link" rel="nofollow"' . $target . ' class="stumbleupon" href="' . $stumbleupon_link . '" title="' . __( 'Follow Us on StumbleUpon', 'rtPanel' ) . '">StumbleUpon</a></li>' : ''; ?>
+                    echo ( $rt_facebook_show && $facebook_link ) ? '<li role="listitem"><a role="link" rel="nofollow"' . $target . ' class="facebook" href="' . $facebook_link . '" title="' . __( 'Follow Us on Facebook', 'rtPanel' ) . '">Facebook</a></li>' : '';
+                    echo ( $rt_twitter_show && $twitter_link ) ? '<li role="listitem"><a role="link" rel="nofollow"' . $target . ' class="twitter" href="' . $twitter_link . '" title="' . __( 'Follow Us on Twitter', 'rtPanel' ) . '">Twitter</a></li>' : '';
+                    echo ( $rt_google_show && $google_link ) ? '<li role="listitem"><a role="link" rel="nofollow"' . $target . ' class="google" href="' . $google_link . '" title="' . __( 'Follow Us on Google+', 'rtPanel' ) . '">Google</a></li>' : '';
+                    echo ( $rt_rss_show && $rss_link ) ? '<li role="listitem"><a role="link" rel="nofollow"' . $target . ' class="rss" href="' . $rss_link . '" title="' . __( 'Subscribe via RSS', 'rtPanel' ) . '">RSS</a></li>' : '';
+                    echo ( $rt_linkedin_show && $linkedin_link ) ? '<li role="listitem"><a role="link" rel="nofollow"' . $target . ' class="linkedin" href="' . $linkedin_link . '" title="' . __( 'Follow Us on LinkedIn', 'rtPanel' ) . '">LinkedIn</a></li>' : '';
+                    echo ( $rt_myspace_show && $myspace_link ) ? '<li role="listitem"><a role="link" rel="nofollow"' . $target . ' class="myspace" href="' . $myspace_link . '" title="' . __( 'Follow Us on MySpace', 'rtPanel' ) . '">MySpace</a></li>' : '';
+                    echo ( $rt_stumbleupon_show && $stumbleupon_link ) ? '<li role="listitem"><a role="link" rel="nofollow"' . $target . ' class="stumbleupon" href="' . $stumbleupon_link . '" title="' . __( 'Follow Us on StumbleUpon', 'rtPanel' ) . '">StumbleUpon</a></li>' : ''; ?>
                 </ul><?php
             }
 
@@ -267,7 +267,7 @@ class rtp_comments_widget extends WP_Widget {
                             if ( !$show_grav ) {
                                 $left_readmore = '';
                             }
-                            echo '<li>';
+                            echo '<li role="listitem">';
                                 echo '<div class="comment-container clearfix">';
                                     if ( $show_grav ) {
                                         echo '<div class="author-vcard' . $right_grav . '" title="' . $total_comments[$comments]->comment_author . '">';
@@ -439,7 +439,7 @@ class rtp_category_widget extends WP_Widget {
                 echo $before_title . $title . $after_title;
 
                 if ( $showstyle == 'list' ) {
-                    echo '<ul role="list">';
+                    echo '<ul>';
                         wp_list_categories( array( 'hierarchical' => $hierarchical, 'style' => $showstyle, 'hide_empty' => $hide_empty, 'show_count' => $show_count, 'number' => $show_cat, 'exclude' => $exclude, 'orderby' => $sortby, 'title_li' => '', 'order' => $order ) );
                     echo '</ul>';
                 } else {

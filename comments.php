@@ -32,7 +32,7 @@
                     <?php } ?>
                 </div><!-- .rtp-comment-count -->
 
-                <ol role="list" class="commentlist"><?php
+                <ol class="commentlist"><?php
                     $args = ( $rtp_post_comments['comment_separate'] ) ? 'callback=rtp_comment_list&type=comment' : 'callback=rtp_comment_list&type=all';
                     wp_list_comments( $args ); ?>
                 </ol><!-- .commentlist -->
@@ -118,7 +118,7 @@
             add_filter( 'get_comments_number', 'pingback_trackback_count', 11, 2 );
             if ( $rtp_post_comments['comment_separate'] && get_comments_number() ) { ?>
                     <h3 class="rtp-comments-header"><span class="rtp-curly-bracket">{</span> <span class="count"><?php echo get_comments_number(); ?></span> <?php ( 1 == get_comments_number() ) ? _e( 'Trackback', 'rtPanel') : _e( 'Trackbacks', 'rtPanel' ); ?> <span class="rtp-curly-bracket">}</span></h3>
-                    <ol role="list" id="trackbacks"><?php
+                    <ol id="trackbacks"><?php
                             $args = 'callback=rtp_ping_list&type=pings';
                             wp_list_comments( $args ); ?>
                     </ol><?php

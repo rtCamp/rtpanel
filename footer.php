@@ -10,7 +10,7 @@
 global $rtp_general; ?>
 
                 <?php rtp_hook_end_content_wrapper(); ?>
-                <hr role="separator" class="rtp-horizontal-border rtp-grid-12" />
+                <hr class="rtp-horizontal-border rtp-grid-12" />
             </div><!-- #content-wrapper -->
            
             <footer id="footer-wrapper" role="contentinfo" class="rtp-container-12 clearfix"><?php
@@ -18,15 +18,15 @@ global $rtp_general; ?>
                     <aside role="complementary" id="footerbar" class="clearfix"><?php
                         // Default Widgets ( Fallback )
                         if ( !dynamic_sidebar( 'footer-widgets' ) ) {  ?>
-                            <div class="widget rtp-grid-4 footerbar-widget clearfix"><h3 class="widgettitle"><?php _e( 'Archives', 'rtPanel' ); ?></h3><ul role="list"><?php wp_get_archives( array( 'type' => 'monthly' ) ); ?></ul></div>
+                            <div class="widget rtp-grid-4 footerbar-widget clearfix"><h3 class="widgettitle"><?php _e( 'Archives', 'rtPanel' ); ?></h3><ul><?php wp_get_archives( array( 'type' => 'monthly' ) ); ?></ul></div>
                             <div class="widget rtp-grid-4 footerbar-widget clearfix"><h3 class="widgettitle"><?php _e( 'Tags', 'rtPanel' ); ?></h3><div class="tagcloud"><?php wp_tag_cloud(); ?></div></div>
-                            <div class="widget rtp-grid-4 footerbar-widget clearfix"><h3 class="widgettitle"><?php _e( 'Meta', 'rtPanel' ); ?></h3><ul role="list"><?php wp_register(); ?><li><?php wp_loginout(); ?></li><?php wp_meta(); ?></ul></div><?php
+                            <div class="widget rtp-grid-4 footerbar-widget clearfix"><h3 class="widgettitle"><?php _e( 'Meta', 'rtPanel' ); ?></h3><ul><?php wp_register(); ?><li><?php wp_loginout(); ?></li><?php wp_meta(); ?></ul></div><?php
                         } ?>
                     </aside><!-- #footerbar --><?php
                 } ?>
 
                 <?php rtp_hook_before_footer(); ?>
-                    <hr role="separator" class="rtp-horizontal-border rtp-grid-12" />
+                    <hr class="rtp-horizontal-border rtp-grid-12" />
                 <div id="footer" class="rtp-grid-12">
                     <div>&copy; <?php echo date( 'Y' ); echo ' - '; bloginfo( 'name' ); ?></div>
                     <div><em><?php printf( __( 'Designed on <a role="link" href="%s" class="rtp-common-link" title="rtPanel WordPress Theme Framework">rtPanel WordPress Theme Framework</a>.', 'rtPanel' ), 'http://rtcamp.com/rtpanel/' ); ?></em></div>

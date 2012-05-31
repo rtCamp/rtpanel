@@ -94,7 +94,7 @@ function rtp_default_post_meta( $placement = 'top' ) {
                                         }
                                         echo ( $rtp_post_comments['post_author_'.$position] && $rtp_post_comments['post_date_'.$position] ) ? ' ' : '';
                                         if ( $rtp_post_comments['post_date_'.$position] ) {
-                                            printf( __( 'on <time class="published" datetime="%s" pubdate="pubdate">%s</time>', 'rtPanel' ), get_the_date('c'), get_the_time( $rtp_post_comments['post_date_format_'.$position] ) );
+                                            printf( __( 'on <time class="published" datetime="%s">%s</time>', 'rtPanel' ), get_the_date('c'), get_the_time( $rtp_post_comments['post_date_format_'.$position] ) );
                                         } ?>
                                     </p><?php
                                 } ?>
@@ -134,7 +134,7 @@ add_action('rtp_hook_post_meta_bottom','rtp_default_post_meta'); // Post Meta Bo
  * @since rtPanel 2.0
  */
 function rtp_default_nav_menu() {
-     echo '<nav id="rtp-primary-menu" role="navigation wai:sitemap" class="rtp-grid-12">';
+     echo '<nav id="rtp-primary-menu" role="navigation" class="rtp-grid-12">';
         /* Call wp_nav_menu() for Wordpress Navigaton with fallback wp_list_pages() if menu not set in admin panel */
         if ( function_exists( 'wp_nav_menu' ) && has_nav_menu( 'primary' ) ) {
             wp_nav_menu( array( 'container' => '', 'menu_id' => 'rtp-nav-menu', 'theme_location' => 'primary', 'depth' => apply_filters( 'rtp_nav_menu_depth', 4 ) ) );
@@ -180,7 +180,7 @@ add_action( 'rtp_hook_begin_content', 'rtp_breadcrumb_support' );
  */
 function rtp_blog_description(){
     if ( get_bloginfo( 'description' ) ) { ?>
-        <h2 class="tagline" role="description"><?php bloginfo( 'description' ); ?></h2><?php
+        <h2 class="tagline"><?php bloginfo( 'description' ); ?></h2><?php
     }
 }
 add_action( 'rtp_hook_after_logo', 'rtp_blog_description' );

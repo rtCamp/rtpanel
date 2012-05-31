@@ -71,7 +71,7 @@ get_header(); ?>
                                         } elseif ( $count %6 == 0 ) {
                                             $alpha_omega = ' rtp-omega';
                                         }
-                                        echo '<li class="rtp-grid-2' . $alpha_omega . '">' . wp_get_attachment_link( $attachment->ID, 'thumbnail', true ) . '</li>';
+                                        echo '<li role="listitem" class="rtp-grid-2' . $alpha_omega . '">' . wp_get_attachment_link( $attachment->ID, 'thumbnail', true ) . '</li>';
                                         $count++;
                                     }
                                 } ?>
