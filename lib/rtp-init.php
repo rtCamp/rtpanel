@@ -121,18 +121,18 @@ function rtp_body_class( $classes ) {
     elseif ( $is_chrome ) $classes[] = 'chrome';
     elseif ( $is_IE ) {
         $classes[] = 'ie';
-        if ( preg_match( '/MSIE ([0-9]+)([a-zA-Z0-9.]+)/', $_SERVER['HTTP_USER_AGENT'], $browser_version ) ) {
+        if ( isset( $_SERVER['HTTP_USER_AGENT'] ) && preg_match( '/MSIE ([0-9]+)([a-zA-Z0-9.]+)/', $_SERVER['HTTP_USER_AGENT'], $browser_version ) ) {
             $classes[] = 'ie'.$browser_version[1];
         }
     } else $classes[] = 'unknown';
 
     if ( $is_iphone ) $classes[] = 'iphone';
 
-    if ( stristr( $_SERVER['HTTP_USER_AGENT'], "mac") ) {
+    if ( isset( $_SERVER['HTTP_USER_AGENT'] ) && stristr( $_SERVER['HTTP_USER_AGENT'], "mac") ) {
         $classes[] = 'osx';
-    } elseif ( stristr( $_SERVER['HTTP_USER_AGENT'],"linux") ) {
+    } elseif ( isset( $_SERVER['HTTP_USER_AGENT'] ) && stristr( $_SERVER['HTTP_USER_AGENT'],"linux") ) {
         $classes[] = 'linux';
-    } elseif ( stristr( $_SERVER['HTTP_USER_AGENT'],"windows") ) {
+    } elseif ( isset( $_SERVER['HTTP_USER_AGENT'] ) && stristr( $_SERVER['HTTP_USER_AGENT'],"windows") ) {
         $classes[] = 'windows';
     }
 
