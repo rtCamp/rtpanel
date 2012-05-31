@@ -163,7 +163,11 @@ input[type='number']:disabled, input[type='search']:disabled, input[type='tel']:
 input[type='text']:disabled, input[type='time']:disabled, input[type='url']:disabled, 
 input[type='week']:disabled { background: #F5F5F5; color: #666; }
 input[type='button']:disabled:active, input[type='submit']:disabled:active, input[type='reset']:disabled:active, button:disabled:active,
-input[type='button']:disabled, input[type='submit']:disabled, input[type='reset']:disabled, button:disabled { box-shadow: none; background-color: #E6E6E6; background-position: 0 -15px; color: #666; cursor: default; text-decoration: none; }
+input[type='button']:disabled, input[type='submit']:disabled, input[type='reset']:disabled, button:disabled { box-shadow: none; background-color: #E6E6E6; background-position: 0 -15px; color: #666; cursor: not-allowed; text-decoration: none; }
+
+/* Readonly Form Field Style */
+input[readonly]:focus, select[readonly]:focus, textarea[readonly]:focus,
+input[readonly], select[readonly], textarea[readonly] { background: #F9F9F9; box-shadow: none; border-color: #DDD; color: #666; cursor: not-allowed; text-decoration: none; }
 
 /* Placeholder */
 :-moz-placeholder { color: #666; }
