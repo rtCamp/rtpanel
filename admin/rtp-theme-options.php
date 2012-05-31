@@ -125,21 +125,7 @@ class rtp_theme {
      **/
     function rtp_admin_page_styles() {
         wp_enqueue_style( 'rtp-admin-styles', RTP_TEMPLATE_URL . '/admin/css/rtp-admin.css' );
-        wp_register_style( 'rtp-admin-styles-ie7', RTP_TEMPLATE_URL . '/admin/css/rtp-admin-ie7.css', 'rtp-admin-styles' );
-        $GLOBALS['wp_styles']->add_data( 'rtp-admin-styles-ie7', 'conditional', 'IE 7' );
-        wp_enqueue_style( 'rtp-admin-styles-ie7' );
         wp_enqueue_style( 'thickbox'); //thickbox for logo and favicon upload option
-    }
-
-    /**
-     * Browser compatible style for IE7
-     *
-     * @since rtPanel 2.0
-     **/
-    function rtp_browser_compatability_admin_styles() { ?>
-        <!--[if IE 7 ]>
-            <link rel="stylesheet" href="<?php echo RTP_TEMPLATE_URL ; ?>/admin/css/rtp-admin-ie7.css"  />
-        <![endif]--><?php
     }
  
     /**
