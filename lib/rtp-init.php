@@ -160,3 +160,62 @@ add_filter( 'the_category', 'rtp_remove_category_list_rel' );
 function rtp_is_bbPress() {
     return ( class_exists( 'bbPress' ) && is_bbPress() );
 }
+
+/**
+ * Sanitizes options having urls in serilized data.
+ *
+ * @since rtPanel 2.1
+ */
+function rtp_general_sanitize_option(){
+    global $wpdb;
+    
+    $option = 'rtp_general';
+    
+    $option = trim($option);
+    if ( empty($option) )
+        return false;
+    
+    if ( defined( 'WP_SETUP_CONFIG' ) )
+        return false;
+
+    if ( ! defined( 'WP_INSTALLING' ) ) {
+
+        $alloptions = wp_load_alloptions();
+
+        if ( isset( $alloptions[$option] ) ) {
+            $value = $alloptions[$option];
+        } else {
+            $value = wp_cache_get( $option, 'options' );
+
+            if ( false === $value ) {
+                $row = $wpdb->get_row( $wpdb->prepare( "SELECT option_value FROM $wpdb->options WHERE option_name = %s LIMIT 1", $option ) );
+
+                // Has to be get_row instead of get_var because of funkiness with 0, false, null values
+                if ( is_object( $row ) ) {
+                    $value = $row->option_value;
+                    wp_cache_add( $option, $value, 'options' );
+                }
+            }
+        }
+    } else {
+        $suppress = $wpdb->suppress_errors();
+        $row = $wpdb->get_row( $wpdb->prepare( "SELECT option_value FROM $wpdb->options WHERE option_name = %s LIMIT 1", $option ) );
+        $wpdb->suppress_errors( $suppress );
+        if ( is_object( $row ) )
+            $value = $row->option_value;
+    }
+
+    // If home is not set use siteurl.
+    if ( 'home' == $option && '' == $value )
+        return get_option( 'siteurl' );
+
+    if ( in_array( $option, array('siteurl', 'home', 'category_base', 'tag_base') ) )
+        $value = untrailingslashit( $value );
+    
+    /* Hack for serialized data containing URLs http://www.php.net/manual/en/function.unserialize.php#107886 */
+    $value = preg_replace( '!s:(\d+):"(.*?)";!se', "'s:'.strlen('$2').':\"$2\";'", $value );
+    
+    return apply_filters( 'option_' . $option, maybe_unserialize( $value ) );
+}
+
+add_filter( 'pre_option_rtp_general','rtp_general_sanitize_option', 1 );
