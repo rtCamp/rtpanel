@@ -21,7 +21,7 @@ get_header(); ?>
             <article <?php post_class( 'rtp-image-box' ); ?>>
                 <?php rtp_hook_begin_post(); ?>
 
-                <header class="post-header">
+                <header class="post-header clearfix">
                     <?php rtp_hook_begin_post_title(); ?>
 
                     <?php   if ( is_singular() ) { ?>
@@ -61,7 +61,7 @@ get_header(); ?>
                         $attachments = get_children( $args );
 
                         if ( $attachments ) { ?>
-                            <ul role="list" class="rtp-container-12 rtp-alpha rtp-omega clearfix"><?php
+                            <ul role="list" class="rtp-sibling-attachments rtp-container-12 rtp-alpha rtp-omega clearfix"><?php
                                 $count = 1;
                                 foreach( $attachments as $attachment ) {
                                     if ( get_the_ID() != $attachment->ID ) {
