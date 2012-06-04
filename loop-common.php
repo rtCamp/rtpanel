@@ -34,7 +34,7 @@
             <article id="post-<?php the_ID(); ?>" <?php post_class( 'rtp-post-box' ); ?>>
                 <?php rtp_hook_begin_post(); ?>
 
-                <header class="post-header">
+                <header class="post-header clearfix">
                     <?php rtp_hook_begin_post_title(); ?>
 
                     <?php   if ( is_singular() ) { ?>
