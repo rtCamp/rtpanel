@@ -101,10 +101,10 @@ function rtp_nofollow_callback( $matches ) {
 function rtp_show_post_thumbnail( $post_id = null, $thumbnail_size = 'thumbnail', $default_img_path = '' ) {
     global $rtp_post_comments;
     if ( !is_singular() && $rtp_post_comments['summary_show'] && $rtp_post_comments['thumbnail_show'] && !rtp_is_bbPress() ) {
-        $thumbnail_frame = ( $rtp_post_comments['thumbnail_frame'] ) ? ' rtp-thumbnail-shadow' : ' rtp-no-thumbnail-shadow';
+        $thumbnail_frame = ( $rtp_post_comments['thumbnail_frame'] ) ? 'rtp-thumbnail-shadow' : 'rtp-no-thumbnail-shadow';
         $image_align = 'align' . strtolower( $rtp_post_comments['thumbnail_position'] );
         if ( has_post_thumbnail() ) {
-            echo ( $thumbnail_frame || ( 'aligncenter' == $image_align ) ) ? '<span class="' . ( ( 'aligncenter' == $image_align ) ? 'aligncenter' : '' ) . $thumbnail_frame . '">' : ''; ?>
+            echo ( $thumbnail_frame || ( 'aligncenter' == $image_align ) ) ? '<span class="' . ( ( 'aligncenter' == $image_align ) ? 'aligncenter ' : '' ) . $thumbnail_frame . '">' : ''; ?>
                 <a role="link" class="<?php echo ( 'aligncenter' == $image_align ) ? 'aligncenter ' : ''; ?>" href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( $thumbnail_size, array( 'class' => 'post-thumb ' . $image_align ) ); ?></a><?php
             echo ( $thumbnail_frame ) ? '</span>' : ''; ?>
         <?php

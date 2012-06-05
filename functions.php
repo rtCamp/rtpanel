@@ -13,6 +13,7 @@ $rtp_version = get_option( 'rtp_version' ); // rtPanel Version
 
 /* Check if default values are present in the database else force defaults - Since rtPanel v2.1 */
 $rtp_general['favicon_show'] = isset( $rtp_general['favicon_show'] ) ? $rtp_general['favicon_show'] : 1;
+$rtp_general['pagination_show'] = isset( $rtp_general['pagination_show'] ) ? $rtp_general['pagination_show'] : 0;
 $rtp_post_comments['prev_text'] = isset( $rtp_post_comments['prev_text'] ) ? __( $rtp_post_comments['prev_text'], 'rtPanel' ) : __( '&laquo; Previous', 'rtPanel' );
 $rtp_post_comments['next_text'] = isset( $rtp_post_comments['next_text'] ) ? __( $rtp_post_comments['next_text'], 'rtPanel' ) : __( 'Next &raquo;', 'rtPanel' );
 $rtp_post_comments['end_size']  = isset( $rtp_post_comments['end_size'] ) ? $rtp_post_comments['end_size'] : 1;
