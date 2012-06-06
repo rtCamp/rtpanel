@@ -48,7 +48,8 @@ class rtp_ogp {
         global $post, $rtp_general;
         $data = array();
         $append = '';
-        if( strlen( wp_html_excerpt( @$post->post_content, 130 ) ) >= 130 )
+        $post_content = ( $post->post_excerpt ) ? $post->post_excerpt : $post->post_content;
+        if( strlen( wp_html_excerpt( $post_content, 130 ) ) >= 130 )
             $append = '...';
 
         if ( !empty( $rtp_general['fb_app_id'] ) )
@@ -60,11 +61,11 @@ class rtp_ogp {
         $data['og:site_name'] = get_bloginfo('name');
 
         if ( is_singular () ) {
-            $data['og:title'] = get_the_title();
+            $data['og:title'] = $post->post_title;
             $data['og:type'] = 'article';
             $data['og:image'] = $this->rtp_ogp_image_url();
             $data['og:url'] = get_permalink();
-            $data['og:description'] = wp_html_excerpt( $post->post_content, 130 ).$append;
+            $data['og:description'] = wp_html_excerpt( $post_content, 130 ).$append;
         }
         else {
             $data['og:title'] = get_bloginfo('name');
