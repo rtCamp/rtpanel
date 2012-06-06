@@ -13,7 +13,7 @@ get_header(); ?>
         if ( is_search() || is_archive() ) {
             $rtp_content_class = ' class="rtp-grid-8 rtp-multiple-post" ';
         } elseif ( is_page() || is_single() || is_404() ) {
-            $rtp_content_class = ' class="rtp-grid-8 rtp-single-post" ';
+            $rtp_content_class = ' class="rtp-grid-8 rtp-singular" ';
         } elseif ( is_home() ) {
             $rtp_content_class = ' class="rtp-grid-8 rtp-blog-post" ';
         } else {
