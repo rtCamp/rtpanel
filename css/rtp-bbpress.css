@@ -10,8 +10,8 @@ div.bbp-breadcrumb, div.bbp-topic-tags { font-size: 12px; }
 #content p.bbp-topic-meta img.avatar { margin-bottom: 5px; }
 #content p.bbp-topic-meta { color: #666; font-size: 12px; font-style: italic; }
 #content p.bbp-topic-meta a { font-style: normal; }
-.rtp-single-post .post-content a { color: #0279B5; }
-.rtp-single-post .post-content a:hover { color: #CD3517; }
+.rtp-singular .post-content a { color: #0279B5; }
+.rtp-singular .post-content a:hover { color: #CD3517; }
 span.bbp-admin-links, span.bbp-author-ip { color: #999; }
 fieldset span.bbp-admin-links { line-height: 31px; }
 #content fieldset.bbp-form textarea, #container fieldset.bbp-form textarea, #wrapper fieldset.bbp-form textarea, #content fieldset.bbp-form select, #container fieldset.bbp-form select, #wrapper fieldset.bbp-form select, #content fieldset.bbp-form input, #container fieldset.bbp-form input, #wrapper fieldset.bbp-form input { margin: 2px; }
@@ -28,7 +28,7 @@ div.bbp-template-notice { margin: 10px 0; padding: 8px 10px; }
 #content fieldset.bbp-form legend, #container fieldset.bbp-form legend, #wrapper fieldset.bbp-form legend { padding: 0 5px; }
 #content fieldset.bbp-form label, #container fieldset.bbp-form label, #wrapper fieldset.bbp-form label { font-size: 13px; margin: 0 2px; }
 div.bbp-template-notice p { margin: 0 !important; padding: 0; }
-.forum-archive .forum .post-title { font-size: 28px; }
+.single-forum .forum .post-title, .forum-archive .forum .post-title { font-size: 28px; line-height: 1.75em; }
 .bbp-breadcrumb-home { text-decoration: underline; }
 input[type="password"] { background: #FFF; border: 1px solid #DDD; padding: 5px; box-shadow: none; }
 .bbp-pagination-count { line-height: 31px; }
