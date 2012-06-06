@@ -243,7 +243,7 @@ h1 a:hover, h2 a:hover { color: #CD3517; text-decoration: none; }
 .rtp-common-link a, .rtp-common-link a:visited, .rtp-common-link a:active { color: #666; }
 .rtp-common-link:hover, .rtp-common-link span:hover, .rtp-common-link a:hover { color: #111; }
 
-.rtp-readmore, .rtp-readmore:visited { font-size: 13px; font-style: normal; margin: 0 0 7px; text-decoration: none; }
+.rtp-readmore, .rtp-readmore:visited { font-size: 13px; font-style: normal; margin: 0 0 7px; }
 
 /* Header */
 #header { margin-top: 10px; margin-bottom: 10px; }
@@ -309,7 +309,7 @@ h1 a:hover, h2 a:hover { color: #CD3517; text-decoration: none; }
     .rtp-main-title { border-bottom: 3px double #DDD; float: none; padding: 10px 0 5px; }
     .post-content { clear: both; }
         .rtp-singular .post-content a { text-decoration: underline; }
-        .blog .post-content p, .archive .post-content p { margin-top: 0px; }
+        .blog .post-content p, .search-results .post-content p, .archive .post-content p { margin-top: 0px; }
         .comment-text pre, .post-content pre { padding: 8px; }
 
 /* Attachment Style */
@@ -326,17 +326,17 @@ h1 a:hover, h2 a:hover { color: #CD3517; text-decoration: none; }
 
 /* Post Images */
 img { margin: 5px; height: auto; max-width: 97%; }
-.post-content img.alignnone { margin: 7px 10px 7px 0; }
-.post-content img.aligncenter { margin: 7px auto; }
-.post-content img.alignleft { margin: 7px 15px 7px 0px; }
-.post-content img.alignright { margin: 7px 0px 7px 15px; }
+.post-content img.alignnone { margin: 5px 10px 5px 0; }
+.post-content img.aligncenter { margin: 5px auto; }
+.post-content img.alignleft { margin: 5px 15px 5px 0px; }
+.post-content img.alignright { margin: 5px 0px 5px 15px; }
 .rtp-blog-post img.post-thumb { margin-bottom: 17px; }
 
 /* Thumbnail with shadow effect */
 .rtp-thumbnail-shadow img { box-shadow: 0 0 4px #CCC; padding: 4px; }
     .rtp-thumbnail-shadow img.alignleft { margin-left: 5px; }
     .rtp-thumbnail-shadow img.alignright { margin-right: 5px; }
-    .rtp-thumbnail-shadow img.aligncenter { margin: 7px auto; }
+    .rtp-thumbnail-shadow img.aligncenter { margin: 5px auto; }
     .rtp-thumbnail-shadow a.aligncenter, .rtp-no-thumbnail-shadow a.aligncenter { display: inline-block; }
 
 /* Image Caption Style */
