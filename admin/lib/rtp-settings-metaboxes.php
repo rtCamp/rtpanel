@@ -7,6 +7,14 @@
  * @since rtPanel 2.0
  */
 
+/* Define plugin support constants */
+define( 'RTP_HOOKS_EDITOR', 'rtpanel-hooks-editor/rtpanel-hooks-editor.php' );
+define( 'RTP_SUBSCRIBE_TO_COMMENTS', 'subscribe-to-comments/subscribe-to-comments.php' );
+define( 'RTP_WP_PAGENAVI', 'wp-pagenavi/wp-pagenavi.php' );
+define( 'RTP_YOAST_SEO', 'wordpress-seo/wp-seo.php' );
+define( 'RTP_BREADCRUMB_NAVXT', 'breadcrumb-navxt/breadcrumb_navxt_admin.php' );
+define( 'RTP_REGENERATE_THUMBNAILS', 'regenerate-thumbnails/regenerate-thumbnails.php' );
+
 /**
  * Registers rtPanel General and Post & Comments options
  *
