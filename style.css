@@ -535,7 +535,7 @@ img { margin: 5px; height: auto; max-width: 97%; }
 .ie .clearfix { zoom: 1; }
 
 /* Responsive Structure */
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 960px) {
     body { -webkit-text-size-adjust: none; }
     .rtp-container-12 { max-width: 99%; }
     .rtp-grid-1, .rtp-grid-2, .rtp-grid-3, .rtp-grid-4, .rtp-grid-5, .rtp-grid-6, .rtp-grid-7, .rtp-grid-8, .rtp-grid-9, .rtp-grid-10, .rtp-grid-11, .rtp-grid-12 { margin-left: 1%; margin-right: 1%; }
@@ -551,13 +551,13 @@ img { margin: 5px; height: auto; max-width: 97%; }
         .rtp-grid-10 { width: 81.333%; }
         .rtp-grid-11 { width: 89.667%; }
         .rtp-grid-12 { width: 98%; }
+        .social-icons li { margin: 0 9px 9px 0; }
+        input[type='text'], input[type='tel'], input[type='color'], input[type='search'], input[type='number'], input[type='url'], input[type='email'], input[type='password'], textarea, select { width: 94%; }
 }
 
 /* iPad Portrait 768 x 1024 */
 @media screen and (max-width: 768px) {
-    .social-icons li { margin: 0 9px 9px 0; }
     input[type='search'] { height: auto; }
-    input[type='text'], input[type='tel'], input[type='color'], input[type='search'], input[type='number'], input[type='url'], input[type='email'], input[type='password'], textarea, select { width: 94%; }
 }
 
 @media screen and (max-width: 640px) {
