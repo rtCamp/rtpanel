@@ -561,11 +561,10 @@ img { margin: 5px; height: auto; max-width: 97%; }
 }
 
 @media screen and (max-width: 640px) {
-    #content, #sidebar { width: 98%; }
-    #rtp-primary-menu { border: 0; }
-    #rtp-nav-menu { border-left: 1px solid #DDD; border-top: 1px solid #DDD; float: none; overflow: hidden; }
-    #rtp-nav-menu li { border-bottom: 1px solid #DDD; border-right: 1px solid #DDD; text-align: center; width: 50%; }
-    #rtp-nav-menu li:nth-child(2n+1) { clear: both; }
+    .rtp-grid-8, .rtp-grid-4 { width: 98%; }
+    #rtp-nav-menu { float: none; overflow: hidden; }
+    #rtp-nav-menu li { border-top: 1px solid #DDD; text-align: center; clear: both; width: 100%; }
+    #rtp-nav-menu li:first-child { border-width: 0; }
     #rtp-nav-menu ul { display: none !important; }
 }
 
@@ -574,22 +573,21 @@ img { margin: 5px; height: auto; max-width: 97%; }
     .rtp-site-logo { text-align: center; }
     .rtp-site-logo img { max-width: 60%; }
     .tagline { text-align: center; }
-    #rtp-primary-menu { width: 98.6%; }
+    #rtp-primary-menu, .rtp-grid-8, .rtp-grid-4 { width: 98.6%; }
     .gallery-icon .attachment-thumbnail { max-width: 84%; padding: 1px; }
-    .rtp-container-12 .rtp-grid-8, .rtp-container-12 .rtp-grid-4 { width: 98%; }
     .email-subscription-container label { display: block; }
 }
 
 /* Nicer Android landscape 515 x 295 */
 @media screen and (max-width: 515px) {
-    #rtp-primary-menu { width: 98%; }
+    #rtp-primary-menu, .rtp-grid-8, .rtp-grid-4 { width: 98%; }
     iframe { height: auto; }
     input[type="text"], input[type="tel"], input[type="color"], input[type="search"], input[type="number"], input[type="url"], input[type="email"], input[type="password"], textarea, select { width: 65%; }
 }
 
 /* iPhone Landscape 480 x 320 */
 @media screen and (max-width: 480px) {
-    #rtp-primary-menu { width: 98.6%; }
+    #rtp-primary-menu, .rtp-grid-8, .rtp-grid-4 { width: 98.6%; }
     .rtp-singular .rtp-post-comment-count { clear: both; float: left; margin: 0; }
     .wp-caption.aligncenter, .wp-caption.alignnone, .wp-caption.alignleft, .wp-caption.alignright,
     .post-content img.alignnone, .post-content img.aligncenter, .post-content img.alignleft, .post-content img.alignright { display: block; float: none; margin: 7px auto; }
@@ -606,7 +604,6 @@ img { margin: 5px; height: auto; max-width: 97%; }
     h4 { font-size: 16px; }
     h5 { font-size: 14px; }
     h6 { font-size: 12px; }
-    #rtp-nav-menu li { clear: both; width: 100%; }
     input[type='text'], input[type='tel'], input[type='color'], input[type='search'], input[type='number'], input[type='url'], input[type='email'], input[type='password'], textarea, select { padding: 3px; }
     input[type="button"], input[type="submit"], input[type="reset"], button { padding: 3px 5px; }
     caption, th, td { padding: 3px; }
@@ -624,7 +621,7 @@ img { margin: 5px; height: auto; max-width: 97%; }
 
 /* Crappy Android Portrait 240 x 320 */
 @media screen and (max-width: 240px) {
-    #rtp-primary-menu { width: 99%; }
+    #rtp-primary-menu, .rtp-grid-8, .rtp-grid-4 { width: 99%; }
     input[type="text"], input[type="tel"], input[type="color"], input[type="search"], input[type="number"], input[type="url"], input[type="email"], input[type="password"], textarea, select { width: 90%; }
 }
 
