@@ -2,8 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: rtPanel 2.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-28 12:01+0530\n"
-"PO-Revision-Date: 2012-05-28 12:01+0530\n"
+"PO-Revision-Date: 2012-06-06 12:01+0530\n"
 "Last-Translator: rtCamp <support@rtcamp.com>\n"
 "Language-Team: rtCampers\n"
 "MIME-Version: 1.0\n"
@@ -13,8 +12,8 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-Language: English\n"
-"X-Poedit-Country: India\n"
 "X-Poedit-SearchPath-0: ..\n"
+
 
 #: ../404.php:14
 #: ../loop-common.php:86
@@ -39,7 +38,7 @@ msgstr[1] ""
 
 #: ../comments.php:25
 #, php-format
-msgid "<span class=\"rtp-thoughts\">Add your <a href=\"%s\" title=\"Add your thoughts\">thoughts</a></span>"
+msgid "<span class=\"rtp-thoughts\">Add your <a role=\"link\" href=\"%s\" title=\"Add your thoughts\">thoughts</a></span>"
 msgstr ""
 
 #: ../comments.php:31
@@ -80,28 +79,28 @@ msgstr ""
 msgid "Your email address will not be published."
 msgstr ""
 
-#: ../comments.php:105
+#: ../comments.php:107
 msgid "Comment..."
 msgstr ""
 
-#: ../comments.php:106
-#: ../comments.php:107
+#: ../comments.php:108
+#: ../comments.php:109
 msgid "Leave a Comment"
 msgstr ""
 
-#: ../comments.php:108
+#: ../comments.php:110
 msgid "Cancel reply"
 msgstr ""
 
-#: ../comments.php:109
+#: ../comments.php:111
 msgid "Submit"
 msgstr ""
 
-#: ../comments.php:120
+#: ../comments.php:122
 msgid "Trackback"
 msgstr ""
 
-#: ../comments.php:120
+#: ../comments.php:122
 msgid "Trackbacks"
 msgstr ""
 
@@ -121,14 +120,14 @@ msgstr ""
 
 #: ../footer.php:32
 #, php-format
-msgid "Designed on <a href=\"%s\" class=\"rtp-common-link\" title=\"rtPanel WordPress Theme Framework\">rtPanel WordPress Theme Framework</a>."
-msgstr ""
-
-#: ../functions.php:16
-msgid "&laquo; Previous"
+msgid "Designed on <a role=\"link\" href=\"%s\" class=\"rtp-common-link\" title=\"rtPanel WordPress Theme Framework\">rtPanel WordPress Theme Framework</a>."
 msgstr ""
 
 #: ../functions.php:17
+msgid "&laquo; Previous"
+msgstr ""
+
+#: ../functions.php:18
 msgid "Next &raquo;"
 msgstr ""
 
@@ -185,63 +184,63 @@ msgstr ""
 msgid "Post &amp; Comments"
 msgstr ""
 
-#: ../admin/rtp-theme-options.php:212
+#: ../admin/rtp-theme-options.php:198
 msgid "Logo Settings"
 msgstr ""
 
-#: ../admin/rtp-theme-options.php:213
+#: ../admin/rtp-theme-options.php:199
 msgid "Favicon Settings"
 msgstr ""
 
-#: ../admin/rtp-theme-options.php:214
+#: ../admin/rtp-theme-options.php:200
 msgid "Facebook Open Graph Settings"
 msgstr ""
 
-#: ../admin/rtp-theme-options.php:215
+#: ../admin/rtp-theme-options.php:201
 msgid "Feedburner Settings"
 msgstr ""
 
-#: ../admin/rtp-theme-options.php:216
+#: ../admin/rtp-theme-options.php:202
 msgid "Google Custom Search Integration"
 msgstr ""
 
-#: ../admin/rtp-theme-options.php:217
+#: ../admin/rtp-theme-options.php:203
 msgid "Sidebar Settings"
 msgstr ""
 
-#: ../admin/rtp-theme-options.php:218
+#: ../admin/rtp-theme-options.php:204
 msgid "Custom Styles"
 msgstr ""
 
-#: ../admin/rtp-theme-options.php:219
+#: ../admin/rtp-theme-options.php:205
 msgid "Plugin Support"
 msgstr ""
 
-#: ../admin/rtp-theme-options.php:220
+#: ../admin/rtp-theme-options.php:206
 msgid "Backup / Restore Settings"
 msgstr ""
 
-#: ../admin/rtp-theme-options.php:225
+#: ../admin/rtp-theme-options.php:211
 msgid "Post Summary Settings"
 msgstr ""
 
-#: ../admin/rtp-theme-options.php:226
+#: ../admin/rtp-theme-options.php:212
 msgid "Post Thumbnail Settings"
 msgstr ""
 
-#: ../admin/rtp-theme-options.php:227
+#: ../admin/rtp-theme-options.php:213
 msgid "Post Meta Settings"
 msgstr ""
 
-#: ../admin/rtp-theme-options.php:228
+#: ../admin/rtp-theme-options.php:214
 msgid "Pagination Settings"
 msgstr ""
 
-#: ../admin/rtp-theme-options.php:229
+#: ../admin/rtp-theme-options.php:215
 msgid "Comment Form Settings"
 msgstr ""
 
-#: ../admin/rtp-theme-options.php:230
+#: ../admin/rtp-theme-options.php:216
 msgid "Gravatar Settings"
 msgstr ""
 
@@ -1372,94 +1371,116 @@ msgid "Hook After Footer"
 msgstr ""
 
 #: ../etc/upcoming/rt-custom-taxonomy.php:7
+#: ../etc/upcoming/lib/rt-custom-taxonomy.php:7
 msgctxt "taxonomy general name"
 msgid "Job Types"
 msgstr ""
 
 #: ../etc/upcoming/rt-custom-taxonomy.php:8
+#: ../etc/upcoming/lib/rt-custom-taxonomy.php:8
 msgctxt "taxonomy singular name"
 msgid "Job Type"
 msgstr ""
 
 #: ../etc/upcoming/rt-custom-taxonomy.php:9
+#: ../etc/upcoming/lib/rt-custom-taxonomy.php:9
 msgid "Search Job Types"
 msgstr ""
 
 #: ../etc/upcoming/rt-custom-taxonomy.php:10
+#: ../etc/upcoming/lib/rt-custom-taxonomy.php:10
 msgid "All Job Types"
 msgstr ""
 
 #: ../etc/upcoming/rt-custom-taxonomy.php:11
+#: ../etc/upcoming/lib/rt-custom-taxonomy.php:11
 msgid "Parent Job Type"
 msgstr ""
 
 #: ../etc/upcoming/rt-custom-taxonomy.php:12
+#: ../etc/upcoming/lib/rt-custom-taxonomy.php:12
 msgid "Parent Job Type:"
 msgstr ""
 
 #: ../etc/upcoming/rt-custom-taxonomy.php:13
+#: ../etc/upcoming/lib/rt-custom-taxonomy.php:13
 msgid "Edit Job Type"
 msgstr ""
 
 #: ../etc/upcoming/rt-custom-taxonomy.php:14
+#: ../etc/upcoming/lib/rt-custom-taxonomy.php:14
 msgid "Update Job Type"
 msgstr ""
 
 #: ../etc/upcoming/rt-custom-taxonomy.php:15
+#: ../etc/upcoming/lib/rt-custom-taxonomy.php:15
 msgid "Add New Job Type"
 msgstr ""
 
 #: ../etc/upcoming/rt-custom-taxonomy.php:16
+#: ../etc/upcoming/lib/rt-custom-taxonomy.php:16
 msgid "New Job Type Name"
 msgstr ""
 
 #: ../etc/upcoming/rt-custom-taxonomy.php:17
+#: ../etc/upcoming/lib/rt-custom-taxonomy.php:17
 msgid "Job Type"
 msgstr ""
 
 #: ../etc/upcoming/rt-custom-taxonomy.php:30
+#: ../etc/upcoming/lib/rt-custom-taxonomy.php:30
 msgctxt "taxonomy general name"
 msgid "Skills"
 msgstr ""
 
 #: ../etc/upcoming/rt-custom-taxonomy.php:31
+#: ../etc/upcoming/lib/rt-custom-taxonomy.php:31
 msgctxt "taxonomy singular name"
 msgid "Skill"
 msgstr ""
 
 #: ../etc/upcoming/rt-custom-taxonomy.php:32
+#: ../etc/upcoming/lib/rt-custom-taxonomy.php:32
 msgid "Search Skills"
 msgstr ""
 
 #: ../etc/upcoming/rt-custom-taxonomy.php:33
+#: ../etc/upcoming/lib/rt-custom-taxonomy.php:33
 msgid "All Skills"
 msgstr ""
 
 #: ../etc/upcoming/rt-custom-taxonomy.php:34
+#: ../etc/upcoming/lib/rt-custom-taxonomy.php:34
 msgid "Parent Skill"
 msgstr ""
 
 #: ../etc/upcoming/rt-custom-taxonomy.php:35
+#: ../etc/upcoming/lib/rt-custom-taxonomy.php:35
 msgid "Parent Skill:"
 msgstr ""
 
 #: ../etc/upcoming/rt-custom-taxonomy.php:36
+#: ../etc/upcoming/lib/rt-custom-taxonomy.php:36
 msgid "Edit Skill"
 msgstr ""
 
 #: ../etc/upcoming/rt-custom-taxonomy.php:37
+#: ../etc/upcoming/lib/rt-custom-taxonomy.php:37
 msgid "Update Skill"
 msgstr ""
 
 #: ../etc/upcoming/rt-custom-taxonomy.php:38
+#: ../etc/upcoming/lib/rt-custom-taxonomy.php:38
 msgid "Add New Skill"
 msgstr ""
 
 #: ../etc/upcoming/rt-custom-taxonomy.php:39
+#: ../etc/upcoming/lib/rt-custom-taxonomy.php:39
 msgid "New Skill Name"
 msgstr ""
 
 #: ../etc/upcoming/rt-custom-taxonomy.php:40
+#: ../etc/upcoming/lib/rt-custom-taxonomy.php:40
 msgid "Skill"
 msgstr ""
 
@@ -1566,11 +1587,11 @@ msgid "Password"
 msgstr ""
 
 #: ../lib/rtp-search.php:26
-#: ../lib/rtp-search.php:30
+#: ../lib/rtp-search.php:31
 msgid "Search Here..."
 msgstr ""
 
-#: ../lib/rtp-search.php:29
+#: ../lib/rtp-search.php:30
 msgid "Search for:"
 msgstr ""
 
@@ -1602,231 +1623,227 @@ msgstr ""
 msgid "Subscribe"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:84
-msgid "Stay Connected"
-msgstr ""
-
-#: ../lib/rtp-widgets.php:86
+#: ../lib/rtp-widgets.php:85
 msgid "Follow Us on Facebook"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:87
+#: ../lib/rtp-widgets.php:86
 msgid "Follow Us on Twitter"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:88
+#: ../lib/rtp-widgets.php:87
 msgid "Follow Us on Google+"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:89
+#: ../lib/rtp-widgets.php:88
 msgid "Subscribe via RSS"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:90
+#: ../lib/rtp-widgets.php:89
 msgid "Follow Us on LinkedIn"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:91
+#: ../lib/rtp-widgets.php:90
 msgid "Follow Us on MySpace"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:92
+#: ../lib/rtp-widgets.php:91
 msgid "Follow Us on StumbleUpon"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:97
+#: ../lib/rtp-widgets.php:96
 msgid "Please configure this widget."
 msgstr ""
 
-#: ../lib/rtp-widgets.php:161
-#: ../lib/rtp-widgets.php:346
-#: ../lib/rtp-widgets.php:495
+#: ../lib/rtp-widgets.php:160
+#: ../lib/rtp-widgets.php:361
+#: ../lib/rtp-widgets.php:510
 msgid "Title"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:162
+#: ../lib/rtp-widgets.php:161
 msgid "FeedBurner RSS Subscription"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:165
+#: ../lib/rtp-widgets.php:164
 msgid "Feedburner Subscription Handler"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:167
+#: ../lib/rtp-widgets.php:166
 #, php-format
 msgid "Ex: %s would be the FeedBurner Subscription Handler for %s"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:169
+#: ../lib/rtp-widgets.php:168
 msgid "Social Share"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:172
+#: ../lib/rtp-widgets.php:171
 msgid "RSS Feed Link"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:177
+#: ../lib/rtp-widgets.php:176
 msgid "Facebook Link"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:182
+#: ../lib/rtp-widgets.php:181
 msgid "Twitter Link"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:187
+#: ../lib/rtp-widgets.php:186
 msgid "Google+ Link"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:192
+#: ../lib/rtp-widgets.php:191
 msgid "LinkedIn Link"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:197
+#: ../lib/rtp-widgets.php:196
 msgid "MySpace Link"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:202
+#: ../lib/rtp-widgets.php:201
 msgid "StumbleUpon Link"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:207
+#: ../lib/rtp-widgets.php:206
 msgid "Open Social Links in New Tab/Window"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:227
+#: ../lib/rtp-widgets.php:226
 msgid "Shows Recent Comments with an option for displaying Author Gravatar also."
 msgstr ""
 
-#: ../lib/rtp-widgets.php:228
+#: ../lib/rtp-widgets.php:227
 msgid "rtPanel: Comments with Gravatar"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:242
+#: ../lib/rtp-widgets.php:241
 msgid "Recent Comments"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:350
+#: ../lib/rtp-widgets.php:365
 msgid "Show Gravatar"
-msgstr ""
-
-#: ../lib/rtp-widgets.php:356
-msgid "32px X 32px"
-msgstr ""
-
-#: ../lib/rtp-widgets.php:357
-msgid "40px X 40px"
-msgstr ""
-
-#: ../lib/rtp-widgets.php:358
-msgid "48px X 48px"
-msgstr ""
-
-#: ../lib/rtp-widgets.php:359
-msgid "56px X 56px"
-msgstr ""
-
-#: ../lib/rtp-widgets.php:360
-msgid "64px X 64px"
-msgstr ""
-
-#: ../lib/rtp-widgets.php:364
-msgid "Show Comments"
-msgstr ""
-
-#: ../lib/rtp-widgets.php:366
-#, php-format
-msgid "You have total '%d' comments to display"
 msgstr ""
 
 #: ../lib/rtp-widgets.php:369
 msgid "Show Alternate Comments"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:395
-msgid "A list or dropdown of categories with extra options."
+#: ../lib/rtp-widgets.php:375
+msgid "32px X 32px"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:396
-msgid "rtPanel: Categories"
+#: ../lib/rtp-widgets.php:376
+msgid "40px X 40px"
+msgstr ""
+
+#: ../lib/rtp-widgets.php:377
+msgid "48px X 48px"
+msgstr ""
+
+#: ../lib/rtp-widgets.php:378
+msgid "56px X 56px"
+msgstr ""
+
+#: ../lib/rtp-widgets.php:379
+msgid "64px X 64px"
+msgstr ""
+
+#: ../lib/rtp-widgets.php:383
+msgid "Show Comments"
+msgstr ""
+
+#: ../lib/rtp-widgets.php:385
+#, php-format
+msgid "You have total '%d' comments to display"
 msgstr ""
 
 #: ../lib/rtp-widgets.php:410
+msgid "A list or dropdown of categories with extra options."
+msgstr ""
+
+#: ../lib/rtp-widgets.php:411
+msgid "rtPanel: Categories"
+msgstr ""
+
+#: ../lib/rtp-widgets.php:425
 msgid "Categories"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:499
+#: ../lib/rtp-widgets.php:514
 msgid "Order by"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:501
+#: ../lib/rtp-widgets.php:516
 msgid "Category Name"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:502
+#: ../lib/rtp-widgets.php:517
 msgid "Category ID"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:503
+#: ../lib/rtp-widgets.php:518
 msgid "Category Count"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:504
+#: ../lib/rtp-widgets.php:519
 msgid "Category Slug"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:508
+#: ../lib/rtp-widgets.php:523
 msgid "Sort by"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:510
+#: ../lib/rtp-widgets.php:525
 msgid "Ascending"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:511
+#: ../lib/rtp-widgets.php:526
 msgid "Descending"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:515
+#: ../lib/rtp-widgets.php:530
 msgid "Show Category"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:517
+#: ../lib/rtp-widgets.php:532
 msgid "Total Categories"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:520
+#: ../lib/rtp-widgets.php:535
 msgid "Style"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:522
+#: ../lib/rtp-widgets.php:537
 msgid "List"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:523
+#: ../lib/rtp-widgets.php:538
 msgid "Dropdown"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:527
+#: ../lib/rtp-widgets.php:542
 msgid "Exclude"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:529
+#: ../lib/rtp-widgets.php:544
 msgid "Separate Category ID with \",\""
 msgstr ""
 
-#: ../lib/rtp-widgets.php:529
+#: ../lib/rtp-widgets.php:544
 msgid "Ex: 1,5,15"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:533
+#: ../lib/rtp-widgets.php:548
 msgid "Show Hierarchy"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:537
+#: ../lib/rtp-widgets.php:552
 msgid "Hide Empty"
 msgstr ""
 
-#: ../lib/rtp-widgets.php:541
+#: ../lib/rtp-widgets.php:556
 msgid "Show post counts"
 msgstr ""
 
