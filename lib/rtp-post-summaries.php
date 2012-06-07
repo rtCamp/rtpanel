@@ -441,7 +441,7 @@ function rtp_html5_caption( $output, $attr, $content ) {
 
     if ( $id ) $idtag = 'id="' . esc_attr($id) . '" ';
 
-    return '<figure ' . $idtag . 'aria-describedby="figcaption_' . $id . '" class="wp-caption ' . esc_attr($align) . '" style="width: ' . (10 + (int) $width) . 'px">'
+    return '<figure ' . $idtag . 'aria-describedby="figcaption_' . $id . '" class="wp-caption ' . esc_attr($align) . '" style="width: ' . ((int) $width) . 'px">'
     . do_shortcode( $content ) . '<figcaption id="figcaption_' . $id . '" class="wp-caption-text">' . $caption . '</figcaption></figure>';
 }
 add_filter( 'img_caption_shortcode', 'rtp_html5_caption', '', 3 );
