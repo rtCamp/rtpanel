@@ -45,7 +45,7 @@ nav ul,nav ol{list-style:none;list-style-image:none;margin:0;}
 /* End Reset Browser CSS */
 
 /* Generic Border */
-#rtp-primary-menu,#rtp-nav-menu ul,pre,dt,.wp-caption,.avatar,
+#rtp-primary-menu,#rtp-nav-menu ul,pre,dt,.wp-caption,.avatar,.rtp-horizontal-border,.comments-container,#respond + .rtp-comments-header,.rtp-main-title, .comment-body + #respond,
 input[type=text],input[type=tel],input[type=color],input[type=search],input[type=number],input[type=url],input[type=email],input[type=password],input[type=button],input[type=submit],input[type=reset],textarea,select,button,input[type=date],input[type=datetime],input[type=datetime-local],input[type=month],input[type=tel],input[type=time],input[type=week],
 .page-link > a,.page-link > span,.breadcrumb,.comment-body,hr,blockquote,table,caption,th,td,code,#rtp-nav-menu ul a,.rtp-image-box .wp-caption + p,#respond form,#footer a,.rtp-thumbnail-shadow img,.gallery-icon .attachment-thumbnail,.rtp-sibling-attachments img,.sticky,.rtp-comment-count,
 #cse .gsc-results .gsc-cursor-box .gsc-cursor-page,.bbp-pagination-links > a,.bbp-pagination-links > span,.wp-pagenavi a,.wp-pagenavi span,#respond .form-allowed-tags,.widget_calendar table,.widget_calendar td{border:1px solid #DDD}
@@ -141,8 +141,8 @@ code, pre, dt, #rtp-nav-menu li:hover > a, #rtp-nav-menu .current_page_item > a,
 th, #rtp-primary-menu, #rtp-nav-menu ul, .rtp-sibling-attachments img, .wp-caption, .gallery-icon .attachment-thumbnail, .comment-author-admin > .comment-body, .bypostauthor > .comment-body, .byuser > .comment-body { background: #F5F5F5; }
 
 /* Same Border Elements */
-.rtp-horizontal-border, .comments-container, #respond + .rtp-comments-header { border-top: 3px double #DDD; }
-.rtp-main-title, .comment-body + #respond { border-bottom: 3px double #DDD; }
+ .rtp-horizontal-border, .comments-container, #respond + .rtp-comments-header { border-width: 1px 0 0; }
+.rtp-main-title, .comment-body + #respond { border-width: 0 0 1px; }
 
 /* Generic Form Elements */
 label { cursor: pointer; margin: 0 3px; }
@@ -229,6 +229,7 @@ input[readonly], select[readonly], textarea[readonly] { background: #F9F9F9; box
 
 /* Horizontal Border */
 .rtp-horizontal-border { clear: both; }
+#footerbar + .rtp-horizontal-border { border-top: 3px double #DDD; }
 
 /* Layout */
 body { color: #333; }
@@ -320,6 +321,7 @@ h1 a:hover, h2 a:hover { color: #CD3517; text-decoration: none; }
         .rtp-singular .post-content a { text-decoration: underline; }
         .blog .post-content p, .search-results .post-content p, .archive .post-content p { margin-top: 0px; }
         .comment-text pre, .post-content pre { padding: 8px; }
+        #post-0 .post-content { margin-bottom: 10px; }
 
 /* Attachment Style */
 .attachment .hentry { padding: 0 0 10px; }
@@ -497,7 +499,7 @@ img.alignright { margin: 5px 0px 5px 15px; }
     .widget .social-icons { margin: 10px 0 0; width: 100%; }
          .social-icons li { float: left; list-style: none; margin: 0 0 0 9px; padding: 0; }
         .social-icons li:first-child { margin-left: 0; }
-            .social-icons a { background: url('./img/rtp-social-icons-32-32.png') no-repeat; display: block; height: 35px; margin: 0; padding: 0; text-indent: -9999px; text-transform: uppercase; width: 35px; }
+            .social-icons a { background: url('./img/rtp-social-icons-32-32.png') no-repeat; display: block; height: 35px; margin: 0; overflow: hidden; padding: 0; text-indent: -9999px; text-transform: uppercase; width: 35px; }
                 .social-icons a.facebook:hover { background-position: 0 -44px; }
             .social-icons a.twitter { background-position: -44px 0; }
                 .social-icons a.twitter:hover { background-position: -44px -44px; }
