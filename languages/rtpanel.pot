@@ -2,7 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: rtPanel 2.1\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2012-06-06 12:01+0530\n"
+"POT-Creation-Date: 2012-06-07 19:13+0530\n"
+"PO-Revision-Date: 2012-06-07 19:13+0530\n"
 "Last-Translator: rtCamp <support@rtcamp.com>\n"
 "Language-Team: rtCampers\n"
 "MIME-Version: 1.0\n"
@@ -13,7 +14,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-Language: English\n"
 "X-Poedit-SearchPath-0: ..\n"
-
 
 #: ../404.php:14
 #: ../loop-common.php:86
@@ -67,7 +67,6 @@ msgid "Website"
 msgstr ""
 
 #: ../comments.php:62
-#: ../admin/lib/rtp-settings-metaboxes.php:325
 msgid "Name"
 msgstr ""
 
@@ -79,28 +78,28 @@ msgstr ""
 msgid "Your email address will not be published."
 msgstr ""
 
-#: ../comments.php:107
+#: ../comments.php:105
 msgid "Comment..."
 msgstr ""
 
-#: ../comments.php:108
-#: ../comments.php:109
+#: ../comments.php:106
+#: ../comments.php:107
 msgid "Leave a Comment"
 msgstr ""
 
-#: ../comments.php:110
+#: ../comments.php:108
 msgid "Cancel reply"
 msgstr ""
 
-#: ../comments.php:111
+#: ../comments.php:109
 msgid "Submit"
 msgstr ""
 
-#: ../comments.php:122
+#: ../comments.php:120
 msgid "Trackback"
 msgstr ""
 
-#: ../comments.php:122
+#: ../comments.php:120
 msgid "Trackbacks"
 msgstr ""
 
@@ -118,7 +117,7 @@ msgstr ""
 msgid "Meta"
 msgstr ""
 
-#: ../footer.php:32
+#: ../footer.php:34
 #, php-format
 msgid "Designed on <a role=\"link\" href=\"%s\" class=\"rtp-common-link\" title=\"rtPanel WordPress Theme Framework\">rtPanel WordPress Theme Framework</a>."
 msgstr ""
@@ -176,7 +175,7 @@ msgid "Search"
 msgstr ""
 
 #: ../admin/rtp-theme-options.php:36
-#: ../admin/lib/rtp-admin-functions.php:1089
+#: ../admin/lib/rtp-admin-functions.php:358
 msgid "General"
 msgstr ""
 
@@ -244,515 +243,501 @@ msgstr ""
 msgid "Gravatar Settings"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:65
-#: ../admin/lib/rtp-admin-functions.php:77
-msgid "The Logo Settings have been updated."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:69
-#: ../admin/lib/rtp-admin-functions.php:80
-msgid "The Uploaded Image is invalid or is an invalid Logo Image type."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:117
-#: ../admin/lib/rtp-admin-functions.php:128
-msgid "The Favicon Settings have been updated."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:144
-msgid "The FeedBurner URL is not a valid url. The changes made have been reverted."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:146
-msgid "The FeedBurner Settings have been updated."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:152
-msgid "The Facebook App ID has been updated."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:157
-msgid "The Facebook Admin ID(s) has been updated."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:163
-msgid "Google Search Code Error : While generating the code the hosting option must be \"Search Element\" and layout either \"full-width\" or \"compact\". The changes made have been reverted."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:165
-msgid "Google Custom Search Integration has been updated."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:172
-#: ../admin/lib/rtp-admin-functions.php:196
-#: ../admin/lib/rtp-admin-functions.php:220
-#: ../admin/lib/rtp-admin-functions.php:244
-#: ../admin/lib/rtp-admin-functions.php:268
-#: ../admin/lib/rtp-admin-functions.php:292
-msgid "You do not have sufficient permissions to activate this plugin."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:175
-msgid "rtPanel Hooks Editor Plugin has been Activated."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:180
-#: ../admin/lib/rtp-admin-functions.php:204
-#: ../admin/lib/rtp-admin-functions.php:228
-#: ../admin/lib/rtp-admin-functions.php:252
-#: ../admin/lib/rtp-admin-functions.php:276
-#: ../admin/lib/rtp-admin-functions.php:300
-msgid "You do not have sufficient permissions to deactivate this plugin."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:183
-msgid "rtPanel Hooks Editor Plugin has been Deactivated."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:188
-#: ../admin/lib/rtp-admin-functions.php:212
-#: ../admin/lib/rtp-admin-functions.php:236
-#: ../admin/lib/rtp-admin-functions.php:260
-#: ../admin/lib/rtp-admin-functions.php:284
-#: ../admin/lib/rtp-admin-functions.php:308
-msgid "You do not have sufficient permissions to delete this plugin."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:191
-msgid "rtPanel Hooks Editor Plugin has been Deleted."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:199
-msgid "Subscribe to Comments Plugin has been Activated."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:207
-msgid "Subscribe to Comments Plugin has been Deactivated."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:215
-msgid "Subscribe to Comments Plugin has been Deleted."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:223
-msgid "WP PageNavi Plugin has been Activated."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:231
-msgid "WP PageNavi Plugin has been Deactivated."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:239
-msgid "WP PageNavi Plugin has been Deleted."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:247
-msgid "Yoast WordPress SEO Plugin has been Activated."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:255
-msgid "Yoast WordPress SEO Plugin has been Deactivated."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:263
-msgid "Yoast WordPress SEO Plugin has been Deleted."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:271
-msgid "Breadcrumb NavXT Plugin has been Activated."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:279
-msgid "Breadcrumb NavXT Plugin has been Deactivated."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:287
-msgid "Breadcrumb NavXT Plugin has been Deleted."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:295
-msgid "Regenerate Thumbnails Plugin has been Activated."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:303
-msgid "Regenerate Thumbnails Plugin has been Deactivated."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:311
-msgid "Regenerate Thumbnails Plugin has been Deleted."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:326
-msgid "The Logo Settings have been restored to Default."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:337
-msgid "The Favicon Settings have been restored to Default."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:347
-msgid "The Facebook Open Graph Settings have been restored to Default."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:356
-msgid "The Feedburner Settings have been restored to Default."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:366
-msgid "The Google Custom Search Integration has been restored to Default."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:375
-msgid "The Sidebar Settings have been restored to Default."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:384
-msgid "Custom Styles has been restored to Default."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:393
-msgid "rtPanel Options have been imported successfully"
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:395
-msgid "Not a valid RTP file"
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:397
-msgid "The file is corrupt. There was an error while importing. Please Try Again"
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:401
-msgid "All the rtPanel General Settings have been restored to default."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:424
-#: ../admin/lib/rtp-admin-functions.php:495
-#: ../admin/lib/rtp-admin-functions.php:499
-msgid "The Post Summary Settings have been updated."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:428
-msgid "The Word Limit provided is invalid. Please provide a proper value."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:433
-msgid "The Thumbnail Width provided is invalid. Please provide a proper value."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:437
-#: ../admin/lib/rtp-admin-functions.php:446
-msgid "The Post Thumbnail Settings have been updated"
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:442
-msgid "The Thumbnail Height provided is invalid. Please provide a proper value."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:503
-msgid "The End Size provided is invalid. Please provide a proper value."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:507
-msgid "The Mid Size provided is invalid. Please provide a proper value."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:531
-msgid "The Post Summary Settings have been restored to default."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:543
-msgid "The Post Thumbnail Settings have been restored to default."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:577
-msgid "The Post Meta Settings have been restored to default."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:591
-msgid "The Pagination Settings have been restored to default."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:604
-msgid "The Comment Form Settings have been restored to default."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:615
-msgid "The Gravatar Settings have been restored to default."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:627
-msgid "All the rtPanel Post & Comments Settings have been restored to default."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:669
-msgid "Read More&hellip;"
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:881
+#: ../admin/lib/rtp-admin-functions.php:150
 msgid "Delete Permanently"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:883
-#: ../admin/lib/rtp-settings-metaboxes.php:347
-#: ../admin/lib/rtp-settings-metaboxes.php:377
-#: ../admin/lib/rtp-settings-metaboxes.php:407
-#: ../admin/lib/rtp-settings-metaboxes.php:437
-#: ../admin/lib/rtp-settings-metaboxes.php:466
-#: ../admin/lib/rtp-settings-metaboxes.php:495
+#: ../admin/lib/rtp-admin-functions.php:152
 msgid "Delete"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:884
+#: ../admin/lib/rtp-admin-functions.php:153
 #, php-format
 msgid "You are about to delete <strong>%s</strong>."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:885
+#: ../admin/lib/rtp-admin-functions.php:154
 msgid "Continue"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:886
+#: ../admin/lib/rtp-admin-functions.php:155
 msgid "Cancel"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:890
+#: ../admin/lib/rtp-admin-functions.php:159
 msgid "Move to Trash"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:890
+#: ../admin/lib/rtp-admin-functions.php:159
 msgid "Undo"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:927
-#: ../admin/lib/rtp-admin-functions.php:937
-#: ../admin/lib/rtp-admin-functions.php:968
-#: ../admin/lib/rtp-admin-functions.php:974
+#: ../admin/lib/rtp-admin-functions.php:196
+#: ../admin/lib/rtp-admin-functions.php:206
+#: ../admin/lib/rtp-admin-functions.php:237
+#: ../admin/lib/rtp-admin-functions.php:243
 msgid "Click to toggle"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:928
+#: ../admin/lib/rtp-admin-functions.php:197
 msgid "Getting Social is Good"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:930
+#: ../admin/lib/rtp-admin-functions.php:199
 msgid "Become a fan on Facebook"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:930
+#: ../admin/lib/rtp-admin-functions.php:199
 msgid "Facebook"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:931
+#: ../admin/lib/rtp-admin-functions.php:200
 msgid "Follow us on Twitter"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:931
+#: ../admin/lib/rtp-admin-functions.php:200
 msgid "Twitter"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:932
+#: ../admin/lib/rtp-admin-functions.php:201
 msgid "Subscribe to our feeds"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:932
+#: ../admin/lib/rtp-admin-functions.php:201
 msgid "RSS Feed"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:938
+#: ../admin/lib/rtp-admin-functions.php:207
 msgid "Promote, Donate, Share"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:940
+#: ../admin/lib/rtp-admin-functions.php:209
 #, php-format
 msgid "Buy coffee/beer for team behind <a href=\"%s\" title=\"rtPanel\">rtPanel</a>."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:959
+#: ../admin/lib/rtp-admin-functions.php:228
 msgid "Tweet"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:969
+#: ../admin/lib/rtp-admin-functions.php:238
 msgid "Free Support"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:970
+#: ../admin/lib/rtp-admin-functions.php:239
 #, php-format
 msgid "If you have any problems with this theme or good ideas for improvements, please talk about them in the <a href=\"%s\" target=\"_blank\" title=\"Click here for rtPanel Free Support\">Support forums</a>"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:975
+#: ../admin/lib/rtp-admin-functions.php:244
 msgid "Latest News"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1005
+#: ../admin/lib/rtp-admin-functions.php:274
 msgid "No items"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1010
+#: ../admin/lib/rtp-admin-functions.php:279
 msgid "Posted "
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1027
+#: ../admin/lib/rtp-admin-functions.php:296
 msgid "rtPanel is the most easy to use WordPress Theme Framework. You will find many state of the art options and widgets with rtPanel. "
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1029
+#: ../admin/lib/rtp-admin-functions.php:298
 msgid "rtPanel is a theme framework for the world. Keeping this in mind our developers have made it localization ready. "
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1030
-#: ../admin/lib/rtp-admin-functions.php:1060
+#: ../admin/lib/rtp-admin-functions.php:299
+#: ../admin/lib/rtp-admin-functions.php:329
 msgid "Developers can use rtPanel as a basic and stripped to bones theme framework for developing their own creative and wonderful WordPress Themes."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1032
-#: ../admin/lib/rtp-admin-functions.php:1062
+#: ../admin/lib/rtp-admin-functions.php:301
+#: ../admin/lib/rtp-admin-functions.php:331
 msgid "With the use of rtPanel developers and users can specify settings for basic functions (like date format, excerpt word count etc.) directly from theme options."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1033
-#: ../admin/lib/rtp-admin-functions.php:1063
+#: ../admin/lib/rtp-admin-functions.php:302
+#: ../admin/lib/rtp-admin-functions.php:332
 msgid " rtPanel provides you with some theme options to manage some basic settings for your theme."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1034
-#: ../admin/lib/rtp-admin-functions.php:1064
+#: ../admin/lib/rtp-admin-functions.php:303
+#: ../admin/lib/rtp-admin-functions.php:333
 msgid " Options provided for your convenience on this page are:"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1036
+#: ../admin/lib/rtp-admin-functions.php:305
 msgid "<strong>Logo Settings:</strong> You can manage your theme&#8217;s logo from this setting."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1038
+#: ../admin/lib/rtp-admin-functions.php:307
 msgid "<strong>Favicon Settings:</strong> You can manage your theme&#8217;s favicon from this setting."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1040
+#: ../admin/lib/rtp-admin-functions.php:309
 msgid "<strong>Facebook Open Graph Settings:</strong> You can specify your Faceboook App ID/Admin ID(s) with this setting."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1042
+#: ../admin/lib/rtp-admin-functions.php:311
 msgid "<strong>FeedBurner Settings:</strong> You can specify your FeedBurner URL from this setting to redirect your feeds."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1044
+#: ../admin/lib/rtp-admin-functions.php:313
 msgid "<strong>Google Custom Search Integration:</strong> You can specify the Google Custom Search Code here to harness the power of Google Search instead of the default WordPress search. You also have the option of rendering the Google Search Page without the sidebar."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1046
+#: ../admin/lib/rtp-admin-functions.php:315
 msgid "<strong>Sidebar Settings:</strong> Enable / Disable the Footer Sidebar from here."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1048
+#: ../admin/lib/rtp-admin-functions.php:317
 msgid "<strong>Custom Styles:</strong> You can specify your own CSS styles in this option to override the default Style."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1050
+#: ../admin/lib/rtp-admin-functions.php:319
 msgid "<strong>Plugin Support:</strong> You will get a summary of plugins status that are supported by rtPanel. This information box will allow you to manipulate the plugin settings on the fly."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1052
+#: ../admin/lib/rtp-admin-functions.php:321
 msgid "<strong>Backup rtPanel Options:</strong> You can export or import all settings that you have configured in rtPanel."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1054
-#: ../admin/lib/rtp-admin-functions.php:1078
+#: ../admin/lib/rtp-admin-functions.php:323
+#: ../admin/lib/rtp-admin-functions.php:347
 msgid "Remember to click \"<strong>Save All Changes</strong>\" to save any changes you have made to the theme options."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1057
+#: ../admin/lib/rtp-admin-functions.php:326
 msgid "rtPanel is the world's easiest and smartest WordPress Theme. You can customize this theme and use it at your ease. You will find many state of the art options and widgets with rtPanel. "
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1059
+#: ../admin/lib/rtp-admin-functions.php:328
 msgid "rtPanel is a theme for the world. Keeping this in mind our developers have made it localization ready. "
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1066
+#: ../admin/lib/rtp-admin-functions.php:335
 msgid "<strong>Post Summaries Options:</strong> You can specify the different excerpt parameters like word count etc."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1068
+#: ../admin/lib/rtp-admin-functions.php:337
 msgid "<strong>Post Thumbnail Options:</strong> You can specify the post thumbnail options like position, size etc."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1070
+#: ../admin/lib/rtp-admin-functions.php:339
 msgid "<small><strong><em>NOTE:</em></strong> If you use this option to change height or width of the thumbnail, then please use Regenerate Thumbnails Plugin to apply the new dimension settings to your thumbnails.</small>"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1072
+#: ../admin/lib/rtp-admin-functions.php:341
 msgid "<strong>Post Meta Options:</strong> You can specify the post meta options like post date format, display or hide author name and their positions in relation with the content."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1074
+#: ../admin/lib/rtp-admin-functions.php:343
 msgid "<strong>Comment Form Settings:</strong> You can specify the comment form settings from this option."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1076
+#: ../admin/lib/rtp-admin-functions.php:345
 msgid "<strong>Gravtar Settings:</strong> You can specify the general Gravtar support from this option."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1080
+#: ../admin/lib/rtp-admin-functions.php:349
 msgid "For more information, <br />you can always visit:"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1081
+#: ../admin/lib/rtp-admin-functions.php:350
 msgid "<a href=\"http://rtcamp.com/rtpanel/\" target=\"_blank\" title=\"rtPanel Official Page\">rtPanel Official Page</a>"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1082
+#: ../admin/lib/rtp-admin-functions.php:351
 msgid "<a href=\"http://rtcamp.com/rtpanel/docs/\" target=\"_blank\" title=\"rtPanel Documentation\">rtPanel Documentation</a>"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1083
+#: ../admin/lib/rtp-admin-functions.php:352
 msgid "<a href=\"http://rtcamp.com/support/forum/rtpanel/\" target=\"_blank\" title=\"rtPanel Forum\">rtPanel Forum</a>"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1090
+#: ../admin/lib/rtp-admin-functions.php:359
 msgid "Post &amp; Comment"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1398
+#: ../admin/lib/rtp-admin-functions.php:651
 #, php-format
 msgid "Currently using <a href=\"%s\" title=\"rtPanel\" target=\"_blank\">rtPanel</a>"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1399
+#: ../admin/lib/rtp-admin-functions.php:652
 #, php-format
 msgid "<a href=\"%s\" title=\"Click here for rtPanel Free Support\" target=\"_blank\">Support</a>"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1400
+#: ../admin/lib/rtp-admin-functions.php:653
 #, php-format
 msgid "<a href=\"%s\" title=\"Click here for rtPanel Documentation\" target=\"_blank\">Documentation</a>"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1427
+#: ../admin/lib/rtp-admin-functions.php:680
 msgid "rtPanel Version "
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1450
+#: ../admin/lib/rtp-admin-functions.php:736
 #, php-format
-msgid "The Thumbnail Settings have been updated. Please <a href=\"%s\" title=\"Regenerate Thumbnails\">Regenerate Thumbnails</a>"
+msgid "The Thumbnail Settings have been updated. Please <a href=\"%s\" title=\"Regenerate Thumbnails\">Regenerate Thumbnails</a>."
+msgstr ""
+
+#: ../admin/lib/rtp-admin-functions.php:750
+#, php-format
+msgid "If you are using a child theme made on a previous version on rtPanel. Please <a class=\"upgrade_theme_activate_script\" href=\"%s\" title=\"Click Here\">Click Here</a>"
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:50
+#: ../admin/lib/rtp-default-validation.php:62
+msgid "The Logo Settings have been updated."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:54
+#: ../admin/lib/rtp-default-validation.php:65
+msgid "The Uploaded Image is invalid or is an invalid Logo Image type."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:102
+#: ../admin/lib/rtp-default-validation.php:113
+msgid "The Favicon Settings have been updated."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:129
+msgid "The FeedBurner URL is not a valid url. The changes made have been reverted."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:131
+msgid "The FeedBurner Settings have been updated."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:137
+msgid "The Facebook App ID has been updated."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:142
+msgid "The Facebook Admin ID(s) has been updated."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:148
+msgid "Google Search Code Error : While generating the code the hosting option must be \"Search Element\" and layout either \"full-width\" or \"compact\". The changes made have been reverted."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:150
+msgid "Google Custom Search Integration has been updated."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:157
+#: ../admin/lib/rtp-default-validation.php:181
+#: ../admin/lib/rtp-default-validation.php:205
+#: ../admin/lib/rtp-default-validation.php:229
+#: ../admin/lib/rtp-default-validation.php:253
+#: ../admin/lib/rtp-default-validation.php:277
+msgid "You do not have sufficient permissions to activate this plugin."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:160
+msgid "rtPanel Hooks Editor Plugin has been Activated."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:165
+#: ../admin/lib/rtp-default-validation.php:189
+#: ../admin/lib/rtp-default-validation.php:213
+#: ../admin/lib/rtp-default-validation.php:237
+#: ../admin/lib/rtp-default-validation.php:261
+#: ../admin/lib/rtp-default-validation.php:285
+msgid "You do not have sufficient permissions to deactivate this plugin."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:168
+msgid "rtPanel Hooks Editor Plugin has been Deactivated."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:173
+#: ../admin/lib/rtp-default-validation.php:197
+#: ../admin/lib/rtp-default-validation.php:221
+#: ../admin/lib/rtp-default-validation.php:245
+#: ../admin/lib/rtp-default-validation.php:269
+#: ../admin/lib/rtp-default-validation.php:293
+msgid "You do not have sufficient permissions to delete this plugin."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:176
+msgid "rtPanel Hooks Editor Plugin has been Deleted."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:184
+msgid "Subscribe to Comments Plugin has been Activated."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:192
+msgid "Subscribe to Comments Plugin has been Deactivated."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:200
+msgid "Subscribe to Comments Plugin has been Deleted."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:208
+msgid "WP PageNavi Plugin has been Activated."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:216
+msgid "WP PageNavi Plugin has been Deactivated."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:224
+msgid "WP PageNavi Plugin has been Deleted."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:232
+msgid "Yoast WordPress SEO Plugin has been Activated."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:240
+msgid "Yoast WordPress SEO Plugin has been Deactivated."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:248
+msgid "Yoast WordPress SEO Plugin has been Deleted."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:256
+msgid "Breadcrumb NavXT Plugin has been Activated."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:264
+msgid "Breadcrumb NavXT Plugin has been Deactivated."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:272
+msgid "Breadcrumb NavXT Plugin has been Deleted."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:280
+msgid "Regenerate Thumbnails Plugin has been Activated."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:288
+msgid "Regenerate Thumbnails Plugin has been Deactivated."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:296
+msgid "Regenerate Thumbnails Plugin has been Deleted."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:311
+msgid "The Logo Settings have been restored to Default."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:322
+msgid "The Favicon Settings have been restored to Default."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:332
+msgid "The Facebook Open Graph Settings have been restored to Default."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:341
+msgid "The Feedburner Settings have been restored to Default."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:351
+msgid "The Google Custom Search Integration has been restored to Default."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:360
+msgid "The Sidebar Settings have been restored to Default."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:369
+msgid "Custom Styles has been restored to Default."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:378
+msgid "rtPanel Options have been imported successfully"
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:380
+msgid "Not a valid RTP file"
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:382
+msgid "The file is corrupt. There was an error while importing. Please Try Again"
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:386
+msgid "All the rtPanel General Settings have been restored to default."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:409
+#: ../admin/lib/rtp-default-validation.php:480
+#: ../admin/lib/rtp-default-validation.php:484
+msgid "The Post Summary Settings have been updated."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:413
+msgid "The Word Limit provided is invalid. Please provide a proper value."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:418
+msgid "The Thumbnail Width provided is invalid. Please provide a proper value."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:422
+#: ../admin/lib/rtp-default-validation.php:431
+msgid "The Post Thumbnail Settings have been updated"
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:427
+msgid "The Thumbnail Height provided is invalid. Please provide a proper value."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:488
+msgid "The End Size provided is invalid. Please provide a proper value."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:492
+msgid "The Mid Size provided is invalid. Please provide a proper value."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:516
+msgid "The Post Summary Settings have been restored to default."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:528
+msgid "The Post Thumbnail Settings have been restored to default."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:562
+msgid "The Post Meta Settings have been restored to default."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:576
+msgid "The Pagination Settings have been restored to default."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:589
+msgid "The Comment Form Settings have been restored to default."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:600
+msgid "The Gravatar Settings have been restored to default."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:612
+msgid "All the rtPanel Post & Comments Settings have been restored to default."
+msgstr ""
+
+#: ../admin/lib/rtp-default-validation.php:655
+msgid "Read More&hellip;"
 msgstr ""
 
 #: ../admin/lib/rtp-general-options.php:44
 #: ../admin/lib/rtp-post-comments-options.php:45
-#: ../admin/lib/rtp-settings-metaboxes.php:76
-#: ../admin/lib/rtp-settings-metaboxes.php:130
-#: ../admin/lib/rtp-settings-metaboxes.php:169
-#: ../admin/lib/rtp-settings-metaboxes.php:197
-#: ../admin/lib/rtp-settings-metaboxes.php:226
-#: ../admin/lib/rtp-settings-metaboxes.php:263
-#: ../admin/lib/rtp-settings-metaboxes.php:291
-#: ../admin/lib/rtp-settings-metaboxes.php:575
-#: ../admin/lib/rtp-settings-metaboxes.php:647
-#: ../admin/lib/rtp-settings-metaboxes.php:791
-#: ../admin/lib/rtp-settings-metaboxes.php:847
-#: ../admin/lib/rtp-settings-metaboxes.php:895
-#: ../admin/lib/rtp-settings-metaboxes.php:935
 msgid "Save All Changes"
 msgstr ""
 
@@ -764,529 +749,529 @@ msgstr ""
 msgid "Reset All Post &amp; Comments Settings"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:33
+#: ../admin/lib/rtp-settings-metaboxes.php:41
 msgid "Show Logo"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:37
+#: ../admin/lib/rtp-settings-metaboxes.php:45
 msgid "Check this box to display logo uploaded below instead of Site Title as text"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:43
+#: ../admin/lib/rtp-settings-metaboxes.php:51
 msgid "Logo URL"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:50
-#: ../admin/lib/rtp-settings-metaboxes.php:112
+#: ../admin/lib/rtp-settings-metaboxes.php:58
+#: ../admin/lib/rtp-settings-metaboxes.php:120
 msgid "Preview"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:58
-#: ../admin/lib/rtp-settings-metaboxes.php:61
+#: ../admin/lib/rtp-settings-metaboxes.php:66
+#: ../admin/lib/rtp-settings-metaboxes.php:69
 msgid "Upload Logo"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:66
+#: ../admin/lib/rtp-settings-metaboxes.php:74
 msgid "Admin Logo"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:70
+#: ../admin/lib/rtp-settings-metaboxes.php:78
 #, php-format
 msgid "Check this box to display logo on <a href=\"%s\" title=\"Wordpress Login\">WordPress Login Screen</a>"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:77
+#: ../admin/lib/rtp-settings-metaboxes.php:85
 msgid "Reset Logo Settings"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:95
+#: ../admin/lib/rtp-settings-metaboxes.php:103
 msgid "Show Favicon"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:99
+#: ../admin/lib/rtp-settings-metaboxes.php:107
 msgid "Check this box to use Favicon"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:105
+#: ../admin/lib/rtp-settings-metaboxes.php:113
 msgid "Favicon URL"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:120
-#: ../admin/lib/rtp-settings-metaboxes.php:123
+#: ../admin/lib/rtp-settings-metaboxes.php:128
+#: ../admin/lib/rtp-settings-metaboxes.php:131
 msgid "Upload Favicon"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:131
+#: ../admin/lib/rtp-settings-metaboxes.php:139
 msgid "Reset Favicon Settings"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:148
+#: ../admin/lib/rtp-settings-metaboxes.php:156
 msgid "Facebook Admin ID(s)"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:151
+#: ../admin/lib/rtp-settings-metaboxes.php:159
 msgid "Specify Facebook Admin ID(s) ( Comma separated )"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:155
+#: ../admin/lib/rtp-settings-metaboxes.php:163
 msgid "Facebook App ID"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:158
+#: ../admin/lib/rtp-settings-metaboxes.php:166
 #, php-format
 msgid "<a href=\"%s\" target=\"_blank\" title=\"Find your App ID Here\">Find your App ID Here</a>"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:163
-#: ../admin/lib/rtp-settings-metaboxes.php:641
+#: ../admin/lib/rtp-settings-metaboxes.php:171
+#: ../admin/lib/rtp-settings-metaboxes.php:649
 msgid "Note"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:163
+#: ../admin/lib/rtp-settings-metaboxes.php:171
 msgid "Anyone would be sufficient."
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:170
+#: ../admin/lib/rtp-settings-metaboxes.php:178
 msgid "Reset Facebook OGP Settings"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:188
+#: ../admin/lib/rtp-settings-metaboxes.php:196
 msgid "FeedBurner URL"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:191
+#: ../admin/lib/rtp-settings-metaboxes.php:199
 #, php-format
 msgid "Specify <a href=\"%s\" target=\"_blank\" title=\"FeedBurner\">FeedBurner</a> URL to redirect feeds"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:198
+#: ../admin/lib/rtp-settings-metaboxes.php:206
 msgid "Reset FeedBurner Settings"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:216
+#: ../admin/lib/rtp-settings-metaboxes.php:224
 msgid "Enable Footer Sidebar"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:220
+#: ../admin/lib/rtp-settings-metaboxes.php:228
 msgid "Check this to enable footer sidebar"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:227
+#: ../admin/lib/rtp-settings-metaboxes.php:235
 msgid "Reset Sidebar Settings"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:245
+#: ../admin/lib/rtp-settings-metaboxes.php:253
 msgid "Google Custom Search Element Code"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:248
+#: ../admin/lib/rtp-settings-metaboxes.php:256
 #, php-format
 msgid "The Google Search Code Obtained by Default. You can obtain the Google Custom Search Code <a href=\"%s\" title=\"Googel Custom Search\">here</a><br />"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:249
+#: ../admin/lib/rtp-settings-metaboxes.php:257
 msgid "NOTE"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:249
+#: ../admin/lib/rtp-settings-metaboxes.php:257
 msgid "The hosting option must be \"Search Element\" and layout either \"full-width\" or \"compact\"."
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:253
+#: ../admin/lib/rtp-settings-metaboxes.php:261
 msgid "Hide Sidebar"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:257
+#: ../admin/lib/rtp-settings-metaboxes.php:265
 msgid "Do not show sidebar on Search Results Page ( When using Google Custom Search )"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:264
+#: ../admin/lib/rtp-settings-metaboxes.php:272
 msgid "Reset Google Custom Search Integration"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:282
+#: ../admin/lib/rtp-settings-metaboxes.php:290
 msgid "Add your CSS here &rarr;"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:285
+#: ../admin/lib/rtp-settings-metaboxes.php:293
 msgid "Add your extra CSS rules here. No need to use !important. Rules written above will be loaded last."
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:292
+#: ../admin/lib/rtp-settings-metaboxes.php:300
 msgid "Reset Custom Styles"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:326
+#: ../admin/lib/rtp-settings-metaboxes.php:334
 msgid "Status"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:327
+#: ../admin/lib/rtp-settings-metaboxes.php:335
 msgid "Action"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:328
-#: ../admin/lib/rtp-settings-metaboxes.php:354
-#: ../admin/lib/rtp-settings-metaboxes.php:384
-#: ../admin/lib/rtp-settings-metaboxes.php:414
-#: ../admin/lib/rtp-settings-metaboxes.php:444
-#: ../admin/lib/rtp-settings-metaboxes.php:473
-#: ../admin/lib/rtp-settings-metaboxes.php:502
+#: ../admin/lib/rtp-settings-metaboxes.php:336
+#: ../admin/lib/rtp-settings-metaboxes.php:362
+#: ../admin/lib/rtp-settings-metaboxes.php:392
+#: ../admin/lib/rtp-settings-metaboxes.php:422
+#: ../admin/lib/rtp-settings-metaboxes.php:452
+#: ../admin/lib/rtp-settings-metaboxes.php:481
+#: ../admin/lib/rtp-settings-metaboxes.php:510
 msgid "Edit"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:331
+#: ../admin/lib/rtp-settings-metaboxes.php:339
 msgid "rtPanel Hooks Editor"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:335
-#: ../admin/lib/rtp-settings-metaboxes.php:365
-#: ../admin/lib/rtp-settings-metaboxes.php:395
-#: ../admin/lib/rtp-settings-metaboxes.php:425
+#: ../admin/lib/rtp-settings-metaboxes.php:343
+#: ../admin/lib/rtp-settings-metaboxes.php:373
+#: ../admin/lib/rtp-settings-metaboxes.php:403
+#: ../admin/lib/rtp-settings-metaboxes.php:433
 msgid "Active"
-msgstr ""
-
-#: ../admin/lib/rtp-settings-metaboxes.php:337
-#: ../admin/lib/rtp-settings-metaboxes.php:367
-#: ../admin/lib/rtp-settings-metaboxes.php:397
-#: ../admin/lib/rtp-settings-metaboxes.php:427
-msgid "Inactive"
-msgstr ""
-
-#: ../admin/lib/rtp-settings-metaboxes.php:339
-#: ../admin/lib/rtp-settings-metaboxes.php:369
-#: ../admin/lib/rtp-settings-metaboxes.php:399
-#: ../admin/lib/rtp-settings-metaboxes.php:429
-msgid "Not Installed"
 msgstr ""
 
 #: ../admin/lib/rtp-settings-metaboxes.php:345
 #: ../admin/lib/rtp-settings-metaboxes.php:375
 #: ../admin/lib/rtp-settings-metaboxes.php:405
 #: ../admin/lib/rtp-settings-metaboxes.php:435
-#: ../admin/lib/rtp-settings-metaboxes.php:464
-#: ../admin/lib/rtp-settings-metaboxes.php:493
-msgid "Deactivate"
+msgid "Inactive"
 msgstr ""
 
 #: ../admin/lib/rtp-settings-metaboxes.php:347
 #: ../admin/lib/rtp-settings-metaboxes.php:377
 #: ../admin/lib/rtp-settings-metaboxes.php:407
 #: ../admin/lib/rtp-settings-metaboxes.php:437
-#: ../admin/lib/rtp-settings-metaboxes.php:466
-#: ../admin/lib/rtp-settings-metaboxes.php:495
+msgid "Not Installed"
+msgstr ""
+
+#: ../admin/lib/rtp-settings-metaboxes.php:353
+#: ../admin/lib/rtp-settings-metaboxes.php:383
+#: ../admin/lib/rtp-settings-metaboxes.php:413
+#: ../admin/lib/rtp-settings-metaboxes.php:443
+#: ../admin/lib/rtp-settings-metaboxes.php:472
+#: ../admin/lib/rtp-settings-metaboxes.php:501
+msgid "Deactivate"
+msgstr ""
+
+#: ../admin/lib/rtp-settings-metaboxes.php:355
+#: ../admin/lib/rtp-settings-metaboxes.php:385
+#: ../admin/lib/rtp-settings-metaboxes.php:415
+#: ../admin/lib/rtp-settings-metaboxes.php:445
+#: ../admin/lib/rtp-settings-metaboxes.php:474
+#: ../admin/lib/rtp-settings-metaboxes.php:503
 msgid "Activate"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:349
-#: ../admin/lib/rtp-settings-metaboxes.php:379
-#: ../admin/lib/rtp-settings-metaboxes.php:409
-#: ../admin/lib/rtp-settings-metaboxes.php:439
-#: ../admin/lib/rtp-settings-metaboxes.php:468
-#: ../admin/lib/rtp-settings-metaboxes.php:497
+#: ../admin/lib/rtp-settings-metaboxes.php:357
+#: ../admin/lib/rtp-settings-metaboxes.php:387
+#: ../admin/lib/rtp-settings-metaboxes.php:417
+#: ../admin/lib/rtp-settings-metaboxes.php:447
+#: ../admin/lib/rtp-settings-metaboxes.php:476
+#: ../admin/lib/rtp-settings-metaboxes.php:505
 msgid "Install"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:361
+#: ../admin/lib/rtp-settings-metaboxes.php:369
 msgid "Subscribe to Comments"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:391
-msgid "WP PageNavi"
+#: ../admin/lib/rtp-settings-metaboxes.php:399
+msgid "WP-PageNavi"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:421
-msgid "Yoast WordPress SEO"
+#: ../admin/lib/rtp-settings-metaboxes.php:429
+msgid "WordPress SEO by Yoast"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:451
+#: ../admin/lib/rtp-settings-metaboxes.php:459
 msgid "Breadcrumb NavXT"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:480
+#: ../admin/lib/rtp-settings-metaboxes.php:488
 msgid "Regenerate Thumbnails"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:522
+#: ../admin/lib/rtp-settings-metaboxes.php:530
 msgid "Export rtPanel Options"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:524
+#: ../admin/lib/rtp-settings-metaboxes.php:532
 msgid "Export"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:528
+#: ../admin/lib/rtp-settings-metaboxes.php:536
 msgid "Import rtPanel Options"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:531
+#: ../admin/lib/rtp-settings-metaboxes.php:539
 msgid "Import"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:551
+#: ../admin/lib/rtp-settings-metaboxes.php:559
 msgid "Enable Summary"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:555
+#: ../admin/lib/rtp-settings-metaboxes.php:563
 msgid "Check this to enable excerpts on Archive pages ( Pages with multiple posts on them )"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:559
+#: ../admin/lib/rtp-settings-metaboxes.php:567
 msgid "Word Limit"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:562
+#: ../admin/lib/rtp-settings-metaboxes.php:570
 msgid "Post Content will be cut around Word Limit you will specify here."
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:566
+#: ../admin/lib/rtp-settings-metaboxes.php:574
 msgid "Read More Text"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:569
+#: ../admin/lib/rtp-settings-metaboxes.php:577
 msgid "This will be added after each post summary. Text added here will be automatically converted into a hyperlink pointing to the respective post."
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:576
+#: ../admin/lib/rtp-settings-metaboxes.php:584
 msgid "Reset Post Sumarry Settings"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:591
+#: ../admin/lib/rtp-settings-metaboxes.php:599
 msgid "Enable Summary must be checked on the Post Summary Settings to show these Options"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:595
+#: ../admin/lib/rtp-settings-metaboxes.php:603
 msgid "Enable Thumbnails"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:599
+#: ../admin/lib/rtp-settings-metaboxes.php:607
 msgid "Check this to display thumbnails as part of Post Summaries on Archive pages"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:603
+#: ../admin/lib/rtp-settings-metaboxes.php:611
 msgid "Thumbnail Alignment"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:605
+#: ../admin/lib/rtp-settings-metaboxes.php:613
 msgid "None"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:606
+#: ../admin/lib/rtp-settings-metaboxes.php:614
 msgid "Left"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:607
+#: ../admin/lib/rtp-settings-metaboxes.php:615
 msgid "Right"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:608
+#: ../admin/lib/rtp-settings-metaboxes.php:616
 msgid "Center"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:612
+#: ../admin/lib/rtp-settings-metaboxes.php:620
 msgid "Width"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:618
+#: ../admin/lib/rtp-settings-metaboxes.php:626
 msgid "Height"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:624
+#: ../admin/lib/rtp-settings-metaboxes.php:632
 msgid "Crop Thumbnail"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:628
+#: ../admin/lib/rtp-settings-metaboxes.php:636
 msgid "Crop thumbnail to exact dimensions (normally thumbnails are proportional)"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:632
+#: ../admin/lib/rtp-settings-metaboxes.php:640
 msgid "Add Frame (Border Effect around Image)"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:636
+#: ../admin/lib/rtp-settings-metaboxes.php:644
 msgid "Check this to display a light shadow border effect for the thumbnails"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:641
+#: ../admin/lib/rtp-settings-metaboxes.php:649
 #, php-format
 msgid "If you make changes to thumbnail height, width or crop settings, you must use \"<a target=\"_blank\" href=\"%s\" title=\"Regenerate Thumbnail Plugin\">Regenerate Thumbnail Plugin</a>\" to regenerate thumbnails on old posts."
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:648
+#: ../admin/lib/rtp-settings-metaboxes.php:656
 msgid "Reset Post Thumbnail Settings"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:666
+#: ../admin/lib/rtp-settings-metaboxes.php:674
 msgid "This option will allow you to specify the post meta attributes and their position"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:667
-msgid "These Post Meta will be displayed above content"
-msgstr ""
-
-#: ../admin/lib/rtp-settings-metaboxes.php:671
-#: ../admin/lib/rtp-settings-metaboxes.php:733
-msgid "Post Date"
-msgstr ""
-
 #: ../admin/lib/rtp-settings-metaboxes.php:675
-#: ../admin/lib/rtp-settings-metaboxes.php:737
-msgid "Check this box to include Post Dates in meta"
-msgstr ""
-
-#: ../admin/lib/rtp-settings-metaboxes.php:677
-#: ../admin/lib/rtp-settings-metaboxes.php:739
-msgid "Select a Date Format"
-msgstr ""
-
-#: ../admin/lib/rtp-settings-metaboxes.php:678
-#: ../admin/lib/rtp-settings-metaboxes.php:740
-msgid "F j, Y"
+msgid "These Post Meta will be displayed above content"
 msgstr ""
 
 #: ../admin/lib/rtp-settings-metaboxes.php:679
 #: ../admin/lib/rtp-settings-metaboxes.php:741
-msgid "Y/m/d"
+msgid "Post Date"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:680
-#: ../admin/lib/rtp-settings-metaboxes.php:742
-msgid "m/d/Y"
+#: ../admin/lib/rtp-settings-metaboxes.php:683
+#: ../admin/lib/rtp-settings-metaboxes.php:745
+msgid "Check this box to include Post Dates in meta"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:681
-#: ../admin/lib/rtp-settings-metaboxes.php:743
-msgid "d/m/Y"
+#: ../admin/lib/rtp-settings-metaboxes.php:685
+#: ../admin/lib/rtp-settings-metaboxes.php:747
+msgid "Select a Date Format"
+msgstr ""
+
+#: ../admin/lib/rtp-settings-metaboxes.php:686
+#: ../admin/lib/rtp-settings-metaboxes.php:748
+msgid "F j, Y"
 msgstr ""
 
 #: ../admin/lib/rtp-settings-metaboxes.php:687
 #: ../admin/lib/rtp-settings-metaboxes.php:749
+msgid "Y/m/d"
+msgstr ""
+
+#: ../admin/lib/rtp-settings-metaboxes.php:688
+#: ../admin/lib/rtp-settings-metaboxes.php:750
+msgid "m/d/Y"
+msgstr ""
+
+#: ../admin/lib/rtp-settings-metaboxes.php:689
+#: ../admin/lib/rtp-settings-metaboxes.php:751
+msgid "d/m/Y"
+msgstr ""
+
+#: ../admin/lib/rtp-settings-metaboxes.php:695
+#: ../admin/lib/rtp-settings-metaboxes.php:757
 msgid "Post Author"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:691
-#: ../admin/lib/rtp-settings-metaboxes.php:753
+#: ../admin/lib/rtp-settings-metaboxes.php:699
+#: ../admin/lib/rtp-settings-metaboxes.php:761
 msgid "Check this box to include Author Name in meta"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:694
-#: ../admin/lib/rtp-settings-metaboxes.php:756
+#: ../admin/lib/rtp-settings-metaboxes.php:702
+#: ../admin/lib/rtp-settings-metaboxes.php:764
 msgid "Show Author Posts Count"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:696
-#: ../admin/lib/rtp-settings-metaboxes.php:758
+#: ../admin/lib/rtp-settings-metaboxes.php:704
+#: ../admin/lib/rtp-settings-metaboxes.php:766
 msgid "Link to Author Archive page"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:701
-#: ../admin/lib/rtp-settings-metaboxes.php:763
+#: ../admin/lib/rtp-settings-metaboxes.php:709
+#: ../admin/lib/rtp-settings-metaboxes.php:771
 msgid "Post Categories"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:708
-#: ../admin/lib/rtp-settings-metaboxes.php:770
+#: ../admin/lib/rtp-settings-metaboxes.php:716
+#: ../admin/lib/rtp-settings-metaboxes.php:778
 msgid "Post Tags"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:718
-#: ../admin/lib/rtp-settings-metaboxes.php:780
+#: ../admin/lib/rtp-settings-metaboxes.php:726
+#: ../admin/lib/rtp-settings-metaboxes.php:788
 #, php-format
 msgid "%s"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:729
+#: ../admin/lib/rtp-settings-metaboxes.php:737
 msgid "These Post Meta will be displayed below content"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:792
+#: ../admin/lib/rtp-settings-metaboxes.php:800
 msgid "Reset Post Meta Settings"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:809
+#: ../admin/lib/rtp-settings-metaboxes.php:817
 msgid "Enable Pagination"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:813
+#: ../admin/lib/rtp-settings-metaboxes.php:821
 msgid "Check this to enable default WordPress Pagination on Archive pages ( Pages with multiple posts on them )"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:817
+#: ../admin/lib/rtp-settings-metaboxes.php:825
 msgid "Prev Text"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:820
+#: ../admin/lib/rtp-settings-metaboxes.php:828
 msgid "Text to display for Previous Page"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:824
+#: ../admin/lib/rtp-settings-metaboxes.php:832
 msgid "Next Text"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:827
+#: ../admin/lib/rtp-settings-metaboxes.php:835
 msgid "Text to display for Next Page"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:831
+#: ../admin/lib/rtp-settings-metaboxes.php:839
 msgid "End Size"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:834
+#: ../admin/lib/rtp-settings-metaboxes.php:842
 msgid "How many numbers on either the start and the end list edges?"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:838
+#: ../admin/lib/rtp-settings-metaboxes.php:846
 msgid "Mid Size"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:841
+#: ../admin/lib/rtp-settings-metaboxes.php:849
 msgid "How many numbers to either side of current page, but not including current page?"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:848
+#: ../admin/lib/rtp-settings-metaboxes.php:856
 msgid "Reset Pagination Settings"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:865
+#: ../admin/lib/rtp-settings-metaboxes.php:873
 msgid "Enable Compact Form"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:869
+#: ../admin/lib/rtp-settings-metaboxes.php:877
 msgid "Check this box to compact comment form. Name, URL & Email Fields will be on same line"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:873
+#: ../admin/lib/rtp-settings-metaboxes.php:881
 msgid "Hide Labels for Name, Email, URL & Comment Textarea. These will be shown inside fields as default text"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:877
+#: ../admin/lib/rtp-settings-metaboxes.php:885
 msgid "Extra Settings"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:881
+#: ../admin/lib/rtp-settings-metaboxes.php:889
 msgid "Display Comment textarea above Name, Email, &amp; URL Fields"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:885
+#: ../admin/lib/rtp-settings-metaboxes.php:893
 msgid "Separate Comments from Trackbacks &amp; Pingbacks"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:889
+#: ../admin/lib/rtp-settings-metaboxes.php:897
 msgid "Enable the comment form on Attachments"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:896
+#: ../admin/lib/rtp-settings-metaboxes.php:904
 msgid "Reset Comment Form Settings"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:913
+#: ../admin/lib/rtp-settings-metaboxes.php:921
 msgid "Enable Gravatar Support"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:920
+#: ../admin/lib/rtp-settings-metaboxes.php:928
 msgid "Gravatar Size"
 msgstr ""
 
-#: ../admin/lib/rtp-settings-metaboxes.php:936
+#: ../admin/lib/rtp-settings-metaboxes.php:944
 msgid "Reset Gravatar Settings"
 msgstr ""
 
@@ -1490,6 +1475,7 @@ msgid "%1$s at %2$s"
 msgstr ""
 
 #: ../lib/rtp-comments.php:32
+#: ../lib/rtp-default-functions.php:157
 msgid "[ edit ]"
 msgstr ""
 
@@ -1537,31 +1523,31 @@ msgstr ""
 msgid "Tagged in"
 msgstr ""
 
-#: ../lib/rtp-default-functions.php:207
+#: ../lib/rtp-default-functions.php:196
 msgid "&larr; %title"
 msgstr ""
 
-#: ../lib/rtp-default-functions.php:208
+#: ../lib/rtp-default-functions.php:197
 msgid "%title &rarr;"
 msgstr ""
 
-#: ../lib/rtp-default-functions.php:244
+#: ../lib/rtp-default-functions.php:233
 msgid "&larr; Older Entries"
 msgstr ""
 
-#: ../lib/rtp-default-functions.php:245
+#: ../lib/rtp-default-functions.php:234
 msgid "Newer Entries &rarr;"
 msgstr ""
 
-#: ../lib/rtp-default-functions.php:285
+#: ../lib/rtp-default-functions.php:274
 msgid "<span>0</span> Comments"
 msgstr ""
 
-#: ../lib/rtp-default-functions.php:285
+#: ../lib/rtp-default-functions.php:274
 msgid "<span>1</span> Comment"
 msgstr ""
 
-#: ../lib/rtp-default-functions.php:285
+#: ../lib/rtp-default-functions.php:274
 msgid "<span>%</span> Comments"
 msgstr ""
 
