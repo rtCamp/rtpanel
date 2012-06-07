@@ -15,7 +15,7 @@
     }
 
     if ( have_comments() || ( ( !is_attachment() && comments_open() ) || ( is_attachment() && $rtp_post_comments['attachment_comments'] ) ) ) { ?>
-        
+
         <div class="comments-container clearfix"><?php
             if ( have_comments() ) { ?>
                 <div class="rtp-comment-count clearfix" id="comments">
@@ -47,7 +47,7 @@
                 }
             }
 
-            // Including Comment form using comment_form() function
+            /* Including Comment form using comment_form() function */
             if ( ( !is_attachment() && comments_open() ) || ( is_attachment() && $rtp_post_comments['attachment_comments'] ) ) {
                 if ( $rtp_post_comments['hide_labels'] ) {
                     $hide_class = ' hide-labels';
@@ -97,9 +97,7 @@
                 }
 
                 $comments_before = '<p class="comment-notes">' . __( 'Your email address will not be published.', 'rtPanel' ) . ( $req ? '<span class="required">*</span>' : '' ) . '</p>';
-                
-                    
-                
+
                 comment_form( array(
                             'fields' => apply_filters( 'comment_form_default_fields', $fields ) ,
                             'comment_notes_before' => $comments_before,
@@ -127,5 +125,4 @@
             } // End of Pingbacks and/or Trackbacks
             remove_filter( 'get_comments_number', 'pingback_trackback_count' )?>
         </div><?php
-        
     }

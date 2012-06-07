@@ -9,7 +9,7 @@
 get_header(); ?>
 
     <section id="content" role="main" class="rtp-grid-8 rtp-home-posts">
-        
+
         <?php rtp_hook_begin_content();?>
         <h1 class="post-title rtp-main-title"><?php _e( 'Not Found', 'rtPanel' ); ?></h1>
         <article id="post-0" class="rtp-not-found hentry">
@@ -22,11 +22,11 @@ get_header(); ?>
 
             <?php rtp_hook_end_post();?>
         </article><!-- #post-0 -->
-        
+
         <?php rtp_hook_end_content(); ?>
 
     </section><!-- #content -->
-    
+
     <?php rtp_hook_sidebar(); ?>
 
 <?php get_footer(); ?>

@@ -64,11 +64,11 @@
                     <?php rtp_hook_end_post_content(); ?>
 
                 </div><!-- .post-content -->
-                
+
                 <?php rtp_hook_post_meta( 'bottom' ); ?>
-                
+
                 <?php rtp_hook_end_post(); ?>
-                
+
             </article><!-- .rtp-post-box --><?php
 
             /* Post Pagination */
@@ -77,23 +77,23 @@
             // Comment Form
             rtp_hook_comments();
         }
-        
+
         rtp_hook_archive_pagination();
-        
+
     } else {
         /* If there are no posts to display */ 
         if ( !is_search() ) { ?>
             <h1 class="post-title rtp-main-title"><?php _e( 'Not Found', 'rtPanel' ); ?></h1><?php
         } ?>
-        
+
         <article id="post-0" class="rtp-not-found hentry">
             <?php rtp_hook_begin_post(); ?>
-            
+
             <div class="post-content clearfix">
                 <p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'rtPanel' ); ?></p>
                 <?php get_search_form(); ?>
             </div>
 
-            <?php rtp_hook_end_post();  ?>
+            <?php rtp_hook_end_post(); ?>
         </article><!-- #post-0 --><?php
     } ?>

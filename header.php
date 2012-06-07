@@ -16,10 +16,10 @@ global $rtp_general; ?><!DOCTYPE html>
 
         <!-- Mobile Viewport Fix ( j.mp/mobileviewport & davidbcalhoun.com/2010/viewport-metatag ) -->
         <meta name="viewport" content="<?php echo apply_filters( 'rtp_viewport', 'width=device-width, initial-scale=1.0, maximum-scale=1.0' ); ?>" />
-        
+
         <link rel="profile" href="http://gmpg.org/xfn/11" />
         <?php if ( $rtp_general['favicon_show'] ) { ?><link rel="shortcut icon" type="image/x-icon" href="<?php echo rtp_logo_fav_src('favicon'); ?>" /><?php } ?>
-        
+
         <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
         <link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>" type="text/css" media="all" />
@@ -27,19 +27,19 @@ global $rtp_general; ?><!DOCTYPE html>
         <!--[if lt IE 9]>
             <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
         <![endif]-->
-                   
+
         <?php wp_head(); ?>
     </head>
     <body <?php body_class(); ?>><!-- ends in footer.php -->
-        
+
         <?php rtp_hook_begin_body(); ?>
-        
+
         <div id="main-wrapper" class="rtp-container-12 clearfix"><!-- ends in footer.php -->
-            
+
             <?php rtp_hook_begin_main_wrapper(); ?>
-            
+
             <header id="header-wrapper" role="banner" class="rtp-container-12 clearfix">
-                
+
                 <?php rtp_hook_before_header(); ?>
 
                 <hgroup id="header" class="rtp-grid-12 clearfix">

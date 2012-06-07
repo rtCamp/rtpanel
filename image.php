@@ -17,7 +17,7 @@ get_header(); ?>
             <div class="rtp-navigation clearfix">
                 <div class="alignleft"><a role="link" href="<?php echo get_permalink( $post->post_parent ); ?>">&larr; <?php echo get_the_title( $post->post_parent ); ?></a></div>
             </div>
-            
+
             <article <?php post_class( 'rtp-image-box' ); ?>>
                 <?php rtp_hook_begin_post(); ?>
 
@@ -31,7 +31,7 @@ get_header(); ?>
                             } ?>
 
                     <?php rtp_hook_end_post_title(); ?>
-                    
+
                     <?php rtp_hook_post_meta( 'top' ); ?>
 
                 </header><!-- .post-title -->
@@ -40,14 +40,14 @@ get_header(); ?>
                     <?php rtp_hook_begin_post_content(); ?><?php
 
                     $img_info = wp_get_attachment_image_src( '', 'full' ); ?>
-                    
+
                     <figure role="img" class="wp-caption aligncenter" aria-describedby="figcaption_attachment_<?php echo get_the_ID(); ?>">
                         <a role="link" href="<?php echo $img_info[0]; ?>" title="<?php the_title_attribute(); ?>" rel="attachment"><?php echo wp_get_attachment_image( '', 'full' ); ?></a><?php
                         echo ( get_the_excerpt() ) ? '<figcaption id="figcaption_attachment_' . get_the_ID() . '" class="wp-caption-text">' . get_the_excerpt() . '</figcaption>' : ''; ?>
                     </figure>
-                    
+
                     <?php the_content(); ?>
-                    
+
                     <?php 
                         $args = array(
                             'numberposts'   => -1,
@@ -76,20 +76,18 @@ get_header(); ?>
                                     }
                                 } ?>
                             </ul><?php
-                        }
-                    ?>
+                        } ?>
+
                     <?php rtp_hook_end_post_content(); ?>
 
                 </div><!-- .post-content -->
-                
+
                 <?php rtp_hook_post_meta( 'bottom' ); ?>
-                
+
                 <?php rtp_hook_end_post(); ?>
             </article><!-- .rtp-post-box --><?php
-            
             rtp_hook_comments();
-        } 
-        ?>
+        } ?>
 
         <?php rtp_hook_end_content(); ?>
     </section><!-- #content -->

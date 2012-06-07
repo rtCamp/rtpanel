@@ -12,7 +12,7 @@ global $rtp_general; ?>
                 <?php rtp_hook_end_content_wrapper(); ?>
                 <hr class="rtp-horizontal-border rtp-grid-12" />
             </div><!-- #content-wrapper -->
-           
+
             <footer id="footer-wrapper" role="contentinfo" class="rtp-container-12 clearfix"><?php
                 if ( $rtp_general['footer_sidebar'] ) { ?>
                     <aside role="complementary" id="footerbar" class="clearfix"><?php
@@ -37,14 +37,14 @@ global $rtp_general; ?>
                 <?php rtp_hook_after_footer(); ?>
 
             </footer><!-- #footer-wrapper-->
-            
+
             <?php rtp_hook_end_main_wrapper(); ?>
 
         </div><!-- #main-wrapper -->
 
         <?php wp_footer(); ?>
-        
+
         <?php rtp_hook_end_body(); ?>
-        
+
     </body>
 </html>

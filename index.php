@@ -27,7 +27,7 @@ get_header(); ?>
 
         <?php rtp_hook_end_content(); ?>
     </section><!-- #content -->
-    
+
     <?php rtp_hook_sidebar(); ?>
 
 <?php get_footer(); ?>
