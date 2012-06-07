@@ -26,7 +26,9 @@ global $rtp_general; ?>
                 } ?>
 
                 <?php rtp_hook_before_footer(); ?>
-                    <hr class="rtp-horizontal-border rtp-grid-12" />
+
+                <?php echo ( $rtp_general['footer_sidebar'] ) ? '<hr class="rtp-horizontal-border rtp-grid-12" />' : ''; ?>
+
                 <div id="footer" class="rtp-grid-12">
                     <div>&copy; <?php echo date( 'Y' ); echo ' - '; bloginfo( 'name' ); ?></div>
                     <div><em><?php printf( __( 'Designed on <a role="link" href="%s" class="rtp-common-link" title="rtPanel WordPress Theme Framework">rtPanel WordPress Theme Framework</a>.', 'rtPanel' ), 'http://rtcamp.com/rtpanel/' ); ?></em></div>

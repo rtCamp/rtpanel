@@ -1,12 +1,12 @@
 div.bbp-breadcrumb, div.bbp-topic-tags { font-size: 12px; }
-#content div.bbp-breadcrumb p, #content div.bbp-topic-tags p { margin-bottom: 12px; }
+#content div.bbp-breadcrumb p, #content div.bbp-topic-tags p { margin-bottom: 12px; margin-top: 0; }
 #content .bbp-forum-topic-count, #content .bbp-forum-reply-count, #content .bbp-topic-reply-count, #content .bbp-topic-voice-count, #content .bbp-topic-action { padding: 5px; }
 #content table tbody tr ul.bbp-forums { border-color: #DDD; font-size: 13px; margin: 5px; }
 #content table.bbp-forums tfoot td, #content table.bbp-topics tfoot td, #content table.bbp-topic tfoot td, #content table.bbp-replies tfoot td, #content table.bbp-replies tr.bbp-reply-header td, #content table.bbp-topic tr.bbp-topic-header td { background: transparent; color: #999; }
 #content table.bbp-forums tfoot td, #content table.bbp-topics tfoot td, #content table.bbp-topic tfoot td, #content table.bbp-replies tfoot td,
 #content table.bbp-replies tr.bbp-reply-header td, #content table.bbp-topic tr.bbp-topic-header td, span.bbp-author-ip { font-family: sans-serif; }
 #content table.bbp-forums tfoot, #content table.bbp-topics tfoot, #content table.bbp-topic tfoot, #content table.bbp-replies tfoot { display: none; }
-#content p.bbp-topic-meta img.avatar, #content ul.bbp-reply-revision-log img.avatar, #content ul.bbp-topic-revision-log img.avatar, #content div.bbp-template-notice img.avatar, #content .widget_display_topics img.avatar, #content .widget_display_replies img.avatar, #content p.bbp-topic-meta img.avatar, #main ul.bbp-reply-revision-log img.avatar, #main ul.bbp-topic-revision-log img.avatar, #main div.bbp-template-notice img.avatar, #main .widget_display_topics img.avatar, #main .widget_display_replies img.avatar, #main p.bbp-topic-meta img.avatar, #container ul.bbp-reply-revision-log img.avatar, #container ul.bbp-topic-revision-log img.avatar, #container div.bbp-template-notice img.avatar, #container .widget_display_topics img.avatar, #container .widget_display_replies img.avatar { border-width: 1px; border-color: #DDD; }
+#content p.bbp-topic-meta img.avatar, #content ul.bbp-reply-revision-log img.avatar, #content ul.bbp-topic-revision-log img.avatar, #content div.bbp-template-notice img.avatar, #content .widget_display_topics img.avatar, #content .widget_display_replies img.avatar, #content p.bbp-topic-meta img.avatar, #main ul.bbp-reply-revision-log img.avatar, #main ul.bbp-topic-revision-log img.avatar, #main div.bbp-template-notice img.avatar, #main .widget_display_topics img.avatar, #main .widget_display_replies img.avatar, #main p.bbp-topic-meta img.avatar, #container ul.bbp-reply-revision-log img.avatar, #container ul.bbp-topic-revision-log img.avatar, #container div.bbp-template-notice img.avatar, #container .widget_display_topics img.avatar, #container .widget_display_replies img.avatar { border-width: 1px; border-color: #DDD;padding:0;margin-bottom: -3px;}
 #content p.bbp-topic-meta img.avatar { margin-bottom: 5px; }
 #content p.bbp-topic-meta { color: #666; font-size: 12px; font-style: italic; }
 #content p.bbp-topic-meta a { font-style: normal; }
@@ -36,5 +36,3 @@ input[type="password"] { background: #FFF; border: 1px solid #DDD; padding: 5px;
 .bbp-pagination-links > *:first-child { margin-left: 0; }
 .bbp-topics-front tr.super-sticky td, .bbp-topics tr.super-sticky td, .bbp-topics tr.sticky td, .bbp-forum-content tr.sticky td { background-color: #FDFDC8 !important; font-size: 14px; }
 .bbp-submit-wrapper button { padding: 4px 10px; }
-
-

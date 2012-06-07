@@ -39,8 +39,9 @@ sub{font-size:smaller;vertical-align:sub}
 sup{font-size:smaller;vertical-align:super}
 blockquote{quotes:none;border-width:0 0 0 1px;margin:0 0 20px 10px;padding:0 0 0 10px}
 p:first-child,h1 + p,h2 + p,h3 + p,h1 + ol,h1 + ul,h2 + ol,h2 + ul,h3 + ol,h3 + ul{margin-top:5px}
-ul{list-style:disc}
-ol{list-style:decimal}
+ul{list-style:disc;}
+ol{list-style:decimal;}
+ul, ol{margin:10px 0 10px 25px;}
 ul ol,ul ul,ol ul,ol ol{margin:0 0 0 15px}
 ol ol{list-style:upper-alpha}
 ol ol ol{list-style:lower-roman}
@@ -54,7 +55,7 @@ dt{background:#F1F1F1;padding:5px}
 dd{margin:0 0 10px;padding:5px}
 code,pre{font-size:13px;white-space:pre-wrap}
 p,dl{margin:10px 0}
-pre { background: #F1F1F1; display: block; margin: 10px 0; word-wrap: break-word; }
+pre { background: #F1F1F1; display: block; margin: 10px 0; padding: 8px; word-wrap: break-word; }
 code{background-color:#F1F1F1;padding:2px 4px}
 .aligncenter{display:block;text-align:center;margin:0 auto}
 .alignleft{float:left}
