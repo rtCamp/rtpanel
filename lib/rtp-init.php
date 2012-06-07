@@ -13,7 +13,7 @@
  * Used to set the width of images and content. Should be equal to the width the theme
  * is designed for, generally via the style.css stylesheet
  */
-$content_width = ( isset( $content_width ) ) ? $content_width : 615;
+$content_width = ( isset( $content_width ) ) ? $content_width : apply_filters( 'rtp_content_width', 620 );
 
 if ( !function_exists( 'rtpanel_setup' ) ) {
     /**
