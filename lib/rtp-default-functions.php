@@ -186,17 +186,6 @@ function rtp_blog_description(){
 add_action( 'rtp_hook_after_logo', 'rtp_blog_description' );
 
 /**
- * Appends a "last-menu-item" class to the last item of the nav menu.
- *
- * @since rtPanel 2.0.9
- */
-function rtp_add_markup_pages( $output ) {
-    $output = substr_replace( $output, "last-menu-item menu-item", strripos( $output, "menu-item" ), strlen( "menu-item" ) );
-    return $output;
-}
-add_filter('wp_nav_menu', 'rtp_add_markup_pages');
-
-/**
  * Adds pagination to single
  *
  * @since rtPanel 2.1
