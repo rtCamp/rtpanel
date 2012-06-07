@@ -92,8 +92,7 @@ function rtp_default_scripts() {
     echo ( $rtp_general['custom_styles'] ) ? '<style type="text/css" media="screen">' . $rtp_general['custom_styles'] . '</style>' . "\r\n" : '';
     // Nested Comment Support
     ( is_singular() && get_option( 'thread_comments' ) ) ? wp_enqueue_script('comment-reply') : '';
-    wp_enqueue_script( 'rtp-custom', RTP_JS_FOLDER_URL . '/rtp-custom.js', array( 'jquery' ), '', true );
-
+    
     if ( rtp_is_bbPress() ) {
         wp_enqueue_style( 'rtp-bbpress', RTP_CSS_FOLDER_URL . '/rtp-bbpress.css', array( 'bbpress-style' ) );
     } else {
