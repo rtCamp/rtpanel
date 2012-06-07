@@ -716,7 +716,7 @@ msgstr ""
 
 #: ../admin/lib/rtp-admin-functions.php:1398
 #, php-format
-msgid "Currently using <a href=\"%s\" title=\"rtPanel.com\" target=\"_blank\">rtPanel</a>"
+msgid "Currently using <a href=\"%s\" title=\"rtPanel\" target=\"_blank\">rtPanel</a>"
 msgstr ""
 
 #: ../admin/lib/rtp-admin-functions.php:1399

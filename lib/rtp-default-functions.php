@@ -119,7 +119,7 @@ function rtp_default_post_meta( $placement = 'top' ) {
                     </div><!-- .post-meta --><?php
                 if ( $position == 'l' ) { echo '</footer>'; }
             }
-        } else {
+        } elseif ( !rtp_is_bbPress() ) {
             if ( get_edit_post_link() && ( 'top' == $placement ) ) { ?>
                 <div class="post-meta post-meta-top"><?php rtp_hook_end_post_meta_top(); ?></div><?php
             }
@@ -154,7 +154,7 @@ add_action('rtp_hook_after_header','rtp_default_nav_menu'); // Adds default nav 
  */
 function rtp_edit_link() {
     // Call Edit Link
-    edit_post_link( __( 'Edit', 'rtPanel' ), '<p class="rtp-edit-link rtp-common-link">[', ']</p>');
+    edit_post_link( __( '[ edit ]', 'rtPanel' ), '<p class="rtp-edit-link">', '</p>');
 }
 add_action('rtp_hook_end_post_meta_top', 'rtp_edit_link');
 

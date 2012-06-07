@@ -396,7 +396,7 @@ function rtp_plugin_metabox() {
             </td>
         </tr>
         <tr>
-            <td><a target="_blank" href="http://wordpress.org/extend/plugins/wp-pagenavi/"><?php _e( 'WP PageNavi', 'rtPanel' ); ?></a></td>
+            <td><a target="_blank" href="http://wordpress.org/extend/plugins/wp-pagenavi/"><?php _e( 'WP-PageNavi', 'rtPanel' ); ?></a></td>
             <td>
                 <?php
                 if ( is_plugin_active( RTP_WP_PAGENAVI ) ) {
@@ -426,7 +426,7 @@ function rtp_plugin_metabox() {
             </td>
         </tr>
         <tr>
-            <td><a target="_blank" href="http://wordpress.org/extend/plugins/wordpress-seo/"><?php _e( 'Yoast WordPress SEO', 'rtPanel' ); ?></a></td>
+            <td><a target="_blank" href="http://wordpress.org/extend/plugins/wordpress-seo/"><?php _e( 'WordPress SEO by Yoast', 'rtPanel' ); ?></a></td>
             <td>
                 <?php
                 if ( is_plugin_active( RTP_YOAST_SEO ) ) {

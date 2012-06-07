@@ -648,7 +648,7 @@ add_action( 'admin_head', 'rtp_custom_admin_logo' );
  */
 function rtp_custom_admin_footer( $footer_text ) {
     echo $footer_text;
-    printf( '<br /><br />' . __( 'Currently using <a href="%s" title="rtPanel.com" target="_blank">rtPanel</a>', 'rtPanel' ) . ' | '
+    printf( '<br /><br />' . __( 'Currently using <a href="%s" title="rtPanel" target="_blank">rtPanel</a>', 'rtPanel' ) . ' | '
             . __( '<a href="%s" title="Click here for rtPanel Free Support" target="_blank">Support</a>', 'rtPanel' ) . ' | '
             . __( '<a href="%s" title="Click here for rtPanel Documentation" target="_blank">Documentation</a>', 'rtPanel' ), 'http://rtcamp.com/rtpanel/', 'http://rtcamp.com/support/forum/rtpanel/', 'http://rtcamp.com/rtpanel/docs/' );
 }
