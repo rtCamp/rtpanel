@@ -172,6 +172,7 @@ function rtp_general_sanitize_option(){
     global $wpdb;
     
     $option = 'rtp_general';
+    $default = false;
     
     $option = trim($option);
     if ( empty($option) )
@@ -181,6 +182,10 @@ function rtp_general_sanitize_option(){
         return false;
 
     if ( ! defined( 'WP_INSTALLING' ) ) {
+        // prevent non-existent options from triggering multiple queries
+        $notoptions = wp_cache_get( 'notoptions', 'options' );
+        if ( isset( $notoptions[$option] ) )
+                return $default;
 
         $alloptions = wp_load_alloptions();
 
@@ -196,6 +201,10 @@ function rtp_general_sanitize_option(){
                 if ( is_object( $row ) ) {
                     $value = $row->option_value;
                     wp_cache_add( $option, $value, 'options' );
+                } else { // option does not exist, so we must cache its non-existence
+                    $notoptions[$option] = true;
+                    wp_cache_set( 'notoptions', $notoptions, 'options' );
+                    return $default;
                 }
             }
         }
@@ -205,14 +214,16 @@ function rtp_general_sanitize_option(){
         $wpdb->suppress_errors( $suppress );
         if ( is_object( $row ) )
             $value = $row->option_value;
+        else
+            return $default;
     }
 
-    // If home is not set use siteurl.
-    if ( 'home' == $option && '' == $value )
-        return get_option( 'siteurl' );
+	// If home is not set use siteurl.
+	if ( 'home' == $option && '' == $value )
+            return get_option( 'siteurl' );
 
-    if ( in_array( $option, array('siteurl', 'home', 'category_base', 'tag_base') ) )
-        $value = untrailingslashit( $value );
+	if ( in_array( $option, array('siteurl', 'home', 'category_base', 'tag_base') ) )
+            $value = untrailingslashit( $value );
     
     /* Hack for serialized data containing URLs http://www.php.net/manual/en/function.unserialize.php#107886 */
     $value = preg_replace( '!s:(\d+):"(.*?)";!se', "'s:'.strlen('$2').':\"$2\";'", $value );
