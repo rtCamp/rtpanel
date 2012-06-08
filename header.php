@@ -9,7 +9,7 @@
  * @since rtPanel 2.0
  */
 global $rtp_general; ?><!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
+<html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?> xml:lang="<?php echo get_bloginfo('language'); ?>">
     <head>
         <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
         <title><?php wp_title( '' ); ?></title>
