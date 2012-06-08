@@ -459,6 +459,7 @@ img.alignright { margin: 5px 0px 5px 15px; }
 /* Sidebar */
 .widget { font-size: 13px; }
 .widget_calendar, .widget_search { margin-bottom: 10px; }
+.widget_search { margin-top: 10px; }
 .widget_tag_cloud { margin-bottom: 5px; }
     .widgettitle { line-height: 2em; }
     .widget ul { margin: 0 0 0 15px; }
