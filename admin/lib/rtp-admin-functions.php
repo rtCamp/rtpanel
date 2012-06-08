@@ -808,9 +808,10 @@ function rtp_custom_login_logo() {
     $custom_logo = rtp_logo_fav_src( $type = 'logo' );
     $size = @getimagesize( $custom_logo );
     echo '<style type="text/css">
-        .login h1 a { background: url(' . $custom_logo . ') no-repeat scroll center top transparent;
+        .login h1 { margin-left: 8px; }
+        .login h1 a { background: url(' . $custom_logo . ') no-repeat 50% 0;
                height: ' . $size[1] . 'px;
-               width: ' . $size[0] . 'px; margin: 0 auto 15px; padding: 0; }
+               width: ' . $size[0] . 'px; margin: 0 auto 15px; padding: 0; max-width: 312px; }
 	</style>';
 }
 
