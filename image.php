@@ -24,7 +24,7 @@ get_header(); ?>
                 <header class="post-header clearfix">
                     <?php rtp_hook_begin_post_title(); ?>
 
-                    <?php   if ( is_singular() ) { ?>
+                    <?php if ( is_singular() ) { ?>
                                 <h1 class="post-title"><?php the_title(); ?></h1><?php
                             } else { ?>
                                 <h2 class="post-title"><a role="link" href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permanent Link to %s', 'rtPanel' ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a></h2><?php
@@ -37,9 +37,9 @@ get_header(); ?>
                 </header><!-- .post-title -->
 
                 <div class="post-content clearfix">
-                    <?php rtp_hook_begin_post_content(); ?><?php
+                    <?php rtp_hook_begin_post_content(); ?>
 
-                    $img_info = wp_get_attachment_image_src( '', 'full' ); ?>
+                    <?php $img_info = wp_get_attachment_image_src( '', 'full' ); ?>
 
                     <figure role="img" class="wp-caption aligncenter" aria-describedby="figcaption_attachment_<?php echo get_the_ID(); ?>">
                         <a role="link" href="<?php echo $img_info[0]; ?>" title="<?php the_title_attribute(); ?>" rel="attachment"><?php echo wp_get_attachment_image( '', 'full' ); ?></a><?php

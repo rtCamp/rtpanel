@@ -87,8 +87,6 @@ if ( !function_exists( 'rtp_admin_header_style' ) ) {
 function rtp_default_scripts() {
     global $rtp_general;
     
-    wp_enqueue_style( 'rtp-google-open-sans', 'http://fonts.googleapis.com/css?family=PT+Serif:400,700|Open+Sans:400,700,600' );
-    
     echo ( $rtp_general['custom_styles'] ) ? '<style type="text/css" media="screen">' . $rtp_general['custom_styles'] . '</style>' . "\r\n" : '';
     // Nested Comment Support
     ( is_singular() && get_option( 'thread_comments' ) ) ? wp_enqueue_script('comment-reply') : '';

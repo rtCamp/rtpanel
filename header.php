@@ -9,7 +9,7 @@
  * @since rtPanel 2.0
  */
 global $rtp_general; ?><!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?> xml:lang="<?php echo get_bloginfo('language'); ?>">
+<html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
     <head>
         <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
         <title><?php wp_title( '' ); ?></title>
@@ -45,12 +45,9 @@ global $rtp_general; ?><!DOCTYPE html>
                 <hgroup id="header" class="rtp-grid-12 clearfix">
                     <?php rtp_hook_before_logo(); ?>
 
-                        <?php if ( is_home() || is_front_page() ) { ?>
-                            <h1 class="rtp-site-logo"><a role="link" href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name' ); ?>"><?php echo ( $rtp_general['logo_show'] ) ? '<img role="img" alt="' . get_bloginfo( 'name' ) . '" ' . rtp_get_image_dimensions( rtp_logo_fav_src('logo') ) . ' src="' . rtp_logo_fav_src('logo') . '" />' : get_bloginfo( 'name' ); ?></a></h1>
-                        <?php } else { ?>
-                            <h2 class="rtp-site-logo"><a role="link" href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name' ); ?>"><?php echo ( $rtp_general['logo_show'] ) ? '<img role="img" alt="' . get_bloginfo( 'name' ) . '" ' . rtp_get_image_dimensions( rtp_logo_fav_src('logo') ) . ' src="' . rtp_logo_fav_src('logo') . '" />' : get_bloginfo( 'name' ); ?></a></h2>
-                        <?php } ?>
-
+                        <?php $heading = ( is_home() || is_front_page() ) ? 'h1' : 'h2'; ?>
+                        <<?php echo $heading; ?> class="rtp-site-logo"><a role="link" href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name' ); ?>"><?php echo ( $rtp_general['logo_show'] ) ? '<img role="img" alt="' . get_bloginfo( 'name' ) . '" ' . rtp_get_image_dimensions( rtp_logo_fav_src('logo') ) . ' src="' . rtp_logo_fav_src('logo') . '" />' : get_bloginfo( 'name' ); ?></a></<?php echo $heading; ?>>
+                        
                     <?php rtp_hook_after_logo(); ?>
 
                 </hgroup><!-- #header -->

@@ -26,7 +26,7 @@
         <h1 class="post-title rtp-main-title"><?php printf( __( 'Author: %s', 'rtPanel' ), '<span>' . get_query_var('author_name') . '</span>' ); ?></h1><?php
     }
 
-    /* the loop */
+    /* The Loop */
     if ( have_posts() ) {
         while( have_posts() ) {
             the_post(); ?>
@@ -46,7 +46,6 @@
                     <?php rtp_hook_end_post_title(); ?>
 
                     <?php rtp_hook_post_meta( 'top' ); ?>
-
                 </header><!-- .post-title -->
 
                 <div class="post-content clearfix">
@@ -62,7 +61,6 @@
                             } ?>
 
                     <?php rtp_hook_end_post_content(); ?>
-
                 </div><!-- .post-content -->
 
                 <?php rtp_hook_post_meta( 'bottom' ); ?>

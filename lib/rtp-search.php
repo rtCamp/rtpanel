@@ -22,6 +22,7 @@ function rtp_custom_search_form( $form ) {
     $search_class = 'search-text';
     if ( preg_match( '/customSearchControl.draw\(\'cse\'(.*)\)\;/i', @$rtp_general["search_code"] ) ) {
         $search_class .= ' rtp-google-search';
+        $placeholder = NULL;
     } else {
         $placeholder = 'placeholder="' . apply_filters( 'rtp_search_placeholder', __( 'Search Here...', 'rtPanel' ) ) . '" ';
     }
