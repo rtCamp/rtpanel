@@ -270,7 +270,7 @@ class rtp_comments_widget extends WP_Widget {
                                 echo '<div class="comment-container clearfix">';
                                     if ( $show_grav ) {
                                         echo '<div class="author-vcard' . $right_grav . '" title="' . $total_comments[$comments]->comment_author . '">';
-                                            echo get_avatar( $total_comments[$comments]->comment_author_email, $gravatar );
+                                            echo get_avatar( $total_comments[$comments]->comment_author_email, $gravatar, '', $total_comments[$comments]->comment_author );
                                         echo '</div>';
                                     }
                                     echo '<div class="comment-section clearfix">';
