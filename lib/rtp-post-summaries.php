@@ -23,7 +23,7 @@ function rtp_no_ellipsis( $text ) {
     }
     $read_text =  ( !empty($rtp_post_comments['read_text'] ) ) ? $rtp_post_comments['read_text'] : '';
     $text = str_replace( '[...]', '&hellip;', $text );
-    $text .= !is_attachment() ? apply_filters( 'rtp_readmore', ( ( $read_text ) ? '<a role="link" class="rtp-readmore'.$alignment.'" title="' . sprintf( __( 'Read More On %s', 'rtPanel' ), get_the_title() ) . '" href="' . get_permalink( $post->ID ) . '" rel="nofollow">' . esc_attr( $read_text ) . '</a>' : '' )) : '';
+    $text .= !is_attachment() ? apply_filters( 'rtp_readmore', ( ( $read_text ) ? '<a role="link" class="rtp-readmore'.$alignment.'" title="' . sprintf( __( 'Read more on %s', 'rtPanel' ), get_the_title() ) . '" href="' . get_permalink( $post->ID ) . '" rel="nofollow">' . esc_attr( $read_text ) . '</a>' : '' )) : '';
     return $text;
 }
 add_filter( 'the_excerpt', 'rtp_no_ellipsis' );
@@ -112,8 +112,9 @@ function rtp_show_post_thumbnail( $post_id = null, $thumbnail_size = 'thumbnail'
             $image = rtp_generate_thumbs( '', $thumbnail_size, $post_id );
             $image = ( $image ) ? $image : apply_filters( 'rtp_default_image_path', $default_img_path );
             if ( $image ) {
+                $alt = ( the_title_attribute( 'echo=0' ) ) ? the_title_attribute( 'echo=0' ) : 'Alternate Text';
                 echo ( $thumbnail_frame || ( 'aligncenter' == $image_align ) ) ? '<span class="' . ( ( 'aligncenter' == $image_align ) ? 'aligncenter' : '' ) . $thumbnail_frame . '">' : ''; ?>
-                    <a role="link" class="<?php echo ( 'aligncenter' == $image_align ) ? 'aligncenter ' : ''; ?>" href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><img role="img" class="<?php echo 'post-thumb ' . $image_align; ?> wp-post-image" alt="<?php the_title_attribute(); ?>" <?php echo rtp_get_image_dimensions( $image ); ?> src="<?php echo $image; ?>" /></a><?php
+                    <a role="link" class="<?php echo ( 'aligncenter' == $image_align ) ? 'aligncenter ' : ''; ?>" href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><img role="img" class="<?php echo 'post-thumb ' . $image_align; ?> wp-post-image" alt="<?php echo $alt; ?>" <?php echo rtp_get_image_dimensions( $image ); ?> src="<?php echo $image; ?>" /></a><?php
                 echo ( $thumbnail_frame ) ? '</span>' : ''; ?>
             <?php
             }
