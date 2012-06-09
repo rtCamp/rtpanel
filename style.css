@@ -308,13 +308,17 @@ h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus { color: #CD3517; text-decoration
 
 /* Search Page Style */
 #content .cse .gsc-control-cse, #content .gsc-control-cse { padding: 0; }
-.gsc-above-wrapper-area-container { border-width: 0; margin: 0; }
+.gsc-above-wrapper-area-container, #cse table.gstl_0 { border-width: 0; margin: 0; }
 table.gsc-search-box td { border-width: 0; }
+.gsc-input-box .gscb_a { line-height: 25px; }
+.gsc-input-box .gsst_a { line-height: 18px; padding-top: 0; }
+.gsc-input-box .gsib_b { line-height: 18px; padding-bottom: 0; padding-top: 0; }
 .gsc-result-info-container { border-width: 0; padding: 0; }
 table.gsc-search-box td.gsc-input { padding-left: 0; }
 td.gsc-clear-button { padding-right: 0; }
 input.gsc-input { margin-left: 0; }
 #cse .gsc-result-info { margin: 0; }
+table.gsc-search-box td.gsib_a { line-height: 18px; padding-top: 0; }
 .gsc-table-result, .gs-promotion-table, .gsc-table-result td, .gs-promotion-table td,
 .gsc-resultsHeader, .gsc-resultsHeader td { border-width: 0; margin: 0; }
 .gsc-table-result .gsc-thumbnail { padding-left: 0; }
