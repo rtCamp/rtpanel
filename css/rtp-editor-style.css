@@ -21,9 +21,9 @@ pre,dt,.wp-caption,.avatar,input[type=text],input[type=tel],input[type=color],in
 ins{background-color:#FF9;color:#111;text-decoration:none}
 mark{background-color:#FF9;color:#111;font-style:italic;font-weight:700}
 hr{display:block;height:1px;border-width:1px 0 0;margin:10px 0;padding:0}
-body#tinymce{font:.875em/1.5em 'Open Sans', sans-serif;color:#333;margin:0 10px}
+body#tinymce{font:.875em/1.5em sans-serif;color:#333;margin:0 10px}
 pre,code,kbd,samp,tt,var{font-family:monospace}
-h1,h2,h3,h4,h5,h6{font-family:'PT Serif', serif}
+h1,h2,h3,h4,h5,h6{font-family: serif}
 h1{font-size:28px;line-height:1.5em;font-weight:400}
 h2{font-size:24px;line-height:1.75em;font-weight:400}
 h3{font-size:20px;line-height:1.5em;font-weight:400}
@@ -107,7 +107,7 @@ h1 a:hover,h2 a:hover{color:#CD3517;text-decoration:none}
 .rtp-common-link:hover,.rtp-common-link span:hover,.rtp-common-link a:hover{color:#111}
 img{height:auto;max-width:97%;margin:5px}
 img.alignnone{margin:7px 10px 7px 0}
-.wp-caption{background:#F5F5F5;text-align:center;max-width:97%;margin:7px}
+.wp-caption{background:#F5F5F5;text-align:center;max-width:97%;margin:7px;padding: 0;}
 .wp-caption a{border:0;text-decoration:none}
 .wp-caption img{border:0 none;width:auto;margin:5px 5px 0;padding:0}
 .wp-caption-text{color:#666;line-height:1.286em;margin:0 5px 5px}
@@ -116,3 +116,4 @@ img.alignnone{margin:7px 10px 7px 0}
 img.aligncenter,.wp-caption.aligncenter{margin:7px auto}
 img.alignleft,.wp-caption.alignnone,.wp-caption.alignleft{margin:7px 15px 7px 0}
 img.alignright,.wp-caption.alignright{margin:7px 0 7px 15px}
+.wp-caption-dt { border: 0; padding: 0; }
