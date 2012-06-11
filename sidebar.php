@@ -3,6 +3,7 @@
  * The template for displaying Sidebar
  *
  * @package rtPanel
+ * 
  * @since rtPanel 2.0
  */
 ?>

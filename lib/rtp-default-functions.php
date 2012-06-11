@@ -1,5 +1,5 @@
 <?php
-/* 
+/** 
  * rtPanel default functions
  *
  * @package rtPanel
@@ -148,7 +148,7 @@ function rtp_default_nav_menu() {
 add_action('rtp_hook_after_header','rtp_default_nav_menu'); // Adds default nav menu after #header
 
 /**
- * 'Edit this post' link for post/page
+ * 'Edit' link for post/page
  *
  * @since rtPanel 2.0
  */

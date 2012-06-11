@@ -4,7 +4,7 @@ Theme URI: http://rtcamp.com/rtpanel/
 Description: WordPress theme framework with Custom Menu/Header/Background/Logo/Favicon options, Featured Image, Feedburner/Facebook Open Graph/Google Custom Search integration and more. This theme comes with free technical support by team of 20+ full-time developers. Support Links: <a href="http://rtcamp.com/support/forum/rtpanel/" title="rtPanel Free Support" rel="follow">rtPanel Support forum</a>, <a href="http://rtcamp.com/rtpanel/docs/" title="rtPanel Documentation" rel="follow">Documentation</a> or visit <a href="http://rtcamp.com/rtpanel/" title="rtPanel" rel="follow">rtPanel</a>.
 Version: 2.1
 Author: rtCamp
-Author URI: http://rtcamp.com
+Author URI: http://rtcamp.com/
 Contributors: rtCampers ( http://rtcamp.com/about/rtcampers/ )
 License: GNU General Public License, v2 (or newer)
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -37,24 +37,28 @@ If you make changes to thumbnail height, width or crop settings, you must use "R
 * Added: Responsiveness Support
 * Added: bbPress Support
 * Added: 960 Grid Support
-* Resolved: Post Meta empty div and Naming.
-* Resolved: Regenerate Thumbnails Notification
-* Added: Post and Archive Pagination hooks.
-* Added: Edit link for pages and custom posts
-* Removed: IE6 Support
-* Removed: JS support for onfoucs onblur on text and textarea fields ( Using HTML5 placeholder instead )
-* Added: rtp_hook_begin_body() and rtp_hook_end_body() hooks
-* Added: rtp_hook_begin_main_wrapper() and rtp_hook_end_main_wrapper() hooks
+* Added: Default WordPress Pagination
+* Added: Option to disable comments on attachments
+* Added: Attachment Image Template
+* Added: Option to disable favicon
+* Added: rtPanel.pot
+* Added: rtp_hook_begin_body and rtp_hook_end_body hooks
+* Added: rtp_hook_begin_main_wrapper and rtp_hook_end_main_wrapper hooks
 * Added: Viewport Hook ( rtp_viewport )
 * Added: Open Graph Meta Hooks
 * Added: Open Graph Meta Hooks
 * Added: Sidebar Hook
 * Added: Comment Hook
+* Added: Post and Archive Pagination hooks.
+* Added: Edit link for pages and custom posts
 * Added: rtPanel Hooks Editor to Plugin Support
-* Modified: rtPanel Contextual Help
-* Added: rtPanel.pot
+* Resolved: Post Meta empty div and Naming.
+* Resolved: Regenerate Thumbnails Notification
 * Resolved: Search layout Class Bug
 * Resolved: rtPanel Subscribe Widget Subscription Handle Issue
+* Resolved: Comment Count and Comment Open Issue
+* Modified: rtPanel Contextual Help
 * Modified: reply class to rtp-reply as it conflicts with bbPress
 * Modified: Editor Stylesheet
-* Resolved: Comment Count and Comment Open Issue
+* Removed: IE6 Support
+* Removed: JS support for onfoucs onblur on text and textarea fields ( Using HTML5 placeholder instead )

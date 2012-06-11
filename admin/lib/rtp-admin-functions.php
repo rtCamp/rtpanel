@@ -961,7 +961,7 @@ function rtp_default_admin_sidebar() { ?>
     <div class="postbox" id="support">
         <div title="<?php _e( 'Click to toggle', 'rtPanel'); ?>" class="handlediv"><br /></div>
         <h3 class="hndle"><span><?php _e( 'Free Support', 'rtPanel' ); ?></span></h3>
-        <div class="inside"><p><?php printf( __( 'If you have any problems with this theme or good ideas for improvements, please talk about them in the <a href="%s" target="_blank" title="Click here for rtPanel Free Support">Support forums</a>', 'rtPanel' ), 'http://rtcamp.com/support/forum/rtpanel/' ); ?>.</p></div>
+        <div class="inside"><p><?php printf( __( ' If you are facing any problems wihile using rtPanel, or have good ideas for improvements, please discuss the same in our <a href="%s" target="_blank" title="Click here for rtPanel Free Support">Support forums</a>', 'rtPanel' ), 'http://rtcamp.com/support/forum/rtpanel/' ); ?>.</p></div>
     </div>
 
     <div class="postbox" id="latest_news">
@@ -981,7 +981,7 @@ function rtp_default_admin_sidebar() { ?>
 function rtp_get_feeds( $feed_url='http://rtcamp.com/blog/category/rtpanel/feed/' ) {
 
     // Get RSS Feed(s)
-    include_once( ABSPATH . WPINC . '/feed.php' );
+    require_once( ABSPATH . WPINC . '/feed.php' );
     $maxitems = 0;
     // Get a SimplePie feed object from the specified feed source.
     $rss = fetch_feed( $feed_url );
@@ -1018,56 +1018,58 @@ function rtp_get_feeds( $feed_url='http://rtcamp.com/blog/category/rtpanel/feed/
 function rtp_theme_options_help() {
     
         $general_help = '<p>';
-        $general_help .= __( 'rtPanel is the most easy to use WordPress Theme Framework. You will find many state of the art options and widgets with rtPanel. ', 'rtPanel' );
+        $general_help .= __( 'rtPanel is the most easy to use WordPress Theme Framework. You will find many state of the art options and widgets with rtPanel.', 'rtPanel' );
         $general_help .= '</p><p>';
-        $general_help .= __( 'rtPanel is a theme framework for the world. Keeping this in mind our developers have made it localization ready. ', 'rtPanel' );
+        $general_help .= __( 'rtPanel framework is used worldwide and keeping this in mind we have made it localization ready. ', 'rtPanel' );
         $general_help .= __( 'Developers can use rtPanel as a basic and stripped to bones theme framework for developing their own creative and wonderful WordPress Themes.', 'rtPanel' );
         $general_help .= '</p><p>';
-        $general_help .= __( 'With the use of rtPanel developers and users can specify settings for basic functions (like date format, excerpt word count etc.) directly from theme options.', 'rtPanel' );
-        $general_help .= __( ' rtPanel provides you with some theme options to manage some basic settings for your theme.', 'rtPanel' );
-        $general_help .= __( ' Options provided for your convenience on this page are:', 'rtPanel' );
+        $general_help .= __( 'By using rtPanel, developers and users can specify settings for basic functions (like date format, excerpt word count etc.) directly from theme options. ', 'rtPanel' );
+        $general_help .= __( 'rtPanel provides theme options to manage some basic settings for your theme. ', 'rtPanel' );
+        $general_help .= __( 'Below are the options provided for your convenience.', 'rtPanel' );
         $general_help .= '</p><p>';
-        $general_help .= __( '<strong>Logo Settings:</strong> You can manage your theme&#8217;s logo from this setting.', 'rtPanel' );
+        $general_help .= __( '<strong>Logo Settings:</strong> Theme\'s logo can be managed from this setting.', 'rtPanel' );
         $general_help .= '</p><p>';
-        $general_help .= __( '<strong>Favicon Settings:</strong> You can manage your theme&#8217;s favicon from this setting.', 'rtPanel' );
+        $general_help .= __( '<strong>Favicon Settings:</strong> Theme\'s favicon can be managed from this setting.', 'rtPanel' );
         $general_help .= '</p><p>';
-        $general_help .= __( '<strong>Facebook Open Graph Settings:</strong> You can specify your Faceboook App ID/Admin ID(s) with this setting.', 'rtPanel' );
+        $general_help .= __( '<strong>Facebook Open Graph Settings:</strong> This setting will provide an option to specify Faceboook App ID/Admin ID(s), required for Open Graph.', 'rtPanel' );
         $general_help .= '</p><p>';
-        $general_help .= __( '<strong>FeedBurner Settings:</strong> You can specify your FeedBurner URL from this setting to redirect your feeds.', 'rtPanel' );
+        $general_help .= __( '<strong>FeedBurner Settings:</strong> FeedBurner URL can be specified from this setting to redirect your feeds.', 'rtPanel' );
         $general_help .= '</p><p>';
-        $general_help .= __( '<strong>Google Custom Search Integration:</strong> You can specify the Google Custom Search Code here to harness the power of Google Search instead of the default WordPress search. You also have the option of rendering the Google Search Page without the sidebar.', 'rtPanel' );
+        $general_help .= __( '<strong>Google Custom Search Integration:</strong> This option would enable you to harness the power of Google Search instead of the default WordPress search by specifying the Google Custom Search Code.  You also have the option of rendering the Google Search Page without the sidebar.', 'rtPanel' );
         $general_help .= '</p><p>';
         $general_help .= __( '<strong>Sidebar Settings:</strong> Enable / Disable the Footer Sidebar from here.', 'rtPanel' );
         $general_help .= '</p><p>';
         $general_help .= __( '<strong>Custom Styles:</strong> You can specify your own CSS styles in this option to override the default Style.', 'rtPanel' );
         $general_help .= '</p><p>';
-        $general_help .= __( '<strong>Plugin Support:</strong> You will get a summary of plugins status that are supported by rtPanel. This information box will allow you to manipulate the plugin settings on the fly.', 'rtPanel' );
+        $general_help .= __( '<strong>Plugin Support:</strong> You will get a summary of plugins\' status that are supported by rtPanel. This information box will allow you to manipulate the plugin settings on the fly.', 'rtPanel' );
         $general_help .= '</p><p>';
-        $general_help .= __( '<strong>Backup rtPanel Options:</strong> You can export or import all settings that you have configured in rtPanel.', 'rtPanel' );
+        $general_help .= __( '<strong>Backup rtPanel Options:</strong> Export or import all settings that you have configured in rtPanel.', 'rtPanel' );
         $general_help .= '</p>';
         $general_help .= '<p>' . __( 'Remember to click "<strong>Save All Changes</strong>" to save any changes you have made to the theme options.', 'rtPanel' ) . '</p>';
 
         $post_comment_help = '<p>';
-        $post_comment_help .= __( 'rtPanel is the world\'s easiest and smartest WordPress Theme. You can customize this theme and use it at your ease. You will find many state of the art options and widgets with rtPanel. ', 'rtPanel' );
+        $post_comment_help .= __( 'rtPanel is the most easy to use WordPress Theme Framework. You will find many state of the art options and widgets with rtPanel.', 'rtPanel' );
         $post_comment_help .= '</p><p>';
-        $post_comment_help .= __( 'rtPanel is a theme for the world. Keeping this in mind our developers have made it localization ready. ', 'rtPanel' );
+        $post_comment_help .= __( 'rtPanel framework is used worldwide and keeping this in mind we have made it localization ready. ', 'rtPanel' );
         $post_comment_help .= __( 'Developers can use rtPanel as a basic and stripped to bones theme framework for developing their own creative and wonderful WordPress Themes.', 'rtPanel' );
         $post_comment_help .= '</p><p>';
-        $post_comment_help .= __( 'With the use of rtPanel developers and users can specify settings for basic functions (like date format, excerpt word count etc.) directly from theme options.', 'rtPanel' );
-        $post_comment_help .= __( ' rtPanel provides you with some theme options to manage some basic settings for your theme.', 'rtPanel' );
-        $post_comment_help .= __( ' Options provided for your convenience on this page are:', 'rtPanel' );
+        $post_comment_help .= __( 'By using rtPanel, developers and users can specify settings for basic functions (like date format, excerpt word count etc.) directly from theme options. ', 'rtPanel' );
+        $post_comment_help .= __( 'rtPanel provides theme options to manage some basic settings for your theme. ', 'rtPanel' );
+        $post_comment_help .= __( 'Below are the options provided for your convenience.', 'rtPanel' );
         $post_comment_help .= '</p><p>';
-        $post_comment_help .= __( '<strong>Post Summaries Options:</strong> You can specify the different excerpt parameters like word count etc.', 'rtPanel' );
+        $post_comment_help .= __( '<strong>Post Summaries Settings:</strong> Specify the different excerpt parameters like word count etc.', 'rtPanel' );
         $post_comment_help .= '</p><p>';
-        $post_comment_help .= __( '<strong>Post Thumbnail Options:</strong> You can specify the post thumbnail options like position, size etc.', 'rtPanel' );
+        $post_comment_help .= __( '<strong>Post Thumbnail Settings:</strong> Specify the post thumbnail options like position, size etc.', 'rtPanel' );
         $post_comment_help .= '<br />';
-        $post_comment_help .= __( '<small><strong><em>NOTE:</em></strong> If you use this option to change height or width of the thumbnail, then please use Regenerate Thumbnails Plugin to apply the new dimension settings to your thumbnails.</small>', 'rtPanel' );
+        $post_comment_help .= __( '<small><strong><em>NOTE:</em></strong> If you are using this option to change height or width of the thumbnail, then please use \'Regenerate Thumbnails\' plugin, to apply the new dimension settings to your thumbnails.</small>', 'rtPanel' );
         $post_comment_help .= '</p><p>';
-        $post_comment_help .= __( '<strong>Post Meta Options:</strong> You can specify the post meta options like post date format, display or hide author name and their positions in relation with the content.', 'rtPanel' );
+        $post_comment_help .= __( '<strong>Post Meta Settings:</strong> You can specify the post meta options like post date format, display or hide author name and their positions in relation with the content.', 'rtPanel' );
+        $post_comment_help .= '</p><p>';
+        $post_comment_help .= __( '<strong>Pagination Settings:</strong> Enable this setting to use default WordPress pagination.', 'rtPanel' );
         $post_comment_help .= '</p><p>';
         $post_comment_help .= __( '<strong>Comment Form Settings:</strong> You can specify the comment form settings from this option.', 'rtPanel' );
         $post_comment_help .= '</p><p>';
-        $post_comment_help .= __( '<strong>Gravtar Settings:</strong> You can specify the general Gravtar support from this option.', 'rtPanel' );
+        $post_comment_help .= __( '<strong>Gravtar Settings:</strong> Specify the general Gravtar support from this option.', 'rtPanel' );
         $post_comment_help .= '</p>';
         $post_comment_help .= '<p>' . __( 'Remember to click "<strong>Save All Changes</strong>" to save any changes you have made to the theme options.', 'rtPanel' ) . '</p>';
         
@@ -1472,7 +1474,7 @@ function rtp_regenerate_thumbnail_notice( $return = false ) {
  */
 function rtp_upgrade_theme_notice() {
     if( current_user_can( 'administrator' ) && is_child_theme() ) {
-        echo '<div class="error upgrade_theme_notice"><p>' . sprintf( __( 'If you are using a child theme made on a previous version on rtPanel. Please <a class="upgrade_theme_activate_script" href="%s" title="Click Here">Click Here</a>', 'rtPanel' ), '#' ) . ' <span class="alignright upgrade_theme_notice_close" href="#">X</a></p></div>';
+        echo '<div class="error upgrade_theme_notice"><p>' . sprintf( __( 'If you are using a child theme made on a previous version of rtPanel. Please <a class="upgrade_theme_activate_script" href="%s" title="Click Here">Click Here</a>', 'rtPanel' ), '#' ) . ' <span class="alignright upgrade_theme_notice_close" href="#">X</a></p></div>';
     }
 }
 

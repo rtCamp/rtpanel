@@ -62,7 +62,7 @@ if ( !function_exists( 'rtp_header_style' ) ) {
      */
     function rtp_header_style() {
         if ( get_header_image() ) { ?>
-            <style type="text/css"> #header-wrapper { background: url(<?php header_image(); ?>) no-repeat;width: <?php echo HEADER_IMAGE_WIDTH; ?>px; height: <?php echo HEADER_IMAGE_HEIGHT; ?>px; } </style><?php
+            <style> #header-wrapper { background: url(<?php header_image(); ?>) no-repeat;width: <?php echo HEADER_IMAGE_WIDTH; ?>px; height: <?php echo HEADER_IMAGE_HEIGHT; ?>px; } </style><?php
         }
     }
 }
@@ -87,7 +87,7 @@ if ( !function_exists( 'rtp_admin_header_style' ) ) {
 function rtp_default_scripts() {
     global $rtp_general;
     
-    echo ( $rtp_general['custom_styles'] ) ? '<style type="text/css" media="screen">' . $rtp_general['custom_styles'] . '</style>' . "\r\n" : '';
+    echo ( $rtp_general['custom_styles'] ) ? '<style>' . $rtp_general['custom_styles'] . '</style>' . "\r\n" : '';
     // Nested Comment Support
     ( is_singular() && get_option( 'thread_comments' ) ) ? wp_enqueue_script('comment-reply') : '';
     

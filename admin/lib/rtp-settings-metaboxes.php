@@ -253,8 +253,8 @@ function rtp_google_search_metabox() {
                 <th scope="row"><label for="search_code"><?php _e( 'Google Custom Search Element Code', 'rtPanel' ); ?></label></th>
                 <td>
                     <textarea cols="80" rows="5" name="rtp_general[search_code]" id="search_code"><?php echo esc_textarea( $rtp_general['search_code'] ); ?></textarea><br />
-                    <label for="search_code"><span class="description"><?php printf( __( 'The Google Search Code Obtained by Default. You can obtain the Google Custom Search Code <a href="%s" title="Googel Custom Search">here</a><br />', 'rtPanel' ), 'http://www.google.com/cse/' ); ?></span>
-                    <strong><?php _e( 'NOTE', 'rtPanel' ); ?>: </strong><span class="description"><?php _e( 'The hosting option must be "Search Element" and layout either "full-width" or "compact".', 'rtPanel' ); ?></span></label>
+                    <label for="search_code"><span class="description"><?php printf( __( 'The Google Search Code Obtained by Default. You can obtain the Google Custom Search Code <a href="%s" title="Google Custom Search">here</a><br />', 'rtPanel' ), 'http://www.google.com/cse/' ); ?></span>
+                    <strong><?php _e( 'NOTE', 'rtPanel' ); ?>: </strong><span class="description"><?php _e( 'The hosting option must be "Search Element" and layout should be either "full-width" or "compact".', 'rtPanel' ); ?></span></label>
                 </td>
             </tr>
             <tr valign="top">
@@ -262,7 +262,7 @@ function rtp_google_search_metabox() {
                 <td>
                     <input type="hidden" name="rtp_general[search_layout]" value="0" />
                         <input type="checkbox" name="rtp_general[search_layout]" value="1" id="search_layout" <?php checked( $rtp_general['search_layout'] ); ?> />
-                    <span class="description"><label for="search_layout"><?php _e( 'Do not show sidebar on Search Results Page ( When using Google Custom Search )', 'rtPanel' ); ?></label></span>
+                    <span class="description"><label for="search_layout"><?php _e( 'Do not show sidebar on "Search Results" Page ( While using Google Custom Search )', 'rtPanel' ); ?></label></span>
                 </td>
             </tr>
         </tbody>
