@@ -387,7 +387,7 @@ img.alignright { margin: 5px 0px 5px 15px; }
 .breadcrumb { border-width: 0 0 1px; color: #666; font-size: 13px; margin: 10px 0 0; }
 
 /* Paged Navigation */
-.rtp-navigation, .rtp-comments-pagination { clear: both; font-size: 13px; margin: 10px 10px 0; }
+.rtp-navigation, .rtp-comments-pagination { clear: both; font-size: 13px; margin: 10px; }
     .rtp-navigation .alignleft { text-align: left; }
     .rtp-navigation .alignright { text-align: right; }
         .rtp-navigation a, .rtp-comments-pagination a { text-decoration: none; }
@@ -435,7 +435,8 @@ img.alignright { margin: 5px 0px 5px 15px; }
     .byuser > .comment-body { padding: 10px 10px 0 10px; }
 
     /* Comment Form */
-    #respond { clear: both; font-size: 13px; margin: -10px 0 0; }
+    #respond { clear: both; font-size: 13px; }
+    .commentlist + #respond { margin: -10px 0 0; }
         #respond h3 { color: #666; }
         #respond form { border-width: 1px 0 0 0; }
             #respond p { overflow: hidden; }
