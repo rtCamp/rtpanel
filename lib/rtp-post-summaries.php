@@ -113,7 +113,7 @@ function rtp_show_post_thumbnail( $post_id = null, $thumbnail_size = 'thumbnail'
             $image = ( $image ) ? $image : apply_filters( 'rtp_default_image_path', $default_img_path );
             if ( $image ) {
                 $alt = ( the_title_attribute( 'echo=0' ) ) ? the_title_attribute( 'echo=0' ) : 'Alternate Text';
-                echo ( $thumbnail_frame || ( 'aligncenter' == $image_align ) ) ? '<span class="' . ( ( 'aligncenter' == $image_align ) ? 'aligncenter' : '' ) . $thumbnail_frame . '">' : ''; ?>
+                echo ( $thumbnail_frame || ( 'aligncenter' == $image_align ) ) ? '<span class="' . ( ( 'aligncenter' == $image_align ) ? 'aligncenter ' : '' ) . $thumbnail_frame . '">' : ''; ?>
                     <a role="link" class="<?php echo ( 'aligncenter' == $image_align ) ? 'aligncenter ' : ''; ?>" href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><img role="img" class="<?php echo 'post-thumb ' . $image_align; ?> wp-post-image" alt="<?php echo $alt; ?>" <?php echo rtp_get_image_dimensions( $image ); ?> src="<?php echo $image; ?>" /></a><?php
                 echo ( $thumbnail_frame ) ? '</span>' : ''; ?>
             <?php

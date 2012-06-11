@@ -50,10 +50,11 @@ if ( have_comments() || ( ( !is_attachment() && comments_open() ) || ( is_attach
         if ( ( !is_attachment() && comments_open() ) || ( is_attachment() && $rtp_post_comments['attachment_comments'] ) ) {
             if ( $rtp_post_comments['hide_labels'] ) {
                 $hide_class = ' hide-labels';
+                $asterix = ( $req ) ? '*' : '';
                 $label_author = '';
-                $author_value = __( 'Name*', 'rtPanel' );
+                $author_value = __( 'Name', 'rtPanel' ) . $asterix;
                 $label_email = '';
-                $email_value = __( 'Email*', 'rtPanel' );
+                $email_value = __( 'Email', 'rtPanel' ) . $asterix;
                 $label_url = '';
                 $url_value = __( 'Website', 'rtPanel' );
             } else {
@@ -101,7 +102,7 @@ if ( have_comments() || ( ( !is_attachment() && comments_open() ) || ( is_attach
                         'fields' => apply_filters( 'comment_form_default_fields', $fields ) ,
                         'comment_notes_before' => $comments_before,
                         'comment_notes_after' => $comments_after,
-                        'comment_field' => '<p class="comment-form-comment' . ( ( $rtp_post_comments['comment_textarea'] ) ? ' rtp-comment-above' : ' rtp-comment-below' ) . '"><textarea role="textbox" aria-multiline="true" id="comment"' . ( $req ? ' required="required"' : '' ) . ' placeholder="' . apply_filters( 'rtp_comment_placeholder', __( 'Comment...', 'rtPanel' ) ) . '" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
+                        'comment_field' => '<p class="comment-form-comment' . ( ( $rtp_post_comments['comment_textarea'] ) ? ' rtp-comment-above' : ' rtp-comment-below' ) . '"><textarea role="textbox" aria-multiline="true" id="comment" required="required" placeholder="' . apply_filters( 'rtp_comment_placeholder', __( 'Comment...', 'rtPanel' ) ) . '" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
                         'title_reply' => '<span class="comment-title">' . __( 'Leave a Comment', 'rtPanel' ) . '</span>',
                         'title_reply_to' => '<span class="comment-title">' . __( 'Leave a Comment', 'rtPanel' ) . '</span>',
                         'cancel_reply_link' => __( 'Cancel reply', 'rtPanel' ),
