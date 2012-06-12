@@ -7,7 +7,7 @@
  * @since rtPanel 2.0
  */
 
-global $rtp_general, $rtp_post_comments, $rtp_hooks;
+global $rtp_general, $rtp_post_comments, $rtp_hooks, $rtp_version;
 
 /**
  * Data validation for rtPanel General Options
@@ -629,7 +629,16 @@ function rtp_post_comments_validate( $input ) {
  * @since rtPanel 2.0
  */
 function rtp_theme_setup_values() {
-    global $rtp_general, $rtp_post_comments;
+    global $rtp_general, $rtp_post_comments, $rtp_version;
+
+    /* Check if upgrade of theme is required, or not */
+    if ( ( is_array( $rtp_post_comments ) && !isset( $rtp_post_comments['upgrade_theme'] ) ) || ( version_compare( RTP_VERSION, $rtp_version, 'gt' ) ) ) {
+        $rtp_post_comments['upgrade_theme'] = '1';
+        update_option( 'rtp_post_comments', $rtp_post_comments );
+        add_action( 'admin_notices', 'rtp_upgrade_theme_notice' );
+    } elseif ( is_admin() && isset( $rtp_post_comments['upgrade_theme'] ) && $rtp_post_comments['upgrade_theme'] ) {
+        add_action( 'admin_notices', 'rtp_upgrade_theme_notice' );
+    }
     
     $default_general = array(
         'logo_show'       => '1',
@@ -650,8 +659,8 @@ function rtp_theme_setup_values() {
     );
 
     $default_post_comments = array(
-        'upgrade_theme'              => '0',
-        'notices'                    => '0',
+        'upgrade_theme'              => isset ( $rtp_post_comments['upgrade_theme'] ) ? $rtp_post_comments['upgrade_theme'] : 1,
+        'notices'                    => isset ( $rtp_post_comments['notices'] ) ? $rtp_post_comments['notices'] : 0,
         'summary_show'               => '1',
         'word_limit'                 => 55,
         'read_text'                  => __( 'Read More&hellip;', 'rtPanel' ),
@@ -961,7 +970,7 @@ function rtp_default_admin_sidebar() { ?>
     <div class="postbox" id="support">
         <div title="<?php _e( 'Click to toggle', 'rtPanel'); ?>" class="handlediv"><br /></div>
         <h3 class="hndle"><span><?php _e( 'Free Support', 'rtPanel' ); ?></span></h3>
-        <div class="inside"><p><?php printf( __( ' If you are facing any problems wihile using rtPanel, or have good ideas for improvements, please discuss the same in our <a href="%s" target="_blank" title="Click here for rtPanel Free Support">Support forums</a>', 'rtPanel' ), 'http://rtcamp.com/support/forum/rtpanel/' ); ?>.</p></div>
+        <div class="inside"><p><?php printf( __( ' If you are facing any problems while using rtPanel, or have good ideas for improvements, please discuss the same in our <a href="%s" target="_blank" title="Click here for rtPanel Free Support">Support forums</a>', 'rtPanel' ), 'http://rtcamp.com/support/forum/rtpanel/' ); ?>.</p></div>
     </div>
 
     <div class="postbox" id="latest_news">
@@ -1404,7 +1413,7 @@ function rtp_export_version() {
  */
 function rtp_version( $update_footer ) {
     global $rtp_version;
-    $update_footer .= '<br /><br />' . __( 'rtPanel Version ', 'rtPanel' ) . $rtp_version;
+    $update_footer .= '<br /><br />' . __( 'rtPanel Version ', 'rtPanel' ) . $rtp_version['rtPanel'];
     return $update_footer;
 }
 add_filter( 'update_footer', 'rtp_version', 9999 );
@@ -1473,19 +1482,14 @@ function rtp_regenerate_thumbnail_notice( $return = false ) {
  * @since rtPanel 2.0
  */
 function rtp_upgrade_theme_notice() {
-    if( current_user_can( 'administrator' ) && is_child_theme() ) {
-        echo '<div class="error upgrade_theme_notice"><p>' . sprintf( __( 'If you are using a child theme made on a previous version of rtPanel. Please <a class="upgrade_theme_activate_script" href="%s" title="Click Here">Click Here</a>', 'rtPanel' ), '#' ) . ' <span class="alignright upgrade_theme_notice_close" href="#">X</a></p></div>';
+    if( current_user_can( 'administrator' ) ) {
+        echo '<div class="updated upgrade_theme_notice"><p>' . sprintf( __( 'Thank you for choosing rtPanel. Please check the <a href="%s" title="rtPanel ChangeLog" target="_blank">ChangeLog</a>.<br />If your child theme is broken with the new update, please follow this post - <a href="%s" title="Fix rtPanel Child Theme" target="_blank">Fix rtPanel Child Theme</a>.', 'rtPanel' ), 'http://rtcamp.com/rtpanel/changelog/', 'http://rtcamp.com/blog/fix-rtpanel-child-theme/' ) . ' <span class="alignright upgrade_theme_notice_close" href="#">X</a></p></div>';
     }
 }
 
 /* Shows 'regenerate thumbnail' notice ( Admin User Only !!! ) */
 if ( is_admin() && @$rtp_post_comments['notices'] ) {
     add_action( 'admin_notices', 'rtp_regenerate_thumbnail_notice');
-}
-
-/* Shows upgrade theme notice ( Admin User Only !!! ) */
-if ( is_admin() && @$rtp_post_comments['upgrade_theme'] ) {
-    add_action( 'admin_notices', 'rtp_upgrade_theme_notice');
 }
 
 /**
@@ -1553,12 +1557,6 @@ if ( is_array( $rtp_post_comments ) && ( @$rtp_post_comments['thumbnail_width'] 
     $rtp_post_comments['thumbnail_width'] = get_option( 'thumbnail_size_w' );
     $rtp_post_comments['thumbnail_height'] = get_option( 'thumbnail_size_h' );
     $rtp_post_comments['thumbnail_crop'] = get_option( 'thumbnail_crop' );
-    update_option( 'rtp_post_comments', $rtp_post_comments );
-}
-
-/* Check if upgrade of theme is required, or not */
-if ( is_array( $rtp_post_comments ) && !isset( $rtp_post_comments['upgrade_theme'] ) ) {
-    $rtp_post_comments['upgrade_theme'] = '1';
     update_option( 'rtp_post_comments', $rtp_post_comments );
 }
 

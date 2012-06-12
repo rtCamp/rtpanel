@@ -35,7 +35,7 @@ If you make changes to thumbnail height, width or crop settings, you must use "R
 = 2.1 =
 * Added: HTML5
 * Added: CSS3
-* Added: Responsiveness Support
+* Added: Responsive Design
 * Added: bbPress Support
 * Added: 960 Grid Support
 * Added: Default WordPress Pagination
@@ -46,7 +46,6 @@ If you make changes to thumbnail height, width or crop settings, you must use "R
 * Added: rtp_hook_begin_body and rtp_hook_end_body hooks
 * Added: rtp_hook_begin_main_wrapper and rtp_hook_end_main_wrapper hooks
 * Added: Viewport Hook ( rtp_viewport )
-* Added: Open Graph Meta Hooks
 * Added: Open Graph Meta Hooks
 * Added: Sidebar Hook
 * Added: Comment Hook
