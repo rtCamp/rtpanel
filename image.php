@@ -8,6 +8,8 @@
  */
 get_header(); ?>
 
+<?php global $rtp_post_comments; ?>
+
     <section id="content" class="rtp-grid-12">
         <?php rtp_hook_begin_content(); ?>
 
@@ -24,11 +26,7 @@ get_header(); ?>
                 <header class="post-header clearfix">
                     <?php rtp_hook_begin_post_title(); ?>
 
-                    <?php if ( is_singular() ) { ?>
-                                <h1 class="post-title"><?php the_title(); ?></h1><?php
-                            } else { ?>
-                                <h2 class="post-title"><a role="link" href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permanent Link to %s', 'rtPanel' ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a></h2><?php
-                            } ?>
+                    <h1 class="post-title<?php echo $rtp_post_comments['attachment_comments'] ? '' : ' rtp-has-comments' ?>"><?php the_title(); ?></h1>
 
                     <?php rtp_hook_end_post_title(); ?>
 
