@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: rtPanel 2.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-12 13:10+0530\n"
-"PO-Revision-Date: 2012-06-12 13:10+0530\n"
+"POT-Creation-Date: 2012-06-12 16:55+0530\n"
+"PO-Revision-Date: 2012-06-12 16:55+0530\n"
 "Last-Translator: rtCamp <support@rtcamp.com>\n"
 "Language-Team: rtCampers\n"
 "MIME-Version: 1.0\n"
@@ -1543,27 +1543,27 @@ msgstr ""
 msgid "%title &rarr;"
 msgstr ""
 
-#: ../lib/rtp-default-functions.php:232
+#: ../lib/rtp-default-functions.php:231
 msgid "&larr; Older Entries"
 msgstr ""
 
-#: ../lib/rtp-default-functions.php:233
+#: ../lib/rtp-default-functions.php:232
 msgid "Newer Entries &rarr;"
 msgstr ""
 
-#: ../lib/rtp-default-functions.php:273
+#: ../lib/rtp-default-functions.php:272
 msgid "<span>0</span> Comments"
 msgstr ""
 
-#: ../lib/rtp-default-functions.php:273
+#: ../lib/rtp-default-functions.php:272
 msgid "<span>1</span> Comment"
 msgstr ""
 
-#: ../lib/rtp-default-functions.php:273
+#: ../lib/rtp-default-functions.php:272
 msgid "<span>%</span> Comments"
 msgstr ""
 
-#: ../lib/rtp-init.php:50
+#: ../lib/rtp-init.php:51
 msgid "Primary Navigation"
 msgstr ""
 
