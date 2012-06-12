@@ -6,7 +6,6 @@
  *
  * @since rtPanel 2.0
  */
-
 global $rtp_general; ?>
 
                 <?php rtp_hook_end_content_wrapper(); ?>

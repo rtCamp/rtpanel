@@ -6,7 +6,6 @@
  *
  * @since rtPanel 2.0
  */
-
 global $rtp_post_comments;
 
 /* Archive Page Titles */

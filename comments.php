@@ -6,7 +6,6 @@
  * 
  * @since rtPanel 2.0
  */
-
 global $rtp_post_comments;
 
 if ( post_password_required() ) { ?>
