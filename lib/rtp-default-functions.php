@@ -58,7 +58,6 @@ function rtp_has_postmeta( $position = 'u' ) {
     }
     
     return $flag;
-        
 }
 
 /**
@@ -75,47 +74,47 @@ function rtp_default_post_meta( $placement = 'top' ) {
         if ( 'post' == get_post_type() && !rtp_is_bbPress() ) {
             global $post, $rtp_post_comments;
             $position = ( 'bottom' == $placement ) ? 'l' : 'u'; // l = Lower/Bottom , u = Upper/Top
-            ?>
-            
-            <?php if ( rtp_has_postmeta( $position ) ) {
+           
+            if ( rtp_has_postmeta( $position ) ) {
                     if ( $position == 'l' ) { echo '<footer class="post-footer">'; } ?>
-                    <div class="post-meta post-meta-<?php echo $placement; ?>">
-
-                        <?php   
+                    <div class="post-meta post-meta-<?php echo $placement; ?>"><?php   
+                        
                         if( 'bottom' == $placement )
                             rtp_hook_begin_post_meta_bottom();
                         else
                             rtp_hook_begin_post_meta_top();
+                        
                         // Author Link
-                                if ( $rtp_post_comments['post_author_'.$position] || $rtp_post_comments['post_date_'.$position] ) { ?>
-                                    <p class="post-publish"><?php
-                                        if ( $rtp_post_comments['post_author_'.$position] ) {
-                                            printf( __( 'by <span class="author vcard">%s</span>', 'rtPanel' ), ( !$rtp_post_comments['author_link_'.$position] ? get_the_author() . ( $rtp_post_comments['author_count_'.$position] ? '(' . get_the_author_posts() . ')' : '' ) : sprintf( __( '<a href="%1$s" title="%2$s">%3$s</a>', 'rtPanel' ), get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ), esc_attr( sprintf( __( 'Posts by %s', 'rtPanel' ), get_the_author() ) ), get_the_author() ) . ( $rtp_post_comments['author_count_'.$position] ? '(' . get_the_author_posts() . ')' : '' ) ) );
-                                        }
-                                        echo ( $rtp_post_comments['post_author_'.$position] && $rtp_post_comments['post_date_'.$position] ) ? ' ' : '';
-                                        if ( $rtp_post_comments['post_date_'.$position] ) {
-                                            printf( __( 'on <time class="published" datetime="%s">%s</time>', 'rtPanel' ), get_the_date('c'), get_the_time( $rtp_post_comments['post_date_format_'.$position] ) );
-                                        } ?>
-                                    </p><?php
-                                } ?>
-
-                        <?php   // Post Categories
-                                echo ( get_the_category_list() && $rtp_post_comments['post_category_'.$position] ) ? '<p class="post-category">' . __( 'Category', 'rtPanel' ) . ': <span>' . get_the_category_list( ', ' ) . '</span></p>' : ''; ?>
-
-                        <?php   // Post Tags
-                                echo ( get_the_tag_list() && $rtp_post_comments['post_tags_'.$position] ) ? '<p class="post-tags">' . get_the_tag_list( __( 'Tagged in', 'rtPanel' ) . ': <span>', ', ', '</span>' ) . '</p>' : ''; ?>
-
-                        <?php   // Post Custom Taxonomies
-                                $args = array( '_builtin' => false );
-                                $taxonomies = get_taxonomies( $args, 'objects' );
-                                foreach ( $taxonomies as $key => $taxonomy ) {
-                                    ( get_the_terms( $post->ID, $key ) && isset( $rtp_post_comments['post_'.$key.'_'.$position] ) && $rtp_post_comments['post_'.$key.'_'.$position] ) ? the_terms( $post->ID, $key, '<p class="post-custom-tax post-' . $key . '">' . $taxonomy->labels->singular_name . ': ', ', ', '</p>' ) : '';
+                        if ( $rtp_post_comments['post_author_'.$position] || $rtp_post_comments['post_date_'.$position] ) { ?>
+                            <p class="post-publish"><?php
+                                if ( $rtp_post_comments['post_author_'.$position] ) {
+                                    printf( __( 'by <span class="author vcard">%s</span>', 'rtPanel' ), ( !$rtp_post_comments['author_link_'.$position] ? get_the_author() . ( $rtp_post_comments['author_count_'.$position] ? '(' . get_the_author_posts() . ')' : '' ) : sprintf( __( '<a href="%1$s" title="%2$s">%3$s</a>', 'rtPanel' ), get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ), esc_attr( sprintf( __( 'Posts by %s', 'rtPanel' ), get_the_author() ) ), get_the_author() ) . ( $rtp_post_comments['author_count_'.$position] ? '(' . get_the_author_posts() . ')' : '' ) ) );
                                 }
+                                echo ( $rtp_post_comments['post_author_'.$position] && $rtp_post_comments['post_date_'.$position] ) ? ' ' : '';
+                                if ( $rtp_post_comments['post_date_'.$position] ) {
+                                    printf( __( 'on <time class="published" datetime="%s">%s</time>', 'rtPanel' ), get_the_date('c'), get_the_time( $rtp_post_comments['post_date_format_'.$position] ) );
+                                } ?>
+                            </p><?php
+                        } 
+                        
+                        // Post Categories
+                        echo ( get_the_category_list() && $rtp_post_comments['post_category_'.$position] ) ? '<p class="post-category">' . __( 'Category', 'rtPanel' ) . ': <span>' . get_the_category_list( ', ' ) . '</span></p>' : '';
+
+                        // Post Tags
+                        echo ( get_the_tag_list() && $rtp_post_comments['post_tags_'.$position] ) ? '<p class="post-tags">' . get_the_tag_list( __( 'Tagged in', 'rtPanel' ) . ': <span>', ', ', '</span>' ) . '</p>' : '';
+                        
+                        // Post Custom Taxonomies
+                        $args = array( '_builtin' => false );
+                        $taxonomies = get_taxonomies( $args, 'objects' );
+                        foreach ( $taxonomies as $key => $taxonomy ) {
+                            ( get_the_terms( $post->ID, $key ) && isset( $rtp_post_comments['post_'.$key.'_'.$position] ) && $rtp_post_comments['post_'.$key.'_'.$position] ) ? the_terms( $post->ID, $key, '<p class="post-custom-tax post-' . $key . '">' . $taxonomy->labels->singular_name . ': ', ', ', '</p>' ) : '';
+                        }
 
                         if ( 'bottom' == $placement )
                             rtp_hook_end_post_meta_bottom();
                         else
                             rtp_hook_end_post_meta_top(); ?>
+                            
                     </div><!-- .post-meta --><?php
                 if ( $position == 'l' ) { echo '</footer>'; }
             }
