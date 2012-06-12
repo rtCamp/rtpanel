@@ -272,7 +272,7 @@ function rtp_hook_after_footer() {
 }
 
 /**
- * Hook used basically for single pagination
+ * Hook used basically for pagination on single posts
  *
  * @since rtPanel 2.1
  */
@@ -281,7 +281,7 @@ function rtp_hook_single_pagination() {
 }
 
 /**
- * Hook used basically for archive pagination
+ * Hook used basically for pagination on archive listings
  *
  * @since rtPanel 2.1
  */

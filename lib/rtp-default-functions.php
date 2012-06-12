@@ -210,7 +210,6 @@ function rtp_default_archive_pagination() {
         if ( !is_singular() ) {
             global $wp_query, $rtp_post_comments;
             if ( isset( $rtp_post_comments['pagination_show'] ) && $rtp_post_comments['pagination_show'] ) {
-
                 if ( ( $wp_query->max_num_pages > 1 ) ) { ?>
                     <nav class="wp-pagenavi"><?php
                         echo paginate_links( array(

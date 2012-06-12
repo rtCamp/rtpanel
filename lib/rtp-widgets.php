@@ -330,10 +330,10 @@ class rtp_comments_widget extends WP_Widget {
      * @since rtPanel 2.0
      **/
     function form( $instance ) {
+        global $wpdb;
         $title = isset ( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
         $show_grav = isset( $instance['show_grav'] ) ? (bool) $instance['show_grav'] :true;
         $gravatar = empty( $instance['gravatar'] ) ? 64 : $instance['gravatar'];
-        global $wpdb;
         $comment_query = "SELECT count(*) FROM $wpdb->comments WHERE comment_approved = 1 AND trim(comment_type) = ''";
         $comment_total = $wpdb->get_var($comment_query);
         $def_count = ( $comment_total > 5 ) ? 5 : $comment_total;
