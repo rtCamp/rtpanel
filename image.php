@@ -10,7 +10,7 @@ get_header(); ?>
 
 <?php global $rtp_post_comments; ?>
 
-    <section id="content" class="rtp-grid-12">
+    <section id="content" class="rtp-image-attachment rtp-grid-12">
         <?php rtp_hook_begin_content(); ?>
 
         <?php 
@@ -39,7 +39,7 @@ get_header(); ?>
 
                     <?php $img_info = wp_get_attachment_image_src( '', 'full' ); ?>
 
-                    <figure role="img" class="wp-caption aligncenter" aria-describedby="figcaption_attachment_<?php echo get_the_ID(); ?>">
+                    <figure role="img" class="wp-caption aligncenter" aria-describedby="figcaption_attachment_<?php echo get_the_ID(); ?>"<?php echo ( $img_info[1] < $max_content_width ) ? ' style="width: ' . ((int) $img_info[1]) . 'px";' : ''; ?>>
                         <a role="link" href="<?php echo $img_info[0]; ?>" title="<?php the_title_attribute(); ?>" rel="attachment"><?php echo wp_get_attachment_image( '', 'full' ); ?></a><?php
                         echo ( get_the_excerpt() ) ? '<figcaption id="figcaption_attachment_' . get_the_ID() . '" class="wp-caption-text">' . get_the_excerpt() . '</figcaption>' : ''; ?>
                     </figure>

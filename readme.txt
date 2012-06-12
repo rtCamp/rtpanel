@@ -11,8 +11,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: black, blue, white, orange, light, one-column, two-columns, right-sidebar, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, flexible-width, full-width-template
 
 == Description ==
-rtPanel is the world's easiest and smartest WordPress Theme. You can customize this theme and use it at your ease. You will find many state of the art options and widgets with rtPanel.
-rtPanel is a theme for the world. Keeping this in mind our developers have made it localization ready. Developers can use rtPanel as a basic and stripped to bones theme framework for developing their own creative and wonderful WordPress Themes.
+rtPanel is the most easy to use WordPress Theme Framework. You will find many state of the art options and widgets with rtPanel.
+rtPanel framework is used worldwide and keeping this in mind we have made it localization ready. Developers can use rtPanel as a basic and stripped to bones theme framework for developing their own creative and wonderful WordPress Themes.
+By using rtPanel, developers and users can specify settings for basic functions (like date format, excerpt word count etc.) directly from theme options. rtPanel provides theme options to manage some basic settings for your theme. 
 
 == Plugins Supported ==
 * rtPanel Hooks Editor - http://wordpress.org/extend/plugins/rtpanel-hooks-editor/

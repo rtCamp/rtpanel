@@ -136,7 +136,6 @@ function rtp_show_post_thumbnail( $post_id = null, $thumbnail_size = 'thumbnail'
  *
  * @since rtPanel 2.0
  */
-
 function rtp_generate_thumbs( $attach_id = null, $size = 'thumbnail', $the_id = '' ) {
 
     /* $the_id should be set if called outside the loop else global $post */
@@ -228,26 +227,26 @@ function rtp_create_external_thumb( $match, $post, $size, $double_check_tag = ''
     /* Set permissions if directory is not writable */
     $upload_path = wp_upload_dir();
     if ( !is_writable( $upload_path['basedir'] ) || !is_executable( $upload_path['basedir'] ) ) {
-            $stat = @stat( dirname( $upload_path['basedir'] ) );
+        $stat = @stat( dirname( $upload_path['basedir'] ) );
 
-            // Get the permission bits
-            $dir_perms = $stat['mode'] & 0007777;
+        // Get the permission bits
+        $dir_perms = $stat['mode'] & 0007777;
 
-            @chmod( $upload_path['basedir'], $dir_perms );
-        }
+        @chmod( $upload_path['basedir'], $dir_perms );
+    }
 
-        /* For sanitization of name (just a precaution, although wp_upload_bits will try to take care of this) */
-        $img_name = str_replace( '&', '-', $img_name );
-        $img_name = str_replace( '?', '-', $img_name );
+    /* For sanitization of name (just a precaution, although wp_upload_bits will try to take care of this) */
+    $img_name = str_replace( '&', '-', $img_name );
+    $img_name = str_replace( '?', '-', $img_name );
 
-        $allowed_image_types = array( 'jpg', 'jpeg', 'jpe', 'gif', 'png', 'bmp', 'ico', 'tif', 'tiff' );
+    $allowed_image_types = array( 'jpg', 'jpeg', 'jpe', 'gif', 'png', 'bmp', 'ico', 'tif', 'tiff' );
 
-        $check_extension = pathinfo($img_name);
+    $check_extension = pathinfo($img_name);
 
-        // if not in the array assign a particular name
-        if ( !in_array( $check_extension['extension'], $allowed_image_types ) ) {
-            $img_name = 'query-image.jpg';
-        }
+    // if not in the array assign a particular name
+    if ( !in_array( $check_extension['extension'], $allowed_image_types ) ) {
+        $img_name = 'query-image.jpg';
+    }
 
     // get placeholder file in the upload dir with a unique, sanitized filename
     $file = wp_upload_bits( $img_name, 0, '');
@@ -345,8 +344,9 @@ function rtp_create_external_thumb( $match, $post, $size, $double_check_tag = ''
                     $updated_class = $class[1].' wp-image-'.$new_image_id;
                     $updated_image_tag = str_replace( 'class="'.$class[1].'"', 'class="'.$updated_class.'"', $match[0] );
                     $updated_post['post_content'] = str_replace( $match[0], $updated_image_tag, $post->post_content );
+                    
                     if ( $double_check_tag != '' ) {
-                    $updated_post['post_content'] = str_replace( $double_check_tag, $updated_image_tag, $post->post_content );
+                        $updated_post['post_content'] = str_replace( $double_check_tag, $updated_image_tag, $post->post_content );
                     }
 
                     // Update the post

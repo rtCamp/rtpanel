@@ -5,7 +5,6 @@
  *
  * @since rtPanel 2.0
  */
-
 jQuery(document).ready(function() {
 
     var expand = false;

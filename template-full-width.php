@@ -6,7 +6,8 @@
  *
  * @since rtPanel 2.0
  */
-get_header(); ?>
+get_header();
+$content_width = $max_content_width; ?>
 
     <section id="content" class="rtp-grid-12 rtp-full-width">
         <?php rtp_hook_begin_content(); ?>
