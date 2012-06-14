@@ -1088,17 +1088,9 @@ function rtp_theme_options_help() {
 		'<p>' . __( '<a href="http://rtcamp.com/support/forum/rtpanel/" target="_blank" title="rtPanel Forum">rtPanel Forum</a>', 'rtPanel' ) . '</p>';
 
 	$screen = get_current_screen();
-        
-        if ( method_exists( $screen, 'add_help_tab' ) ) {
-		// WordPress 3.3
-		$screen->add_help_tab( array( 'title' => __( 'General', 'rtPanel' ), 'id' => 'rtp-general-help', 'content' => $general_help ) );
-		$screen->add_help_tab( array( 'title' => __( 'Post &amp; Comment', 'rtPanel' ), 'id' => 'post-comments-help', 'content' => $post_comment_help ) );
-		$screen->set_help_sidebar( $sidebar );
-	} else {
-		// WordPress 3.2
-		add_contextual_help( $screen, $general_help . $sidebar );
-		add_contextual_help( $screen, $post_comment_help . $sidebar );
-	}
+        $screen->add_help_tab( array( 'title' => __( 'General', 'rtPanel' ), 'id' => 'rtp-general-help', 'content' => $general_help ) );
+        $screen->add_help_tab( array( 'title' => __( 'Post &amp; Comment', 'rtPanel' ), 'id' => 'post-comments-help', 'content' => $post_comment_help ) );
+        $screen->set_help_sidebar( $sidebar );
 }
 add_action( 'load-appearance_page_rtp_general', 'rtp_theme_options_help' );
 add_action( 'load-appearance_page_rtp_post_comments', 'rtp_theme_options_help' );
@@ -1398,9 +1390,10 @@ add_filter( 'admin_footer_text', 'rtp_custom_admin_footer' );
 function rtp_export_version() {
     global $wp_version;
     require_once( ABSPATH . '/wp-admin/includes/update.php' );
-    $theme_info = get_theme( get_current_theme() );
+    /* Backward Compatability for version prior to WordPress 3.4 */
+    $theme_info = function_exists( 'wp_get_theme' ) ? wp_get_theme() : get_theme( get_current_theme() );
     if ( is_child_theme() ) {
-        $theme_info = get_theme( $theme_info['Parent Theme'] );
+        $theme_info = function_exists( 'wp_get_theme' ) ? wp_get_theme( 'rtpanel' ) : get_theme( $theme_info['Parent Theme'] );
     }
     $theme_version = array( 'wp' => $wp_version, 'rtPanel' => $theme_info['Version'] );
     return $theme_version;
@@ -1561,37 +1554,6 @@ if ( is_array( $rtp_post_comments ) && ( @$rtp_post_comments['thumbnail_width'] 
 }
 
 /**
- * Checks if a new version of rtPanel is available
- *
- * @since rtPanel 2.1
- */
-function rtp_is_update_available(){
-    static $themes_update;
-
-    require_once( ABSPATH . '/wp-admin/includes/theme.php' );
-    $theme = current_theme_info();
-
-    if ( !current_user_can('update_themes' ) )
-        return;
-
-    if ( !isset($themes_update) )
-        $themes_update = get_site_transient('update_themes');
-
-    if ( is_object($theme) && isset($theme->stylesheet) )
-        $stylesheet = $theme->stylesheet;
-    elseif ( is_array($theme) && isset($theme['Stylesheet']) )
-        $stylesheet = $theme['Stylesheet'];
-    else
-        return false; //No valid info passed.
-
-    if ( isset($themes_update->response[ $stylesheet ]) ) {
-        return true;
-    } else {
-        false;
-    }
-}
-  
-/**
  * Adds Styles dropdown to TinyMCE Editor
  *
  * @since rtPanel 2.1
@@ -1651,4 +1613,4 @@ function rtp_mce_before_init( $settings ) {
     $settings['style_formats'] = json_encode( $style_formats );  
     return $settings;  
 }
-add_filter( 'tiny_mce_before_init', 'rtp_mce_before_init' );  
+add_filter( 'tiny_mce_before_init', 'rtp_mce_before_init' );

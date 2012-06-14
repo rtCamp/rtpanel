@@ -439,7 +439,8 @@ function rtp_html5_caption( $output, $attr, $content ) {
 
     if ( 1 > (int) $width || empty($caption) )
             return $content;
-
+    
+    $idtag = NULL;
     if ( $id ) $idtag = 'id="' . esc_attr($id) . '" ';
 
     return '<figure ' . $idtag . 'aria-describedby="figcaption_' . $id . '" class="wp-caption ' . esc_attr($align) . '" style="width: ' . ((int) $width) . 'px">'

@@ -31,20 +31,39 @@ if ( !function_exists( 'rtpanel_setup' ) ) {
         add_theme_support( 'post-thumbnails' ); // This theme uses post thumbnails
         add_theme_support( 'automatic-feed-links' ); // Add default posts and comments RSS feed links to head
         add_editor_style( 'css/rtp-editor-style.css' ); // This theme styles the visual editor with editor-style.css to match the theme style.
-        load_theme_textdomain( 'rtPanel', TEMPLATEPATH . '/languages' ); // Load the text domain
-        add_custom_background(); // Add support for custom background
+        load_theme_textdomain( 'rtPanel', get_template_directory() . '/languages' ); // Load the text domain
 
-        // Don't support text inside the header image
-        if ( !defined( 'NO_HEADER_TEXT' ) ) {
-            define( 'NO_HEADER_TEXT', true );
+        add_theme_support( 'custom-background' ); // Add support for custom background
+        
+        // Add support for custom headers.
+	$rtp_custom_header_support = array(
+            // The height and width of our custom header.
+            'width'                 => apply_filters( 'rtp_header_image_width', 960 ),
+            'height'                => apply_filters( 'rtp_header_image_height', 140 ),
+            'header-text'           => false,
+            // Callback for styling the header.
+            'wp-head-callback'      => 'rtp_header_style',
+            // Callback for styling the header preview in the admin.
+            'admin-head-callback'   => 'rtp_admin_header_style',
+	);
+	add_theme_support( 'custom-header', $rtp_custom_header_support );
+        
+        /* Backward Compatability for version prior to WordPress 3.4 */
+        if ( ! function_exists( 'get_custom_header' ) ) {
+            add_custom_background(); // Add support for custom background
+
+            // Don't support text inside the header image
+            if ( !defined( 'NO_HEADER_TEXT' ) ) {
+                define( 'NO_HEADER_TEXT', true );
+            }
+
+            define( 'HEADER_TEXTCOLOR' , '' );
+            define( 'HEADER_IMAGE_WIDTH' , apply_filters( 'rtp_header_image_width', 960 ) );
+            define( 'HEADER_IMAGE_HEIGHT' , apply_filters( 'rtp_header_image_height', 140 ) );
+
+            // adding support for the header image
+            add_custom_image_header( 'rtp_header_style', 'rtp_admin_header_style' );
         }
-
-        define( 'HEADER_TEXTCOLOR' , '' );
-        define( 'HEADER_IMAGE_WIDTH' , apply_filters( 'rtp_header_image_width', 960 ) );
-        define( 'HEADER_IMAGE_HEIGHT' , apply_filters( 'rtp_header_image_height', 190 ) );
-
-        // adding support for the header image
-        add_custom_image_header( 'rtp_header_style', 'rtp_admin_header_style' );
 
         // Make use of wp_nav_menu() for navigation purpose
         register_nav_menus( array(

@@ -21,8 +21,9 @@ if ( is_search() ) { ?>
     <h1 class="post-title rtp-main-title"><?php printf( __( 'Archive for  %s', 'rtPanel' ), '<span>' . get_the_time( 'F, Y' ) . '</span>' ); ?></h1><?php
 } elseif ( is_year() ) { ?>
     <h1 class="post-title rtp-main-title"><?php printf( __( 'Archive for  %s', 'rtPanel' ), '<span>' . get_the_time( 'Y' ) . '</span>' ); ?></h1><?php
-} elseif ( is_author() ) { ?>
-    <h1 class="post-title rtp-main-title"><?php printf( __( 'Author: %s', 'rtPanel' ), '<span>' . get_query_var('author_name') . '</span>' ); ?></h1><?php
+} elseif ( is_author() ) {
+    $curauth = ( isset( $_GET['author_name'] ) ) ? get_user_by( 'slug', $author_name ) : get_userdata( intval( $author ) ); ?>
+    <h1 class="post-title rtp-main-title"><?php printf( __( 'Author: %s', 'rtPanel' ), '<span>' . $curauth->display_name . '</span>' ); ?></h1><?php
 }
 
 /* The Loop */
