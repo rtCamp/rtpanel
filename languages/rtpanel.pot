@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: rtPanel 2.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-12 16:55+0530\n"
-"PO-Revision-Date: 2012-06-12 16:55+0530\n"
+"POT-Creation-Date: 2012-06-14 17:28+0530\n"
+"PO-Revision-Date: 2012-06-14 17:29+0530\n"
 "Last-Translator: rtCamp <support@rtcamp.com>\n"
 "Language-Team: rtCampers\n"
 "MIME-Version: 1.0\n"
@@ -16,12 +16,12 @@ msgstr ""
 "X-Poedit-SearchPath-0: ..\n"
 
 #: ../404.php:15
-#: ../loop-common.php:85
+#: ../loop-common.php:86
 msgid "Not Found"
 msgstr ""
 
 #: ../404.php:20
-#: ../loop-common.php:92
+#: ../loop-common.php:93
 msgid "Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post."
 msgstr ""
 
@@ -98,30 +98,30 @@ msgstr ""
 msgid "Trackbacks"
 msgstr ""
 
-#: ../footer.php:20
+#: ../footer.php:19
 #: ../sidebar.php:16
 msgid "Archives"
 msgstr ""
 
-#: ../footer.php:21
+#: ../footer.php:20
 msgid "Tags"
 msgstr ""
 
-#: ../footer.php:22
+#: ../footer.php:21
 #: ../sidebar.php:17
 msgid "Meta"
 msgstr ""
 
-#: ../footer.php:32
+#: ../footer.php:30
 #, php-format
 msgid "Designed on <a role=\"link\" href=\"%s\" class=\"rtp-common-link\" title=\"rtPanel WordPress Theme Framework\">rtPanel WordPress Theme Framework</a>."
 msgstr ""
 
-#: ../functions.php:29
+#: ../functions.php:31
 msgid "&laquo; Previous"
 msgstr ""
 
-#: ../functions.php:30
+#: ../functions.php:32
 msgid "Next &raquo;"
 msgstr ""
 
@@ -152,16 +152,16 @@ msgstr ""
 msgid "Archive for  %s"
 msgstr ""
 
-#: ../loop-common.php:25
+#: ../loop-common.php:26
 #, php-format
 msgid "Author: %s"
 msgstr ""
 
-#: ../loop-common.php:58
+#: ../loop-common.php:59
 msgid "Read More &rarr;"
 msgstr ""
 
-#: ../loop-common.php:59
+#: ../loop-common.php:60
 msgid "Pages:"
 msgstr ""
 
@@ -170,7 +170,7 @@ msgid "Search"
 msgstr ""
 
 #: ../admin/rtp-theme-options.php:36
-#: ../admin/lib/rtp-admin-functions.php:1085
+#: ../admin/lib/rtp-admin-functions.php:1091
 msgid "General"
 msgstr ""
 
@@ -479,15 +479,15 @@ msgstr ""
 msgid "All the rtPanel Post & Comments Settings have been restored to default."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:657
+#: ../admin/lib/rtp-admin-functions.php:666
 msgid "Read More&hellip;"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:875
+#: ../admin/lib/rtp-admin-functions.php:884
 msgid "Delete Permanently"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:877
+#: ../admin/lib/rtp-admin-functions.php:886
 #: ../admin/lib/rtp-settings-metaboxes.php:355
 #: ../admin/lib/rtp-settings-metaboxes.php:385
 #: ../admin/lib/rtp-settings-metaboxes.php:415
@@ -497,242 +497,242 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:878
+#: ../admin/lib/rtp-admin-functions.php:887
 #, php-format
 msgid "You are about to delete <strong>%s</strong>."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:879
+#: ../admin/lib/rtp-admin-functions.php:888
 msgid "Continue"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:880
+#: ../admin/lib/rtp-admin-functions.php:889
 msgid "Cancel"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:884
+#: ../admin/lib/rtp-admin-functions.php:893
 msgid "Move to Trash"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:884
+#: ../admin/lib/rtp-admin-functions.php:893
 msgid "Undo"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:921
-#: ../admin/lib/rtp-admin-functions.php:931
-#: ../admin/lib/rtp-admin-functions.php:962
-#: ../admin/lib/rtp-admin-functions.php:968
+#: ../admin/lib/rtp-admin-functions.php:930
+#: ../admin/lib/rtp-admin-functions.php:940
+#: ../admin/lib/rtp-admin-functions.php:971
+#: ../admin/lib/rtp-admin-functions.php:977
 msgid "Click to toggle"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:922
+#: ../admin/lib/rtp-admin-functions.php:931
 msgid "Getting Social is Good"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:924
+#: ../admin/lib/rtp-admin-functions.php:933
 msgid "Become a fan on Facebook"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:924
+#: ../admin/lib/rtp-admin-functions.php:933
 msgid "Facebook"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:925
+#: ../admin/lib/rtp-admin-functions.php:934
 msgid "Follow us on Twitter"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:925
+#: ../admin/lib/rtp-admin-functions.php:934
 msgid "Twitter"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:926
+#: ../admin/lib/rtp-admin-functions.php:935
 msgid "Subscribe to our feeds"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:926
+#: ../admin/lib/rtp-admin-functions.php:935
 msgid "RSS Feed"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:932
+#: ../admin/lib/rtp-admin-functions.php:941
 msgid "Promote, Donate, Share"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:934
+#: ../admin/lib/rtp-admin-functions.php:943
 #, php-format
 msgid "Buy coffee/beer for team behind <a href=\"%s\" title=\"rtPanel\">rtPanel</a>."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:953
+#: ../admin/lib/rtp-admin-functions.php:962
 msgid "Tweet"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:963
+#: ../admin/lib/rtp-admin-functions.php:972
 msgid "Free Support"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:964
+#: ../admin/lib/rtp-admin-functions.php:973
 #, php-format
-msgid " If you are facing any problems wihile using rtPanel, or have good ideas for improvements, please discuss the same in our <a href=\"%s\" target=\"_blank\" title=\"Click here for rtPanel Free Support\">Support forums</a>"
+msgid " If you are facing any problems while using rtPanel, or have good ideas for improvements, please discuss the same in our <a href=\"%s\" target=\"_blank\" title=\"Click here for rtPanel Free Support\">Support forums</a>"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:969
+#: ../admin/lib/rtp-admin-functions.php:978
 msgid "Latest News"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:999
+#: ../admin/lib/rtp-admin-functions.php:1008
 msgid "No items"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1004
+#: ../admin/lib/rtp-admin-functions.php:1013
 msgid "Posted "
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1021
-#: ../admin/lib/rtp-admin-functions.php:1051
+#: ../admin/lib/rtp-admin-functions.php:1030
+#: ../admin/lib/rtp-admin-functions.php:1060
 msgid "rtPanel is the most easy to use WordPress Theme Framework. You will find many state of the art options and widgets with rtPanel."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1023
-#: ../admin/lib/rtp-admin-functions.php:1053
+#: ../admin/lib/rtp-admin-functions.php:1032
+#: ../admin/lib/rtp-admin-functions.php:1062
 msgid "rtPanel framework is used worldwide and keeping this in mind we have made it localization ready. "
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1024
-#: ../admin/lib/rtp-admin-functions.php:1054
+#: ../admin/lib/rtp-admin-functions.php:1033
+#: ../admin/lib/rtp-admin-functions.php:1063
 msgid "Developers can use rtPanel as a basic and stripped to bones theme framework for developing their own creative and wonderful WordPress Themes."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1026
-#: ../admin/lib/rtp-admin-functions.php:1056
+#: ../admin/lib/rtp-admin-functions.php:1035
+#: ../admin/lib/rtp-admin-functions.php:1065
 msgid "By using rtPanel, developers and users can specify settings for basic functions (like date format, excerpt word count etc.) directly from theme options. "
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1027
-#: ../admin/lib/rtp-admin-functions.php:1057
+#: ../admin/lib/rtp-admin-functions.php:1036
+#: ../admin/lib/rtp-admin-functions.php:1066
 msgid "rtPanel provides theme options to manage some basic settings for your theme. "
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1028
-#: ../admin/lib/rtp-admin-functions.php:1058
+#: ../admin/lib/rtp-admin-functions.php:1037
+#: ../admin/lib/rtp-admin-functions.php:1067
 msgid "Below are the options provided for your convenience."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1030
+#: ../admin/lib/rtp-admin-functions.php:1039
 msgid "<strong>Logo Settings:</strong> Theme's logo can be managed from this setting."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1032
+#: ../admin/lib/rtp-admin-functions.php:1041
 msgid "<strong>Favicon Settings:</strong> Theme's favicon can be managed from this setting."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1034
+#: ../admin/lib/rtp-admin-functions.php:1043
 msgid "<strong>Facebook Open Graph Settings:</strong> This setting will provide an option to specify Faceboook App ID/Admin ID(s), required for Open Graph."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1036
+#: ../admin/lib/rtp-admin-functions.php:1045
 msgid "<strong>FeedBurner Settings:</strong> FeedBurner URL can be specified from this setting to redirect your feeds."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1038
+#: ../admin/lib/rtp-admin-functions.php:1047
 msgid "<strong>Google Custom Search Integration:</strong> This option would enable you to harness the power of Google Search instead of the default WordPress search by specifying the Google Custom Search Code.  You also have the option of rendering the Google Search Page without the sidebar."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1040
+#: ../admin/lib/rtp-admin-functions.php:1049
 msgid "<strong>Sidebar Settings:</strong> Enable / Disable the Footer Sidebar from here."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1042
+#: ../admin/lib/rtp-admin-functions.php:1051
 msgid "<strong>Custom Styles:</strong> You can specify your own CSS styles in this option to override the default Style."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1044
+#: ../admin/lib/rtp-admin-functions.php:1053
 msgid "<strong>Plugin Support:</strong> You will get a summary of plugins' status that are supported by rtPanel. This information box will allow you to manipulate the plugin settings on the fly."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1046
+#: ../admin/lib/rtp-admin-functions.php:1055
 msgid "<strong>Backup rtPanel Options:</strong> Export or import all settings that you have configured in rtPanel."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1048
-#: ../admin/lib/rtp-admin-functions.php:1074
+#: ../admin/lib/rtp-admin-functions.php:1057
+#: ../admin/lib/rtp-admin-functions.php:1083
 msgid "Remember to click \"<strong>Save All Changes</strong>\" to save any changes you have made to the theme options."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1060
+#: ../admin/lib/rtp-admin-functions.php:1069
 msgid "<strong>Post Summaries Settings:</strong> Specify the different excerpt parameters like word count etc."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1062
+#: ../admin/lib/rtp-admin-functions.php:1071
 msgid "<strong>Post Thumbnail Settings:</strong> Specify the post thumbnail options like position, size etc."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1064
+#: ../admin/lib/rtp-admin-functions.php:1073
 msgid "<small><strong><em>NOTE:</em></strong> If you are using this option to change height or width of the thumbnail, then please use 'Regenerate Thumbnails' plugin, to apply the new dimension settings to your thumbnails.</small>"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1066
+#: ../admin/lib/rtp-admin-functions.php:1075
 msgid "<strong>Post Meta Settings:</strong> You can specify the post meta options like post date format, display or hide author name and their positions in relation with the content."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1068
+#: ../admin/lib/rtp-admin-functions.php:1077
 msgid "<strong>Pagination Settings:</strong> Enable this setting to use default WordPress pagination."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1070
+#: ../admin/lib/rtp-admin-functions.php:1079
 msgid "<strong>Comment Form Settings:</strong> You can specify the comment form settings from this option."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1072
+#: ../admin/lib/rtp-admin-functions.php:1081
 msgid "<strong>Gravtar Settings:</strong> Specify the general Gravtar support from this option."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1076
+#: ../admin/lib/rtp-admin-functions.php:1085
 msgid "For more information, <br />you can always visit:"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1077
+#: ../admin/lib/rtp-admin-functions.php:1086
 msgid "<a href=\"http://rtcamp.com/rtpanel/\" target=\"_blank\" title=\"rtPanel Official Page\">rtPanel Official Page</a>"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1078
+#: ../admin/lib/rtp-admin-functions.php:1087
 msgid "<a href=\"http://rtcamp.com/rtpanel/docs/\" target=\"_blank\" title=\"rtPanel Documentation\">rtPanel Documentation</a>"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1079
+#: ../admin/lib/rtp-admin-functions.php:1088
 msgid "<a href=\"http://rtcamp.com/support/forum/rtpanel/\" target=\"_blank\" title=\"rtPanel Forum\">rtPanel Forum</a>"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1086
+#: ../admin/lib/rtp-admin-functions.php:1092
 msgid "Post &amp; Comment"
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:1378
-#, php-format
-msgid "Currently using <a href=\"%s\" title=\"rtPanel\" target=\"_blank\">rtPanel</a>"
 msgstr ""
 
 #: ../admin/lib/rtp-admin-functions.php:1379
 #, php-format
-msgid "<a href=\"%s\" title=\"Click here for rtPanel Free Support\" target=\"_blank\">Support</a>"
+msgid "Currently using <a href=\"%s\" title=\"rtPanel\" target=\"_blank\">rtPanel</a>"
 msgstr ""
 
 #: ../admin/lib/rtp-admin-functions.php:1380
 #, php-format
+msgid "<a href=\"%s\" title=\"Click here for rtPanel Free Support\" target=\"_blank\">Support</a>"
+msgstr ""
+
+#: ../admin/lib/rtp-admin-functions.php:1381
+#, php-format
 msgid "<a href=\"%s\" title=\"Click here for rtPanel Documentation\" target=\"_blank\">Documentation</a>"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1407
+#: ../admin/lib/rtp-admin-functions.php:1409
 msgid "rtPanel Version "
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1463
+#: ../admin/lib/rtp-admin-functions.php:1465
 #, php-format
 msgid "The Thumbnail Settings have been updated. Please <a href=\"%s\" title=\"Regenerate Thumbnails\">Regenerate Thumbnails</a>."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1477
+#: ../admin/lib/rtp-admin-functions.php:1479
 #, php-format
-msgid "If you are using a child theme made on a previous version of rtPanel. Please <a class=\"upgrade_theme_activate_script\" href=\"%s\" title=\"Click Here\">Click Here</a>"
+msgid "Thank you for choosing rtPanel. Please check the <a href=\"%s\" title=\"rtPanel ChangeLog\" target=\"_blank\">ChangeLog</a>.<br />If your child theme is broken with the new update, please follow this post - <a href=\"%s\" title=\"Fix rtPanel Child Theme\" target=\"_blank\">Fix rtPanel Child Theme</a>."
 msgstr ""
 
 #: ../admin/lib/rtp-general-options.php:44
@@ -1287,200 +1287,6 @@ msgstr ""
 msgid "Reset Gravatar Settings"
 msgstr ""
 
-#: ../etc/admin/rtp-hook-options.php:26
-#: ../etc/admin/rtp-hooks.php:191
-msgid "Hook Options"
-msgstr ""
-
-#: ../etc/admin/rtp-hook-options.php:45
-#: ../etc/admin/rtp-hooks.php:270
-msgid "Save"
-msgstr ""
-
-#: ../etc/admin/rtp-hook-options.php:46
-#: ../etc/admin/rtp-hooks.php:271
-msgid "Reset"
-msgstr ""
-
-#: ../etc/admin/rtp-hooks.php:84
-#: ../etc/admin/rtp-hooks.php:121
-msgid "Hooks"
-msgstr ""
-
-#: ../etc/admin/rtp-hooks.php:179
-msgid "Backup rtPanel Options"
-msgstr ""
-
-#: ../etc/admin/rtp-hooks.php:212
-msgid "Hook Before Header"
-msgstr ""
-
-#: ../etc/admin/rtp-hooks.php:216
-msgid "Hook After Header"
-msgstr ""
-
-#: ../etc/admin/rtp-hooks.php:220
-msgid "Hook Before Logo"
-msgstr ""
-
-#: ../etc/admin/rtp-hooks.php:224
-msgid "Hook After Logo"
-msgstr ""
-
-#: ../etc/admin/rtp-hooks.php:228
-msgid "Hook Before Content Wrapper"
-msgstr ""
-
-#: ../etc/admin/rtp-hooks.php:232
-msgid "Hook After Content Wrapper"
-msgstr ""
-
-#: ../etc/admin/rtp-hooks.php:236
-msgid "Hook Before Content"
-msgstr ""
-
-#: ../etc/admin/rtp-hooks.php:240
-msgid "Hook After Content"
-msgstr ""
-
-#: ../etc/admin/rtp-hooks.php:244
-msgid "Hook Before Post Start"
-msgstr ""
-
-#: ../etc/admin/rtp-hooks.php:248
-msgid "Hook After Post End"
-msgstr ""
-
-#: ../etc/admin/rtp-hooks.php:252
-msgid "Hook Before Sidebar"
-msgstr ""
-
-#: ../etc/admin/rtp-hooks.php:256
-msgid "Hook After Sidebar"
-msgstr ""
-
-#: ../etc/admin/rtp-hooks.php:260
-msgid "Hook Before Footer"
-msgstr ""
-
-#: ../etc/admin/rtp-hooks.php:264
-msgid "Hook After Footer"
-msgstr ""
-
-#: ../etc/upcoming/rt-custom-taxonomy.php:7
-#: ../etc/upcoming/lib/rt-custom-taxonomy.php:7
-msgctxt "taxonomy general name"
-msgid "Job Types"
-msgstr ""
-
-#: ../etc/upcoming/rt-custom-taxonomy.php:8
-#: ../etc/upcoming/lib/rt-custom-taxonomy.php:8
-msgctxt "taxonomy singular name"
-msgid "Job Type"
-msgstr ""
-
-#: ../etc/upcoming/rt-custom-taxonomy.php:9
-#: ../etc/upcoming/lib/rt-custom-taxonomy.php:9
-msgid "Search Job Types"
-msgstr ""
-
-#: ../etc/upcoming/rt-custom-taxonomy.php:10
-#: ../etc/upcoming/lib/rt-custom-taxonomy.php:10
-msgid "All Job Types"
-msgstr ""
-
-#: ../etc/upcoming/rt-custom-taxonomy.php:11
-#: ../etc/upcoming/lib/rt-custom-taxonomy.php:11
-msgid "Parent Job Type"
-msgstr ""
-
-#: ../etc/upcoming/rt-custom-taxonomy.php:12
-#: ../etc/upcoming/lib/rt-custom-taxonomy.php:12
-msgid "Parent Job Type:"
-msgstr ""
-
-#: ../etc/upcoming/rt-custom-taxonomy.php:13
-#: ../etc/upcoming/lib/rt-custom-taxonomy.php:13
-msgid "Edit Job Type"
-msgstr ""
-
-#: ../etc/upcoming/rt-custom-taxonomy.php:14
-#: ../etc/upcoming/lib/rt-custom-taxonomy.php:14
-msgid "Update Job Type"
-msgstr ""
-
-#: ../etc/upcoming/rt-custom-taxonomy.php:15
-#: ../etc/upcoming/lib/rt-custom-taxonomy.php:15
-msgid "Add New Job Type"
-msgstr ""
-
-#: ../etc/upcoming/rt-custom-taxonomy.php:16
-#: ../etc/upcoming/lib/rt-custom-taxonomy.php:16
-msgid "New Job Type Name"
-msgstr ""
-
-#: ../etc/upcoming/rt-custom-taxonomy.php:17
-#: ../etc/upcoming/lib/rt-custom-taxonomy.php:17
-msgid "Job Type"
-msgstr ""
-
-#: ../etc/upcoming/rt-custom-taxonomy.php:30
-#: ../etc/upcoming/lib/rt-custom-taxonomy.php:30
-msgctxt "taxonomy general name"
-msgid "Skills"
-msgstr ""
-
-#: ../etc/upcoming/rt-custom-taxonomy.php:31
-#: ../etc/upcoming/lib/rt-custom-taxonomy.php:31
-msgctxt "taxonomy singular name"
-msgid "Skill"
-msgstr ""
-
-#: ../etc/upcoming/rt-custom-taxonomy.php:32
-#: ../etc/upcoming/lib/rt-custom-taxonomy.php:32
-msgid "Search Skills"
-msgstr ""
-
-#: ../etc/upcoming/rt-custom-taxonomy.php:33
-#: ../etc/upcoming/lib/rt-custom-taxonomy.php:33
-msgid "All Skills"
-msgstr ""
-
-#: ../etc/upcoming/rt-custom-taxonomy.php:34
-#: ../etc/upcoming/lib/rt-custom-taxonomy.php:34
-msgid "Parent Skill"
-msgstr ""
-
-#: ../etc/upcoming/rt-custom-taxonomy.php:35
-#: ../etc/upcoming/lib/rt-custom-taxonomy.php:35
-msgid "Parent Skill:"
-msgstr ""
-
-#: ../etc/upcoming/rt-custom-taxonomy.php:36
-#: ../etc/upcoming/lib/rt-custom-taxonomy.php:36
-msgid "Edit Skill"
-msgstr ""
-
-#: ../etc/upcoming/rt-custom-taxonomy.php:37
-#: ../etc/upcoming/lib/rt-custom-taxonomy.php:37
-msgid "Update Skill"
-msgstr ""
-
-#: ../etc/upcoming/rt-custom-taxonomy.php:38
-#: ../etc/upcoming/lib/rt-custom-taxonomy.php:38
-msgid "Add New Skill"
-msgstr ""
-
-#: ../etc/upcoming/rt-custom-taxonomy.php:39
-#: ../etc/upcoming/lib/rt-custom-taxonomy.php:39
-msgid "New Skill Name"
-msgstr ""
-
-#: ../etc/upcoming/rt-custom-taxonomy.php:40
-#: ../etc/upcoming/lib/rt-custom-taxonomy.php:40
-msgid "Skill"
-msgstr ""
-
 #: ../lib/rtp-comments.php:30
 #, php-format
 msgid "%1$s at %2$s"
@@ -1563,7 +1369,7 @@ msgstr ""
 msgid "<span>%</span> Comments"
 msgstr ""
 
-#: ../lib/rtp-init.php:51
+#: ../lib/rtp-init.php:70
 msgid "Primary Navigation"
 msgstr ""
 
