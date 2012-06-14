@@ -53,7 +53,7 @@ nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; }
 /* Change style to suit your needs */
 ins { background-color: #FF9; color: #111; text-decoration: none; }
 mark { background-color: #FF9; color: #111; font-style: italic; font-weight: 700; }
-hr { border-width: 1px 0 0; display: block; height: 1px; margin: 10px 0; padding: 0; }
+hr { border-width: 1px 0 0; display: block; height: 1px; margin-bottom: 10px; margin-top: 10px; padding: 0; }
 acronym, abbr { border-bottom: 1px dotted #DDD; cursor: help; }
 dt, b, strong { font-weight: 700; }
 i, cite, em, var, dfn, address { font-style: italic; }
@@ -279,7 +279,7 @@ h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus { color: #CD3517; text-decoration
 /* End - Navigation */
 
 /* Post Meta */
-.post-title { float: left; font-size: 28px; line-height: 1.25em; margin: 19px 0 12px; }
+.post-title { float: left; font-size: 2em; line-height: 1.25em; margin: 19px 0 12px; }
 .rtp-has-comments { width: 75%; }
 .post-meta { clear: both; color: #666; font-style: italic; padding: 0 0 15px; position: relative; }
     .post-meta p { margin: 0; }
@@ -527,6 +527,10 @@ img.alignright { margin: 5px 0 5px 15px; }
 /* End - Sidebar */
 
 /* Footer */
+#footer-wrapper { overflow: hidden; padding: 20px 0 0; }
+#footer-wrapper:after { border-bottom: 1px solid #DDD; content: ''; display: block; height: 1px; left: 10px; position: absolute; top: 9px; visibility: visible; width: 940px; z-index: 100; }
+#footerbar { margin-bottom: 10px; overflow: hidden; padding: 0 0 10px; position: relative; }
+#footerbar:after { border-bottom: 1px solid #DDD; content: ''; display: block; height: 1px; left: 10px; position: absolute; bottom: 0; visibility: visible; width: 940px; z-index: 100; }
 .footerbar-widget { margin-bottom: 10px; }
 #footerbar .widget_text { margin-top: 0; }
 .footerbar-widget:nth-child(3n+1) { clear: both; }
@@ -536,7 +540,7 @@ img.alignright { margin: 5px 0 5px 15px; }
     #footer a { border-width: 0 0 1px; }
     #footer a:hover { text-decoration: none; }
 /* End - Footer */
-    
+
 /* Common bbPress Style */
 .widget_display_replies .bbp-author-avatar .avatar { margin-bottom: -4px; }
 .bbp_widget_login label { display: block; float: left; line-height: 2.692em; width: 85px; }
@@ -610,12 +614,8 @@ img.alignright { margin: 5px 0 5px 15px; }
 
 /* Screen Width: 320 */
 @media screen and (max-width: 320px) {
-    h1 { margin: 1.3125em 0 0.4375em 0; font-size: 1.7143em; line-height: 0.875em; }
-    h2 { margin: 1.575em 0 0.525em 0; font-size: 1.4286em; line-height: 1.05em; }
-    h3 { margin: 1.7501em 0 0.5834em 0; font-size: 1.2857em; line-height: 1.1667em; }
-    h4 { margin: 1.9688em 0 0.6563em 0; font-size: 1.1429em; line-height: 1.3125em; }
-    h5 { margin: 2.25em 0 0.75em 0; font-size: 1em; line-height: 1.5em; }
-    h6 { margin: 2.625em 0 0.875em 0; font-size: 0.8571em; line-height: 1.75em; }
+    body { font-size: 84%; }
+    .post-title { font-size: 1.5em; }
     input[type=text], input[type=tel], input[type=color], input[type=search], input[type=number], input[type=url], input[type=email], input[type=password], textarea, select { padding: 3px }
     input[type=button], input[type=submit], input[type=reset], button { padding: 3px 5px }
     caption, th, td { padding: 3px; }

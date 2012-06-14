@@ -9,7 +9,6 @@
 global $rtp_general; ?>
 
                 <?php rtp_hook_end_content_wrapper(); ?>
-                <hr class="rtp-horizontal-border rtp-grid-12" />
             </div><!-- #content-wrapper -->
 
             <footer id="footer-wrapper" role="contentinfo" class="rtp-container-12 clearfix"><?php
@@ -21,8 +20,7 @@ global $rtp_general; ?>
                             <div class="widget rtp-grid-4 footerbar-widget"><h3 class="widgettitle"><?php _e( 'Tags', 'rtPanel' ); ?></h3><div class="tagcloud"><?php wp_tag_cloud(); ?></div></div>
                             <div class="widget rtp-grid-4 footerbar-widget"><h3 class="widgettitle"><?php _e( 'Meta', 'rtPanel' ); ?></h3><ul><?php wp_register(); ?><li><?php wp_loginout(); ?></li><?php wp_meta(); ?></ul></div><?php
                         } ?>
-                    </aside><!-- #footerbar -->
-                    <hr class="rtp-horizontal-border rtp-grid-12" /><?php
+                    </aside><!-- #footerbar --><?php
                 } ?>
 
                 <?php rtp_hook_before_footer(); ?>
