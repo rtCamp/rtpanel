@@ -850,7 +850,7 @@ function rtp_theme_options_upload( $form_fields, $post ) {
 
         $form_fields['url']['label'] = 'Path';
         $form_fields['url']['input'] = 'html';
-        preg_match('/<button.*urlfile.*title=\'(.*)\'.*\/button>/iU', $form_fields['url']['html'], $file_path );
+        preg_match('/<button.*urlfile.*[data-link-url|title]=\'(.*)\'.*\/button>/iU', $form_fields['url']['html'], $file_path );
         $form_fields['url']['html'] = preg_replace( '/<button.*\/button>/i', '', $form_fields['url']['html'] );
         $form_fields['url']['html'] = preg_replace('/<input/i', '<input readonly="readonly"', $form_fields['url']['html'] );
         $form_fields['url']['html'] = preg_replace('/value=\'.*\'/iU', 'value=\'' . $file_path[1] . '\'', $form_fields['url']['html'] );
