@@ -55,8 +55,8 @@ get_header(); ?>
                             'post_status'   => null,
                             'post_type'     => 'attachment'
                         );
-//                        $attachments = get_children( $args );
-                        $attachments = ( $post->post_parent == 0 ) ? false : get_children( $args );
+
+                        $attachments = get_children( $args );
 
                         if ( $attachments ) { ?>
                             <ul role="list" class="rtp-sibling-attachments rtp-container-12 rtp-alpha rtp-omega clearfix"><?php

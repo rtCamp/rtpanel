@@ -115,6 +115,7 @@ function rtp_default_scripts() {
     } else {
         wp_dequeue_style( 'bbpress-style' );
     }
+    
 }
 add_action( 'wp_enqueue_scripts', 'rtp_default_scripts' );
 
