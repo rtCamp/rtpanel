@@ -816,11 +816,24 @@ if ( $rtp_general['login_head'] && $rtp_general['logo_show'] ) {
 function rtp_custom_login_logo() {
     $custom_logo = rtp_logo_fav_src( $type = 'logo' );
     $size = @getimagesize( $custom_logo );
+    $rtp_wp_loginbox_width = 312;
+    $rtp_logo_width = $size[0];
+    $rtp_logo_height = $size[1];
+    if ( $rtp_logo_width > $rtp_wp_loginbox_width ) {
+        $ratio = $rtp_logo_height / $rtp_logo_width;
+        $rtp_logo_height = ceil( $ratio * $rtp_wp_loginbox_width );
+        $rtp_logo_width = $rtp_wp_loginbox_width;
+        $rtp_background_size = 'contain';
+    } else {
+        $rtp_background_size = 'auto';
+    }
+        
     echo '<style type="text/css">
         .login h1 { margin-left: 8px; }
         .login h1 a { background: url(' . $custom_logo . ') no-repeat 50% 0;
-               height: ' . $size[1] . 'px;
-               width: ' . $size[0] . 'px; margin: 0 auto 15px; padding: 0; max-width: 312px; }
+                height: ' . $rtp_logo_height . 'px;
+                background-size: ' . $rtp_background_size . ';
+                width: ' . $rtp_logo_width . 'px; margin: 0 auto 15px; padding: 0; }
 	</style>';
 }
 
