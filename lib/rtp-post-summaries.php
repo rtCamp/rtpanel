@@ -384,7 +384,7 @@ function rtp_get_attachment_id_from_src( $image_src ) {
 }
 
 /**
- * Used to get the attachment id provided 'src'
+ * Used to get the iamge dimensions, provided the 'src'
  * 
  * @param string $image_src The Image Source
  * @return width &amp; height parameters in attributes

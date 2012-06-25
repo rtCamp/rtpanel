@@ -47,7 +47,7 @@ get_header(); ?>
                     <?php the_content(); ?>
 
                     <?php 
-                        if ( $post->post_parent ) {
+                        if ( $post->post_parent > 0 ) {
                             $args = array(
                                 'numberposts'   => apply_filters( 'rtp_image_sibling_count', 10 ),
                                 'order'         => 'ASC',
