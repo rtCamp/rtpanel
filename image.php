@@ -47,33 +47,35 @@ get_header(); ?>
                     <?php the_content(); ?>
 
                     <?php 
-                        $args = array(
-                            'numberposts'   => -1,
-                            'order'         => 'ASC',
-                            'post_mime_type'=> 'image',
-                            'post_parent'   => $post->post_parent,
-                            'post_status'   => null,
-                            'post_type'     => 'attachment'
-                        );
+                        if ( $post->post_parent ) {
+                            $args = array(
+                                'numberposts'   => apply_filters( 'rtp_image_sibling_count', 10 ),
+                                'order'         => 'ASC',
+                                'post_mime_type'=> 'image',
+                                'post_parent'   => $post->post_parent,
+                                'post_status'   => 'inherit',
+                                'post_type'     => 'attachment'
+                            );
 
-                        $attachments = get_children( $args );
+                            $attachments = get_children( $args );
 
-                        if ( $attachments ) { ?>
-                            <ul role="list" class="rtp-sibling-attachments rtp-container-12 rtp-alpha rtp-omega clearfix"><?php
-                                $count = 1;
-                                foreach( $attachments as $attachment ) {
-                                    if ( get_the_ID() != $attachment->ID ) {
-                                        $alpha_omega = NULL;
-                                        if ( $count % 6 == 1 ) {
-                                            $alpha_omega = ' rtp-alpha';
-                                        } elseif ( $count %6 == 0 ) {
-                                            $alpha_omega = ' rtp-omega';
+                            if ( $attachments ) { ?>
+                                <ul role="list" class="rtp-sibling-attachments rtp-container-12 rtp-alpha rtp-omega clearfix"><?php
+                                    $count = 1;
+                                    foreach( $attachments as $attachment ) {
+                                        if ( get_the_ID() != $attachment->ID ) {
+                                            $alpha_omega = NULL;
+                                            if ( $count % 6 == 1 ) {
+                                                $alpha_omega = ' rtp-alpha';
+                                            } elseif ( $count %6 == 0 ) {
+                                                $alpha_omega = ' rtp-omega';
+                                            }
+                                            echo '<li role="listitem" class="rtp-grid-2' . $alpha_omega . '">' . wp_get_attachment_link( $attachment->ID, 'thumbnail', true ) . '</li>';
+                                            $count++;
                                         }
-                                        echo '<li role="listitem" class="rtp-grid-2' . $alpha_omega . '">' . wp_get_attachment_link( $attachment->ID, 'thumbnail', true ) . '</li>';
-                                        $count++;
-                                    }
-                                } ?>
-                            </ul><?php
+                                    } ?>
+                                </ul><?php
+                            }
                         } ?>
 
                     <?php rtp_hook_end_post_content(); ?>
