@@ -858,7 +858,7 @@ function rtp_login_site_url() {
  * @since rtPanel 2.0
  */
 function rtp_theme_options_upload( $form_fields, $post ) {
-    /* Can now see $post becaue the filter accepts two args, as defined in the add_fitler */
+    /* Can now see $post because the filter accepts two args, as defined in the add_fitler */
     if ( substr( $post->post_mime_type, 0, 5 ) == 'image' && ( preg_match( '/rtp_theme=rtp_true/i', wp_get_referer() ) ) || preg_match( '/rtp_theme=rtp_true/i', $_SERVER['REQUEST_URI'] ) || isset( $_POST['rtp_theme'] ) ) {
 
         $form_fields['url']['label'] = 'Path';
