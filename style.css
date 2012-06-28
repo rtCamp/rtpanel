@@ -266,8 +266,6 @@ h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus { color: #CD3517; text-decoration
                 #rtp-nav-menu ul ul { left: 100%; top: 0; }
                 #rtp-nav-menu ul li:first-child ul { top: -1px; }
 
-/*                #rtp-nav-menu ul ul ul { top: -1px; }*/
-
     /* Submenu Links */
     #rtp-nav-menu li:hover > a { color: #CD3517; text-decoration: none; }
 
