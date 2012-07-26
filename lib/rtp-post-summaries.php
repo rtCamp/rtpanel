@@ -268,7 +268,7 @@ function rtp_create_external_thumb( $match, $post, $size, $double_check_tag = ''
         $img_url = $file['url'];
 
         // Get the image type. Must to use it as a post thumbnail.
-        $img_type = wp_check_filetype( $file['file'] );
+        $img_type = wp_check_filetype( $img_path );
         extract( $img_type );
 
         $img_info = apply_filters( 'wp_handle_upload', array( 'file' => $img_path, 'url' => $img_url, 'type' => $type ), 'sideload' );
@@ -392,7 +392,7 @@ function rtp_get_attachment_id_from_src( $image_src ) {
  * @since rtPanel 2.1
  */
 function rtp_get_image_dimensions( $src ) {
-    $img_details = getimagesize( $src );
+    $img_details = @getimagesize( $src );
     return $img_details[3];
 }
 
@@ -406,7 +406,7 @@ function rtp_get_image_dimensions( $src ) {
 function rtp_get_the_password_form() {
     global $post;
     $label = 'pwbox-' . ( empty( $post->ID ) ? rand() : $post->ID );
-    $output = '<form action="' . get_option( 'siteurl' ) . '/wp-pass.php" method="post">';
+    $output = '<form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" method="post">';
         $output .= '<p class="info">' . __( 'This post is password protected. To view it please enter your password below:', 'rtPanel' ) . '</p>';
         $output .= '<table><tbody>
                 <tr>
