@@ -58,7 +58,7 @@ class rtp_ogp {
 
         if ( is_singular () ) {
             $append = '';
-            $post_content = ( isset( $post->post_excerpt ) ) ? $post->post_excerpt : $post->post_content;
+            $post_content = ( isset( $post->post_excerpt ) && trim( $post->post_excerpt ) ) ? $post->post_excerpt : $post->post_content;
             if( strlen( wp_html_excerpt( $post_content, 130 ) ) >= 130 )
                 $append = '...';
             

@@ -44,39 +44,6 @@ jQuery(document).ready(function() {
         return false;
     } );
 
-    /* Format date according to changes in custom date field */
-    function date_format( position ) {
-        jQuery('input[name="rtp_post_comments[post_date_format_'+position+']"]').click(function(){
-            if ( 'post_date_custom_format_'+position != jQuery(this).attr('id') ) {
-                if ( 'full-date-'+position == jQuery(this).attr('id') ) {
-                    jQuery('input[name="rtp_post_comments[post_date_custom_format_'+position+']"]').val( jQuery(this).val() ).siblings('span').text( jQuery(this).siblings('.full-date-'+position).text() );
-                } else if ( 'y-m-d-'+position == jQuery(this).attr('id') ) {
-                    jQuery('input[name="rtp_post_comments[post_date_custom_format_'+position+']"]').val( jQuery(this).val() ).siblings('span').text( jQuery(this).siblings('.y-m-d-'+position).text() );
-                } else if ( 'm-d-y-'+position == jQuery(this).attr('id') ) {
-                    jQuery('input[name="rtp_post_comments[post_date_custom_format_'+position+']"]').val( jQuery(this).val() ).siblings('span').text( jQuery(this).siblings('.m-d-y-'+position).text() );
-                } else if ( 'd-m-y-'+position == jQuery(this).attr('id') ) {
-                    jQuery('input[name="rtp_post_comments[post_date_custom_format_'+position+']"]').val( jQuery(this).val() ).siblings('span').text( jQuery(this).siblings('.d-m-y-'+position).text() );
-                }
-                jQuery('#post_date_custom_format_'+position).val(jQuery(this).val());
-                jQuery('#post_date_custom_format_'+position).siblings('label').attr('title', jQuery(this).val());
-            }
-        });
-
-        jQuery('#custom-date-'+position).keyup(function () {
-            jQuery('#post_date_custom_format_'+position).val(jQuery(this).val());
-            jQuery('#post_date_custom_format_'+position).siblings('label').attr('title', jQuery(this).val());
-        });
-
-        jQuery('input[name="rtp_post_comments[post_date_custom_format_'+position+']"]').focus(function(){
-            jQuery('#post_date_custom_format_'+position).attr('checked', 'checked');
-        });
-
-        jQuery('input[name="rtp_post_comments[post_date_custom_format_'+position+']"]').change( function() {
-            var format = jQuery(this);
-            format.siblings('img').css('visibility','visible');
-            jQuery.post(ajaxurl, { action: 'date_format', date : format.val() }, function(d) { format.siblings('img').css('visibility','hidden'); format.siblings('span').text(d); } );
-        });
-    }
     date_format('u');
     date_format('l');
 
@@ -136,47 +103,9 @@ jQuery(document).ready(function() {
 
     });
 
-    /* Function to upload files using the media library */
-    function media_upload( button_id, textbox_id, main_metabox_id, iframe_title ) {
-        jQuery(button_id).click(function() {
-            formfield = jQuery(textbox_id).attr('name');
-            H = jQuery(window).height() - 80, W = ( 640 < jQuery(window).width() ) ? 640 : jQuery(window).width();
-            tb_show( 'Upload '+iframe_title, 'media-upload.php?post_id=0&amp;rtp_theme=rtp_true&amp;logo_or_favicon='+iframe_title+'&amp;type=image&amp;TB_iframe=true&amp;width='+W+'&amp;height='+H);
-            window.send_to_editor = function(html) {
-                imgurl = jQuery('img',html).attr('src');
-                if( ( typeof(imgurl) !== 'undefined' ) && ( ( imgurl.match(/(.jpg|.jpeg|.jpe|.gif|.png|.bmp|.ico|.tif|.tiff)$/i) && ( iframe_title != 'Favicon' ) ) || ( imgurl.match(/(.ico)$/i) &&  ( iframe_title == 'Favicon' ) ) ) ) {
-                    jQuery(textbox_id).val(imgurl);
-                    jQuery(main_metabox_id+' .image-preview img').attr('src', imgurl);
-                    tb_remove();
-                } else {
-                    if( iframe_title == 'Favicon' ) {
-                        alert("Please select a valid favicon file (.ico)")
-                    } else {
-                        alert("Please select a valid image file.");
-                    }
-                    tb_remove();
-                }
-            }
-            return false;
-        });
-    }
     media_upload( '#logo_upload', '#logo_upload_url', '#logo_options', 'Logo' );
     media_upload( '#favicon_upload', '#favicon_upload_url', '#fav_options', 'Favicon' );
 
-    /* Function to handle toggling of sub options */
-    function toggle_handler( the_option, the_class, the_id ) {
-        if (typeof the_option !== 'undefined' && the_option !== false) {
-            jQuery(the_class).show();
-            jQuery(the_id).click(function(){
-                jQuery(the_class).toggle();
-            });
-        } else {
-            jQuery(the_class).hide();
-            jQuery(the_id).click(function(){
-                jQuery(the_class).toggle();
-            });
-        }
-    }
     toggle_handler( post_date_u, '.post_date_format_u', '#post_date_u' );
     toggle_handler( post_date_l, '.post_date_format_l', '#post_date_l' );
     toggle_handler( post_author_u, '.post_author_u-sub', '#post_author_u' );
@@ -207,32 +136,6 @@ jQuery(document).ready(function() {
         });
     }
 
-    /* Show and hide sections on checked */
-    function init_content( container ) {
-        jQuery(container+' .inside .form-table tr:first').css('visibility','visible');
-        jQuery(container+' .inside .form-table tr:first').css('display', 'block');
-        jQuery(container+' .inside .form-table tr').addClass('custom');
-        jQuery(container+' .inside .form-table tr:first').removeClass('custom');
-    }
-
-    function contentshow_table( container, event_handler ) {
-        if( typeof jQuery(event_handler).attr('checked') !== 'undefined' && jQuery(event_handler).attr('checked') != false ) {
-            jQuery( jQuery(container) ).css('visibility','visible');
-            jQuery( jQuery(container) ).css('display','block');
-        } else {
-            jQuery( jQuery(container) ).css('visibility','hidden');
-            jQuery( jQuery(container) ).css('display','none');
-        }
-        jQuery(event_handler).click(function () {
-            if (( jQuery(container+':hidden').length > 1)) {
-                jQuery( jQuery(container) ).css('visibility','visible');
-                jQuery( jQuery(container) ).css('display','block');
-            } else {
-                jQuery( jQuery(container) ).css('visibility','hidden');
-                jQuery( jQuery(container) ).css('display','none');
-            }
-          });
-    }
     init_content('#post_summaries_options');
     init_content('#post_thumbnail_options');
     init_content('#pagination_options');
@@ -241,6 +144,107 @@ jQuery(document).ready(function() {
     contentshow_table('#pagination_options .inside .form-table tr.custom', '#pagination_show');
 
 });
+
+/* Show and hide sections on checked */
+function init_content( container ) {
+    jQuery(container+' .inside .form-table tr:first').css('visibility','visible');
+    jQuery(container+' .inside .form-table tr:first').css('display', 'block');
+    jQuery(container+' .inside .form-table tr').addClass('custom');
+    jQuery(container+' .inside .form-table tr:first').removeClass('custom');
+}
+
+function contentshow_table( container, event_handler ) {
+    if( typeof jQuery(event_handler).attr('checked') !== 'undefined' && jQuery(event_handler).attr('checked') != false ) {
+        jQuery( jQuery(container) ).css('visibility','visible');
+        jQuery( jQuery(container) ).css('display','block');
+    } else {
+        jQuery( jQuery(container) ).css('visibility','hidden');
+        jQuery( jQuery(container) ).css('display','none');
+    }
+    jQuery(event_handler).click(function () {
+        if (( jQuery(container+':hidden').length > 1)) {
+            jQuery( jQuery(container) ).css('visibility','visible');
+            jQuery( jQuery(container) ).css('display','block');
+        } else {
+            jQuery( jQuery(container) ).css('visibility','hidden');
+            jQuery( jQuery(container) ).css('display','none');
+        }
+        });
+}
+    
+/* Format date according to changes in custom date field */
+function date_format( position ) {
+    jQuery('input[name="rtp_post_comments[post_date_format_'+position+']"]').click(function(){
+        if ( 'post_date_custom_format_'+position != jQuery(this).attr('id') ) {
+            if ( 'full-date-'+position == jQuery(this).attr('id') ) {
+                jQuery('input[name="rtp_post_comments[post_date_custom_format_'+position+']"]').val( jQuery(this).val() ).siblings('span').text( jQuery(this).siblings('.full-date-'+position).text() );
+            } else if ( 'y-m-d-'+position == jQuery(this).attr('id') ) {
+                jQuery('input[name="rtp_post_comments[post_date_custom_format_'+position+']"]').val( jQuery(this).val() ).siblings('span').text( jQuery(this).siblings('.y-m-d-'+position).text() );
+            } else if ( 'm-d-y-'+position == jQuery(this).attr('id') ) {
+                jQuery('input[name="rtp_post_comments[post_date_custom_format_'+position+']"]').val( jQuery(this).val() ).siblings('span').text( jQuery(this).siblings('.m-d-y-'+position).text() );
+            } else if ( 'd-m-y-'+position == jQuery(this).attr('id') ) {
+                jQuery('input[name="rtp_post_comments[post_date_custom_format_'+position+']"]').val( jQuery(this).val() ).siblings('span').text( jQuery(this).siblings('.d-m-y-'+position).text() );
+            }
+            jQuery('#post_date_custom_format_'+position).val(jQuery(this).val());
+            jQuery('#post_date_custom_format_'+position).siblings('label').attr('title', jQuery(this).val());
+        }
+    });
+
+    jQuery('#custom-date-'+position).keyup(function () {
+        jQuery('#post_date_custom_format_'+position).val(jQuery(this).val());
+        jQuery('#post_date_custom_format_'+position).siblings('label').attr('title', jQuery(this).val());
+    });
+
+    jQuery('input[name="rtp_post_comments[post_date_custom_format_'+position+']"]').focus(function(){
+        jQuery('#post_date_custom_format_'+position).attr('checked', 'checked');
+    });
+
+    jQuery('input[name="rtp_post_comments[post_date_custom_format_'+position+']"]').change( function() {
+        var format = jQuery(this);
+        format.siblings('img').css('visibility','visible');
+        jQuery.post(ajaxurl, { action: 'date_format', date : format.val() }, function(d) { format.siblings('img').css('visibility','hidden'); format.siblings('span').text(d); } );
+    });
+}
+
+/* Function to handle toggling of sub options */
+function toggle_handler( the_option, the_class, the_id ) {
+    if (typeof the_option !== 'undefined' && the_option !== false) {
+        jQuery(the_class).show();
+        jQuery(the_id).click(function(){
+            jQuery(the_class).toggle();
+        });
+    } else {
+        jQuery(the_class).hide();
+        jQuery(the_id).click(function(){
+            jQuery(the_class).toggle();
+        });
+    }
+}
+
+/* Function to upload files using the media library */
+function media_upload( button_id, textbox_id, main_metabox_id, iframe_title ) {
+    jQuery(button_id).click(function() {
+        formfield = jQuery(textbox_id).attr('name');
+        H = jQuery(window).height() - 80, W = ( 640 < jQuery(window).width() ) ? 640 : jQuery(window).width();
+        tb_show( 'Upload '+iframe_title, 'media-upload.php?post_id=0&amp;rtp_theme=rtp_true&amp;logo_or_favicon='+iframe_title+'&amp;type=image&amp;TB_iframe=true&amp;width='+W+'&amp;height='+H);
+        window.send_to_editor = function(html) {
+            imgurl = jQuery('img',html).attr('src');
+            if( ( typeof(imgurl) !== 'undefined' ) && ( ( imgurl.match(/(.jpg|.jpeg|.jpe|.gif|.png|.bmp|.ico|.tif|.tiff)$/i) && ( iframe_title != 'Favicon' ) ) || ( imgurl.match(/(.ico)$/i) &&  ( iframe_title == 'Favicon' ) ) ) ) {
+                jQuery(textbox_id).val(imgurl);
+                jQuery(main_metabox_id+' .image-preview img').attr('src', imgurl);
+                tb_remove();
+            } else {
+                if( iframe_title == 'Favicon' ) {
+                    alert("Please select a valid favicon file (.ico)")
+                } else {
+                    alert("Please select a valid image file.");
+                }
+                tb_remove();
+            }
+        }
+        return false;
+    });
+}
 
 function delete_plugin_confirmation(plugin) {
     if (! confirm('Are you sure you want to delete \''+plugin+'\' plugin?')) { return false; }
