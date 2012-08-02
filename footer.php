@@ -11,9 +11,9 @@ global $rtp_general; ?>
                 <?php rtp_hook_end_content_wrapper(); ?>
             </div><!-- #content-wrapper -->
 
-            <footer id="footer-wrapper" role="contentinfo" class="rtp-container-12 clearfix"><?php
+            <footer id="footer-wrapper" role="contentinfo" class="clearfix rtp-container-12 rtp-section-separator"><?php
                 if ( $rtp_general['footer_sidebar'] ) { ?>
-                    <aside role="complementary" id="footerbar" class="clearfix"><?php
+                    <aside role="complementary" id="footerbar" class="clearfix rtp-section-separator"><?php
                         // Default Widgets ( Fallback )
                         if ( !dynamic_sidebar( 'footer-widgets' ) ) {  ?>
                             <div class="widget rtp-grid-4 footerbar-widget"><h3 class="widgettitle"><?php _e( 'Archives', 'rtPanel' ); ?></h3><ul><?php wp_get_archives( array( 'type' => 'monthly' ) ); ?></ul></div>

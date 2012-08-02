@@ -105,11 +105,14 @@ if ( !function_exists( 'rtp_admin_header_style' ) ) {
  */
 function rtp_default_scripts() {
     global $rtp_general;
-    
+
+    /* Mobile Navigation Script */
+    wp_enqueue_script( 'rtp-custom', RTP_JS_FOLDER_URL . '/rtp-mobile-nav.js', array( 'jquery' ), '', true );
+
     echo ( $rtp_general['custom_styles'] ) ? '<style>' . $rtp_general['custom_styles'] . '</style>' . "\r\n" : '';
     // Nested Comment Support
     ( is_singular() && get_option( 'thread_comments' ) ) ? wp_enqueue_script('comment-reply') : '';
-    
+
     if ( rtp_is_bbPress() ) {
         wp_enqueue_style( 'rtp-bbpress', RTP_CSS_FOLDER_URL . '/rtp-bbpress.css', array( 'bbpress-style' ) );
     } else {
