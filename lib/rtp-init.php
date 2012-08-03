@@ -30,7 +30,7 @@ if ( !function_exists( 'rtpanel_setup' ) ) {
         rtp_theme_setup_values();
         add_theme_support( 'post-thumbnails' ); // This theme uses post thumbnails
         add_theme_support( 'automatic-feed-links' ); // Add default posts and comments RSS feed links to head
-        add_editor_style( 'css/rtp-editor-style.css' ); // This theme styles the visual editor with editor-style.css to match the theme style.
+        add_editor_style( 'style.css' ); // This theme styles the visual editor with editor-style.css to match the theme style.
         load_theme_textdomain( 'rtPanel', get_template_directory() . '/languages' ); // Load the text domain
 
         add_theme_support( 'custom-background' ); // Add support for custom background
@@ -113,9 +113,7 @@ function rtp_default_scripts() {
     // Nested Comment Support
     ( is_singular() && get_option( 'thread_comments' ) ) ? wp_enqueue_script('comment-reply') : '';
 
-    if ( rtp_is_bbPress() ) {
-        wp_enqueue_style( 'rtp-bbpress', RTP_CSS_FOLDER_URL . '/rtp-bbpress.css', array( 'bbpress-style' ) );
-    } else {
+    if ( !rtp_is_bbPress() ) {
         wp_dequeue_style( 'bbpress-style' );
     }
     
