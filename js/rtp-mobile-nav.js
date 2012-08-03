@@ -12,6 +12,9 @@ jQuery( document ).ready(function() {
         jQuery(this).next('#rtp-nav-menu').slideToggle('slow');
     });
     jQuery( window ).resize(function(){
-        // jQuery('#rtp-nav-menu').removeAttr('style');
+        var win_width = jQuery(window).width();
+        if( win_width >= 760 ){
+            jQuery('#rtp-nav-menu').show();
+        }
     });
 });
