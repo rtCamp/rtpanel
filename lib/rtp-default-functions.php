@@ -276,7 +276,7 @@ function rtp_default_comment_count() {
     // Comment Count
     add_filter( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
     if ( ( ( get_comments_number() || @comments_open() ) && !is_attachment() && !rtp_is_bbPress() ) || ( is_attachment() && $rtp_post_comments['attachment_comments'] ) ) { // If post meta is set to top then only display the comment count. ?>
-        <p class="alignright rtp-post-comment-count"><span class="rtp-curly-bracket">{</span><?php comments_popup_link( __( '<span>0</span> Comments', 'rtPanel' ), __( '<span>1</span> Comment', 'rtPanel' ), __( '<span>%</span> Comments', 'rtPanel' ), 'rtp-post-comment rtp-common-link' ); ?><span class="rtp-curly-bracket">}</span></p><?php
+        <p class="alignright rtp-post-comment-count"><span class="rtp-curly-bracket">{</span><?php comments_popup_link( _x( '<span>0</span> Comments', 'comments number', 'rtPanel' ), _x( '<span>1</span> Comment', 'comments number', 'rtPanel' ), _x( '<span>%</span> Comments', 'comments number', 'rtPanel' ), 'rtp-post-comment rtp-common-link' ); ?><span class="rtp-curly-bracket">}</span></p><?php
     }
     remove_filter( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
 }

@@ -632,7 +632,7 @@ function rtp_theme_setup_values() {
     global $rtp_general, $rtp_post_comments, $rtp_version;
 
     /* Check if upgrade of theme is required, or not */
-    if ( ( is_array( $rtp_post_comments ) && !isset( $rtp_post_comments['upgrade_theme'] ) ) || ( version_compare( RTP_VERSION, $rtp_version, 'gt' ) ) ) {
+    if ( ( is_array( $rtp_post_comments ) && !isset( $rtp_post_comments['upgrade_theme'] ) ) || ( version_compare( RTP_VERSION, $rtp_version['rtPanel'], 'gt' ) ) ) {
         $rtp_post_comments['upgrade_theme'] = '1';
         update_option( 'rtp_post_comments', $rtp_post_comments );
         add_action( 'admin_notices', 'rtp_upgrade_theme_notice' );
@@ -1587,39 +1587,39 @@ function rtp_mce_before_init( $settings ) {
     $style_formats = array(  
         array(  
             'title' => 'Clean',  
-            'block' => 'div',  
+            'block' => 'p',  
             'classes' => 'clean',  
-            'wrapper' => true  
+            'wrapper' => false  
         ),
         array(  
             'title' => 'Alert',  
-            'block' => 'div',  
+            'block' => 'p',  
             'classes' => 'alert',  
-            'wrapper' => true  
+            'wrapper' => false  
         ),
         array(  
             'title' => 'Info',  
-            'block' => 'div',  
+            'block' => 'p',  
             'classes' => 'info',  
-            'wrapper' => true  
+            'wrapper' => false  
         ),
         array(  
             'title' => 'Success',  
-            'block' => 'div',  
+            'block' => 'p',  
             'classes' => 'success',  
-            'wrapper' => true  
+            'wrapper' => false  
         ),
         array(  
             'title' => 'Warning',  
-            'block' => 'div',  
+            'block' => 'p',  
             'classes' => 'warning',  
-            'wrapper' => true  
+            'wrapper' => false  
         ),
         array(  
             'title' => 'Error',  
-            'block' => 'div',  
+            'block' => 'p',  
             'classes' => 'error',  
-            'wrapper' => true  
+            'wrapper' => false
         )
     );  
   
