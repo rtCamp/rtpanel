@@ -104,18 +104,18 @@ function rtp_show_post_thumbnail( $post_id = null, $thumbnail_size = 'thumbnail'
         $thumbnail_frame = ( $rtp_post_comments['thumbnail_frame'] ) ? 'rtp-thumbnail-shadow' : 'rtp-no-thumbnail-shadow';
         $image_align = 'align' . strtolower( $rtp_post_comments['thumbnail_position'] );
         if ( has_post_thumbnail() ) {
-            echo ( $thumbnail_frame || ( 'aligncenter' == $image_align ) ) ? '<span class="' . ( ( 'aligncenter' == $image_align ) ? 'aligncenter ' : '' ) . $thumbnail_frame . '">' : ''; ?>
-                <a role="link" class="<?php echo ( 'aligncenter' == $image_align ) ? 'aligncenter ' : ''; ?>" href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( $thumbnail_size, array( 'class' => 'post-thumb ' . $image_align ) ); ?></a><?php
-            echo ( $thumbnail_frame ) ? '</span>' : ''; ?>
+            echo '<figure class="' . $image_align . ' ' . $thumbnail_frame . '">'; ?>
+                <a role="link" class="<?php echo $image_align; ?>" href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( $thumbnail_size, array( 'class' => 'post-thumb ' . $image_align ) ); ?></a><?php
+            echo '</figure>'; ?>
         <?php
         } else {
             $image = rtp_generate_thumbs( '', $thumbnail_size, $post_id );
             $image = ( $image ) ? $image : apply_filters( 'rtp_default_image_path', $default_img_path );
             if ( $image ) {
                 $alt = ( the_title_attribute( 'echo=0' ) ) ? the_title_attribute( 'echo=0' ) : 'Alternate Text';
-                echo ( $thumbnail_frame || ( 'aligncenter' == $image_align ) ) ? '<span class="' . ( ( 'aligncenter' == $image_align ) ? 'aligncenter ' : '' ) . $thumbnail_frame . '">' : ''; ?>
-                    <a role="link" class="<?php echo ( 'aligncenter' == $image_align ) ? 'aligncenter ' : ''; ?>" href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><img role="img" class="<?php echo 'post-thumb ' . $image_align; ?> wp-post-image" alt="<?php echo $alt; ?>" <?php echo rtp_get_image_dimensions( $image ); ?> src="<?php echo $image; ?>" /></a><?php
-                echo ( $thumbnail_frame ) ? '</span>' : ''; ?>
+                echo '<figure class="' . $image_align . ' ' . $thumbnail_frame . '">'; ?>
+                    <a role="link" class="<?php echo $image_align; ?>" href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><img role="img" class="<?php echo 'post-thumb ' . $image_align; ?> wp-post-image" alt="<?php echo $alt; ?>" <?php echo rtp_get_image_dimensions( $image ); ?> src="<?php echo $image; ?>" /></a><?php
+                echo '</figure>'; ?>
             <?php
             }
         }

@@ -8,6 +8,7 @@
  */
 
 /* Define plugin support constants */
+define( 'RTP_SOCIAL', 'rtsocial/source.php' );
 define( 'RTP_HOOKS_EDITOR', 'rtpanel-hooks-editor/rtpanel-hooks-editor.php' );
 define( 'RTP_SUBSCRIBE_TO_COMMENTS', 'subscribe-to-comments/subscribe-to-comments.php' );
 define( 'RTP_WP_PAGENAVI', 'wp-pagenavi/wp-pagenavi.php' );
@@ -310,6 +311,9 @@ function rtp_custom_styles_metabox() {
  */
 function rtp_plugin_metabox() {
     $plugins = get_plugins();
+    $rtp_social_activate = wp_create_nonce( RTP_SOCIAL . '-activate' );
+    $rtp_social_deactivate = wp_create_nonce( RTP_SOCIAL . '-deactivate' );
+    $rtp_social_delete = wp_create_nonce( RTP_SOCIAL . '-delete' );
     $rtp_hooks_editor_activate = wp_create_nonce( RTP_HOOKS_EDITOR . '-activate' );
     $rtp_hooks_editor_deactivate = wp_create_nonce( RTP_HOOKS_EDITOR . '-deactivate' );
     $rtp_hooks_editor_delete = wp_create_nonce( RTP_HOOKS_EDITOR . '-delete' );
@@ -334,6 +338,36 @@ function rtp_plugin_metabox() {
             <th><?php _e( 'Status', 'rtPanel' ); ?></th>
             <th><?php _e( 'Action', 'rtPanel' ); ?></th>
             <th><?php _e( 'Edit', 'rtPanel' ); ?></th>
+        </tr>
+        <tr>
+            <td><a target="_blank" href="http://wordpress.org/extend/plugins/rtsocial/"><?php _e( 'rtSocial', 'rtPanel' ); ?></a></td>
+            <td>
+                <?php
+                if ( is_plugin_active( RTP_SOCIAL ) ) {
+                    echo '<span class="active">' . __( 'Active', 'rtPanel' ) . '</span>';
+                } elseif ( array_key_exists( RTP_SOCIAL, $plugins ) ) {
+                    echo '<span class="inactive">' . __( 'Inactive', 'rtPanel' ) . '</span>';
+                } else {
+                    echo '<span class="not-installed">' . __( 'Not Installed', 'rtPanel' ) . '</span>';
+                }
+                ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_SOCIAL ) ) { ?>
+                    <input type="hidden" value="<?php echo $rtp_social_deactivate; ?>" name="_wpnonce_rtsocial_deactivate" id="_wpnonce_rtsocial_deactivate" /><input id="rtsocial-deactivate" type="hidden" name="rtsocial-deactivate" value="0" /><a class="rtsocial-deactivate" href="#rtsocial-deactivate" onclick="deactivate_plugin('rtSocial')"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
+                <?php } elseif ( array_key_exists( RTP_SOCIAL, $plugins ) ) { ?>
+                    <input type="hidden" value="<?php echo $rtp_social_activate; ?>" name="_wpnonce_rtsocial_activate" id="_wpnonce_rtsocial_activate" /><input id="rtsocial-activate" type="hidden" name="rtsocial-activate" value="0" /><a class="rtsocial-activate" href="#rtsocial-activate" onclick="activate_plugin('rtSocial')"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo $rtp_social_delete; ?>" name="_wpnonce_rtsocial_delete" id="_wpnonce_rtsocial_delete" /><input id="rtsocial-delete" type="hidden" name="rtsocial-delete" value="0" /><a class="rtsocial-delete" href="#rtsocial-delete" onclick="delete_plugin_confirmation( 'rtSocial' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=rtsocial' ), 'install-plugin_rtsocial' ); ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
+                <?php } ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_SOCIAL ) || array_key_exists( RTP_SOCIAL, $plugins ) ) { ?>
+                    <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_SOCIAL ) ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <span class="not-installed"> ----- </span>
+                <?php } ?>
+            </td>
         </tr>
         <tr>
             <td><a target="_blank" href="http://wordpress.org/extend/plugins/rtpanel-hooks-editor/"><?php _e( 'rtPanel Hooks Editor', 'rtPanel' ); ?></a></td>

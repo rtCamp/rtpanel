@@ -8,7 +8,11 @@
  */
 
 global $rtp_general, $rtp_post_comments, $rtp_hooks, $rtp_version;
-
+//print_R(rtp_export_version());
+//        echo get_option( 'rtp_version');
+//        echo $rtp_version['rtPanel'];
+//        echo ( get_option( 'rtp_version' ) != $rtp_version['rtPanel'] );
+//        echo !get_option( 'rtp_version' ) || ( get_option( 'rtp_version' ) != $rtp_version['rtPanel'] );
 /**
  * Data validation for rtPanel General Options
  * 
@@ -153,7 +157,31 @@ function rtp_general_validate( $input ) {
             }
         }
         
-        if ( isset( $_POST['rtp-hooks-editor-activate'] ) && ( $_POST['rtp-hooks-editor-activate'] == 1 ) ) {
+        if ( isset( $_POST['rtsocial-activate'] ) && ( $_POST['rtsocial-activate'] == 1 ) ) {
+            $nonce = $_REQUEST['_wpnonce_rtsocial_activate'];
+            if ( !wp_verify_nonce( $nonce, RTP_SOCIAL . '-activate' ) ) {
+                add_settings_error( 'activate-plugin', 'failure_plugin_activation', __( 'You do not have sufficient permissions to activate this plugin.', 'rtPanel' ) );
+            } else {
+                activate_plugin( RTP_SOCIAL );
+                add_settings_error( 'activate-plugin', 'plugin_activation', __( 'rtSocial has been Activated.', 'rtPanel' ), 'updated' );
+            }
+        } elseif ( isset( $_POST['rtsocial-deactivate'] ) && ( $_POST['rtsocial-deactivate'] == 1 ) ) {
+            $nonce = $_REQUEST['_wpnonce_rtsocial_deactivate'];
+            if (!wp_verify_nonce( $nonce, RTP_SOCIAL . '-deactivate' ) ) {
+                add_settings_error( 'deactivate-plugin', 'failure_plugin_deactivation', __( 'You do not have sufficient permissions to deactivate this plugin.', 'rtPanel' ) );
+            } else {
+                deactivate_plugins( array( RTP_SOCIAL ) );
+                add_settings_error( 'deactivate-plugin', 'plugin_activation', __( 'rtSocial has been Deactivated.', 'rtPanel' ), 'updated' );
+            }
+        } elseif ( isset( $_POST['rtsocial-delete'] ) && ( $_POST['rtsocial-delete'] == 1 ) ) {
+            $nonce = $_REQUEST['_wpnonce_rtsocial_delete'];
+            if ( !wp_verify_nonce( $nonce, RTP_SOCIAL . '-delete' ) ) {
+                add_settings_error( 'delete-plugin', 'failure_plugin_deletion', __( 'You do not have sufficient permissions to delete this plugin.', 'rtPanel' ) );
+            } else {
+                delete_plugins( array( RTP_SOCIAL ) );
+                add_settings_error( 'delete-plugin', 'plugin_deletion', __( 'rtSocial has been Deleted.', 'rtPanel' ), 'updated' );
+            }
+        } elseif ( isset( $_POST['rtp-hooks-editor-activate'] ) && ( $_POST['rtp-hooks-editor-activate'] == 1 ) ) {
             $nonce = $_REQUEST['_wpnonce_rtp_hooks_editor_activate'];
             if ( !wp_verify_nonce( $nonce, RTP_HOOKS_EDITOR . '-activate' ) ) {
                 add_settings_error( 'activate-plugin', 'failure_plugin_activation', __( 'You do not have sufficient permissions to activate this plugin.', 'rtPanel' ) );
@@ -632,12 +660,9 @@ function rtp_theme_setup_values() {
     global $rtp_general, $rtp_post_comments, $rtp_version;
 
     /* Check if upgrade of theme is required, or not */
-    if ( ( is_array( $rtp_post_comments ) && !isset( $rtp_post_comments['upgrade_theme'] ) ) || ( version_compare( RTP_VERSION, $rtp_version['rtPanel'], 'gt' ) ) ) {
+    if ( ( is_array( $rtp_post_comments ) && !isset( $rtp_post_comments['upgrade_theme'] ) ) || ( version_compare( RTP_VERSION, $rtp_version['rtPanel'], '!=' ) ) ) {
         $rtp_post_comments['upgrade_theme'] = '1';
         update_option( 'rtp_post_comments', $rtp_post_comments );
-        add_action( 'admin_notices', 'rtp_upgrade_theme_notice' );
-    } elseif ( is_admin() && isset( $rtp_post_comments['upgrade_theme'] ) && $rtp_post_comments['upgrade_theme'] ) {
-        add_action( 'admin_notices', 'rtp_upgrade_theme_notice' );
     }
     
     $default_general = array(
@@ -731,8 +756,8 @@ function rtp_theme_setup_values() {
     }
 
     $rtp_version = rtp_export_version();
-    if ( !get_option( 'rtp_version' ) || ( get_option( 'rtp_version' ) != $rtp_version['rtPanel'] ) ) {
-        update_option( 'rtp_version', $rtp_version['rtPanel'] );
+    if ( !get_option( 'rtp_version' ) || ( get_option( 'rtp_version' ) != $rtp_version ) ) {
+        update_option( 'rtp_version', $rtp_version );
         $updated_general = wp_parse_args( $rtp_general, $default_general );
         $updated_post_comments = wp_parse_args( $rtp_post_comments, $default_post_comments );
         update_option( 'rtp_general', $updated_general );
@@ -1488,9 +1513,15 @@ function rtp_regenerate_thumbnail_notice( $return = false ) {
  * @since rtPanel 2.0
  */
 function rtp_upgrade_theme_notice() {
-    if( current_user_can( 'administrator' ) ) {
+    global $rtp_post_comments;
+    if( current_user_can( 'administrator' ) && isset( $rtp_post_comments['upgrade_theme'] ) && $rtp_post_comments['upgrade_theme'] ) {
         echo '<div class="updated upgrade_theme_notice"><p>' . sprintf( __( 'Thank you for choosing rtPanel. Please check the <a href="%s" title="rtPanel ChangeLog" target="_blank">ChangeLog</a>.<br />If your child theme is broken with the new update, please follow this post - <a href="%s" title="Fix rtPanel Child Theme" target="_blank">Fix rtPanel Child Theme</a>.', 'rtPanel' ), 'http://rtcamp.com/rtpanel/changelog/', 'http://rtcamp.com/blog/fix-rtpanel-child-theme/' ) . ' <span class="alignright upgrade_theme_notice_close" href="#">X</a></p></div>';
     }
+}
+
+/* Shows 'upgrade theme' notice ( Admin User Only !!! ) */
+if ( is_admin() && @$rtp_post_comments['upgrade_theme'] ) {
+    add_action( 'admin_notices', 'rtp_upgrade_theme_notice');
 }
 
 /* Shows 'regenerate thumbnail' notice ( Admin User Only !!! ) */

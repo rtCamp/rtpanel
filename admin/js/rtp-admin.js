@@ -248,7 +248,10 @@ function media_upload( button_id, textbox_id, main_metabox_id, iframe_title ) {
 
 function delete_plugin_confirmation(plugin) {
     if (! confirm('Are you sure you want to delete \''+plugin+'\' plugin?')) { return false; }
-    if ( plugin == 'rtPanel Hooks Editor'){
+    if ( plugin == 'rtSocial'){
+        jQuery('#rtsocial-delete').val(1);
+        jQuery('#rtsocial-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin == 'rtPanel Hooks Editor'){
         jQuery('#rtp-hooks-editor-delete').val(1);
         jQuery('#rtp-hooks-editor-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
     } else if ( plugin == 'Subscribe To Comments'){
@@ -271,7 +274,10 @@ function delete_plugin_confirmation(plugin) {
 }
 
 function activate_plugin(plugin) {
-    if ( plugin == 'rtPanel Hooks Editor'){
+    if ( plugin == 'rtSocial'){
+        jQuery('#rtsocial-activate').val(1);
+        jQuery('#rtsocial-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin == 'rtPanel Hooks Editor'){
         jQuery('#rtp-hooks-editor-activate').val(1);
         jQuery('#rtp-hooks-editor-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
     } else if ( plugin == 'Subscribe To Comments'){
@@ -294,7 +300,10 @@ function activate_plugin(plugin) {
 }
 
 function deactivate_plugin(plugin) {
-    if ( plugin == 'rtPanel Hooks Editor'){
+    if ( plugin == 'rtSocial'){
+        jQuery('#rtsocial-deactivate').val(1);
+        jQuery('#rtsocial-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin == 'rtPanel Hooks Editor'){
         jQuery('#rtp-hooks-editor-deactivate').val(1);
         jQuery('#rtp-hooks-editor-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
     } else if ( plugin == 'Subscribe To Comments'){
