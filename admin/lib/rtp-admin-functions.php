@@ -481,9 +481,9 @@ function rtp_post_comments_validate( $input ) {
                 $input['prev_text'] = trim( $input['prev_text'] );
                 add_settings_error( 'prev_text', 'valid_prev_text', __( 'The Post Summary Settings have been updated.', 'rtPanel' ), 'updated' );
             }
-            if ( trim( $input['end_text'] ) != $rtp_post_comments['end_text'] ) {
-                $input['end_text'] = trim( $input['end_text'] );
-                add_settings_error( 'end_text', 'valid_end_text', __( 'The Post Summary Settings have been updated.', 'rtPanel' ), 'updated' );
+            if ( trim( $input['next_text'] ) != $rtp_post_comments['next_text'] ) {
+                $input['next_text'] = trim( $input['next_text'] );
+                add_settings_error( 'next_text', 'valid_next_text', __( 'The Post Summary Settings have been updated.', 'rtPanel' ), 'updated' );
             }
             if ( !preg_match( '/^[0-9]{1,3}$/i', $input['end_size'] ) ) {
                 $input['end_size'] = $rtp_post_comments['end_size'];
