@@ -153,7 +153,7 @@ function rtp_general_validate( $input ) {
             }
         }
         
-        if ( $_POST['rtp-hooks-editor-activate'] == 1 ) {
+        if ( isset( $_POST['rtp-hooks-editor-activate'] ) && ( $_POST['rtp-hooks-editor-activate'] == 1 ) ) {
             $nonce = $_REQUEST['_wpnonce_rtp_hooks_editor_activate'];
             if ( !wp_verify_nonce( $nonce, RTP_HOOKS_EDITOR . '-activate' ) ) {
                 add_settings_error( 'activate-plugin', 'failure_plugin_activation', __( 'You do not have sufficient permissions to activate this plugin.', 'rtPanel' ) );
@@ -161,7 +161,7 @@ function rtp_general_validate( $input ) {
                 activate_plugin( RTP_HOOKS_EDITOR );
                 add_settings_error( 'activate-plugin', 'plugin_activation', __( 'rtPanel Hooks Editor Plugin has been Activated.', 'rtPanel' ), 'updated' );
             }
-        } elseif ( $_POST['rtp-hooks-editor-deactivate'] == 1 ) {
+        } elseif ( isset( $_POST['rtp-hooks-editor-deactivate'] ) && ( $_POST['rtp-hooks-editor-deactivate'] == 1 ) ) {
             $nonce = $_REQUEST['_wpnonce_rtp_hooks_editor_deactivate'];
             if (!wp_verify_nonce( $nonce, RTP_HOOKS_EDITOR . '-deactivate' ) ) {
                 add_settings_error( 'deactivate-plugin', 'failure_plugin_deactivation', __( 'You do not have sufficient permissions to deactivate this plugin.', 'rtPanel' ) );
@@ -169,7 +169,7 @@ function rtp_general_validate( $input ) {
                 deactivate_plugins( array( RTP_HOOKS_EDITOR ) );
                 add_settings_error( 'deactivate-plugin', 'plugin_activation', __( 'rtPanel Hooks Editor Plugin has been Deactivated.', 'rtPanel' ), 'updated' );
             }
-        } elseif ( $_POST['rtp-hooks-editor-delete'] == 1 ) {
+        } elseif ( isset( $_POST['rtp-hooks-editor-delete'] ) && ( $_POST['rtp-hooks-editor-delete'] == 1 ) ) {
             $nonce = $_REQUEST['_wpnonce_rtp_hooks_editor_delete'];
             if ( !wp_verify_nonce( $nonce, RTP_HOOKS_EDITOR . '-delete' ) ) {
                 add_settings_error( 'delete-plugin', 'failure_plugin_deletion', __( 'You do not have sufficient permissions to delete this plugin.', 'rtPanel' ) );
@@ -177,7 +177,7 @@ function rtp_general_validate( $input ) {
                 delete_plugins( array( RTP_HOOKS_EDITOR ) );
                 add_settings_error( 'delete-plugin', 'plugin_deletion', __( 'rtPanel Hooks Editor Plugin has been Deleted.', 'rtPanel' ), 'updated' );
             }
-        } elseif ( $_POST['subscribe-activate'] == 1 ) {
+        } elseif ( isset( $_POST['subscribe-activate'] ) && ( $_POST['subscribe-activate'] == 1 ) ) {
             $nonce = $_REQUEST['_wpnonce_subscribe_activate'];
             if ( !wp_verify_nonce( $nonce, RTP_SUBSCRIBE_TO_COMMENTS . '-activate' ) ) {
                 add_settings_error( 'activate-plugin', 'failure_plugin_activation', __( 'You do not have sufficient permissions to activate this plugin.', 'rtPanel' ) );
@@ -185,7 +185,7 @@ function rtp_general_validate( $input ) {
                 activate_plugin( RTP_SUBSCRIBE_TO_COMMENTS );
                 add_settings_error( 'activate-plugin', 'plugin_activation', __( 'Subscribe to Comments Plugin has been Activated.', 'rtPanel' ), 'updated' );
             }
-        } elseif ( $_POST['subscribe-deactivate'] == 1 ) {
+        } elseif ( isset( $_POST['subscribe-deactivate'] ) && ( $_POST['subscribe-deactivate'] == 1 ) ) {
             $nonce = $_REQUEST['_wpnonce_subscribe_deactivate'];
             if (!wp_verify_nonce( $nonce, RTP_SUBSCRIBE_TO_COMMENTS . '-deactivate' ) ) {
                 add_settings_error( 'deactivate-plugin', 'failure_plugin_deactivation', __( 'You do not have sufficient permissions to deactivate this plugin.', 'rtPanel' ) );
@@ -193,7 +193,7 @@ function rtp_general_validate( $input ) {
                 deactivate_plugins( array( RTP_SUBSCRIBE_TO_COMMENTS ) );
                 add_settings_error( 'deactivate-plugin', 'plugin_activation', __( 'Subscribe to Comments Plugin has been Deactivated.', 'rtPanel' ), 'updated' );
             }
-        } elseif ( $_POST['subscribe-delete'] == 1 ) {
+        } elseif ( isset( $_POST['subscribe-delete'] ) && ( $_POST['subscribe-delete'] == 1 ) ) {
             $nonce = $_REQUEST['_wpnonce_subscribe_delete'];
             if ( !wp_verify_nonce( $nonce, RTP_SUBSCRIBE_TO_COMMENTS . '-delete' ) ) {
                 add_settings_error( 'delete-plugin', 'failure_plugin_deletion', __( 'You do not have sufficient permissions to delete this plugin.', 'rtPanel' ) );
@@ -201,7 +201,7 @@ function rtp_general_validate( $input ) {
                 delete_plugins( array( RTP_SUBSCRIBE_TO_COMMENTS ) );
                 add_settings_error( 'delete-plugin', 'plugin_deletion', __( 'Subscribe to Comments Plugin has been Deleted.', 'rtPanel' ), 'updated' );
             }
-        } elseif ( $_POST['pagenavi-activate'] == 1 ) {
+        } elseif ( isset( $_POST['pagenavi-activate'] ) && ( $_POST['pagenavi-activate'] == 1 ) ) {
             $nonce = $_REQUEST['_wpnonce_pagenavi_activate'];
             if ( !wp_verify_nonce( $nonce, RTP_WP_PAGENAVI . '-activate' ) ) {
                 add_settings_error( 'activate-plugin', 'failure_plugin_activation', __( 'You do not have sufficient permissions to activate this plugin.', 'rtPanel' ) );
@@ -209,7 +209,7 @@ function rtp_general_validate( $input ) {
                 activate_plugin( RTP_WP_PAGENAVI );
                 add_settings_error( 'activate-plugin', 'plugin_activation', __( 'WP PageNavi Plugin has been Activated.', 'rtPanel' ), 'updated' );
             }
-        } elseif ( $_POST['pagenavi-deactivate'] == 1 ) {
+        } elseif ( isset( $_POST['pagenavi-deactivate'] ) && ( $_POST['pagenavi-deactivate'] == 1 ) ) {
             $nonce = $_REQUEST['_wpnonce_pagenavi_deactivate'];
             if ( !wp_verify_nonce( $nonce, RTP_WP_PAGENAVI . '-deactivate' ) ) {
                 add_settings_error( 'deactivate-plugin', 'failure_plugin_deactivation', __( 'You do not have sufficient permissions to deactivate this plugin.', 'rtPanel' ) );
@@ -217,7 +217,7 @@ function rtp_general_validate( $input ) {
                 deactivate_plugins( array ( RTP_WP_PAGENAVI ) );
                 add_settings_error( 'deactivate-plugin', 'plugin_deactivation', __( 'WP PageNavi Plugin has been Deactivated.', 'rtPanel' ), 'updated' );
             }
-        } elseif ( $_POST['pagenavi-delete'] == 1 ) {
+        } elseif ( isset( $_POST['pagenavi-delete'] ) && ( $_POST['pagenavi-delete'] == 1 ) ) {
             $nonce = $_REQUEST['_wpnonce_pagenavi_delete'];
             if ( !wp_verify_nonce( $nonce, RTP_WP_PAGENAVI . '-delete' ) ) {
                 add_settings_error( 'delete-plugin', 'failure_plugin_deletion', __( 'You do not have sufficient permissions to delete this plugin.', 'rtPanel' ) );
@@ -225,7 +225,7 @@ function rtp_general_validate( $input ) {
                 delete_plugins( array ( RTP_WP_PAGENAVI ) );
                 add_settings_error( 'delete-plugin', 'plugin_deletion', __( 'WP PageNavi Plugin has been Deleted.', 'rtPanel' ), 'updated' );
             }
-        } elseif ( $_POST['yoast_seo-activate'] == 1 ) {
+        } elseif ( isset( $_POST['yoast_seo-activate'] ) && ( $_POST['yoast_seo-activate'] == 1 ) ) {
             $nonce = $_REQUEST['_wpnonce_yoast_seo_activate'];
             if ( !wp_verify_nonce( $nonce, RTP_YOAST_SEO . '-activate' ) ) {
                 add_settings_error( 'activate-plugin', 'failure_plugin_activation', __( 'You do not have sufficient permissions to activate this plugin.', 'rtPanel' ) );
@@ -233,7 +233,7 @@ function rtp_general_validate( $input ) {
                 activate_plugin( RTP_YOAST_SEO );
                 add_settings_error( 'activate-plugin', 'plugin_activation', __( 'Yoast WordPress SEO Plugin has been Activated.', 'rtPanel' ), 'updated' );
             }
-        } elseif ( $_POST['yoast_seo-deactivate'] == 1 ) {
+        } elseif ( isset( $_POST['yoast_seo-deactivate'] ) && ( $_POST['yoast_seo-deactivate'] == 1 ) ) {
             $nonce = $_REQUEST['_wpnonce_yoast_seo_deactivate'];
             if ( !wp_verify_nonce( $nonce, RTP_YOAST_SEO . '-deactivate' ) ) {
                 add_settings_error( 'deactivate-plugin', 'failure_plugin_deactivation', __( 'You do not have sufficient permissions to deactivate this plugin.', 'rtPanel' ) );
@@ -241,7 +241,7 @@ function rtp_general_validate( $input ) {
                 deactivate_plugins( array ( RTP_YOAST_SEO ) );
                 add_settings_error( 'deactivate-plugin', 'plugin_deactivation', __( 'Yoast WordPress SEO Plugin has been Deactivated.', 'rtPanel' ), 'updated' );
             }
-        } elseif ( $_POST['yoast_seo-delete'] == 1 ) {
+        } elseif ( isset( $_POST['yoast_seo-delete'] ) && ( $_POST['yoast_seo-delete'] == 1 ) ) {
             $nonce = $_REQUEST['_wpnonce_yoast_seo_delete'];
             if ( !wp_verify_nonce( $nonce, RTP_YOAST_SEO . '-delete' ) ) {
                 add_settings_error( 'delete-plugin', 'failure_plugin_deletion', __( 'You do not have sufficient permissions to delete this plugin.', 'rtPanel' ) );
@@ -249,7 +249,7 @@ function rtp_general_validate( $input ) {
                 delete_plugins( array ( RTP_YOAST_SEO ) );
                 add_settings_error( 'delete-plugin', 'plugin_deletion', __( 'Yoast WordPress SEO Plugin has been Deleted.', 'rtPanel' ), 'updated' );
             }
-        } elseif ( $_POST['breadcrumb-activate'] == 1 ) {
+        } elseif ( isset( $_POST['breadcrumb-activate'] ) && ( $_POST['breadcrumb-activate'] == 1 ) ) {
             $nonce = $_REQUEST['_wpnonce_breadcrumb_activate'];
             if ( !wp_verify_nonce( $nonce, RTP_BREADCRUMB_NAVXT . '-activate' ) ) {
                 add_settings_error( 'activate-plugin', 'failure_plugin_activation', __( 'You do not have sufficient permissions to activate this plugin.', 'rtPanel' ) );
@@ -257,7 +257,7 @@ function rtp_general_validate( $input ) {
                 activate_plugin( RTP_BREADCRUMB_NAVXT );
                 add_settings_error( 'activate-plugin', 'plugin_activation', __( 'Breadcrumb NavXT Plugin has been Activated.', 'rtPanel' ), 'updated' );
             }
-        } elseif ( $_POST['breadcrumb-deactivate'] == 1 ) {
+        } elseif ( isset( $_POST['breadcrumb-deactivate'] ) && ( $_POST['breadcrumb-deactivate'] == 1 ) ) {
             $nonce = $_REQUEST['_wpnonce_breadcrumb_deactivate'];
             if ( !wp_verify_nonce( $nonce, RTP_BREADCRUMB_NAVXT . '-deactivate' ) ) {
                 add_settings_error('deactivate-plugin', 'failure_plugin_deactivation', __( 'You do not have sufficient permissions to deactivate this plugin.', 'rtPanel' ) );
@@ -265,7 +265,7 @@ function rtp_general_validate( $input ) {
                 deactivate_plugins( array( RTP_BREADCRUMB_NAVXT ) );
                 add_settings_error( 'deactivate-plugin', 'plugin_deactivation', __( 'Breadcrumb NavXT Plugin has been Deactivated.', 'rtPanel' ), 'updated' );
             }
-        } elseif ( $_POST['breadcrumb-delete'] == 1 ) {
+        } elseif ( isset( $_POST['breadcrumb-delete'] ) && ( $_POST['breadcrumb-delete'] == 1 ) ) {
             $nonce = $_REQUEST['_wpnonce_breadcrumb_delete'];
             if ( !wp_verify_nonce( $nonce, RTP_BREADCRUMB_NAVXT . '-delete' ) ) {
                 add_settings_error( 'delete-plugin', 'failure_plugin_deletion', __( 'You do not have sufficient permissions to delete this plugin.', 'rtPanel' ) );
@@ -273,7 +273,7 @@ function rtp_general_validate( $input ) {
                 delete_plugins( array( RTP_BREADCRUMB_NAVXT ) );
                 add_settings_error( 'delete-plugin', 'plugin_deletion', __( 'Breadcrumb NavXT Plugin has been Deleted.', 'rtPanel' ), 'updated' );
             }
-        } elseif ( $_POST['regenerate-activate'] == 1 ) {
+        } elseif ( isset( $_POST['regenerate-activate'] ) && ( $_POST['regenerate-activate'] == 1 ) ) {
             $nonce = $_REQUEST['_wpnonce_regenerate_activate'];
             if ( !wp_verify_nonce( $nonce, RTP_REGENERATE_THUMBNAILS . '-activate' ) ) {
                 add_settings_error( 'activate-plugin', 'failure_plugin_activation', __( 'You do not have sufficient permissions to activate this plugin.', 'rtPanel' ) );
@@ -281,7 +281,7 @@ function rtp_general_validate( $input ) {
                 activate_plugin( RTP_REGENERATE_THUMBNAILS );
                 add_settings_error( 'activate-plugin', 'plugin_activation', __( 'Regenerate Thumbnails Plugin has been Activated.', 'rtPanel' ), 'updated' );
             }
-        } elseif ( $_POST['regenerate-deactivate'] == 1 ) {
+        } elseif ( isset( $_POST['regenerate-deactivate'] ) && ( $_POST['regenerate-deactivate'] == 1 ) ) {
             $nonce = $_REQUEST['_wpnonce_regenerate_deactivate'];
             if ( !wp_verify_nonce( $nonce, RTP_REGENERATE_THUMBNAILS . '-deactivate' ) ) {
                 add_settings_error('deactivate-plugin', 'failure_plugin_deactivation', __( 'You do not have sufficient permissions to deactivate this plugin.', 'rtPanel' ) );
@@ -289,7 +289,7 @@ function rtp_general_validate( $input ) {
                 deactivate_plugins( array( RTP_REGENERATE_THUMBNAILS ) );
                 add_settings_error( 'deactivate-plugin', 'plugin_deactivation', __( 'Regenerate Thumbnails Plugin has been Deactivated.', 'rtPanel' ), 'updated' );
             }
-        } elseif ( $_POST['regenerate-delete'] == 1 ) {
+        } elseif ( isset( $_POST['regenerate-delete'] ) && ( $_POST['regenerate-delete'] == 1 ) ) {
             $nonce = $_REQUEST['_wpnonce_regenerate_delete'];
             if ( !wp_verify_nonce( $nonce, RTP_REGENERATE_THUMBNAILS . '-delete' ) ) {
                 add_settings_error( 'delete-plugin', 'failure_plugin_deletion', __( 'You do not have sufficient permissions to delete this plugin.', 'rtPanel' ) );
