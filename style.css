@@ -74,7 +74,7 @@ table { border-collapse: separate; border-spacing: 0; border-width: 0 1px 1px 0;
 
 /* Generic Form Elements */
 label { cursor: pointer; margin: 0 3px; }
-input[type=text], input[type=tel], input[type=range], input[type=datetime], input[type=color], input[type=search], input[type=number], input[type=url], input[type=email], input[type=password], textarea, select { background: #FFF; font-size: 14px; margin: 0; padding: 6px; text-align: left; text-decoration: none; width: 65%; }
+input[type=text], input[type=tel], input[type=range], input[type=datetime], input[type=color], input[type=search], input[type=number], input[type=url], input[type=email], input[type=password], textarea, select { background: #FFF; font-size: 14px; margin: 0; padding: 6px; text-align: left; text-decoration: none; width: 68%; }
 input[type=text]:focus, input[type=tel]:focus, input[type=color]:focus, input[type=range]:focus, input[type=datetime]:focus, input[type=search]:focus, input[type=number]:focus, input[type=url]:focus, input[type=email]:focus, input[type=password]:focus, textarea:focus { border-color: #999; }
 input[type=radio], input[type=checkbox] { margin: 0 2px 4px; text-decoration: none; vertical-align: bottom; width: auto; }
 input[type=file] { height: 30px; }
@@ -130,6 +130,7 @@ th, #rtp-primary-menu, #rtp-nav-menu ul, .rtp-sibling-attachments img, .wp-capti
 .mceItemTable, .mceItemTable td, .mceItemTable th, .mceItemTable caption, .mceItemVisualAid { border-collapse: collapse }
 body#tinymce { font: 87.5%/1.5 sans-serif; color: #333; margin: 0 10px; padding: 5px; }
 #tinymce > h1:first-child, #tinymce > h2:first-child, #tinymce > h3:first-child, #tinymce > h4:first-child, #tinymce > h5:first-child, #tinymce > h6:first-child { margin-top: 0.5em; }
+.wp-caption-dt { border: 0; padding: 0; }
 
 /* Change style to suit your needs */
 ins { background-color: #FF9; color: #111; text-decoration: none; }
@@ -436,7 +437,7 @@ img.alignright { margin: 5px 0 5px 15px; }
 .ie8 img { width: auto; }
 
 /* Thumbnail with shadow effect */
-.rtp-thumbnail-shadow img { background: #FFF; box-shadow: 0 0 4px #CCC; padding: 4px; }
+.rtp-thumbnail-shadow img { background: #FFF; box-shadow: 0 0 4px #CCC; margin-top: 10px; padding: 4px; }
     .rtp-thumbnail-shadow img.alignleft { margin-left: 5px; }
     .rtp-thumbnail-shadow img.alignright { margin-right: 5px; }
     .rtp-thumbnail-shadow img.aligncenter { margin: 5px auto; }
@@ -565,11 +566,15 @@ img.alignright { margin: 5px 0 5px 15px; }
 
     /* Recent Comment with Gravatar Widget */
     .rtp-comments-widget ul { margin: 0; }
-        .rtp-comments-widget li { list-style: none; }
-        .rtp-comments-widget .author-comment { line-height: 1.385em; margin: 5px 0 0; }
+        .rtp-comments-widget li { list-style: none; margin-top: 10px; }
+        .rtp-comments-widget .author-comment { line-height: 1.385em; margin: 5px 0; }
                 .rtp-comments-widget .author-vcard { float: left; margin: 3px 10px 3px 0; }
+                    .rtp-comments-widget .author-vcard img { float: left; }
+                    .rtp-comments-widget p { margin: 0; }
                 .rtp-comments-widget .alignright { float: right; margin: 5px 0 5px 10px; }
-                .rtp-comments-widget .rtp-reply { clear: none; float: right; margin: 5px 0 0; padding: 0; }
+                .rtp-comments-widget .rtp-reply { clear: none; float: right; padding: 0; }
+                .rtp-comments-widget li:last-child .rtp-reply { margin-bottom: 0; }
+                    .rtp-comments-widget .rtp-reply a { margin: 0; }
                 .rtp-comments-widget .comment-section .alignleft { float: left; }
 
     /* Calendar Widget */
