@@ -40,6 +40,7 @@ class rtp_subscribe_widget extends WP_Widget {
         extract( $args, EXTR_SKIP );
         $title = empty(  $instance['title'] ) ? '' : apply_filters( 'widget_title', $instance['title'] );
         $label = empty( $instance['label'] ) ? '' : $instance['label'];
+        $button = empty( $instance['button'] ) ? __( 'Subscribe', 'rtPanel' ) : $instance['button'];
         $sub_link = empty ( $instance['sub_link'] ) ? '' : $instance['sub_link'];
         $facebook_link = empty ( $instance['facebook_link'] ) ? '' : $instance['facebook_link'];
         $twitter_link = empty ( $instance['twitter_link'] ) ? '' : $instance['twitter_link'];
@@ -75,7 +76,7 @@ class rtp_subscribe_widget extends WP_Widget {
                         <input id="email" type="email" required="required" name="email" placeholder="<?php _e( 'Enter Email Address', 'rtPanel' ); ?>" class="email" title="<?php _e( 'Enter Email Address', 'rtPanel' ); ?>" size="15" />
                         <input type="hidden" aria-hidden="true" name="uri" value="<?php echo $sub_link; ?>" />
                         <input type="hidden" aria-hidden="true" value="en_US" name="loc" />
-                        <input type="submit" value="<?php _e( 'Subscribe', 'rtPanel' ); ?>" title="<?php _e( 'Subscribe', 'rtPanel' ); ?>" class="btn" />
+                        <input type="submit" value="<?php echo $button; ?>" title="<?php echo $button; ?>" class="btn" />
                     </p>
                 </form><?php
             }
