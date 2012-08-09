@@ -86,13 +86,13 @@ class rtp_subscribe_widget extends WP_Widget {
             if ( ( $rtp_facebook_show && $facebook_link ) || ( $rtp_twitter_show && $twitter_link ) || ( $rtp_google_show && $google_link ) || ( $rtp_rss_show && $rss_link ) || ( $rtp_linkedin_show && $linkedin_link ) || ( $rtp_myspace_show && $myspace_link ) || ( $rtp_stumbleupon_show && $stumbleupon_link ) ) {
                 $no_options++; ?>
                 <ul role="list" class="social-icons clearfix"><?php
-                    echo ( $rtp_facebook_show && $facebook_link ) ? '<li role="listitem"><a role="link" rel="nofollow"' . $target . ' class="facebook" href="' . $facebook_link . '" title="' . __( 'Follow Us on Facebook', 'rtPanel' ) . '">Facebook</a></li>' : '';
+                    echo ( $rtp_facebook_show && $facebook_link ) ? '<li role="listitem"><a role="link" rel="nofollow"' . $target . ' class="facebook" href="' . $facebook_link . '" title="' . __( 'Like Us on Facebook', 'rtPanel' ) . '">Facebook</a></li>' : '';
                     echo ( $rtp_twitter_show && $twitter_link ) ? '<li role="listitem"><a role="link" rel="nofollow"' . $target . ' class="twitter" href="' . $twitter_link . '" title="' . __( 'Follow Us on Twitter', 'rtPanel' ) . '">Twitter</a></li>' : '';
-                    echo ( $rtp_google_show && $google_link ) ? '<li role="listitem"><a role="link" rel="nofollow"' . $target . ' class="google" href="' . $google_link . '" title="' . __( 'Follow Us on Google+', 'rtPanel' ) . '">Google</a></li>' : '';
+                    echo ( $rtp_google_show && $google_link ) ? '<li role="listitem"><a role="link" rel="nofollow"' . $target . ' class="google" href="' . $google_link . '" title="' . __( 'Add to Circle', 'rtPanel' ) . '">Google</a></li>' : '';
                     echo ( $rtp_rss_show && $rss_link ) ? '<li role="listitem"><a role="link" rel="nofollow"' . $target . ' class="rss" href="' . $rss_link . '" title="' . __( 'Subscribe via RSS', 'rtPanel' ) . '">RSS</a></li>' : '';
-                    echo ( $rtp_linkedin_show && $linkedin_link ) ? '<li role="listitem"><a role="link" rel="nofollow"' . $target . ' class="linkedin" href="' . $linkedin_link . '" title="' . __( 'Follow Us on LinkedIn', 'rtPanel' ) . '">LinkedIn</a></li>' : '';
-                    echo ( $rtp_myspace_show && $myspace_link ) ? '<li role="listitem"><a role="link" rel="nofollow"' . $target . ' class="myspace" href="' . $myspace_link . '" title="' . __( 'Follow Us on MySpace', 'rtPanel' ) . '">MySpace</a></li>' : '';
-                    echo ( $rtp_stumbleupon_show && $stumbleupon_link ) ? '<li role="listitem"><a role="link" rel="nofollow"' . $target . ' class="stumbleupon" href="' . $stumbleupon_link . '" title="' . __( 'Follow Us on StumbleUpon', 'rtPanel' ) . '">StumbleUpon</a></li>' : ''; ?>
+                    echo ( $rtp_linkedin_show && $linkedin_link ) ? '<li role="listitem"><a role="link" rel="nofollow"' . $target . ' class="linkedin" href="' . $linkedin_link . '" title="' . __( 'Connect via LinkedIn', 'rtPanel' ) . '">LinkedIn</a></li>' : '';
+                    echo ( $rtp_myspace_show && $myspace_link ) ? '<li role="listitem"><a role="link" rel="nofollow"' . $target . ' class="myspace" href="' . $myspace_link . '" title="' . __( 'Join Us on MySpace', 'rtPanel' ) . '">MySpace</a></li>' : '';
+                    echo ( $rtp_stumbleupon_show && $stumbleupon_link ) ? '<li role="listitem"><a role="link" rel="nofollow"' . $target . ' class="stumbleupon" href="' . $stumbleupon_link . '" title="' . __( 'Stumble Us', 'rtPanel' ) . '">StumbleUpon</a></li>' : ''; ?>
                 </ul><?php
             }
 

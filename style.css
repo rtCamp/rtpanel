@@ -74,7 +74,7 @@ table { border-collapse: separate; border-spacing: 0; border-width: 0 1px 1px 0;
 
 /* Generic Form Elements */
 label { cursor: pointer; margin: 0 3px; }
-input[type=text], input[type=tel], input[type=range], input[type=datetime], input[type=color], input[type=search], input[type=number], input[type=url], input[type=email], input[type=password], textarea, select { background: #FFF; font-size: 14px; margin: 0; padding: 6px; text-align: left; text-decoration: none; width: 68%; }
+input[type=text], input[type=tel], input[type=range], input[type=datetime], input[type=color], input[type=search], input[type=number], input[type=url], input[type=email], input[type=password], textarea, select { background: #FFF; font-size: 14px; margin: 0; padding: 6px; text-align: left; text-decoration: none; width: 66%; }
 input[type=text]:focus, input[type=tel]:focus, input[type=color]:focus, input[type=range]:focus, input[type=datetime]:focus, input[type=search]:focus, input[type=number]:focus, input[type=url]:focus, input[type=email]:focus, input[type=password]:focus, textarea:focus { border-color: #999; }
 input[type=radio], input[type=checkbox] { margin: 0 2px 4px; text-decoration: none; vertical-align: bottom; width: auto; }
 input[type=file] { height: 30px; }
@@ -337,6 +337,7 @@ h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus { color: #CD3517; text-decoration
     
     /* Submenu Support */
     #rtp-nav-menu ul { display: none; left: 0; position: absolute; top: 38px; width: 180px; z-index: 999; }
+        .ie9 #rtp-nav-menu ul { top: 38px; }
         #rtp-nav-menu ul li { min-width: 180px; }
             #rtp-nav-menu ul a { border-width: 1px 0 0 0; padding: 10px; }
             #rtp-nav-menu ul li:first-child > a { border-width: 0; }
