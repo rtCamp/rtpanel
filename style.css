@@ -90,6 +90,8 @@ input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus, but
 /* Mozilla fixing */
 .gecko input[type=button], .gecko input[type=submit], .gecko input[type=reset], .gecko button { padding: 5px 10px; }
 .gecko button { padding: 6px 10px 5px; }
+/* remove Webkit appearance */
+input[type=search] { -webkit-appearance: none; }
 
 /* Disabled Form Field Style */
 input:disabled, isindex:disabled, textarea:disabled, input:not([type]):disabled, input[type=color]:disabled, input[type=date]:disabled, input[type=datetime]:disabled, input[type=datetime-local]:disabled, input[type=email]:disabled, input[type=month]:disabled, input[type=password]:disabled, input[type=number]:disabled, input[type=search]:disabled, input[type=tel]:disabled, input[type=text]:disabled, input[type=time]:disabled, input[type=url]:disabled, input[type=week]:disabled { background: #F5F5F5; color: #666; }
@@ -204,7 +206,7 @@ code, pre, .rtp-readmore, .rtp-readmore:visited, .post-meta p, .gallery-caption,
 .rtp-section-separator:after { border-bottom: 1px solid #DDD; content: ''; display: block; height: 1px; left: 10px; max-width: 98%; position: absolute; bottom: 0; visibility: visible; width: 100%; z-index: 100; }
 
 /* Mobile Devices Menu */
-.rtp-nav-btn { display: none; height: auto; margin: 0; padding: 7px 10px; position: absolute; right: 0; top: -70px; }
+.rtp-nav-btn { display: none; height: auto; margin: 0; padding: 7px 10px; position: absolute; right: 0; top: -65px; }
 .rtp-nav-btn:focus { box-shadow: 0 0 0; }
 .rtp-icon-bar { background-color: #666; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15); display: block; height: 2px; margin-top: 3px; width: 18px; }
 .rtp-icon-bar:first-child { margin-top: 0; }
@@ -363,15 +365,14 @@ h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus { color: #CD3517; text-decoration
 .post-meta-bottom { padding: 15px 0; }
     .post-meta p { margin: 0; }
         .rtp-post-comment-count { margin: 24px 0 0; text-align: right; }
-            .post-meta span, .published, .post-category span { font-style: normal; }
-            .post-meta abbr, .post-meta acronym { font-style: normal; border: 0; }
-            
+
     /* Curly Brackets Style */
     .rtp-curly-bracket { color: #DDD; font-size: 20px; }
     
     /* Post Comment */
-    .rtp-post-comment, .rtp-post-comment:visited { font-style: normal; padding: 0 3px 0 2px; }
-    .rtp-post-comment span { color: #111; font-size: 20px; }
+    .rtp-post-comment, .rtp-post-comment:visited { font-size: 13px; font-style: normal; padding: 0 3px 0 2px; }
+    .rtp-post-comment span { color: #111; font-size: 18px; }
+    .post-tags { clear: left; }
     .post-meta-bottom .post-tags, .post-meta-bottom .post-custom-tax, .post-meta-bottom .post-category { width: 100%; }
     .rtp-edit-link a { font-style: normal; }
     .rtp-edit-link a:hover { text-decoration: none; }
@@ -744,7 +745,7 @@ img.alignright { margin: 5px 0 5px 15px; }
 /* Header and navigation */
 #header { width: 70%; }
 .rtp-nav-btn { display: block; }
-#rtp-nav-menu { background: #F5F5F5; width: 100%; }
+#rtp-nav-menu { background: #F5F5F5; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; width: 100%; }
 #rtp-nav-menu.rtp-js { border: 1px solid #DDD; display: none; }
 #rtp-primary-menu.rtp-js { background: none; border: 0; }
 #rtp-nav-menu li { border-top: 1px solid #DDD; clear: both; text-align: center; width: 100%; }
