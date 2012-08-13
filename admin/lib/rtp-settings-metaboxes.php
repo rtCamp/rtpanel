@@ -44,48 +44,44 @@ function rtp_logo_option_metabox() {
             <tbody>
                 <tr valign="top">
                     <th scope="row"><label for="logo_use"><?php _e( 'For Logo', 'rtPanel' ); ?></label></th>
-                    <td>
-                        <input type="radio" name="rtp_general[logo_use]" value="site_title" id="use_site_title" class="rtp_logo" <?php checked( 'site_title', $rtp_general['logo_use'] ); ?> />
-                        <label for="use_site_title"><?php _e( 'Use Site Title', 'rtPanel' ); ?></label>
+                    <td colspan="3">
+                        <div class="alignleft">
+                        <p style="margin-bottom: 10px;"><input type="radio" name="rtp_general[logo_use]" value="site_title" id="use_site_title" class="rtp_logo" <?php checked( 'site_title', $rtp_general['logo_use'] ); ?> />
+                        <label for="use_site_title" style="margin-right: 30px;"><?php _e( 'Use Site Title', 'rtPanel' ); ?></label>
                         <input type="radio" name="rtp_general[logo_use]" value="image" id="use_logo_image" class="rtp_logo" <?php checked( 'image', $rtp_general['logo_use'] ); ?> />
-                        <label for="use_logo_image"><?php _e( 'Use Image', 'rtPanel' ); ?></label>
+                        <label for="use_logo_image"><?php _e( 'Use Image', 'rtPanel' ); ?></label></p>
                         <input type="file" name="html-upload-logo" id="html-upload-logo"<?php echo $logo_style; ?>>
                         <input type="hidden"  name="rtp_general[logo_upload]" id="logo_upload_url" value="<?php if( isset( $rtp_general['logo_upload'] ) ) echo $rtp_general['logo_upload']; ?>" />
                         <input type="hidden"  name="rtp_general[logo_id]" id="logo_id" value="<?php if( isset( $rtp_general['logo_id'] ) ) echo $rtp_general['logo_id']; ?>" />
                         <input type="hidden"  name="rtp_general[logo_width]" id="logo_width" value="<?php if( isset( $rtp_general['logo_width'] ) ) echo $rtp_general['logo_width']; ?>" />
                         <input type="hidden"  name="rtp_general[logo_height]" id="logo_height" value="<?php if( isset( $rtp_general['logo_height'] ) ) echo $rtp_general['logo_height']; ?>" />
-                    </td>
-                    <td class="img-preview" rowspan="2">
-                        <div class="image-preview" id="logo_metabox"<?php echo $logo_style; ?>>
-                            <p><?php _e( 'Logo', 'rtPanel' ); ?></p>
+                        <p class="login-head"<?php echo $logo_style; ?>>
+                            <input type="hidden" name="rtp_general[login_head]" value="0" />
+                            <input type="checkbox" name="rtp_general[login_head]" value="1" id="login_head" <?php checked( $rtp_general['login_head'] ); ?> />
+                            <span class="description"><label for="login_head"><?php printf( __( 'Check this box to display logo on <a href="%s" title="Wordpress Login">WordPress Login Screen</a>', 'rtPanel' ), site_url('/wp-login.php') ); ?></label></span>
+                        </p>
+                        </div>
+                        <div class="image-preview alignright" id="logo_metabox"<?php echo $logo_style; ?>>
                             <img alt="Logo" src="<?php echo $rtp_general['logo_upload']; ?>" />
                         </div>
                     </td>
-                </tr>
-                <tr valign="top" class="show-fields-logo"<?php echo $logo_style; ?>>
-                    <th scope="row"><label for="login_head"><?php _e( 'Admin Logo', 'rtPanel' ); ?></label></th>
-                    <td>
-                        <input type="hidden" name="rtp_general[login_head]" value="0" />
-                        <input type="checkbox" name="rtp_general[login_head]" value="1" id="login_head" <?php checked( $rtp_general['login_head'] ); ?> />
-                        <span class="description"><label for="login_head"><?php printf( __( 'Check this box to display logo on <a href="%s" title="Wordpress Login">WordPress Login Screen</a>', 'rtPanel' ), site_url('/wp-login.php') ); ?></label></span>
-                    </td>
+                    
                 </tr>
                 <tr valign="top">
                     <th scope="row"><label for="favicon_use"><?php _e( 'For Favicon', 'rtPanel' ); ?></label></th>
                     <td>
-                        <input type="radio" name="rtp_general[favicon_use]" value="disable" id="favicon_disable" class="rtp_favicon" <?php checked( 'disable', $rtp_general['favicon_use'] ); ?> />
-                        <label for="favicon_disable"><?php _e( 'Disable', 'rtPanel' ); ?></label>
+                        <p style="margin-bottom: 10px;"><input type="radio" name="rtp_general[favicon_use]" value="disable" id="favicon_disable" class="rtp_favicon" <?php checked( 'disable', $rtp_general['favicon_use'] ); ?> />
+                        <label for="favicon_disable" style="margin-right: 30px;"><?php _e( 'Disable', 'rtPanel' ); ?></label>
                         <input type="radio" name="rtp_general[favicon_use]" value="logo" id="use_logo" class="rtp_favicon" <?php disabled( $rtp_general['logo_use'], 'site_title' ); checked( 'logo', $rtp_general['favicon_use'] ); ?> />
-                        <label for="use_logo"><?php _e( 'Use Resized Logo', 'rtPanel' ); ?></label>
+                        <label for="use_logo"  style="margin-right: 30px;"><?php _e( 'Use Resized Logo', 'rtPanel' ); ?></label>
                         <input type="radio" name="rtp_general[favicon_use]" value="image" id="use_favicon_image" class="rtp_favicon" <?php checked( 'image', $rtp_general['favicon_use'] ); ?> />
-                        <label for="use_favicon_image"><?php _e( 'Use Image', 'rtPanel' ); ?></label>
+                        <label for="use_favicon_image"><?php _e( 'Use Image', 'rtPanel' ); ?></label></p>
                         <input type="file" name="html-upload-fav" id="html-upload-fav"<?php echo $favicon_style; ?>>
                         <input type="hidden"  name="rtp_general[favicon_upload]" id="favicon_upload_url" value="<?php if( isset( $rtp_general['favicon_upload'] ) ) echo $rtp_general['favicon_upload']; ?>" />
                         <input type="hidden"  name="rtp_general[favicon_id]" id="favicon_id" value="<?php if( isset( $rtp_general['favicon_id'] ) ) echo $rtp_general['favicon_id']; ?>" />
                     </td>
                     <td class="img-preview" rowspan="2">
                         <div class="image-preview" id="favicon_metabox"<?php echo ( 'disable' == $rtp_general['favicon_use'] ) ? ' style="display: none"' : ''; ?>>
-                            <p><?php _e( 'Favicon', 'rtPanel' ); ?></p>
                             <img alt="Favicon" src="<?php echo $rtp_general['favicon_upload']; ?>" />
                         </div>
                     </td>
