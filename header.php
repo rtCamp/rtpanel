@@ -18,7 +18,7 @@ global $rtp_general; ?><!DOCTYPE html>
         <meta name="viewport" content="<?php echo apply_filters( 'rtp_viewport', 'width=device-width, initial-scale=1.0, maximum-scale=1.0' ); ?>" />
 
         <link rel="profile" href="http://gmpg.org/xfn/11" />
-        <?php if ( $rtp_general['favicon_show'] ) { ?><link rel="shortcut icon" type="image/x-icon" href="<?php echo rtp_logo_fav_src('favicon'); ?>" /><?php } ?>
+        <?php if ( 'disable' != $rtp_general['favicon_use'] ) { ?><link rel="shortcut icon" type="image/x-icon" href="<?php echo $rtp_general['favicon_upload']; ?>" /><?php } ?>
 
         <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
@@ -46,7 +46,7 @@ global $rtp_general; ?><!DOCTYPE html>
                     <?php rtp_hook_before_logo(); ?>
 
                         <?php $heading = ( is_home() || is_front_page() ) ? 'h1' : 'h2'; ?>
-                        <<?php echo $heading; ?> class="rtp-site-logo"><a role="link" href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name' ); ?>"><?php echo ( $rtp_general['logo_show'] ) ? '<img role="img" alt="' . get_bloginfo( 'name' ) . '" ' . rtp_get_image_dimensions( rtp_logo_fav_src('logo') ) . ' src="' . rtp_logo_fav_src('logo') . '" />' : get_bloginfo( 'name' ); ?></a></<?php echo $heading; ?>>
+                        <<?php echo $heading; ?> class="rtp-site-logo"><a role="link" href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name' ); ?>"><?php echo ( 'image' == $rtp_general['logo_use'] ) ? '<img role="img" alt="' . get_bloginfo( 'name' ) . '" ' . rtp_get_image_dimensions( $rtp_general['logo_upload'] ) . ' src="' . $rtp_general['logo_upload'] . '" />' : get_bloginfo( 'name' ); ?></a></<?php echo $heading; ?>>
                         
                     <?php rtp_hook_after_logo(); ?>
 

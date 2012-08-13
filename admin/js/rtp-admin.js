@@ -52,39 +52,37 @@ jQuery(document).ready(function() {
     jQuery('.postbox .inside h3').remove();
 
     jQuery('.rtp_logo').change(function(){
-        var imgurl;
-        if( jQuery(this).val() == 'use_logo_url'){
-            imgurl=jQuery('#logo_url').val();            
-            if( imgurl!='' )
-                jQuery('#logo_metabox img').attr('src', imgurl);
-            jQuery('#logo_upload').attr('disabled', 'disabled');
-            jQuery('#logo_url').removeAttr('disabled');
+        if (jQuery(this).val()=='site_title') {
+            jQuery('#html-upload-logo').hide();
+            jQuery('#logo_metabox').hide();
+            if ( jQuery('#use_logo').is(':checked') ){
+                jQuery('#use_logo').removeAttr('checked');
+                jQuery('#favicon_disable').attr('checked','checked');
+                jQuery('#favicon_metabox').hide();
+            }
+            jQuery('#use_logo').attr('disabled','disabled');
+            jQuery('.show-fields-logo').hide();
         } else {
-            imgurl=jQuery('#logo_upload_url').val();            
-            if( imgurl!='' )
-                jQuery('#logo_metabox img').attr('src', imgurl);
-            jQuery('#logo_url').attr('disabled','disabled');
-            jQuery('#logo_upload').removeAttr('disabled');
+            jQuery('#html-upload-logo').show();
+            jQuery('#logo_metabox').show();
+            jQuery('#use_logo').removeAttr('disabled');
+            jQuery('.show-fields-logo').show();
         }
     })
-
+    
     jQuery('.rtp_favicon').change(function(){
-        var imgurl;
-        if( jQuery(this).val()=='use_favicon_url'){
-            imgurl=jQuery('#favicon_url').val();
-            if( imgurl!='' )
-                jQuery('#favicon_metabox  img').attr('src', imgurl);
-            jQuery('#favicon_upload').attr('disabled', 'disabled');
-            jQuery('#favicon_url').removeAttr('disabled');
+        if (jQuery(this).val()=='disable') {
+            jQuery('#html-upload-fav').hide();
+            jQuery('#favicon_metabox').hide();
+        } else if( jQuery(this).val()=='logo' ) {
+            jQuery('#html-upload-fav').hide();
+            jQuery('#favicon_metabox').show();
         } else {
-            imgurl=jQuery('#favicon_upload_url').val();
-            if( imgurl!='' )
-                jQuery('#favicon_metabox img').attr('src', imgurl);
-            jQuery('#favicon_url').attr('disabled','disabled');
-            jQuery('#favicon_upload').removeAttr('disabled');
+            jQuery('#html-upload-fav').show();
+            jQuery('#favicon_metabox').show();
         }
     })
-
+ 
     jQuery('#logo_url').keyup(function () {
         imgurl = jQuery(this).val();
         jQuery('#logo_metabox  img').attr('src', imgurl);
@@ -106,12 +104,24 @@ jQuery(document).ready(function() {
     media_upload( '#logo_upload', '#logo_upload_url', '#logo_options', 'Logo' );
     media_upload( '#favicon_upload', '#favicon_upload_url', '#fav_options', 'Favicon' );
 
+//    /* Function to handle toggling of sub options */
+//    jQuery( '.rtp_logo' ).click( function(){
+//        alert(typeof use_site_title);
+//        console.(use_site_title);
+//        if (typeof use_site_title !== 'undefined' && use_site_title !== false) {
+//            jQuery('.media-upload-form').hide();
+//            jQuery('.img-preview').hide();
+//        } else {
+//            jQuery('.media-upload-form').show();
+//            jQuery('.img-preview').show();
+//        }
+//    });
+
     toggle_handler( post_date_u, '.post_date_format_u', '#post_date_u' );
     toggle_handler( post_date_l, '.post_date_format_l', '#post_date_l' );
     toggle_handler( post_author_u, '.post_author_u-sub', '#post_author_u' );
     toggle_handler( post_author_l, '.post_author_l-sub', '#post_author_l' );
     toggle_handler( gravatar_fields, '.gravatar-size', '#gravatar_show' );
-    toggle_handler( logo_show, '.show-fields-logo', '#logo_show' );
     toggle_handler( favicon_show, '.show-fields-favicon', '#favicon_show' );
 
     if (typeof summary_show !== 'undefined' && summary_show !== false) {
@@ -229,8 +239,14 @@ function media_upload( button_id, textbox_id, main_metabox_id, iframe_title ) {
         tb_show( 'Upload '+iframe_title, 'media-upload.php?post_id=0&amp;rtp_theme=rtp_true&amp;logo_or_favicon='+iframe_title+'&amp;type=image&amp;TB_iframe=true&amp;width='+W+'&amp;height='+H);
         window.send_to_editor = function(html) {
             imgurl = jQuery('img',html).attr('src');
+            var imgidinfo = jQuery('img',html).attr('class').match(/wp-image-(\d+)/gi).toString().split('-');
+            var imgsizeinfo = jQuery('img',html).attr('class').match(/size-([a-z]+)/gi).toString().split('-');
+            var imgid = imgidinfo[2];
+            var imgsize = imgsizeinfo[1];
             if( ( typeof(imgurl) !== 'undefined' ) && ( ( imgurl.match(/(.jpg|.jpeg|.jpe|.gif|.png|.bmp|.ico|.tif|.tiff)$/i) && ( iframe_title != 'Favicon' ) ) || ( imgurl.match(/(.ico)$/i) &&  ( iframe_title == 'Favicon' ) ) ) ) {
                 jQuery(textbox_id).val(imgurl);
+                jQuery(textbox_id).next().val(imgid);
+                jQuery(textbox_id).next().next().val(imgsize);
                 jQuery(main_metabox_id+' .image-preview img').attr('src', imgurl);
                 tb_remove();
             } else {

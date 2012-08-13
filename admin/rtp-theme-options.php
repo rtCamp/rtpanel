@@ -113,6 +113,7 @@ class rtp_theme {
      * @since rtPanel 2.0
      **/
     function rtp_admin_page_scripts() {
+        
         wp_enqueue_script( 'rtp-admin-scripts', RTP_TEMPLATE_URL . '/admin/js/rtp-admin.js' );
         wp_enqueue_script( 'rtp-fb-share', ('http://static.ak.fbcdn.net/connect.php/js/FB.Share'),'', '', true );
         wp_enqueue_script( 'thickbox' );
@@ -195,8 +196,7 @@ class rtp_theme {
         switch ( $tab ) {
             case 'rtp_general' :
                 // All metaboxes registered during load page can be switched off/on at "Screen Options" automatically, nothing special to do therefore
-                add_meta_box( 'logo_options', __( 'Logo Settings', 'rtPanel'), 'rtp_logo_option_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
-                add_meta_box( 'fav_options', __( 'Favicon Settings', 'rtPanel'), 'rtp_fav_option_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
+                add_meta_box( 'logo_options', __( 'Logo & Favicon Settings', 'rtPanel'), 'rtp_logo_option_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'fb_ogp_options', __( 'Facebook Open Graph Settings', 'rtPanel'), 'rtp_facebook_ogp_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'feed_options', __( 'Feedburner Settings', 'rtPanel'), 'rtp_feed_option_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'google_search', __( 'Google Custom Search Integration', 'rtPanel'), 'rtp_google_search_metabox', 'appearance_page_' . $tab, 'normal', 'core' );

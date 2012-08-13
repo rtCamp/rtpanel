@@ -376,8 +376,12 @@ function rtp_create_external_thumb( $match, $post, $size, $double_check_tag = ''
  *
  * @since rtPanel 2.0
  */
-function rtp_get_attachment_id_from_src( $image_src ) {
+function rtp_get_attachment_id_from_src( $image_src, $hard_find = false ) {
     global $wpdb;
+    $temp = $image_src;
+    if ( $hard_find && !( 200 == wp_remote_retrieve_response_code( wp_remote_get( $image_src = preg_replace('/-\d+x\d+(?=\.(jpg|jpeg|png|gif)$)/i', '', $image_src ) ) ) ) ) {
+       $image_src = $temp;
+    }
     $query = "SELECT ID FROM {$wpdb->posts} WHERE post_type='attachment' AND guid='$image_src' LIMIT 1";
     $id = $wpdb->get_var( $query );
     return $id;
@@ -387,14 +391,35 @@ function rtp_get_attachment_id_from_src( $image_src ) {
  * Used to get the iamge dimensions, provided the 'src'
  * 
  * @param string $image_src The Image Source
- * @return width &amp; height parameters in attributes
+ * @return mixed
  *
  * @since rtPanel 2.1
  */
-function rtp_get_image_dimensions( $src ) {
-    $img_details = @getimagesize( $src );
-    return $img_details[3];
-}
+function rtp_get_image_dimensions( $src, $array = false, $is_logo = true, $id = 0, $size = null ) {
+    $id = $id ? $id : rtp_get_attachment_id_from_src( $src, true );
+    
+    $metadata = wp_get_attachment_metadata( $id );
+    if ( ( !preg_match('/(\d+x\d+)(\.(jpg|jpeg|png|gif)$)/i', $src ) || ( 200 != wp_remote_retrieve_response_code( wp_remote_get( preg_replace('/-\d+x\d+(?=\.(jpg|jpeg|png|gif)$)/i', '', $src ) ) ) ) ) && ( isset( $metadata ) && isset( $metadata['width'] ) && isset( $metadata['height'] ) ) ) {
+        $width = $metadata['width'];
+        $height = $metadata['height'];
+    } elseif ( isset( $metadata['sizes'] ) ) {
+        $pathinfo = pathinfo($src);
+        foreach( $metadata['sizes'] as $size ) {
+            if ( $size['file'] == $pathinfo['basename'] ) {
+                $width = $size['width'];
+                $height = $size['height'];
+                break;
+            }
+        }
+    }
+    if ( !isset( $width ) || !isset( $height ) ) {
+        return null;
+    }
+    if ( $array ) {
+        return array( 'width' => $width, 'height' => $height );
+    }
+    return ' width="' . $width . '" height="' . $height . '"';
+} 
 
 /**
  * Used to style password protected post form

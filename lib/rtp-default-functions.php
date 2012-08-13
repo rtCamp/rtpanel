@@ -22,29 +22,29 @@ function rtp_has_postmeta( $position = 'u' ) {
     $flag = 0;
     // Show Author?
     if ( $rtp_post_comments['post_author_'.$position] ) {
-        $flag = 1;
+        $flag++;
     }
     // Show Date?
     elseif ( $rtp_post_comments['post_date_'.$position] )  {
-        $flag = 1;
+        $flag++;
     }
      // Show Category?
     elseif ( get_the_category_list() && $rtp_post_comments['post_category_'.$position] ) {
-        $flag = 1;
+        $flag++;
     }
     // Show Tags?
     elseif ( get_the_tag_list() && $rtp_post_comments['post_tags_'.$position] ) {
-        $flag = 1;
+        $flag++;
     } 
     // Checked if logged in and post meta top
     else if ( $can_edit && $position == 'u' ) {
-        $flag = 1;
+        $flag++;
     } 
     elseif ( ( has_action( 'rtp_hook_begin_post_meta_top' ) || ( has_action( 'rtp_hook_end_post_meta_top' ) && $can_edit ) ) && $position == 'u' ) {
-        $flag = 1;
+        $flag++;
     }
     elseif ( ( has_action( 'rtp_hook_begin_post_meta_bottom' ) || has_action( 'rtp_hook_end_post_meta_bottom' ) ) && $position == 'l' ) {
-        $flag = 1;
+        $flag++;
     }
     else {
         // Show Custom Taxonomies?
@@ -52,7 +52,7 @@ function rtp_has_postmeta( $position = 'u' ) {
         $taxonomies = get_taxonomies( $args, 'names' );
         foreach ( $taxonomies as $taxonomy ) {
             if ( get_the_terms( $post->ID, $taxonomy ) && isset( $rtp_post_comments['post_'.$taxonomy.'_'.$position] ) && $rtp_post_comments['post_'.$taxonomy.'_'.$position] ) {
-                $flag = 1;
+                $flag++;
             }
         }
     }
