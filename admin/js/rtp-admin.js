@@ -83,40 +83,6 @@ jQuery(document).ready(function() {
         }
     })
  
-    jQuery('#logo_url').keyup(function () {
-        imgurl = jQuery(this).val();
-        jQuery('#logo_metabox  img').attr('src', imgurl);
-        jQuery('#logo_metabox  img').attr('alt', 'Logo / URL Not Valid');
-    });
-
-    jQuery('#favicon_url').keyup(function () {
-        imgurl = jQuery(this).val();
-        jQuery('#favicon_metabox img').attr('src', imgurl);
-        jQuery('#favicon_metabox img').attr('alt', 'Favicon / URL Not Valid');
-        imgurl = jQuery(this).val();
-        var extension = imgurl.substr( (imgurl.lastIndexOf('.') +1) );
-        if(extension != 'ico'){
-            jQuery('#favicon_metabox img').attr('src','' );
-            jQuery('#favicon_metabox img').attr('alt', 'Favicon / URL Not Valid');}
-
-    });
-
-    media_upload( '#logo_upload', '#logo_upload_url', '#logo_options', 'Logo' );
-    media_upload( '#favicon_upload', '#favicon_upload_url', '#fav_options', 'Favicon' );
-
-//    /* Function to handle toggling of sub options */
-//    jQuery( '.rtp_logo' ).click( function(){
-//        alert(typeof use_site_title);
-//        console.(use_site_title);
-//        if (typeof use_site_title !== 'undefined' && use_site_title !== false) {
-//            jQuery('.media-upload-form').hide();
-//            jQuery('.img-preview').hide();
-//        } else {
-//            jQuery('.media-upload-form').show();
-//            jQuery('.img-preview').show();
-//        }
-//    });
-
     toggle_handler( post_date_u, '.post_date_format_u', '#post_date_u' );
     toggle_handler( post_date_l, '.post_date_format_l', '#post_date_l' );
     toggle_handler( post_author_u, '.post_author_u-sub', '#post_author_u' );
@@ -229,37 +195,6 @@ function toggle_handler( the_option, the_class, the_id ) {
             jQuery(the_class).toggle();
         });
     }
-}
-
-/* Function to upload files using the media library */
-function media_upload( button_id, textbox_id, main_metabox_id, iframe_title ) {
-    jQuery(button_id).click(function() {
-        formfield = jQuery(textbox_id).attr('name');
-        H = jQuery(window).height() - 80, W = ( 640 < jQuery(window).width() ) ? 640 : jQuery(window).width();
-        tb_show( 'Upload '+iframe_title, 'media-upload.php?post_id=0&amp;rtp_theme=rtp_true&amp;logo_or_favicon='+iframe_title+'&amp;type=image&amp;TB_iframe=true&amp;width='+W+'&amp;height='+H);
-        window.send_to_editor = function(html) {
-            imgurl = jQuery('img',html).attr('src');
-            var imgidinfo = jQuery('img',html).attr('class').match(/wp-image-(\d+)/gi).toString().split('-');
-            var imgsizeinfo = jQuery('img',html).attr('class').match(/size-([a-z]+)/gi).toString().split('-');
-            var imgid = imgidinfo[2];
-            var imgsize = imgsizeinfo[1];
-            if( ( typeof(imgurl) !== 'undefined' ) && ( ( imgurl.match(/(.jpg|.jpeg|.jpe|.gif|.png|.bmp|.ico|.tif|.tiff)$/i) && ( iframe_title != 'Favicon' ) ) || ( imgurl.match(/(.ico)$/i) &&  ( iframe_title == 'Favicon' ) ) ) ) {
-                jQuery(textbox_id).val(imgurl);
-                jQuery(textbox_id).next().val(imgid);
-                jQuery(textbox_id).next().next().val(imgsize);
-                jQuery(main_metabox_id+' .image-preview img').attr('src', imgurl);
-                tb_remove();
-            } else {
-                if( iframe_title == 'Favicon' ) {
-                    alert("Please select a valid favicon file (.ico)")
-                } else {
-                    alert("Please select a valid image file.");
-                }
-                tb_remove();
-            }
-        }
-        return false;
-    });
 }
 
 function delete_plugin_confirmation(plugin) {
