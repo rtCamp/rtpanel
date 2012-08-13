@@ -269,47 +269,35 @@ class rtp_comments_widget extends WP_Widget {
                         echo '<ul role="list">';
 
                         for ( $comments = 0; $comments < $count; $comments++ ) {
-                            $right_grav = '';
-                            $left_readmore = '';
+                            $rtp_alignment = ' alignleft';
 
                             if ( $show_grav && $alternative ) {
-                                $right_grav = $comments % 2 ? ' alignright' : ' alignleft' ;
-                                $left_readmore = $comments % 2 ? ' alignleft' : ' alignright' ;
-                            } else {
-                                $right_grav = '';
-                                $left_readmore = '';
+                                $rtp_alignment = $comments % 2 ? ' alignleft' : ' alignright' ;
                             }
-                            if ( !$show_grav ) {
-                                $left_readmore = '';
-                            }
-                            echo '<li role="listitem">';
-                                echo '<div class="comment-container clearfix">';
-                                    if ( $show_grav ) {
-                                        echo '<div class="author-vcard' . $right_grav . '" title="' . $total_comments[$comments]->comment_author . '">';
-                                            echo get_avatar( $total_comments[$comments]->comment_author_email, $gravatar, '', $total_comments[$comments]->comment_author );
-                                        echo '</div>';
+                            echo '<li role="listitem" class="clearfix">';
+                                if ( $show_grav ) {
+                                    echo '<figure class="author-vcard' . $rtp_alignment . '" title="' . $total_comments[$comments]->comment_author . '">';
+                                        echo get_avatar( $total_comments[$comments]->comment_author_email, $gravatar, '', $total_comments[$comments]->comment_author );
+                                    echo '</figure>';
+                                }
+                                echo '<p class="comment-date">';
+                                    echo '<a title="' . mysql2date( 'F j, Y - g:ia', $total_comments[$comments]->comment_date_gmt ) . '" href="' . get_permalink( $total_comments[$comments]->comment_post_ID ) . '#comment-' . $total_comments[$comments]->comment_ID . '">';
+                                    echo mysql2date( 'F j, Y - g:ia', $total_comments[$comments]->comment_date_gmt );
+                                    echo '</a>';
+                                echo '</p>';
+                                echo '<div class="author-comment">';
+                                    $str = wp_html_excerpt ( $total_comments[$comments]->comment_content, 60 );
+                                    if ( strlen( $str ) >= 60 ) {
+                                        echo $str.'&hellip;';
+                                    } else {
+                                        echo $str;
                                     }
-                                    echo '<div class="comment-section clearfix">';
-                                        echo '<div class="comment-date">';
-                                            echo '<a title="' . mysql2date( 'F j, Y - g:ia', $total_comments[$comments]->comment_date_gmt ) . '" href="' . get_permalink( $total_comments[$comments]->comment_post_ID ) . '#comment-' . $total_comments[$comments]->comment_ID . '">';
-                                            echo mysql2date( 'F j, Y - g:ia', $total_comments[$comments]->comment_date_gmt );
-                                            echo '</a>';
-                                        echo '</div>';
-                                        echo '<div class="author-comment">';
-                                            $str = wp_html_excerpt ( $total_comments[$comments]->comment_content, 65 );
-                                            if ( strlen( $str ) >= 65 ) {
-                                                echo $str.'&hellip;';
-                                            } else {
-                                                echo $str;
-                                            }
-                                        echo '</div>';
-                                        echo '<div class="rtp-reply rtp-common-link' . $left_readmore . '">';
-                                            echo '<a title="Read More" href="' . get_permalink($total_comments[$comments]->comment_post_ID) . '#comment-' . $total_comments[$comments]->comment_ID . '">';
-                                            echo 'Read More &rarr;';
-                                            echo '</a>';
-                                        echo '</div>';
-                                    echo '</div>'; //end of .comment-section
-                                echo '</div>'; //end of .comment-container
+                                echo '</div>';
+                                echo '<p class="rtp-reply rtp-common-link' . $rtp_alignment . '">';
+                                    echo '<a title="Read More" href="' . get_permalink($total_comments[$comments]->comment_post_ID) . '#comment-' . $total_comments[$comments]->comment_ID . '">';
+                                    echo 'Read More &rarr;';
+                                    echo '</a>';
+                                echo '</p>';
                             echo '</li>';
                         }
                         echo '</ul>';
