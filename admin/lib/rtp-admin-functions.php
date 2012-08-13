@@ -60,12 +60,21 @@ function rtp_general_validate( $input ) {
             } else {   
                 add_settings_error( 'html-upload-fav', 'html-upload-fav', __( 'Please upload a valid image file.', 'rtPanel' ), 'error' );
             }
-        } elseif ( 'logo' == $input['favicon_use'] && $input['favicon_use'] != $rtp_general['favicon_use'] ) {
-            $img_src = wp_get_attachment_image_src( $input['logo_id'], 'favicon', true );
+        } elseif ( 'logo' == $input['favicon_use'] ) {
+            if ( RTP_IMG_FOLDER_URL . '/rtp-logo.jpg' == $input['logo_upload'] ) {
+                $input['favicon_upload']   = RTP_IMG_FOLDER_URL . '/favicon.ico';
+                $input['favicon_id']       = 0;
+            } else {
+                $img_src = wp_get_attachment_image_src( $input['logo_id'], 'favicon', true );
                 $input['favicon_upload']   = $img_src[0];
                 $input['favicon_id']       = $input['logo_id'];
+            }
         }
         remove_filter( 'intermediate_image_sizes_advanced', 'rtp_create_favicon' );
+        
+        if ( 'image' != $input['logo_use'] ) {
+            $input['login_head'] = $rtp_general['login_head'];
+        }
 
         if ( !empty( $input['feedburner_url'] ) ) {
             $result = wp_remote_get( $input['feedburner_url'] );

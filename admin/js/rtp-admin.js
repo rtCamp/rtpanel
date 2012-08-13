@@ -54,6 +54,7 @@ jQuery(document).ready(function() {
     jQuery('.rtp_logo').change(function(){
         if (jQuery(this).val()=='site_title') {
             jQuery('#html-upload-logo').hide();
+            jQuery('.login-head').hide();
             jQuery('#logo_metabox').hide();
             if ( jQuery('#use_logo').is(':checked') ){
                 jQuery('#use_logo').removeAttr('checked');
@@ -64,6 +65,7 @@ jQuery(document).ready(function() {
             jQuery('.show-fields-logo').hide();
         } else {
             jQuery('#html-upload-logo').show();
+            jQuery('.login-head').show();
             jQuery('#logo_metabox').show();
             jQuery('#use_logo').removeAttr('disabled');
             jQuery('.show-fields-logo').show();

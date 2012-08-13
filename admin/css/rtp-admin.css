@@ -25,7 +25,7 @@ h2 .nav-tab{font-size:20px;padding:4px 6px}
 div.inside{margin:10px 5px;overflow:hidden}
 .inside .image-uploader{float:left;overflow:hidden;width:395px}
 .inside .image-preview{margin:0 auto;overflow:hidden;text-align:center}
-.inside #logo_metabox img{display:block;margin:0 auto;max-width:240px;width:100%}
+.inside #logo_metabox img{display:block;margin:0 auto;max-width:180px;}
 .postbox{min-width:175px}
 .postbox .inside h3,.postbox .inside h3:hover{background:none repeat scroll 0 0 transparent;cursor:default;display:none}
 #poststuff .postbox .inside p{margin:0 0 5px}
@@ -108,4 +108,4 @@ input[disabled][type=text],input[disabled][type=radio],input[disabled][type=chec
 .drag-drop.drag-over #drag-drop-area-logo, .drag-drop.drag-over #drag-drop-area-favicon {
 	border-color: #83b4d8;
 }
-
+#poststuff .postbox .inside p.login-head { margin-top: 10px; }
