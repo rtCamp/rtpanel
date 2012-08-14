@@ -31,7 +31,7 @@ function rtp_post_comments_options_page( $pagehook ) {
                 ?>
                 <input type="hidden" name="action" value="save_rtp_metaboxes_post_comments" />
 
-                <div id="poststuff" class="metabox-holder alignleft <?php echo 2 == $screen_layout_columns ? ' has-right-sidebar' : ''; ?>">
+                <div id="poststuff" class="metabox-holder alignleft">
                     <div id="side-info-column" class="inner-sidebar">
                         <?php do_meta_boxes( $pagehook, 'side', '' ); ?>
                     </div>
