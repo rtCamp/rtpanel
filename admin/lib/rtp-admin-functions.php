@@ -37,6 +37,7 @@ function rtp_general_validate( $input ) {
                     $input['logo_id']       = $id;
                     $input['logo_width']    = $img_src[1];
                     $input['logo_height']   = $img_src[2];
+                    add_settings_error( 'html-upload-logo', 'html-upload-logo', __( 'Logo & Favicon Settings Updated', 'rtPanel' ), 'updated' );
                 }
             } else {
                 add_settings_error( 'html-upload-logo', 'html-upload-logo', __( 'Please upload a valid image file.', 'rtPanel' ), 'error' );
@@ -52,6 +53,7 @@ function rtp_general_validate( $input ) {
                     $img_src = wp_get_attachment_image_src( $id, 'favicon', true );
                         $input['favicon_upload']   = $img_src[0];
                         $input['favicon_id']       = $id;
+                        add_settings_error( 'html-upload-fav', 'html-upload-fav', __( 'Logo & Favicon Settings Updated', 'rtPanel' ), 'updated' );
                     }
             } else {   
                 add_settings_error( 'html-upload-fav', 'html-upload-fav', __( 'Please upload a valid image file.', 'rtPanel' ), 'error' );
@@ -76,9 +78,9 @@ function rtp_general_validate( $input ) {
             $result = wp_remote_get( $input['feedburner_url'] );
             if ( is_wp_error( $result ) || $result["response"]["code"]!=200 ) {
                  $input['feedburner_url'] = $rtp_general['feedburner_url'];
-                 add_settings_error( 'feedburner_url', 'valid_feedburner_url', __( 'The FeedBurner URL is not a valid url. The changes made have been reverted.', 'rtPanel' ) );
+                 add_settings_error( 'feedburner_url', 'invalid_feedburner_url', __( 'The FeedBurner URL is not a valid url. The changes made have been reverted.', 'rtPanel' ) );
             } elseif ( $input['feedburner_url'] != $rtp_general['feedburner_url'] ) {
-                add_settings_error( 'feedburner_url', 'invalid_feedburner_url', __( 'The FeedBurner Settings have been updated.', 'rtPanel' ), 'updated' );
+                add_settings_error( 'feedburner_url', 'valid_feedburner_url', __( 'The FeedBurner Settings have been updated.', 'rtPanel' ), 'updated' );
             }
         }
 

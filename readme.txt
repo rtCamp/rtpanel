@@ -18,13 +18,11 @@ By using rtPanel, developers and users can specify settings for basic functions 
 == Plugins Supported ==
 * rtPanel Hooks Editor - http://wordpress.org/extend/plugins/rtpanel-hooks-editor/
 
+* rtSocial - http://wordpress.org/extend/plugins/rtsocial/
+
 * Subscribe to Comments - http://wordpress.org/extend/plugins/subscribe-to-comments/
 
-* WP-PageNavi - http://wordpress.org/extend/plugins/wp-pagenavi/
-
 * WordPress SEO by Yoast - http://wordpress.org/extend/plugins/wordpress-seo/
-
-* Breadcrumb NavXT - http://wordpress.org/extend/plugins/breadcrumb-navxt/
 
 * Regenerate Thumbnails - http://wordpress.org/extend/plugins/regenerate-thumbnails/
 
@@ -32,6 +30,23 @@ By using rtPanel, developers and users can specify settings for basic functions 
 If you make changes to thumbnail height, width or crop settings, you must use "Regenerate Thumbnail Plugin" ( http://wordpress.org/extend/plugins/regenerate-thumbnails/ ) to regenerate thumbnails on old posts.
 
 == Changelog ==
+= 2.2 =
+* Added: rtSocial to plugins support
+* Resolved: Image Upload functionality for Logo and Favicon ( Markup Changed in WordPress 3.4 )
+* Resolved: Unattached Image issue on image template
+* Resolved: Empty Open Graph Description by default
+* Resolved: Removed function declarations out of document.ready for re-usability
+* Resolved: Protected Post functionality ( Changed in WP 3.4+ )
+* Resolved: Validation of Plugins Support Section
+* Resolved: next_text validation
+* Resolved: Upgrade Theme Notice and Version Issues
+* Modified: Logo & Favicon Upload Options
+* Modified: Subscribe Widget
+* Modified: Comments with Gravatar Widget
+* Removed: bbPress styles ( Default bbPress styles will be served instead ) …
+* Removed: Editor styles ( style.css of theme will be served instead )
+* Removed: Removed WP-PageNavi and BreadCrumb NavXT from plugin support list
+
 = 2.1.1 =
 * Resolved: Warnings after WordPress 3.4 Update
 
