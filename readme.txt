@@ -43,7 +43,8 @@ If you make changes to thumbnail height, width or crop settings, you must use "R
 * Modified: Logo & Favicon Upload Options
 * Modified: Subscribe Widget
 * Modified: Comments with Gravatar Widget
-* Removed: bbPress styles ( Default bbPress styles will be served instead ) …
+* Removed: Removed Screen Layout Option
+* Removed: bbPress styles ( Default bbPress styles will be served instead )
 * Removed: Editor styles ( style.css of theme will be served instead )
 * Removed: Removed WP-PageNavi and BreadCrumb NavXT from plugin support list
 
