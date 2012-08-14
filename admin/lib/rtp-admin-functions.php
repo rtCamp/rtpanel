@@ -1401,6 +1401,11 @@ function rtp_mce_before_init( $settings ) {
 }
 add_filter( 'tiny_mce_before_init', 'rtp_mce_before_init' );
 
+/**
+ * Adds favicon image to the list of generated images ( For Logo/Favicon Settings )
+ *
+ * @since rtPanel 2.2
+ */ 
 function rtp_create_favicon( $sizes ) {
     $sizes['favicon'] = array( 'width' => 16, 'height' => 16, 'crop' => 1 );
     return $sizes;
