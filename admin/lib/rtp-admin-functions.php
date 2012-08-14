@@ -683,14 +683,18 @@ function rtp_theme_setup_values() {
 // Redirect to rtPanel on theme activation //
 function rtp_theme_activation( $themename, $theme = false ) {
     global $rtp_general;
+    $update = 0;
     if ( isset( $rtp_general['logo_show'] ) && $rtp_general['logo_show'] ) {
+        $update++;
         $rtp_general['logo_use'] = 'image';
         unset( $rtp_general['logo_show'] );
     } elseif ( isset( $rtp_general['logo_show'] ) ) {
+        $update++;
         $rtp_general['logo_use'] = 'site_title';
         unset( $rtp_general['logo_show'] );
     }
     if ( isset( $rtp_general['use_logo'] ) && ( $rtp_general['logo_use'] == 'use_logo_url' ) ) {
+        $update++;
         $rtp_general['logo_upload'] = $rtp_general['logo_url'];
         $id = rtp_get_attachment_id_from_src( $rtp_general['logo_upload'], true );
         $img_dimensions = rtp_get_image_dimensions( $rtp_general['logo_upload'], true, true, $id );
@@ -700,6 +704,7 @@ function rtp_theme_activation( $themename, $theme = false ) {
         unset( $rtp_general['use_logo'] );
         unset( $rtp_general['logo_url'] );
     } elseif ( isset( $rtp_general['use_logo'] ) && ( $rtp_general['use_logo'] == 'use_logo_upload' ) ) {
+        $update++;
         $id = rtp_get_attachment_id_from_src( $rtp_general['logo_upload'], true );
         $img_dimensions = rtp_get_image_dimensions( $rtp_general['logo_upload'], true, true, $id );
         $rtp_general['logo_id'] = $id;
@@ -708,24 +713,30 @@ function rtp_theme_activation( $themename, $theme = false ) {
         unset( $rtp_general['use_logo'] );
     }
     if ( isset( $rtp_general['favicon_show'] ) && $rtp_general['favicon_show'] ) {
+        $update++;
         $rtp_general['favicon_use'] = 'image';
         unset( $rtp_general['favicon_show'] );
     } elseif ( isset( $rtp_general['favicon_show'] ) ) {
+        $update++;
         $rtp_general['favicon_use'] = 'disable';
         unset( $rtp_general['favicon_show'] );
     }
     if ( isset( $rtp_general['use_favicon'] ) && ( $rtp_general['use_favicon'] == 'use_favicon_url' ) ) {
+        $update++;
         $rtp_general['favicon_upload'] = $rtp_general['favicon_url'];
         $id = rtp_get_attachment_id_from_src( $rtp_general['favicon_upload'], true );
         $img_dimensions = rtp_get_image_dimensions( $rtp_general['favicon_upload'], true, true, $id );
         $rtp_general['favicon_id'] = $id;
         unset( $rtp_general['use_favicon'] );
     } elseif ( isset( $rtp_general['use_favicon'] ) && ( $rtp_general['use_favicon'] == 'use_favicon_upload' ) ) {
+        $update++;
         $rtp_general['favicon_id'] = rtp_get_image_dimensions( $rtp_general['favicon_upload'], true );;
         unset( $rtp_general['use_favicon'] );
         unset( $rtp_general['favicon_url'] );
     }
-    update_option( 'rtp_general', $rtp_general );
+    if ( $update ) {
+        update_option( 'rtp_general', $rtp_general );
+    }
     wp_redirect( 'themes.php?page=rtp_general' );
 }
 add_action( 'after_switch_theme', 'rtp_theme_activation', '', 2 );
@@ -783,7 +794,7 @@ if ( isset( $_SERVER['HTTP_USER_AGENT'] ) && !preg_match( '/feedburner|feedvalid
 }
 
 /* condition to check Admin Login Logo option */
-if ( ( 'image' == $rtp_general['logo_use'] ) && $rtp_general['login_head'] ) {
+if ( isset( $rtp_general['logo_use'] ) && isset( $rtp_general['login_head'] ) && ( 'image' == $rtp_general['logo_use'] ) && $rtp_general['login_head'] ) {
     add_action( 'login_head', 'rtp_custom_login_logo' );
     add_filter( 'login_headerurl', 'rtp_login_site_url' );
 }

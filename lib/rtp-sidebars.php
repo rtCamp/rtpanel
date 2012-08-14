@@ -26,7 +26,7 @@ function rtp_widgets_init() {
     ) );
 
     // Footer Widget
-    if ( $rtp_general['footer_sidebar'] ) {
+    if ( isset( $rtp_general['footer_sidebar'] ) && $rtp_general['footer_sidebar'] ) {
          register_sidebar( array(
             'name' => __( 'Footer Widgets', 'rtPanel' ),
             'id' => "footer-widgets",
