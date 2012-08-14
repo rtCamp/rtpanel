@@ -42,48 +42,8 @@ class rtp_theme {
                             ) )
         );
 
-        // Add filter for WordPress 2.8 changed backend box system !
-        add_filter( 'screen_layout_columns', array( &$this, 'rtp_on_screen_layout_columns' ), 10, 2 );
-
-        // Set Screen Layout columns to 1 by default for any user for first time
-        add_action( 'admin_init', array( &$this, 'rtp_init' ) );
-        
         // Register callback for admin menu  setup
         add_action( 'admin_menu', array( &$this, 'rtp_theme_option_page' ) );
-    }
-
-    /**
-     * Screen options for 1 or 2 columns layout
-     * 
-     * For WordPress 2.8 we have to tell, that we support 2 columns ( Default is 1 column )
-     *
-     * @param array $columns number of columns.
-     * @param string $screen screen name
-     * @return array.
-     * 
-     * @since rtPanel 2.0
-     **/
-    function rtp_on_screen_layout_columns($columns, $screen) {
-        $tab = isset($_GET['page'] )  ? $_GET['page'] : "rtp_general";
-        if ( $screen == 'appearance_page_' . $tab ) {
-            $columns['appearance_page_' . $tab] = 2;
-        }
-        return $columns;
-    }
-
-    /**
-     * Set Screen Layout columns to 1 by default for any user for first time
-     *
-     * @since rtPanel 2.0
-     **/
-    function rtp_init() {
-        global $current_user;
-        $tab = isset( $_GET['page'] )  ? $_GET['page'] : "rtp_general";
-        get_currentuserinfo();
-        $user_id = $current_user->ID;
-        if ( !get_user_meta( $user_id, 'screen_layout_appearance_page_' . $tab, true ) ) {
-            update_user_meta( $user_id, 'screen_layout_appearance_page_' . $tab, 1, NULL );
-        }
     }
 
     /**
@@ -195,8 +155,7 @@ class rtp_theme {
         switch ( $tab ) {
             case 'rtp_general' :
                 // All metaboxes registered during load page can be switched off/on at "Screen Options" automatically, nothing special to do therefore
-                add_meta_box( 'logo_options', __( 'Logo Settings', 'rtPanel'), 'rtp_logo_option_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
-                add_meta_box( 'fav_options', __( 'Favicon Settings', 'rtPanel'), 'rtp_fav_option_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
+                add_meta_box( 'logo_options', __( 'Logo & Favicon Settings', 'rtPanel'), 'rtp_logo_option_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'fb_ogp_options', __( 'Facebook Open Graph Settings', 'rtPanel'), 'rtp_facebook_ogp_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'feed_options', __( 'Feedburner Settings', 'rtPanel'), 'rtp_feed_option_metabox', 'appearance_page_' . $tab, 'normal', 'core' );
                 add_meta_box( 'google_search', __( 'Google Custom Search Integration', 'rtPanel'), 'rtp_google_search_metabox', 'appearance_page_' . $tab, 'normal', 'core' );

@@ -30,7 +30,7 @@ if ( !function_exists( 'rtpanel_setup' ) ) {
         rtp_theme_setup_values();
         add_theme_support( 'post-thumbnails' ); // This theme uses post thumbnails
         add_theme_support( 'automatic-feed-links' ); // Add default posts and comments RSS feed links to head
-        add_editor_style( 'css/rtp-editor-style.css' ); // This theme styles the visual editor with editor-style.css to match the theme style.
+        add_editor_style( 'style.css' ); // This theme styles the visual editor with the themes style.css itself.
         load_theme_textdomain( 'rtPanel', get_template_directory() . '/languages' ); // Load the text domain
 
         add_theme_support( 'custom-background' ); // Add support for custom background
@@ -105,15 +105,16 @@ if ( !function_exists( 'rtp_admin_header_style' ) ) {
  */
 function rtp_default_scripts() {
     global $rtp_general;
-    
+
+    /* Mobile Navigation Script */
+    wp_enqueue_script( 'rtp-custom', RTP_JS_FOLDER_URL . '/rtp-mobile.js', array( 'jquery' ), '', true );
+
     echo ( $rtp_general['custom_styles'] ) ? '<style>' . $rtp_general['custom_styles'] . '</style>' . "\r\n" : '';
     // Nested Comment Support
     ( is_singular() && get_option( 'thread_comments' ) ) ? wp_enqueue_script('comment-reply') : '';
-    
-    if ( rtp_is_bbPress() ) {
-        wp_enqueue_style( 'rtp-bbpress', RTP_CSS_FOLDER_URL . '/rtp-bbpress.css', array( 'bbpress-style' ) );
-    } else {
-        wp_dequeue_style( 'bbpress-style' );
+
+    if ( !rtp_is_bbPress() ) {
+        wp_dequeue_style( array( 'bbpress-style', 'bbp-default-bbpress', 'bbp-twentyten-bbpress' ) );
     }
     
 }

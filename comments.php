@@ -19,10 +19,10 @@ if ( have_comments() || ( ( !is_attachment() && comments_open() ) || ( is_attach
             <div class="rtp-comment-count clearfix" id="comments"><?php 
                 add_filter( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
                 $comment_count = sprintf( _n( '<span class="count">%1$s</span> Comment', '<span class="count">%1$s</span> Comments', get_comments_number(), 'rtPanel' ), number_format_i18n( get_comments_number() ) ) . '&hellip; ';
-                $comment_count .= ( comments_open() ) ? sprintf( __( '<span class="rtp-thoughts">Share your <a role="link" href="%s" title="Share your views">views</a></span>', 'rtPanel' ), '#respond' ) : '';
                 remove_filter( 'get_comments_number', 'rtp_only_comment_count', 11 );
                 if ( ( get_comments_number() && comments_open() ) || get_comments_number() ) { ?>
                     <h2><?php echo $comment_count; ?></h2><?php
+                    echo ( comments_open() ) ? sprintf( __( '<span class="rtp-thoughts">&nbsp;Share your <a role="link" href="%s" title="Share your views">views</a></span>', 'rtPanel' ), '#respond' ) : '';
                 } 
 
                 if ( current_user_can( 'moderate_comments' ) ) { ?>

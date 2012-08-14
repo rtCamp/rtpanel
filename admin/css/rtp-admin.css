@@ -11,7 +11,7 @@
 .hideme{display:none;visibility:hidden}
 .clear{clear:both;content:'\0020';display:block;height:0;visibility:hidden}
 .clearfix:before,.clearfix:after{content:'.';display:block;height:0;overflow:hidden}
-.clearfix:after{clear:both}
+.clearfix:after{clear:both;}
 .rtpanel-admin{overflow:hidden;width:76%}
 .rtpanel-admin h2{border-bottom:1px solid #CCC;padding-bottom:0}
 .rtpanel-admin div.updated p{background-color:#FFFFE0;border:1px solid #E6DB55;border-radius:3px;margin:0 auto;padding:7px;width:95%}
@@ -25,7 +25,7 @@ h2 .nav-tab{font-size:20px;padding:4px 6px}
 div.inside{margin:10px 5px;overflow:hidden}
 .inside .image-uploader{float:left;overflow:hidden;width:395px}
 .inside .image-preview{margin:0 auto;overflow:hidden;text-align:center}
-.inside #logo_metabox img{display:block;margin:0 auto;max-width:240px;width:100%}
+.inside #logo_metabox img{display:block;margin:0 auto;max-width:120px;}
 .postbox{min-width:175px}
 .postbox .inside h3,.postbox .inside h3:hover{background:none repeat scroll 0 0 transparent;cursor:default;display:none}
 #poststuff .postbox .inside p{margin:0 0 5px}
@@ -90,3 +90,22 @@ input.button-link:hover{color:#D54E21}
 a.expand-collapse{background:none repeat scroll 0 0 #CCC;color:#333;float:right;font-size:85%;padding:5px 8px;text-decoration:none}
 a.expand-collapse:hover{text-decoration:underline}
 input[disabled][type=text],input[disabled][type=radio],input[disabled][type=checkbox],textarea[disabled]{background-color:Silver}
+
+#plupload-upload-ui-logo, #plupload-upload-ui-favicon {
+	position: relative;
+}
+
+.js .html-uploader #plupload-upload-ui-logo, .js .html-uploader #plupload-upload-ui-favicon {
+	display: none;
+}
+
+
+.drag-drop #drag-drop-area-logo, .drag-drop #drag-drop-area-favicon {
+	border: 4px dashed #DDDDDD;
+	height: 200px;
+}
+
+.drag-drop.drag-over #drag-drop-area-logo, .drag-drop.drag-over #drag-drop-area-favicon {
+	border-color: #83b4d8;
+}
+#poststuff .postbox .inside p.login-head { margin-top: 10px; }

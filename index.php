@@ -10,7 +10,7 @@ get_header(); ?>
 
     <?php
         $rtp_content_class = '';
-        if ( is_search() || is_archive() ) {
+        if ( is_archive() ) {
             $rtp_content_class = ' class="rtp-grid-8 rtp-multiple-post" ';
         } elseif ( is_page() || is_single() || is_404() ) {
             $rtp_content_class = ' class="rtp-grid-8 rtp-singular" ';

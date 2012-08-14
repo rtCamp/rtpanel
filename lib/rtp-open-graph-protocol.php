@@ -56,7 +56,7 @@ class rtp_ogp {
 
         $data['og:site_name'] = get_bloginfo('name');
 
-        if ( is_singular () ) {
+        if ( is_singular () && !is_front_page() ) {
             $append = '';
             $post_content = ( isset( $post->post_excerpt ) && trim( $post->post_excerpt ) ) ? $post->post_excerpt : $post->post_content;
             if( strlen( wp_html_excerpt( $post_content, 130 ) ) >= 130 )
@@ -67,8 +67,7 @@ class rtp_ogp {
             $data['og:image'] = $this->rtp_ogp_image_url();
             $data['og:url'] = get_permalink();
             $data['og:description'] = esc_attr( wp_html_excerpt( $post_content, 130 ).$append );
-        }
-        else {
+        } else {
             $data['og:title'] = get_bloginfo('name');
             $data['og:type'] = 'website';
             $data['og:image'] = $this->rtp_ogp_image_url();
@@ -110,9 +109,9 @@ class rtp_ogp {
      * @since rtPanel 2.0
      **/
     function rtp_ogp_image_url() {
-        global $post;
+        global $post, $rtp_general;
         $image = '';
-        if ( is_singular() ) {
+        if ( is_singular() && !is_front_page() ) {
             if (has_post_thumbnail($post->ID)) {
                 $thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'post-thumbnail' );
                 if ( !empty ( $thumbnail ) ) {
@@ -123,7 +122,7 @@ class rtp_ogp {
                 $image = ( $image ) ? $image : apply_filters( 'rtp_default_ogp_image_path', '' );
             }
         } else {
-            $image = rtp_logo_fav_src('logo');
+            $image = $rtp_general['logo_upload'];
         }
         return $image;
     }

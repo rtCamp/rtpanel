@@ -8,11 +8,10 @@
  */
 
 /* Define plugin support constants */
+define( 'RTP_SOCIAL', 'rtsocial/source.php' );
 define( 'RTP_HOOKS_EDITOR', 'rtpanel-hooks-editor/rtpanel-hooks-editor.php' );
 define( 'RTP_SUBSCRIBE_TO_COMMENTS', 'subscribe-to-comments/subscribe-to-comments.php' );
-define( 'RTP_WP_PAGENAVI', 'wp-pagenavi/wp-pagenavi.php' );
 define( 'RTP_YOAST_SEO', 'wordpress-seo/wp-seo.php' );
-define( 'RTP_BREADCRUMB_NAVXT', 'breadcrumb-navxt/breadcrumb_navxt_admin.php' );
 define( 'RTP_REGENERATE_THUMBNAILS', 'regenerate-thumbnails/regenerate-thumbnails.php' );
 
 /**
@@ -34,113 +33,66 @@ add_action( 'admin_init', 'rtp_admin_init_general' );
  * @since rtPanel 2.0
  */
 function rtp_logo_option_metabox() {
-    global $rtp_general; ?>
+    global $rtp_general;
+    $rtp_general['logo_use'] = isset( $rtp_general['logo_use'] ) ? $rtp_general['logo_use'] : 'site_title';
+    $rtp_general['favicon_use'] = isset( $rtp_general['favicon_use'] ) ? $rtp_general['favicon_use'] : 'disable';
+    $logo_style = ( 'site_title' == $rtp_general['logo_use'] ) ? ' style="display: none"' : '';
+    $favicon_style = ( in_array( $rtp_general['favicon_use'], array( 'disable', 'logo' ) ) ) ? ' style="display: none"' : ''; ?>
     <table class="form-table">
-        <tbody>
-            <tr valign="top">
-                <th scope="row"><label for="logo_show"><?php _e( 'Show Logo', 'rtPanel' ); ?></label></th>
-                <td>
-                    <input type="hidden" name="rtp_general[logo_show]" value="0" />
-                    <input type="checkbox" name="rtp_general[logo_show]" value="1" id="logo_show" <?php checked( $rtp_general['logo_show'] ); ?> />
-                    <span class="description"><label for="logo_show"><?php _e( 'Check this box to display logo uploaded below instead of Site Title as text', 'rtPanel' ); ?></label></span>
-                </td>
-            </tr>
-            <tr valign="top" class="show-fields-logo">
-                <th scope="row">
-                    <input type="radio" name="rtp_general[use_logo]" value="use_logo_url" id="use_logo_url" class="rtp_logo" <?php checked( 'use_logo_url', $rtp_general['use_logo'] ); ?> />
-                    <label for="use_logo_url"><?php _e( 'Logo URL', 'rtPanel' ); ?></label>
-                </th>
-                <td class="img-url">
-                    <input<?php disabled( 'use_logo_upload', $rtp_general['use_logo'] ); ?> placeholder="http://www.example.com/logo.jpg" type="text" value="<?php echo esc_url( $rtp_general['logo_url'] ); ?>" name="rtp_general[logo_url]" size="40" id="logo_url" /><br />
-                </td>
-                <td class="img-preview" rowspan="2">
-                    <div class="image-preview" id="logo_metabox">
-                        <p><?php _e( 'Preview', 'rtPanel' ); ?></p>
-                        <img alt="Logo" src="<?php echo rtp_logo_fav_src(); ?>" />
-                    </div>
-                </td>
-            </tr>
-            <tr valign="top" class="show-fields-logo">
-                <th>
-                    <input type="radio" name="rtp_general[use_logo]" value="use_logo_upload" id="use_logo_upload" class="rtp_logo" <?php checked( 'use_logo_upload', $rtp_general['use_logo'] ) ? 'checked="checked"' : '' ?> />
-                    <label for="use_logo_upload"><?php _e( 'Upload Logo', 'rtPanel' ); ?></label>
-                </th>
-                <td>
-                <input<?php disabled( 'use_logo_url', $rtp_general['use_logo'] ); ?> type="button" value="<?php _e( 'Upload Logo', 'rtPanel' ); ?>" class="button " id="logo_upload" />
-                <input type="hidden"  name="rtp_general[logo_upload]" id="logo_upload_url" value="<?php if( isset( $rtp_general['logo_upload'] ) ) echo $rtp_general['logo_upload']; ?>" />
-                </td>
-            </tr>
-            <tr valign="top" class="show-fields-logo">
-                <th scope="row"><label for="login_head"><?php _e( 'Admin Logo', 'rtPanel' ); ?></label></th>
-                <td>
-                    <input type="hidden" name="rtp_general[login_head]" value="0" />
-                    <input type="checkbox" name="rtp_general[login_head]" value="1" id="login_head" <?php checked( $rtp_general['login_head'] ); ?> />
-                    <span class="description"><label for="login_head"><?php printf( __( 'Check this box to display logo on <a href="%s" title="Wordpress Login">WordPress Login Screen</a>', 'rtPanel' ), site_url('/wp-login.php') ); ?></label></span>
-                </td>
-            </tr>
-        </tbody>
+            <tbody>
+                <tr valign="top">
+                    <th scope="row"><label for="logo_use"><?php _e( 'For Logo', 'rtPanel' ); ?></label></th>
+                    <td colspan="3">
+                        <div class="alignleft">
+                        <p style="margin-bottom: 10px;"><input type="radio" name="rtp_general[logo_use]" value="site_title" id="use_site_title" class="rtp_logo" <?php checked( 'site_title', $rtp_general['logo_use'] ); ?> />
+                        <label for="use_site_title" style="margin-right: 30px;"><?php _e( 'Use Site Title', 'rtPanel' ); ?></label>
+                        <input type="radio" name="rtp_general[logo_use]" value="image" id="use_logo_image" class="rtp_logo" <?php checked( 'image', $rtp_general['logo_use'] ); ?> />
+                        <label for="use_logo_image"><?php _e( 'Upload Logo', 'rtPanel' ); ?></label></p>
+                        <input type="file" name="html-upload-logo" id="html-upload-logo"<?php echo $logo_style; ?>>
+                        <input type="hidden"  name="rtp_general[logo_upload]" id="logo_upload_url" value="<?php if( isset( $rtp_general['logo_upload'] ) ) echo $rtp_general['logo_upload']; ?>" />
+                        <input type="hidden"  name="rtp_general[logo_id]" id="logo_id" value="<?php if( isset( $rtp_general['logo_id'] ) ) echo $rtp_general['logo_id']; ?>" />
+                        <input type="hidden"  name="rtp_general[logo_width]" id="logo_width" value="<?php if( isset( $rtp_general['logo_width'] ) ) echo $rtp_general['logo_width']; ?>" />
+                        <input type="hidden"  name="rtp_general[logo_height]" id="logo_height" value="<?php if( isset( $rtp_general['logo_height'] ) ) echo $rtp_general['logo_height']; ?>" />
+                        <p class="login-head"<?php echo $logo_style; ?>>
+                            <input type="hidden" name="rtp_general[login_head]" value="0" />
+                            <input type="checkbox" name="rtp_general[login_head]" value="1" id="login_head" <?php checked( $rtp_general['login_head'] ); ?> />
+                            <span class="description"><label for="login_head"><?php printf( __( 'Check this box to display logo on <a href="%s" title="Wordpress Login">WordPress Login Screen</a>', 'rtPanel' ), site_url('/wp-login.php') ); ?></label></span>
+                        </p>
+                        </div>
+                        <div class="image-preview alignright" id="logo_metabox"<?php echo $logo_style; ?>>
+                            <img alt="Logo" src="<?php echo $rtp_general['logo_upload']; ?>" />
+                        </div>
+                    </td>
+                    
+                </tr>
+                <tr valign="top">
+                    <th scope="row"><label for="favicon_use"><?php _e( 'For Favicon', 'rtPanel' ); ?></label></th>
+                    <td rowspan="3">
+                        <div class="alignleft">
+                        <p style="margin-bottom: 10px;"><input type="radio" name="rtp_general[favicon_use]" value="disable" id="favicon_disable" class="rtp_favicon" <?php checked( 'disable', $rtp_general['favicon_use'] ); ?> />
+                        <label for="favicon_disable" style="margin-right: 30px;"><?php _e( 'Disable', 'rtPanel' ); ?></label>
+                        <input type="radio" name="rtp_general[favicon_use]" value="logo" id="use_logo" class="rtp_favicon" <?php disabled( $rtp_general['logo_use'], 'site_title' ); checked( 'logo', $rtp_general['favicon_use'] ); ?> />
+                        <label for="use_logo"  style="margin-right: 30px;"><?php _e( 'Resize Logo and use as Favicon', 'rtPanel' ); ?></label>
+                        <input type="radio" name="rtp_general[favicon_use]" value="image" id="use_favicon_image" class="rtp_favicon" <?php checked( 'image', $rtp_general['favicon_use'] ); ?> />
+                        <label for="use_favicon_image"><?php _e( 'Upload Favicon', 'rtPanel' ); ?></label></p>
+                        <input type="file" name="html-upload-fav" id="html-upload-fav"<?php echo $favicon_style; ?>>
+                        <input type="hidden"  name="rtp_general[favicon_upload]" id="favicon_upload_url" value="<?php if( isset( $rtp_general['favicon_upload'] ) ) echo $rtp_general['favicon_upload']; ?>" />
+                        <input type="hidden"  name="rtp_general[favicon_id]" id="favicon_id" value="<?php if( isset( $rtp_general['favicon_id'] ) ) echo $rtp_general['favicon_id']; ?>" />
+                        </div>
+                        <div class="image-preview alignright" id="favicon_metabox"<?php echo ( 'disable' == $rtp_general['favicon_use'] ) ? ' style="display: none"' : ''; ?>>
+                            <img alt="Favicon" src="<?php echo $rtp_general['favicon_upload']; ?>" />
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
     </table>
     <div class="rtp_submit">
         <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
-        <input class="button-secondary" value="<?php _e( 'Reset Logo Settings', 'rtPanel' ); ?>" name="rtp_logo_reset" type="submit" />
+        <input class="button-secondary" value="<?php _e( 'Reset Logo & Favicon Settings', 'rtPanel' ); ?>" name="rtp_logo_favicon_reset" type="submit" />
         <div class="clear"></div>
     </div>
 <?php
 }
-
-/**
- * Favicon Settings Metabox - General Tab
- *
- * @uses $rtp_general array
- *
- * @since rtPanel 2.0
- */
-function rtp_fav_option_metabox() {
-    global $rtp_general; ?>
-    <table class="form-table">
-        <tbody>
-            <tr valign="top">
-                <th scope="row"><label for="favicon_show"><?php _e( 'Show Favicon', 'rtPanel' ); ?></label></th>
-                <td>
-                    <input type="hidden" name="rtp_general[favicon_show]" value="0" />
-                    <input type="checkbox" name="rtp_general[favicon_show]" value="1" id="favicon_show" <?php checked( $rtp_general['favicon_show'] ); ?> />
-                    <span class="description"><label for="favicon_show"><?php _e( 'Check this box to use Favicon', 'rtPanel' ); ?></label></span>
-                </td>
-            </tr>
-            <tr valign="top" class="show-fields-favicon">
-                <th scope="row">
-                    <input type="radio" name="rtp_general[use_favicon]" value="use_favicon_url" id="use_favicon_url" class="rtp_favicon" <?php checked( 'use_favicon_url', $rtp_general['use_favicon'] ); ?> />
-                    <label for="use_favicon_url"><?php _e( 'Favicon URL', 'rtPanel' ); ?></label>
-                </th>
-                <td class="img-url">
-                    <input<?php disabled( 'use_favicon_upload', $rtp_general['use_favicon'] ); ?> placeholder="http://www.example.com/favicon.ico" type="text" value="<?php echo esc_url( $rtp_general['favicon_url'] ); ?>" name="rtp_general[favicon_url]" size="40" id="favicon_url" /><br />
-                </td>
-                <td class="img-preview" rowspan="2">
-                    <div class="alignleft image-preview"  id="favicon_metabox">
-                        <p><?php _e( 'Preview', 'rtPanel' ); ?></p>
-                        <img width="16" alt="favicon" src="<?php echo rtp_logo_fav_src('favicon'); ?>" />
-                    </div>
-                </td>
-            </tr>
-            <tr valign="top" class="show-fields-favicon">
-                <th>
-                    <input type="radio" name="rtp_general[use_favicon]" value="use_favicon_upload" id="use_favicon_upload" class="rtp_favicon" <?php checked( 'use_favicon_upload', $rtp_general['use_favicon'] ); ?> />
-                    <label for="use_favicon_upload"><?php _e( 'Upload Favicon', 'rtPanel' ); ?></label>
-                </th>
-                <td>
-                    <input<?php disabled( 'use_favicon_url', $rtp_general['use_favicon'] ); ?> type="button" value="<?php _e( 'Upload Favicon', 'rtPanel' ); ?>" name="rtp_general[favicon_upload]" class="button" id="favicon_upload" />
-                    <input type="hidden"  name="rtp_general[favicon_upload]" id="favicon_upload_url" value="<?php if( isset( $rtp_general['favicon_upload'] ) ) echo $rtp_general['favicon_upload']; ?>" />
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <div class="rtp_submit">
-        <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
-        <input class="button-secondary" value="<?php _e( 'Reset Favicon Settings', 'rtPanel' ); ?>" name="rtp_fav_reset" type="submit" />
-        <div class="clear"></div>
-    </div><?php
-}
-
 /**
  * Facebook Open Graph Metabox - General Tab
  *
@@ -313,18 +265,15 @@ function rtp_plugin_metabox() {
     $rtp_hooks_editor_activate = wp_create_nonce( RTP_HOOKS_EDITOR . '-activate' );
     $rtp_hooks_editor_deactivate = wp_create_nonce( RTP_HOOKS_EDITOR . '-deactivate' );
     $rtp_hooks_editor_delete = wp_create_nonce( RTP_HOOKS_EDITOR . '-delete' );
+    $rtp_social_activate = wp_create_nonce( RTP_SOCIAL . '-activate' );
+    $rtp_social_deactivate = wp_create_nonce( RTP_SOCIAL . '-deactivate' );
+    $rtp_social_delete = wp_create_nonce( RTP_SOCIAL . '-delete' );
     $subscribe_activate = wp_create_nonce( RTP_SUBSCRIBE_TO_COMMENTS . '-activate' );
     $subscribe_deactivate = wp_create_nonce( RTP_SUBSCRIBE_TO_COMMENTS . '-deactivate' );
     $subscribe_delete = wp_create_nonce( RTP_SUBSCRIBE_TO_COMMENTS . '-delete' );
-    $pagenavi_activate = wp_create_nonce( RTP_WP_PAGENAVI . '-activate' );
-    $pagenavi_deactivate = wp_create_nonce( RTP_WP_PAGENAVI . '-deactivate' );
-    $pagenavi_delete = wp_create_nonce( RTP_WP_PAGENAVI . '-delete' );
     $yoast_seo_activate = wp_create_nonce( RTP_YOAST_SEO . '-activate' );
     $yoast_seo_deactivate = wp_create_nonce( RTP_YOAST_SEO . '-deactivate' );
     $yoast_seo_delete = wp_create_nonce( RTP_YOAST_SEO . '-delete' );
-    $breadcrumb_activate = wp_create_nonce( RTP_BREADCRUMB_NAVXT . '-activate' );
-    $breadcrumb_deactivate = wp_create_nonce( RTP_BREADCRUMB_NAVXT . '-deactivate' );
-    $breadcrumb_delete = wp_create_nonce( RTP_BREADCRUMB_NAVXT . '-delete' );
     $regenerate_activate = wp_create_nonce( RTP_REGENERATE_THUMBNAILS . '-activate' );
     $regenerate_deactivate = wp_create_nonce( RTP_REGENERATE_THUMBNAILS . '-deactivate' );
     $regenerate_delete = wp_create_nonce( RTP_REGENERATE_THUMBNAILS . '-delete' ); ?>
@@ -366,6 +315,36 @@ function rtp_plugin_metabox() {
             </td>
         </tr>
         <tr>
+            <td><a target="_blank" href="http://wordpress.org/extend/plugins/rtsocial/"><?php _e( 'rtSocial', 'rtPanel' ); ?></a></td>
+            <td>
+                <?php
+                if ( is_plugin_active( RTP_SOCIAL ) ) {
+                    echo '<span class="active">' . __( 'Active', 'rtPanel' ) . '</span>';
+                } elseif ( array_key_exists( RTP_SOCIAL, $plugins ) ) {
+                    echo '<span class="inactive">' . __( 'Inactive', 'rtPanel' ) . '</span>';
+                } else {
+                    echo '<span class="not-installed">' . __( 'Not Installed', 'rtPanel' ) . '</span>';
+                }
+                ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_SOCIAL ) ) { ?>
+                    <input type="hidden" value="<?php echo $rtp_social_deactivate; ?>" name="_wpnonce_rtsocial_deactivate" id="_wpnonce_rtsocial_deactivate" /><input id="rtsocial-deactivate" type="hidden" name="rtsocial-deactivate" value="0" /><a class="rtsocial-deactivate" href="#rtsocial-deactivate" onclick="deactivate_plugin('rtSocial')"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
+                <?php } elseif ( array_key_exists( RTP_SOCIAL, $plugins ) ) { ?>
+                    <input type="hidden" value="<?php echo $rtp_social_activate; ?>" name="_wpnonce_rtsocial_activate" id="_wpnonce_rtsocial_activate" /><input id="rtsocial-activate" type="hidden" name="rtsocial-activate" value="0" /><a class="rtsocial-activate" href="#rtsocial-activate" onclick="activate_plugin('rtSocial')"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo $rtp_social_delete; ?>" name="_wpnonce_rtsocial_delete" id="_wpnonce_rtsocial_delete" /><input id="rtsocial-delete" type="hidden" name="rtsocial-delete" value="0" /><a class="rtsocial-delete" href="#rtsocial-delete" onclick="delete_plugin_confirmation( 'rtSocial' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=rtsocial' ), 'install-plugin_rtsocial' ); ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
+                <?php } ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_SOCIAL ) || array_key_exists( RTP_SOCIAL, $plugins ) ) { ?>
+                    <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_SOCIAL ) ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <span class="not-installed"> ----- </span>
+                <?php } ?>
+            </td>
+        </tr>
+        <tr>
             <td><a target="_blank" href="http://wordpress.org/extend/plugins/subscribe-to-comments/"><?php _e( 'Subscribe to Comments', 'rtPanel' ); ?></a></td>
             <td>
                 <?php
@@ -396,36 +375,6 @@ function rtp_plugin_metabox() {
             </td>
         </tr>
         <tr>
-            <td><a target="_blank" href="http://wordpress.org/extend/plugins/wp-pagenavi/"><?php _e( 'WP-PageNavi', 'rtPanel' ); ?></a></td>
-            <td>
-                <?php
-                if ( is_plugin_active( RTP_WP_PAGENAVI ) ) {
-                    echo '<span class="active">' . __( 'Active', 'rtPanel' ) . '</span>';
-                } elseif ( array_key_exists( RTP_WP_PAGENAVI, $plugins ) ) {
-                    echo '<span class="inactive">' . __( 'Inactive', 'rtPanel' ) . '</span>';
-                } else {
-                    echo '<span class="not-installed">' . __( 'Not Installed', 'rtPanel' ) . '</span>';
-                }
-                ?>
-            </td>
-            <td>
-                <?php if ( is_plugin_active( RTP_WP_PAGENAVI ) ) { ?>
-                    <input type="hidden" value="<?php echo $pagenavi_deactivate; ?>" name="_wpnonce_pagenavi_deactivate" id="_wpnonce_pagenavi_deactivate" /><input id="pagenavi-deactivate" type="hidden" name="pagenavi-deactivate" value="0" /><a class="pagenavi-deactivate" href="#pagenavi-deactivate" onclick="deactivate_plugin('WP PageNavi')"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
-                <?php } elseif ( array_key_exists( RTP_WP_PAGENAVI, $plugins ) ) { ?>
-                    <input type="hidden" value="<?php echo $pagenavi_activate; ?>" name="_wpnonce_pagenavi_activate" id="_wpnonce_pagenavi_activate" /><input id="pagenavi-activate" type="hidden" name="pagenavi-activate" value="0" /><a class="pagenavi-activate" href="#pagenavi-activate" onclick="activate_plugin( 'WP PageNavi' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo $pagenavi_delete; ?>" name="_wpnonce_pagenavi_delete" id="_wpnonce_pagenavi_delete" /><input id="pagenavi-delete" type="hidden" name="pagenavi-delete" value="0" /><a class="pagenavi-delete" href="#pagenavi-delete" onclick="delete_plugin_confirmation( 'WP PageNavi' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
-                <?php } else { ?>
-                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=wp-pagenavi' ), 'install-plugin_wp-pagenavi' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
-                <?php } ?>
-            </td>
-            <td>
-                <?php if ( is_plugin_active( RTP_WP_PAGENAVI ) || array_key_exists( RTP_WP_PAGENAVI, $plugins ) ) { ?>
-                    <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_WP_PAGENAVI ) ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
-                <?php } else { ?>
-                    <span class="not-installed"> ----- </span>
-                <?php } ?>
-            </td>
-        </tr>
-        <tr>
             <td><a target="_blank" href="http://wordpress.org/extend/plugins/wordpress-seo/"><?php _e( 'WordPress SEO by Yoast', 'rtPanel' ); ?></a></td>
             <td>
                 <?php
@@ -450,35 +399,6 @@ function rtp_plugin_metabox() {
             <td>
                 <?php if ( is_plugin_active( RTP_YOAST_SEO ) || array_key_exists( RTP_YOAST_SEO, $plugins ) ) { ?>
                     <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_YOAST_SEO ) ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
-                <?php } else { ?>
-                    <span class="not-installed"> ----- </span>
-                <?php } ?>
-            </td>
-        </tr>
-        <tr>
-            <td><a target="_blank" href="http://wordpress.org/extend/plugins/breadcrumb-navxt/"><?php _e( 'Breadcrumb NavXT', 'rtPanel' ); ?></a></td>
-            <td>
-                <?php
-                if ( is_plugin_active( RTP_BREADCRUMB_NAVXT ) ) {
-                    echo '<span class="active">Active</span>';
-                } elseif ( array_key_exists( RTP_BREADCRUMB_NAVXT, $plugins ) ) {
-                    echo '<span class="inactive">Inactive</span>';
-                } else {
-                    echo '<span class="not-installed">Not Installed</span>';
-                } ?>
-            </td>
-            <td>
-                <?php if ( is_plugin_active( RTP_BREADCRUMB_NAVXT ) ) { ?>
-                    <input type="hidden" value="<?php echo $breadcrumb_deactivate; ?>" name="_wpnonce_breadcrumb_deactivate" id="_wpnonce_breadcrumb_deactivate" /><input id="breadcrumb-deactivate" type="hidden" name="breadcrumb-deactivate" value="0" /><a class="breadcrumb-deactivate" href="#breadcrumb-deactivate" onclick="deactivate_plugin( 'Breadcrumb NavXT' )"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
-                <?php } elseif ( array_key_exists( RTP_BREADCRUMB_NAVXT, $plugins ) ) { ?>
-                    <input type="hidden" value="<?php echo $breadcrumb_activate; ?>" name="_wpnonce_breadcrumb_activate" id="_wpnonce_breadcrumb_activate" /><input id="breadcrumb-activate" type="hidden" name="breadcrumb-activate" value="0" /><a class="breadcrumb-activate" href="#breadcrumb-activate" onclick="activate_plugin( 'Breadcrumb NavXT' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo $breadcrumb_delete; ?>" name="_wpnonce_breadcrumb_delete" id="_wpnonce_breadcrumb_delete" /><input id="breadcrumb-delete" type="hidden" name="breadcrumb-delete" value="0" /><a class="breadcrumb-delete" href="#breadcrumb-delete" onclick="delete_plugin_confirmation( 'Breadcrumb NavXT' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
-                <?php } else { ?>
-                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=breadcrumb-navxt' ), 'install-plugin_breadcrumb-navxt' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
-                <?php } ?>
-            </td>
-            <td>
-                <?php if ( is_plugin_active( RTP_BREADCRUMB_NAVXT ) || array_key_exists( RTP_BREADCRUMB_NAVXT, $plugins ) ) { ?>
-                    <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_BREADCRUMB_NAVXT ); ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
                 <?php } else { ?>
                     <span class="not-installed"> ----- </span>
                 <?php } ?>

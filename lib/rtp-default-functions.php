@@ -22,29 +22,29 @@ function rtp_has_postmeta( $position = 'u' ) {
     $flag = 0;
     // Show Author?
     if ( $rtp_post_comments['post_author_'.$position] ) {
-        $flag = 1;
+        $flag++;
     }
     // Show Date?
     elseif ( $rtp_post_comments['post_date_'.$position] )  {
-        $flag = 1;
+        $flag++;
     }
      // Show Category?
     elseif ( get_the_category_list() && $rtp_post_comments['post_category_'.$position] ) {
-        $flag = 1;
+        $flag++;
     }
     // Show Tags?
     elseif ( get_the_tag_list() && $rtp_post_comments['post_tags_'.$position] ) {
-        $flag = 1;
+        $flag++;
     } 
     // Checked if logged in and post meta top
     else if ( $can_edit && $position == 'u' ) {
-        $flag = 1;
+        $flag++;
     } 
     elseif ( ( has_action( 'rtp_hook_begin_post_meta_top' ) || ( has_action( 'rtp_hook_end_post_meta_top' ) && $can_edit ) ) && $position == 'u' ) {
-        $flag = 1;
+        $flag++;
     }
     elseif ( ( has_action( 'rtp_hook_begin_post_meta_bottom' ) || has_action( 'rtp_hook_end_post_meta_bottom' ) ) && $position == 'l' ) {
-        $flag = 1;
+        $flag++;
     }
     else {
         // Show Custom Taxonomies?
@@ -52,7 +52,7 @@ function rtp_has_postmeta( $position = 'u' ) {
         $taxonomies = get_taxonomies( $args, 'names' );
         foreach ( $taxonomies as $taxonomy ) {
             if ( get_the_terms( $post->ID, $taxonomy ) && isset( $rtp_post_comments['post_'.$taxonomy.'_'.$position] ) && $rtp_post_comments['post_'.$taxonomy.'_'.$position] ) {
-                $flag = 1;
+                $flag++;
             }
         }
     }
@@ -77,7 +77,7 @@ function rtp_default_post_meta( $placement = 'top' ) {
 
         if ( rtp_has_postmeta( $position ) ) {
             if ( $position == 'l' ) { echo '<footer class="post-footer">'; } ?>
-            <div class="post-meta post-meta-<?php echo $placement; ?>"><?php   
+            <div class="clearfix post-meta post-meta-<?php echo $placement; ?>"><?php   
 
                 if( 'bottom' == $placement )
                     rtp_hook_begin_post_meta_bottom();
@@ -86,22 +86,22 @@ function rtp_default_post_meta( $placement = 'top' ) {
 
                 // Author Link
                 if ( $rtp_post_comments['post_author_'.$position] || $rtp_post_comments['post_date_'.$position] ) { ?>
-                    <p class="post-publish"><?php
+                    <p class="post-publish alignleft"><?php
                         if ( $rtp_post_comments['post_author_'.$position] ) {
-                            printf( __( 'by <span class="author vcard">%s</span>', 'rtPanel' ), ( !$rtp_post_comments['author_link_'.$position] ? get_the_author() . ( $rtp_post_comments['author_count_'.$position] ? '(' . get_the_author_posts() . ')' : '' ) : sprintf( __( '<a href="%1$s" title="%2$s">%3$s</a>', 'rtPanel' ), get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ), esc_attr( sprintf( __( 'Posts by %s', 'rtPanel' ), get_the_author() ) ), get_the_author() ) . ( $rtp_post_comments['author_count_'.$position] ? '(' . get_the_author_posts() . ')' : '' ) ) );
+                            printf( __( 'Posted by <span class="author vcard">%s</span>', 'rtPanel' ), ( !$rtp_post_comments['author_link_'.$position] ? get_the_author() . ( $rtp_post_comments['author_count_'.$position] ? '(' . get_the_author_posts() . ')' : '' ) : sprintf( __( '<a href="%1$s" title="%2$s">%3$s</a>', 'rtPanel' ), get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ), esc_attr( sprintf( __( 'Posts by %s', 'rtPanel' ), get_the_author() ) ), get_the_author() ) . ( $rtp_post_comments['author_count_'.$position] ? '(' . get_the_author_posts() . ')' : '' ) ) );
                         }
                         echo ( $rtp_post_comments['post_author_'.$position] && $rtp_post_comments['post_date_'.$position] ) ? ' ' : '';
                         if ( $rtp_post_comments['post_date_'.$position] ) {
                             printf( __( 'on <time class="published" datetime="%s">%s</time>', 'rtPanel' ), get_the_date('c'), get_the_time( $rtp_post_comments['post_date_format_'.$position] ) );
                         } ?>
                     </p><?php
-                } 
+                }
 
                 // Post Categories
-                echo ( get_the_category_list() && $rtp_post_comments['post_category_'.$position] ) ? '<p class="post-category">' . __( 'Category', 'rtPanel' ) . ': <span>' . get_the_category_list( ', ' ) . '</span></p>' : '';
+                echo ( get_the_category_list() && $rtp_post_comments['post_category_'.$position] ) ? '<p class="post-category alignleft">&nbsp;' . __( 'in', 'rtPanel' ) . ' <span>' . get_the_category_list( ', ' ) . '</span></p>' : '';
 
                 // Post Tags
-                echo ( get_the_tag_list() && $rtp_post_comments['post_tags_'.$position] ) ? '<p class="post-tags">' . get_the_tag_list( __( 'Tagged in', 'rtPanel' ) . ': <span>', ', ', '</span>' ) . '</p>' : '';
+                echo ( get_the_tag_list() && $rtp_post_comments['post_tags_'.$position] ) ? '<p class="post-tags alignleft">' . get_the_tag_list( __( 'Tagged', 'rtPanel' ) . ': <span>', ', ', '</span>' ) . '</p>' : '';
 
                 // Post Custom Taxonomies
                 $args = array( '_builtin' => false );
@@ -134,6 +134,13 @@ add_action('rtp_hook_post_meta_bottom','rtp_default_post_meta'); // Post Meta Bo
  */
 function rtp_default_nav_menu() {
      echo '<nav id="rtp-primary-menu" role="navigation" class="rtp-grid-12">';
+
+     echo '<button class="btn rtp-nav-btn" type="button">
+            <span class="rtp-icon-bar"></span>
+            <span class="rtp-icon-bar"></span>
+            <span class="rtp-icon-bar"></span>
+          </button>';
+
         /* Call wp_nav_menu() for Wordpress Navigaton with fallback wp_list_pages() if menu not set in admin panel */
         if ( function_exists( 'wp_nav_menu' ) && has_nav_menu( 'primary' ) ) {
             wp_nav_menu( array( 'container' => '', 'menu_id' => 'rtp-nav-menu', 'theme_location' => 'primary', 'depth' => apply_filters( 'rtp_nav_menu_depth', 4 ) ) );
@@ -153,7 +160,7 @@ add_action('rtp_hook_after_header','rtp_default_nav_menu'); // Adds default nav 
  */
 function rtp_edit_link() {
     // Call Edit Link
-    edit_post_link( __( '[ edit ]', 'rtPanel' ), '<p class="rtp-edit-link">', '</p>');
+    edit_post_link( __( '[ edit ]', 'rtPanel' ), '<p class="rtp-edit-link alignright">', '</p>');
 }
 add_action('rtp_hook_end_post_meta_top', 'rtp_edit_link');
 
@@ -269,7 +276,7 @@ function rtp_default_comment_count() {
     // Comment Count
     add_filter( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
     if ( ( ( get_comments_number() || @comments_open() ) && !is_attachment() && !rtp_is_bbPress() ) || ( is_attachment() && $rtp_post_comments['attachment_comments'] ) ) { // If post meta is set to top then only display the comment count. ?>
-        <p class="alignright rtp-post-comment-count"><span class="rtp-curly-bracket">{</span><?php comments_popup_link( __( '<span>0</span> Comments', 'rtPanel' ), __( '<span>1</span> Comment', 'rtPanel' ), __( '<span>%</span> Comments', 'rtPanel' ), 'rtp-post-comment rtp-common-link' ); ?><span class="rtp-curly-bracket">}</span></p><?php
+        <p class="alignright rtp-post-comment-count"><span class="rtp-curly-bracket">{</span><?php comments_popup_link( _x( '<span>0</span> Comments', 'comments number', 'rtPanel' ), _x( '<span>1</span> Comment', 'comments number', 'rtPanel' ), _x( '<span>%</span> Comments', 'comments number', 'rtPanel' ), 'rtp-post-comment rtp-common-link' ); ?><span class="rtp-curly-bracket">}</span></p><?php
     }
     remove_filter( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
 }

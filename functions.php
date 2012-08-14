@@ -7,7 +7,7 @@
  * @since rtPanel 2.0
  */
 
-define( 'RTP_VERSION', '2.1.1' );
+define( 'RTP_VERSION', '2.2' );
 
 /* Define Directory Constants */
 define( 'RTP_ADMIN', get_template_directory() . '/admin' );
