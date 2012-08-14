@@ -55,15 +55,15 @@ blockquote, .page-link > a, .page-link > span, .breadcrumb, .comment-body, hr, t
 html { overflow-y: scroll; }
 
 /* Generic Lists */
-ul, ol, .comment-text > ol, .comment-text > ul { margin: 10px 0 10px 25px; }
+ul, ol, .comment-text > ol, .comment-text > ul { margin: 10px 0 10px 30px; }
 ul { list-style: disc; }
 ol { list-style: decimal; }
-    ul ol, ul ul, ol ul, ol ol { margin: 0 0 0 15px; }
+    ul ol, ul ul, ol ul, ol ol { margin: 0 0 0 20px; }
     ol ol { list-style: upper-alpha; }
     ol ol ol { list-style: lower-roman; }
     ol ol ol ol { list-style: lower-alpha; }
     .comment-text > ul ol, .comment-text > ul ul,
-    .comment-text > ol ul, .comment-text > ol ol { margin: 0 0 0 15px; }
+    .comment-text > ol ul, .comment-text > ol ol { margin: 0 0 0 20px; }
 
 /* Generic Table */
 table { border-collapse: separate; border-spacing: 0; border-width: 0 1px 1px 0; margin: 10px 0; text-align: left; width: 100%; }
@@ -87,9 +87,11 @@ input[type=button], input[type=submit], input[type=reset], button { cursor: poin
 input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover, button:hover { background-color: #E6E6E6; background-position: 0 -15px; text-decoration: none; }
 button { overflow: visible; vertical-align: middle; } /* make buttons play nice in IE (Source - http://www.viget.com/inspire/styling-the-button-element-in-internet-explorer/) */
 input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus, button:focus, input[type=button]:active, input[type=submit]:active, input[type=reset]:active, button:active { box-shadow: 0 0 3px #999 inset; }
+
 /* Mozilla fixing */
 .gecko input[type=button], .gecko input[type=submit], .gecko input[type=reset], .gecko button { padding: 5px 10px; }
 .gecko button { padding: 6px 10px 5px; }
+
 /* remove Webkit appearance */
 input[type=search] { -webkit-appearance: none; }
 
@@ -159,7 +161,7 @@ input, textarea, select, #rtp-primary-menu, img, #rtp-nav-menu li, table, .wp-ca
 body { font: 87.5%/1.5 sans-serif; }
 pre, code, kbd, samp, tt, var { font-family: monospace; }
 h1, h2, h3, h4, h5, h6 { font-family: serif; }
-.tagline, #reply-title small, .rtp-thoughts, input, select, textarea, #cse .gsc-control-cse, #cse .gsc-control-cse .gsc-table-result { font-family: sans-serif; }
+.tagline, #reply-title small, input, select, textarea, #cse .gsc-control-cse, #cse .gsc-control-cse .gsc-table-result { font-family: sans-serif; }
 
 /* Heading Style */
 h1 { margin: 1.125em 0 0.375em 0; font-size: 2em; font-weight: 400; line-height: 1.25em; }
@@ -181,7 +183,7 @@ p:first-child { margin-top: 0; }
 .rtp-no-thumbnail-shadow + p { margin-top: 0; }
 
 /* Elements having small font size */
-code, pre, .rtp-readmore, .rtp-readmore:visited, .post-meta p, .gallery-caption, .breadcrumb, .rtp-navigation, .rtp-comments-pagination, .rtp-thoughts, #respond, #respond .form-allowed-tags, .widget, .comment-text { font-size: 13px; line-height: 1.6153em; }
+code, pre, .rtp-readmore, .rtp-readmore:visited, .post-meta p, .gallery-caption, .breadcrumb, .rtp-navigation, .rtp-comments-pagination, #respond, #respond .form-allowed-tags, .widget, .comment-text { font-size: 13px; line-height: 1.6153em; }
 .rtp-edit-link a, .comment-meta, .trackback em, .pingback em, .rtp-comments-widget .comment-date, .widget_calendar table, .bbp_widget_login .logout-link { font-size: 12px; line-height: 1.75em; }
 /* End - Typography */
 
@@ -307,9 +309,8 @@ body { color: #333; }
         #content-wrapper { position: relative; z-index: 10; }
 
 /* Default Links */
-a, a:active, a:visited,
-.rtp-thoughts a, .rtp-thoughts a:active, .rtp-thoughts a:visited { color: #0279B5; text-decoration: none; }
-a:hover, a:focus, .rtp-thoughts a:hover { color: #CD3517; text-decoration: underline; }
+a, a:active, a:visited { color: #0279B5; text-decoration: none; }
+a:hover, a:focus { color: #CD3517; text-decoration: underline; }
 
 /* Heading Links */
 h1 a, h1 a:visited, h1 a:active,
@@ -391,7 +392,7 @@ h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus { color: #CD3517; text-decoration
         #post-0 { padding-top: 15px; }
 
 /* Google custom search page style */
-#content .cse .gsc-control-cse, #content .gsc-control-cse { padding: 0; }
+#content .gsc-control-cse { padding: 0; }
     .gsc-above-wrapper-area-container, #cse table.gstl_0 { border-width: 0; margin: 0; }
     table.gsc-search-box td { border-width: 0; }
         .gsc-input-box .gscb_a { line-height: 25px; }
@@ -408,7 +409,8 @@ h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus { color: #CD3517; text-decoration
         .gsc-table-result .gsc-thumbnail { padding-left: 0; }
         .gs-result img.gs-image, .gs-result img.gs-promotion-image { margin: 0; }
         #cse .gs-web-image-box, #cse .gs-promotion-image-box { padding: 3px 0 0; }
-        .gs-result a.gs-title, .gs-result a.gs-title b { color: #0279B5; }
+        #cse .gsc-result .gs-title { height: auto; text-decoration: none; }
+        .gs-result a.gs-title, .gs-result a.gs-title b { color: #0279B5; text-decoration: none; }
         .gs-result a.gs-title:hover, .gs-result a.gs-title:hover b { color: #CD3517; }
         #cse .gsc-webResult.gsc-result { border-width: 0 0 1px; border-color: #DDD; border-style: none none dotted; clear: both; margin: 0; padding: 10px 0; position: relative; }
         #cse input.gsc-input:hover { border-color: #999; }
@@ -420,6 +422,7 @@ h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus { color: #CD3517; text-decoration
         #cse .gsc-results .gsc-cursor-box .gsc-cursor-page:hover, #cse .gsc-results .gsc-cursor-box .gsc-cursor-current-page, #cse .gsc-results .gsc-cursor-box .gsc-cursor-current-page:hover { text-decoration: none }
         #cse .gsc-results .gsc-cursor-box .gsc-cursor-page:hover, #cse .gsc-results .gsc-cursor-box .gsc-cursor-current-page, #cse .gsc-results .gsc-cursor-box .gsc-cursor-current-page:hover { border-color: #999 }
         #cse .gsc-results .gsc-cursor-box .gsc-cursor-current-page, #cse .gsc-results .gsc-cursor-box .gsc-cursor-current-page:hover { color: #333; font-weight: normal; }
+        #cse .cse input.gsc-search-button, #cse input.gsc-search-button { height: auto; margin: 0; min-width: 50px; padding: 6px 18px; }
 /* End - Search Page Style */
 
 /* Attachment Style */
@@ -497,6 +500,7 @@ img.alignright { margin: 5px 0 5px 15px; }
 .rtp-comment-count { border-width: 0 0 1px; border-style: dotted; color: #666; font-style: normal; line-height: 2.857em; padding: 10px 0; }
     .rtp-comment-count > h2 { float: left; font-size: 20px; line-height: 1em; margin: 0; }
     .rtp-manage-comments { line-height: 1.44em; }
+    .rtp-thoughts { font-size: 13px; float: left; line-height: 1.9em; }
 
     /* Comments Display */
     .comments-container:empty { border-top: 0; }
@@ -713,30 +717,29 @@ img.alignright { margin: 5px 0 5px 15px; }
 .rtp-pull-9 { left: -558px; }
 .rtp-pull-10 { left: -620px; }
 .rtp-pull-11 { left: -682px; }
-    
 }
 
 /* Screen Width: 760 */
 @media screen and (max-width: 760px) {
 .rtp-container-12 { max-width: 744px; width: 96%; }
 
-/* Grid >> 12 Columns */
+/* Add Box Sizing: border-box Grid >> 12 Columns */
 .rtp-grid-1, .rtp-grid-2, .rtp-grid-3, .rtp-grid-4, .rtp-grid-5, .rtp-grid-6, .rtp-grid-7, .rtp-grid-8,
 .rtp-grid-9, .rtp-grid-10, .rtp-grid-11, .rtp-grid-12 { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; margin-left: 0; margin-right: 0; width: 100%; }
 
-/* Prefix Extra Space >> 12 Columns */
+/* Reset Null Prefix Extra Space >> 12 Columns */
 .rtp-prefix-1, .rtp-prefix-2, .rtp-prefix-3, .rtp-prefix-4, .rtp-prefix-5, .rtp-prefix-6, .rtp-prefix-7, .rtp-prefix-8,
 .rtp-prefix-9, .rtp-prefix-10, .rtp-prefix-11 { padding-left: 0; }
 
-/* Suffix Extra Space >> 12 Columns */
+/* Reset Null Suffix Extra Space >> 12 Columns */
 .rtp-suffix-1, .rtp-suffix-2, .rtp-suffix-3, .rtp-suffix-4, .rtp-suffix-5, .rtp-suffix-6, .rtp-suffix-7, .rtp-suffix-8,
 .rtp-suffix-9, .rtp-suffix-10, .rtp-suffix-11 { padding-right: 0; }
 
-/* Push Space >> 12 Columns */
+/* Reset Null Push Space >> 12 Columns */
 .rtp-push-1, .rtp-push-2, .rtp-push-3, .rtp-push-4, .rtp-push-5, .rtp-push-6, .rtp-push-7, .rtp-push-8,
 .rtp-push-9, .rtp-push-10, .rtp-push-11 { left: 0; }
 
-/* Pull Space >> 12 Columns */
+/* Reset Null Pull Space >> 12 Columns */
 .rtp-pull-1, .rtp-pull-2, .rtp-pull-3, .rtp-pull-4, .rtp-pull-5, .rtp-pull-6, .rtp-pull-7, .rtp-pull-8,
 .rtp-pull-9, .rtp-pull-10, .rtp-pull-11 { left: 0; }
 

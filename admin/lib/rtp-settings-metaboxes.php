@@ -49,7 +49,7 @@ function rtp_logo_option_metabox() {
                         <p style="margin-bottom: 10px;"><input type="radio" name="rtp_general[logo_use]" value="site_title" id="use_site_title" class="rtp_logo" <?php checked( 'site_title', $rtp_general['logo_use'] ); ?> />
                         <label for="use_site_title" style="margin-right: 30px;"><?php _e( 'Use Site Title', 'rtPanel' ); ?></label>
                         <input type="radio" name="rtp_general[logo_use]" value="image" id="use_logo_image" class="rtp_logo" <?php checked( 'image', $rtp_general['logo_use'] ); ?> />
-                        <label for="use_logo_image"><?php _e( 'Use Image', 'rtPanel' ); ?></label></p>
+                        <label for="use_logo_image"><?php _e( 'Upload Logo', 'rtPanel' ); ?></label></p>
                         <input type="file" name="html-upload-logo" id="html-upload-logo"<?php echo $logo_style; ?>>
                         <input type="hidden"  name="rtp_general[logo_upload]" id="logo_upload_url" value="<?php if( isset( $rtp_general['logo_upload'] ) ) echo $rtp_general['logo_upload']; ?>" />
                         <input type="hidden"  name="rtp_general[logo_id]" id="logo_id" value="<?php if( isset( $rtp_general['logo_id'] ) ) echo $rtp_general['logo_id']; ?>" />
@@ -69,19 +69,19 @@ function rtp_logo_option_metabox() {
                 </tr>
                 <tr valign="top">
                     <th scope="row"><label for="favicon_use"><?php _e( 'For Favicon', 'rtPanel' ); ?></label></th>
-                    <td>
+                    <td rowspan="3">
+                        <div class="alignleft">
                         <p style="margin-bottom: 10px;"><input type="radio" name="rtp_general[favicon_use]" value="disable" id="favicon_disable" class="rtp_favicon" <?php checked( 'disable', $rtp_general['favicon_use'] ); ?> />
                         <label for="favicon_disable" style="margin-right: 30px;"><?php _e( 'Disable', 'rtPanel' ); ?></label>
                         <input type="radio" name="rtp_general[favicon_use]" value="logo" id="use_logo" class="rtp_favicon" <?php disabled( $rtp_general['logo_use'], 'site_title' ); checked( 'logo', $rtp_general['favicon_use'] ); ?> />
-                        <label for="use_logo"  style="margin-right: 30px;"><?php _e( 'Use Resized Logo', 'rtPanel' ); ?></label>
+                        <label for="use_logo"  style="margin-right: 30px;"><?php _e( 'Resize Logo and use as Favicon', 'rtPanel' ); ?></label>
                         <input type="radio" name="rtp_general[favicon_use]" value="image" id="use_favicon_image" class="rtp_favicon" <?php checked( 'image', $rtp_general['favicon_use'] ); ?> />
-                        <label for="use_favicon_image"><?php _e( 'Use Image', 'rtPanel' ); ?></label></p>
+                        <label for="use_favicon_image"><?php _e( 'Upload Favicon', 'rtPanel' ); ?></label></p>
                         <input type="file" name="html-upload-fav" id="html-upload-fav"<?php echo $favicon_style; ?>>
                         <input type="hidden"  name="rtp_general[favicon_upload]" id="favicon_upload_url" value="<?php if( isset( $rtp_general['favicon_upload'] ) ) echo $rtp_general['favicon_upload']; ?>" />
                         <input type="hidden"  name="rtp_general[favicon_id]" id="favicon_id" value="<?php if( isset( $rtp_general['favicon_id'] ) ) echo $rtp_general['favicon_id']; ?>" />
-                    </td>
-                    <td class="img-preview" rowspan="2">
-                        <div class="image-preview" id="favicon_metabox"<?php echo ( 'disable' == $rtp_general['favicon_use'] ) ? ' style="display: none"' : ''; ?>>
+                        </div>
+                        <div class="image-preview alignright" id="favicon_metabox"<?php echo ( 'disable' == $rtp_general['favicon_use'] ) ? ' style="display: none"' : ''; ?>>
                             <img alt="Favicon" src="<?php echo $rtp_general['favicon_upload']; ?>" />
                         </div>
                     </td>
