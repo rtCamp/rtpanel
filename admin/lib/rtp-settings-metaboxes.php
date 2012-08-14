@@ -11,9 +11,7 @@
 define( 'RTP_SOCIAL', 'rtsocial/source.php' );
 define( 'RTP_HOOKS_EDITOR', 'rtpanel-hooks-editor/rtpanel-hooks-editor.php' );
 define( 'RTP_SUBSCRIBE_TO_COMMENTS', 'subscribe-to-comments/subscribe-to-comments.php' );
-define( 'RTP_WP_PAGENAVI', 'wp-pagenavi/wp-pagenavi.php' );
 define( 'RTP_YOAST_SEO', 'wordpress-seo/wp-seo.php' );
-define( 'RTP_BREADCRUMB_NAVXT', 'breadcrumb-navxt/breadcrumb_navxt_admin.php' );
 define( 'RTP_REGENERATE_THUMBNAILS', 'regenerate-thumbnails/regenerate-thumbnails.php' );
 
 /**
@@ -264,24 +262,18 @@ function rtp_custom_styles_metabox() {
  */
 function rtp_plugin_metabox() {
     $plugins = get_plugins();
-    $rtp_social_activate = wp_create_nonce( RTP_SOCIAL . '-activate' );
-    $rtp_social_deactivate = wp_create_nonce( RTP_SOCIAL . '-deactivate' );
-    $rtp_social_delete = wp_create_nonce( RTP_SOCIAL . '-delete' );
     $rtp_hooks_editor_activate = wp_create_nonce( RTP_HOOKS_EDITOR . '-activate' );
     $rtp_hooks_editor_deactivate = wp_create_nonce( RTP_HOOKS_EDITOR . '-deactivate' );
     $rtp_hooks_editor_delete = wp_create_nonce( RTP_HOOKS_EDITOR . '-delete' );
+    $rtp_social_activate = wp_create_nonce( RTP_SOCIAL . '-activate' );
+    $rtp_social_deactivate = wp_create_nonce( RTP_SOCIAL . '-deactivate' );
+    $rtp_social_delete = wp_create_nonce( RTP_SOCIAL . '-delete' );
     $subscribe_activate = wp_create_nonce( RTP_SUBSCRIBE_TO_COMMENTS . '-activate' );
     $subscribe_deactivate = wp_create_nonce( RTP_SUBSCRIBE_TO_COMMENTS . '-deactivate' );
     $subscribe_delete = wp_create_nonce( RTP_SUBSCRIBE_TO_COMMENTS . '-delete' );
-    $pagenavi_activate = wp_create_nonce( RTP_WP_PAGENAVI . '-activate' );
-    $pagenavi_deactivate = wp_create_nonce( RTP_WP_PAGENAVI . '-deactivate' );
-    $pagenavi_delete = wp_create_nonce( RTP_WP_PAGENAVI . '-delete' );
     $yoast_seo_activate = wp_create_nonce( RTP_YOAST_SEO . '-activate' );
     $yoast_seo_deactivate = wp_create_nonce( RTP_YOAST_SEO . '-deactivate' );
     $yoast_seo_delete = wp_create_nonce( RTP_YOAST_SEO . '-delete' );
-    $breadcrumb_activate = wp_create_nonce( RTP_BREADCRUMB_NAVXT . '-activate' );
-    $breadcrumb_deactivate = wp_create_nonce( RTP_BREADCRUMB_NAVXT . '-deactivate' );
-    $breadcrumb_delete = wp_create_nonce( RTP_BREADCRUMB_NAVXT . '-delete' );
     $regenerate_activate = wp_create_nonce( RTP_REGENERATE_THUMBNAILS . '-activate' );
     $regenerate_deactivate = wp_create_nonce( RTP_REGENERATE_THUMBNAILS . '-deactivate' );
     $regenerate_delete = wp_create_nonce( RTP_REGENERATE_THUMBNAILS . '-delete' ); ?>
@@ -291,36 +283,6 @@ function rtp_plugin_metabox() {
             <th><?php _e( 'Status', 'rtPanel' ); ?></th>
             <th><?php _e( 'Action', 'rtPanel' ); ?></th>
             <th><?php _e( 'Edit', 'rtPanel' ); ?></th>
-        </tr>
-        <tr>
-            <td><a target="_blank" href="http://wordpress.org/extend/plugins/rtsocial/"><?php _e( 'rtSocial', 'rtPanel' ); ?></a></td>
-            <td>
-                <?php
-                if ( is_plugin_active( RTP_SOCIAL ) ) {
-                    echo '<span class="active">' . __( 'Active', 'rtPanel' ) . '</span>';
-                } elseif ( array_key_exists( RTP_SOCIAL, $plugins ) ) {
-                    echo '<span class="inactive">' . __( 'Inactive', 'rtPanel' ) . '</span>';
-                } else {
-                    echo '<span class="not-installed">' . __( 'Not Installed', 'rtPanel' ) . '</span>';
-                }
-                ?>
-            </td>
-            <td>
-                <?php if ( is_plugin_active( RTP_SOCIAL ) ) { ?>
-                    <input type="hidden" value="<?php echo $rtp_social_deactivate; ?>" name="_wpnonce_rtsocial_deactivate" id="_wpnonce_rtsocial_deactivate" /><input id="rtsocial-deactivate" type="hidden" name="rtsocial-deactivate" value="0" /><a class="rtsocial-deactivate" href="#rtsocial-deactivate" onclick="deactivate_plugin('rtSocial')"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
-                <?php } elseif ( array_key_exists( RTP_SOCIAL, $plugins ) ) { ?>
-                    <input type="hidden" value="<?php echo $rtp_social_activate; ?>" name="_wpnonce_rtsocial_activate" id="_wpnonce_rtsocial_activate" /><input id="rtsocial-activate" type="hidden" name="rtsocial-activate" value="0" /><a class="rtsocial-activate" href="#rtsocial-activate" onclick="activate_plugin('rtSocial')"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo $rtp_social_delete; ?>" name="_wpnonce_rtsocial_delete" id="_wpnonce_rtsocial_delete" /><input id="rtsocial-delete" type="hidden" name="rtsocial-delete" value="0" /><a class="rtsocial-delete" href="#rtsocial-delete" onclick="delete_plugin_confirmation( 'rtSocial' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
-                <?php } else { ?>
-                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=rtsocial' ), 'install-plugin_rtsocial' ); ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
-                <?php } ?>
-            </td>
-            <td>
-                <?php if ( is_plugin_active( RTP_SOCIAL ) || array_key_exists( RTP_SOCIAL, $plugins ) ) { ?>
-                    <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_SOCIAL ) ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
-                <?php } else { ?>
-                    <span class="not-installed"> ----- </span>
-                <?php } ?>
-            </td>
         </tr>
         <tr>
             <td><a target="_blank" href="http://wordpress.org/extend/plugins/rtpanel-hooks-editor/"><?php _e( 'rtPanel Hooks Editor', 'rtPanel' ); ?></a></td>
@@ -347,6 +309,36 @@ function rtp_plugin_metabox() {
             <td>
                 <?php if ( is_plugin_active( RTP_HOOKS_EDITOR ) || array_key_exists( RTP_HOOKS_EDITOR, $plugins ) ) { ?>
                     <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_HOOKS_EDITOR ) ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <span class="not-installed"> ----- </span>
+                <?php } ?>
+            </td>
+        </tr>
+        <tr>
+            <td><a target="_blank" href="http://wordpress.org/extend/plugins/rtsocial/"><?php _e( 'rtSocial', 'rtPanel' ); ?></a></td>
+            <td>
+                <?php
+                if ( is_plugin_active( RTP_SOCIAL ) ) {
+                    echo '<span class="active">' . __( 'Active', 'rtPanel' ) . '</span>';
+                } elseif ( array_key_exists( RTP_SOCIAL, $plugins ) ) {
+                    echo '<span class="inactive">' . __( 'Inactive', 'rtPanel' ) . '</span>';
+                } else {
+                    echo '<span class="not-installed">' . __( 'Not Installed', 'rtPanel' ) . '</span>';
+                }
+                ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_SOCIAL ) ) { ?>
+                    <input type="hidden" value="<?php echo $rtp_social_deactivate; ?>" name="_wpnonce_rtsocial_deactivate" id="_wpnonce_rtsocial_deactivate" /><input id="rtsocial-deactivate" type="hidden" name="rtsocial-deactivate" value="0" /><a class="rtsocial-deactivate" href="#rtsocial-deactivate" onclick="deactivate_plugin('rtSocial')"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
+                <?php } elseif ( array_key_exists( RTP_SOCIAL, $plugins ) ) { ?>
+                    <input type="hidden" value="<?php echo $rtp_social_activate; ?>" name="_wpnonce_rtsocial_activate" id="_wpnonce_rtsocial_activate" /><input id="rtsocial-activate" type="hidden" name="rtsocial-activate" value="0" /><a class="rtsocial-activate" href="#rtsocial-activate" onclick="activate_plugin('rtSocial')"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo $rtp_social_delete; ?>" name="_wpnonce_rtsocial_delete" id="_wpnonce_rtsocial_delete" /><input id="rtsocial-delete" type="hidden" name="rtsocial-delete" value="0" /><a class="rtsocial-delete" href="#rtsocial-delete" onclick="delete_plugin_confirmation( 'rtSocial' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=rtsocial' ), 'install-plugin_rtsocial' ); ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
+                <?php } ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_SOCIAL ) || array_key_exists( RTP_SOCIAL, $plugins ) ) { ?>
+                    <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_SOCIAL ) ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
                 <?php } else { ?>
                     <span class="not-installed"> ----- </span>
                 <?php } ?>
@@ -383,36 +375,6 @@ function rtp_plugin_metabox() {
             </td>
         </tr>
         <tr>
-            <td><a target="_blank" href="http://wordpress.org/extend/plugins/wp-pagenavi/"><?php _e( 'WP-PageNavi', 'rtPanel' ); ?></a></td>
-            <td>
-                <?php
-                if ( is_plugin_active( RTP_WP_PAGENAVI ) ) {
-                    echo '<span class="active">' . __( 'Active', 'rtPanel' ) . '</span>';
-                } elseif ( array_key_exists( RTP_WP_PAGENAVI, $plugins ) ) {
-                    echo '<span class="inactive">' . __( 'Inactive', 'rtPanel' ) . '</span>';
-                } else {
-                    echo '<span class="not-installed">' . __( 'Not Installed', 'rtPanel' ) . '</span>';
-                }
-                ?>
-            </td>
-            <td>
-                <?php if ( is_plugin_active( RTP_WP_PAGENAVI ) ) { ?>
-                    <input type="hidden" value="<?php echo $pagenavi_deactivate; ?>" name="_wpnonce_pagenavi_deactivate" id="_wpnonce_pagenavi_deactivate" /><input id="pagenavi-deactivate" type="hidden" name="pagenavi-deactivate" value="0" /><a class="pagenavi-deactivate" href="#pagenavi-deactivate" onclick="deactivate_plugin('WP PageNavi')"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
-                <?php } elseif ( array_key_exists( RTP_WP_PAGENAVI, $plugins ) ) { ?>
-                    <input type="hidden" value="<?php echo $pagenavi_activate; ?>" name="_wpnonce_pagenavi_activate" id="_wpnonce_pagenavi_activate" /><input id="pagenavi-activate" type="hidden" name="pagenavi-activate" value="0" /><a class="pagenavi-activate" href="#pagenavi-activate" onclick="activate_plugin( 'WP PageNavi' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo $pagenavi_delete; ?>" name="_wpnonce_pagenavi_delete" id="_wpnonce_pagenavi_delete" /><input id="pagenavi-delete" type="hidden" name="pagenavi-delete" value="0" /><a class="pagenavi-delete" href="#pagenavi-delete" onclick="delete_plugin_confirmation( 'WP PageNavi' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
-                <?php } else { ?>
-                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=wp-pagenavi' ), 'install-plugin_wp-pagenavi' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
-                <?php } ?>
-            </td>
-            <td>
-                <?php if ( is_plugin_active( RTP_WP_PAGENAVI ) || array_key_exists( RTP_WP_PAGENAVI, $plugins ) ) { ?>
-                    <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_WP_PAGENAVI ) ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
-                <?php } else { ?>
-                    <span class="not-installed"> ----- </span>
-                <?php } ?>
-            </td>
-        </tr>
-        <tr>
             <td><a target="_blank" href="http://wordpress.org/extend/plugins/wordpress-seo/"><?php _e( 'WordPress SEO by Yoast', 'rtPanel' ); ?></a></td>
             <td>
                 <?php
@@ -437,35 +399,6 @@ function rtp_plugin_metabox() {
             <td>
                 <?php if ( is_plugin_active( RTP_YOAST_SEO ) || array_key_exists( RTP_YOAST_SEO, $plugins ) ) { ?>
                     <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_YOAST_SEO ) ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
-                <?php } else { ?>
-                    <span class="not-installed"> ----- </span>
-                <?php } ?>
-            </td>
-        </tr>
-        <tr>
-            <td><a target="_blank" href="http://wordpress.org/extend/plugins/breadcrumb-navxt/"><?php _e( 'Breadcrumb NavXT', 'rtPanel' ); ?></a></td>
-            <td>
-                <?php
-                if ( is_plugin_active( RTP_BREADCRUMB_NAVXT ) ) {
-                    echo '<span class="active">Active</span>';
-                } elseif ( array_key_exists( RTP_BREADCRUMB_NAVXT, $plugins ) ) {
-                    echo '<span class="inactive">Inactive</span>';
-                } else {
-                    echo '<span class="not-installed">Not Installed</span>';
-                } ?>
-            </td>
-            <td>
-                <?php if ( is_plugin_active( RTP_BREADCRUMB_NAVXT ) ) { ?>
-                    <input type="hidden" value="<?php echo $breadcrumb_deactivate; ?>" name="_wpnonce_breadcrumb_deactivate" id="_wpnonce_breadcrumb_deactivate" /><input id="breadcrumb-deactivate" type="hidden" name="breadcrumb-deactivate" value="0" /><a class="breadcrumb-deactivate" href="#breadcrumb-deactivate" onclick="deactivate_plugin( 'Breadcrumb NavXT' )"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
-                <?php } elseif ( array_key_exists( RTP_BREADCRUMB_NAVXT, $plugins ) ) { ?>
-                    <input type="hidden" value="<?php echo $breadcrumb_activate; ?>" name="_wpnonce_breadcrumb_activate" id="_wpnonce_breadcrumb_activate" /><input id="breadcrumb-activate" type="hidden" name="breadcrumb-activate" value="0" /><a class="breadcrumb-activate" href="#breadcrumb-activate" onclick="activate_plugin( 'Breadcrumb NavXT' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo $breadcrumb_delete; ?>" name="_wpnonce_breadcrumb_delete" id="_wpnonce_breadcrumb_delete" /><input id="breadcrumb-delete" type="hidden" name="breadcrumb-delete" value="0" /><a class="breadcrumb-delete" href="#breadcrumb-delete" onclick="delete_plugin_confirmation( 'Breadcrumb NavXT' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
-                <?php } else { ?>
-                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=breadcrumb-navxt' ), 'install-plugin_breadcrumb-navxt' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
-                <?php } ?>
-            </td>
-            <td>
-                <?php if ( is_plugin_active( RTP_BREADCRUMB_NAVXT ) || array_key_exists( RTP_BREADCRUMB_NAVXT, $plugins ) ) { ?>
-                    <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_BREADCRUMB_NAVXT ); ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
                 <?php } else { ?>
                     <span class="not-installed"> ----- </span>
                 <?php } ?>
