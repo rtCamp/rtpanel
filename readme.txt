@@ -30,6 +30,9 @@ By using rtPanel, developers and users can specify settings for basic functions 
 If you make changes to thumbnail height, width or crop settings, you must use "Regenerate Thumbnail Plugin" ( http://wordpress.org/extend/plugins/regenerate-thumbnails/ ) to regenerate thumbnails on old posts.
 
 == Changelog ==
+= 2.2.2 =
+* Added: Deprecated functions fallback
+
 = 2.2.1 =
 * Resolved: rtp_general default value issue
 
