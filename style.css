@@ -717,6 +717,11 @@ img.alignright { margin: 5px 0 5px 15px; }
 .rtp-pull-9 { left: -558px; }
 .rtp-pull-10 { left: -620px; }
 .rtp-pull-11 { left: -682px; }
+
+/* Grid >> Children (Alpha ~ First, Omega ~ Last) */
+.rtp-alpha { margin-left: 0; }
+.rtp-omega { margin-right: 0; }
+
 }
 
 /* Screen Width: 760 */
