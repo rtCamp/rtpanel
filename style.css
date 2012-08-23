@@ -56,14 +56,9 @@ html { overflow-y: scroll; }
 
 /* Generic Lists */
 ul, ol, .comment-text > ol, .comment-text > ul { margin: 10px 0 10px 30px; }
-ul { list-style: disc; }
-ol { list-style: decimal; }
-    ul ol, ul ul, ol ul, ol ol { margin: 0 0 0 20px; }
-    ol ol { list-style: upper-alpha; }
-    ol ol ol { list-style: lower-roman; }
-    ol ol ol ol { list-style: lower-alpha; }
-    .comment-text > ul ol, .comment-text > ul ul,
-    .comment-text > ol ul, .comment-text > ol ol { margin: 0 0 0 20px; }
+ul ol, ul ul, ol ul, ol ol { margin: 0 0 0 20px; }
+.comment-text > ul ol, .comment-text > ul ul,
+.comment-text > ol ul, .comment-text > ol ol { margin: 0 0 0 20px; }
 
 /* Generic Table */
 table { border-collapse: separate; border-spacing: 0; border-width: 0 1px 1px 0; margin: 10px 0; text-align: left; width: 100%; }

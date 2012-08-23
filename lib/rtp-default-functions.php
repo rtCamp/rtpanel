@@ -160,9 +160,9 @@ add_action('rtp_hook_after_header','rtp_default_nav_menu'); // Adds default nav 
  */
 function rtp_edit_link() {
     // Call Edit Link
-    edit_post_link( __( '[ edit ]', 'rtPanel' ), '<p class="rtp-edit-link alignright">', '</p>');
+    edit_post_link( __( '[ edit ]', 'rtPanel' ), '<p class="rtp-edit-link alignleft">', '&nbsp;</p>');
 }
-add_action('rtp_hook_end_post_meta_top', 'rtp_edit_link');
+add_action('rtp_hook_begin_post_meta_top', 'rtp_edit_link');
 
 /**
  * Adds breadcrumb support to the theme.
