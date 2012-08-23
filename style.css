@@ -83,10 +83,6 @@ input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover, but
 button { overflow: visible; vertical-align: middle; } /* make buttons play nice in IE (Source - http://www.viget.com/inspire/styling-the-button-element-in-internet-explorer/) */
 input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus, button:focus, input[type=button]:active, input[type=submit]:active, input[type=reset]:active, button:active { box-shadow: 0 0 3px #999 inset; }
 
-/* Mozilla fixing */
-.gecko input[type=button], .gecko input[type=submit], .gecko input[type=reset], .gecko button { padding: 5px 10px; }
-.gecko button { padding: 6px 10px 5px; }
-
 /* remove Webkit appearance */
 input[type=search] { -webkit-appearance: none; }
 
@@ -716,7 +712,6 @@ img.alignright { margin: 5px 0 5px 15px; }
 /* Grid >> Children (Alpha ~ First, Omega ~ Last) */
 .rtp-alpha { margin-left: 0; }
 .rtp-omega { margin-right: 0; }
-
 }
 
 /* Screen Width: 760 */
