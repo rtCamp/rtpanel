@@ -95,9 +95,9 @@ function rtp_general_validate( $input ) {
         }
 
         if ( !empty( $input['search_code'] ) ) {
-            if ( !preg_match( '/customSearchControl.draw\(\'cse\'(.*)\)\;/i', $input['search_code'] ) ){
+            if ( !preg_match( '/customSearchControl.draw\(\'cse\'(.*)\)\;/i', $input['search_code'] ) && !preg_match('/\<gcse:(searchresults-only|searchresults|search).*\>\<\/gcse:(searchresults-only|searchresults|search)\>/i', $input['search_code'] ) ){
                 $input['search_code'] = $rtp_general['search_code'];
-                add_settings_error( 'search_code', 'invalid_search_code', __( 'Google Search Code Error : While generating the code the hosting option must be "Search Element" and layout either "full-width" or "compact". The changes made have been reverted.', 'rtPanel' ) );
+                add_settings_error( 'search_code', 'invalid_search_code', __( 'Google Search Code Error : While generating the code the layout option should either be "full-width" or "compact". The changes made have been reverted.', 'rtPanel' ) );
             } elseif ( $input['search_code'] != $rtp_general['search_code'] ) {
                 add_settings_error( 'search_code', 'valid_search_code', __( 'Google Custom Search Integration has been updated.', 'rtPanel' ), 'updated' );
             }
