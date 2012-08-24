@@ -123,7 +123,7 @@ th, #rtp-primary-menu, #rtp-nav-menu ul, .rtp-sibling-attachments img, .wp-capti
 
 /* TinyMCE Styles */
 .mceItemTable, .mceItemTable td, .mceItemTable th, .mceItemTable caption, .mceItemVisualAid { border-collapse: collapse }
-body#tinymce { font: 87.5%/1.5 sans-serif; color: #333; margin: 0 10px; padding: 5px; }
+body#tinymce { background: transparent; font: 87.5%/1.5 sans-serif; color: #333; margin: 0 10px; padding: 5px; }
 #tinymce > h1:first-child, #tinymce > h2:first-child, #tinymce > h3:first-child, #tinymce > h4:first-child, #tinymce > h5:first-child, #tinymce > h6:first-child { margin-top: 0.5em; }
 .wp-caption-dt { border: 0; padding: 0; }
 
