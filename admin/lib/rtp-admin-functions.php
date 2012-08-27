@@ -895,7 +895,6 @@ function rtp_default_admin_sidebar() { ?>
                 </div>
                 <div class="rt-twitter" style="">
                     <a href="<?php printf( '%s', 'http://twitter.com/share' ); ?>"  class="twitter-share-button" data-text="I &hearts; #rtPanel"  data-url="http://rtcamp.com/rtpanel/" data-count="vertical" data-via="rtPanel"><?php _e( 'Tweet', 'rtPanel' ); ?></a>
-                    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
                 </div>
                 <div class="clear"></div>
             </div>

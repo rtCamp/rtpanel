@@ -786,6 +786,7 @@ function rtp_pagination_metabox() {
  * @since rtPanel 2.0
  */
 function rtp_comment_form_metabox() {
+    get_avatar($id_or_email);
     global $rtp_post_comments; ?>
     <table class="form-table">
         <tbody>
@@ -798,7 +799,7 @@ function rtp_comment_form_metabox() {
                     <br />
                     <input type="hidden" name="rtp_post_comments[hide_labels]" value="0" />
                     <input type="checkbox" name="rtp_post_comments[hide_labels]" value="1" id="hide_labels" <?php checked( $rtp_post_comments['hide_labels'] ); ?> />
-                    <span class="description"><label for="hide_labels"><?php _e( 'Hide Labels for Name, Email, URL & Comment Textarea. These will be shown inside fields as default text', 'rtPanel' ); ?></label></span>
+                    <span class="description"><label for="hide_labels"><?php _e( 'Hide Labels for Name, Email & URL. These will be shown inside fields as default text', 'rtPanel' ); ?></label></span>
                 </td>
             </tr>
             <tr valign="top" class="show-fields-comments">
