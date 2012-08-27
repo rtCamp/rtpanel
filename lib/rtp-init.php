@@ -26,7 +26,6 @@ if ( !function_exists( 'rtpanel_setup' ) ) {
      * @since rtPanel 2.0
      */
     function rtpanel_setup() {
-        global $rtp_general;
         rtp_theme_setup_values();
         add_theme_support( 'post-thumbnails' ); // This theme uses post thumbnails
         add_theme_support( 'automatic-feed-links' ); // Add default posts and comments RSS feed links to head

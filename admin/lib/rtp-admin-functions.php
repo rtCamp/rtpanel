@@ -1268,7 +1268,7 @@ function rtp_regenerate_thumbnail_notice( $return = false ) {
 function rtp_upgrade_theme_notice() {
     global $rtp_post_comments;
     if( current_user_can( 'administrator' ) && isset( $rtp_post_comments['upgrade_theme'] ) && $rtp_post_comments['upgrade_theme'] ) {
-        echo '<div class="updated upgrade_theme_notice"><p>' . sprintf( __( 'Thank you for choosing rtPanel. Please check the <a href="%s" title="rtPanel ChangeLog" target="_blank">ChangeLog</a>.<br />If your child theme is broken with the new update, please follow this post - <a href="%s" title="Fix rtPanel Child Theme" target="_blank">Fix rtPanel Child Theme</a>.', 'rtPanel' ), 'http://rtcamp.com/rtpanel/changelog/', 'http://rtcamp.com/blog/fix-rtpanel-child-theme/' ) . ' <span class="alignright upgrade_theme_notice_close" href="#">X</a></p></div>';
+        echo '<div class="updated upgrade_theme_notice"><p>' . sprintf( __( 'Thank you for choosing rtPanel. Please check the <a href="%s" title="rtPanel ChangeLog" target="_blank">ChangeLog</a>.', 'rtPanel' ), 'http://rtcamp.com/rtpanel/changelog/' ) . ' <span class="alignright upgrade_theme_notice_close" href="#">X</a></p></div>';
     }
 }
 
