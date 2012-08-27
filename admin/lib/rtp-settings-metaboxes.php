@@ -786,7 +786,6 @@ function rtp_pagination_metabox() {
  * @since rtPanel 2.0
  */
 function rtp_comment_form_metabox() {
-    get_avatar($id_or_email);
     global $rtp_post_comments; ?>
     <table class="form-table">
         <tbody>
