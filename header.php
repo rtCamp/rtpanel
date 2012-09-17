@@ -42,7 +42,7 @@ global $rtp_general; ?><!DOCTYPE html>
 
                 <?php rtp_hook_before_header(); ?>
 
-                <hgroup id="header" class="rtp-grid-12 clearfix">
+                <div id="header" class="rtp-grid-12 clearfix">
                     <?php rtp_hook_before_logo(); ?>
 
                         <?php $heading = ( is_home() || is_front_page() ) ? 'h1' : 'h2'; ?>
@@ -50,7 +50,7 @@ global $rtp_general; ?><!DOCTYPE html>
                         
                     <?php rtp_hook_after_logo(); ?>
 
-                </hgroup><!-- #header -->
+                </div><!-- #header -->
 
                 <?php rtp_hook_after_header(); ?>
 
