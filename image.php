@@ -15,10 +15,12 @@ get_header(); ?>
 
         <?php 
         while( have_posts() ) {
-            the_post(); ?>
-            <div class="rtp-navigation clearfix">
-                <div class="alignleft"><a role="link" href="<?php echo get_permalink( $post->post_parent ); ?>">&larr; <?php echo get_the_title( $post->post_parent ); ?></a></div>
-            </div>
+            the_post();
+            if ( $post->post_parent ) { ?>
+                <div class="rtp-navigation clearfix">
+                    <div class="alignleft"><a role="link" href="<?php echo get_permalink( $post->post_parent ); ?>">&larr; <?php echo get_the_title( $post->post_parent ); ?></a></div>
+                </div><?php
+            } ?>
 
             <article <?php post_class( 'rtp-image-box' ); ?>>
                 <?php rtp_hook_begin_post(); ?>
