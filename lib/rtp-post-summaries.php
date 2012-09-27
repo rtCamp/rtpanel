@@ -105,15 +105,16 @@ function rtp_show_post_thumbnail( $post_id = null, $thumbnail_size = 'thumbnail'
         $image_align = 'align' . strtolower( $rtp_post_comments['thumbnail_position'] );
         if ( has_post_thumbnail() ) {
             echo '<figure class="' . $image_align . ' ' . $thumbnail_frame . '">'; ?>
-                <a role="link" class="<?php echo $image_align; ?>" href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( $thumbnail_size, array( 'class' => 'post-thumb ' . $image_align ) ); ?></a><?php
+                <a role="link" class="<?php echo $image_align; ?>" href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( $thumbnail_size, array( 'title' => the_title_attribute( array( 'echo' => false ) ), 'class' => 'post-thumb ' . $image_align ) ); ?></a><?php
             echo '</figure>';
         } else {
             $image = rtp_generate_thumbs( '', $thumbnail_size, $post_id );
             $image = ( $image ) ? $image : apply_filters( 'rtp_default_image_path', $default_img_path );
             if ( $image ) {
-                $alt = ( the_title_attribute( 'echo=0' ) ) ? the_title_attribute( 'echo=0' ) : 'Alternate Text';
+                $image_id = rtp_get_attachment_id_from_src( $image, true );
+                $alt = get_post_meta( $image_id, '_wp_attachment_image_alt', true) ? get_post_meta( $image_id, '_wp_attachment_image_alt', true) : 'Image';
                 echo '<figure class="' . $image_align . ' ' . $thumbnail_frame . '">'; ?>
-                    <a role="link" class="<?php echo $image_align; ?>" href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><img role="img" class="<?php echo 'post-thumb ' . $image_align; ?> wp-post-image" alt="<?php echo $alt; ?>" <?php echo rtp_get_image_dimensions( $image ); ?> src="<?php echo $image; ?>" /></a><?php
+                <a role="link" class="<?php echo $image_align; ?>" href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><img role="img" class="<?php echo 'post-thumb ' . $image_align; ?> wp-post-image" title="<?php the_title_attribute(); ?>" alt="<?php echo $alt; ?>" <?php echo rtp_get_image_dimensions( $image ); ?> src="<?php echo $image; ?>" /></a><?php
                 echo '</figure>';
             }
         }
@@ -382,31 +383,38 @@ function rtp_get_attachment_id_from_src( $image_src, $hard_find = false ) {
     }
     $query = "SELECT ID FROM {$wpdb->posts} WHERE post_type='attachment' AND guid='$image_src' LIMIT 1";
     $id = $wpdb->get_var( $query );
-    return $id;
+    return $id ? $id : 0;
 }
 
 /**
- * Used to get the iamge dimensions, provided the 'src'
+ * Used to get the image dimensions, provided the 'src'
  * 
  * @param string $image_src The Image Source
  * @return mixed
  *
  * @since rtPanel 2.1
  */
-function rtp_get_image_dimensions( $src, $array = false, $is_logo = true, $id = 0, $size = null ) {
+function rtp_get_image_dimensions( $src, $array = false, $deprecated = '', $id = 0, $size = null ) {
+    global $rtp_general;
+    if ( !empty( $deprecated ) )
+            _rtp_deprecated_argument( __FUNCTION__, '3.0' );
     $id = $id ? $id : rtp_get_attachment_id_from_src( $src, true );
-    
-    $metadata = wp_get_attachment_metadata( $id );
-    if ( ( !preg_match('/(\d+x\d+)(\.(jpg|jpeg|png|gif)$)/i', $src ) || ( 200 != wp_remote_retrieve_response_code( wp_remote_get( preg_replace('/-\d+x\d+(?=\.(jpg|jpeg|png|gif)$)/i', '', $src ) ) ) ) ) && ( isset( $metadata ) && isset( $metadata['width'] ) && isset( $metadata['height'] ) ) ) {
-        $width = $metadata['width'];
-        $height = $metadata['height'];
-    } elseif ( isset( $metadata['sizes'] ) ) {
-        $pathinfo = pathinfo($src);
-        foreach( $metadata['sizes'] as $size ) {
-            if ( $size['file'] == $pathinfo['basename'] ) {
-                $width = $size['width'];
-                $height = $size['height'];
-                break;
+    if ( !$id ) {
+        $width = $rtp_general['logo_width'];
+        $height = $rtp_general['logo_height'];
+    } else {
+        $metadata = wp_get_attachment_metadata( $id );
+        if ( ( !preg_match('/(\d+x\d+)(\.(jpg|jpeg|png|gif)$)/i', $src ) || ( 200 != wp_remote_retrieve_response_code( wp_remote_get( preg_replace('/-\d+x\d+(?=\.(jpg|jpeg|png|gif)$)/i', '', $src ) ) ) ) ) && ( isset( $metadata ) && isset( $metadata['width'] ) && isset( $metadata['height'] ) ) ) {
+            $width = $metadata['width'];
+            $height = $metadata['height'];
+        } elseif ( isset( $metadata['sizes'] ) ) {
+            $pathinfo = pathinfo($src);
+            foreach( $metadata['sizes'] as $size ) {
+                if ( $size['file'] == $pathinfo['basename'] ) {
+                    $width = $size['width'];
+                    $height = $size['height'];
+                    break;
+                }
             }
         }
     }
