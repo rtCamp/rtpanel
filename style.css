@@ -11,6 +11,26 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: black, blue, white, orange, light, one-column, two-columns, right-sidebar, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, flexible-width, full-width-template
 */
 
+/*
+Color Palette:
+    Black: #111
+    Gray ~ Light: #999
+    Gray ~ Dark: #666
+    Gray ~ More Dark: #333
+
+    Body Color: #333
+
+    Link: #0279B5
+    Link Hover / Link Active: #CD3517
+
+    Common Links ~ .rtp-common-link
+        Link: #666
+        Link Hover: #111
+
+    Border: #DDD
+    Border Hover / Focus: #999
+*/
+
 /* Corrects 'block' display not defined in IE 8/9. "Sourec: normalize.css v2.0.1" */
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary { display: block; }
 
