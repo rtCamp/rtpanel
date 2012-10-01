@@ -86,14 +86,13 @@ if ( have_posts() ) {
         <h1 class="post-title rtp-main-title"><?php _e( 'Not Found', 'rtPanel' ); ?></h1><?php
     } ?>
 
-    <article id="post-0" class="rtp-not-found hentry">
         <?php rtp_hook_begin_post(); ?>
 
-        <div class="post-content clearfix">
+        <div class="post-content clearfix rtp-not-found">
             <p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'rtPanel' ); ?></p>
             <?php get_search_form(); ?>
         </div>
 
         <?php rtp_hook_end_post(); ?>
-    </article><!-- #post-0 --><?php
+    <?php
 } ?>
