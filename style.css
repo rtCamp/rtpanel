@@ -20,8 +20,8 @@ Color Palette:
 
     Body Color: #333
 
-    Link: #0279B5
-    Link Hover / Link Active: #CD3517
+    Link: #006999
+    Link Hover / Link Active: #CD5A1B
 
     Common Links ~ .rtp-common-link
         Link: #666
@@ -65,7 +65,7 @@ b, dt, strong { font-weight: bold; }
 dfn { font-style: italic; }
 
 /* Addresses styling not present in IE 8/9. */
-mark { background: #ff0; color: #000; }
+mark { background: #FF0; color: #000; }
 
 /* Corrects font family set oddly in Safari 5 and Chrome. */
 code, kbd, pre, samp { font-family: Consolas, monaco, monospace; font-size: 1em; }
@@ -74,7 +74,7 @@ code, kbd, pre, samp { font-family: Consolas, monaco, monospace; font-size: 1em;
 pre { white-space: pre; white-space: pre-wrap; }
 
 /* Sets consistent quote types. */
-q { quotes: "\201C" "\201D" "\2018" "\2019"; }
+q { quotes: '\201C' '\201D' '\2018' '\2019'; }
 
 /* Addresses inconsistent and variable font size in all browsers. */
 small { font-size: 80%; }
@@ -144,7 +144,7 @@ body, body#tinymce { font-size: 87.5%; line-height: 1.5; }
 body, body#tinymce, .tagline, #reply-title small, #cse .gsc-control-cse, #cse .gsc-control-cse .gsc-table-result { font-family: sans-serif; }
 
 /* Heading Style */
-h1, h2, h3, h4, h5, h6 { font-family: serif; margin: 10px 0; }
+h1, h2, h3, h4, h5, h6 { margin: 0 0 10px; }
 h1, h2, h3 { line-height: 1.2em; }
 
 /* Heading font sizes */
@@ -333,13 +333,13 @@ body { color: #333; }
     #main-wrapper { background: #FFF; }
 
 /* Default Links */
-a, a:active, a:visited { color: #0279B5; text-decoration: none; }
-a:hover, a:focus { color: #CD3517; text-decoration: underline; }
+a, a:active, a:visited { color: #006999; text-decoration: none; }
+a:hover, a:focus { color: #CD5A1B; text-decoration: underline; }
 
 /* Heading Links */
 h1 a, h1 a:visited, h1 a:active,
 h2 a, h2 a:visited, h2 a:active { color: #111; text-decoration: none; }
-h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus { color: #CD3517; text-decoration: none; }
+h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus { color: #CD5A1B; text-decoration: none; }
 
 /* Generic Links */
 .rtp-common-link, .rtp-common-link:visited, .rtp-common-link:active, .rtp-common-link span, .rtp-common-link span:visited, .rtp-common-link span:active, .rtp-common-link a, .rtp-common-link a:visited, .rtp-common-link a:active { color: #666; }
@@ -372,7 +372,7 @@ h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus { color: #CD3517; text-decoration
                 #rtp-nav-menu ul li:first-child ul { top: -1px; }
 
     /* Submenu Links */
-    #rtp-nav-menu li:hover > a { color: #CD3517; text-decoration: none; }
+    #rtp-nav-menu li:hover > a { color: #CD5A1B; text-decoration: none; }
 
     /* Show Dropdown on Mouse Hover */
     #rtp-nav-menu li:hover > ul { display: block }
@@ -380,11 +380,11 @@ h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus { color: #CD3517; text-decoration
     /* Current Menu Style */
     #rtp-nav-menu .current-menu-item > a,
     #rtp-nav-menu .current_page_ancestor > a,
-    #rtp-nav-menu .current_page_item > a { color: #CD3517; text-decoration: none; }
+    #rtp-nav-menu .current_page_item > a { color: #CD5A1B; text-decoration: none; }
 /* End - Navigation */
 
 /* Post Meta */
-.post-title { float: left; font-size: 2em; margin: 0; }
+.post-title { float: left; margin: 0; }
 .rtp-has-comments { width: 75%; }
 .post-meta { clear: both; color: #666; font-style: italic; padding: 0.4em 0 0; }
 .post-meta-bottom { padding: 1em 0 0; }
@@ -400,10 +400,10 @@ h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus { color: #CD3517; text-decoration
     .rtp-post-comment span { color: #111; font-size: 18px; }
     .post-tags { clear: left; }
 /* End - Post Meta */
-    
+
 /* Post Loop */
 .hentry { border-bottom: 1px dotted #DDD; clear: both; padding-top: 1.5em; padding-bottom: 1.5em; position: relative; }
-.sticky { background: #FDFDC8; border-style: dotted; margin: 0.75em 0 0; padding-left: 1em; padding-right: 1em; }
+.sticky { background: #F6F6F6; border: 0; margin: 0.75em 0 0; padding-left: 1em; padding-right: 1em; }
 .rtp-singular .hentry, .attachment .hentry, .rtp-full-width .hentry { border-bottom: 0; padding-bottom: 0; }
     .post-header { margin-bottom: 1em; }
     .rtp-main-title { color: #111; float: none; margin-top: 0.75em; padding-bottom: 0.2em; }
@@ -431,12 +431,12 @@ h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus { color: #CD3517; text-decoration
         .gs-result img.gs-image, .gs-result img.gs-promotion-image { margin: 0; }
         #cse .gs-web-image-box, #cse .gs-promotion-image-box { padding: 3px 0 0; }
         #cse .gsc-result .gs-title { height: auto; text-decoration: none; }
-        .gs-result a.gs-title, .gs-result a.gs-title b { color: #0279B5; text-decoration: none; }
-        .gs-result a.gs-title:hover, .gs-result a.gs-title:hover b { color: #CD3517; }
+        .gs-result a.gs-title, .gs-result a.gs-title b { color: #006999; text-decoration: none; }
+        .gs-result a.gs-title:hover, .gs-result a.gs-title:hover b { color: #CD5A1B; }
         #cse .gsc-webResult.gsc-result { border-width: 0 0 1px; border-color: #DDD; border-style: none none dotted; clear: both; margin: 0; padding: 10px 0; position: relative; }
         #cse input.gsc-input:hover { border-color: #999; }
-        #cse .gsc-results .gsc-cursor-box .gsc-cursor-page { color: #0279B5; text-decoration: none; }
-        #cse .gsc-results .gsc-cursor-box .gsc-cursor-page:hover { color: #CD3517; text-decoration: underline; }
+        #cse .gsc-results .gsc-cursor-box .gsc-cursor-page { color: #006999; text-decoration: none; }
+        #cse .gsc-results .gsc-cursor-box .gsc-cursor-page:hover { color: #CD5A1B; text-decoration: underline; }
         #cse .gsc-tabdActive .gsc-results .gsc-cursor { margin: 15px 0 5px; overflow: hidden; text-align: center; }
         #cse .gsc-tabdActive .gsc-results .gsc-cursor { display: block }
         #cse .gsc-results .gsc-cursor-box .gsc-cursor-page { display: inline-block; float: none; font-weight: normal; margin: 2px; padding: 5px 10px; text-decoration: none; }
@@ -584,8 +584,8 @@ img.alignright { margin: 5px 0 5px 15px; }
 
 /* Sidebar */
 #sidebar { margin-top: 1em; }
-    .widgettitle { font-size: 1.5388em; line-height: 1.25em; margin-top: 0; }
-    .widget .current-menu-item > a, .widget .current_page_item > a { color: #CD3517; }
+    .widgettitle { margin-top: 0; }
+    .widget .current-menu-item > a, .widget .current_page_item > a { color: #CD5A1B; }
 
     /* Recent Comment with Gravatar Widget */
     .rtp-comments-widget ul { margin-left: 0; }
