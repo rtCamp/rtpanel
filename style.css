@@ -136,7 +136,7 @@ iframe { max-width: 100%; } /* Video Object Style */
 .avatar { margin: 0; } /* Avatar */
 
 /* TinyMCE Styles */
-body#tinymce { background: transparent; color: #333; margin: 0 10px; padding: 10px 5px; }
+body#tinymce { background: #FFF; color: #333; margin: 0 10px; padding: 10px 5px; }
 .wp-caption-dt { border: 0; padding: 0; }
 
 /* Typography */
