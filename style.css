@@ -141,7 +141,7 @@ body#tinymce { background: #FFF; color: #333; margin: 0 10px; padding: 10px 5px;
 
 /* Typography */
 body, body#tinymce { font-size: 87.5%; line-height: 1.5; }
-body, body#tinymce, .tagline, #reply-title small, #cse .gsc-control-cse, #cse .gsc-control-cse .gsc-table-result { font-family: sans-serif; }
+body, body#tinymce, .tagline, #reply-title small, #cse .gsc-control-cse, #cse .gsc-control-cse .gsc-table-result { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 /* Heading Style */
 h1, h2, h3, h4, h5, h6 { margin: 0 0 10px; }
