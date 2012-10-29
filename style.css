@@ -192,6 +192,10 @@ input[type='button']:focus, input[type='reset']:focus, input[type='submit']:focu
 button:active, input[type='button']:active, input[type='reset']:active, input[type='submit']:active {background-color: #E3E3E3; background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#E3E3E3), to(#DDD)); background-image: -moz-linear-gradient(#E3E3E3, #DDD); background-image: -ms-linear-gradient(#E3E3E3, #DDD); background-image: -o-linear-gradient(#E3E3E3, #DDD); background-image: linear-gradient(#E3E3E3, #DDD); }
 button[disabled], input[disabled] { cursor: not-allowed; opacity: 0.6; }
 
+/* Placeholder Text Color */
+input::-webkit-input-placeholder, input:-moz-placeholder,
+textarea:-webkit-input-placeholder, textarea:-moz-placeholder { color: #888; }
+
 /* Box Sizing: Very useful for responsive structure */
 input, textarea, select, #rtp-primary-menu, img, #rtp-nav-menu li, table, .wp-caption { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
@@ -354,7 +358,7 @@ h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus { color: #CD5A1B; text-decoration
     /* Navigation Links */
     #rtp-nav-menu a { display: block; height: auto; line-height: 1.286em; padding: 10px 15px; text-decoration: none; }
     #rtp-nav-menu a:hover { background: #EAEAEA; }
-    
+
     /* Submenu Support */
     #rtp-nav-menu ul { background-color: #F5F5F5; border: 1px solid #DDD; display: none; left: 0; position: absolute; top: 38px; width: 180px; z-index: 9; }
         .ie9 #rtp-nav-menu ul { top: 38px; }
@@ -605,7 +609,7 @@ img.alignright { margin: 5px 0 5px 15px; }
 
     /* Subscribe Widget */
     .email-subscription-container p { margin: 0; }
-        .email-subscription-container label { float: left; margin: 0 0 5px; }
+        .email-subscription-container label { display: block; margin: 0 0 5px; }
     .stay-connected { clear: both; font-weight: normal; padding: 5px 0 0; }
     .social-icons { margin: 0; }
         .social-icons li { float: left; list-style: none; margin: 10px 8px 0 0; padding: 0; }
@@ -624,9 +628,6 @@ img.alignright { margin: 5px 0 5px 15px; }
                 .social-icons a.stumbleupon:hover { background-position: -220px -44px; }
             .social-icons a.google { background-position: -264px 0; }
                 .social-icons a.google:hover { background-position: -264px -44px; }
-                
-    /* Sidebar Form Elements */
-    .widget select { width: 95%; }
 /* End - Sidebar */
 
 /* Footer */
@@ -731,7 +732,13 @@ img.alignright { margin: 5px 0 5px 15px; }
 .rtp-omega { margin-right: 0; }
 }
 
-/* Screen Width: 760 */
+/* Min Screen Width: 760 */
+@media screen and (min-width: 760px) {
+    /* ensure #nav is visible on desktop version */
+    #rtp-nav-menu { display: block !important; }
+}
+
+/* Max Screen Width: 760 */
 @media screen and (max-width: 760px) {
 .rtp-container-12 { max-width: 744px; width: 96%; }
 
@@ -757,10 +764,9 @@ img.alignright { margin: 5px 0 5px 15px; }
 
 /* Header and navigation */
 #header { width: 70%; }
+#rtp-primary-menu { background: none; border: 0; }
 .rtp-nav-btn { display: block; }
-#rtp-nav-menu { background: #F5F5F5; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; width: 100%; }
-#rtp-nav-menu.rtp-js { border: 1px solid #DDD; display: none; }
-#rtp-primary-menu.rtp-js { background: none; border: 0; }
+#rtp-nav-menu { background: #F5F5F5; border: 1px solid #DDD; display: none; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; width: 100%; }
 #rtp-nav-menu li { border-top: 1px solid #DDD; clear: both; text-align: center; width: 100%; }
 #rtp-nav-menu li:first-child { border-top: 0; }
 #rtp-nav-menu li:hover > ul { display: none; }
@@ -789,10 +795,10 @@ iframe { height: auto; }
     img { height: auto; max-width: 100%; page-break-inside: avoid; }
     h2, h3 { orphans: 3; page-break-after: avoid; widows: 3; }
     p { orphans: 3; widows: 3; }
-    
+
     /* Remove unwanted elements */
     #header-wrapper, #sidebar, .rtp-navigation, .comments-container, #footer-wrapper, .noprint { display: none }
-    
+
     /* Ensure the content spans the full width */
     #content { float: none; margin: 0; width: 100%; }
 }
