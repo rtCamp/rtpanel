@@ -141,7 +141,7 @@ body#tinymce { background: #FFF; color: #333; margin: 0 10px; padding: 10px 5px;
 
 /* Typography */
 body, body#tinymce { font-size: 87.5%; line-height: 1.5; }
-body, body#tinymce, .tagline, #reply-title small, #cse .gsc-control-cse, #cse .gsc-control-cse .gsc-table-result { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+body, body#tinymce, .tagline, #reply-title small, #cse .gsc-control-cse, #cse .gsc-control-cse .gsc-table-result { font-family: "Helvetica Neue", Arial, sans-serif; }
 
 /* Heading Style */
 h1, h2, h3, h4, h5, h6 { margin: 0 0 10px; }
@@ -518,7 +518,7 @@ img.alignright { margin: 5px 0 5px 15px; }
 /* End - Paged Navigation */
 
 /* Comments */
-.rtp-comment-count { border-bottom: 1px solid #DDD;; border-style: dotted; color: #666; font-style: normal; line-height: 2.857em; padding: 10px 0; }
+.rtp-comment-count { border-bottom: 1px dotted #DDD;; color: #666; font-style: normal; line-height: 2.857em; padding: 10px 0; }
     .rtp-comment-count > h2 { float: left; font-size: 20px; line-height: 1em; margin: 0; }
     .rtp-manage-comments { line-height: 1.44em; }
     .rtp-thoughts { font-size: 13px; float: left; line-height: 1.9em; }
