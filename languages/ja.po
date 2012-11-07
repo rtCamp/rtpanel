@@ -3,17 +3,18 @@ msgstr ""
 "Project-Id-Version: rtPanel 2.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-08-14 20:18+0530\n"
-"PO-Revision-Date: 2012-09-01 17:05+0900\n"
+"PO-Revision-Date: 2012-11-07 19:15+0900\n"
 "Last-Translator: masshiro <m@masshiro.net>\n"
 "Language-Team: masshiro <m@masshiro.net>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"Language: ja\n"
 "X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.5.3\n"
 "X-Poedit-SearchPath-0: ..\n"
 
 #: ../404.php:15 ../loop-common.php:86
@@ -160,7 +161,7 @@ msgstr "%sの投稿"
 #: ../loop-common.php:26
 #, php-format
 msgid "Author: %s"
-msgstr "作成者:%sの投稿"
+msgstr "作成者:%s"
 
 #: ../loop-common.php:59
 msgid "Read More &rarr;"
@@ -516,8 +517,8 @@ msgstr "奨励,寄付,共有..."
 msgid ""
 "Buy coffee/beer for team behind <a href=\"%s\" title=\"rtPanel\">rtPanel</a>."
 msgstr ""
-"ぜひ、<a href=\"%s\" title=\"rtPanel\">rtPanel開発チーム</a>にコーヒー/ビール"
-"をプレゼントしてください。"
+"ぜひ、<a href=\"%s\" title=\"rtPanel\">rtPanel開発チーム</a>にコーヒー・ビー"
+"ルをプレゼントしてください。"
 
 #: ../admin/lib/rtp-admin-functions.php:886
 msgid "Tweet"
@@ -557,7 +558,7 @@ msgid ""
 "many state of the art options and widgets with rtPanel."
 msgstr ""
 "rtPanelは使いやすいWordPressのテーマフレームワークです。多くの最先端のオプ"
-"ションとウィジェットを発見できます。"
+"ションとウィジェットを使用できます。"
 
 #: ../admin/lib/rtp-admin-functions.php:956
 #: ../admin/lib/rtp-admin-functions.php:986
@@ -585,7 +586,7 @@ msgid ""
 "options. "
 msgstr ""
 "rtPanelを使用することにより、開発者やユーザーが直接テーマのオプションから基本"
-"機能（日付形式、抜粋単語数等）の設定を指定できます。"
+"機能(日付形式、抜粋単語数等)の設定を指定できます。"
 
 #: ../admin/lib/rtp-admin-functions.php:960
 #: ../admin/lib/rtp-admin-functions.php:990
@@ -621,7 +622,7 @@ msgid ""
 "<strong>Facebook Open Graph Settings:</strong> This setting will provide an "
 "option to specify Faceboook App ID/Admin ID(s), required for Open Graph."
 msgstr ""
-"<strong>Facebook Open Graph 設定:</strong> オープングラフために、Facebook "
+"<strong>Facebook Open Graph 設定:</strong> Open Graphのために、Facebook "
 "Admin ID/App IDを設定することができます。"
 
 #: ../admin/lib/rtp-admin-functions.php:969
@@ -779,8 +780,8 @@ msgid ""
 "Currently using <a href=\"%s\" title=\"rtPanel\" target=\"_blank\">rtPanel</"
 "a>"
 msgstr ""
-"現在<a href=\"%s\" title=\"rtPanel\" target=\"_blank\">rtPanel</a>を使用して"
-"います。"
+"<a href=\"%s\" title=\"rtPanel\" target=\"_blank\">rtPanel</a>のご利用ありが"
+"とうございます。"
 
 #: ../admin/lib/rtp-admin-functions.php:1160
 #, php-format
@@ -811,7 +812,7 @@ msgid ""
 "\"Regenerate Thumbnails\">Regenerate Thumbnails</a>."
 msgstr ""
 "サムネイル設定が変更されました。<a href=\"%s\" title=\"サムネイル再生成\">サ"
-"ムネイルを再生成</a>"
+"ムネイルを再生成する</a>"
 
 #: ../admin/lib/rtp-admin-functions.php:1260
 #, php-format
@@ -921,7 +922,7 @@ msgstr "注意"
 
 #: ../admin/lib/rtp-settings-metaboxes.php:123
 msgid "Anyone would be sufficient."
-msgstr "多くの場合入力しなくても大丈夫です。"
+msgstr "ほとんどの場合入力しなくても大丈夫です。"
 
 #: ../admin/lib/rtp-settings-metaboxes.php:130
 msgid "Reset Facebook OGP Settings"
@@ -979,8 +980,8 @@ msgid ""
 "\"full-width\" or \"compact\"."
 msgstr ""
 "「コントロールパネル」より「レイアウトの選択」へ進んで「全幅(初期設定)」か"
-"「コンパクト」にしてください。[12-09-01現在の表記です。変更されているかもしれ"
-"ません。]"
+"「コンパクト」にしてください。[訳注:12-09-01現在の表記です。変更されているか"
+"もしれません。]"
 
 #: ../admin/lib/rtp-settings-metaboxes.php:213
 msgid "Hide Sidebar"
@@ -1157,8 +1158,7 @@ msgstr "投稿要約設定を初期化"
 msgid ""
 "Enable Summary must be checked on the Post Summary Settings to show these "
 "Options"
-msgstr ""
-"投稿サムネイル設定を使用するためには、要約要約設定を有効にしてください。"
+msgstr "投稿サムネイル設定を使用するためには、要約設定を有効にしてください。"
 
 #: ../admin/lib/rtp-settings-metaboxes.php:523
 msgid "Enable Thumbnails"
@@ -1401,7 +1401,7 @@ msgstr "名前、メールアドレス、ウェブサイトをコメント入力
 
 #: ../admin/lib/rtp-settings-metaboxes.php:813
 msgid "Separate Comments from Trackbacks &amp; Pingbacks"
-msgstr "トラックバック&amp;ピングバックをコメントと別にする"
+msgstr "トラックバックやピングバックをコメントと別にする"
 
 #: ../admin/lib/rtp-settings-metaboxes.php:817
 msgid "Enable the comment form on Attachments"
@@ -1461,7 +1461,7 @@ msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>"
 #: ../lib/rtp-default-functions.php:91
 #, php-format
 msgid "Posts by %s"
-msgstr "%s による投稿"
+msgstr "著者:%s"
 
 #: ../lib/rtp-default-functions.php:95
 #, php-format
@@ -1474,7 +1474,7 @@ msgstr "カテゴリー:"
 
 #: ../lib/rtp-default-functions.php:104
 msgid "Tagged"
-msgstr "タグ"
+msgstr "タグ:"
 
 #: ../lib/rtp-default-functions.php:202
 msgid "&larr; %title"
@@ -1533,7 +1533,7 @@ msgstr "パスワード"
 
 #: ../lib/rtp-search.php:27 ../lib/rtp-search.php:32
 msgid "Search Here..."
-msgstr "コチラで検索..."
+msgstr "こちらから検索..."
 
 #: ../lib/rtp-search.php:31
 msgid "Search for:"
@@ -1620,7 +1620,7 @@ msgstr "FeedBurner購読ハンドラ"
 #: ../lib/rtp-widgets.php:174
 #, php-format
 msgid "Ex: %s would be the FeedBurner Subscription Handler for %s"
-msgstr "例えば:%sと入力するとリンクはこちらのURLになります:%s"
+msgstr "例:%sと入力するとリンクはこちらのURLになります:%s"
 
 #: ../lib/rtp-widgets.php:177
 msgid "Feedburner Form Label"
@@ -1798,7 +1798,7 @@ msgstr "階層を表示"
 
 #: ../lib/rtp-widgets.php:556
 msgid "Hide Empty"
-msgstr "カテゴリー所属0でも表示"
+msgstr "カテゴリー所属数0で非表示"
 
 #: ../lib/rtp-widgets.php:560
 msgid "Show post counts"
