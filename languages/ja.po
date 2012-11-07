@@ -1,0 +1,1805 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: rtPanel 2.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-08-14 20:18+0530\n"
+"PO-Revision-Date: 2012-11-07 17:45+0900\n"
+"Last-Translator: masshiro <m@masshiro.net>\n"
+"Language-Team: masshiro <m@masshiro.net>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.5.3\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../404.php:15 ../loop-common.php:86
+msgid "Not Found"
+msgstr "見つかりません"
+
+#: ../404.php:20 ../loop-common.php:93
+msgid ""
+"Apologies, but no results were found for the requested archive. Perhaps "
+"searching will help find a related post."
+msgstr ""
+"ごめんなさい。リクエストされた投稿が見つかりませんでした。検索すれば見つかる"
+"かもしれません。"
+
+#: ../comments.php:12
+msgid "This post is password protected. Enter the password to view comments."
+msgstr ""
+"この投稿はパスワードで保護されています。コメントを表示するにはパスワードを入"
+"力してください。"
+
+#: ../comments.php:21
+#, php-format
+msgid "<span class=\"count\">%1$s</span> Comment"
+msgid_plural "<span class=\"count\">%1$s</span> Comments"
+msgstr[0] "<span class=\"count\">%1$s</span>コメント"
+msgstr[1] "<span class=\"count\">%1$s</span>コメント"
+
+#: ../comments.php:25
+#, php-format
+msgid ""
+"<span class=\"rtp-thoughts\">&nbsp;Share your <a role=\"link\" href=\"%s\" "
+"title=\"Share your views\">views</a></span>"
+msgstr ""
+"<span class=\"rtp-thoughts\">&nbsp;あなたの意見を<a role=\"link\" href=\"%s"
+"\" title=\"Share your views\">共有します</a></span>"
+
+#: ../comments.php:29
+msgid "Manage Comments"
+msgstr "コメント管理"
+
+#: ../comments.php:41
+msgid "Previous Comments"
+msgstr "以前のコメント"
+
+#: ../comments.php:42
+msgid "Next Comments"
+msgstr "以後のコメント"
+
+#: ../comments.php:54 ../comments.php:61
+#: ../admin/lib/rtp-settings-metaboxes.php:282
+msgid "Name"
+msgstr "名前"
+
+#: ../comments.php:56 ../comments.php:63
+msgid "Email"
+msgstr "メールアドレス"
+
+#: ../comments.php:58 ../comments.php:65
+msgid "Website"
+msgstr "ウェブサイト"
+
+#: ../comments.php:98
+msgid "Your email address will not be published."
+msgstr "入力されたメールアドレスは公開されません。"
+
+#: ../comments.php:104
+msgid "Comment..."
+msgstr "コメント..."
+
+#: ../comments.php:105 ../comments.php:106
+msgid "Leave a Comment"
+msgstr "コメントをどうぞ"
+
+#: ../comments.php:107
+msgid "Cancel reply"
+msgstr "返信をキャンセルする"
+
+#: ../comments.php:108
+msgid "Submit"
+msgstr "投稿"
+
+#: ../comments.php:119
+msgid "Trackback"
+msgstr "トラックバック"
+
+#: ../comments.php:119
+msgid "Trackbacks"
+msgstr "トラックバック"
+
+#: ../footer.php:19 ../sidebar.php:16
+msgid "Archives"
+msgstr "アーカイブ"
+
+#: ../footer.php:20
+msgid "Tags"
+msgstr "タグ"
+
+#: ../footer.php:21 ../sidebar.php:17
+msgid "Meta"
+msgstr "メタ"
+
+#: ../footer.php:30
+#, php-format
+msgid ""
+"Designed on <a role=\"link\" href=\"%s\" class=\"rtp-common-link\" title="
+"\"rtPanel WordPress Theme Framework\">rtPanel WordPress Theme Framework</a>."
+msgstr ""
+"Designed on <a role=\"link\" href=\"%s\" class=\"rtp-common-link\" title="
+"\"rtPanel WordPress Theme Framework\">rtPanel WordPress Theme Framework</a>."
+
+#: ../functions.php:31
+msgid "&laquo; Previous"
+msgstr "&laquo; 以前の投稿"
+
+#: ../functions.php:32
+msgid "Next &raquo;"
+msgstr "後の投稿 &raquo;"
+
+#: ../loop-common.php:13 ../search.php:18
+#, php-format
+msgid "Search Results for: %s"
+msgstr "%sの検索結果"
+
+#: ../loop-common.php:15
+#, php-format
+msgid "Tags: %s"
+msgstr "タグ: %s"
+
+#: ../loop-common.php:17
+#, php-format
+msgid "Category: %s"
+msgstr "カテゴリー: %s"
+
+#: ../loop-common.php:19
+#, php-format
+msgid "Archive for %s"
+msgstr "%sの投稿"
+
+#: ../loop-common.php:21 ../loop-common.php:23
+#, php-format
+msgid "Archive for  %s"
+msgstr "%sの投稿"
+
+#: ../loop-common.php:26
+#, php-format
+msgid "Author: %s"
+msgstr "作成者:%sの投稿"
+
+#: ../loop-common.php:59
+msgid "Read More &rarr;"
+msgstr "詳細&rarr;"
+
+#: ../loop-common.php:60
+msgid "Pages:"
+msgstr "ページ:"
+
+#: ../sidebar.php:15
+msgid "Search"
+msgstr "検索"
+
+#: ../admin/rtp-theme-options.php:36 ../admin/lib/rtp-admin-functions.php:1015
+msgid "General"
+msgstr "一般"
+
+#: ../admin/rtp-theme-options.php:40
+msgid "Post &amp; Comments"
+msgstr "ポスト&amp;コメント"
+
+#: ../admin/rtp-theme-options.php:158
+msgid "Logo & Favicon Settings"
+msgstr "ロゴ＆ファビコン設定"
+
+#: ../admin/rtp-theme-options.php:159
+msgid "Facebook Open Graph Settings"
+msgstr "Facebook Open Graph設定"
+
+#: ../admin/rtp-theme-options.php:160
+msgid "Feedburner Settings"
+msgstr "Feedburner設定"
+
+#: ../admin/rtp-theme-options.php:161
+msgid "Google Custom Search Integration"
+msgstr "Googleカスタム検索との統合設定"
+
+#: ../admin/rtp-theme-options.php:162
+msgid "Sidebar Settings"
+msgstr "サイドバー設定"
+
+#: ../admin/rtp-theme-options.php:163
+msgid "Custom Styles"
+msgstr "スタイル設定"
+
+#: ../admin/rtp-theme-options.php:164
+msgid "Plugin Support"
+msgstr "プラグインサポート"
+
+#: ../admin/rtp-theme-options.php:165
+msgid "Backup / Restore Settings"
+msgstr "設定をバックアップ/復元"
+
+#: ../admin/rtp-theme-options.php:170
+msgid "Post Summary Settings"
+msgstr "投稿要約設定"
+
+#: ../admin/rtp-theme-options.php:171
+msgid "Post Thumbnail Settings"
+msgstr "投稿サムネイル設定"
+
+#: ../admin/rtp-theme-options.php:172
+msgid "Post Meta Settings"
+msgstr "投稿メタ設定"
+
+#: ../admin/rtp-theme-options.php:173
+msgid "Pagination Settings"
+msgstr "ナビゲーション設定"
+
+#: ../admin/rtp-theme-options.php:174
+msgid "Comment Form Settings"
+msgstr "コメントフォーム設定"
+
+#: ../admin/rtp-theme-options.php:175
+msgid "Gravatar Settings"
+msgstr "アバター設定"
+
+#: ../admin/lib/rtp-admin-functions.php:40
+#: ../admin/lib/rtp-admin-functions.php:56
+msgid "Logo & Favicon Settings Updated"
+msgstr "ロゴ＆ファビコン設定を変更しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:43
+#: ../admin/lib/rtp-admin-functions.php:59
+msgid "Please upload a valid image file."
+msgstr "正しい画像ファイルをアップロードしてください。"
+
+#: ../admin/lib/rtp-admin-functions.php:81
+msgid ""
+"The FeedBurner URL is not a valid url. The changes made have been reverted."
+msgstr "FeedBurnerのURLが有効なURLではありません。設定は変更していません。"
+
+#: ../admin/lib/rtp-admin-functions.php:83
+msgid "The FeedBurner Settings have been updated."
+msgstr "FeedBurnerの設定が変更されました。"
+
+#: ../admin/lib/rtp-admin-functions.php:89
+msgid "The Facebook App ID has been updated."
+msgstr "FacebookアプリIDが変更されました。"
+
+#: ../admin/lib/rtp-admin-functions.php:94
+msgid "The Facebook Admin ID(s) has been updated."
+msgstr "Facebookの管理者IDを変更しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:100
+msgid ""
+"Google Search Code Error : While generating the code the hosting option must "
+"be \"Search Element\" and layout either \"full-width\" or \"compact\". The "
+"changes made have been reverted."
+msgstr ""
+"Google検索コードエラー:<br />「コントロールパネル」より「レイアウトの選択」へ"
+"進んで「全幅(初期設定)」か「コンパクト」にしてください。[12-09-01現在の表記で"
+"す。変更されているかもしれません。]<br />エラーが発生したため、設定は変更して"
+"いません。"
+
+#: ../admin/lib/rtp-admin-functions.php:102
+msgid "Google Custom Search Integration has been updated."
+msgstr "Googleカスタム検索との統合設定が変更されました。"
+
+#: ../admin/lib/rtp-admin-functions.php:109
+#: ../admin/lib/rtp-admin-functions.php:133
+#: ../admin/lib/rtp-admin-functions.php:157
+#: ../admin/lib/rtp-admin-functions.php:181
+#: ../admin/lib/rtp-admin-functions.php:205
+msgid "You do not have sufficient permissions to activate this plugin."
+msgstr "このプラグインを有効化する権限がありません。"
+
+#: ../admin/lib/rtp-admin-functions.php:112
+msgid "rtSocial has been Activated."
+msgstr "rtSocial を有効化しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:117
+#: ../admin/lib/rtp-admin-functions.php:141
+#: ../admin/lib/rtp-admin-functions.php:165
+#: ../admin/lib/rtp-admin-functions.php:189
+#: ../admin/lib/rtp-admin-functions.php:213
+msgid "You do not have sufficient permissions to deactivate this plugin."
+msgstr "このプラグインを無効化する権限がありません。"
+
+#: ../admin/lib/rtp-admin-functions.php:120
+msgid "rtSocial has been Deactivated."
+msgstr "rtSocial を停止しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:125
+#: ../admin/lib/rtp-admin-functions.php:149
+#: ../admin/lib/rtp-admin-functions.php:173
+#: ../admin/lib/rtp-admin-functions.php:197
+#: ../admin/lib/rtp-admin-functions.php:221
+msgid "You do not have sufficient permissions to delete this plugin."
+msgstr "このプラグインを削除するための権限がありません。"
+
+#: ../admin/lib/rtp-admin-functions.php:128
+msgid "rtSocial has been Deleted."
+msgstr "rtSocial を削除しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:136
+msgid "rtPanel Hooks Editor Plugin has been Activated."
+msgstr "rtPanel Hooks Editor を有効化しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:144
+msgid "rtPanel Hooks Editor Plugin has been Deactivated."
+msgstr "rtPanel Hooks Editor を停止しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:152
+msgid "rtPanel Hooks Editor Plugin has been Deleted."
+msgstr "rtPanel Hooks Editor を削除しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:160
+msgid "Subscribe to Comments Plugin has been Activated."
+msgstr "Subscribe to Comments を有効化しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:168
+msgid "Subscribe to Comments Plugin has been Deactivated."
+msgstr "Subscribe to Comments を停止しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:176
+msgid "Subscribe to Comments Plugin has been Deleted."
+msgstr "Subscribe to Comments を削除しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:184
+msgid "Yoast WordPress SEO Plugin has been Activated."
+msgstr "Yoast WordPress SEO を有効化しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:192
+msgid "Yoast WordPress SEO Plugin has been Deactivated."
+msgstr "Yoast WordPress SEO を停止しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:200
+msgid "Yoast WordPress SEO Plugin has been Deleted."
+msgstr "Yoast WordPress SEO を削除しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:208
+msgid "Regenerate Thumbnails Plugin has been Activated."
+msgstr "Regenerate Thumbnails を有効化しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:216
+msgid "Regenerate Thumbnails Plugin has been Deactivated."
+msgstr "Regenerate Thumbnails を停止しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:224
+msgid "Regenerate Thumbnails Plugin has been Deleted."
+msgstr "Regenerate Thumbnails を削除しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:243
+msgid "The Logo Settings have been restored to Default."
+msgstr "ロゴ設定をデフォルトに初期化しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:253
+msgid "The Facebook Open Graph Settings have been restored to Default."
+msgstr "Facebook Open Graph設定をデフォルトに初期化しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:262
+msgid "The Feedburner Settings have been restored to Default."
+msgstr "Feedburner設定をデフォルトに初期化しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:272
+msgid "The Google Custom Search Integration has been restored to Default."
+msgstr "Googleカスタム検索との統合設定をデフォルトに初期化しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:281
+msgid "The Sidebar Settings have been restored to Default."
+msgstr "サイドバー設定をデフォルトに初期化しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:290
+msgid "Custom Styles has been restored to Default."
+msgstr "スタイル設定をデフォルトに初期化しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:299
+msgid "rtPanel Options have been imported successfully"
+msgstr "rtPanel設定データを正常にインポートしました。"
+
+#: ../admin/lib/rtp-admin-functions.php:301
+msgid "Not a valid RTP file"
+msgstr "有効でないRTPファイルです。"
+
+#: ../admin/lib/rtp-admin-functions.php:303
+msgid ""
+"The file is corrupt. There was an error while importing. Please Try Again"
+msgstr ""
+"ファイルが壊れています。インポート中にエラーが発生しました。もう一度やり直し"
+"てください。"
+
+#: ../admin/lib/rtp-admin-functions.php:307
+msgid "All the rtPanel General Settings have been restored to default."
+msgstr "rtPanel一般設定をすべてデフォルトに初期化しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:335
+msgid "The Word Limit provided is invalid. Please provide a proper value."
+msgstr "最大文字数の値が不正です。適切な値を入力してください。"
+
+#: ../admin/lib/rtp-admin-functions.php:340
+msgid "The Post Summary Settings have been updated."
+msgstr "投稿要約設定が変更されました。"
+
+#: ../admin/lib/rtp-admin-functions.php:346
+msgid "The Thumbnail Width provided is invalid. Please provide a proper value."
+msgstr "サムネイルの幅の値が不正です。適切な値を入力してください。"
+
+#: ../admin/lib/rtp-admin-functions.php:355
+msgid ""
+"The Thumbnail Height provided is invalid. Please provide a proper value."
+msgstr "サムネイルの高さの値が不正です。適切な値を入力してください。"
+
+#: ../admin/lib/rtp-admin-functions.php:368
+msgid "The Post Thumbnail Settings have been updated"
+msgstr "投稿サムネイルの設定が更新されました。"
+
+#: ../admin/lib/rtp-admin-functions.php:421
+msgid "The End Size provided is invalid. Please provide a proper value."
+msgstr "表示するページ数の値が不正です。適切な値を入力してください。"
+
+#: ../admin/lib/rtp-admin-functions.php:425
+msgid "The Mid Size provided is invalid. Please provide a proper value."
+msgstr "省略表示するページ数の値が不正です。適切な値を入力してください。"
+
+#: ../admin/lib/rtp-admin-functions.php:428
+msgid "The Pagination Settings have been updated."
+msgstr "ナビゲーション設定が変更されました。"
+
+#: ../admin/lib/rtp-admin-functions.php:453
+msgid "The Post Summary Settings have been restored to default."
+msgstr "投稿要約設定をデフォルトに初期化しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:465
+msgid "The Post Thumbnail Settings have been restored to default."
+msgstr "投稿サムネイル設定をデフォルトに初期化しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:500
+msgid "The Post Meta Settings have been restored to default."
+msgstr "投稿メタ設定をデフォルトに初期化しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:515
+msgid "The Pagination Settings have been restored to default."
+msgstr "ナビゲーション設定をデフォルトに初期化しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:529
+msgid "The Comment Form Settings have been restored to default."
+msgstr "コメントフォーム設定をデフォルトに初期化しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:541
+msgid "The Gravatar Settings have been restored to default."
+msgstr "アバター設定をデフォルトに初期化しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:554
+msgid "All the rtPanel Post & Comments Settings have been restored to default."
+msgstr "すべての投稿＆コメント設定をデフォルトに初期化しました。"
+
+#: ../admin/lib/rtp-admin-functions.php:604
+msgid "Read More&hellip;"
+msgstr "もっと見る&hellip;"
+
+#: ../admin/lib/rtp-admin-functions.php:854
+#: ../admin/lib/rtp-admin-functions.php:864
+#: ../admin/lib/rtp-admin-functions.php:895
+#: ../admin/lib/rtp-admin-functions.php:901
+msgid "Click to toggle"
+msgstr "クリックで切替"
+
+#: ../admin/lib/rtp-admin-functions.php:855
+msgid "Getting Social is Good"
+msgstr "テーマの情報を所得！"
+
+#: ../admin/lib/rtp-admin-functions.php:857
+msgid "Become a fan on Facebook"
+msgstr "Facebookでいいね！する"
+
+#: ../admin/lib/rtp-admin-functions.php:857
+msgid "Facebook"
+msgstr "Facebook"
+
+#: ../admin/lib/rtp-admin-functions.php:858
+msgid "Follow us on Twitter"
+msgstr "Twitterでフォローする"
+
+#: ../admin/lib/rtp-admin-functions.php:858
+msgid "Twitter"
+msgstr "Twitter"
+
+#: ../admin/lib/rtp-admin-functions.php:859
+msgid "Subscribe to our feeds"
+msgstr "フィードを購読する"
+
+#: ../admin/lib/rtp-admin-functions.php:859
+msgid "RSS Feed"
+msgstr "RSS Feed"
+
+#: ../admin/lib/rtp-admin-functions.php:865
+msgid "Promote, Donate, Share"
+msgstr "奨励,寄付,共有..."
+
+#: ../admin/lib/rtp-admin-functions.php:867
+#, php-format
+msgid ""
+"Buy coffee/beer for team behind <a href=\"%s\" title=\"rtPanel\">rtPanel</a>."
+msgstr ""
+"ぜひ、<a href=\"%s\" title=\"rtPanel\">rtPanel開発チーム</a>にコーヒー・ビー"
+"ルをプレゼントしてください。"
+
+#: ../admin/lib/rtp-admin-functions.php:886
+msgid "Tweet"
+msgstr "ツイート"
+
+#: ../admin/lib/rtp-admin-functions.php:896
+msgid "Free Support"
+msgstr "無料サポート"
+
+#: ../admin/lib/rtp-admin-functions.php:897
+#, php-format
+msgid ""
+" If you are facing any problems while using rtPanel, or have good ideas for "
+"improvements, please discuss the same in our <a href=\"%s\" target=\"_blank"
+"\" title=\"Click here for rtPanel Free Support\">Support forums</a>"
+msgstr ""
+"rtPanelを使用しているときに問題に直面している場合、または改善のための良いアイ"
+"デアを提案する場合、<a href=\"%s\" target=\"_blank\" title=\"Click here for "
+"rtPanel Free Support\">私達のサポートフォーラム</a>へお願いします"
+
+#: ../admin/lib/rtp-admin-functions.php:902
+msgid "Latest News"
+msgstr "最新ニュース"
+
+#: ../admin/lib/rtp-admin-functions.php:932
+msgid "No items"
+msgstr "アイテムはありません"
+
+#: ../admin/lib/rtp-admin-functions.php:937
+msgid "Posted "
+msgstr "投稿"
+
+#: ../admin/lib/rtp-admin-functions.php:954
+#: ../admin/lib/rtp-admin-functions.php:984
+msgid ""
+"rtPanel is the most easy to use WordPress Theme Framework. You will find "
+"many state of the art options and widgets with rtPanel."
+msgstr ""
+"rtPanelは使いやすいWordPressのテーマフレームワークです。多くの最先端のオプ"
+"ションとウィジェットを使用できます。"
+
+#: ../admin/lib/rtp-admin-functions.php:956
+#: ../admin/lib/rtp-admin-functions.php:986
+msgid ""
+"rtPanel framework is used worldwide and keeping this in mind we have made it "
+"localization ready. "
+msgstr ""
+"rtPanelフレームワークが世界で使えるように、私たちは翻訳できるように準備しまし"
+"た。"
+
+#: ../admin/lib/rtp-admin-functions.php:957
+#: ../admin/lib/rtp-admin-functions.php:987
+msgid ""
+"Developers can use rtPanel as a basic and stripped to bones theme framework "
+"for developing their own creative and wonderful WordPress Themes."
+msgstr ""
+"開発者は、独自の創造的で素晴らしいWordPressのテーマを開発するための基本テーマ"
+"フレームワークとしてrtPanelを使用することができます。"
+
+#: ../admin/lib/rtp-admin-functions.php:959
+#: ../admin/lib/rtp-admin-functions.php:989
+msgid ""
+"By using rtPanel, developers and users can specify settings for basic "
+"functions (like date format, excerpt word count etc.) directly from theme "
+"options. "
+msgstr ""
+"rtPanelを使用することにより、開発者やユーザーが直接テーマのオプションから基本"
+"機能(日付形式、抜粋単語数等)の設定を指定できます。"
+
+#: ../admin/lib/rtp-admin-functions.php:960
+#: ../admin/lib/rtp-admin-functions.php:990
+msgid ""
+"rtPanel provides theme options to manage some basic settings for your theme. "
+msgstr ""
+"rtPanelあなたのテーマのいくつかの基本的な設定を管理するには、テーマのオプショ"
+"ンを提供します。"
+
+#: ../admin/lib/rtp-admin-functions.php:961
+#: ../admin/lib/rtp-admin-functions.php:991
+msgid "Below are the options provided for your convenience."
+msgstr "以下は、より使いやすくするために提供されるオプションです。"
+
+#: ../admin/lib/rtp-admin-functions.php:963
+msgid ""
+"<strong>Logo Settings:</strong> Theme's logo can be managed from this "
+"setting."
+msgstr ""
+"<strong>ロゴ設定:</strong> テーマのロゴは、この設定から管理することができま"
+"す。"
+
+#: ../admin/lib/rtp-admin-functions.php:965
+msgid ""
+"<strong>Favicon Settings:</strong> Theme's favicon can be managed from this "
+"setting."
+msgstr ""
+"<strong>ファビコン設定:</strong> テーマのファビコンは、この設定から管理するこ"
+"とができます。"
+
+#: ../admin/lib/rtp-admin-functions.php:967
+msgid ""
+"<strong>Facebook Open Graph Settings:</strong> This setting will provide an "
+"option to specify Faceboook App ID/Admin ID(s), required for Open Graph."
+msgstr ""
+"<strong>Facebook Open Graph 設定:</strong> Open Graphのために、Facebook "
+"Admin ID/App IDを設定することができます。"
+
+#: ../admin/lib/rtp-admin-functions.php:969
+msgid ""
+"<strong>FeedBurner Settings:</strong> FeedBurner URL can be specified from "
+"this setting to redirect your feeds."
+msgstr ""
+"<strong>FeedBurner設定:</strong> FeedBurnerのURLにフィードをリダイレクトする"
+"ように設定できます。"
+
+#: ../admin/lib/rtp-admin-functions.php:971
+msgid ""
+"<strong>Google Custom Search Integration:</strong> This option would enable "
+"you to harness the power of Google Search instead of the default WordPress "
+"search by specifying the Google Custom Search Code.  You also have the "
+"option of rendering the Google Search Page without the sidebar."
+msgstr ""
+"<strong>Googleカスタム検索との統合設定:</strong> このオプションでは、Google "
+"の検索の代わりに、WordPressの検索にGoogleカスタム検索を組み込みます。サイド"
+"バーを非表示にするオプションもあります。"
+
+#: ../admin/lib/rtp-admin-functions.php:973
+msgid ""
+"<strong>Sidebar Settings:</strong> Enable / Disable the Footer Sidebar from "
+"here."
+msgstr ""
+"<strong>サイドバー設定:</strong> フッターサイドバーを有効/無効にできます。"
+
+#: ../admin/lib/rtp-admin-functions.php:975
+msgid ""
+"<strong>Custom Styles:</strong> You can specify your own CSS styles in this "
+"option to override the default Style."
+msgstr ""
+"<strong>カスタムスタイル:</strong> デフォルトのスタイルを上書きしたい場合、こ"
+"の設定に独自のCSSスタイルを指定することができます。"
+
+#: ../admin/lib/rtp-admin-functions.php:977
+msgid ""
+"<strong>Plugin Support:</strong> You will get a summary of plugins' status "
+"that are supported by rtPanel. This information box will allow you to "
+"manipulate the plugin settings on the fly."
+msgstr ""
+"<strong>プラグインサポート:</strong> rtPanelによってサポートされているプラグ"
+"インの状態を取得します。情報ボックスが表示され、その場でプラグインを操作する"
+"ことができます。"
+
+#: ../admin/lib/rtp-admin-functions.php:979
+msgid ""
+"<strong>Backup rtPanel Options:</strong> Export or import all settings that "
+"you have configured in rtPanel."
+msgstr ""
+"<strong>設定をバックアップ/復元:</strong> rtPanelで設定したすべての設定をエク"
+"スポートまたはインポートできます。"
+
+#: ../admin/lib/rtp-admin-functions.php:981
+#: ../admin/lib/rtp-admin-functions.php:1007
+msgid ""
+"Remember to click \"<strong>Save All Changes</strong>\" to save any changes "
+"you have made to the theme options."
+msgstr ""
+"設定を変更したら忘れずに\"<strong>すべての変更を保存</strong>\"をクリックして"
+"ください。"
+
+#: ../admin/lib/rtp-admin-functions.php:993
+msgid ""
+"<strong>Post Summaries Settings:</strong> Specify the different excerpt "
+"parameters like word count etc."
+msgstr ""
+"<strong>投稿要約設定:</strong> 文字数制限を指定するなど、投稿を要約するための"
+"設定ができます。"
+
+#: ../admin/lib/rtp-admin-functions.php:995
+msgid ""
+"<strong>Post Thumbnail Settings:</strong> Specify the post thumbnail options "
+"like position, size etc."
+msgstr ""
+"<strong>投稿サムネイル設定:</strong> 投稿サムネイルの大きさ、位置などを設定で"
+"きます。"
+
+#: ../admin/lib/rtp-admin-functions.php:997
+msgid ""
+"<small><strong><em>NOTE:</em></strong> If you are using this option to "
+"change height or width of the thumbnail, then please use 'Regenerate "
+"Thumbnails' plugin, to apply the new dimension settings to your thumbnails.</"
+"small>"
+msgstr ""
+"<small><strong><em>注意:</em></strong> 幅や高さを変更したので、Regenerate "
+"Thumbnailsプラグインを使って、サムネイルを再生成してください。</small>"
+
+#: ../admin/lib/rtp-admin-functions.php:999
+msgid ""
+"<strong>Post Meta Settings:</strong> You can specify the post meta options "
+"like post date format, display or hide author name and their positions in "
+"relation with the content."
+msgstr ""
+"<strong>投稿メタ設定:</strong> 日付(書式も指定)・著者等を表示・非表示にしたり"
+"位置を変えたりできます。"
+
+#: ../admin/lib/rtp-admin-functions.php:1001
+msgid ""
+"<strong>Pagination Settings:</strong> Enable this setting to use default "
+"WordPress pagination."
+msgstr ""
+"<strong>ナビゲーション設定:</strong> デフォルトのWordPressのページナビゲー"
+"ションを設定することができます。"
+
+#: ../admin/lib/rtp-admin-functions.php:1003
+msgid ""
+"<strong>Comment Form Settings:</strong> You can specify the comment form "
+"settings from this option."
+msgstr ""
+"<strong>コメントフォーム設定:</strong> コメントフォームの設定ができます。"
+
+#: ../admin/lib/rtp-admin-functions.php:1005
+msgid ""
+"<strong>Gravtar Settings:</strong> Specify the general Gravtar support from "
+"this option."
+msgstr "<strong>アバター設定:</strong> 全般的なアバター設定を変更できます。"
+
+#: ../admin/lib/rtp-admin-functions.php:1009
+msgid "For more information, <br />you can always visit:"
+msgstr "詳細については<br />こちらをご覧ください:"
+
+#: ../admin/lib/rtp-admin-functions.php:1010
+msgid ""
+"<a href=\"http://rtcamp.com/rtpanel/\" target=\"_blank\" title=\"rtPanel "
+"Official Page\">rtPanel Official Page</a>"
+msgstr ""
+"<a href=\"http://rtcamp.com/rtpanel/\" target=\"_blank\" title=\"rtPanel公式"
+"サイト\">rtPanel公式サイト</a>"
+
+#: ../admin/lib/rtp-admin-functions.php:1011
+msgid ""
+"<a href=\"http://rtcamp.com/rtpanel/docs/\" target=\"_blank\" title="
+"\"rtPanel Documentation\">rtPanel Documentation</a>"
+msgstr ""
+"<a href=\"http://rtcamp.com/rtpanel/docs/\" target=\"_blank\" title=\"rtPanel"
+"マニュアル\">rtPanelマニュアル</a>"
+
+#: ../admin/lib/rtp-admin-functions.php:1012
+msgid ""
+"<a href=\"http://rtcamp.com/support/forum/rtpanel/\" target=\"_blank\" title="
+"\"rtPanel Forum\">rtPanel Forum</a>"
+msgstr ""
+"<a href=\"http://rtcamp.com/support/forum/rtpanel/\" target=\"_blank\" title="
+"\"rtPanelフォーラム\">フォーラム</a>"
+
+#: ../admin/lib/rtp-admin-functions.php:1016
+msgid "Post &amp; Comment"
+msgstr "投稿＆コメント"
+
+#: ../admin/lib/rtp-admin-functions.php:1159
+#, php-format
+msgid ""
+"Currently using <a href=\"%s\" title=\"rtPanel\" target=\"_blank\">rtPanel</"
+"a>"
+msgstr ""
+"<a href=\"%s\" title=\"rtPanel\" target=\"_blank\">rtPanel</a>のご利用ありが"
+"とうございます。"
+
+#: ../admin/lib/rtp-admin-functions.php:1160
+#, php-format
+msgid ""
+"<a href=\"%s\" title=\"Click here for rtPanel Free Support\" target=\"_blank"
+"\">Support</a>"
+msgstr ""
+"<a href=\"%s\" title=\"rtPanel無料サポートはこちらから\" target=\"_blank\">サ"
+"ポート</a>"
+
+#: ../admin/lib/rtp-admin-functions.php:1161
+#, php-format
+msgid ""
+"<a href=\"%s\" title=\"Click here for rtPanel Documentation\" target=\"_blank"
+"\">Documentation</a>"
+msgstr ""
+"<a href=\"%s\" title=\"rtPanelドキュメンテーションはこちら\" target=\"_blank"
+"\">ドキュメンテーション</a>"
+
+#: ../admin/lib/rtp-admin-functions.php:1189
+msgid "rtPanel Version "
+msgstr "rtPanelバージョン"
+
+#: ../admin/lib/rtp-admin-functions.php:1245
+#, php-format
+msgid ""
+"The Thumbnail Settings have been updated. Please <a href=\"%s\" title="
+"\"Regenerate Thumbnails\">Regenerate Thumbnails</a>."
+msgstr ""
+"サムネイル設定が変更されました。<a href=\"%s\" title=\"サムネイル再生成\">サ"
+"ムネイルを再生成する</a>"
+
+#: ../admin/lib/rtp-admin-functions.php:1260
+#, php-format
+msgid ""
+"Thank you for choosing rtPanel. Please check the <a href=\"%s\" title="
+"\"rtPanel ChangeLog\" target=\"_blank\">ChangeLog</a>.<br />If your child "
+"theme is broken with the new update, please follow this post - <a href=\"%s"
+"\" title=\"Fix rtPanel Child Theme\" target=\"_blank\">Fix rtPanel Child "
+"Theme</a>."
+msgstr ""
+"rtPanelをお選びいただきありがとうございます。<a href=\"%s\" title=\"rtPanel"
+"チェンジログ\" target=\"_blank\">チェンジログ</a>をぜひご覧ください。子テーマ"
+"が新しいアップデートで壊れたときは<a href=\"%s\" title=\"Fix rtPanel Child "
+"Theme\" target=\"_blank\">こちらの記事</a>をご覧ください。"
+
+#: ../admin/lib/rtp-general-options.php:44
+#: ../admin/lib/rtp-post-comments-options.php:45
+#: ../admin/lib/rtp-settings-metaboxes.php:90
+#: ../admin/lib/rtp-settings-metaboxes.php:129
+#: ../admin/lib/rtp-settings-metaboxes.php:157
+#: ../admin/lib/rtp-settings-metaboxes.php:186
+#: ../admin/lib/rtp-settings-metaboxes.php:223
+#: ../admin/lib/rtp-settings-metaboxes.php:251
+#: ../admin/lib/rtp-settings-metaboxes.php:503
+#: ../admin/lib/rtp-settings-metaboxes.php:575
+#: ../admin/lib/rtp-settings-metaboxes.php:719
+#: ../admin/lib/rtp-settings-metaboxes.php:775
+#: ../admin/lib/rtp-settings-metaboxes.php:823
+#: ../admin/lib/rtp-settings-metaboxes.php:863
+msgid "Save All Changes"
+msgstr "すべての変更を保存"
+
+#: ../admin/lib/rtp-general-options.php:45
+msgid "Reset All General Settings"
+msgstr "すべての全般設定を初期化"
+
+#: ../admin/lib/rtp-post-comments-options.php:46
+msgid "Reset All Post &amp; Comments Settings"
+msgstr "すべての投稿＆コメント設定を初期化"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:44
+msgid "For Logo"
+msgstr "使用するロゴ"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:48
+msgid "Use Site Title"
+msgstr "サイトタイトルを使用"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:50
+msgid "Upload Logo"
+msgstr "アップロードしたロゴ画像を使用"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:59
+#, php-format
+msgid ""
+"Check this box to display logo on <a href=\"%s\" title=\"Wordpress Login"
+"\">WordPress Login Screen</a>"
+msgstr ""
+"<a href=\"%s\" title=\"Wordpress Login\">WordPressログイン画面</a>にもこのロ"
+"ゴ画像を使用する"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:69
+msgid "For Favicon"
+msgstr "使用するファビコン"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:73
+msgid "Disable"
+msgstr "無効"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:75
+msgid "Resize Logo and use as Favicon"
+msgstr "ロゴのサイズを変更してファビコンとして使用"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:77
+msgid "Upload Favicon"
+msgstr "アップロードしたファビコンを使用"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:91
+msgid "Reset Logo & Favicon Settings"
+msgstr "ロゴ＆ファビコン設定を初期化"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:108
+msgid "Facebook Admin ID(s)"
+msgstr "Facebook Admin ID"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:111
+msgid "Specify Facebook Admin ID(s) ( Comma separated )"
+msgstr "Specify Facebook Admin ID (カンマで区切りで複数指定可)"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:115
+msgid "Facebook App ID"
+msgstr "Facebook App ID"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:118
+#, php-format
+msgid ""
+"<a href=\"%s\" target=\"_blank\" title=\"Find your App ID Here\">Find your "
+"App ID Here</a>"
+msgstr ""
+"<a href=\"%s\" target=\"_blank\" title=\"こちらであなたのApp IDを確認できます"
+"\">こちらであなたのApp IDを確認できます</a>。"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:123
+#: ../admin/lib/rtp-settings-metaboxes.php:569
+msgid "Note"
+msgstr "注意"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:123
+msgid "Anyone would be sufficient."
+msgstr "ほとんどの場合入力しなくても大丈夫です。"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:130
+msgid "Reset Facebook OGP Settings"
+msgstr "Facebook OGP 設定を初期化"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:148
+msgid "FeedBurner URL"
+msgstr "FeedBurner URL"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:151
+#, php-format
+msgid ""
+"Specify <a href=\"%s\" target=\"_blank\" title=\"FeedBurner\">FeedBurner</a> "
+"URL to redirect feeds"
+msgstr ""
+"<a href=\"%s\" target=\"_blank\" title=\"FeedBurner\">FeedBurner</a>のURLに"
+"フィードをリダイレクトするようになります。"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:158
+msgid "Reset FeedBurner Settings"
+msgstr "FeedBurner設定を初期化"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:176
+msgid "Enable Footer Sidebar"
+msgstr "フッターサイドバーを有効にする"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:180
+msgid "Check this to enable footer sidebar"
+msgstr "フッターサイドバーを有効にする"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:187
+msgid "Reset Sidebar Settings"
+msgstr "サイドバー設定を初期化"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:205
+msgid "Google Custom Search Element Code"
+msgstr "Googleカスタム検索エレメントコード"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:208
+#, php-format
+msgid ""
+"The Google Search Code Obtained by Default. You can obtain the Google Custom "
+"Search Code <a href=\"%s\" title=\"Google Custom Search\">here</a><br />"
+msgstr ""
+"<a href=\"%s\" title=\"Google Custom Search\">ここ</a>でGoogleカスタム検索の"
+"コードを取得することができます。"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:209
+msgid "NOTE"
+msgstr "<br />注意"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:209
+msgid ""
+"The hosting option must be \"Search Element\" and layout should be either "
+"\"full-width\" or \"compact\"."
+msgstr ""
+"「コントロールパネル」より「レイアウトの選択」へ進んで「全幅(初期設定)」か"
+"「コンパクト」にしてください。[訳注:12-09-01現在の表記です。変更されているか"
+"もしれません。]"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:213
+msgid "Hide Sidebar"
+msgstr "サイドバーを非表示にする"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:217
+msgid ""
+"Do not show sidebar on \"Search Results\" Page ( While using Google Custom "
+"Search )"
+msgstr ""
+"検索結果ページにサイドバーを非表示にする(Googleカスタム検索を使用している時の"
+"み)"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:224
+msgid "Reset Google Custom Search Integration"
+msgstr "Googleカスタム検索との統合設定を初期化"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:242
+msgid "Add your CSS here &rarr;"
+msgstr "追加するCSSはこちらへ&rarr;"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:245
+msgid ""
+"Add your extra CSS rules here. No need to use !important. Rules written "
+"above will be loaded last."
+msgstr ""
+"ここに追加したいCSSを追加してください。最後に読まれるため、「!important」は追"
+"加しなくて構いません。"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:252
+msgid "Reset Custom Styles"
+msgstr "カスタムスタイルを初期化"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:283
+msgid "Status"
+msgstr "現在の状態"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:284
+msgid "Action"
+msgstr "操作"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:285
+#: ../admin/lib/rtp-settings-metaboxes.php:311
+#: ../admin/lib/rtp-settings-metaboxes.php:341
+#: ../admin/lib/rtp-settings-metaboxes.php:371
+#: ../admin/lib/rtp-settings-metaboxes.php:401
+#: ../admin/lib/rtp-settings-metaboxes.php:430
+msgid "Edit"
+msgstr "編集"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:288
+msgid "rtPanel Hooks Editor"
+msgstr "rtPanel Hooks Editor"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:292
+#: ../admin/lib/rtp-settings-metaboxes.php:322
+#: ../admin/lib/rtp-settings-metaboxes.php:352
+#: ../admin/lib/rtp-settings-metaboxes.php:382
+msgid "Active"
+msgstr "使用中"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:294
+#: ../admin/lib/rtp-settings-metaboxes.php:324
+#: ../admin/lib/rtp-settings-metaboxes.php:354
+#: ../admin/lib/rtp-settings-metaboxes.php:384
+msgid "Inactive"
+msgstr "停止中"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:296
+#: ../admin/lib/rtp-settings-metaboxes.php:326
+#: ../admin/lib/rtp-settings-metaboxes.php:356
+#: ../admin/lib/rtp-settings-metaboxes.php:386
+msgid "Not Installed"
+msgstr "インストールしていません"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:302
+#: ../admin/lib/rtp-settings-metaboxes.php:332
+#: ../admin/lib/rtp-settings-metaboxes.php:362
+#: ../admin/lib/rtp-settings-metaboxes.php:392
+#: ../admin/lib/rtp-settings-metaboxes.php:421
+msgid "Deactivate"
+msgstr "停止"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:304
+#: ../admin/lib/rtp-settings-metaboxes.php:334
+#: ../admin/lib/rtp-settings-metaboxes.php:364
+#: ../admin/lib/rtp-settings-metaboxes.php:394
+#: ../admin/lib/rtp-settings-metaboxes.php:423
+msgid "Activate"
+msgstr "有効化"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:304
+#: ../admin/lib/rtp-settings-metaboxes.php:334
+#: ../admin/lib/rtp-settings-metaboxes.php:364
+#: ../admin/lib/rtp-settings-metaboxes.php:394
+#: ../admin/lib/rtp-settings-metaboxes.php:423
+msgid "Delete"
+msgstr "削除"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:306
+#: ../admin/lib/rtp-settings-metaboxes.php:336
+#: ../admin/lib/rtp-settings-metaboxes.php:366
+#: ../admin/lib/rtp-settings-metaboxes.php:396
+#: ../admin/lib/rtp-settings-metaboxes.php:425
+msgid "Install"
+msgstr "インストール"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:318
+msgid "rtSocial"
+msgstr "rtSocial"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:348
+msgid "Subscribe to Comments"
+msgstr "Subscribe to Comments"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:378
+msgid "WordPress SEO by Yoast"
+msgstr "WordPress SEO by Yoast"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:408
+msgid "Regenerate Thumbnails"
+msgstr "Regenerate Thumbnails"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:450
+msgid "Export rtPanel Options"
+msgstr "rtPanel設定をエクスポート"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:452
+msgid "Export"
+msgstr "エクスポート"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:456
+msgid "Import rtPanel Options"
+msgstr "rtPanel設定をインポート"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:459
+msgid "Import"
+msgstr "インポート"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:479
+msgid "Enable Summary"
+msgstr "要約を使用する"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:483
+msgid ""
+"Check this to enable excerpts on Archive pages ( Pages with multiple posts "
+"on them )"
+msgstr "アーカイブページ(複数の投稿が載っているページ)に抜粋を有効にする"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:487
+msgid "Word Limit"
+msgstr "文字数制限"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:490
+msgid "Post Content will be cut around Word Limit you will specify here."
+msgstr "投稿内容は、指定された文字数を目安に切り取られます。"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:494
+msgid "Read More Text"
+msgstr "「もっと読む」のテキスト"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:497
+msgid ""
+"This will be added after each post summary. Text added here will be "
+"automatically converted into a hyperlink pointing to the respective post."
+msgstr ""
+"それぞれの投稿の要約の後に追加されます。自動で投稿へのリンクが付きます。"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:504
+msgid "Reset Post Sumarry Settings"
+msgstr "投稿要約設定を初期化"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:519
+msgid ""
+"Enable Summary must be checked on the Post Summary Settings to show these "
+"Options"
+msgstr "投稿サムネイル設定を使用するためには、要約設定を有効にしてください。"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:523
+msgid "Enable Thumbnails"
+msgstr "サムネイルを使用する"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:527
+msgid ""
+"Check this to display thumbnails as part of Post Summaries on Archive pages"
+msgstr "アーカイブページに投稿サマリーと共にサムネイルを表示する"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:531
+msgid "Thumbnail Alignment"
+msgstr "サムネイルの位置"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:533
+msgid "None"
+msgstr "なし"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:534
+msgid "Left"
+msgstr "左"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:535
+msgid "Right"
+msgstr "右"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:536
+msgid "Center"
+msgstr "中央"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:540
+msgid "Width"
+msgstr "幅"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:546
+msgid "Height"
+msgstr "高さ"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:552
+msgid "Crop Thumbnail"
+msgstr "サムネイルトリミング"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:556
+msgid ""
+"Crop thumbnail to exact dimensions (normally thumbnails are proportional)"
+msgstr ""
+"サムネイルを実寸法にトリミングする (通常は相対的な縮小によりサムネイルを作り"
+"ます)"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:560
+msgid "Add Frame (Border Effect around Image)"
+msgstr "境界を追加(画像の周りに境界が追加されます)"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:564
+msgid "Check this to display a light shadow border effect for the thumbnails"
+msgstr "影付きの境界をサムネイルに追加する"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:569
+#, php-format
+msgid ""
+"If you make changes to thumbnail height, width or crop settings, you must "
+"use \"<a target=\"_blank\" href=\"%s\" title=\"Regenerate Thumbnail Plugin"
+"\">Regenerate Thumbnail Plugin</a>\" to regenerate thumbnails on old posts."
+msgstr ""
+"サムネイルトリミングの高さ・幅設定を変更したら、<a target=\"_blank\" href="
+"\"%s\" title=\"Regenerate Thumbnailプラグイン\">Regenerate Thumbnailプラグイ"
+"ン</a>を使用して古い記事のサムネイルを再生成する必要があります。"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:576
+msgid "Reset Post Thumbnail Settings"
+msgstr "投稿サムネイル設定を初期化"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:594
+msgid ""
+"This option will allow you to specify the post meta attributes and their "
+"position"
+msgstr ""
+"この設定では、投稿メタの表示する属性とその位置を指定することができます。"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:595
+msgid "These Post Meta will be displayed above content"
+msgstr "これらの投稿メタはコンテンツの上に表示されます。"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:599
+#: ../admin/lib/rtp-settings-metaboxes.php:661
+msgid "Post Date"
+msgstr "日付"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:603
+#: ../admin/lib/rtp-settings-metaboxes.php:665
+msgid "Check this box to include Post Dates in meta"
+msgstr "投稿メタに日付を追加"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:605
+#: ../admin/lib/rtp-settings-metaboxes.php:667
+msgid "Select a Date Format"
+msgstr "フォーマットを選択してください"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:606
+#: ../admin/lib/rtp-settings-metaboxes.php:668
+msgid "F j, Y"
+msgstr "Y年n月j日"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:607
+#: ../admin/lib/rtp-settings-metaboxes.php:669
+msgid "Y/m/d"
+msgstr "Y/n/j"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:608
+#: ../admin/lib/rtp-settings-metaboxes.php:670
+msgid "m/d/Y"
+msgstr "m/d/Y"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:609
+#: ../admin/lib/rtp-settings-metaboxes.php:671
+msgid "d/m/Y"
+msgstr "d/m/Y"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:615
+#: ../admin/lib/rtp-settings-metaboxes.php:677
+msgid "Post Author"
+msgstr "著者"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:619
+#: ../admin/lib/rtp-settings-metaboxes.php:681
+msgid "Check this box to include Author Name in meta"
+msgstr "投稿メタに著者名を追加"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:622
+#: ../admin/lib/rtp-settings-metaboxes.php:684
+msgid "Show Author Posts Count"
+msgstr "作者の投稿数を表示"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:624
+#: ../admin/lib/rtp-settings-metaboxes.php:686
+msgid "Link to Author Archive page"
+msgstr "著者アーカイブのページへリンクする"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:629
+#: ../admin/lib/rtp-settings-metaboxes.php:691
+msgid "Post Categories"
+msgstr "カテゴリー"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:636
+#: ../admin/lib/rtp-settings-metaboxes.php:698
+msgid "Post Tags"
+msgstr "タグ"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:646
+#: ../admin/lib/rtp-settings-metaboxes.php:708
+#, php-format
+msgid "%s"
+msgstr "%s"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:657
+msgid "These Post Meta will be displayed below content"
+msgstr "これらの投稿メタはコンテンツの下に表示されます。"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:720
+msgid "Reset Post Meta Settings"
+msgstr "投稿メタ設定を初期化"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:737
+msgid "Enable Pagination"
+msgstr "ナビゲーションを使用する"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:741
+msgid ""
+"Check this to enable default WordPress Pagination on Archive pages ( Pages "
+"with multiple posts on them )"
+msgstr ""
+"アーカイブページ(複数の投稿が載っているページ)をデフォルトのWordPressのページ"
+"ナビゲーションにしたい場合はこのチェックを外してください。"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:745
+msgid "Prev Text"
+msgstr "「前のページへ」のテキスト"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:748
+msgid "Text to display for Previous Page"
+msgstr "「前のページへ」のテキスト"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:752
+msgid "Next Text"
+msgstr "「次のページへ」のテキスト"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:755
+msgid "Text to display for Next Page"
+msgstr "「次のページへ」のテキスト"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:759
+msgid "End Size"
+msgstr "表示するページ数"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:762
+msgid "How many numbers on either the start and the end list edges?"
+msgstr "ここで指定された最大数までナビゲーションの両端に表示されます。"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:766
+msgid "Mid Size"
+msgstr "省略表示するページ数"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:769
+msgid ""
+"How many numbers to either side of current page, but not including current "
+"page?"
+msgstr "ここで指定された最大数まで省略表示をします(通常のページは含みません)。"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:776
+msgid "Reset Pagination Settings"
+msgstr "ナビゲーション設定を初期化"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:793
+msgid "Enable Compact Form"
+msgstr "コンパクトフォームを有効"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:797
+msgid ""
+"Check this box to compact comment form. Name, URL & Email Fields will be on "
+"same line"
+msgstr ""
+"コンパクトなコメントフォームによって名前、ウェブサイト、メールアドレス入力欄"
+"が同じ行で表示されます。"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:801
+msgid ""
+"Hide Labels for Name, Email, URL & Comment Textarea. These will be shown "
+"inside fields as default text"
+msgstr ""
+"名前、ウェブサイト、メールアドレスのラベルをなくし、入力欄の中にラベルを表示"
+"します。"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:805
+msgid "Extra Settings"
+msgstr "その他の設定"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:809
+msgid "Display Comment textarea above Name, Email, &amp; URL Fields"
+msgstr "名前、メールアドレス、ウェブサイトをコメント入力欄の下に配置します。"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:813
+msgid "Separate Comments from Trackbacks &amp; Pingbacks"
+msgstr "トラックバックやピングバックをコメントと別にする"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:817
+msgid "Enable the comment form on Attachments"
+msgstr "メディアのページでコメントフォームを有効にする"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:824
+msgid "Reset Comment Form Settings"
+msgstr "コメントフォーム設定を初期化"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:841
+msgid "Enable Gravatar Support"
+msgstr "アバターを使用する"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:848
+msgid "Gravatar Size"
+msgstr "アバターサイズ"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:864
+msgid "Reset Gravatar Settings"
+msgstr "アバター設定を初期化"
+
+#: ../lib/rtp-comments.php:30
+#, php-format
+msgid "%1$s at %2$s"
+msgstr "%1$s at %2$s"
+
+#: ../lib/rtp-comments.php:32 ../lib/rtp-default-functions.php:163
+msgid "[ edit ]"
+msgstr "[ 編集 ]"
+
+#: ../lib/rtp-comments.php:34
+msgid "Your comment is awaiting moderation. "
+msgstr "あなたの投稿したコメントは管理者の承認待ちです。"
+
+#: ../lib/rtp-comments.php:43
+msgid "Reply &rarr;"
+msgstr "返信 &rarr;"
+
+#: ../lib/rtp-comments.php:59
+msgid "Comment"
+msgstr "コメント"
+
+#: ../lib/rtp-comments.php:59
+msgid "Pingback"
+msgstr "ピンバック"
+
+#: ../lib/rtp-default-functions.php:91
+#, php-format
+msgid "Posted by <span class=\"author vcard\">%s</span>"
+msgstr "著者:<span class=\"author vcard\">%s</span>"
+
+#: ../lib/rtp-default-functions.php:91
+#, php-format
+msgid "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>"
+msgstr "<a href=\"%1$s\" title=\"%2$s\">%3$s</a>"
+
+#: ../lib/rtp-default-functions.php:91
+#, php-format
+msgid "Posts by %s"
+msgstr "著者:%s"
+
+#: ../lib/rtp-default-functions.php:95
+#, php-format
+msgid "on <time class=\"published\" datetime=\"%s\">%s</time>"
+msgstr "投稿日:<time class=\"published\" datetime=\"%s\">%s</time>"
+
+#: ../lib/rtp-default-functions.php:101
+msgid "in"
+msgstr "カテゴリー:"
+
+#: ../lib/rtp-default-functions.php:104
+msgid "Tagged"
+msgstr "タグ:"
+
+#: ../lib/rtp-default-functions.php:202
+msgid "&larr; %title"
+msgstr "&larr; %title"
+
+#: ../lib/rtp-default-functions.php:203
+msgid "%title &rarr;"
+msgstr "%title &rarr;"
+
+#: ../lib/rtp-default-functions.php:238
+msgid "&larr; Older Entries"
+msgstr "&larr; より古いエントリー"
+
+#: ../lib/rtp-default-functions.php:239
+msgid "Newer Entries &rarr;"
+msgstr "より新しいエントリー &rarr;"
+
+#: ../lib/rtp-default-functions.php:279
+msgctxt "comments number"
+msgid "<span>0</span> Comments"
+msgstr "<span>0</span>コメント"
+
+#: ../lib/rtp-default-functions.php:279
+msgctxt "comments number"
+msgid "<span>1</span> Comment"
+msgstr "<span>1</span>コメント"
+
+#: ../lib/rtp-default-functions.php:279
+msgctxt "comments number"
+msgid "<span>%</span> Comments"
+msgstr "<span>%</span>コメント"
+
+#: ../lib/rtp-init.php:70
+msgid "Primary Navigation"
+msgstr "プライマリナビゲーション"
+
+#: ../lib/rtp-post-summaries.php:26
+#, php-format
+msgid "Read more on %s"
+msgstr "%sをもっと見る"
+
+#: ../lib/rtp-post-summaries.php:435
+msgid ""
+"This post is password protected. To view it please enter your password below:"
+msgstr ""
+"この投稿はパスワードで保護されています。表示するにはパスワードを入力してくだ"
+"さい:"
+
+#: ../lib/rtp-post-summaries.php:438
+msgid "Password:"
+msgstr "パスワード:"
+
+#: ../lib/rtp-post-summaries.php:439
+msgid "Password"
+msgstr "パスワード"
+
+#: ../lib/rtp-search.php:27 ../lib/rtp-search.php:32
+msgid "Search Here..."
+msgstr "こちらから検索..."
+
+#: ../lib/rtp-search.php:31
+msgid "Search for:"
+msgstr "検索:"
+
+#: ../lib/rtp-sidebars.php:20
+msgid "Sidebar Widgets"
+msgstr "サイドバーウィジェット"
+
+#: ../lib/rtp-sidebars.php:31
+msgid "Footer Widgets"
+msgstr "フッターウィジェット"
+
+#: ../lib/rtp-widgets.php:26
+msgid ""
+"Widget for email subscription form and Social Icons such as Facebook, "
+"Twitter, etc."
+msgstr ""
+"電子メール購読フォームや、FacebookやTwitterなどのソーシャルアイコンのウィ"
+"ジェット"
+
+#: ../lib/rtp-widgets.php:27
+msgid "rtPanel: Subscribe Widget"
+msgstr "rtPanel: 購読ウィジェット"
+
+#: ../lib/rtp-widgets.php:43
+msgid "Subscribe"
+msgstr "購読する"
+
+#: ../lib/rtp-widgets.php:76
+msgid "Enter Email Address"
+msgstr "メールアドレスを入力"
+
+#: ../lib/rtp-widgets.php:89
+msgid "Like Us on Facebook"
+msgstr "Facebookでいいね！してください"
+
+#: ../lib/rtp-widgets.php:90
+msgid "Follow Us on Twitter"
+msgstr "Twitterでフォローしてください"
+
+#: ../lib/rtp-widgets.php:91
+msgid "Add to Circle"
+msgstr "サークルに追加"
+
+#: ../lib/rtp-widgets.php:92
+msgid "Subscribe via RSS"
+msgstr "RSS経由で購読"
+
+#: ../lib/rtp-widgets.php:93
+msgid "Connect via LinkedIn"
+msgstr "LinkedIn経由で接続"
+
+#: ../lib/rtp-widgets.php:94
+msgid "Join Us on MySpace"
+msgstr "MySpaceに参加してください"
+
+#: ../lib/rtp-widgets.php:95
+msgid "Stumble Us"
+msgstr "私たちをつまずかせます"
+
+#: ../lib/rtp-widgets.php:100
+#, php-format
+msgid ""
+"Please configure this widget <a href=\"%s\" target=\"_blank\" title="
+"\"Configure Subscribe Widget\">here</a>."
+msgstr ""
+"購読ウィジェットを<a href=\"%s\" target=\"_blank\" title=\"購読ウィジェット設"
+"定\">設定</a>してください。"
+
+#: ../lib/rtp-widgets.php:168 ../lib/rtp-widgets.php:365
+#: ../lib/rtp-widgets.php:514
+msgid "Title"
+msgstr "タイトル"
+
+#: ../lib/rtp-widgets.php:169
+msgid "FeedBurner RSS Subscription"
+msgstr "FeedBurnerRSS購読"
+
+#: ../lib/rtp-widgets.php:172
+msgid "Feedburner Subscription Handler"
+msgstr "FeedBurner購読ハンドラ"
+
+#: ../lib/rtp-widgets.php:174
+#, php-format
+msgid "Ex: %s would be the FeedBurner Subscription Handler for %s"
+msgstr "例:%sと入力するとリンクはこちらのURLになります:%s"
+
+#: ../lib/rtp-widgets.php:177
+msgid "Feedburner Form Label"
+msgstr "FeedBurnerフォームラベル"
+
+#: ../lib/rtp-widgets.php:181
+msgid "Feedburner Form Button"
+msgstr "FeedBurnerフォームボタン"
+
+#: ../lib/rtp-widgets.php:184
+msgid "Social Share"
+msgstr "共有"
+
+#: ../lib/rtp-widgets.php:187
+msgid "RSS Feed Link"
+msgstr "RSS Feedリンク"
+
+#: ../lib/rtp-widgets.php:192
+msgid "Facebook Link"
+msgstr "Facebookリンク"
+
+#: ../lib/rtp-widgets.php:197
+msgid "Twitter Link"
+msgstr "Twitterリンク"
+
+#: ../lib/rtp-widgets.php:202
+msgid "Google+ Link"
+msgstr "Google+リンク"
+
+#: ../lib/rtp-widgets.php:207
+msgid "LinkedIn Link"
+msgstr "LinkedInリンク"
+
+#: ../lib/rtp-widgets.php:212
+msgid "MySpace Link"
+msgstr "MySpaceリンク"
+
+#: ../lib/rtp-widgets.php:217
+msgid "StumbleUpon Link"
+msgstr "StumbleUponのリンク"
+
+#: ../lib/rtp-widgets.php:222
+msgid "Open Social Links in New Tab/Window"
+msgstr "新しいタブ/ウィンドウでソーシャルリンクを開く"
+
+#: ../lib/rtp-widgets.php:242
+msgid ""
+"Shows Recent Comments with an option for displaying Author Gravatar also."
+msgstr "最近コメントをしたコメントの著者のアバターを表示します。"
+
+#: ../lib/rtp-widgets.php:243
+msgid "rtPanel: Comments with Gravatar"
+msgstr "rtPanel: アバター付き最近のコメント"
+
+#: ../lib/rtp-widgets.php:257
+msgid "Recent Comments"
+msgstr "最近のコメント"
+
+#: ../lib/rtp-widgets.php:369
+msgid "Show Gravatar"
+msgstr "アバターを表示"
+
+#: ../lib/rtp-widgets.php:373
+msgid "Show Alternate Comments"
+msgstr "代替コメントを表示"
+
+#: ../lib/rtp-widgets.php:379
+msgid "32px X 32px"
+msgstr "32px × 32px"
+
+#: ../lib/rtp-widgets.php:380
+msgid "40px X 40px"
+msgstr "40px × 40px"
+
+#: ../lib/rtp-widgets.php:381
+msgid "48px X 48px"
+msgstr "48px × 48px"
+
+#: ../lib/rtp-widgets.php:382
+msgid "56px X 56px"
+msgstr "56px × 56px"
+
+#: ../lib/rtp-widgets.php:383
+msgid "64px X 64px"
+msgstr "64px × 64px"
+
+#: ../lib/rtp-widgets.php:387
+msgid "Show Comments"
+msgstr "表示するコメント数"
+
+#: ../lib/rtp-widgets.php:389
+#, php-format
+msgid "You have total '%d' comments to display"
+msgstr "合計で%dの表示できるコメントがあります。"
+
+#: ../lib/rtp-widgets.php:414
+msgid "A list or dropdown of categories with extra options."
+msgstr "リストまたは追加オプションを持つカテゴリーをドロップダウン。"
+
+#: ../lib/rtp-widgets.php:415
+msgid "rtPanel: Categories"
+msgstr "rtPanel：カテゴリー"
+
+#: ../lib/rtp-widgets.php:429
+msgid "Categories"
+msgstr "カテゴリー"
+
+#: ../lib/rtp-widgets.php:518
+msgid "Order by"
+msgstr "順"
+
+#: ../lib/rtp-widgets.php:520
+msgid "Category Name"
+msgstr "カテゴリー名"
+
+#: ../lib/rtp-widgets.php:521
+msgid "Category ID"
+msgstr "カテゴリーID"
+
+#: ../lib/rtp-widgets.php:522
+msgid "Category Count"
+msgstr "カテゴリー数"
+
+#: ../lib/rtp-widgets.php:523
+msgid "Category Slug"
+msgstr "カテゴリースラッグ"
+
+#: ../lib/rtp-widgets.php:527
+msgid "Sort by"
+msgstr "ソート"
+
+#: ../lib/rtp-widgets.php:529
+msgid "Ascending"
+msgstr "昇順"
+
+#: ../lib/rtp-widgets.php:530
+msgid "Descending"
+msgstr "降順"
+
+#: ../lib/rtp-widgets.php:534
+msgid "Show Category"
+msgstr "表示するカテゴリー数"
+
+#: ../lib/rtp-widgets.php:536
+msgid "Total Categories"
+msgstr "表示できるカテゴリー数"
+
+#: ../lib/rtp-widgets.php:539
+msgid "Style"
+msgstr "スタイル"
+
+#: ../lib/rtp-widgets.php:541
+msgid "List"
+msgstr "リスト"
+
+#: ../lib/rtp-widgets.php:542
+msgid "Dropdown"
+msgstr "ドロップダウン"
+
+#: ../lib/rtp-widgets.php:546
+msgid "Exclude"
+msgstr "除外"
+
+#: ../lib/rtp-widgets.php:548
+msgid "Separate Category ID with \",\""
+msgstr "カテゴリーIDを\",\"で囲んでください。"
+
+#: ../lib/rtp-widgets.php:548
+msgid "Ex: 1,5,15"
+msgstr "例: 1,5,15"
+
+#: ../lib/rtp-widgets.php:552
+msgid "Show Hierarchy"
+msgstr "階層を表示"
+
+#: ../lib/rtp-widgets.php:556
+msgid "Hide Empty"
+msgstr "カテゴリー所属数0で非表示"
+
+#: ../lib/rtp-widgets.php:560
+msgid "Show post counts"
+msgstr "投稿数を表示"
