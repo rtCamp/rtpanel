@@ -1,0 +1,35 @@
+/*!
+Theme Name: rtPanel
+Theme URI: http://rtcamp.com/rtpanel/
+Description: WordPress theme framework with Custom Menu, Header and Background along with Logo, Favicon, Featured Image, Feedburner, Facebook Open Graph, Google Custom Search Integration and more options. This theme comes with free technical support by team of 20+ full-time developers.
+Version: 2.3
+Author: rtCamp
+Author URI: http://rtcamp.com/
+Contributors: rtCampers ( http://rtcamp.com/about/rtcampers/ )
+License: GNU General Public License, v2 (or newer)
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, blue, white, orange, light, one-column, two-columns, right-sidebar, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, flexible-width, full-width-template
+*/
+
+// Import your project's _base.scss partial. More Information. http://compass-style.org/help/tutorials/best_practices/
+@import "./rtpanel_sass/base";
+
+// Typography
+//$base-font-size: 16px;
+//$base-line-height: 24px;
+//$browser-default-font-size: 16px;
+//$title-font-size: (h1 32px) (h2 28px) (h3 24px) (h4 20px) (h5 16px) (h6 14px);
+//$font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+//$font-monospace: Consolas, monaco, monospace;
+@import "./rtpanel_sass/typography";
+
+
+// Generate 960 Grid "12" columns
+//$ninesixty-gutter-width: 20px;
+//$ninesixty-grid-width: 960px;
+//$ninesixty-columns: 12;
+@include grid-system-complete(12);
+
+
+// Color
+$font-color: #333;
