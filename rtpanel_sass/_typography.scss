@@ -4,22 +4,23 @@ $base-font-size: 16px !default;
 $base-line-height: 24px !default;
 $browser-default-font-size: 16px !default;
 $title-font-size: (h1 32px) (h2 28px) (h3 24px) (h4 20px) (h5 16px) (h6 14px);
-$font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $font-monospace: Consolas, monaco, monospace !default;
 
-$font-body: $font-sans;
+$font-body: $base-font-family;
 
 .rtp-margin-bottom-10 { margin-bottom: $rtp-base-10; }
+.rtp-margin-top-0 { margin-top: 0; }
 
 @mixin establish-baseline($font-size: $base-font-size, $font-family: $font-body) {
     $taille: ($font-size / $browser-default-font-size * 100); // $taille is a variable to set main font size.
     $line-height: rhythm(1, $font-size);
-    html {
+    html, body#tinymce {
         font: #{$taille}%/#{$line-height} $font-family;
     }
 }
 
-// html
+// HTML css
 @include establish-baseline;
 
 @each $typo-array in $title-font-size {
@@ -28,6 +29,7 @@ $font-body: $font-sans;
     #{$balise}, .#{$balise} {
         @include adjust-font-size-to($taille);
         @extend .rtp-margin-bottom-10;
+        @extend .rtp-margin-top-0;
     }
 }
 

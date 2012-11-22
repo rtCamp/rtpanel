@@ -37,11 +37,11 @@ $ninesixty-class-separator: "-" !default;
 }
 
 @mixin grids($cols: $ninesixty-columns, $gutter-width: $ninesixty-gutter-width) {
-    #{enumerate(".rtp-grid", 1, $cols, $ninesixty-class-separator)} {
+  #{enumerate(".grid", 1, $cols, $ninesixty-class-separator)} {
         @include grid-unit-base($gutter-width);
     }
     @for $n from 1 through $cols {
-        .rtp-grid#{$ninesixty-class-separator}#{$n} {
+    .grid#{$ninesixty-class-separator}#{$n} {
             @include grid-width($n, $cols, $gutter-width);
         }
     }
@@ -53,7 +53,7 @@ $ninesixty-class-separator: "-" !default;
 
 @mixin grid-prefixes($cols: $ninesixty-columns) {
     @for $n from 1 through $cols - 1 {
-        .rtp-prefix#{$ninesixty-class-separator}#{$n} {
+    .prefix#{$ninesixty-class-separator}#{$n} {
             @include grid-prefix($n, $cols);
         }
     }
@@ -65,17 +65,17 @@ $ninesixty-class-separator: "-" !default;
 
 @mixin grid-suffixes($cols: $ninesixty-columns) {
     @for $n from 1 through $cols - 1 {
-        .rtp-suffix#{$ninesixty-class-separator}#{$n} {
+    .suffix#{$ninesixty-class-separator}#{$n} {
             @include grid-suffix($n, $cols);
         }
     }
 }
 
 @mixin grid-children {
-    .alpha {
+  .alpha {
         @include alpha;
     }
-    .omega {
+  .omega {
         @include omega;
     }
 }
@@ -84,11 +84,11 @@ $ninesixty-class-separator: "-" !default;
     position: relative;
 }
 
-@mixin grid-move-push($n, $cols) {
+@mixin grid-move-push($n, $cols: $ninesixty-columns) {
     left: $ninesixty-grid-width / $cols * $n;
 }
 
-@mixin grid-move-pull($n, $cols) {
+@mixin grid-move-pull($n, $cols: $ninesixty-columns) {
     left: -($ninesixty-grid-width / $cols) * $n;
 }
 
@@ -103,15 +103,15 @@ $ninesixty-class-separator: "-" !default;
 }
 
 @mixin grid-movements($cols: $ninesixty-columns) {
-    #{enumerate(".rtp-push", 1, $cols - 1, $ninesixty-class-separator)},
-    #{enumerate(".rtp-pull", 1, $cols - 1, $ninesixty-class-separator)} {
+  #{enumerate(".push", 1, $cols - 1, $ninesixty-class-separator)},
+  #{enumerate(".pull", 1, $cols - 1, $ninesixty-class-separator)} {
         @include grid-move-base;
     }
     @for $n from 1 through $cols - 1 {
-        .rtp-push#{$ninesixty-class-separator}#{$n} {
+    .push#{$ninesixty-class-separator}#{$n} {
             @include grid-move-push($n, $cols);
         }
-        .rtp-pull#{$ninesixty-class-separator}#{$n} {
+    .pull#{$ninesixty-class-separator}#{$n} {
             @include grid-move-pull($n, $cols);
         }
     }
@@ -127,7 +127,58 @@ $ninesixty-class-separator: "-" !default;
 }
 
 @mixin grid-system-complete($cols: $ninesixty-columns) {
-    .rtp-container#{$ninesixty-class-separator}#{$cols} {
+  .container#{$ninesixty-class-separator}#{$cols} {
         @include grid-system($cols);
+    }
+}
+
+// rtPanel 960gs Grid Generator
+
+//rtPanel Grid Generate. Since we have renamed the classes in rtPanel. I have written the custom Grid Generate Code.
+/* Grid Containers */
+
+@mixin rtp-grid-generator($cols: $ninesixty-columns) {
+    .rtp-container-#{$cols} { @include grid-container; }
+    .rtp-grid-unit-base { @include grid-unit-base; }
+    .relative { position: relative; }
+
+    /* Grid >> Children (Alpha ~ First, Omega ~ Last) */
+    .rtp-alpha { @include alpha; }
+    .rtp-omega { @include omega; }
+
+    /* Grids */
+    @for $i from 1 through $cols {
+        .rtp-grid-#{$i} {
+            @extend .rtp-grid-unit-base;
+            @include grid-width($i, $cols);
+        }
+    }
+
+    /* Extra Space */
+    @for $i from 1 through $cols - 1 {
+        .rtp-prefix-#{$i} {
+            @include grid-prefix($i, $cols);
+        }
+
+        .rtp-suffix-#{$i} {
+            @include grid-suffix($i, $cols);
+        }
+    }
+
+    /* Push and Pull Space */
+    @for $i from 1 through $cols {
+        .rtp-push-#{$i} {
+            @extend .relative;
+            @if ($i != $cols ){
+                @include grid-move-push($i, $cols);
+            }
+        }
+
+        .rtp-pull-#{$i} {
+            @extend .relative;
+            @if ($i != $cols ){
+                @include grid-move-pull($i, $cols);
+            }
+        }
     }
 }
