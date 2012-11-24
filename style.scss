@@ -27,6 +27,29 @@ $base-line-height: 21px;
 body#tinymce { background: #FFF; color: #333; margin: 0 10px; padding: 10px 5px; }
 .wp-caption-dt { border: 0; padding: 0; }
 
+/* Add Bottom Margin
+** Added margin to widgets direct children element instead of (.widget) due to nested vertical margin collapse issue in footer widget.
+*/
+p, pre, address, blockquote, ul, ol, .widget > div, .widget > ul, .widget > ol, .widget > form, .widget > select, table, dl, .comment-text > ol, .comment-text > ul { margin-top: 0; margin-bottom: 1.5em; }
+ul ol, ul ul, ol ul, ol ol { margin: 0 0 0 1.5em; }
+
+/* Generic Lists: */
+ul, ol { margin-left: 30px; padding-left: 0; }
+
+/* Generic Table */
+table { width: 100%; }
+th { background-color: #F5F5F5; }
+th, td { border: 1px solid #DDD; padding: 0.5em; text-align: left; } /* Overwrite default text alignment center to left */
+
+/* Generic Definitions ( Lists ) */
+dd { margin-left: 20px; }
+
+/* Blockquote */
+blockquote { border-left: 4px solid #DDD; margin-left: 1em; padding: 0 0 0 10px; }
+blockquote p:last-child { margin: 0; }
+
+/* Label Cursor */
+label { cursor: pointer; }
 
 //960gs Variables
 //To overwrite the Default grids please update the default options given bellow as per your requirement.
@@ -36,6 +59,7 @@ body#tinymce { background: #FFF; color: #333; margin: 0 10px; padding: 10px 5px;
 //$ninesixty-grid-width: 960px;
 //$ninesixty-columns: 12;
 
-//Note: To use default Structure of 960gs comment out following code. But before ues it comment the rtPanel Grid Generate code.
-//@include grid-system-complete(12);
+//rtPanel Grid Generate code.
 @include rtp-grid-generator(12);
+//Note: To use default Structure of 960gs comment out following code.
+//@include grid-system-complete(12);

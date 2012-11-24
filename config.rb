@@ -6,7 +6,8 @@ images_dir = "img"
 javascripts_dir = "js"
 
 output_style = :compact
-#environment = :development
+environment = :production
+#Symbol	The environment mode. Defaults to :production, can also be :development
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed
