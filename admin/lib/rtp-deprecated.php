@@ -20,10 +20,19 @@
  */
 function _rtp_deprecated_function( $function, $version, $replacement = null ) {
     if ( WP_DEBUG ) {
-        if ( ! is_null($replacement) )
+        if ( ! is_null( $replacement ) )
             trigger_error( sprintf( __( '%1$s is <strong>deprecated</strong> since rtPanel version %2$s! Use %3$s instead.', 'rtPanel' ), $function, $version, $replacement ) );
         else
             trigger_error( sprintf( __( '%1$s is <strong>deprecated</strong> since rtPanel version %2$s with no alternative available.', 'rtPanel' ), $function, $version ) );
+    }
+}
+
+function _rtp_deprecated_argument( $function, $version, $message = null ) {
+    if ( WP_DEBUG ) {
+        if ( ! is_null( $message ) )
+            trigger_error( sprintf( __('%1$s was called with an argument that is <strong>deprecated</strong> since rtPanel version %2$s! %3$s'), $function, $version, $message ) );
+        else
+            trigger_error( sprintf( __('%1$s was called with an argument that is <strong>deprecated</strong> since rtPanel version %2$s with no alternative available.'), $function, $version ) );
     }
 }
 
