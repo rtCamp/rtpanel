@@ -14,9 +14,22 @@ Tags: black, blue, white, orange, light, one-column, two-columns, right-sidebar,
 //Import your project's _base.scss partial. More Information. http://compass-style.org/help/tutorials/best_practices/
 @import "./rtpanel_sass/base";
 
-//Typography Note: Defalult font sizes should be in pixel. FYI: Font size will automative convert into EM's.
+// ********* rtPanel Defaults *********
+
+$link: #006999;
+$link-hover: #CD5A1B;
+
+$border: #DDDDDD;
+
+$inputBackground: #FFFFFF;
+$inputBorder: #DDDDDD;
+
+
+//Typography Note: Defalult font sizes should be in Pixel.
+//FYI: Font size will convert into EM's automatically.
 $base-font-size: 14px;
 $base-line-height: 21px;
+//$base-font-color: #333333 !default;
 //$browser-default-font-size: 16px;
 //$title-font-size: (h1 32px) (h2 28px) (h3 24px) (h4 20px) (h5 16px) (h6 14px);
 //$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -24,11 +37,11 @@ $base-line-height: 21px;
 @import "./rtpanel_sass/typography";
 
 /* WP-Editor TinyMCE Style */
-body#tinymce { background: #FFF; color: #333; margin: 0 10px; padding: 10px 5px; }
+body#tinymce { background: #FFF; margin: 0 10px; padding: 10px 5px; }
 .wp-caption-dt { border: 0; padding: 0; }
 
 /* Add Bottom Margin
-** Added margin to widgets direct children element instead of (.widget) due to nested vertical margin collapse issue in footer widget.
+** Added margin to widgets direct children element instead of (.widget) due to floated Elements can not collapse margins.
 */
 p, pre, address, blockquote, ul, ol, .widget > div, .widget > ul, .widget > ol, .widget > form, .widget > select, table, dl, .comment-text > ol, .comment-text > ul { margin-top: 0; margin-bottom: 1.5em; }
 ul ol, ul ul, ol ul, ol ol { margin: 0 0 0 1.5em; }
@@ -51,6 +64,11 @@ blockquote p:last-child { margin: 0; }
 /* Label Cursor */
 label { cursor: pointer; }
 
+/* Input Styles */
+#{$all-text-inputs}, select, textarea { background: $inputBackground; border: 1px solid $inputBorder; font-size: 13px; margin: 0; padding: 5px; }
+
+select { padding: 0; }
+
 //960gs Variables
 //To overwrite the Default grids please update the default options given bellow as per your requirement.
 
@@ -60,6 +78,6 @@ label { cursor: pointer; }
 //$ninesixty-columns: 12;
 
 //rtPanel Grid Generate code.
-@include rtp-grid-generator(12);
+//@include rtp-grid-generator(12);
 //Note: To use default Structure of 960gs comment out following code.
-//@include grid-system-complete(12);
+@include grid-system-complete(12);
