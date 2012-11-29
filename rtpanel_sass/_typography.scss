@@ -1,17 +1,15 @@
 // Thanks to https://gist.github.com/2398651
-$rtp-base-10: 10px;
 $base-font-color: #333333 !default;
 $base-font-size: 16px !default;
+$secondary-font-size: 14px !default;
+$tertiary-font-size: 12px !default;
 $base-line-height: 24px !default;
 $browser-default-font-size: 16px !default;
 $title-font-size: (h1 32px) (h2 28px) (h3 24px) (h4 20px) (h5 16px) (h6 14px);
-$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$base-font-family: "Helvetica Neue", Arial, sans-serif !default;
 $font-monospace: Consolas, monaco, monospace !default;
 
 $font-body: $base-font-family;
-
-.rtp-margin-bottom-10 { margin-bottom: $rtp-base-10; }
-.rtp-margin-top-0 { margin-top: 0; }
 
 @mixin establish-baseline($font-size: $base-font-size, $font-family: $font-body) {
     $taille: ($font-size / $browser-default-font-size * 100); // $taille is a variable to set main font size.
@@ -24,6 +22,8 @@ $font-body: $base-font-family;
 
 // HTML css
 @include establish-baseline;
+// Set base font
+.tagline, #reply-title small, #cse .gsc-control-cse, #cse .gsc-control-cse .gsc-table-result { font-family: $base-font-family; }
 
 @each $typo-array in $title-font-size {
     $balise: nth($typo-array, 1);
@@ -35,8 +35,69 @@ $font-body: $base-font-family;
     }
 }
 
+
+.rtp-margin-bottom-10 { margin-bottom: $rtp-base-10; }
+.rtp-margin-top-0 { margin-top: 0; }
+
 /* Corrects font family set oddly in Safari 5 and Chrome. */
 code, kbd, pre, samp {
     font-family: $font-monospace;
-    @include adjust-font-size-to( 1 * $base-font-size );
 }
+
+/* Elements having $secondary-font-size */
+code, pre, kbd, samp,
+.rtp-readmore, .rtp-readmore:visited,
+.post-meta, .gallery-caption, .breadcrumb,
+.rtp-navigation, .rtp-comments-pagination,
+#respond, #respond .form-allowed-tags,
+.widget, .comment-text { font-size: $secondary-font-size; line-height: rhythm(1, $secondary-font-size); }
+
+/* Elements having $tertiary-font-size */
+.rtp-edit-link a,
+.comment-meta,
+.trackback em,
+.pingback em,
+.rtp-comments-widget .comment-date,
+.widget_calendar table,
+.bbp_widget_login .logout-link { font-size: $tertiary-font-size; line-height: rhythm(1, $tertiary-font-size); }
+
+/* Add Bottom Margin FYI: I have Added margin to widgets direct children element instead of (.widget) due to floated Elements can not collapse there margins. */
+// Tags
+p,
+pre,
+address,
+blockquote,
+
+// Lists
+ul,
+ol,
+
+// Widgets
+.widget > div,
+.widget > ul,
+.widget > ol,
+.widget > form,
+.widget > select,
+
+// Table
+table,
+dl,
+
+// Comment Lists
+.comment-text > ol,
+.comment-text > ul {
+    margin-top: 0;
+    margin-bottom: 1.5em;
+}
+
+// Lists
+ul ol,
+ul ul,
+ol ul,
+ol ol { margin: 0 0 0 1.5em; }
+
+/* Generic Lists: */
+ul,
+ol { margin-left: 30px; padding-left: 0; }
+
+/* End - Typography */

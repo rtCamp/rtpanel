@@ -14,228 +14,68 @@ Tags: black, blue, white, orange, light, one-column, two-columns, right-sidebar,
 //Importing rtPanel base.
 @import "./rtpanel_sass/base";
 
-// ***** rtPanel Defaults ***** //
-//Useful Colors
-$black: #000000;
-$white: #ffffff;
+// ******************** rtPanel Defaults ******************** //
 
-//Borders
-$border-color: #dddddd;
 
-//Backgrounds
-$baseBackground: #ffffff;
 
-//Inputs
-$inputBorder: #dddddd;
-$inputBackground: #ffffff;
+// ******************** Typography ******************** //
 
-//Links
-$link: #006999;
-$link-hover: #cd5a1b;
-
-// ***** Typography *****
 //Note: Defalult font sizes should be in Pixel.
 //FYI: Font size will convert into EM's automatically.
 
 //$base-font-color: #333333;
 $base-font-size: 14px; // 16px !default;
 $base-line-height: 21px; // 24px !default;
+$secondary-font-size: 13px; // 14px !default
+//$tertiary-font-size: 12px !default;
 //$browser-default-font-size: 16px;
-//$title-font-size: (h1 32px) (h2 28px) (h3 24px) (h4 20px) (h5 16px) (h6 14px);
+$title-font-size: (h1 32px) (h2 28px) (h3 24px) (h4 20px) (h5 16px) (h6 14px);
 //$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 //$font-monospace: Consolas, monaco, monospace;
+
+/* Typography */
 @import "./rtpanel_sass/typography";
+
+
+// ******************** Input Types ******************** //
+
+// Input Defaults
+// $inputBorder: #dddddd;
+// $inputBackground: #ffffff;
+@import "./rtpanel_sass/input-types";
+
+
+// ******************** WP Editor ******************** //
 
 /* WP-Editor TinyMCE Style */
 body#tinymce {
-    background: #FFF;
+    background: $white;
     margin: 0 10px;
     padding: 10px 5px;
 }
 
+// WP-Editor Caption
 .wp-caption-dt {
     border: 0;
     padding: 0;
 }
 
-/* Add Bottom Margin FYI: I have Added margin to widgets direct children element instead of (.widget) due to floated Elements can not collapse there margins. */
-//Tags
-p,
-pre,
-address,
-blockquote,
-
-//Lists
-ul,
-ol,
-
-//Widgets
-.widget > div,
-.widget > ul,
-.widget > ol,
-.widget > form,
-.widget > select,
-
-//Table
-table,
-dl,
-
-//Comment Lists
-.comment-text > ol,
-.comment-text > ul {
-    margin-top: 0;
-    margin-bottom: 1.5em;
-}
-
-//Lists
-ul ol,
-ul ul,
-ol ul,
-ol ol { margin: 0 0 0 1.5em; }
-
-/* Generic Lists: */
-ul,
-ol { margin-left: 30px; padding-left: 0; }
-
-/* Generic Table */
-table { width: 100%; }
-th { background-color: darken($baseBackground, 5%); }
-th, td {
-    border: 1px solid $border-color;
-    padding: 0.5em;
-    text-align: left; // Overwrite default text alignment center to left
-}
-
-/* Generic Definitions ( Lists ) */
-dd { margin-left: 20px; }
-
-/* Blockquote */
-blockquote {
-    border-left: 4px solid $border-color;
-    margin-left: 1em;
-    padding: 0 0 0 10px;
-}
-
-blockquote p:last-child { margin: 0; }
-
-/* Label Cursor */
-label { cursor: pointer; }
-
-/* Input Styles */
-#{$all-text-inputs},
-select,
-textarea {
-    background: $inputBackground;
-    border: 1px solid $inputBorder;
-    font-size: $base-font-size - 1;
-    margin: 0;
-    padding: 5px;
-}
-
-select {
-    padding: 0;
-}
-
-#{$all-text-inputs-focus},
-select:focus,
-textarea:focus { border-color: darken($inputBackground, 40%); }
-
-#{$all-button-inputs},
-.rtp-button {
-    @include background(linear-gradient(top bottom, #f4f4f4, #ececec));
-    border: 1px solid $inputBorder;
-    @include border-radius(3px);
-    cursor: pointer;
-    display: inline-block;
-    font-size: $base-font-size - 2;
-    font-weight: bold;
-    color: inherit;
-    margin: 0;
-    outline: none;
-    overflow: visible;
-    padding: 6px 10px 5px;
-    position: relative;
-    text-decoration: none;
-    text-align: center;
-    text-shadow: 1px 1px 0 $white;
-}
-
-#{$all-button-inputs-hf},
-.rtp-button:hover,
-.rtp-button:focus {
-    @include background(linear-gradient(top bottom, #ececec, #e3e3e3));
-}
-
-#{$all-button-inputs-active},
-.rtp-button:active {
-    @include background(linear-gradient(top bottom, #e3e3e3, #dddddd));
-}
-
-/* Placeholder Text Color */
-input::-webkit-input-placeholder, input:-moz-placeholder,
-textarea:-webkit-input-placeholder, textarea:-moz-placeholder { color: darken($white, 40%); }
 
 /* Box Sizing: Very useful for responsive structure */
-input, textarea, select,
-#rtp-primary-menu, #rtp-nav-menu li,
-table, .wp-caption, img { @include box-sizing(border-box); }
-
-/* rtPanel Cutsom Styles */
-pre { background-color: #F5F5F5; padding: 5px 10px; overflow-x: auto; }
-code { background-color: #F7F7F9; border: 1px solid #E1E1E8; border-radius: 3px; color: #DD1144; padding: 0.1em 0.4em; }
-kbd { background-color: #F5F5F5; border: 1px solid #DDD; box-shadow: 0 1px 0 rgba(0,0,0,0.2),0 0 0 2px #FFF inset; border-radius: 3px; display: inline-block; text-shadow: 0 1px 0 #FFF; white-space: nowrap; margin: 0 .1em; padding: 0 0.6em; }
-caption { background-color: #DDD; font-weight: 700; padding: 5px; }
-pre code { background-color: transparent; border: 0; color: inherit; padding: 0; }
+#rtp-primary-menu, #rtp-nav-menu li, table, .wp-caption, img { @include box-sizing(border-box); }
 
 /* Border Elements */
 .search-layout-wrapper > hr { margin-top: 0; }
 
-/* Elements having small font size */
-code, pre, kbd, .rtp-readmore, .rtp-readmore:visited, .post-meta, .gallery-caption, .breadcrumb, .rtp-navigation, .rtp-comments-pagination, #respond, #respond .form-allowed-tags, .widget, .comment-text { font-size: 13px; line-height: 1.6153em; }
-.rtp-edit-link a, .comment-meta, .trackback em, .pingback em, .rtp-comments-widget .comment-date, .widget_calendar table, .bbp_widget_login .logout-link { font-size: 12px; line-height: 1.75em; }
-/* End - Typography */
-
-/* Generated by WordPress, so it's useful to have some styles for them. More info: (Source - http://codex.wordpress.org/CSS) */
-.aligncenter { display: block; margin: 0 auto; text-align: center; }
-.alignleft { float: left; }
-.alignright { float: right; }
-
-/* Utility classes */
-.hide, .hidden { display: none; }
-.show { display: block; }
-
-.error, .info, .notice, .success, .warning {
-    border: 1px solid;
-    @include border-radius(3px);
-    display: block;
-    margin: 0 0 1.5em;
-    padding: 5px;
-    & p:last-child { margin: 0; } // Reset margin for last child.
-}
-
-.notice { background-color: #F9F9F9; border-color: #EEE; color: #666; }
-.info { background-color: #D9EDF7; border-color: #BCE8F1; color: #3A87AD; }
-.success { background-color: #DFF0D8; border-color: #D6E9C6; color: #468847; }
-.warning { background-color: #FCF8E3; border-color: #FBEED5; color: #C09853; }
-.error { background-color: #F2DEDE; border-color: #EED3D7; color: #B94A48; }
-
-.rtp-section-separator:after { border-bottom: 1px solid #DDD; content: ''; display: block; height: 1px; left: 10px; max-width: 98%; position: absolute; bottom: 0; visibility: visible; width: 100%; z-index: 2; }
-
-/* The Magnificent "Clear" fix */
-.clear { clear: both; content: '\0020'; display: block; height: 0; visibility: hidden; overflow: hidden; width: 0; }
-.clearfix:before, .clearfix:after { content: '\0020'; display: block; overflow: hidden; visibility: hidden; }
-.clearfix:after { clear: both; }
-
-.test { @include pie-clearfix; }
-
-// ***** 960gs Variables *****
+// ******************** 960gs Variables ******************** //
 // To overwrite the Default grids please update the default options given bellow as per your requirement.
 // $ninesixty-gutter-width: 20px;
 // $ninesixty-grid-width: 960px;
 // $ninesixty-columns: 12;
 
-// rtPanel Grid Generate code.
-@include rtp-grid-generator(12);
-
+// ******************** rtPanel Grid ******************** //
 // Note: To use default Structure of 960gs comment out following code.
 // @include grid-system-complete(12);
+
+/* Grid Containers */
+@include rtp-grid-generator(12);

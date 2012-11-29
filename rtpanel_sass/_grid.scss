@@ -135,8 +135,6 @@ $ninesixty-class-separator: "-" !default;
 // rtPanel 960gs Grid Generator
 
 //rtPanel Grid Generate. Since we have renamed the classes in rtPanel. I have written the custom Grid Generate Code.
-/* Grid Containers */
-
 @mixin rtp-grid-generator($cols: $ninesixty-columns) {
     .rtp-container-#{$cols} { @include grid-container; }
     .rtp-grid-unit-base { @include grid-unit-base; }

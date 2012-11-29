@@ -5,12 +5,25 @@
 @import "compass/css3";
 @import "compass/typography";
 
+// rtPanel Constant Variables
+$rtp-base-10: 10px;
+$black: #000000;
+$white: #ffffff;
+
+// rtPanel Dynamic Variables
+// Borders
+$border-color: #dddddd !default;
+
+// Backgrounds
+$baseBackground: #ffffff !default;
+
+// Links
+$link: #006999 !default;
+$link-hover: #cd5a1b !default;
+
 // Normalize.css
 // Note: We have modified normalize.css to get best results.
 @import "normalize";
 
 // 960 Grid
 @import "grid";
-
-// HTML5 Input Types
-@import "input-types";
