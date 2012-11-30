@@ -154,58 +154,64 @@ iframe { border: 0; max-width: 100%; }
 .avatar { margin: 0; }
 
 /* Typography */
-/* line 17, rtpanel_sass/_typography.scss */
+/* line 23, rtpanel_sass/_typography.scss */
 html, body#tinymce { color: #333333; font: 87.5%/1.5em "Helvetica Neue", Arial, sans-serif; }
 
-/* line 26, rtpanel_sass/_typography.scss */
+/* line 32, rtpanel_sass/_typography.scss */
 .tagline, #reply-title small, #cse .gsc-control-cse, #cse .gsc-control-cse .gsc-table-result { font-family: "Helvetica Neue", Arial, sans-serif; }
 
-/* line 31, rtpanel_sass/_typography.scss */
+/* line 37, rtpanel_sass/_typography.scss */
 h1, .h1 { font-size: 2.28571em; line-height: 1.3125em; }
 
-/* line 31, rtpanel_sass/_typography.scss */
+/* line 37, rtpanel_sass/_typography.scss */
 h2, .h2 { font-size: 2em; line-height: 1.5em; }
 
-/* line 31, rtpanel_sass/_typography.scss */
+/* line 37, rtpanel_sass/_typography.scss */
 h3, .h3 { font-size: 1.71429em; line-height: 1.75em; }
 
-/* line 31, rtpanel_sass/_typography.scss */
+/* line 37, rtpanel_sass/_typography.scss */
 h4, .h4 { font-size: 1.42857em; line-height: 2.1em; }
 
-/* line 31, rtpanel_sass/_typography.scss */
+/* line 37, rtpanel_sass/_typography.scss */
 h5, .h5 { font-size: 1.14286em; line-height: 1.3125em; }
 
-/* line 31, rtpanel_sass/_typography.scss */
+/* line 37, rtpanel_sass/_typography.scss */
 h6, .h6 { font-size: 1em; line-height: 1.5em; }
 
-/* line 39, rtpanel_sass/_typography.scss */
-.rtp-margin-bottom-10, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 { margin-bottom: 10px; }
-
-/* line 40, rtpanel_sass/_typography.scss */
-.rtp-margin-top-0, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 { margin-top: 0; }
-
 /* Corrects font family set oddly in Safari 5 and Chrome. */
-/* line 43, rtpanel_sass/_typography.scss */
+/* line 45, rtpanel_sass/_typography.scss */
 code, kbd, pre, samp { font-family: Consolas, monaco, monospace; }
 
 /* Elements having $secondary-font-size */
-/* line 53, rtpanel_sass/_typography.scss */
+/* line 55, rtpanel_sass/_typography.scss */
 code, pre, kbd, samp, .rtp-readmore, .rtp-readmore:visited, .post-meta, .gallery-caption, .breadcrumb, .rtp-navigation, .rtp-comments-pagination, #respond, #respond .form-allowed-tags, .widget, .comment-text { font-size: 13px; line-height: 1.61538em; }
 
 /* Elements having $tertiary-font-size */
-/* line 62, rtpanel_sass/_typography.scss */
+/* line 64, rtpanel_sass/_typography.scss */
 .rtp-edit-link a, .comment-meta, .trackback em, .pingback em, .rtp-comments-widget .comment-date, .widget_calendar table, .bbp_widget_login .logout-link { font-size: 12px; line-height: 1.75em; }
 
-/* Add Bottom Margin FYI: I have Added margin to widgets direct children element instead of (.widget) due to floated Elements can not collapse there margins. */
-/* line 88, rtpanel_sass/_typography.scss */
+/* Add Bottom Margin */
+/* line 90, rtpanel_sass/_typography.scss */
 p, pre, address, blockquote, ul, ol, .widget > div, .widget > ul, .widget > ol, .widget > form, .widget > select, table, dl, .comment-text > ol, .comment-text > ul { margin-top: 0; margin-bottom: 1.5em; }
 
-/* line 97, rtpanel_sass/_typography.scss */
+/* line 99, rtpanel_sass/_typography.scss */
 ul ol, ul ul, ol ul, ol ol { margin: 0 0 0 1.5em; }
 
 /* Generic Lists: */
-/* line 101, rtpanel_sass/_typography.scss */
+/* line 103, rtpanel_sass/_typography.scss */
 ul, ol { margin-left: 30px; padding-left: 0; }
+
+/* line 106, rtpanel_sass/_typography.scss */
+.rtp-margin-bottom-10, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 { margin-bottom: 10px; }
+
+/* line 107, rtpanel_sass/_typography.scss */
+.rtp-margin-top-10 { margin-top: 10px; }
+
+/* line 108, rtpanel_sass/_typography.scss */
+.rtp-margin-bottom-0 { margin-bottom: 0; }
+
+/* line 109, rtpanel_sass/_typography.scss */
+.rtp-margin-top-0, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 { margin-top: 0; }
 
 /* End - Typography */
 /* Input Styles */
@@ -240,18 +246,18 @@ input, textarea, select, button, rtp-button { -webkit-box-sizing: border-box; -m
 label { cursor: pointer; }
 
 /* WP-Editor TinyMCE Style */
-/* line 51, style.scss */
+/* line 70, style.scss */
 body#tinymce { background: white; margin: 0 10px; padding: 10px 5px; }
 
-/* line 58, style.scss */
+/* line 77, style.scss */
 .wp-caption-dt { border: 0; padding: 0; }
 
 /* Box Sizing: Very useful for responsive structure */
-/* line 65, style.scss */
+/* line 84, style.scss */
 #rtp-primary-menu, #rtp-nav-menu li, table, .wp-caption, img { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
 /* Border Elements */
-/* line 68, style.scss */
+/* line 87, style.scss */
 .search-layout-wrapper > hr { margin-top: 0; }
 
 /* Grid Containers */
