@@ -1,4 +1,6 @@
+/* Typography */
 // Thanks to https://gist.github.com/2398651
+// rtPanel Dynamic Variables
 $base-font-color: #333333 !default;
 $base-font-size: 16px !default;
 $secondary-font-size: 14px !default;
@@ -20,16 +22,22 @@ $font-body: $base-font-family;
 @mixin establish-baseline($font-size: $base-font-size, $font-family: $font-body) {
     $taille: ($font-size / $browser-default-font-size * 100); // $taille is a variable to set main font size.
     $line-height: rhythm(1, $font-size);
-    html, body#tinymce {
+    body, body#tinymce {
         color: $base-font-color;
         font: #{$taille}%/#{$line-height} $font-family;
     }
 }
 
-// HTML css
+// Body Font
 @include establish-baseline;
 // Set base font
 .tagline, #reply-title small, #cse .gsc-control-cse, #cse .gsc-control-cse .gsc-table-result { font-family: $base-font-family; }
+
+// rtPanel Utility Classes
+.rtp-margin-bottom-10 { margin-bottom: $rtp-base-10; }
+.rtp-margin-top-10 { margin-top: $rtp-base-10; }
+.rtp-margin-bottom-0 { margin-bottom: 0; }
+.rtp-margin-top-0 { margin-top: 0; }
 
 @each $typo-array in $title-font-size {
     $balise: nth($typo-array, 1);
@@ -101,11 +109,5 @@ ol ol { margin: 0 0 0 1.5em; }
 /* Generic Lists: */
 ul,
 ol { margin-left: 30px; padding-left: 0; }
-
-// rtPanel Utility Classes
-.rtp-margin-bottom-10 { margin-bottom: $rtp-base-10; }
-.rtp-margin-top-10 { margin-top: $rtp-base-10; }
-.rtp-margin-bottom-0 { margin-bottom: 0; }
-.rtp-margin-top-0 { margin-top: 0; }
 
 /* End - Typography */

@@ -1,3 +1,15 @@
+/* Input Styles */
+
+// rtPanel Dynamic Variables
+$input-border: #dddddd !default;
+$input-background: #ffffff !default;
+$button-gradient-color-top: #f4f4f4 !default;
+$button-gradient-color-bottom: #ececec !default;
+$button-hover-gradient-color-top: #ececec !default;
+$button-hover-gradient-color-bottom: #e3e3e3 !default;
+$button-active-gradient-color-top: #e3e3e3 !default;
+$button-active-gradient-color-bottom: #dddddd !default;
+
 //************************************************************************//
 // Generate a variable ($all-text-inputs) with a list of all html5
 // input types that have a text-based input, excluding textarea.
@@ -133,19 +145,9 @@ $all-button-inputs-active: $unquoted-button-inputs-active-list;
 // #{$all-button-inputs-active}
 // e.g. #{$all-button-inputs-active} { border: 1px solid red; }
 
-
-// *****************************************************************/
-//  rtPanel inputs style
-// *****************************************************************/
-
-// Input Defaults
-$inputBorder: #dddddd !default;
-$inputBackground: #ffffff !default;
-
-/* Input Styles */
 #{$all-text-inputs}, select, textarea {
-    background: $inputBackground;
-    border: 1px solid $inputBorder;
+    background: $input-background;
+    border: 1px solid $input-border;
     font-size: $base-font-size - 1;
     margin: 0;
     padding: 5px;
@@ -155,11 +157,11 @@ select {
     padding: 0;
 }
 
-#{$all-text-inputs-focus}, select:focus, textarea:focus { border-color: darken($inputBackground, 40%); }
+#{$all-text-inputs-focus}, select:focus, textarea:focus { border-color: darken($input-background, 40%); }
 
 #{$all-button-inputs}, .rtp-button {
-    @include background(linear-gradient(top bottom, #f4f4f4, #ececec));
-    border: 1px solid $inputBorder;
+    @include background(linear-gradient(top bottom, $button-gradient-color-top, $button-gradient-color-bottom));
+    border: 1px solid $input-border;
     @include border-radius(3px);
     cursor: pointer;
     display: inline-block;
@@ -173,15 +175,15 @@ select {
     position: relative;
     text-decoration: none;
     text-align: center;
-    text-shadow: 1px 1px 0 $white;
+    @include text-shadow(1px 1px 0 rgba($white, 1));
 }
 
 #{$all-button-inputs-hf}, .rtp-button:hover, .rtp-button:focus {
-    @include background(linear-gradient(top bottom, #ececec, #e3e3e3));
+    @include background(linear-gradient(top bottom, $button-hover-gradient-color-top, $button-hover-gradient-color-bottom));
 }
 
 #{$all-button-inputs-active}, .rtp-button:active {
-    @include background(linear-gradient(top bottom, #e3e3e3, #dddddd));
+    @include background(linear-gradient(top bottom, $button-active-gradient-color-top, $button-active-gradient-color-bottom));
 }
 
 /* Placeholder Text Color */
@@ -193,3 +195,5 @@ input, textarea, select, button, rtp-button { @include box-sizing(border-box); }
 
 /* Label Cursor */
 label { cursor: pointer; }
+
+/* End - Input Styles */

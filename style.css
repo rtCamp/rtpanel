@@ -95,7 +95,7 @@ figure { margin: 0; }
 
 /* Define consistent border, margin, and padding. */
 /* line 79, rtpanel_sass/_normalize.scss */
-fieldset { border: 1px solid #DDD; margin: 0 2px; padding: 0.35em 0.625em 0.75em; }
+fieldset { border: 1px solid #dddddd; margin: 0 2px; padding: 0.35em 0.625em 0.75em; }
 
 /* line 83, rtpanel_sass/_normalize.scss */
 legend { border: 0; padding: 0; }
@@ -153,111 +153,221 @@ iframe { border: 0; max-width: 100%; }
 /* line 159, rtpanel_sass/_normalize.scss */
 .avatar { margin: 0; }
 
+/* End - normalize.css */
 /* Typography */
-/* line 23, rtpanel_sass/_typography.scss */
-html, body#tinymce { color: #333333; font: 87.5%/1.5em "Helvetica Neue", Arial, sans-serif; }
+/* line 25, rtpanel_sass/_typography.scss */
+body, body#tinymce { color: #333333; font: 87.5%/1.5em "Helvetica Neue", Arial, sans-serif; }
 
-/* line 32, rtpanel_sass/_typography.scss */
+/* line 34, rtpanel_sass/_typography.scss */
 .tagline, #reply-title small, #cse .gsc-control-cse, #cse .gsc-control-cse .gsc-table-result { font-family: "Helvetica Neue", Arial, sans-serif; }
 
 /* line 37, rtpanel_sass/_typography.scss */
+.rtp-margin-bottom-10, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 { margin-bottom: 10px; }
+
+/* line 38, rtpanel_sass/_typography.scss */
+.rtp-margin-top-10 { margin-top: 10px; }
+
+/* line 39, rtpanel_sass/_typography.scss */
+.rtp-margin-bottom-0 { margin-bottom: 0; }
+
+/* line 40, rtpanel_sass/_typography.scss */
+.rtp-margin-top-0, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 { margin-top: 0; }
+
+/* line 45, rtpanel_sass/_typography.scss */
 h1, .h1 { font-size: 2.28571em; line-height: 1.3125em; }
 
-/* line 37, rtpanel_sass/_typography.scss */
+/* line 45, rtpanel_sass/_typography.scss */
 h2, .h2 { font-size: 2em; line-height: 1.5em; }
 
-/* line 37, rtpanel_sass/_typography.scss */
+/* line 45, rtpanel_sass/_typography.scss */
 h3, .h3 { font-size: 1.71429em; line-height: 1.75em; }
 
-/* line 37, rtpanel_sass/_typography.scss */
+/* line 45, rtpanel_sass/_typography.scss */
 h4, .h4 { font-size: 1.42857em; line-height: 2.1em; }
 
-/* line 37, rtpanel_sass/_typography.scss */
+/* line 45, rtpanel_sass/_typography.scss */
 h5, .h5 { font-size: 1.14286em; line-height: 1.3125em; }
 
-/* line 37, rtpanel_sass/_typography.scss */
+/* line 45, rtpanel_sass/_typography.scss */
 h6, .h6 { font-size: 1em; line-height: 1.5em; }
 
 /* Corrects font family set oddly in Safari 5 and Chrome. */
-/* line 45, rtpanel_sass/_typography.scss */
+/* line 53, rtpanel_sass/_typography.scss */
 code, kbd, pre, samp { font-family: Consolas, monaco, monospace; }
 
 /* Elements having $secondary-font-size */
-/* line 55, rtpanel_sass/_typography.scss */
+/* line 63, rtpanel_sass/_typography.scss */
 code, pre, kbd, samp, .rtp-readmore, .rtp-readmore:visited, .post-meta, .gallery-caption, .breadcrumb, .rtp-navigation, .rtp-comments-pagination, #respond, #respond .form-allowed-tags, .widget, .comment-text { font-size: 13px; line-height: 1.61538em; }
 
 /* Elements having $tertiary-font-size */
-/* line 64, rtpanel_sass/_typography.scss */
+/* line 72, rtpanel_sass/_typography.scss */
 .rtp-edit-link a, .comment-meta, .trackback em, .pingback em, .rtp-comments-widget .comment-date, .widget_calendar table, .bbp_widget_login .logout-link { font-size: 12px; line-height: 1.75em; }
 
 /* Add Bottom Margin */
-/* line 90, rtpanel_sass/_typography.scss */
+/* line 98, rtpanel_sass/_typography.scss */
 p, pre, address, blockquote, ul, ol, .widget > div, .widget > ul, .widget > ol, .widget > form, .widget > select, table, dl, .comment-text > ol, .comment-text > ul { margin-top: 0; margin-bottom: 1.5em; }
 
-/* line 99, rtpanel_sass/_typography.scss */
+/* line 107, rtpanel_sass/_typography.scss */
 ul ol, ul ul, ol ul, ol ol { margin: 0 0 0 1.5em; }
 
 /* Generic Lists: */
-/* line 103, rtpanel_sass/_typography.scss */
+/* line 111, rtpanel_sass/_typography.scss */
 ul, ol { margin-left: 30px; padding-left: 0; }
-
-/* line 106, rtpanel_sass/_typography.scss */
-.rtp-margin-bottom-10, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 { margin-bottom: 10px; }
-
-/* line 107, rtpanel_sass/_typography.scss */
-.rtp-margin-top-10 { margin-top: 10px; }
-
-/* line 108, rtpanel_sass/_typography.scss */
-.rtp-margin-bottom-0 { margin-bottom: 0; }
-
-/* line 109, rtpanel_sass/_typography.scss */
-.rtp-margin-top-0, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 { margin-top: 0; }
 
 /* End - Typography */
 /* Input Styles */
-/* line 146, rtpanel_sass/_input-types.scss */
+/* line 148, rtpanel_sass/_input-types.scss */
 input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="time"], input[type="week"], select, textarea { background: white; border: 1px solid #dddddd; font-size: 13px; margin: 0; padding: 5px; }
 
-/* line 154, rtpanel_sass/_input-types.scss */
+/* line 156, rtpanel_sass/_input-types.scss */
 select { padding: 0; }
 
-/* line 158, rtpanel_sass/_input-types.scss */
+/* line 160, rtpanel_sass/_input-types.scss */
 input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, select:focus, textarea:focus { border-color: #999999; }
 
-/* line 160, rtpanel_sass/_input-types.scss */
+/* line 162, rtpanel_sass/_input-types.scss */
 button, input[type="button"], input[type="reset"], input[type="submit"], .rtp-button { background: -webkit-gradient(linear, 100% 0%, 0% 100%, color-stop(0%, #f4f4f4), color-stop(100%, #ececec)); background: -webkit-linear-gradient(top bottom, #f4f4f4, #ececec); background: -moz-linear-gradient(top bottom, #f4f4f4, #ececec); background: -o-linear-gradient(top bottom, #f4f4f4, #ececec); background: linear-gradient(top bottom, #f4f4f4, #ececec); border: 1px solid #dddddd; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; cursor: pointer; display: inline-block; font-size: 12px; font-weight: bold; color: inherit; margin: 0; outline: none; overflow: visible; padding: 6px 10px 5px; position: relative; text-decoration: none; text-align: center; text-shadow: 1px 1px 0 white; }
 
-/* line 179, rtpanel_sass/_input-types.scss */
+/* line 181, rtpanel_sass/_input-types.scss */
 button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, button:focus, input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus, .rtp-button:hover, .rtp-button:focus { background: -webkit-gradient(linear, 100% 0%, 0% 100%, color-stop(0%, #ececec), color-stop(100%, #e3e3e3)); background: -webkit-linear-gradient(top bottom, #ececec, #e3e3e3); background: -moz-linear-gradient(top bottom, #ececec, #e3e3e3); background: -o-linear-gradient(top bottom, #ececec, #e3e3e3); background: linear-gradient(top bottom, #ececec, #e3e3e3); }
 
-/* line 183, rtpanel_sass/_input-types.scss */
+/* line 185, rtpanel_sass/_input-types.scss */
 button:active, input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:active, .rtp-button:active { background: -webkit-gradient(linear, 100% 0%, 0% 100%, color-stop(0%, #e3e3e3), color-stop(100%, #dddddd)); background: -webkit-linear-gradient(top bottom, #e3e3e3, #dddddd); background: -moz-linear-gradient(top bottom, #e3e3e3, #dddddd); background: -o-linear-gradient(top bottom, #e3e3e3, #dddddd); background: linear-gradient(top bottom, #e3e3e3, #dddddd); }
 
 /* Placeholder Text Color */
-/* line 189, rtpanel_sass/_input-types.scss */
+/* line 191, rtpanel_sass/_input-types.scss */
 input::-webkit-input-placeholder, input:-moz-placeholder, textarea:-webkit-input-placeholder, textarea:-moz-placeholder { color: #999999; }
 
 /* Box Sizing: Very useful for responsive structure */
-/* line 192, rtpanel_sass/_input-types.scss */
+/* line 194, rtpanel_sass/_input-types.scss */
 input, textarea, select, button, rtp-button { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
 /* Label Cursor */
-/* line 195, rtpanel_sass/_input-types.scss */
+/* line 197, rtpanel_sass/_input-types.scss */
 label { cursor: pointer; }
 
+/* End - Input Styles */
+/* Generic Table */
+/* line 23, rtpanel_sass/_misc.scss */
+table { width: 100%; }
+
+/* line 24, rtpanel_sass/_misc.scss */
+th { background-color: whitesmoke; }
+
+/* line 25, rtpanel_sass/_misc.scss */
+th, td { border: 1px solid #dddddd; padding: 0.5em; text-align: left; }
+
+/* Generic Definitions ( Lists ) */
+/* line 32, rtpanel_sass/_misc.scss */
+dd { margin-left: 20px; }
+
+/* Blockquote */
+/* line 35, rtpanel_sass/_misc.scss */
+blockquote { border-left: 4px solid #dddddd; margin-left: 1em; padding: 0 0 0 10px; }
+
+/* line 41, rtpanel_sass/_misc.scss */
+blockquote p:last-child { margin: 0; }
+
+/* rtPanel Cutsom Styles */
+/* line 44, rtpanel_sass/_misc.scss */
+code { background-color: #f7f7f9; border: 1px solid #e1e1e8; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; color: #dd1144; padding: 0.1em 0.4em; }
+
+/* line 52, rtpanel_sass/_misc.scss */
+caption { background-color: #dddddd; font-weight: 700; padding: 5px; }
+
+/* line 58, rtpanel_sass/_misc.scss */
+kbd { background-color: whitesmoke; border: 1px solid #dddddd; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; display: inline-block; text-shadow: 0 1px 0 #FFF; white-space: nowrap; margin: 0 .1em; padding: 0 0.6em; }
+
+/* line 70, rtpanel_sass/_misc.scss */
+pre { background-color: whitesmoke; padding: 5px 10px; overflow-x: auto; }
+/* line 75, rtpanel_sass/_misc.scss */
+pre code { background-color: transparent; border: 0; color: inherit; padding: 0; }
+
+/* Generated by WordPress, so it's useful to have some styles for them. More info: (Source - http://codex.wordpress.org/CSS) */
+/* line 79, rtpanel_sass/_misc.scss */
+.aligncenter { display: block; margin: 0 auto; text-align: center; }
+
+/* line 80, rtpanel_sass/_misc.scss */
+.alignleft { float: left; }
+
+/* line 81, rtpanel_sass/_misc.scss */
+.alignright { float: right; }
+
+/* Utility classes */
+/* line 84, rtpanel_sass/_misc.scss */
+.hide, .hidden { display: none; }
+
+/* line 85, rtpanel_sass/_misc.scss */
+.show { display: block; }
+
+/* line 87, rtpanel_sass/_misc.scss */
+.error, .info, .notice, .success, .warning { border: 1px solid; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; display: block; margin: 0 0 1.5em; padding: 5px; }
+/* line 93, rtpanel_sass/_misc.scss */
+.error p:last-child, .info p:last-child, .notice p:last-child, .success p:last-child, .warning p:last-child { margin: 0; }
+
+/* line 96, rtpanel_sass/_misc.scss */
+.notice { background-color: #f9f9f9; border-color: #eeeeee; color: #666666; }
+
+/* line 97, rtpanel_sass/_misc.scss */
+.info { background-color: #d9edf7; border-color: #bce8f1; color: #3a87ad; }
+
+/* line 98, rtpanel_sass/_misc.scss */
+.success { background-color: #dff0d8; border-color: #d6e9c6; color: #468847; }
+
+/* line 99, rtpanel_sass/_misc.scss */
+.warning { background-color: #fcf8e3; border-color: #fbeed5; color: #c09853; }
+
+/* line 100, rtpanel_sass/_misc.scss */
+.error { background-color: #f2dede; border-color: #eed3d7; color: #b94a48; }
+
+/* line 102, rtpanel_sass/_misc.scss */
+.rtp-section-separator:after { border-bottom: 1px solid #dddddd; content: ''; display: block; height: 1px; left: 10px; max-width: 98%; position: absolute; bottom: 0; visibility: visible; width: 100%; z-index: 2; }
+
+/* The Magnificent "Clear" fix */
+/* line 105, rtpanel_sass/_misc.scss */
+.clear { clear: both; content: '\0020'; display: block; height: 0; visibility: hidden; overflow: hidden; width: 0; }
+
+/* line 106, rtpanel_sass/_misc.scss */
+.clearfix:before, .clearfix:after { content: '\0020'; display: block; overflow: hidden; visibility: hidden; }
+
+/* line 107, rtpanel_sass/_misc.scss */
+.clearfix:after { clear: both; }
+
+/* Default Links */
+/* line 110, rtpanel_sass/_misc.scss */
+a, a:active, a:visited { color: #006999; text-decoration: none; }
+
+/* line 111, rtpanel_sass/_misc.scss */
+a:hover, a:focus { color: #cd5a1b; text-decoration: underline; }
+
+/* Heading Links */
+/* line 115, rtpanel_sass/_misc.scss */
+h1 a, h1 a:visited, h1 a:active, h2 a, h2 a:visited, h2 a:active { color: #111; text-decoration: none; }
+
+/* line 116, rtpanel_sass/_misc.scss */
+h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus { color: #CD5A1B; text-decoration: none; }
+
+/* Generic Links */
+/* line 119, rtpanel_sass/_misc.scss */
+.rtp-common-link, .rtp-common-link:visited, .rtp-common-link:active, .rtp-common-link span, .rtp-common-link span:visited, .rtp-common-link span:active, .rtp-common-link a, .rtp-common-link a:visited, .rtp-common-link a:active { color: #666; }
+
+/* line 120, rtpanel_sass/_misc.scss */
+.rtp-common-link:hover, .rtp-common-link:focus, .rtp-common-link span:hover, .rtp-common-link span:focus, .rtp-common-link a:hover, .rtp-common-link a:focus { color: #111; }
+
+/* End - Misc Styles */
 /* WP-Editor TinyMCE Style */
-/* line 70, style.scss */
+/* line 98, style.scss */
 body#tinymce { background: white; margin: 0 10px; padding: 10px 5px; }
 
-/* line 77, style.scss */
+/* line 105, style.scss */
 .wp-caption-dt { border: 0; padding: 0; }
 
 /* Box Sizing: Very useful for responsive structure */
-/* line 84, style.scss */
+/* line 112, style.scss */
 #rtp-primary-menu, #rtp-nav-menu li, table, .wp-caption, img { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
 /* Border Elements */
-/* line 87, style.scss */
+/* line 115, style.scss */
 .search-layout-wrapper > hr { margin-top: 0; }
 
 /* Grid Containers */
@@ -447,3 +557,16 @@ body#tinymce { background: white; margin: 0 10px; padding: 10px 5px; }
 
 /* line 175, rtpanel_sass/_grid.scss */
 .rtp-pull-11 { left: -880px; }
+
+/* Mobile Devices Menu */
+/* line 131, style.scss */
+.rtp-nav-btn { display: none; height: auto; margin: 0; padding: 7px 10px; position: absolute; right: 0; top: -65px; }
+
+/* line 132, style.scss */
+.rtp-nav-btn:focus { box-shadow: 0 0 0; }
+
+/* line 133, style.scss */
+.rtp-icon-bar { background-color: #666; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15); display: block; height: 2px; margin-top: 3px; width: 18px; }
+
+/* line 134, style.scss */
+.rtp-icon-bar:first-child { margin-top: 0; }
