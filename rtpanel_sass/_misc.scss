@@ -50,7 +50,7 @@ code {
 }
 
 caption {
-    background-color: $border-color;
+    background-color: darken($base-background, 8%);
     font-weight: 700;
     padding: 5px;
 }
@@ -107,16 +107,38 @@ pre {
 .clearfix:after { clear: both; }
 
 /* Default Links */
-a, a:active, a:visited { color: $link; text-decoration: none; }
-a:hover, a:focus { color: $link-hover; text-decoration: underline; }
+a {
+    color: $link-color; text-decoration: none;
+    &:active { @extend a; }
+    &:visited { @extend a; }
+    &:hover,
+    &:focus { color: $link-hover-color; text-decoration: underline; }
+}
 
 /* Heading Links */
-h1 a, h1 a:visited, h1 a:active,
-h2 a, h2 a:visited, h2 a:active { color: #111; text-decoration: none; }
-h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus { color: #CD5A1B; text-decoration: none; }
+h1, h2 {
+    a { 
+        color: $title-link-color; text-decoration: none;
+        &:hover,
+        &:focus { color: $title-hover-color; text-decoration: none; }
+    }
+}
 
 /* Generic Links */
-.rtp-common-link, .rtp-common-link:visited, .rtp-common-link:active, .rtp-common-link span, .rtp-common-link span:visited, .rtp-common-link span:active, .rtp-common-link a, .rtp-common-link a:visited, .rtp-common-link a:active { color: #666; }
-    .rtp-common-link:hover, .rtp-common-link:focus, .rtp-common-link span:hover, .rtp-common-link span:focus, .rtp-common-link a:hover, .rtp-common-link a:focus { color: #111; }
+.rtp-common-link, .rtp-common-link:visited, .rtp-common-link:active, .rtp-common-link span, .rtp-common-link span:visited, .rtp-common-link span:active, .rtp-common-link a, .rtp-common-link a:visited, .rtp-common-link a:active { color: $secondary-link-color; }
+    .rtp-common-link:hover, .rtp-common-link:focus, .rtp-common-link span:hover, .rtp-common-link span:focus, .rtp-common-link a:hover, .rtp-common-link a:focus { color: $secondary-link-hover-color; }
+
+/* Images */
+img {
+    margin: 5px; height: auto; max-width: 100%;
+    // Floated Images in post content
+    &.alignnone { margin: 5px 10px 5px 0; }
+    &.aligncenter { margin: 5px auto; }
+    &.alignleft { margin: 5px 15px 5px 0; }
+    &.alignright { margin: 5px 0 5px 15px; }
+}
+
+// IE8 image width issue fix.
+.ie8 img { width: auto; }
 
 /* End - Misc Styles */

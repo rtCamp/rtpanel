@@ -9,6 +9,7 @@
 $rtp-base-10: 10px;
 $black: #000000;
 $white: #ffffff;
+$gray: #666666;
 
 // rtPanel Dynamic Variables
 // Borders
@@ -18,8 +19,14 @@ $border-color: #dddddd !default;
 $base-background: #ffffff !default;
 
 // Links
-$link: #006999 !default;
-$link-hover: #cd5a1b !default;
+$link-color: #006999 !default;
+$link-hover-color: #cd5a1b !default;
+
+$secondary-link-color: #666666 !default;
+$secondary-link-hover-color: #111111 !default;
+
+$title-link-color: #111111 !default;
+$title-hover-color: #cd5a1b !default;
 
 // Normalize.css
 // Note: We have modified normalize.css to get best results.
@@ -27,3 +34,6 @@ $link-hover: #cd5a1b !default;
 
 // 960 Grid
 @import "grid";
+
+// rtPanel Mixins
+@import "rtp_mixins";

@@ -19,6 +19,7 @@ Tags: black, blue, white, orange, light, one-column, two-columns, right-sidebar,
 //$rtp-base-10: 10px;
 //$black: #000000;
 //$white: #ffffff;
+//$gray: #666666;
 
 // ******************** rtPanel Dynamic Variables ******************** //
 // You can change these values as per your requirement.
@@ -29,8 +30,14 @@ Tags: black, blue, white, orange, light, one-column, two-columns, right-sidebar,
 //$base-background: #ffffff;
 
 // Links
-//$link: #006999;
-//$link-hover: #cd5a1b;
+//$link-color: #006999;
+//$link-hover-color: #cd5a1b;
+
+//$secondary-link-color: #666666;
+//$secondary-link-hover-color: #111111;
+
+//$title-link-color: #111111;
+//$title-hover-color: #cd5a1b;
 
 
 // ******************** Typography ******************** //
@@ -128,7 +135,220 @@ body#tinymce {
 @include rtp-grid-generator(12);
 
 /* Mobile Devices Menu */
-.rtp-nav-btn { display: none; height: auto; margin: 0; padding: 7px 10px; position: absolute; right: 0; top: -65px; }
-.rtp-nav-btn:focus { box-shadow: 0 0 0; }
-.rtp-icon-bar { background-color: #666; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15); display: block; height: 2px; margin-top: 3px; width: 18px; }
-.rtp-icon-bar:first-child { margin-top: 0; }
+.rtp-nav-btn {
+    display: none; height: auto; margin: 0; padding: 7px 10px; position: absolute; right: 0; top: -65px;
+    &:focus { box-shadow: 0 0 0; } // Focus
+}
+.rtp-icon-bar {
+    background-color: $gray; @include box-shadow(0 1px 0 rgba(0, 0, 0, 0.15)); display: block; height: 2px; margin-top: 3px; width: 18px;
+    &:first-child { margin-top: 0; } // First-child
+}
+
+/* Main Wrapper Background */
+#main-wrapper { background: $base-background; }
+
+/* Header */
+#header { margin-bottom: 10px; margin-top: 10px; } 
+
+// Logo
+.rtp-site-logo {
+    margin: 0;
+    img { margin: 0; }
+}
+
+// Tagline
+.tagline { color: $gray; font-size: $base-font-size; line-height: $base-line-height; margin: 0; }
+
+/* End - Header */
+
+/* Navigation */
+#rtp-primary-menu {
+    background-color: darken($base-background, 4%);
+    @include rtp-border($border-color);
+    clear: both;
+}
+
+#rtp-nav-menu {
+    float: left;
+    @include rtp-margin-padding-0;
+
+    // Menu List
+    li {
+        float: left; list-style: none; position: relative;
+        
+        // Submenu Links
+        &:hover > a { background-color: darken($base-background, 6%); color: $link-hover-color; text-decoration: none; }
+        
+        // Show Dropdown on Mouse Hover
+        &:hover > ul { display: block }
+    }
+
+    // Navigation Links
+    a {
+        display: block; height: auto; line-height: 1.286em; padding: 10px 15px; text-decoration: none;
+        &:hover { background-color: darken($base-background, 8%); }
+    }
+
+    // Submenu Support //
+    ul {
+        background-color: darken($base-background, 4%); @include rtp-border($border-color); display: none; left: 0; @include rtp-margin-padding-0; position: absolute; top: 38px; width: 180px; z-index: 9;
+
+        // Submenu List
+        li {
+            min-width: 180px;
+            &:first-child ul { top: -1px; }
+            &:first-child > a { border-width: 0; }
+        }
+        
+        // Subment link
+        a { border-top: 1px solid $border-color; padding: 10px; }
+        
+        // Submenu children List
+        ul { left: 100%; top: 0; }
+    }
+
+    // Current Menu Style
+    .current-menu-item > a,
+    .current_page_ancestor > a,
+    .current_page_item > a { background-color: darken($base-background, 6%); color: $link-hover-color; text-decoration: none; }
+}
+
+// IE9 Fix
+.ie9 #rtp-nav-menu ul { top: 38px; }
+
+/* End - Navigation */
+
+/* Post Loop */
+.hentry { border-bottom: 1px dotted $border-color; clear: both; padding-top: 1.5em; padding-bottom: 1.5em; position: relative; }
+.sticky { background-color: darken($base-background, 4%); border: 0; margin: 0.75em 0 0; padding-left: 1em; padding-right: 1em; }
+.rtp-singular .hentry, .attachment .hentry, .rtp-full-width .hentry { border-bottom: 0; padding-bottom: 0; }
+.post-header { margin-bottom: 1em; }
+.post-title { float: left; margin: 0; }
+.rtp-has-comments { width: 75%; }
+.rtp-main-title { border-bottom: 1px solid $border-color; color: $title-link-color; float: none; margin-top: 0.75em; padding-bottom: 0.2em; }
+.post-content { clear: both; }
+.rtp-singular .post-content a { text-decoration: underline; }
+
+.blog .post-content,
+.search-results .post-content,
+.archive .post-content {
+    p { margin-bottom: 1em; }
+}
+
+.rtp-not-found { margin: 1.5em 0; }
+
+/* Post Meta */
+.post-meta {
+    clear: both; color: $gray; font-style: italic; padding: 0.4em 0 0;
+    p { margin: 0; }
+}
+
+.post-meta-bottom { padding: 1em 0 0; }
+.single .post-meta-bottom { padding: 0; }
+.rtp-post-comment-count { margin: 0.3em 0 0; text-align: right; }
+
+/* Curly Brackets Style */
+.rtp-curly-bracket { color: darken($base-background, 14%); font-size: 1.428em; }
+
+/* Post Comment */
+.rtp-post-comment {
+    font-size: 13px; font-style: normal; padding: 0 3px 0 2px;
+    &:visited { @extend .rtp-post-comment; }
+}
+
+.rtp-post-comment span { color: $title-link-color; font-size: 18px; }
+.post-tags { clear: left; }
+/* End - Post Meta */
+
+/* Attachment Style */
+.attachment .attachment-full { margin: 0; }
+.post-content .attachment img { margin: 0 auto; }
+
+.single-attachment, .rtp-image-attachment {
+    .rtp-navigation { margin: 10px 0 0; }
+}
+
+// Attachment Page Images
+.rtp-sibling-attachments {
+    padding: 0;
+    // List
+    li { line-height: 100%; list-style: none; margin-top: 10px; margin-bottom: 10px; text-align: center; }
+    // Images
+    img {
+        background-color: darken($base-background, 4%); @include rtp-border($border-color); margin: 0; padding: 5px;
+        &:hover { border-color: #999; }
+    }
+}
+
+/* Thumbnail with shadow effect */
+.rtp-thumbnail-shadow img {
+    background: $base-background;
+    @include rtp-border($border-color);
+    @include box-shadow(0 0 4px darken($base-background, 20%));
+    margin-top: 10px;
+    padding: 4px;
+
+    // Floated Images
+    &.alignleft { margin-left: 5px; }
+    &.alignright { margin-right: 5px; }
+    &.aligncenter { margin: 5px auto; }
+}
+
+.rtp-thumbnail-shadow, .rtp-no-thumbnail-shadow {
+    a.aligncenter { display: inline-block; }
+}
+
+/* Image Caption Style */
+.wp-caption {
+    background-color: darken($base-background, 4%); margin: 7px; max-width: 100%; overflow: hidden; padding: 5px 5px 0; text-align: center;
+    
+    &.aligncenter { margin: 7px auto; }
+    &.alignright { margin: 7px 0 7px 15px; }
+    &.alignnone,
+    &.alignleft { margin: 7px 15px 7px 0; }
+    
+    a { border: 0; text-decoration: none; }
+    img { border: 0; margin: 0; padding: 0; }
+}
+
+.wp-caption-text { color: $gray; line-height: 1.286em; margin: 0 5px 8px; }
+.rtp-image-box .wp-caption + p { margin: 20px 0 10px; }
+
+/* Gallery */
+.gallery {
+    margin: 0 auto 10px;
+    .gallery-icon { overflow: hidden; padding: 5px; text-align: center; }
+    br + br { display: none; }
+}
+
+.gallery-item { display: inline-block; margin: 0; @include box-sizing(border-box); padding: 5px; vertical-align: top; }
+
+// Gallery Columns
+@for $i from 1 through 9 {
+  .gallery-columns-#{$i} .gallery-item { width: 100% / $i; }
+}
+
+.gallery-caption { color: $gray; margin: 0 0 10px; padding: 0; text-align: center; }
+.gallery-icon .attachment-thumbnail { background-color: darken($base-background, 4%); @include rtp-border($border-color); margin: 0; max-width: 100%; padding: 5px; }
+.gallery-icon a:hover .attachment-thumbnail { border-color: darken($border-color, 30%); }
+/* End - Gallery */
+
+
+/* Breacrumb */
+.breadcrumb { border-bottom: 1px solid $border-color; color: $gray; padding: 10px 0 5px; }
+
+
+/* Paged Navigation */
+.rtp-navigation, .rtp-comments-pagination {
+    clear: both; padding-bottom: 1.5em;
+    
+    .alignleft { text-align: left; }
+    .alignright { text-align: right; }
+    
+    a {
+        text-decoration: none;
+        &:hover { text-decoration: underline; }
+    }
+}
+
+.single .rtp-navigation, .single .rtp-comments-pagination { padding-bottom: 0; padding-top: 1.5em; }
