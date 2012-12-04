@@ -1,0 +1,92 @@
+/* Responsive Structure */
+$ninesixty-gutter-width: 16px;
+$ninesixty-grid-width: 744px;
+$ninesixty-columns: 12;
+$cols: $ninesixty-columns;
+
+@media screen and (min-width: 760px) and (max-width: 980px) {
+    /* Grid Containers */
+    @include rtp-grid-generator(12);
+    
+}
+
+/* Min Screen Width: 760 */
+@media screen and (min-width: 760px) {
+    /* ensure #nav is visible on desktop version */
+    #rtp-nav-menu { display: block !important; }
+}
+
+/* Max Screen Width: 760 */
+@media screen and (max-width: 760px) {
+.rtp-container-12 { max-width: 744px; width: 96%; }
+/* Reset Grids */
+.rtp-reset-grid { @include box-sizing(border-box); margin-left: 0; margin-right: 0; width: 100%; }
+/* Reset Prefix Space */
+.rtp-reset-prefix { padding-left: 0; }
+/* Reset Suffix Space */
+.rtp-reset-suffix { padding-right: 0; }
+/* Reset Push and Pull Space */
+.rtp-reset-push-pull { left: 0; }
+
+// Reset Grids
+@for $i from 1 through $cols {
+    .rtp-grid-#{$i} {
+        @extend .rtp-reset-grid;
+    }
+}
+
+// Reset Prefix and Suffix Space
+@for $i from 1 through $cols - 1 {
+    .rtp-prefix-#{$i} {
+        @extend .rtp-reset-prefix;
+    }
+
+    .rtp-suffix-#{$i} {
+        @extend .rtp-reset-suffix;
+    }
+}
+
+// Reset Push and Pull Space
+@for $i from 1 through $cols {
+    .rtp-push-#{$i} {
+        @extend .relative;
+        @if ($i != $cols ){
+            @extend .rtp-reset-push-pull;
+        }
+    }
+
+    .rtp-pull-#{$i} {
+        @extend .relative;
+        @if ($i != $cols ){
+            @extend .rtp-reset-push-pull;
+        }
+    }
+}
+
+/* Header and navigation */
+#header { width: 70%; }
+#rtp-primary-menu { background: none; border: 0; position: relative; }
+.rtp-nav-btn { display: block; }
+
+#rtp-nav-menu {
+    background-color: darken($base-background, 4%); @include rtp-border($border-color); display: none; @include box-sizing(border-box); width: 100%;
+    
+    li {
+        border-top: 1px solid $border-color; clear: both; text-align: center; width: 100%;
+        &:first-child { border-top: 0; }
+        &:hover > ul { display: block; }
+    }
+}
+
+/* Misc. fixing */
+.gallery-icon .attachment-thumbnail { padding: 2px; }
+.email-subscription-container label { width: 100%; }
+.rtp-has-comments { clear: both; width: auto; }
+iframe { height: auto; }
+.rtp-post-comment-count { clear: both; float: left; margin: 0 0 15px; }
+.rtp-section-separator:after { left: 0; max-width: 100%; }
+#respond .compact-comment-form { width: 70%; }
+
+}
+
+/* End - Responsive Structure */
