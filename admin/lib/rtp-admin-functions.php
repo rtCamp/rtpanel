@@ -697,7 +697,7 @@ function rtp_theme_activation( $themename, $theme = false ) {
         $update++;
         $rtp_general['logo_upload'] = $rtp_general['logo_url'];
         $id = rtp_get_attachment_id_from_src( $rtp_general['logo_upload'], true );
-        $img_dimensions = rtp_get_image_dimensions( $rtp_general['logo_upload'], true, true, $id );
+        $img_dimensions = rtp_get_image_dimensions( $rtp_general['logo_upload'], true, '', $id );
         $rtp_general['logo_id'] = $id;
         $rtp_general['logo_width'] = $img_dimensions['width'];
         $rtp_general['logo_height'] = $img_dimensions['height'];
@@ -706,7 +706,7 @@ function rtp_theme_activation( $themename, $theme = false ) {
     } elseif ( isset( $rtp_general['use_logo'] ) && ( $rtp_general['use_logo'] == 'use_logo_upload' ) ) {
         $update++;
         $id = rtp_get_attachment_id_from_src( $rtp_general['logo_upload'], true );
-        $img_dimensions = rtp_get_image_dimensions( $rtp_general['logo_upload'], true, true, $id );
+        $img_dimensions = rtp_get_image_dimensions( $rtp_general['logo_upload'], true, '', $id );
         $rtp_general['logo_id'] = $id;
         $rtp_general['logo_width'] = $img_dimensions['width'];
         $rtp_general['logo_height'] = $img_dimensions['height'];
@@ -725,19 +725,18 @@ function rtp_theme_activation( $themename, $theme = false ) {
         $update++;
         $rtp_general['favicon_upload'] = $rtp_general['favicon_url'];
         $id = rtp_get_attachment_id_from_src( $rtp_general['favicon_upload'], true );
-        $img_dimensions = rtp_get_image_dimensions( $rtp_general['favicon_upload'], true, true, $id );
+        $img_dimensions = rtp_get_image_dimensions( $rtp_general['favicon_upload'], true, '', $id );
         $rtp_general['favicon_id'] = $id;
         unset( $rtp_general['use_favicon'] );
     } elseif ( isset( $rtp_general['use_favicon'] ) && ( $rtp_general['use_favicon'] == 'use_favicon_upload' ) ) {
         $update++;
-        $rtp_general['favicon_id'] = rtp_get_image_dimensions( $rtp_general['favicon_upload'], true );;
+        $rtp_general['favicon_id'] = rtp_get_attachment_id_from_src( $rtp_general['favicon_upload'], true );
         unset( $rtp_general['use_favicon'] );
         unset( $rtp_general['favicon_url'] );
     }
     if ( $update ) {
         update_option( 'rtp_general', $rtp_general );
     }
-    wp_redirect( 'themes.php?page=rtp_general' );
 }
 add_action( 'after_switch_theme', 'rtp_theme_activation', '', 2 );
 /**
@@ -1252,7 +1251,7 @@ function rtp_regenerate_thumbnail_notice( $return = false ) {
         if( $return ) {
             return $regenerate_link;
         } else {
-            echo '<div class="error regenerate_thumbnail_notice"><p>' . sprintf( __( 'The Thumbnail Settings have been updated. Please <a href="%s" title="Regenerate Thumbnails">Regenerate Thumbnails</a>.', 'rtPanel' ), $regenerate_link ) . ' <span class="alignright regenerate_thumbnail_notice_close" href="#">X</a></p></div>';
+            echo '<div class="error regenerate_thumbnail_notice"><p>' . sprintf( __( 'The Thumbnail Settings have been updated. Please <a href="%s" title="Regenerate Thumbnails">Regenerate Thumbnails</a>.', 'rtPanel' ), $regenerate_link ) . ' <span class="alignright regenerate_thumbnail_notice_close" href="#">X</span></p></div>';
         }
     } else {
         return;
@@ -1267,7 +1266,7 @@ function rtp_regenerate_thumbnail_notice( $return = false ) {
 function rtp_upgrade_theme_notice() {
     global $rtp_post_comments;
     if( current_user_can( 'administrator' ) && isset( $rtp_post_comments['upgrade_theme'] ) && $rtp_post_comments['upgrade_theme'] ) {
-        echo '<div class="updated upgrade_theme_notice"><p>' . sprintf( __( 'Thank you for choosing rtPanel. Please check the <a href="%s" title="rtPanel ChangeLog" target="_blank">ChangeLog</a>.', 'rtPanel' ), 'http://rtcamp.com/rtpanel/changelog/' ) . ' <span class="alignright upgrade_theme_notice_close" href="#">X</a></p></div>';
+        echo '<div class="updated upgrade_theme_notice"><p>' . sprintf( __( 'Thank you for choosing rtPanel. Please check the <a href="%s" title="rtPanel ChangeLog" target="_blank">ChangeLog</a>.', 'rtPanel' ), 'http://rtcamp.com/rtpanel/changelog/' ) . ' <span class="alignright upgrade_theme_notice_close" href="#">X</span></p></div>';
     }
 }
 

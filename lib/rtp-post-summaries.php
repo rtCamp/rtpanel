@@ -61,39 +61,6 @@ function rtp_new_excerpt_length($length) {
 add_filter( 'excerpt_length', 'rtp_new_excerpt_length' );
 
 /**
- * Sets 'nofollow' to external links
- *
- * @param string $content
- * @return mixed
- *
- * @since rtPanel 2.0
- */
-function rtp_nofollow( $content ) {
-    return preg_replace_callback( '/<a[^>]+/', 'rtp_nofollow_callback', $content );
-}
-add_filter( 'the_content', 'rtp_nofollow' );
-add_filter( 'the_excerpt', 'rtp_nofollow' );
-
-/**
- * Callback to rtp_nofollow()
- *
- * @param array $matches
- * @return string
- *
- * @since rtPanel 2.0
- */
-function rtp_nofollow_callback( $matches ) {
-    $link = $matches[0];
-    $site_link = home_url();
-    if ( strpos( $link, 'rel' ) === false ) {
-        $link = preg_replace( "%(href=\S(?!$site_link))%i", 'rel="nofollow" $1', $link );
-    } elseif ( preg_match( "%href=\S(?!$site_link)%i", $link ) ) {
-        $link = preg_replace( '/rel=\S(?!nofollow)\S*/i', 'rel="nofollow"', $link );
-    }
-    return $link;
-}
-
-/**
  * Displays Attachment Image Thumbnail
  *
  * @since rtPanel 2.0
@@ -371,6 +338,7 @@ function rtp_create_external_thumb( $match, $post, $size, $double_check_tag = ''
  * 
  * @uses $wpdb object
  * @param string $image_src The Image Source
+ * @param boolean $hard_find
  * @return int
  *
  * @since rtPanel 2.0

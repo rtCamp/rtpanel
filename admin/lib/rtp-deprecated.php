@@ -60,3 +60,37 @@ function rtp_logo_fav_src( $type = 'logo' ) {
         return false;
     }
 }
+
+/**
+ * Sets 'nofollow' to external links
+ *
+ * @param string $content
+ * @return mixed
+ *
+ * @since rtPanel 2.0
+ */
+function rtp_nofollow( $content ) {
+    _rtp_deprecated_function( __FUNCTION__, '2.3', 'Not used anymore' );
+    return preg_replace_callback( '/<a[^>]+/', 'rtp_nofollow_callback', $content );
+}
+
+
+/**
+ * Callback to rtp_nofollow()
+ *
+ * @param array $matches
+ * @return string
+ *
+ * @since rtPanel 2.0
+ */
+function rtp_nofollow_callback( $matches ) {
+    _rtp_deprecated_function( __FUNCTION__, '2.3', 'Not used anymore' );
+    $link = $matches[0];
+    $site_link = home_url();
+    if ( strpos( $link, 'rel' ) === false ) {
+        $link = preg_replace( "%(href=\S(?!$site_link))%i", 'rel="nofollow" $1', $link );
+    } elseif ( preg_match( "%href=\S(?!$site_link)%i", $link ) ) {
+        $link = preg_replace( '/rel=\S(?!nofollow)\S*/i', 'rel="nofollow"', $link );
+    }
+    return $link;
+}
