@@ -137,17 +137,25 @@ $ninesixty-class-separator: "-" !default;
 //rtPanel Grid Generate. Since we have renamed the classes in rtPanel. I have written the custom Grid Generator Code.
 @mixin rtp-grid-generator($cols: $ninesixty-columns) {
     .rtp-container-#{$cols} { @include grid-container; }
-    .rtp-grid-unit-base { @include grid-unit-base; }
-    .relative { position: relative; }
 
     /* Grid >> Children (Alpha ~ First, Omega ~ Last) */
     .rtp-alpha { @include alpha; }
     .rtp-omega { @include omega; }
-
+    
+    /* Grid >> Global */
+    #{enumerate(".rtp-grid", 1, $cols, $ninesixty-class-separator)} {
+        @include grid-unit-base;
+    }
+    
+    // Push and Pull Position
+    #{enumerate(".rtp-push", 1, $cols - 1, $ninesixty-class-separator)},
+    #{enumerate(".rtp-pull", 1, $cols - 1, $ninesixty-class-separator)} {
+        @include grid-move-base;
+    }
+    
     /* Grids */
     @for $i from 1 through $cols {
         .rtp-grid-#{$i} {
-            @extend .rtp-grid-unit-base;
             @include grid-width($i, $cols);
         }
     }
@@ -166,14 +174,12 @@ $ninesixty-class-separator: "-" !default;
     /* Push and Pull Space */
     @for $i from 1 through $cols {
         .rtp-push-#{$i} {
-            @extend .relative;
             @if ($i != $cols ){
                 @include grid-move-push($i, $cols);
             }
         }
 
         .rtp-pull-#{$i} {
-            @extend .relative;
             @if ($i != $cols ){
                 @include grid-move-pull($i, $cols);
             }

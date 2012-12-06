@@ -114,7 +114,6 @@ body#tinymce {
     padding: 0;
 }
 
-
 /* Box Sizing: Very useful for responsive structure */
 #rtp-primary-menu, #rtp-nav-menu li, table, .wp-caption, img { @include box-sizing(border-box); }
 
@@ -123,16 +122,16 @@ body#tinymce {
 
 // ******************** 960gs Variables ******************** //
 // To overwrite the Default grids please update the default options given bellow as per your requirement.
-// $ninesixty-gutter-width: 20px;
-// $ninesixty-grid-width: 960px;
-// $ninesixty-columns: 12;
+//$ninesixty-gutter-width: 20px;
+//$ninesixty-grid-width: 960px;
+//$ninesixty-columns: 12;
 
 // ******************** rtPanel Grid ******************** //
 // Note: To use default Structure of 960gs comment out following code.
-// @include grid-system-complete(12);
+//@include grid-system-complete($ninesixty-columns);
 
 /* Grid Containers */
-@include rtp-grid-generator(12);
+@include rtp-grid-generator($ninesixty-columns);
 
 /* Mobile Devices Menu */
 .rtp-nav-btn {
@@ -230,18 +229,19 @@ body#tinymce {
 
 // Post Header
 .post-header { margin-bottom: 1em; }
-.post-title { float: left; margin: 0; }
+.post-title { float: left; line-height: 1.2em; margin: 0; }
 .rtp-has-comments { width: 75%; }
 .rtp-main-title { border-bottom: 1px solid $border-color; color: $title-link-color; float: none; margin-top: 0.75em; padding-bottom: 0.2em; }
 
 // Post Content
 .post-content { clear: both; }
 .rtp-singular .post-content a { text-decoration: underline; }
+
 // Post Content Paragraph
-.blog .post-content,
-.search-results .post-content,
-.archive .post-content {
-    p { margin-bottom: 1em; }
+.blog, .search-results, .archive {
+    .post-content {
+        p { margin-bottom: 1em; }
+    }
 }
 // Not Found Page
 .rtp-not-found { margin: 1.5em 0; }
@@ -254,15 +254,14 @@ body#tinymce {
 
 .post-meta-bottom { padding: 1em 0 0; }
 .single .post-meta-bottom { padding: 0; }
-.rtp-post-comment-count { margin: 0.3em 0 0; text-align: right; }
+.rtp-post-comment-count { margin: 0.7em 0 0; text-align: right; }
 
 /* Curly Brackets Style */
 .rtp-curly-bracket { color: darken($base-background, 14%); font-size: 1.428em; }
 
 /* Post Comment */
-.rtp-post-comment {
+.rtp-post-comment, .rtp-post-comment:visited {
     font-size: 13px; font-style: normal; padding: 0 3px 0 2px;
-    &:visited { @extend .rtp-post-comment; }
 }
 
 .rtp-post-comment span { color: $title-link-color; font-size: 18px; }
@@ -371,7 +370,7 @@ body#tinymce {
 
 /* Pagenavi Style */
 .page-link { clear: both; }
-
+.wp-pagenavi { margin: 1.5em 0; overflow: hidden; text-align: center; }
 .wp-pagenavi, .page-link >, .bbp-pagination-links > {
     a,
     span { @include rtp-border($border-color); display: inline-block; float: none; font-weight: normal; margin: 2px; padding: 5px 10px; text-decoration: none; }
@@ -517,7 +516,7 @@ body#tinymce {
 
 /* Sidebar */
 #sidebar { margin-top: 1em; }
-.widgettitle { margin-top: 0; }
+.widgettitle { line-height: 1.2em; margin-top: 0; }
 
 .widget {
     // Current Menu item highlight
@@ -684,6 +683,8 @@ footerbar-widget {
 }
 
 // ********* Responsive Structure ********* //
+//$ninesixty-gutter-width: 16px;
+//$ninesixty-grid-width: 744px;
 @import "./rtpanel_sass/responsive";
 
 // ********* Print Style ********* //

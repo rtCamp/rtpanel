@@ -1,13 +1,11 @@
 /* Responsive Structure */
 $ninesixty-gutter-width: 16px;
 $ninesixty-grid-width: 744px;
-$ninesixty-columns: 12;
 $cols: $ninesixty-columns;
 
 @media screen and (min-width: 760px) and (max-width: 980px) {
     /* Grid Containers */
-    @include rtp-grid-generator(12);
-    
+    @include rtp-grid-generator($cols);
 }
 
 /* Min Screen Width: 760 */
@@ -18,50 +16,26 @@ $cols: $ninesixty-columns;
 
 /* Max Screen Width: 760 */
 @media screen and (max-width: 760px) {
-.rtp-container-12 { max-width: 744px; width: 96%; }
-/* Reset Grids */
-.rtp-reset-grid { @include box-sizing(border-box); margin-left: 0; margin-right: 0; width: 100%; }
-/* Reset Prefix Space */
-.rtp-reset-prefix { padding-left: 0; }
-/* Reset Suffix Space */
-.rtp-reset-suffix { padding-right: 0; }
-/* Reset Push and Pull Space */
-.rtp-reset-push-pull { left: 0; }
-
-// Reset Grids
-@for $i from 1 through $cols {
-    .rtp-grid-#{$i} {
-        @extend .rtp-reset-grid;
-    }
-}
-
-// Reset Prefix and Suffix Space
-@for $i from 1 through $cols - 1 {
-    .rtp-prefix-#{$i} {
-        @extend .rtp-reset-prefix;
+    .rtp-container-#{$cols} { max-width: 744px; width: 96%; }
+    // reset grids
+    #{enumerate(".rtp-grid", 1, $cols, $ninesixty-class-separator)} {
+        @include rtp-reset-grid;
     }
 
-    .rtp-suffix-#{$i} {
-        @extend .rtp-reset-suffix;
-    }
-}
-
-// Reset Push and Pull Space
-@for $i from 1 through $cols {
-    .rtp-push-#{$i} {
-        @extend .relative;
-        @if ($i != $cols ){
-            @extend .rtp-reset-push-pull;
-        }
+    // Reset Prefix and Suffix Space
+    #{enumerate(".rtp-prefix", 1, $cols - 1, $ninesixty-class-separator)} {
+        @include rtp-reset-prefix;
     }
 
-    .rtp-pull-#{$i} {
-        @extend .relative;
-        @if ($i != $cols ){
-            @extend .rtp-reset-push-pull;
-        }
+    #{enumerate(".rtp-suffix", 1, $cols - 1, $ninesixty-class-separator)} {
+        @include rtp-reset-suffix;
     }
-}
+
+    // Reset Push and Pull Space
+    #{enumerate(".rtp-push", 1, $cols - 1, $ninesixty-class-separator)}
+    #{enumerate(".rtp-pull", 1, $cols - 1, $ninesixty-class-separator)} {
+        @include rtp-reset-push-pull;
+    }
 
 /* Header and navigation */
 #header { width: 70%; }
