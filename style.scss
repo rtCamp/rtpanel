@@ -15,11 +15,11 @@ Tags: black, blue, white, orange, light, one-column, two-columns, right-sidebar,
 @import "./rtpanel_sass/base";
 
 // ******************** rtPanel Constant Variables ******************** //
-// Note: You can not change these values. These lines are just for your Information.
-//$rtp-base-10: 10px;
-//$black: #000000;
-//$white: #ffffff;
-//$gray: #666666;
+//  Note: You can not change these values. These lines are just for your Information.
+    // $rtp-base-10: 10px;
+    // $black: #000000;
+    // $white: #ffffff;
+    // $gray: #666666;
 
 // ******************** rtPanel Dynamic Variables ******************** //
 // You can change these values as per your requirement.
@@ -38,7 +38,6 @@ Tags: black, blue, white, orange, light, one-column, two-columns, right-sidebar,
 
 //$title-link-color: #111111;
 //$title-hover-color: #cd5a1b;
-
 
 // ******************** Typography ******************** //
 
@@ -594,22 +593,22 @@ tfoot {
             &:hover { background-position: -88px -44px; }
         }
         
-        .linkedin {
+        &.linkedin {
             background-position: -132px 0;
             &:hover { background-position: -132px -44px; }
         }
         
-        .myspace {
+        &.myspace {
             background-position: -176px 0;
             &:hover { background-position: -176px -44px; }
         }
         
-        .stumbleupon {
+        &.stumbleupon {
             background-position: -220px 0;
             &:hover { background-position: -220px -44px; }
         }
         
-        .google {
+        &.google {
             background-position: -264px 0;
             &:hover { background-position: -264px -44px; }
         }
@@ -651,7 +650,7 @@ footerbar-widget {
 /* End - Footer */
 
 /* Common bbPress Style */
-.bbPress { 
+.bbPress {
     // Children    
     .hentry { border: 0; }
     .bbp-forum-freshness > a { font-size: 13px; }
@@ -678,7 +677,8 @@ footerbar-widget {
         .bbp-forums-list li { display: block; }
         
         // Forum Inputs
-        fieldset.bbp-form input[type=radio], fieldset.bbp-form input[type=checkbox] { margin: 0 2px 4px; }
+        fieldset.bbp-form input[type=radio],
+        fieldset.bbp-form input[type=checkbox] { margin: 0 2px 4px; }
     }
 }
 
