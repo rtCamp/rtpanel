@@ -151,7 +151,10 @@ $all-button-inputs-active: $unquoted-button-inputs-active-list;
     font-size: $base-font-size - 1;
     margin: 0;
     padding: 5px;
+    width: 72%;
 }
+
+input.email { width: 64%; }
 
 select {
     padding: 0;
