@@ -87,8 +87,8 @@ function rtp_logo_option_metabox() {
             </tbody>
     </table>
     <div class="rtp_submit">
-        <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
-        <input class="button-secondary" value="<?php _e( 'Reset Logo & Favicon Settings', 'rtPanel' ); ?>" name="rtp_logo_favicon_reset" type="submit" />
+        <?php submit_button('Save All Changes', 'primary', 'rtp_submit', false ); ?>
+        <?php submit_button('Reset Logo & Favicon Settings', 'secondary', 'rtp_logo_favicon_reset', false ); ?>
         <div class="clear"></div>
     </div>
 <?php
@@ -126,8 +126,8 @@ function rtp_facebook_ogp_metabox() {
         </tbody>
     </table>
     <div class="rtp_submit">
-        <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
-        <input class="button-secondary" value="<?php _e( 'Reset Facebook OGP Settings', 'rtPanel' ); ?>" name="rtp_fb_ogp_reset" type="submit" />
+        <?php submit_button('Save All Changes', 'primary', 'rtp_submit', false ); ?>
+        <?php submit_button('Reset Facebook OGP Settings', 'secondary', 'rtp_fb_ogp_reset', false ); ?>
         <div class="clear"></div>
     </div>
 <?php
@@ -154,8 +154,8 @@ function rtp_feed_option_metabox() {
         </tbody>
     </table>
     <div class="rtp_submit">
-        <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
-        <input class="button-secondary" value="<?php _e( 'Reset FeedBurner Settings', 'rtPanel' ); ?>" name="rtp_feed_reset" type="submit" />
+        <?php submit_button('Save All Changes', 'primary', 'rtp_submit', false ); ?>
+        <?php submit_button('Reset FeedBurner Settings', 'secondary', 'rtp_feed_reset', false ); ?>
         <div class="clear"></div>
     </div>
 <?php
@@ -183,8 +183,8 @@ function rtp_sidebar_options_metabox() {
         </tbody>
     </table>
     <div class="rtp_submit">
-        <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
-        <input class="button-secondary" value="<?php _e( 'Reset Sidebar Settings', 'rtPanel' ); ?>" name="rtp_sidebar_reset" type="submit" />
+        <?php submit_button('Save All Changes', 'primary', 'rtp_submit', false ); ?>
+        <?php submit_button('Reset Sidebar Settings', 'secondary', 'rtp_sidebar_reset', false ); ?>
         <div class="clear"></div>
     </div>
 <?php
@@ -220,8 +220,8 @@ function rtp_google_search_metabox() {
         </tbody>
     </table>
     <div class="rtp_submit">
-        <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
-        <input class="button-secondary" value="<?php _e( 'Reset Google Custom Search Integration', 'rtPanel' ); ?>" name="rtp_google_reset" type="submit" />
+        <?php submit_button('Save All Changes', 'primary', 'rtp_submit', false ); ?>
+        <?php submit_button('Reset Google Custom Search Integration', 'secondary', 'rtp_google_reset', false ); ?>
         <div class="clear"></div>
     </div>
 <?php
@@ -248,8 +248,8 @@ function rtp_custom_styles_metabox() {
         </tbody>
     </table>
     <div class="rtp_submit">
-        <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
-        <input class="button-secondary" value="<?php _e( 'Reset Custom Styles', 'rtPanel' ); ?>" name="rtp_custom_styles_reset" type="submit" />
+        <?php submit_button('Save All Changes', 'primary', 'rtp_submit', false ); ?>
+        <?php submit_button('Reset Custom Styles', 'secondary', 'rtp_custom_styles_reset', false ); ?>
         <div class="clear"></div>
     </div>
 <?php
@@ -449,14 +449,14 @@ function rtp_backup_metabox() { ?>
             <tr valign="top">
                 <th><label for="rtp_export"><?php _e( 'Export rtPanel Options', 'rtPanel' ); ?></label></th>
                 <td>
-                    <input type="submit" id="rtp_export" value="<?php _e( 'Export', 'rtPanel' ); ?>" name="rtp_export" class="button" />
+                    <?php submit_button('Export', 'secondary', 'rtp_export', false ); ?>
                 </td>
             </tr>
             <tr valign="top">
                 <th><label for="rtp_import"><?php _e( 'Import rtPanel Options', 'rtPanel' ); ?></label></th>
                 <td>
                 <input type="file" id="rtp_import" name="rtp_import" />
-                    <input type="submit" value="<?php _e( 'Import', 'rtPanel' ); ?>" name="rtp_import" class="button" />
+                    <?php submit_button('Import', 'secondary', 'rtp_import', false ); ?>
                 </td>
             </tr>
         </tbody>
@@ -500,8 +500,8 @@ function rtp_post_summaries_metabox() {
         </tbody>
     </table>
     <div class="rtp_submit">
-        <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
-        <input class="button-secondary" value="<?php _e( 'Reset Post Sumarry Settings', 'rtPanel' ); ?>" name="rtp_summary_reset" type="submit" />
+        <?php submit_button('Save All Changes', 'primary', 'rtp_submit', false ); ?>
+        <?php submit_button('Reset Post Sumarry Settings', 'secondary', 'rtp_summary_reset', false ); ?>
         <div class="clear"></div>
     </div><?php
 }
@@ -572,8 +572,8 @@ function rtp_post_thumbnail_metabox() {
         </tbody>
     </table>
     <div class="rtp_submit">
-        <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
-        <input class="button-secondary" value="<?php _e( 'Reset Post Thumbnail Settings', 'rtPanel' ); ?>" name="rtp_thumbnail_reset" type="submit" />
+        <?php submit_button('Save All Changes', 'primary', 'rtp_submit', false ); ?>
+        <?php submit_button('Reset Post Thumbnail Settings', 'secondary', 'rtp_thumbnail_reset', false ); ?>
         <div class="clear"></div>
     </div><?php
 }
@@ -716,8 +716,8 @@ function rtp_post_meta_metabox() {
         </tbody>
     </table>
     <div class="rtp_submit">
-        <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
-        <input class="button-secondary" value="<?php _e( 'Reset Post Meta Settings', 'rtPanel' ); ?>" name="rtp_meta_reset" type="submit" />
+        <?php submit_button('Save All Changes', 'primary', 'rtp_submit', false ); ?>
+        <?php submit_button('Reset Post Meta Settings', 'secondary', 'rtp_meta_reset', false ); ?>
         <div class="clear"></div>
     </div><?php
 }
@@ -772,8 +772,8 @@ function rtp_pagination_metabox() {
         </tbody>
     </table>
     <div class="rtp_submit">
-        <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
-        <input class="button-secondary" value="<?php _e( 'Reset Pagination Settings', 'rtPanel' ); ?>" name="rtp_pagination_reset" type="submit" />
+        <?php submit_button('Save All Changes', 'primary', 'rtp_submit', false ); ?>
+        <?php submit_button('Reset Pagination Settings', 'secondary', 'rtp_pagination_reset', false ); ?>
         <div class="clear"></div>
     </div><?php
 }
@@ -820,8 +820,8 @@ function rtp_comment_form_metabox() {
         </tbody>
     </table>
     <div class="rtp_submit">
-        <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
-        <input class="button-secondary" value="<?php _e( 'Reset Comment Form Settings', 'rtPanel' ); ?>" name="rtp_comment_reset" type="submit" />
+        <?php submit_button('Save All Changes', 'primary', 'rtp_submit', false ); ?>
+        <?php submit_button('Reset Comment Form Settings', 'secondary', 'rtp_comment_reset', false ); ?>
         <div class="clear"></div>
     </div><?php
 }
@@ -835,33 +835,33 @@ function rtp_comment_form_metabox() {
  */
 function rtp_gravatar_metabox() {
     global $rtp_post_comments; ?>
-        <table class="form-table">
-            <tbody>
-                <tr valign="top">
-                    <th scope="row"><p><label for="gravatar_show"><?php _e( 'Enable Gravatar Support', 'rtPanel' ); ?></label></p></th>
-                    <td>
-                        <input type="hidden" name="rtp_post_comments[gravatar_show]" value="0" />
-                        <input type="checkbox" name="rtp_post_comments[gravatar_show]" value="1" id="gravatar_show" <?php checked( $rtp_post_comments['gravatar_show'] ); ?> />
-                    </td>
-                </tr>
-                <tr valign="top" class="gravatar-size">
-                    <th scope="row"><p><label for="gravatar_size"><?php _e( 'Gravatar Size', 'rtPanel' ); ?></label></p></th>
-                    <td>
-                        <select name="rtp_post_comments[gravatar_size]" id="gravatar_size">
-                            <option value="32" <?php selected( '32', $rtp_post_comments['gravatar_size'] ); ?>>32px X 32px</option>
-                            <option value="40" <?php selected( '40', $rtp_post_comments['gravatar_size'] ); ?>>40px X 40px</option>
-                            <option value="48" <?php selected( '48', $rtp_post_comments['gravatar_size'] ); ?>>48px X 48px</option>
-                            <option value="56" <?php selected( '56', $rtp_post_comments['gravatar_size'] ); ?>>56px X 56px</option>
-                            <option value="64" <?php selected( '64', $rtp_post_comments['gravatar_size'] ); ?>>64px X 64px</option>
-                            <option value="96" <?php selected( '96', $rtp_post_comments['gravatar_size'] ); ?>>96px X 96px</option>
-                        </select>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="rtp_submit">
-            <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
-            <input class="button-secondary" value="<?php _e( 'Reset Gravatar Settings', 'rtPanel' ); ?>" name="rtp_gravatar_reset" type="submit" />
-            <div class="clear"></div>
-        </div><?php
+    <table class="form-table">
+        <tbody>
+            <tr valign="top">
+                <th scope="row"><p><label for="gravatar_show"><?php _e( 'Enable Gravatar Support', 'rtPanel' ); ?></label></p></th>
+                <td>
+                    <input type="hidden" name="rtp_post_comments[gravatar_show]" value="0" />
+                    <input type="checkbox" name="rtp_post_comments[gravatar_show]" value="1" id="gravatar_show" <?php checked( $rtp_post_comments['gravatar_show'] ); ?> />
+                </td>
+            </tr>
+            <tr valign="top" class="gravatar-size">
+                <th scope="row"><p><label for="gravatar_size"><?php _e( 'Gravatar Size', 'rtPanel' ); ?></label></p></th>
+                <td>
+                    <select name="rtp_post_comments[gravatar_size]" id="gravatar_size">
+                        <option value="32" <?php selected( '32', $rtp_post_comments['gravatar_size'] ); ?>>32px X 32px</option>
+                        <option value="40" <?php selected( '40', $rtp_post_comments['gravatar_size'] ); ?>>40px X 40px</option>
+                        <option value="48" <?php selected( '48', $rtp_post_comments['gravatar_size'] ); ?>>48px X 48px</option>
+                        <option value="56" <?php selected( '56', $rtp_post_comments['gravatar_size'] ); ?>>56px X 56px</option>
+                        <option value="64" <?php selected( '64', $rtp_post_comments['gravatar_size'] ); ?>>64px X 64px</option>
+                        <option value="96" <?php selected( '96', $rtp_post_comments['gravatar_size'] ); ?>>96px X 96px</option>
+                    </select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="rtp_submit">
+        <?php submit_button('Save All Changes', 'primary', 'rtp_submit', false ); ?>
+        <?php submit_button('Reset Gravatar Settings', 'secondary', 'rtp_gravatar_reset', false ); ?>
+        <div class="clear"></div>
+    </div><?php
 }

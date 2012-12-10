@@ -20,10 +20,19 @@
  */
 function _rtp_deprecated_function( $function, $version, $replacement = null ) {
     if ( WP_DEBUG ) {
-        if ( ! is_null($replacement) )
+        if ( ! is_null( $replacement ) )
             trigger_error( sprintf( __( '%1$s is <strong>deprecated</strong> since rtPanel version %2$s! Use %3$s instead.', 'rtPanel' ), $function, $version, $replacement ) );
         else
             trigger_error( sprintf( __( '%1$s is <strong>deprecated</strong> since rtPanel version %2$s with no alternative available.', 'rtPanel' ), $function, $version ) );
+    }
+}
+
+function _rtp_deprecated_argument( $function, $version, $message = null ) {
+    if ( WP_DEBUG ) {
+        if ( ! is_null( $message ) )
+            trigger_error( sprintf( __('%1$s was called with an argument that is <strong>deprecated</strong> since rtPanel version %2$s! %3$s'), $function, $version, $message ) );
+        else
+            trigger_error( sprintf( __('%1$s was called with an argument that is <strong>deprecated</strong> since rtPanel version %2$s with no alternative available.'), $function, $version ) );
     }
 }
 
@@ -50,4 +59,38 @@ function rtp_logo_fav_src( $type = 'logo' ) {
     } else {
         return false;
     }
+}
+
+/**
+ * Sets 'nofollow' to external links
+ *
+ * @param string $content
+ * @return mixed
+ *
+ * @since rtPanel 2.0
+ */
+function rtp_nofollow( $content ) {
+    _rtp_deprecated_function( __FUNCTION__, '2.3', 'Not used anymore' );
+    return preg_replace_callback( '/<a[^>]+/', 'rtp_nofollow_callback', $content );
+}
+
+
+/**
+ * Callback to rtp_nofollow()
+ *
+ * @param array $matches
+ * @return string
+ *
+ * @since rtPanel 2.0
+ */
+function rtp_nofollow_callback( $matches ) {
+    _rtp_deprecated_function( __FUNCTION__, '2.3', 'Not used anymore' );
+    $link = $matches[0];
+    $site_link = home_url();
+    if ( strpos( $link, 'rel' ) === false ) {
+        $link = preg_replace( "%(href=\S(?!$site_link))%i", 'rel="nofollow" $1', $link );
+    } elseif ( preg_match( "%href=\S(?!$site_link)%i", $link ) ) {
+        $link = preg_replace( '/rel=\S(?!nofollow)\S*/i', 'rel="nofollow"', $link );
+    }
+    return $link;
 }

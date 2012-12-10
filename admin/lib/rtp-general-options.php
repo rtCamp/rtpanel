@@ -41,8 +41,8 @@ function rtp_general_options_page( $pagehook ) {
                         </div>
                     </div>
                     <br class="clear"/>
-                    <input class="button-primary" value="<?php _e( 'Save All Changes', 'rtPanel' ); ?>" name="rtp_submit" type="submit" />
-                    <input class="button-link" value="<?php _e( 'Reset All General Settings', 'rtPanel' ); ?>" name="rtp_reset" type="submit" />
+                    <?php submit_button('Save All Changes', 'primary', 'rtp_submit', false ); ?>
+                    <?php submit_button('Reset All General Settings', 'button-link', 'rtp_reset', false ); ?>
                 </div>
 
                 <script type="text/javascript">
