@@ -37,11 +37,11 @@ $ninesixty-class-separator: "-" !default;
 }
 
 @mixin grids($cols: $ninesixty-columns, $gutter-width: $ninesixty-gutter-width) {
-  #{enumerate(".grid", 1, $cols, $ninesixty-class-separator)} {
+    #{enumerate(".grid", 1, $cols, $ninesixty-class-separator)} {
         @include grid-unit-base($gutter-width);
     }
     @for $n from 1 through $cols {
-    .grid#{$ninesixty-class-separator}#{$n} {
+        .grid#{$ninesixty-class-separator}#{$n} {
             @include grid-width($n, $cols, $gutter-width);
         }
     }
@@ -53,7 +53,7 @@ $ninesixty-class-separator: "-" !default;
 
 @mixin grid-prefixes($cols: $ninesixty-columns) {
     @for $n from 1 through $cols - 1 {
-    .prefix#{$ninesixty-class-separator}#{$n} {
+        .prefix#{$ninesixty-class-separator}#{$n} {
             @include grid-prefix($n, $cols);
         }
     }
@@ -65,17 +65,18 @@ $ninesixty-class-separator: "-" !default;
 
 @mixin grid-suffixes($cols: $ninesixty-columns) {
     @for $n from 1 through $cols - 1 {
-    .suffix#{$ninesixty-class-separator}#{$n} {
+        .suffix#{$ninesixty-class-separator}#{$n} {
             @include grid-suffix($n, $cols);
         }
     }
 }
 
 @mixin grid-children {
-  .alpha {
+    .alpha {
         @include alpha;
     }
-  .omega {
+
+    .omega {
         @include omega;
     }
 }
@@ -103,15 +104,17 @@ $ninesixty-class-separator: "-" !default;
 }
 
 @mixin grid-movements($cols: $ninesixty-columns) {
-  #{enumerate(".push", 1, $cols - 1, $ninesixty-class-separator)},
-  #{enumerate(".pull", 1, $cols - 1, $ninesixty-class-separator)} {
+    #{enumerate(".push", 1, $cols - 1, $ninesixty-class-separator)},
+    #{enumerate(".pull", 1, $cols - 1, $ninesixty-class-separator)} {
         @include grid-move-base;
     }
+
     @for $n from 1 through $cols - 1 {
-    .push#{$ninesixty-class-separator}#{$n} {
+        .push#{$ninesixty-class-separator}#{$n} {
             @include grid-move-push($n, $cols);
         }
-    .pull#{$ninesixty-class-separator}#{$n} {
+
+        .pull#{$ninesixty-class-separator}#{$n} {
             @include grid-move-pull($n, $cols);
         }
     }
@@ -127,7 +130,7 @@ $ninesixty-class-separator: "-" !default;
 }
 
 @mixin grid-system-complete($cols: $ninesixty-columns) {
-  .container#{$ninesixty-class-separator}#{$cols} {
+    .container#{$ninesixty-class-separator}#{$cols} {
         @include grid-system($cols);
     }
 }
@@ -186,3 +189,5 @@ $ninesixty-class-separator: "-" !default;
         }
     }
 }
+
+// End of Grid Generator

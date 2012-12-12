@@ -55,7 +55,7 @@ $secondary-font-size: 13px; // 14px !default
 //$h4-size: 20px;
 //$h5-size: 16px;
 //$h6-size: 14px;
-//$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$base-font-family: "Helevetica Neue", Helvetica, Arial, "Microsoft Sans Serif", sans-serif;
 //$font-monospace: Consolas, monaco, monospace;
 @import "./rtpanel_sass/typography";
 
@@ -137,6 +137,7 @@ body#tinymce {
     display: none; height: auto; margin: 0; padding: 7px 10px; position: absolute; right: 0; top: -65px;
     &:focus { box-shadow: 0 0 0; } // Focus
 }
+
 .rtp-icon-bar {
     background-color: $gray; @include box-shadow(0 1px 0 rgba(0, 0, 0, 0.15)); display: block; height: 2px; margin-top: 3px; width: 18px;
     &:first-child { margin-top: 0; } // First-child
@@ -757,8 +758,8 @@ input.gsc-input { margin-left: 0; }
 /* End - Search Page Style */
 
 // ********* Responsive Structure ********* //
-//$ninesixty-gutter-width: 16px;
-//$ninesixty-grid-width: 744px;
+$ninesixty-gutter-width: 16px;
+$ninesixty-grid-width: 744px;
 @import "./rtpanel_sass/responsive";
 
 // ********* Print Style ********* //

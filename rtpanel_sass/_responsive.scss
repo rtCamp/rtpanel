@@ -1,6 +1,4 @@
 /* Responsive Structure */
-$ninesixty-gutter-width: 16px;
-$ninesixty-grid-width: 744px;
 $cols: $ninesixty-columns;
 
 @media screen and (min-width: 760px) and (max-width: 980px) {
@@ -32,7 +30,7 @@ $cols: $ninesixty-columns;
     }
 
     // Reset Push and Pull Space
-    #{enumerate(".rtp-push", 1, $cols - 1, $ninesixty-class-separator)}
+    #{enumerate(".rtp-push", 1, $cols - 1, $ninesixty-class-separator)},
     #{enumerate(".rtp-pull", 1, $cols - 1, $ninesixty-class-separator)} {
         @include rtp-reset-push-pull;
     }

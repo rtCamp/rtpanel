@@ -154,13 +154,15 @@ $all-button-inputs-active: $unquoted-button-inputs-active-list;
     width: 72%;
 }
 
-input.email { width: 64%; }
+input.email {
+    width: 64%;
+}
 
 select {
     padding: 0;
 }
 
-#{$all-text-inputs-focus}, select:focus, textarea:focus { border-color: darken($input-background, 40%); }
+#{$all-text-inputs-focus}, select:focus, textarea:focus { border-color: darken($input-background, 20%); }
 
 #{$all-button-inputs}, .rtp-button {
     @include background-image(linear-gradient($button-gradient-color-top, $button-gradient-color-bottom));
@@ -189,16 +191,25 @@ select {
     @include background-image(linear-gradient($button-active-gradient-color-top, $button-active-gradient-color-bottom));
 }
 
-button[disabled], input[disabled] { cursor: not-allowed; opacity: 0.6; }
+button[disabled], input[disabled] {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
 
 /* Placeholder Text Color */
 input::-webkit-input-placeholder, input:-moz-placeholder,
-textarea:-webkit-input-placeholder, textarea:-moz-placeholder { color: darken($white, 40%); }
+textarea:-webkit-input-placeholder, textarea:-moz-placeholder {
+    color: darken($white, 40%);
+}
 
 /* Box Sizing: Very useful for responsive structure */
-input, textarea, select, button, rtp-button { @include box-sizing(border-box); }
+input, textarea, select, button, rtp-button {
+    @include box-sizing(border-box);
+}
 
 /* Label Cursor */
-label { cursor: pointer; }
+label {
+    cursor: pointer;
+}
 
 /* End - Input Styles */
