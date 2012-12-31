@@ -1,0 +1,103 @@
+/* Sidebar */
+#sidebar { margin-top: 1em; }
+.widgettitle { line-height: 1.2em; margin-top: 0; }
+
+.widget {
+    // Current Menu item highlight
+    .current-menu-item > a, .current_page_item > a { color: $link-hover-color; }
+}
+
+/* Recent Comment with Gravatar Widget */
+.rtp-comments-widget {
+    // Children
+    ul { margin-left: 0; }
+    li {
+        list-style: none;
+        &:last-child .rtp-reply { margin-bottom: 0; }
+    }
+    .author-comment { line-height: 1.385em; margin: 5px 0; }
+    .author-vcard img { float: left; margin: 5px 10px 5px 0; }
+    .alignright img { margin: 5px 0 5px 10px; }
+    p { margin: 0; }
+    
+    .rtp-reply {
+        clear: none; padding: 0;
+        a { font-size: $tertiary-font-size; margin: 0; }
+    }
+}
+
+/* Calendar Widget */
+.widget_calendar {
+    // Children
+    th, td { color: $gray; text-align: center; }
+    #today { background-color: darken($base-background, 6%); font-weight: 700; }
+}
+
+tfoot {
+    // Children
+    #prev { border-right: 0; text-align: left; }
+    #next { border-left: 0; text-align: right; }
+}
+
+#prev + .pad { border-left: 0; border-right: 0; }
+
+/* Tag Cloud Widget */
+.tagcloud a { line-height: 1em; }
+
+/* Subscribe Widget */
+.email-subscription-container {
+    // Children
+    p { margin: 0; }
+    label { display: block; margin: 0 0 5px; }
+}
+// Stay Connected    
+.stay-connected { clear: both; font-weight: normal; padding: 5px 0 0; }
+
+// Social Icons
+.social-icons {
+    margin: 0;
+    // Children
+    // List
+    li {
+        float: left; list-style: none; margin: 10px 8px 0 0; padding: 0;
+        &:last-child { margin-right: 0; }
+    }
+    
+    a {
+        background: url('./img/rtp-social-icons-32-32.png') no-repeat; display: block; height: 35px; margin: 0; overflow: hidden; padding: 0; text-indent: -9999px; text-transform: uppercase; width: 35px;
+        
+        &.facebook:hover { background-position: 0 -44px; }
+        
+        &.twitter {
+            background-position: -44px 0;
+            &:hover { background-position: -44px -44px; }
+        }
+        
+        &.rss {
+            background-position: -88px 0;
+            &:hover { background-position: -88px -44px; }
+        }
+        
+        &.linkedin {
+            background-position: -132px 0;
+            &:hover { background-position: -132px -44px; }
+        }
+        
+        &.myspace {
+            background-position: -176px 0;
+            &:hover { background-position: -176px -44px; }
+        }
+        
+        &.stumbleupon {
+            background-position: -220px 0;
+            &:hover { background-position: -220px -44px; }
+        }
+        
+        &.google {
+            background-position: -264px 0;
+            &:hover { background-position: -264px -44px; }
+        }
+    }
+    
+}
+/* End - Sidebar */

@@ -1,0 +1,25 @@
+/* Default Links */
+a {
+    color: $link-color; text-decoration: none;
+    &:active { @extend a; }
+    &:visited { @extend a; }
+    &:hover,
+    &:focus { color: $link-hover-color; text-decoration: underline; }
+}
+
+/* Heading Links */
+h1, h2 {
+    a { 
+        color: $title-link-color; text-decoration: none;
+        &:hover,
+        &:focus { color: $title-hover-color; text-decoration: none; }
+    }
+}
+
+/* Generic Links */
+.rtp-common-link, .rtp-common-link:visited, .rtp-common-link:active,
+.rtp-common-link span, .rtp-common-link span:visited, .rtp-common-link span:active,
+.rtp-common-link a, .rtp-common-link a:visited, .rtp-common-link a:active { color: $secondary-link-color; }
+
+.rtp-common-link:hover, .rtp-common-link:focus, .rtp-common-link span:hover,
+.rtp-common-link span:focus, .rtp-common-link a:hover, .rtp-common-link a:focus { color: $secondary-link-hover-color; }

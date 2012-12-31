@@ -119,54 +119,21 @@ pre {
 
 .rtp-section-separator:after { border-bottom: 1px solid $border-color; content: ''; display: block; height: 1px; left: 10px; max-width: 98%; position: absolute; bottom: 0; visibility: visible; width: 100%; z-index: 2; }
 
+/* Old Way to Clear a float container. */
+.clear { clear: both; content: '\0020'; display: block; height: 0; visibility: hidden; overflow: hidden; width: 0; }
+
 /* The Magnificent "Clear" fix */
-.clear {
-    clear: both;
-    content: '\0020';
-    display: block;
-    height: 0;
-    visibility: hidden;
-    overflow: hidden;
-    width: 0;
-}
-
-.clearfix:before,
-.clearfix:after {
-    content: '\0020';
-    display: block;
-    overflow: hidden;
-    visibility: hidden;
-}
-
-.clearfix:after {
-    clear: both;
-}
-
-/* Default Links */
-a {
-    color: $link-color; text-decoration: none;
-    &:active { @extend a; }
-    &:visited { @extend a; }
-    &:hover,
-    &:focus { color: $link-hover-color; text-decoration: underline; }
-}
-
-/* Heading Links */
-h1, h2 {
-    a { 
-        color: $title-link-color; text-decoration: none;
-        &:hover,
-        &:focus { color: $title-hover-color; text-decoration: none; }
+// For More Info Visit: http://nicolasgallagher.com/micro-clearfix-hack/ //
+.clearfix { zoom: 1; //  For IE 6/7 only. Include this rule to trigger hasLayout and contain floats.
+    &:before,
+    &:after {
+        content: ' '; // The space content is one way to avoid an Opera bug when the contenteditable attribute is included anywhere else in the document. //
+        display: table; // The use of 'table' rather than 'block' is only necessary if using ':before' to contain the top-margins of child elements. //
+    }
+    &:after {
+        clear: both;
     }
 }
-
-/* Generic Links */
-.rtp-common-link, .rtp-common-link:visited, .rtp-common-link:active,
-.rtp-common-link span, .rtp-common-link span:visited, .rtp-common-link span:active,
-.rtp-common-link a, .rtp-common-link a:visited, .rtp-common-link a:active { color: $secondary-link-color; }
-
-.rtp-common-link:hover, .rtp-common-link:focus, .rtp-common-link span:hover,
-.rtp-common-link span:focus, .rtp-common-link a:hover, .rtp-common-link a:focus { color: $secondary-link-hover-color; }
 
 /* Images */
 img {
@@ -182,3 +149,6 @@ img {
 .ie8 img { width: auto; }
 
 /* End - Misc Styles */
+
+/* Box Sizing: Very useful for responsive structure */
+#rtp-primary-menu, #rtp-nav-menu li, table, .wp-caption, img { @include box-sizing(border-box); }

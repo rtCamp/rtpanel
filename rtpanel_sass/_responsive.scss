@@ -42,11 +42,18 @@ $cols: $ninesixty-columns;
 
 #rtp-nav-menu {
     background-color: darken($base-background, 4%); @include rtp-border($border-color); display: none; @include box-sizing(border-box); width: 100%;
-    
+
     li {
-        border-top: 1px solid $border-color; clear: both; text-align: center; width: 100%;
+        border-top: 1px solid $border-color; clear: both; text-align: left; width: 100%;
         &:first-child { border-top: 0; }
         &:hover > ul { display: block; }
+
+        ul { display: block; }
+    }
+
+    ul.sub-menu { background: darken($base-background, 7%); border: 0; left: 0; position: relative; top: 0; width: 100%; 
+        li { border: 0; padding-left: 20px; }
+        a { border: 0; }
     }
 }
 

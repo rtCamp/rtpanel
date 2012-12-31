@@ -1,0 +1,137 @@
+// ****** Google custom search page style ****** //
+@mixin rtp-google-custom-search-page() {
+    /* Google custom search page style */
+    /* Border Elements */
+    .search-layout-wrapper > hr { margin-top: 0; }
+
+    #content .gsc-control-cse { padding: 0; }
+
+    #cse {
+        table.gstl_0 { border-width: 0; margin: 0; }
+        .gsc-result-info { margin: 0; }
+
+        .gs-web-image-box,
+        .gs-promotion-image-box { padding: 3px 0 0; }
+
+        .gsc-webResult.gsc-result { border-width: 0 0 1px; border-color: $border-color; border-style: none none dotted; clear: both; margin: 0; padding: 10px 0; position: relative; }
+
+        .gsc-result {
+            .gs-title { height: auto; text-decoration: none; }
+
+            .gsc-cursor-box {
+                .gsc-cursor-page {
+                    @include rtp-border($border-color); color: $link-color; display: inline-block; float: none; font-weight: normal; margin: 2px; padding: 5px 10px; text-decoration: none;
+                    &:hover { border-color: darken($border-color, 30%); color: $link-hover-color; text-decoration: underline; }
+                }
+            }
+
+            .gsc-cursor-current-page, .gsc-cursor-current-page:hover { border-color: darken($border-color, 30%); color: #333; font-weight: normal; text-decoration: none; }
+
+            a.gs-title, a.gs-title b {
+                color: $link-color; text-decoration: none;
+                &:hover { color: $link-hover-color; }
+            }
+
+            img.gs-image, img.gs-promotion-image { margin: 0; }
+        }
+
+        input.gsc-input {
+            @include rtp-border($border-color);
+            &:hover { border-color: darken($border-color, 30%); }
+        }
+
+        .cse input.gsc-search-button,
+        input.gsc-search-button { height: auto; margin: 0; min-width: 50px; padding: 6px 18px; }
+
+        .gsc-tabdActive .gsc-results .gsc-cursor { display: block; margin: 15px 0 5px; overflow: hidden; text-align: center; }
+
+    }
+
+    .gsc-input-box {
+        .gscb_a { line-height: 25px; }
+        .gsst_a { line-height: 18px; padding-top: 0; }
+        .gsib_b { line-height: 18px; padding-bottom: 0; padding-top: 0; }
+    }
+
+    table.gsc-search-box {
+        td { border-width: 0; }
+        td.gsc-input { padding-left: 0; }
+        td.gsib_a { line-height: 18px; padding-top: 0; }
+    }
+
+    .gsc-table-result {
+        border-width: 0; margin: 0;
+
+        td { border-width: 0; margin: 0; }
+        .gsc-thumbnail { padding-left: 0; }
+    }
+
+    .gsc-above-wrapper-area-container { border-width: 0; }
+    .gsc-result-info-container { border-width: 0; padding: 0; }
+    td.gsc-clear-button { padding-right: 0; }
+    input.gsc-input { margin-left: 0; }
+    .gs-promotion-table, .gs-promotion-table td, .gsc-resultsHeader, .gsc-resultsHeader td { border-width: 0; margin: 0; }
+    /* End - Search Page Style */
+}
+
+// ***** Common bbPress Style ***** //
+@mixin rtp-bbpress-style() {
+    /* Common bbPress Style */
+    .bbPress {
+        // Children    
+        .hentry { border: 0; }
+        .bbp-forum-freshness > a { font-size: 13px; }
+
+        #bbpress-forums {
+            font-size: $base-font-size;
+
+            ul {
+                &.bbp-lead-topic,
+                &.bbp-topics,
+                &.bbp-forums,
+                &.bbp-replies { font-size: $base-font-size;  }
+            }
+
+            p.bbp-topic-meta img.avatar,
+            ul.bbp-reply-revision-log img.avatar,
+            ul.bbp-topic-revision-log img.avatar,
+            div.bbp-template-notice img.avatar,
+            .widget_display_topics img.avatar,
+            .widget_display_replies img.avatar,
+            p.bbp-topic-meta img.avatar { border: 0; margin-bottom: 0; }
+
+            li.bbp-header { background: #EEE; }
+            .bbp-forums-list li { display: block; }
+
+            // Forum Inputs
+            fieldset.bbp-form input[type=radio],
+            fieldset.bbp-form input[type=checkbox] { margin: 0 2px 4px; }
+        }
+    }
+}
+
+// ***** Pagenavi Style ***** //
+@mixin rtp-pagenavi() {
+    /* Pagenavi Style */
+    .page-link { clear: both; }
+    .wp-pagenavi { margin: 1.5em 0; overflow: hidden; text-align: center; }
+    .wp-pagenavi, .page-link >, .bbp-pagination-links > {
+        a,
+        span { @include rtp-border($border-color); display: inline-block; float: none; font-weight: normal; margin: 2px; padding: 5px 10px; text-decoration: none; }
+
+        a:hover, .current { border-color: darken($border-color, 30%); }
+    }
+
+    // Singlular Post content
+    .rtp-singular .post-content {
+        .page-link > a,
+        .bbp-pagination-links > a { text-decoration: none }
+    }
+    /* End - Paged Navigation */
+}
+
+// ***** Breacrumb Style ***** //
+@mixin rtp-breadcrumb() {
+    /* Breacrumb */
+    .breadcrumb { border-bottom: 1px solid $border-color; color: $gray; padding: 10px 0 5px; }
+}

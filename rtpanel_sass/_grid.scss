@@ -141,10 +141,6 @@ $ninesixty-class-separator: "-" !default;
 @mixin rtp-grid-generator($cols: $ninesixty-columns) {
     .rtp-container-#{$cols} { @include grid-container; }
 
-    /* Grid >> Children (Alpha ~ First, Omega ~ Last) */
-    .rtp-alpha { @include alpha; }
-    .rtp-omega { @include omega; }
-    
     /* Grid >> Global */
     #{enumerate(".rtp-grid", 1, $cols, $ninesixty-class-separator)} {
         @include grid-unit-base;
@@ -155,6 +151,10 @@ $ninesixty-class-separator: "-" !default;
     #{enumerate(".rtp-pull", 1, $cols - 1, $ninesixty-class-separator)} {
         @include grid-move-base;
     }
+    
+    /* Grid >> Children (Alpha ~ First, Omega ~ Last) */
+    .rtp-alpha { @include alpha; }
+    .rtp-omega { @include omega; }
     
     /* Grids */
     @for $i from 1 through $cols {

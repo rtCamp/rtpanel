@@ -197,9 +197,13 @@ button[disabled], input[disabled] {
 }
 
 /* Placeholder Text Color */
-input::-webkit-input-placeholder, input:-moz-placeholder,
-textarea:-webkit-input-placeholder, textarea:-moz-placeholder {
-    color: darken($white, 40%);
+// Webkit
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: darken($white, 40%);
+}
+// Firefox
+input:-moz-placeholder, textarea:-moz-placeholder {
+  color: darken($white, 40%);
 }
 
 /* Box Sizing: Very useful for responsive structure */
