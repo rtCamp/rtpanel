@@ -8,7 +8,7 @@
 jQuery( document ).ready(function() {
     var nav_btn = '<button class="rtp-nav-btn" type="button"><span class="rtp-icon-bar"></span><span class="rtp-icon-bar"></span><span class="rtp-icon-bar"></span></button>';
     /* prepend menu icon */
-    jQuery('#rtp-primary-menu').prepend(nav_btn);
+    jQuery('.rtp-mobile-nav').prepend(nav_btn);
 
     /* toggle nav */
     jQuery('.rtp-nav-btn').on('click', function(){
