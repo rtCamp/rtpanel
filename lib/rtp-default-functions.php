@@ -133,7 +133,7 @@ add_action('rtp_hook_post_meta_bottom','rtp_default_post_meta'); // Post Meta Bo
  * @since rtPanel 2.0
  */
 function rtp_default_nav_menu() {
-     echo '<nav id="rtp-primary-menu" role="navigation" class="rtp-grid-12">';
+     echo '<nav id="rtp-primary-menu" role="navigation" class="rtp-grid-12' . apply_filters( 'rtp_mobile_nav_support', ' rtp-mobile-nav' ) . '">';
         /* Call wp_nav_menu() for Wordpress Navigaton with fallback wp_list_pages() if menu not set in admin panel */
         if ( function_exists( 'wp_nav_menu' ) && has_nav_menu( 'primary' ) ) {
             wp_nav_menu( array( 'container' => '', 'menu_id' => 'rtp-nav-menu', 'theme_location' => 'primary', 'depth' => apply_filters( 'rtp_nav_menu_depth', 4 ) ) );
