@@ -6,13 +6,13 @@ $cols: $ninesixty-columns;
     @include rtp-grid-generator($cols);
 }
 
-/* Min Screen Width: 760 */
+/* Min Screen Width: 760px */
 @media screen and (min-width: 760px) {
     /* ensure #nav is visible on desktop version */
     #rtp-nav-menu { display: block !important; }
 }
 
-/* Max Screen Width: 760 */
+/* Max Screen Width: 760px */
 @media screen and (max-width: 760px) {
     .rtp-container-#{$cols} { max-width: 744px; width: 96%; }
     // reset grids
@@ -35,37 +35,41 @@ $cols: $ninesixty-columns;
         @include rtp-reset-push-pull;
     }
 
-/* Header and navigation */
-#header { width: 70%; }
-#rtp-primary-menu { background: none; border: 0; position: relative; }
-.rtp-nav-btn { display: block; }
+    /* Header and navigation */
+    #rtp-primary-menu { background: none; border: 0; position: relative; }
+    #rtp-nav-menu { background-color: darken($base-background, 4%); @include rtp-border($border-color); display: none; @include box-sizing(border-box); width: 100%; // Self
+        // List
+        li { border-top: 1px solid $border-color; clear: both; text-align: left; width: 100%; // Self
+            &:first-child { border-top: 0; }
+            &:hover > ul { display: block; }
 
-#rtp-nav-menu {
-    background-color: darken($base-background, 4%); @include rtp-border($border-color); display: none; @include box-sizing(border-box); width: 100%;
+            // Submenu
+            ul { display: block; }
+        }
 
-    li {
-        border-top: 1px solid $border-color; clear: both; text-align: left; width: 100%;
-        &:first-child { border-top: 0; }
-        &:hover > ul { display: block; }
-
-        ul { display: block; }
+        ul.sub-menu { background: darken($base-background, 7%); border: 0; left: 0; position: relative; top: 0; width: 100%; // Self
+            li { border: 0; padding-left: 20px; }
+            a { border: 0; }
+        }
     }
 
-    ul.sub-menu { background: darken($base-background, 7%); border: 0; left: 0; position: relative; top: 0; width: 100%; 
-        li { border: 0; padding-left: 20px; }
-        a { border: 0; }
-    }
+    // Mobile Menu Button
+    .rtp-nav-btn { display: block; }
+
+    /* Misc. fixing */
+    iframe { height: auto; }
+
+    .gallery-icon .attachment-thumbnail { padding: 2px; }
+    .email-subscription-container label { width: 100%; }
+    .rtp-has-comments { clear: both; width: auto; }
+    .rtp-post-comment-count { clear: both; float: left; margin: 0 0 15px; }
+    .rtp-section-separator:after { left: 0; max-width: 100%; }
+    #respond .compact-comment-form { width: 70%; }
 }
 
-/* Misc. fixing */
-.gallery-icon .attachment-thumbnail { padding: 2px; }
-.email-subscription-container label { width: 100%; }
-.rtp-has-comments { clear: both; width: auto; }
-iframe { height: auto; }
-.rtp-post-comment-count { clear: both; float: left; margin: 0 0 15px; }
-.rtp-section-separator:after { left: 0; max-width: 100%; }
-#respond .compact-comment-form { width: 70%; }
-
+/* Max Screen Width: 320px */
+@media screen and (max-width: 320px) {
+    #header { width: 70%; }
 }
 
 /* End - Responsive Structure */

@@ -11,17 +11,18 @@
 .rtp-comments-widget {
     // Children
     ul { margin-left: 0; }
-    li {
-        list-style: none;
+    li { list-style: none;
         &:last-child .rtp-reply { margin-bottom: 0; }
     }
     .author-comment { line-height: 1.385em; margin: 5px 0; }
     .author-vcard img { float: left; margin: 5px 10px 5px 0; }
     .alignright img { margin: 5px 0 5px 10px; }
+
+    // Paragraph
     p { margin: 0; }
     
-    .rtp-reply {
-        clear: none; padding: 0;
+    .rtp-reply { clear: none; padding: 0; // Self
+        // Link
         a { font-size: $tertiary-font-size; margin: 0; }
     }
 }
@@ -53,46 +54,48 @@ tfoot {
 // Stay Connected    
 .stay-connected { clear: both; font-weight: normal; padding: 5px 0 0; }
 
-// Social Icons
-.social-icons {
-    margin: 0;
-    // Children
+// ***** Social Icons ***** //
+.social-icons { margin: 0; // Self
     // List
-    li {
-        float: left; list-style: none; margin: 10px 8px 0 0; padding: 0;
+    li { float: left; list-style: none; margin: 10px 8px 0 0; padding: 0; // Self
         &:last-child { margin-right: 0; }
     }
     
-    a {
-        background: url('./img/rtp-social-icons-32-32.png') no-repeat; display: block; height: 35px; margin: 0; overflow: hidden; padding: 0; text-indent: -9999px; text-transform: uppercase; width: 35px;
-        
+    a { background: url('./img/rtp-social-icons-32-32.png') no-repeat; display: block; height: 35px; margin: 0; overflow: hidden; padding: 0; text-indent: -9999px; text-transform: uppercase; width: 35px; // Self
+        // Facebook
         &.facebook:hover { background-position: 0 -44px; }
-        
+
+        // Twitter
         &.twitter {
             background-position: -44px 0;
             &:hover { background-position: -44px -44px; }
         }
-        
+
+        // RSS
         &.rss {
             background-position: -88px 0;
             &:hover { background-position: -88px -44px; }
         }
-        
+
+        // LinkedIn
         &.linkedin {
             background-position: -132px 0;
             &:hover { background-position: -132px -44px; }
         }
-        
+
+        // Myspace
         &.myspace {
             background-position: -176px 0;
             &:hover { background-position: -176px -44px; }
         }
-        
+
+        // StubleUpon
         &.stumbleupon {
             background-position: -220px 0;
             &:hover { background-position: -220px -44px; }
         }
-        
+
+        // Google
         &.google {
             background-position: -264px 0;
             &:hover { background-position: -264px -44px; }

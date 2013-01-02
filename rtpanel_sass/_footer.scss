@@ -1,13 +1,11 @@
 /* Footer */
-#footer-wrapper {
-    overflow: hidden; padding: 20px 0 0; position: relative;
+#footer-wrapper { overflow: hidden; padding: 20px 0 0; position: relative; // Self
     // Separator Line
     &.rtp-section-separator:after { top: 0; visibility: visible; }
 }
 
 // Footerbar
-#footerbar {
-    margin-bottom: 1em; overflow: hidden; position: relative;
+#footerbar { margin-bottom: 1em; overflow: hidden; position: relative; // Self
     &.rtp-section-separator:after { visibility: visible; }
 }
 
@@ -20,11 +18,9 @@ footerbar-widget {
 }
 
 /* Copyrights */
-#footer {
-    clear: both; color: $gray; margin-bottom: 1em; text-align: center;
+#footer { clear: both; color: $gray; margin-bottom: 1em; text-align: center; // Self
     // Footer Links
-    a {
-        border-bottom: 1px solid $border-color;
+    a { border-bottom: 1px solid $border-color; // Self
         &:hover { text-decoration: none; }
     }
 }

@@ -1,7 +1,5 @@
 /* Comments */
-.rtp-comment-count {
-    border-bottom: 1px dotted $border-color; color: $gray; font-style: normal; line-height: 2.857em; padding: 10px 0;
-
+.rtp-comment-count { border-bottom: 1px dotted $border-color; color: $gray; font-style: normal; line-height: 2.857em; padding: 10px 0; // Self
     // Title
     > h2 { float: left; font-size: 20px; line-height: 1em; margin: 0; }
 }
@@ -9,16 +7,16 @@
 .rtp-thoughts { font-size: 13px; float: left; line-height: 1.9em; }
 
 /* Comments Display */
-.comments-container {
-    border-top: 1px solid $border-color;
+.comments-container { border-top: 1px solid $border-color; // Self
+    // Empty Element
     &:empty { border-top: 0; }
-    
+
+    // Respond Form
     > #respond { margin-bottom: 1.5em; }
 }
 
 // Commentlist
-.commentlist {
-    clear: both; margin: 0;
+.commentlist { clear: both; margin: 0; // Self
     // Children
     .vcard { float: right; margin: 5px 0 5px 5px; }
     .fn { font-size: 15px; font-style: normal; }
@@ -29,21 +27,19 @@
 
     // Trackback Pingback
     .trackback,
-    .pingback {
-        overflow: hidden; padding: 0 0 15px;
-        // EM
+    .pingback { overflow: hidden; padding: 0 0 15px; // Self
+        // EM Element
         em { color: $gray; }
     }
 }
 
 // Comment Body
-.comment-body {
-    border-bottom: 1px solid $border-color; clear: both; margin: 0.75em 0; position: relative;
+.comment-body { border-bottom: 1px solid $border-color; clear: both; margin: 0.75em 0; position: relative; // Self
+    // Respond Form
     + #respond { border-bottom: 1px solid $border-color; margin-top: -0.8em; padding: 0 0 0.8em; }
 }
 
-.comment {
-    list-style: none;
+.comment { list-style: none; // Self
     li { margin-bottom: 0; }
 
     // Form Submit
@@ -51,29 +47,28 @@
 }
 .comment-author { float: left; }
 
-.comment-meta {
-    color: $gray;
+.comment-meta { color: $gray; // Self
     // Children
     abbr { border: 0; }
-    .comment-edit-link { margin: 0 0 0 5px; }
-    .comment-edit-link:hover { text-decoration: none; }
+    // Comment Edit Link
+    .comment-edit-link { margin: 0 0 0 5px;
+        &:hover { text-decoration: none; }
+    }
 }
 
 /* Comment Reply Link */
-.rtp-reply {
-    clear: both; float: left;
+.rtp-reply { clear: both; float: left; // Self
     // Children
     a { display: block; margin: 0 0 20px; }
 }
 
 /* Admin Comments */
 .comment-author-admin, .bypostauthor, .byuser {
-    > .comment-body { background-color: #F5F5F5; padding: 10px 10px 0 10px; }
+    > .comment-body { background-color: darken($base-background, 4%); padding: 10px 10px 0 10px; }
 }
 
 /* Comment Form */
-#respond {
-    clear: both;
+#respond { clear: both; // Self
     // Title
     h3 { color: $gray; }
     // Form
@@ -98,29 +93,27 @@
     input[type=text], input[type=url], input[type=email] { width: 50%; }
     textarea { height: 110px; width: 98.33%; }
     // Allowed Tags
-    .form-allowed-tags { background: #FAFAFA; @include rtp-border($border-color); color: $gray; margin: 0 0 14px; padding: 4px; width: 96%; }
+    .form-allowed-tags { background: darken($base-background, 2%); @include rtp-border($border-color); color: $gray; margin: 0 0 14px; padding: 4px; width: 96%; }
     // Compact Form
     .compact-comment-form {
         float: left; width: 33%;
-        
+
         // Compact Form Label and Input
         label { margin-left: 2px; }
         input { height: auto; width: 98%; }
     }
-    
+
     // Comments Header
     + .rtp-comments-header { border-top: 1px solid $border-color; padding: 0.6em 0 0; }
 }
 
-#reply-title {
-    font-size: 1.286em; line-height: 2em; margin: 0;
+#reply-title { font-size: 1.286em; line-height: 2em; margin: 0; // Self
     // Small
     small { font-size: 11px; font-weight: bold; margin: 0 0 0 10px; text-transform: uppercase; }
 }
 
 /* trackback and pingback inside comments */
-.rtp-comments-header {
-    margin: 0;
+.rtp-comments-header { margin: 0; // Self
     // Trackbacks
     + #trackbacks { margin-top: 0.8em; }    
 }

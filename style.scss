@@ -111,6 +111,9 @@ $base-font-family: "Helevetica Neue", Helvetica, Arial, "Microsoft Sans Serif", 
 /* Grid Containers */
 @include rtp-grid-generator();
 
+// ******************** rtPanel Modules ******************** //
+@import "./rtpanel_sass/modules";
+
 // ********* Main Wrapper Layout ********* //
 @include rtp-layout();
 
@@ -132,9 +135,6 @@ $base-font-family: "Helevetica Neue", Helvetica, Arial, "Microsoft Sans Serif", 
 
 // Post Content
 @include rtp-post-content();
-
-// Not Found Page
-.rtp-not-found { margin: 1.5em 0; }
 
 // ********* Post Meta ********* //
 @include rtp-post-meta();

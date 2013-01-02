@@ -135,9 +135,10 @@ $ninesixty-class-separator: "-" !default;
     }
 }
 
-// rtPanel 960gs Grid Generator
+// ***** rtPanel 960gs Grid Generator ***** //
 
-//rtPanel Grid Generate. Since we have renamed the classes in rtPanel. I have written the custom Grid Generator Code.
+// rtPanel Grid Generate.  ***** //
+// Since we have renamed the classes in rtPanel. I have written the custom Grid Generator Code for rtPanel Grids.
 @mixin rtp-grid-generator($cols: $ninesixty-columns) {
     .rtp-container-#{$cols} { @include grid-container; }
 
@@ -189,5 +190,4 @@ $ninesixty-class-separator: "-" !default;
         }
     }
 }
-
 // End of Grid Generator

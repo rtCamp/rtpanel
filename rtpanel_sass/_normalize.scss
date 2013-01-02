@@ -2,7 +2,7 @@
 
 // Note: This is modified version of normalize.css
 
-/* Corrects 'block' display not defined in IE 8/9. "Sourec: normalize.css v2.0.1" */
+/* Corrects 'block' display not defined in IE 8/9. */
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary { display: block; }
 
 /* Corrects 'inline-block' display not defined in IE 8/9. */
@@ -24,7 +24,7 @@ html {
     -ms-text-size-adjust: 100%; // 2
 }
 
-/* Removes default margin. */
+/* Remove default margin. */
 body { margin: 0; }
 
 // Links

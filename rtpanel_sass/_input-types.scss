@@ -1,6 +1,6 @@
 /* Input Styles */
 
-// rtPanel Dynamic Variables
+// ***** rtPanel Dynamic Variables ***** //
 $input-border: #dddddd !default;
 $input-background: #ffffff !default;
 $button-gradient-color-top: #f4f4f4 !default;
@@ -145,6 +145,7 @@ $all-button-inputs-active: $unquoted-button-inputs-active-list;
 // #{$all-button-inputs-active}
 // e.g. #{$all-button-inputs-active} { border: 1px solid red; }
 
+// All inputs with select and textarea style
 #{$all-text-inputs}, select, textarea {
     background: $input-background;
     border: 1px solid $input-border;
@@ -154,43 +155,46 @@ $all-button-inputs-active: $unquoted-button-inputs-active-list;
     width: 72%;
 }
 
-input.email {
-    width: 64%;
-}
+// Input with email class
+input.email { width: 64%; }
 
-select {
-    padding: 0;
-}
+// Remove padding for select list
+select { padding: 0; }
 
+// All inputs with select and textarea foucs style
 #{$all-text-inputs-focus}, select:focus, textarea:focus { border-color: darken($input-background, 20%); }
 
+// Buttons Style
 #{$all-button-inputs}, .rtp-button {
     @include background-image(linear-gradient($button-gradient-color-top, $button-gradient-color-bottom));
     border: 1px solid $input-border;
     @include border-radius(3px);
+    color: inherit;
     cursor: pointer;
     display: inline-block;
     font-size: $base-font-size - 2;
     font-weight: bold;
-    color: inherit;
     margin: 0;
     outline: none;
     overflow: visible;
     padding: 6px 10px 5px;
     position: relative;
-    text-decoration: none;
     text-align: center;
+    text-decoration: none;
     @include text-shadow(1px 1px 0 rgba($white, 1));
 }
 
+// Buttons Hover and Focus Style
 #{$all-button-inputs-hf}, .rtp-button:hover, .rtp-button:focus {
     @include background-image(linear-gradient($button-hover-gradient-color-top, $button-hover-gradient-color-bottom));
 }
 
+// Buttons Active Style
 #{$all-button-inputs-active}, .rtp-button:active {
     @include background-image(linear-gradient($button-active-gradient-color-top, $button-active-gradient-color-bottom));
 }
 
+// Buttons Disabled Style
 button[disabled], input[disabled] {
     cursor: not-allowed;
     opacity: 0.6;
@@ -212,8 +216,6 @@ input, textarea, select, button, rtp-button {
 }
 
 /* Label Cursor */
-label {
-    cursor: pointer;
-}
+label { cursor: pointer; }
 
 /* End - Input Styles */

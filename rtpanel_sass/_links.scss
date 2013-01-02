@@ -1,16 +1,16 @@
 /* Default Links */
-a {
-    color: $link-color; text-decoration: none;
+a { color: $link-color; text-decoration: none; // Self
     &:active { @extend a; }
     &:visited { @extend a; }
+    // Hover & Focus
     &:hover,
     &:focus { color: $link-hover-color; text-decoration: underline; }
 }
 
 /* Heading Links */
 h1, h2 {
-    a { 
-        color: $title-link-color; text-decoration: none;
+    a { color: $title-link-color; text-decoration: none; // Self
+        // Hover & Focus
         &:hover,
         &:focus { color: $title-hover-color; text-decoration: none; }
     }

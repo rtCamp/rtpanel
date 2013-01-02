@@ -1,17 +1,17 @@
-// rtPanel base
-
-// Compass Imports
-// @import "compass/reset";  // ***** If you want to import reset.css, Uncomment this. ***** //
+// ***** Compass Imports ***** //
+// @import "compass/reset";  // *** If you want to use reset.css *** //
 @import "compass/css3";
 @import "compass/typography";
 
-// rtPanel Constant Variables
+// ***** rtPanel base ***** //
+
+// ***** Constant Variables ***** //
 $rtp-base-10: 10px;
 $black: #000000;
 $white: #ffffff;
 $gray: #666666;
 
-// rtPanel Dynamic Variables
+// ***** rtPanel Dynamic Variables ***** //
 // Borders
 $border-color: #dddddd !default;
 
@@ -28,12 +28,11 @@ $secondary-link-hover-color: #111111 !default;
 $title-link-color: #111111 !default;
 $title-hover-color: #cd5a1b !default;
 
-// Normalize.css
-// Note: We have modified normalize.css to get best results.
-@import "normalize";
+// ***** Normalize.css ***** //
+@import "normalize"; // *** Note: We have modified normalize.css to get best results. *** //
 
-// 960 Grid
+// ***** 960 Grid ***** //
 @import "grid";
 
-// rtPanel Mixins
+// ***** rtPanel Mixins ***** //
 @import "mixins";
