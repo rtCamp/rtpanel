@@ -48,7 +48,12 @@ function rtp_general_validate( $input ) {
             if ( substr( $_FILES['html-upload-fav']['type'], 0, 5 ) == 'image' ) {
                 $id = media_handle_upload( 'html-upload-fav', 0 );
                 if ( is_wp_error( $id ) ) {
-                    add_settings_error( 'html-upload-fav', 'html-upload-fav', $id, 'error' );
+                    $str_errors = $id->errors['upload_error'];
+                    if( !empty( $str_errors ) ){
+                        foreach( $str_errors as $str_error ){                       
+                            add_settings_error( 'html-upload-fav', 'html-upload-fav', $str_error, 'error' );
+                        }
+                    }
                 } else {
                     $img_src = wp_get_attachment_image_src( $id, 'favicon', true );
                         $input['favicon_upload']   = $img_src[0];
