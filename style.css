@@ -219,15 +219,18 @@ code, pre, kbd, samp, .rtp-readmore, .rtp-readmore:visited, .post-meta, .gallery
 .rtp-edit-link a, .comment-meta, .trackback em, .pingback em, .rtp-comments-widget .comment-date, .widget_calendar table, .bbp_widget_login .logout-link { font-size: 12px; line-height: 1.75em; }
 
 /* Add Bottom Margin */
-/* line 105, rtpanel_sass/_typography.scss */
-p, pre, address, blockquote, ul, ol, .widget > div, .widget > ul, .widget > ol, .widget > form, .widget > select, table, dl, .comment-text > ol, .comment-text > ul { margin-top: 0; margin-bottom: 1.5em; }
+/* line 101, rtpanel_sass/_typography.scss */
+p, pre, address, blockquote, ul, ol, .widget, table, dl, .comment-text > ol, .comment-text > ul { margin-top: 0; margin-bottom: 1.5em; }
 
-/* line 114, rtpanel_sass/_typography.scss */
-ul ol, ul ul, ol ul, ol ol { margin: 0 0 0 1.5em; }
+/* line 108, rtpanel_sass/_typography.scss */
+ul ul, ul ol, ol ul, ol ol { margin: 0 0 0 1.5em; }
 
 /* Generic Lists: */
-/* line 118, rtpanel_sass/_typography.scss */
+/* line 112, rtpanel_sass/_typography.scss */
 ul, ol { margin-left: 30px; padding-left: 0; }
+
+/* line 116, rtpanel_sass/_typography.scss */
+.widget > ul, .widget > ol { margin-bottom: 0; }
 
 /* End - Typography */
 /* Links */
@@ -595,241 +598,240 @@ body#tinymce { background: white; margin: 0 10px; padding: 10px 5px; }
 /* line 186, rtpanel_sass/_grid.scss */
 .rtp-pull-11 { left: -880px; }
 
-/* Main Wrapper Background */
-/* line 4, rtpanel_sass/_modules.scss */
-#main-wrapper { background: white; }
-
 /* Header */
-/* line 10, rtpanel_sass/_modules.scss */
+/* line 4, rtpanel_sass/_header.scss */
 #header { margin-bottom: 10px; margin-top: 10px; }
 
-/* line 13, rtpanel_sass/_modules.scss */
+/* line 7, rtpanel_sass/_header.scss */
 .rtp-site-logo { margin: 0; }
-/* line 15, rtpanel_sass/_modules.scss */
+/* line 9, rtpanel_sass/_header.scss */
 .rtp-site-logo img { margin: 0; }
 
-/* line 19, rtpanel_sass/_modules.scss */
+/* line 13, rtpanel_sass/_header.scss */
 .tagline { color: #666666; font-size: 14px; line-height: 21px; margin: 0; }
 
 /* End - Header */
 /* Navigation */
-/* line 27, rtpanel_sass/_modules.scss */
+/* line 21, rtpanel_sass/_header.scss */
 #rtp-primary-menu { background-color: whitesmoke; border: 1px solid #dddddd; clear: both; }
 
-/* line 33, rtpanel_sass/_modules.scss */
+/* line 27, rtpanel_sass/_header.scss */
 #rtp-nav-menu { float: left; margin: 0; padding: 0; }
-/* line 35, rtpanel_sass/_modules.scss */
+/* line 29, rtpanel_sass/_header.scss */
 #rtp-nav-menu li { float: left; list-style: none; position: relative; }
-/* line 37, rtpanel_sass/_modules.scss */
+/* line 31, rtpanel_sass/_header.scss */
 #rtp-nav-menu li:hover > a { background-color: #f0f0f0; color: #cd5a1b; text-decoration: none; }
-/* line 40, rtpanel_sass/_modules.scss */
+/* line 34, rtpanel_sass/_header.scss */
 #rtp-nav-menu li:hover > ul { display: block; }
-/* line 44, rtpanel_sass/_modules.scss */
+/* line 38, rtpanel_sass/_header.scss */
 #rtp-nav-menu a { display: block; height: auto; line-height: 1.286em; padding: 10px 15px; text-decoration: none; }
-/* line 46, rtpanel_sass/_modules.scss */
+/* line 40, rtpanel_sass/_header.scss */
 #rtp-nav-menu a:hover { background-color: #ebebeb; }
-/* line 50, rtpanel_sass/_modules.scss */
+/* line 44, rtpanel_sass/_header.scss */
 #rtp-nav-menu ul { background-color: whitesmoke; border: 1px solid #dddddd; display: none; left: 0; margin: 0; padding: 0; position: absolute; top: 38px; width: 180px; z-index: 9; }
-/* line 52, rtpanel_sass/_modules.scss */
+/* line 46, rtpanel_sass/_header.scss */
 #rtp-nav-menu ul li { min-width: 180px; }
-/* line 54, rtpanel_sass/_modules.scss */
+/* line 48, rtpanel_sass/_header.scss */
 #rtp-nav-menu ul li:first-child ul { top: -1px; }
-/* line 55, rtpanel_sass/_modules.scss */
+/* line 49, rtpanel_sass/_header.scss */
 #rtp-nav-menu ul li:first-child > a { border-width: 0; }
-/* line 59, rtpanel_sass/_modules.scss */
+/* line 53, rtpanel_sass/_header.scss */
 #rtp-nav-menu ul a { border-top: 1px solid #dddddd; padding: 10px; }
-/* line 62, rtpanel_sass/_modules.scss */
+/* line 56, rtpanel_sass/_header.scss */
 #rtp-nav-menu ul ul { left: 100%; top: 0; }
-/* line 68, rtpanel_sass/_modules.scss */
+/* line 59, rtpanel_sass/_header.scss */
+.ie9 #rtp-nav-menu ul { top: 37px; }
+/* line 64, rtpanel_sass/_header.scss */
 #rtp-nav-menu .current-menu-item > a, #rtp-nav-menu .current_page_ancestor > a, #rtp-nav-menu .current_page_item > a { background-color: #f0f0f0; color: #cd5a1b; text-decoration: none; }
 
-/* line 72, rtpanel_sass/_modules.scss */
-.ie9 #rtp-nav-menu ul { top: 37px; }
-
 /* Mobile Devices Menu */
-/* line 75, rtpanel_sass/_modules.scss */
+/* line 69, rtpanel_sass/_header.scss */
 .rtp-nav-btn { display: none; height: auto; margin: 0; padding: 7px 10px; position: absolute; right: 0; top: -65px; }
-/* line 77, rtpanel_sass/_modules.scss */
+/* line 71, rtpanel_sass/_header.scss */
 .rtp-nav-btn:focus { box-shadow: 0 0 0; }
 
-/* line 80, rtpanel_sass/_modules.scss */
+/* line 74, rtpanel_sass/_header.scss */
 .rtp-icon-bar { background-color: #666666; -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15); -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15); box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15); display: block; height: 2px; margin-top: 3px; width: 18px; }
-/* line 82, rtpanel_sass/_modules.scss */
+/* line 76, rtpanel_sass/_header.scss */
 .rtp-icon-bar:first-child { margin-top: 0; }
 
 /* End - Navigation */
+/* Main Wrapper Background */
+/* line 4, rtpanel_sass/_modules.scss */
+#main-wrapper { background: white; }
+
 /* Post Loop */
-/* line 89, rtpanel_sass/_modules.scss */
+/* line 9, rtpanel_sass/_modules.scss */
 .hentry { border-bottom: 1px dotted #dddddd; clear: both; padding-top: 1.5em; padding-bottom: 1.5em; position: relative; }
 
-/* line 91, rtpanel_sass/_modules.scss */
+/* line 11, rtpanel_sass/_modules.scss */
 .rtp-singular .hentry, .attachment .hentry, .rtp-full-width .hentry { border-bottom: 0; padding-bottom: 0; }
 
-/* line 97, rtpanel_sass/_modules.scss */
+/* line 17, rtpanel_sass/_modules.scss */
 .sticky { background-color: whitesmoke; border: 0; margin: 0.75em 0 0; padding-left: 1em; padding-right: 1em; }
 
-/* line 102, rtpanel_sass/_modules.scss */
+/* line 22, rtpanel_sass/_modules.scss */
 .post-header { margin-bottom: 1em; }
 
-/* line 103, rtpanel_sass/_modules.scss */
+/* line 23, rtpanel_sass/_modules.scss */
 .post-title { float: left; line-height: 1.2em; margin: 0; }
 
-/* line 104, rtpanel_sass/_modules.scss */
+/* line 24, rtpanel_sass/_modules.scss */
 .rtp-has-comments { width: 80%; }
 
-/* line 105, rtpanel_sass/_modules.scss */
+/* line 25, rtpanel_sass/_modules.scss */
 .rtp-main-title { border-bottom: 1px solid #dddddd; color: #111111; float: none; margin-top: 0.75em; padding-bottom: 0.2em; }
 
-/* line 110, rtpanel_sass/_modules.scss */
+/* line 30, rtpanel_sass/_modules.scss */
 .post-content { clear: both; }
 
-/* line 111, rtpanel_sass/_modules.scss */
+/* line 31, rtpanel_sass/_modules.scss */
 .rtp-singular .post-content a { text-decoration: underline; }
 
-/* line 116, rtpanel_sass/_modules.scss */
+/* line 36, rtpanel_sass/_modules.scss */
 .blog .post-content p, .search-results .post-content p, .archive .post-content p { margin-bottom: 1em; }
 
-/* line 121, rtpanel_sass/_modules.scss */
+/* line 41, rtpanel_sass/_modules.scss */
 .rtp-not-found { margin: 1.5em 0; }
 
 /* Post Meta */
-/* line 127, rtpanel_sass/_modules.scss */
+/* line 47, rtpanel_sass/_modules.scss */
 .post-meta { clear: both; color: #666666; font-style: italic; padding: 0.4em 0 0; }
-/* line 129, rtpanel_sass/_modules.scss */
+/* line 49, rtpanel_sass/_modules.scss */
 .post-meta p { margin: 0; }
 
-/* line 132, rtpanel_sass/_modules.scss */
+/* line 52, rtpanel_sass/_modules.scss */
 .post-meta-bottom { padding: 1em 0 0; }
 
-/* line 133, rtpanel_sass/_modules.scss */
+/* line 53, rtpanel_sass/_modules.scss */
 .single .post-meta-bottom { padding: 0; }
 
-/* line 134, rtpanel_sass/_modules.scss */
+/* line 54, rtpanel_sass/_modules.scss */
 .rtp-post-comment-count { margin: 0.7em 0 0; text-align: right; }
 
 /* Curly Brackets Style */
-/* line 137, rtpanel_sass/_modules.scss */
+/* line 57, rtpanel_sass/_modules.scss */
 .rtp-curly-bracket { color: #dbdbdb; font-size: 1.428em; font-weight: normal; }
 
 /* Post Comment */
-/* line 140, rtpanel_sass/_modules.scss */
+/* line 60, rtpanel_sass/_modules.scss */
 .rtp-post-comment, .rtp-post-comment:visited { font-size: 13px; font-style: normal; padding: 0 3px 0 2px; }
 
-/* line 144, rtpanel_sass/_modules.scss */
+/* line 64, rtpanel_sass/_modules.scss */
 .rtp-post-comment span { color: #111111; font-size: 1.286em; }
 
-/* line 145, rtpanel_sass/_modules.scss */
+/* line 65, rtpanel_sass/_modules.scss */
 .post-tags { clear: left; }
 
 /* End - Post Meta */
 /* Attachment Style */
-/* line 213, rtpanel_sass/_modules.scss */
+/* line 133, rtpanel_sass/_modules.scss */
 .attachment .attachment-full { margin: 0; }
 
-/* line 214, rtpanel_sass/_modules.scss */
+/* line 134, rtpanel_sass/_modules.scss */
 .post-content .attachment img { margin: 0 auto; }
 
-/* line 217, rtpanel_sass/_modules.scss */
+/* line 137, rtpanel_sass/_modules.scss */
 .rtp-sibling-attachments { padding: 0; margin: 0 0 1em; }
-/* line 219, rtpanel_sass/_modules.scss */
+/* line 139, rtpanel_sass/_modules.scss */
 .rtp-sibling-attachments li { line-height: 1em; list-style: none; margin-top: 10px; margin-bottom: 10px; text-align: center; }
-/* line 221, rtpanel_sass/_modules.scss */
+/* line 141, rtpanel_sass/_modules.scss */
 .rtp-sibling-attachments img { background-color: whitesmoke; border: 1px solid #dddddd; margin: 0; padding: 5px; }
-/* line 223, rtpanel_sass/_modules.scss */
+/* line 143, rtpanel_sass/_modules.scss */
 .rtp-sibling-attachments img:hover { border-color: #919191; }
 
 /* Thumbnail with shadow effect */
-/* line 152, rtpanel_sass/_modules.scss */
+/* line 72, rtpanel_sass/_modules.scss */
 .rtp-thumbnail-shadow img { background: white; border: 1px solid #dddddd; -webkit-box-shadow: 0 0 4px #cccccc; -moz-box-shadow: 0 0 4px #cccccc; box-shadow: 0 0 4px #cccccc; padding: 4px; }
 
-/* line 166, rtpanel_sass/_modules.scss */
+/* line 86, rtpanel_sass/_modules.scss */
 .rtp-thumbnail-shadow a.aligncenter, .rtp-no-thumbnail-shadow a.aligncenter { display: inline-block; }
 
 /* Image Caption Style */
-/* line 173, rtpanel_sass/_modules.scss */
+/* line 93, rtpanel_sass/_modules.scss */
 .wp-caption { background-color: whitesmoke; margin: 7px; max-width: 100%; overflow: hidden; padding: 5px 5px 0; text-align: center; }
-/* line 175, rtpanel_sass/_modules.scss */
+/* line 95, rtpanel_sass/_modules.scss */
 .wp-caption.aligncenter { margin: 7px auto; }
-/* line 176, rtpanel_sass/_modules.scss */
+/* line 96, rtpanel_sass/_modules.scss */
 .wp-caption.alignright { margin: 7px 0 7px 15px; }
-/* line 178, rtpanel_sass/_modules.scss */
+/* line 98, rtpanel_sass/_modules.scss */
 .wp-caption.alignnone, .wp-caption.alignleft { margin: 7px 15px 7px 0; }
-/* line 180, rtpanel_sass/_modules.scss */
+/* line 100, rtpanel_sass/_modules.scss */
 .wp-caption a { border: 0; text-decoration: none; }
-/* line 181, rtpanel_sass/_modules.scss */
+/* line 101, rtpanel_sass/_modules.scss */
 .wp-caption img { border: 0; margin: 0; padding: 0; }
 
-/* line 184, rtpanel_sass/_modules.scss */
+/* line 104, rtpanel_sass/_modules.scss */
 .wp-caption-text { color: #666666; line-height: 1.286em; margin: 0 5px 8px; }
 
-/* line 185, rtpanel_sass/_modules.scss */
+/* line 105, rtpanel_sass/_modules.scss */
 .rtp-image-box .wp-caption + p { margin: 20px 0 10px; }
 
 /* Gallery */
-/* line 191, rtpanel_sass/_modules.scss */
+/* line 111, rtpanel_sass/_modules.scss */
 .gallery { margin: 0 auto 10px; }
-/* line 193, rtpanel_sass/_modules.scss */
+/* line 113, rtpanel_sass/_modules.scss */
 .gallery .gallery-icon { overflow: hidden; padding: 5px; text-align: center; }
-/* line 194, rtpanel_sass/_modules.scss */
+/* line 114, rtpanel_sass/_modules.scss */
 .gallery br + br { display: none; }
 
-/* line 197, rtpanel_sass/_modules.scss */
+/* line 117, rtpanel_sass/_modules.scss */
 .gallery-item { display: inline-block; margin: 0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 5px; vertical-align: top; }
 
-/* line 201, rtpanel_sass/_modules.scss */
+/* line 121, rtpanel_sass/_modules.scss */
 .gallery-columns-1 .gallery-item { width: 100%; }
 
-/* line 201, rtpanel_sass/_modules.scss */
+/* line 121, rtpanel_sass/_modules.scss */
 .gallery-columns-2 .gallery-item { width: 50%; }
 
-/* line 201, rtpanel_sass/_modules.scss */
+/* line 121, rtpanel_sass/_modules.scss */
 .gallery-columns-3 .gallery-item { width: 33.33333%; }
 
-/* line 201, rtpanel_sass/_modules.scss */
+/* line 121, rtpanel_sass/_modules.scss */
 .gallery-columns-4 .gallery-item { width: 25%; }
 
-/* line 201, rtpanel_sass/_modules.scss */
+/* line 121, rtpanel_sass/_modules.scss */
 .gallery-columns-5 .gallery-item { width: 20%; }
 
-/* line 201, rtpanel_sass/_modules.scss */
+/* line 121, rtpanel_sass/_modules.scss */
 .gallery-columns-6 .gallery-item { width: 16.66667%; }
 
-/* line 201, rtpanel_sass/_modules.scss */
+/* line 121, rtpanel_sass/_modules.scss */
 .gallery-columns-7 .gallery-item { width: 14.28571%; }
 
-/* line 201, rtpanel_sass/_modules.scss */
+/* line 121, rtpanel_sass/_modules.scss */
 .gallery-columns-8 .gallery-item { width: 12.5%; }
 
-/* line 201, rtpanel_sass/_modules.scss */
+/* line 121, rtpanel_sass/_modules.scss */
 .gallery-columns-9 .gallery-item { width: 11.11111%; }
 
-/* line 204, rtpanel_sass/_modules.scss */
+/* line 124, rtpanel_sass/_modules.scss */
 .gallery-caption { color: #666666; margin: 0 0 10px; padding: 0; text-align: center; }
 
-/* line 205, rtpanel_sass/_modules.scss */
+/* line 125, rtpanel_sass/_modules.scss */
 .gallery-icon .attachment-thumbnail { background-color: whitesmoke; border: 1px solid #dddddd; margin: 0; max-width: 100%; padding: 5px; }
 
-/* line 206, rtpanel_sass/_modules.scss */
+/* line 126, rtpanel_sass/_modules.scss */
 .gallery-icon a:hover .attachment-thumbnail { border-color: #919191; }
 
 /* End - Gallery */
 /* Paged Navigation */
-/* line 231, rtpanel_sass/_modules.scss */
+/* line 151, rtpanel_sass/_modules.scss */
 .rtp-navigation, .rtp-comments-pagination { clear: both; padding-bottom: 1.5em; }
-/* line 233, rtpanel_sass/_modules.scss */
+/* line 153, rtpanel_sass/_modules.scss */
 .rtp-navigation a, .rtp-comments-pagination a { text-decoration: none; }
-/* line 235, rtpanel_sass/_modules.scss */
+/* line 155, rtpanel_sass/_modules.scss */
 .rtp-navigation a:hover, .rtp-comments-pagination a:hover { text-decoration: underline; }
 
-/* line 240, rtpanel_sass/_modules.scss */
+/* line 160, rtpanel_sass/_modules.scss */
 .rtp-navigation .alignleft { text-align: left; }
-/* line 241, rtpanel_sass/_modules.scss */
+/* line 161, rtpanel_sass/_modules.scss */
 .rtp-navigation .alignright { text-align: right; }
 
-/* line 247, rtpanel_sass/_modules.scss */
+/* line 167, rtpanel_sass/_modules.scss */
 .single .rtp-navigation, .single .rtp-comments-pagination { padding-top: 1.5em; }
 
-/* line 255, rtpanel_sass/_modules.scss */
+/* line 175, rtpanel_sass/_modules.scss */
 .single-attachment .rtp-navigation, .rtp-image-attachment .rtp-navigation { margin: 10px 0 0; padding-bottom: 0; }
 
 /* Comments */
@@ -838,116 +840,116 @@ body#tinymce { background: white; margin: 0 10px; padding: 10px 5px; }
 /* line 4, rtpanel_sass/_comments.scss */
 .rtp-comment-count > h2 { float: left; font-size: 20px; line-height: 1em; margin: 0; }
 
-/* line 6, rtpanel_sass/_comments.scss */
+/* line 8, rtpanel_sass/_comments.scss */
 .rtp-manage-comments { line-height: 1.44em; }
 
-/* line 7, rtpanel_sass/_comments.scss */
+/* line 11, rtpanel_sass/_comments.scss */
 .rtp-thoughts { font-size: 13px; float: left; line-height: 1.9em; }
 
 /* Comments Display */
-/* line 10, rtpanel_sass/_comments.scss */
+/* line 14, rtpanel_sass/_comments.scss */
 .comments-container { border-top: 1px solid #dddddd; }
-/* line 12, rtpanel_sass/_comments.scss */
+/* line 16, rtpanel_sass/_comments.scss */
 .comments-container:empty { border-top: 0; }
-/* line 15, rtpanel_sass/_comments.scss */
-.comments-container > #respond { margin-bottom: 1.5em; }
 
-/* line 19, rtpanel_sass/_comments.scss */
+/* line 20, rtpanel_sass/_comments.scss */
 .commentlist { clear: both; margin: 0; }
-/* line 21, rtpanel_sass/_comments.scss */
-.commentlist .vcard { float: right; margin: 5px 0 5px 5px; }
 /* line 22, rtpanel_sass/_comments.scss */
-.commentlist .fn { font-size: 15px; font-style: normal; }
+.commentlist .vcard { float: right; margin: 5px 0 5px 5px; }
 /* line 23, rtpanel_sass/_comments.scss */
+.commentlist .fn { font-size: 15px; font-style: normal; }
+/* line 24, rtpanel_sass/_comments.scss */
 .commentlist .comment-text { clear: left; padding: 10px 0 0; }
-/* line 26, rtpanel_sass/_comments.scss */
-.commentlist + #respond { margin: -10px 0 1.5em; }
-/* line 30, rtpanel_sass/_comments.scss */
+/* line 28, rtpanel_sass/_comments.scss */
 .commentlist .trackback, .commentlist .pingback { overflow: hidden; padding: 0 0 15px; }
-/* line 32, rtpanel_sass/_comments.scss */
+/* line 30, rtpanel_sass/_comments.scss */
 .commentlist .trackback em, .commentlist .pingback em { color: #666666; }
 
-/* line 37, rtpanel_sass/_comments.scss */
+/* line 35, rtpanel_sass/_comments.scss */
 .comment-body { border-bottom: 1px solid #dddddd; clear: both; margin: 0.75em 0; position: relative; }
-/* line 39, rtpanel_sass/_comments.scss */
-.comment-body + #respond { border-bottom: 1px solid #dddddd; margin-top: -0.8em; padding: 0 0 0.8em; }
 
-/* line 42, rtpanel_sass/_comments.scss */
+/* line 37, rtpanel_sass/_comments.scss */
 .comment { list-style: none; }
-/* line 43, rtpanel_sass/_comments.scss */
+/* line 38, rtpanel_sass/_comments.scss */
 .comment li { margin-bottom: 0; }
-/* line 46, rtpanel_sass/_comments.scss */
+/* line 41, rtpanel_sass/_comments.scss */
 .comment #respond .form-submit { margin-bottom: 0; }
 
-/* line 48, rtpanel_sass/_comments.scss */
+/* line 45, rtpanel_sass/_comments.scss */
 .comment-author { float: left; }
 
-/* line 50, rtpanel_sass/_comments.scss */
+/* line 48, rtpanel_sass/_comments.scss */
 .comment-meta { color: #666666; }
-/* line 52, rtpanel_sass/_comments.scss */
+/* line 50, rtpanel_sass/_comments.scss */
 .comment-meta abbr { border: 0; }
-/* line 54, rtpanel_sass/_comments.scss */
+/* line 52, rtpanel_sass/_comments.scss */
 .comment-meta .comment-edit-link { margin: 0 0 0 5px; }
-/* line 55, rtpanel_sass/_comments.scss */
+/* line 53, rtpanel_sass/_comments.scss */
 .comment-meta .comment-edit-link:hover { text-decoration: none; }
 
 /* Comment Reply Link */
-/* line 60, rtpanel_sass/_comments.scss */
+/* line 58, rtpanel_sass/_comments.scss */
 .rtp-reply { clear: both; float: left; }
-/* line 62, rtpanel_sass/_comments.scss */
+/* line 60, rtpanel_sass/_comments.scss */
 .rtp-reply a { display: block; margin: 0 0 20px; }
 
 /* Admin Comments */
-/* line 67, rtpanel_sass/_comments.scss */
+/* line 65, rtpanel_sass/_comments.scss */
 .comment-author-admin > .comment-body, .bypostauthor > .comment-body, .byuser > .comment-body { background-color: whitesmoke; padding: 10px 10px 0 10px; }
 
 /* Comment Form */
-/* line 71, rtpanel_sass/_comments.scss */
+/* line 69, rtpanel_sass/_comments.scss */
 #respond { clear: both; }
-/* line 73, rtpanel_sass/_comments.scss */
-#respond h3 { color: #666666; }
+/* line 72, rtpanel_sass/_comments.scss */
+.comments-container > #respond { margin-bottom: 1.5em; }
 /* line 75, rtpanel_sass/_comments.scss */
-#respond form { border-top: 1px solid #dddddd; }
-/* line 77, rtpanel_sass/_comments.scss */
-#respond p { margin: 0.8em 0; }
-/* line 79, rtpanel_sass/_comments.scss */
-#respond .comment-notes, #respond .logged-in-as { color: #666666; margin: 10px 0 0; }
-/* line 82, rtpanel_sass/_comments.scss */
-#respond .subscribe-to-comments #subscribe { margin-bottom: 10px; }
+.commentlist + #respond { margin: -10px 0 1.5em; }
+/* line 78, rtpanel_sass/_comments.scss */
+.comment-body + #respond { border-bottom: 1px solid #dddddd; margin-top: -0.8em; padding: 0 0 0.8em; }
+/* line 81, rtpanel_sass/_comments.scss */
+#respond h3 { color: #666666; }
 /* line 83, rtpanel_sass/_comments.scss */
-#respond .subscribe-to-comments label { margin-left: 5px; }
-/* line 86, rtpanel_sass/_comments.scss */
-#respond label { line-height: 2.692em; margin: 0 0 0 10px; }
-/* line 88, rtpanel_sass/_comments.scss */
-#respond .required { color: #b94a48; }
-/* line 89, rtpanel_sass/_comments.scss */
-#respond .comment-form-comment, #respond .form-submit { clear: both; margin-bottom: 3px; }
+#respond form { border-top: 1px solid #dddddd; }
+/* line 85, rtpanel_sass/_comments.scss */
+#respond p { margin: 0.8em 0; }
+/* line 87, rtpanel_sass/_comments.scss */
+#respond .comment-notes, #respond .logged-in-as { color: #666666; margin: 10px 0 0; }
+/* line 90, rtpanel_sass/_comments.scss */
+#respond .subscribe-to-comments #subscribe { margin-bottom: 10px; }
 /* line 91, rtpanel_sass/_comments.scss */
-#respond .rtp-comment-above { margin-bottom: 0; }
-/* line 93, rtpanel_sass/_comments.scss */
-#respond input[type=text], #respond input[type=url], #respond input[type=email] { width: 50%; }
+#respond .subscribe-to-comments label { margin-left: 5px; }
 /* line 94, rtpanel_sass/_comments.scss */
-#respond textarea { height: 110px; width: 98.33%; }
+#respond label { line-height: 2.692em; margin: 0 0 0 10px; }
 /* line 96, rtpanel_sass/_comments.scss */
-#respond .form-allowed-tags { background: #fafafa; border: 1px solid #dddddd; color: #666666; margin: 0 0 14px; padding: 4px; width: 96%; }
-/* line 98, rtpanel_sass/_comments.scss */
-#respond .compact-comment-form { float: left; width: 33%; }
+#respond .required { color: #b94a48; }
+/* line 97, rtpanel_sass/_comments.scss */
+#respond .comment-form-comment, #respond .form-submit { clear: both; margin-bottom: 3px; }
+/* line 99, rtpanel_sass/_comments.scss */
+#respond .rtp-comment-above { margin-bottom: 0; }
+/* line 101, rtpanel_sass/_comments.scss */
+#respond input[type=text], #respond input[type=url], #respond input[type=email] { width: 50%; }
 /* line 102, rtpanel_sass/_comments.scss */
+#respond textarea { height: 110px; width: 98.33%; }
+/* line 104, rtpanel_sass/_comments.scss */
+#respond .form-allowed-tags { background: #fafafa; border: 1px solid #dddddd; color: #666666; margin: 0 0 14px; padding: 4px; width: 96%; }
+/* line 106, rtpanel_sass/_comments.scss */
+#respond .compact-comment-form { float: left; width: 33%; }
+/* line 110, rtpanel_sass/_comments.scss */
 #respond .compact-comment-form label { margin-left: 2px; }
-/* line 103, rtpanel_sass/_comments.scss */
+/* line 111, rtpanel_sass/_comments.scss */
 #respond .compact-comment-form input { height: auto; width: 98%; }
-/* line 107, rtpanel_sass/_comments.scss */
+/* line 115, rtpanel_sass/_comments.scss */
 #respond + .rtp-comments-header { border-top: 1px solid #dddddd; padding: 0.6em 0 0; }
 
-/* line 110, rtpanel_sass/_comments.scss */
+/* line 118, rtpanel_sass/_comments.scss */
 #reply-title { font-size: 1.286em; line-height: 2em; margin: 0; }
-/* line 112, rtpanel_sass/_comments.scss */
+/* line 120, rtpanel_sass/_comments.scss */
 #reply-title small { font-size: 11px; font-weight: bold; margin: 0 0 0 10px; text-transform: uppercase; }
 
 /* trackback and pingback inside comments */
-/* line 116, rtpanel_sass/_comments.scss */
+/* line 124, rtpanel_sass/_comments.scss */
 .rtp-comments-header { margin: 0; }
-/* line 118, rtpanel_sass/_comments.scss */
+/* line 126, rtpanel_sass/_comments.scss */
 .rtp-comments-header + #trackbacks { margin-top: 0.8em; }
 
 /* End of Comments Section */

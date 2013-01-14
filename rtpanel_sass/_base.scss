@@ -11,18 +11,18 @@ $black: #000000;
 $white: #ffffff;
 $gray: #666666;
 
-// ***** rtPanel Dynamic Variables ***** //
+// ***** Dynamic Variables ***** //
 // Borders
 $border-color: #dddddd !default;
 
 // Backgrounds
-$base-background: #ffffff !default;
+$base-background: $white !default;
 
 // Links
 $link-color: #006999 !default;
 $link-hover-color: #cd5a1b !default;
 
-$secondary-link-color: #666666 !default;
+$secondary-link-color: $gray !default;
 $secondary-link-hover-color: #111111 !default;
 
 $title-link-color: #111111 !default;

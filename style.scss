@@ -15,11 +15,7 @@ Tags: black, blue, white, orange, light, one-column, two-columns, right-sidebar,
 @import "./rtpanel_sass/base";
 
 // ******************** rtPanel Constant Variables ******************** //
-//  Note: You can not change these values. These lines are just for your Information.
-    // $rtp-base-10: 10px;
-    // $black: #000000;
-    // $white: #ffffff;
-    // $gray: #666666;
+//  Note: See '_base.scss' for constant variables.
 
 // ******************** rtPanel Dynamic Variables ******************** //
 // You can change these values as per your requirement.
@@ -111,17 +107,21 @@ $base-font-family: "Helevetica Neue", Helvetica, Arial, "Microsoft Sans Serif", 
 /* Grid Containers */
 @include rtp-grid-generator();
 
-// ******************** rtPanel Modules ******************** //
-@import "./rtpanel_sass/modules";
-
-// ********* Main Wrapper Layout ********* //
-@include rtp-layout();
+// ******************** rtPanel Header ******************** //
+@import "./rtpanel_sass/header";
 
 // ********* Header ********* //
 @include rtp-header();
 
 // ********* Navigation ********* //
 @include rtp-nav-menu();
+
+// ******************** rtPanel Modules ******************** //
+@import "./rtpanel_sass/modules";
+
+// ********* Main Wrapper Layout ********* //
+@include rtp-layout();
+
 
 /* Post Loop */
 // Post Container

@@ -3,16 +3,17 @@
     // Title
     > h2 { float: left; font-size: 20px; line-height: 1em; margin: 0; }
 }
+
+// Manage Comments
 .rtp-manage-comments { line-height: 1.44em; }
+
+// Thoughts
 .rtp-thoughts { font-size: 13px; float: left; line-height: 1.9em; }
 
 /* Comments Display */
 .comments-container { border-top: 1px solid $border-color; // Self
     // Empty Element
     &:empty { border-top: 0; }
-
-    // Respond Form
-    > #respond { margin-bottom: 1.5em; }
 }
 
 // Commentlist
@@ -21,9 +22,6 @@
     .vcard { float: right; margin: 5px 0 5px 5px; }
     .fn { font-size: 15px; font-style: normal; }
     .comment-text { clear: left; padding: 10px 0 0; }
-    
-    // Respond Form
-    + #respond { margin: -10px 0 1.5em; }
 
     // Trackback Pingback
     .trackback,
@@ -34,10 +32,7 @@
 }
 
 // Comment Body
-.comment-body { border-bottom: 1px solid $border-color; clear: both; margin: 0.75em 0; position: relative; // Self
-    // Respond Form
-    + #respond { border-bottom: 1px solid $border-color; margin-top: -0.8em; padding: 0 0 0.8em; }
-}
+.comment-body { border-bottom: 1px solid $border-color; clear: both; margin: 0.75em 0; position: relative; }
 
 .comment { list-style: none; // Self
     li { margin-bottom: 0; }
@@ -45,8 +40,11 @@
     // Form Submit
     #respond .form-submit { margin-bottom: 0; }
 }
+
+// Comment Author
 .comment-author { float: left; }
 
+// Comment Meta
 .comment-meta { color: $gray; // Self
     // Children
     abbr { border: 0; }
@@ -69,6 +67,16 @@
 
 /* Comment Form */
 #respond { clear: both; // Self
+
+    // Respond Form direct children of 'comments-container'
+    .comments-container > & { margin-bottom: 1.5em; }
+
+    // Comment List form
+    .commentlist + & { margin: -10px 0 1.5em; }
+
+    // Comment body
+    .comment-body + & { border-bottom: 1px solid $border-color; margin-top: -0.8em; padding: 0 0 0.8em; }
+    
     // Title
     h3 { color: $gray; }
     // Form

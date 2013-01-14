@@ -89,12 +89,8 @@ blockquote,
 ul,
 ol,
 
-// Widgets FYI: I have Added margin to widgets direct children element instead of (.widget) due to floated Elements can not collapse there margins.
-.widget > div,
-.widget > ul,
-.widget > ol,
-.widget > form,
-.widget > select,
+// Widgets
+.widget,
 
 // Table
 table,
@@ -108,13 +104,16 @@ dl,
 }
 
 // Lists
-ul ol,
-ul ul,
-ol ul,
-ol ol { margin: 0 0 0 1.5em; }
+ul, ol {
+    ul, ol { margin: 0 0 0 1.5em; }
+}
 
 /* Generic Lists: */
-ul,
-ol { margin-left: 30px; padding-left: 0; }
+ul, ol { margin-left: 30px; padding-left: 0; }
+
+// Remove listing bottom margin
+.widget {
+    > ul, > ol { margin-bottom: 0; }
+}
 
 /* End - Typography */
