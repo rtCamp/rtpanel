@@ -20,251 +20,225 @@
 /* line 17, rtp-admin.scss */
 .clearfix:after { clear: both; }
 
-/* line 21, rtp-admin.scss */
-.rtpanel-admin { overflow: hidden; width: 76%; }
-
-/* line 22, rtp-admin.scss */
-.rtpanel-admin h2 { border-bottom: 1px solid #CCC; padding-bottom: 0; }
-
+/* Themeoption container */
 /* line 23, rtp-admin.scss */
+.rtpanel-admin { overflow: hidden; width: 76%; }
+/* line 24, rtp-admin.scss */
+.rtpanel-admin h2 { border-bottom: 1px solid #CCC; padding-bottom: 0; }
+/* line 25, rtp-admin.scss */
 .rtpanel-admin div.updated p { background-color: #FFFFE0; border: 1px solid #E6DB55; border-radius: 3px; margin: 0 auto; padding: 7px; width: 95%; }
 
-/* line 24, rtp-admin.scss */
-#icon-rtpanel { background: url(../../img/rtp-icon.jpg) no-repeat scroll 0 0 transparent; }
-
-/* line 25, rtp-admin.scss */
-.nav-tab { margin: 0 5px -1px 0; }
-
-/* line 26, rtp-admin.scss */
-h2 .nav-tab { font-size: 20px; padding: 4px 6px; }
+/* line 27, rtp-admin.scss */
+#icon-rtpanel { background: url("../../img/rtp-icon.jpg") no-repeat scroll 0 0 transparent; }
 
 /* line 28, rtp-admin.scss */
-.options-main-container { border: 1px solid #CCC; border-top: none; margin-bottom: 15px; overflow: hidden; padding: 0; }
+.nav-tab { margin: 0 5px -1px 0; }
 
 /* line 29, rtp-admin.scss */
-.options-container { margin: 5px 10px; overflow: hidden; padding: 0; }
+h2 .nav-tab { font-size: 20px; padding: 4px 6px; }
+
+/* line 30, rtp-admin.scss */
+.options-main-container { border: 1px solid #CCC; border-top: none; margin-bottom: 15px; overflow: hidden; padding: 0; }
 
 /* line 31, rtp-admin.scss */
-#wpbody-content .metabox-holder { margin-bottom: 10px; padding: 10px 0 0; width: 100%; }
+.options-container { margin: 5px 10px; overflow: hidden; padding: 0; }
 
-/* line 32, rtp-admin.scss */
+/* line 33, rtp-admin.scss */
+#wpbody-content .metabox-holder { margin-bottom: 10px; padding: 10px 0 0; width: 100%; }
+/* line 34, rtp-admin.scss */
 #wpbody-content .metabox-fixed { clear: both; margin: 0 10px 0 0; width: 22%; }
 
-/* line 34, rtp-admin.scss */
+/* Themeoption Inside style */
+/* line 38, rtp-admin.scss */
 div.inside { overflow: hidden; }
-
-/* line 35, rtp-admin.scss */
-.inside .image-uploader { float: left; overflow: hidden; width: 395px; }
-
-/* line 36, rtp-admin.scss */
-.inside .image-preview { margin: 0 auto; overflow: hidden; text-align: center; }
-
-/* line 37, rtp-admin.scss */
-.inside #logo_metabox img { display: block; margin: 0 auto; max-width: 120px; }
-
 /* line 39, rtp-admin.scss */
-.postbox { min-width: 175px; }
-
+div.inside .image-uploader { float: left; overflow: hidden; width: 395px; }
 /* line 40, rtp-admin.scss */
+div.inside .image-preview { margin: 0 auto; overflow: hidden; text-align: center; }
+/* line 41, rtp-admin.scss */
+div.inside #logo_metabox img { display: block; margin: 0 auto; max-width: 120px; }
+
+/* line 43, rtp-admin.scss */
+.postbox { min-width: 175px; }
+/* line 45, rtp-admin.scss */
 .postbox .inside h3, .postbox .inside h3:hover { background: none repeat scroll 0 0 transparent; cursor: default; display: none; }
 
-/* line 41, rtp-admin.scss */
+/* line 49, rtp-admin.scss */
 #poststuff .postbox .inside p { margin: 0 0 5px; }
-
-/* line 42, rtp-admin.scss */
+/* line 50, rtp-admin.scss */
 #poststuff .postbox .inside th p { font-size: 11px; margin-bottom: 8px; }
 
-/* line 44, rtp-admin.scss */
+/* line 53, rtp-admin.scss */
 .rtpanel-admin div.updated, .rtpanel-admin div.error { background: none repeat scroll 0 0 transparent; border-bottom: none; border-left: 1px solid #CCC; border-radius: 0; border-right: 1px solid #CCC; border-top: none; display: block; margin: 0; padding: 10px 0; text-align: center; }
-
-/* line 45, rtp-admin.scss */
+/* line 54, rtp-admin.scss */
 .rtpanel-admin div.error p { background: #FFEBE8; border: 1px solid #C00; border-radius: 3px; margin: 0 auto; padding: 7px; width: 95%; }
 
-/* line 46, rtp-admin.scss */
+/* line 56, rtp-admin.scss */
 .admin-main-heading h2 { border-bottom: 1px solid #EAEAEA; font-size: 153.9%; padding: 14px 0 3px; }
 
-/* line 47, rtp-admin.scss */
+/* line 57, rtp-admin.scss */
 .admin-sub-module { clear: both; overflow: hidden; }
 
-/* line 48, rtp-admin.scss */
-.admin-or { color: #888; display: block; float: left; font-family: Georgia,'Times New Roman','Bitstream Charter',Times,serif; font-size: 153.9%; font-style: italic; padding: 30px 25px 30px 0; }
+/* line 58, rtp-admin.scss */
+.admin-or { color: #888888; display: block; float: left; font-family: Georgia,'Times New Roman','Bitstream Charter',Times,serif; font-size: 153.9%; font-style: italic; padding: 30px 25px 30px 0; }
 
-/* line 50, rtp-admin.scss */
+/* Logo and Favicon style */
+/* line 61, rtp-admin.scss */
 .logo-upload, .logo-url, .fav-upload, .fav-url { display: block; float: left; height: 100px; padding: 0 25px 0 0; }
 
-/* line 51, rtp-admin.scss */
+/* line 62, rtp-admin.scss */
 .logo-url, .fav-url { width: 200px; }
 
-/* line 52, rtp-admin.scss */
+/* line 63, rtp-admin.scss */
 .logo-preview, .fav-preview { display: block; float: left; }
 
-/* line 53, rtp-admin.scss */
+/* line 64, rtp-admin.scss */
 .fav-preview { padding: 33px 0 0; }
 
-/* line 54, rtp-admin.scss */
+/* line 65, rtp-admin.scss */
 #logo, #logo_url, #fav, #fav_url { clear: both; }
 
-/* line 56, rtp-admin.scss */
+/* line 67, rtp-admin.scss */
 .feedburner { padding: 22px 0; }
 
-/* line 57, rtp-admin.scss */
+/* line 68, rtp-admin.scss */
 .custom-search-main { padding: 22px 0 0; }
 
-/* line 58, rtp-admin.scss */
+/* line 69, rtp-admin.scss */
 .custom-search-scripts { padding: 10px 0 0; }
-
-/* line 59, rtp-admin.scss */
+/* line 70, rtp-admin.scss */
 .custom-search-scripts textarea { margin-bottom: 10px; margin-left: 6px; vertical-align: middle; }
 
-/* line 61, rtp-admin.scss */
+/* line 73, rtp-admin.scss */
 .post-meta-common { margin-left: 30px; }
 
-/* line 62, rtp-admin.scss */
+/* line 75, rtp-admin.scss */
 #plugin_support .active { color: #4F8A10; }
-
-/* line 63, rtp-admin.scss */
+/* line 76, rtp-admin.scss */
 #plugin_support .inactive { color: orange; }
-
-/* line 64, rtp-admin.scss */
+/* line 77, rtp-admin.scss */
 #plugin_support .not-installed { color: red; }
-
-/* line 65, rtp-admin.scss */
+/* line 78, rtp-admin.scss */
 #plugin_support th { font-weight: 700; }
-
-/* line 66, rtp-admin.scss */
+/* line 79, rtp-admin.scss */
 #plugin_support .form-table th, #plugin_support .form-table td { border-bottom: 1px solid #DFDFDF; font-size: 11px; padding: 7px; }
-
-/* line 67, rtp-admin.scss */
+/* line 80, rtp-admin.scss */
 #plugin_support .form-table td.last-child { border: none; }
 
-/* line 69, rtp-admin.scss */
+/* sidebar style */
+/* line 85, rtp-admin.scss */
 .has-right-sidebar #post-body { margin-right: 0; width: 50%; }
-
-/* line 70, rtp-admin.scss */
+/* line 86, rtp-admin.scss */
 .has-right-sidebar #post-body-content { margin-right: 8px; }
-
-/* line 71, rtp-admin.scss */
+/* line 87, rtp-admin.scss */
 .has-right-sidebar .inside #logo_metabox img { max-width: 230px; width: 100%; }
-
-/* line 72, rtp-admin.scss */
+/* line 88, rtp-admin.scss */
 .has-right-sidebar .form-table td.img-preview, .has-right-sidebar .form-table td.img-url { float: left; }
-
-/* line 73, rtp-admin.scss */
+/* line 89, rtp-admin.scss */
 .has-right-sidebar .postbox input[type=text], .has-right-sidebar .postbox textarea, .has-right-sidebar .stuffbox input[type=text], .has-right-sidebar .stuffbox textarea { width: 98%; }
 
-/* line 75, rtp-admin.scss */
+/* line 91, rtp-admin.scss */
 .feedburner label, .custom-search-main label { padding: 0 0 3px; }
 
-/* line 76, rtp-admin.scss */
+/* line 92, rtp-admin.scss */
 .inner-sidebar { width: 50%!important; }
 
-/* line 77, rtp-admin.scss */
+/* line 93, rtp-admin.scss */
 .inner-sidebar #side-sortables { width: 99.7%!important; }
 
-/* line 78, rtp-admin.scss */
+/* line 94, rtp-admin.scss */
 #gravatar_size { width: 120px; }
 
-/* line 80, rtp-admin.scss */
-#social .inside a { background: url(../../img/rtp-social-icons-32-32.png) no-repeat; display: inline-block; height: 35px; margin: 0 0 0 9px; padding: 0; text-indent: -9999px; text-transform: uppercase; width: 35px; }
-
-/* line 81, rtp-admin.scss */
-#social .inside a.rtpanel-facebook { background-position: 0 0; }
-
-/* line 82, rtp-admin.scss */
-#social .inside a.rtpanel-facebook:hover { background-position: 0 -44px; }
-
-/* line 83, rtp-admin.scss */
-#social .inside a.rtpanel-twitter { background-position: -44px 0; }
-
-/* line 84, rtp-admin.scss */
-#social .inside a.rtpanel-twitter:hover { background-position: -44px -44px; }
-
-/* line 85, rtp-admin.scss */
-#social .inside a.rtpanel-rss { background-position: -88px 0; }
-
-/* line 86, rtp-admin.scss */
-#social .inside a.rtpanel-rss:hover { background-position: -88px -44px; }
-
-/* line 88, rtp-admin.scss */
-#latest_news .inside ul { margin: 0 0 0 12px; }
-
-/* line 89, rtp-admin.scss */
-#latest_news .inside ul li { list-style: square outside none; padding: 0 0 7px; }
-
-/* line 91, rtp-admin.scss */
-a.regenerate_thumbanil_notice_close { text-decoration: none; }
-
-/* line 92, rtp-admin.scss */
-.postbox-title-action { position: absolute; right: 35px; top: 0; }
-
-/* line 93, rtp-admin.scss */
-.form-table * { word-wrap: break-word; }
-
-/* line 94, rtp-admin.scss */
-.form-table th { width: 170px; }
-
-/* line 95, rtp-admin.scss */
-.form-table label { font-size: 13px; }
-
-/* line 96, rtp-admin.scss */
-.form-table label.example { font-size: 100%; }
-
-/* line 97, rtp-admin.scss */
-.form-table a { text-decoration: none; }
-
+/* Getting Social is Good widget */
 /* line 99, rtp-admin.scss */
-#post_thumbnail_options .form-table label { margin: 0 20px 0 0; }
-
+#social .inside a { background: url("../../img/rtp-social-icons-32-32.png") no-repeat; display: inline-block; height: 35px; margin: 0 0 0 9px; padding: 0; text-indent: -9999px; text-transform: uppercase; width: 35px; }
 /* line 100, rtp-admin.scss */
-#google_search .form-table label { line-height: 20px; }
-
-/* line 101, rtp-admin.scss */
-input.reset-link { background: none; border: 0; color: #21759B; }
-
+#social .inside a:hover { background-position: 0 -44px; }
 /* line 102, rtp-admin.scss */
-input.reset-link:hover { cursor: pointer; text-decoration: underline; }
-
+#social .inside .rtpanel-twitter { background-position: -44px 0; }
 /* line 103, rtp-admin.scss */
-input { outline: medium none; }
-
-/* line 104, rtp-admin.scss */
-input[type=checkbox], input[type=radio] { margin: 1px 5px 1px 1px; }
-
+#social .inside .rtpanel-twitter:hover { background-position: -44px -44px; }
 /* line 105, rtp-admin.scss */
-input.button-link { background: none; border: none; color: #21759B; cursor: pointer; }
-
+#social .inside .rtpanel-rss { background-position: -88px 0; }
 /* line 106, rtp-admin.scss */
-input.button-link:hover { color: #D54E21; }
-
-/* line 108, rtp-admin.scss */
-.postbox input[type=text], .stuffbox input[type=text] { padding: 5px; width: auto; }
-
-/* line 109, rtp-admin.scss */
-.postbox textarea, .stuffbox textarea { color: #333; padding: 5px; }
-
-/* line 110, rtp-admin.scss */
-.rtp_submit { padding: 10px 0; text-align: right; }
-
-/* line 111, rtp-admin.scss */
-a.expand-collapse { background: none repeat scroll 0 0 #CCC; color: #333; float: right; font-size: 85%; padding: 5px 8px; text-decoration: none; }
+#social .inside .rtpanel-rss:hover { background-position: -88px -44px; }
 
 /* line 112, rtp-admin.scss */
-a.expand-collapse:hover { text-decoration: underline; }
-
+#latest_news .inside ul { margin: 0 0 0 12px; }
 /* line 113, rtp-admin.scss */
-input[disabled][type=text], input[disabled][type=radio], input[disabled][type=checkbox], textarea[disabled] { background-color: Silver; }
+#latest_news .inside ul li { list-style: square outside none; padding: 0 0 7px; }
 
-/* line 115, rtp-admin.scss */
-#plupload-upload-ui-logo, #plupload-upload-ui-favicon { position: relative; }
-
-/* line 117, rtp-admin.scss */
-.js .html-uploader #plupload-upload-ui-logo, .js .html-uploader #plupload-upload-ui-favicon { display: none; }
+/* Meta style */
+/* line 118, rtp-admin.scss */
+a.regenerate_thumbanil_notice_close { text-decoration: none; }
 
 /* line 119, rtp-admin.scss */
-.drag-drop #drag-drop-area-logo, .drag-drop #drag-drop-area-favicon { border: 4px dashed #DDDDDD; height: 200px; }
-
-/* line 120, rtp-admin.scss */
-.drag-drop.drag-over #drag-drop-area-logo, .drag-drop.drag-over #drag-drop-area-favicon { border-color: #83b4d8; }
+.postbox-title-action { position: absolute; right: 35px; top: 0; }
 
 /* line 121, rtp-admin.scss */
+.form-table * { word-wrap: break-word; }
+/* line 122, rtp-admin.scss */
+.form-table th { width: 170px; }
+/* line 123, rtp-admin.scss */
+.form-table label { font-size: 13px; }
+/* line 124, rtp-admin.scss */
+.form-table label .example { font-size: 100%; }
+/* line 126, rtp-admin.scss */
+.form-table a { text-decoration: none; }
+
+/* line 128, rtp-admin.scss */
+#post_thumbnail_options .form-table label { margin: 0 20px 0 0; }
+
+/* line 129, rtp-admin.scss */
+#google_search .form-table label { line-height: 20px; }
+
+/* line 130, rtp-admin.scss */
+input.reset-link { background: none; border: 0; color: #21759B; }
+
+/* line 131, rtp-admin.scss */
+input.reset-link:hover { cursor: pointer; text-decoration: underline; }
+
+/* line 132, rtp-admin.scss */
+input { outline: medium none; }
+
+/* line 133, rtp-admin.scss */
+input[type=checkbox], input[type=radio] { margin: 1px 5px 1px 1px; }
+
+/* line 134, rtp-admin.scss */
+input.button-link { background: none; border: none; color: #21759B; cursor: pointer; }
+
+/* line 135, rtp-admin.scss */
+input.button-link:hover { color: #D54E21; }
+
+/* line 137, rtp-admin.scss */
+.postbox input[type=text], .stuffbox input[type=text] { padding: 5px; width: auto; }
+
+/* line 138, rtp-admin.scss */
+.postbox textarea, .stuffbox textarea { color: #333; padding: 5px; }
+
+/* line 139, rtp-admin.scss */
+.rtp_submit { padding: 10px 0; text-align: right; }
+
+/* line 140, rtp-admin.scss */
+a.expand-collapse { background: none repeat scroll 0 0 #CCC; color: #333; float: right; font-size: 85%; padding: 5px 8px; text-decoration: none; }
+
+/* line 141, rtp-admin.scss */
+a.expand-collapse:hover { text-decoration: underline; }
+
+/* line 142, rtp-admin.scss */
+input[disabled][type=text], input[disabled][type=radio], input[disabled][type=checkbox], textarea[disabled] { background-color: Silver; }
+
+/* line 144, rtp-admin.scss */
+#plupload-upload-ui-logo, #plupload-upload-ui-favicon { position: relative; }
+
+/* line 146, rtp-admin.scss */
+.js .html-uploader #plupload-upload-ui-logo, .js .html-uploader #plupload-upload-ui-favicon { display: none; }
+
+/* line 149, rtp-admin.scss */
+.drag-drop #drag-drop-area-logo, .drag-drop #drag-drop-area-favicon { border: 4px dashed #DDDDDD; height: 200px; }
+
+/* line 152, rtp-admin.scss */
+.drag-drop.drag-over #drag-drop-area-logo, .drag-drop.drag-over #drag-drop-area-favicon { border-color: #83b4d8; }
+
+/* line 154, rtp-admin.scss */
 #poststuff .postbox .inside p.login-head { margin-top: 10px; }
