@@ -36,9 +36,6 @@
 
 .comment { list-style: none; // Self
     li { margin-bottom: 0; }
-
-    // Form Submit
-    #respond .form-submit { margin-bottom: 0; }
 }
 
 // Comment Author
@@ -76,36 +73,50 @@
 
     // Comment body
     .comment-body + & { border-bottom: 1px solid $border-color; margin-top: -0.8em; padding: 0 0 0.8em; }
-    
+
+    // Comment
+    .comment & {
+        .form-submit { margin-bottom: 0; }
+    }
+
     // Title
     h3 { color: $gray; }
+
     // Form
     form { border-top: 1px solid $border-color; }
+
     // Form Paragraph
     p { margin: 0.8em 0; }
+
     // Comment Notes
     .comment-notes, .logged-in-as { color: $gray; margin: 10px 0 0; }
+
     // Subscribe To Comments
     .subscribe-to-comments {
         #subscribe { margin-bottom: 10px; }
         label { margin-left: 5px; }
     }
+
     // Label
     label { line-height: 2.692em; margin: 0 0 0 10px; }
+
     // Required Field
     .required { color: $error-text-color; }
+    
     .comment-form-comment, .form-submit { clear: both; margin-bottom: 3px; }
+
     // Above Comments
     .rtp-comment-above { margin-bottom: 0; }
+
     // Form Inputs
     input[type=text], input[type=url], input[type=email] { width: 50%; }
     textarea { height: 110px; width: 98.33%; }
+
     // Allowed Tags
     .form-allowed-tags { background: darken($base-background, 2%); @include rtp-border($border-color); color: $gray; margin: 0 0 14px; padding: 4px; width: 96%; }
-    // Compact Form
-    .compact-comment-form {
-        float: left; width: 33%;
 
+    // Compact Form
+    .compact-comment-form { float: left; width: 33%; // Self
         // Compact Form Label and Input
         label { margin-left: 2px; }
         input { height: auto; width: 98%; }
@@ -116,7 +127,7 @@
 }
 
 #reply-title { font-size: 1.286em; line-height: 2em; margin: 0; // Self
-    // Small
+    // Children
     small { font-size: 11px; font-weight: bold; margin: 0 0 0 10px; text-transform: uppercase; }
 }
 

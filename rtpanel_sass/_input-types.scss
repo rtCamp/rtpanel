@@ -1,15 +1,5 @@
 /* Input Styles */
 
-// ***** rtPanel Dynamic Variables ***** //
-$input-border: #dddddd !default;
-$input-background: #ffffff !default;
-$button-gradient-color-top: #f4f4f4 !default;
-$button-gradient-color-bottom: #ececec !default;
-$button-hover-gradient-color-top: #ececec !default;
-$button-hover-gradient-color-bottom: #e3e3e3 !default;
-$button-active-gradient-color-top: #e3e3e3 !default;
-$button-active-gradient-color-bottom: #dddddd !default;
-
 //************************************************************************//
 // Generate a variable ($all-text-inputs) with a list of all html5
 // input types that have a text-based input, excluding textarea.
@@ -203,11 +193,12 @@ button[disabled], input[disabled] {
 /* Placeholder Text Color */
 // Webkit
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
-  color: darken($white, 40%);
+    color: darken($white, 40%);
 }
+
 // Firefox
 input:-moz-placeholder, textarea:-moz-placeholder {
-  color: darken($white, 40%);
+    color: darken($white, 40%);
 }
 
 /* Box Sizing: Very useful for responsive structure */

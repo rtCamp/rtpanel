@@ -1,7 +1,10 @@
 /* Default Links */
-a { color: $link-color; text-decoration: none; // Self
-    &:active { @extend a; }
-    &:visited { @extend a; }
+a {
+    // Self, Active & Visited
+    &,
+    &:active,
+    &:visited { color: $link-color; text-decoration: none; }
+
     // Hover & Focus
     &:hover,
     &:focus { color: $link-hover-color; text-decoration: underline; }
@@ -9,7 +12,12 @@ a { color: $link-color; text-decoration: none; // Self
 
 /* Heading Links */
 h1, h2 {
-    a { color: $title-link-color; text-decoration: none; // Self
+    a {
+        // Self, Active & Visited
+        &,
+        &:active,
+        &:visited { color: $title-link-color; }
+
         // Hover & Focus
         &:hover,
         &:focus { color: $title-hover-color; text-decoration: none; }
@@ -17,9 +25,18 @@ h1, h2 {
 }
 
 /* Generic Links */
-.rtp-common-link, .rtp-common-link:visited, .rtp-common-link:active,
-.rtp-common-link span, .rtp-common-link span:visited, .rtp-common-link span:active,
-.rtp-common-link a, .rtp-common-link a:visited, .rtp-common-link a:active { color: $secondary-link-color; }
+.rtp-common-link {
+    // Self, Active & Visited
+    &,
+    a,
+    span {
+        // Self, Active & Visited
+        &,
+        &:active,
+        &:visited { color: $secondary-link-color; }
 
-.rtp-common-link:hover, .rtp-common-link:focus, .rtp-common-link span:hover,
-.rtp-common-link span:focus, .rtp-common-link a:hover, .rtp-common-link a:focus { color: $secondary-link-hover-color; }
+        // Hover & Focus
+        &:hover,
+        &:focus { color: $secondary-link-hover-color; }
+    }
+}

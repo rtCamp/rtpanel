@@ -1,24 +1,3 @@
-// rtPanel Dynamic Variables
-$pre-background: #F5F5F5 !default;
-$code-background: #F7F7F9 !default;
-$code-border: #E1E1E8 !default;
-$code-text-color: #DD1144 !default;
-$notice-background-color: #F9F9F9 !default;
-$notice-border-color: #EEEEEE !default;
-$notice-text-color: #666666 !default;
-$info-background-color: #D9EDF7 !default;
-$info-border-color: #BCE8F1 !default;
-$info-text-color: #3A87AD !default;
-$success-background-color: #DFF0D8 !default;
-$success-border-color: #D6E9C6 !default;
-$success-text-color: #468847 !default;
-$warning-background-color: #FCF8E3 !default;
-$warning-border-color: #FBEED5 !default;
-$warning-text-color: #C09853 !default;
-$error-background-color: #F2DEDE !default;
-$error-border-color: #EED3D7 !default;
-$error-text-color: #B94A48 !default;
-
 /* Generic Table */
 table { width: 100%; }
 
@@ -39,9 +18,12 @@ blockquote {
     border-left: 4px solid $border-color;
     margin-left: 1em;
     padding: 0 0 0 10px;
-}
 
-blockquote p:last-child { margin: 0; }
+    // Paragraph
+    p {
+        &:last-child { margin: 0; }
+    }
+}
 
 /* rtPanel Cutsom Styles */
 code {
@@ -74,6 +56,7 @@ pre {
     background-color: darken($base-background, 4%);
     padding: 5px 10px;
     overflow-x: auto;
+
     // Code in Pre tag
     code { background-color: transparent; border: 0; color: inherit; padding: 0; }
 }
@@ -96,15 +79,19 @@ pre {
 .hide, .hidden { display: none; }
 .show { display: block; }
 
+// Notifications
 .error, .info, .notice, .success, .warning {
     border: 1px solid;
     @include border-radius(3px);
     display: block;
     margin: 0 0 1.5em;
     padding: 5px;
-    & p:last-child { margin: 0; } // Reset margin for last child.
+
+    // Reset margin for last child.
+    & p:last-child { margin: 0; }
 }
 
+// Notifications
 .notice { background-color: $notice-background-color; border-color: $notice-border-color; color: $notice-text-color; }
 .info { background-color: $info-background-color; border-color: $info-border-color; color: $info-text-color; }
 .success { background-color: $success-background-color; border-color: $success-border-color; color: $success-text-color; }
@@ -112,7 +99,9 @@ pre {
 .error { background-color: $error-background-color; border-color: $error-border-color; color: $error-text-color; }
 
 // Section Separator Border
-.rtp-section-separator:after { border-bottom: 1px solid $border-color; content: ''; display: block; height: 1px; left: 10px; max-width: 98%; position: absolute; bottom: 0; visibility: visible; width: 100%; z-index: 2; }
+.rtp-section-separator {
+    &:after { border-bottom: 1px solid $border-color; content: ''; display: block; height: 1px; left: 10px; max-width: 98%; position: absolute; bottom: 0; visibility: visible; width: 100%; z-index: 2; }
+}
 
 /* Old Way to Clear a float container. */
 .clear { clear: both; content: '\0020'; display: block; height: 0; visibility: hidden; overflow: hidden; width: 0; }
@@ -125,6 +114,8 @@ pre {
         content: ' '; // The space content is one way to avoid an Opera bug when the contenteditable attribute is included anywhere else in the document. //
         display: table; // The use of 'table' rather than 'block' is only necessary if using ':before' to contain the top-margins of child elements. //
     }
+
+    // After
     &:after {
         clear: both;
     }
@@ -137,10 +128,10 @@ img { margin: 5px; height: auto; max-width: 100%; // Self
     &.aligncenter { margin-left: auto; margin-right: auto; }
     &.alignleft { margin-left: 0; margin-right: 15px; }
     &.alignright { margin-left: 15px; margin-right: 0; }
-}
 
-// IE8 image width issue fix.
-.ie8 img { width: auto; }
+    // IE8 image width issue fix.
+    .ie8 & { width: auto; }
+}
 
 /* Box Sizing: Very useful for responsive structure */
 #rtp-primary-menu, #rtp-nav-menu li, table, .wp-caption, img { @include box-sizing(border-box); }
