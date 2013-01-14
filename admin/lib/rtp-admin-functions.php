@@ -30,7 +30,13 @@ function rtp_general_validate( $input ) {
             if ( substr( $_FILES['html-upload-logo']['type'], 0, 5 ) == 'image' ) {
                 $id = media_handle_upload( 'html-upload-logo', 0 );
                 if ( is_wp_error( $id ) ) {
-                    add_settings_error( 'html-upload-logo', 'html-upload-logo', $id, 'error' );
+                    if( !empty( $id->errors['upload_error'] ) )
+                        $logo_errors = $id->errors['upload_error'];
+                    if( !empty( $logo_errors ) ){
+                        foreach( $logo_errors as $logo_error ){
+                            add_settings_error( 'html-upload-logo', 'html-upload-logo', $logo_error, 'error' );
+                        }
+                    }
                 } else {
                     $img_src = wp_get_attachment_image_src( $id, 'full', true );
                     $input['logo_upload']   = $img_src[0];
@@ -48,7 +54,13 @@ function rtp_general_validate( $input ) {
             if ( substr( $_FILES['html-upload-fav']['type'], 0, 5 ) == 'image' ) {
                 $id = media_handle_upload( 'html-upload-fav', 0 );
                 if ( is_wp_error( $id ) ) {
-                    add_settings_error( 'html-upload-fav', 'html-upload-fav', $id, 'error' );
+                    if( !empty( $id->errors['upload_error'] ) )
+                        $fav_errors = $id->errors['upload_error'];
+                    if( !empty( $fav_errors ) ){
+                        foreach( $fav_errors as $fav_error ){
+                            add_settings_error( 'html-upload-fav', 'html-upload-fav', $fav_error, 'error' );
+                        }
+                    }
                 } else {
                     $img_src = wp_get_attachment_image_src( $id, 'favicon', true );
                         $input['favicon_upload']   = $img_src[0];
