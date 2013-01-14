@@ -1,0 +1,154 @@
+/**
+* rtPanel Admin CSS
+*
+* @package rtPanel
+*
+*/
+
+.show { display: block; }
+.hideme { display: none; }
+.clear { clear: both; content: '\0020'; display: block; height: 0; visibility: hidden; overflow: hidden; width: 0; }
+.clearfix { zoom: 1; //  For IE 6/7 only. Include this rule to trigger hasLayout and contain floats.
+    &:before,
+    &:after {
+        content: ' '; // The space content is one way to avoid an Opera bug when the contenteditable attribute is included anywhere else in the document. //
+        display: table; // The use of 'table' rather than 'block' is only necessary if using ':before' to contain the top-margins of child elements. //
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+/* Themeoption container */
+.rtpanel-admin { overflow:hidden; width: 76%; 
+     h2{ border-bottom: 1px solid #CCC;padding-bottom: 0; }
+     div.updated p{ background-color: #FFFFE0;border: 1px solid #E6DB55;border-radius:3px;margin:0 auto;padding:7px;width:95%; }
+}
+#icon-rtpanel{ background: url('../../img/rtp-icon.jpg') no-repeat scroll 0 0 transparent; }
+.nav-tab{ margin: 0 5px -1px 0; }
+h2 .nav-tab{ font-size: 20px; padding: 4px 6px; }
+.options-main-container{ border: 1px solid #CCC; border-top: none; margin-bottom: 15px; overflow: hidden; padding: 0; }
+.options-container{ margin: 5px 10px;overflow: hidden;padding: 0; }
+#wpbody-content {
+    .metabox-holder{ margin-bottom: 10px; padding: 10px 0 0; width: 100%; }
+    .metabox-fixed{ clear: both; margin: 0 10px 0 0; width: 22%; }
+}
+
+/* Themeoption Inside style */
+div.inside{ overflow: hidden;
+    .image-uploader{ float: left; overflow: hidden; width: 395px; }
+    .image-preview{ margin: 0 auto; overflow: hidden; text-align: center; }
+    #logo_metabox img{ display: block; margin: 0 auto; max-width: 120px; }
+}
+.postbox{ min-width: 175px;
+    .inside{
+            h3,h3:hover{ background: none repeat scroll 0 0 transparent; cursor: default; display: none; }
+           }
+    }
+#poststuff .postbox .inside{ 
+    p{ margin: 0 0 5px; }
+    th p{ font-size: 11px; margin-bottom: 8px; }
+}
+.rtpanel-admin{
+      div.updated, div.error{ background: none repeat scroll 0 0 transparent; border-bottom: none; border-left:1px solid #CCC; border-radius:0; border-right:1px solid #CCC; border-top: none; display: block; margin:0; padding: 10px 0; text-align: center; }
+      div.error p{ background: #FFEBE8; border:1px solid #C00; border-radius:3px; margin:0 auto; padding:7px; width:95%; }
+}
+.admin-main-heading h2{ border-bottom:1px solid #EAEAEA;font-size:153.9%;padding:14px 0 3px; }
+.admin-sub-module{ clear: both; overflow: hidden; }
+.admin-or{ color: #888888; display: block; float: left; font-family: Georgia,'Times New Roman','Bitstream Charter',Times,serif; font-size: 153.9%; font-style: italic; padding: 30px 25px 30px 0; }
+
+/* Logo and Favicon style */
+.logo-upload,.logo-url,.fav-upload,.fav-url{ display: block; float: left; height: 100px; padding: 0 25px 0 0; }
+.logo-url,.fav-url{ width: 200px; }
+.logo-preview,.fav-preview{ display: block; float: left; }
+.fav-preview{ padding: 33px 0 0; }
+#logo,#logo_url,#fav,#fav_url{ clear: both; }
+
+.feedburner{ padding: 22px 0; }
+.custom-search-main{ padding: 22px 0 0; }
+.custom-search-scripts{ padding: 10px 0 0; 
+     textarea{ margin-bottom: 10px; margin-left: 6px; vertical-align: middle; }
+}
+
+.post-meta-common{ margin-left:30px; }
+#plugin_support {
+        .active{ color: #4F8A10; }
+        .inactive{ color: orange; }
+        .not-installed{ color: red; }
+        th{ font-weight:700; }
+        .form-table th, .form-table td{ border-bottom:1px solid #DFDFDF; font-size:11px; padding:7px; }
+        .form-table td.last-child{ border: none; }
+}
+
+/* sidebar style */
+.has-right-sidebar{
+        #post-body{ margin-right:0; width:50%; }
+        #post-body-content{ margin-right:8px; }
+        .inside #logo_metabox img{ max-width:230px; width:100%; }
+        .form-table td.img-preview,.form-table td.img-url{ float: left; }
+        .postbox input[type=text], .postbox textarea, .stuffbox input[type=text], .stuffbox textarea{ width:98%; }
+}
+.feedburner label,.custom-search-main label{ padding:0 0 3px; }
+.inner-sidebar{ width: 50%!important; }
+.inner-sidebar #side-sortables{ width: 99.7%!important; }
+#gravatar_size{ width:120px; }
+
+/* Getting Social is Good widget */
+#social {
+    .inside {
+        a { background: url('../../img/rtp-social-icons-32-32.png') no-repeat; display:inline-block; height: 35px; margin: 0 0 0 9px; padding: 0; text-indent: -9999px; text-transform: uppercase; width: 35px;
+            &:hover{ background-position: 0 -44px; }
+        }
+        .rtpanel-twitter { background-position: -44px 0;
+            &:hover{ background-position: -44px -44px; }
+        }
+        .rtpanel-rss { background-position: -88px 0;
+            &:hover { background-position: -88px -44px; }
+        }
+    }
+}
+
+#latest_news .inside {
+      ul{ margin: 0 0 0 12px; 
+          li{ list-style: square outside none; padding: 0 0 7px; }
+        }
+}
+
+/* Meta style */
+a.regenerate_thumbanil_notice_close{ text-decoration: none; }
+.postbox-title-action{ position: absolute; right:35px; top:0; }
+.form-table {
+    *{ word-wrap: break-word; }
+    th{ width:170px; }
+    label{ font-size:13px; 
+       .example{ font-size:100%; } 
+        }
+    a{ text-decoration:none; }
+}
+#post_thumbnail_options .form-table label{ margin:0 20px 0 0; }
+#google_search .form-table label{ line-height:20px; }
+input.reset-link{ background: none; border:0; color: #21759B; }
+input.reset-link:hover{ cursor: pointer; text-decoration: underline; }
+input{ outline: medium none; }
+input[type=checkbox],input[type=radio]{ margin:1px 5px 1px 1px; }
+input.button-link{ background: none; border: none; color: #21759B; cursor: pointer; }
+input.button-link:hover{ color: #D54E21; }
+
+.postbox input[type=text],.stuffbox input[type=text]{ padding:5px; width: auto; }
+.postbox textarea,.stuffbox textarea{ color: #333; padding:5px; }
+.rtp_submit{ padding:10px 0; text-align: right; }
+a.expand-collapse{ background: none repeat scroll 0 0 #CCC; color: #333; float: right; font-size:85%; padding:5px 8px; text-decoration: none; }
+a.expand-collapse:hover{ text-decoration: underline; }
+input[disabled][type=text],input[disabled][type=radio],input[disabled][type=checkbox],textarea[disabled]{ background-color: Silver; }
+
+#plupload-upload-ui-logo, #plupload-upload-ui-favicon { position: relative; }
+
+.js .html-uploader #plupload-upload-ui-logo, .js .html-uploader #plupload-upload-ui-favicon { display: none; }
+
+.drag-drop{
+     #drag-drop-area-logo,#drag-drop-area-favicon { border: 4px dashed #DDDDDD; height: 200px; }
+}
+.drag-drop.drag-over{
+     #drag-drop-area-logo,#drag-drop-area-favicon { border-color: #83b4d8; }
+}
+#poststuff .postbox .inside p.login-head { margin-top: 10px; }
