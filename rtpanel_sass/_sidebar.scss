@@ -1,10 +1,13 @@
 /* Sidebar */
-#sidebar { margin-top: 1em; }
-.widgettitle { line-height: 1.2em; margin-top: 0; }
+#sidebar { margin-top: 1.2em; }
+.widgettitle { font-size: 1.385em; line-height: 1.2em; margin-top: 0; }
 
-.widget {
+.widget { @extend .rtp-secondary-font-size; @extend .rtp-vertical-rhythm;
     // Current Menu item highlight
     .current-menu-item > a, .current_page_item > a { color: $link-hover-color; }
+
+    // Remove listing bottom margin
+    > ul, > ol { margin-bottom: 0; }
 }
 
 /* Recent Comment with Gravatar Widget */
@@ -25,11 +28,14 @@
         // Link
         a { font-size: $tertiary-font-size; margin: 0; }
     }
+    
+    .comment-date { @extend .rtp-tertiary-font-size; }
 }
 
 /* Calendar Widget */
 .widget_calendar {
     // Children
+    table { @extend .rtp-tertiary-font-size; }
     th, td { color: $gray; text-align: center; }
     #today { background-color: darken($base-background, 6%); font-weight: 700; }
 }

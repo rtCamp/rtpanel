@@ -11,100 +11,53 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: black, blue, white, orange, light, one-column, two-columns, right-sidebar, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, flexible-width, full-width-template
 */
 
-// ******************** Importing rtPanel base. ******************** //
+// ******************** Importing Base. ******************** //
 @import "./rtpanel_sass/base";
 
-// ******************** rtPanel Constant Variables ******************** //
-//  Note: See '_base.scss' for constant variables.
+// ***** Variables : Check Details >> '_variables.scss' ***** //
 
-// ******************** rtPanel Dynamic Variables ******************** //
-// You can change these values as per your requirement.
-// Borders
-//$border-color: #dddddd;
+// ***** Typography Variables ***** //
+// Note: Defalult font sizes should be in Pixel. ( FYI: Font size will convert into EM's automatically. )
+$base-font-size: 14px; // 16px !default;
+$secondary-font-size: 13px; // 14px !default;
+$base-line-height: 21px; // 24px !default;
+$base-font-family: "Helevetica Neue", Helvetica, Arial, "Microsoft Sans Serif", sans-serif;
 
-// Backgrounds
-//$base-background: #ffffff;
+// ***** Normalize css ***** //
+@import "./rtpanel_sass/normalize"; // *** Note: We have modified normalize.css to get best results. *** //
+
+
+// ***** Utility Classes ***** //
+@import "./rtpanel_sass/utility";
+
 
 // ******************** Typography ******************** //
-// Note: Defalult font sizes should be in Pixel.
-// FYI: Font size will convert into EM's automatically.
-
-// $base-font-color: #333333;
-$base-font-size: 14px; // 16px !default;
-$base-line-height: 21px; // 24px !default;
-$secondary-font-size: 13px; // 14px !default
-//$tertiary-font-size: 12px;
-//$h1-size: 32px;
-//$h2-size: 28px;
-//$h3-size: 24px;
-//$h4-size: 20px;
-//$h5-size: 16px;
-//$h6-size: 14px;
-$base-font-family: "Helevetica Neue", Helvetica, Arial, "Microsoft Sans Serif", sans-serif;
-//$font-monospace: Consolas, monaco, monospace;
 @import "./rtpanel_sass/typography";
 
 
-// Links //
-//$link-color: #006999;
-//$link-hover-color: #cd5a1b;
-
-//$secondary-link-color: #666666;
-//$secondary-link-hover-color: #111111;
-
-//$title-link-color: #111111;
-//$title-hover-color: #cd5a1b;
+// ******************** Links ******************** //
 @import "./rtpanel_sass/links";
 
+
 // ******************** Input Types ******************** //
-// Input Defaults
-//$input-border: #dddddd;
-//$input-background: #ffffff;
-//$button-gradient-color-top: #f4f4f4;
-//$button-gradient-color-bottom: #ececec;
-//$button-hover-gradient-color-top: #ececec;
-//$button-hover-gradient-color-bottom: #e3e3e3;
-//$button-active-gradient-color-top: #e3e3e3;
-//$button-active-gradient-color-bottom: #dddddd;
 @import "./rtpanel_sass/input-types";
 
+
 // ******************** rtPanel Misc ******************** //
-// Misc Defaults
-//$pre-background: #F5F5F5 !default;
-//$code-background: #F7F7F9 !default;
-//$code-border: #E1E1E8 !default;
-//$code-text-color: #DD1144 !default;
-//$notice-background-color: #F9F9F9 !default;
-//$notice-border-color: #EEEEEE !default;
-//$notice-text-color: #666666 !default;
-//$info-background-color: #D9EDF7 !default;
-//$info-border-color: #BCE8F1 !default;
-//$info-text-color: #3A87AD !default;
-//$success-background-color: #DFF0D8 !default;
-//$success-border-color: #D6E9C6 !default;
-//$success-text-color: #468847 !default;
-//$warning-background-color: #FCF8E3 !default;
-//$warning-border-color: #FBEED5 !default;
-//$warning-text-color: #C09853 !default;
-//$error-background-color: #F2DEDE !default;
-//$error-border-color: #EED3D7 !default;
-//$error-text-color: #B94A48 !default;
 @import "./rtpanel_sass/misc";
 
-// ******************** WP Editor ******************** //
-@import "./rtpanel_sass/wp_editor";
 
-// ******************** 960gs Variables ******************** //
-// To overwrite the Default grids please update the default options given bellow as per your requirement.
+// ******************** WP Editor ******************** //
+@import "./rtpanel_sass/wp-editor";
+
+
+// ******************** 960gs System ******************** //
 //$ninesixty-gutter-width: 20px;
 //$ninesixty-grid-width: 960px;
 //$ninesixty-columns: 12;
-
-// ******************** rtPanel Grid ******************** //
-// Note: To use default Structure of 960gs comment out following code.
 //@include grid-system-complete($ninesixty-columns);
 
-/* Grid Containers */
+/* rtPanel Grids */
 @include rtp-grid-generator();
 
 // ******************** rtPanel Header ******************** //
@@ -163,6 +116,7 @@ $base-font-family: "Helevetica Neue", Helvetica, Arial, "Microsoft Sans Serif", 
 // ********* Footer Styles ********* //
 @import "./rtpanel_sass/footer";
 
+
 // ********* 3rd Party Support Styles ********* //
 @import "./rtpanel_sass/support";
 @include rtp-breadcrumb(); // Breadcrumb
@@ -170,10 +124,12 @@ $base-font-family: "Helevetica Neue", Helvetica, Arial, "Microsoft Sans Serif", 
 @include rtp-bbpress-style(); // bbPress
 @include rtp-google-custom-search-page(); // Google Custom Search
 
+
 // ********* Responsive Structure ********* //
 $ninesixty-gutter-width: 16px;
 $ninesixty-grid-width: 744px;
 @import "./rtpanel_sass/responsive";
+
 
 // ********* Print Style ********* //
 @import "./rtpanel_sass/print";

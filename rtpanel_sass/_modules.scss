@@ -10,6 +10,12 @@
     .rtp-singular, .attachment, .rtp-full-width {
         .hentry { border-bottom: 0; padding-bottom: 0; }
     }
+    
+    // Read More
+    .rtp-readmore {
+        &,
+        &:visited { @extend .rtp-secondary-font-size; }
+    }
 }
 
 // ***** Sticky Post ***** //
@@ -44,24 +50,32 @@
 // ***** Post Meta ***** //
 @mixin rtp-post-meta() {
     /* Post Meta */
-    .post-meta {
-        clear: both; color: $gray; font-style: italic; padding: 0.4em 0 0;
+    .post-meta { clear: both; color: $gray; @extend .rtp-secondary-font-size; font-style: italic; padding: 0.4em 0 0;
         p { margin: 0; }
     }
 
-    .post-meta-bottom { padding: 1em 0 0; }
-    .single .post-meta-bottom { padding: 0; }
+    .post-meta-bottom { padding: 1em 0 0;
+        .single & { padding: 0; }
+    }
+
     .rtp-post-comment-count { margin: 0.7em 0 0; text-align: right; }
+
+    // Edit Link
+    .rtp-edit-link {
+        a { @extend .rtp-tertiary-font-size; }
+    }
 
     /* Curly Brackets Style */
     .rtp-curly-bracket { color: darken($base-background, 14%); font-size: 1.428em; font-weight: normal; }
 
     /* Post Comment */
-    .rtp-post-comment, .rtp-post-comment:visited {
-        font-size: 13px; font-style: normal; padding: 0 3px 0 2px;
+    .rtp-post-comment {
+        &,
+        &:visited { font-size: 13px; font-style: normal; padding: 0 3px 0 2px; }
+        
+        span { color: $title-link-color; font-size: 1.286em; }
     }
 
-    .rtp-post-comment span { color: $title-link-color; font-size: 1.286em; }
     .post-tags { clear: left; }
     /* End - Post Meta */    
 }
@@ -90,7 +104,7 @@
 // ***** Image Caption Style ***** //
 @mixin rtp-wp-caption() {
     /* Image Caption Style */
-    .wp-caption { background-color: darken($base-background, 4%); margin: 7px; max-width: 100%; overflow: hidden; padding: 5px 5px 0; text-align: center; // Self
+    .wp-caption { background-color: darken($base-background, 4%); @extend .rtp-border-box; margin: 7px; max-width: 100%; overflow: hidden; padding: 5px 5px 0; text-align: center; // Self
         // Floated Elements
         &.aligncenter { margin: 7px auto; }
         &.alignright { margin: 7px 0 7px 15px; }
@@ -121,7 +135,7 @@
       .gallery-columns-#{$i} .gallery-item { width: 100% / $i; }
     }
 
-    .gallery-caption { color: $gray; margin: 0 0 10px; padding: 0; text-align: center; }
+    .gallery-caption { color: $gray; @extend .rtp-secondary-font-size; margin: 0 0 10px; padding: 0; text-align: center; }
     .gallery-icon .attachment-thumbnail { background-color: darken($base-background, 4%); @include rtp-border($border-color); margin: 0; max-width: 100%; padding: 5px; }
     .gallery-icon a:hover .attachment-thumbnail { border-color: darken($border-color, 30%); }
     /* End - Gallery */
@@ -148,7 +162,7 @@
 // ****** Paged Navigation ****** //
 @mixin rtp-paged-navigation() {
     /* Paged Navigation */
-    .rtp-navigation, .rtp-comments-pagination { clear: both; padding-bottom: 1.5em; // Self
+    .rtp-navigation, .rtp-comments-pagination { clear: both; @extend .rtp-secondary-font-size; padding-bottom: 1.5em; // Self
         // Links
         a { text-decoration: none;
             // Hover

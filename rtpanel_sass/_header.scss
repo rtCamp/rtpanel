@@ -10,7 +10,7 @@
     }
 
     // Tagline
-    .tagline { color: $gray; font-size: $base-font-size; line-height: $base-line-height; margin: 0; }
+    .tagline { color: $gray; @extend .rtp-base-font-family; font-size: $base-font-size; line-height: $base-line-height; margin: 0; }
 
     /* End - Header */
 }
@@ -21,12 +21,15 @@
     #rtp-primary-menu {
         background-color: darken($base-background, 4%);
         @include rtp-border($border-color);
+
+        // Border Box
+        @extend .rtp-border-box;
         clear: both;
     }
 
     #{$menu} { float: left; @include rtp-margin-padding-0; // Self
         // Menu List
-        li { float: left; list-style: none; position: relative; // Self
+        li { @extend .rtp-border-box; float: left; list-style: none; position: relative; // Self
             // Submenu Links
             &:hover > a { background-color: darken($base-background, 6%); color: $link-hover-color; text-decoration: none; }
 

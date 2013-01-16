@@ -3,7 +3,7 @@
 // Note: This is rtPanel version of normalize.css
 
 /* Corrects 'block' display not defined in IE 8/9. */
-article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary { display: block; }
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary { display: block; }
 
 /* Corrects 'inline-block' display not defined in IE 8/9. */
 audio, canvas, video { display: inline-block; }
@@ -45,7 +45,7 @@ b, dt, strong { font-weight: bold; }
 dfn { font-style: italic; }
 
 /* Addresses styling not present in IE 8/9. */
-mark { background: #FF0; color: #000; }
+mark { background: #FF0; color: $black; }
 
 /* Improves readability of pre-formatted text in all browsers. */
 pre { white-space: pre; white-space: pre-wrap; }
@@ -140,9 +140,105 @@ textarea {
 // Tables
 
 /* Remove most spacing between table cells. */
-table { border-collapse: collapse; border-spacing: 0; }
+table { border-collapse: collapse; border-spacing: 0; // Normalize style
+
+    // ** rtPanel Custom Style **//
+    @extend .rtp-border-box;
+    @extend .rtp-vertical-rhythm;
+    width: 100%;
+}
+
+// *************************************************** // 
+// ******* Additional rtPanel Normalize Styles ******* //
+// *************************************************** //
 
 /* Additional rtPanel Normalize Styles */
+
+// Table Heading
+th { background-color: darken($base-background, 4%); }
+
+th, td {
+    border: 1px solid $border-color;
+    padding: 0.5em;
+    text-align: left; // Overwrite default text alignment center to left
+}
+
+/* Generic Definitions ( Lists ) */
+dd { margin-left: 20px; }
+
+/* Blockquote */
+blockquote {
+    border-left: 4px solid $border-color;
+    margin-left: 1em;
+    @extend .rtp-vertical-rhythm;
+    padding: 0 0 0 10px;
+
+    // Paragraph
+    p {
+        &:last-child { margin: 0; }
+    }
+}
+
+/* rtPanel Cutsom Styles */
+code {
+    background-color: $code-background;
+    border: 1px solid $code-border;
+    @include border-radius(3px);
+    color: $code-text-color;
+    @extend .rtp-font-monospace;
+    @extend .rtp-secondary-font-size;
+    padding: 0.1em 0.4em;
+}
+
+caption {
+    background-color: darken($base-background, 8%);
+    font-weight: 700;
+    padding: 5px;
+}
+
+kbd {
+    background-color: darken($base-background, 4%);
+    border: 1px solid $border-color;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.2), 0 0 0 2px #FFF inset;
+    @include border-radius(3px);
+    display: inline-block;
+    @extend .rtp-font-monospace;
+    @extend .rtp-secondary-font-size;
+    text-shadow: 0 1px 0 $white;
+    white-space: nowrap;
+    margin: 0 .1em;
+    padding: 0 0.6em;
+}
+
+pre {
+    background-color: darken($base-background, 4%);
+    @extend .rtp-font-monospace;
+    @extend .rtp-secondary-font-size;
+    @extend .rtp-vertical-rhythm;
+    padding: 5px 10px;
+    overflow-x: auto;
+
+    // Code in Pre tag
+    code { background-color: transparent; border: 0; color: inherit; padding: 0; }
+}
+
+/* Corrects font family set oddly in Safari 5 and Chrome. */
+samp {
+    @extend .rtp-font-monospace;
+    @extend .rtp-secondary-font-size;
+}
+
+
+/* Generic Lists: */
+ul, ol {
+    margin-left: 30px; @extend .rtp-vertical-rhythm; padding-left: 0;
+
+    // Children
+    ul, ol { margin: 0 0 0 1.5em; }
+}
+
+// Paragraph, address, dl
+p, address, dl { @extend .rtp-vertical-rhythm; }
 
 /* Video Object Style */
 // 1. Remove unwanted border

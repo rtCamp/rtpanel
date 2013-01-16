@@ -21,15 +21,20 @@
     // Children
     .vcard { float: right; margin: 5px 0 5px 5px; }
     .fn { font-size: 15px; font-style: normal; }
-    .comment-text { clear: left; padding: 10px 0 0; }
-
+    
     // Trackback Pingback
     .trackback,
     .pingback { overflow: hidden; padding: 0 0 15px; // Self
         // EM Element
-        em { color: $gray; }
+        em { color: $gray; @extend .rtp-tertiary-font-size; }
     }
 }
+
+// Comment Text
+.comment-text { clear: left; @extend .rtp-secondary-font-size; padding: 10px 0 0;
+    > ol, > ul { @extend .rtp-vertical-rhythm; }
+}
+
 
 // Comment Body
 .comment-body { border-bottom: 1px solid $border-color; clear: both; margin: 0.75em 0; position: relative; }
@@ -42,7 +47,7 @@
 .comment-author { float: left; }
 
 // Comment Meta
-.comment-meta { color: $gray; // Self
+.comment-meta { color: $gray; @extend .rtp-tertiary-font-size; // Self
     // Children
     abbr { border: 0; }
     // Comment Edit Link
@@ -63,7 +68,7 @@
 }
 
 /* Comment Form */
-#respond { clear: both; // Self
+#respond { clear: both; @extend .rtp-secondary-font-size; // Self
 
     // Respond Form direct children of 'comments-container'
     .comments-container > & { margin-bottom: 1.5em; }
@@ -113,7 +118,7 @@
     textarea { height: 110px; width: 98.33%; }
 
     // Allowed Tags
-    .form-allowed-tags { background: darken($base-background, 2%); @include rtp-border($border-color); color: $gray; margin: 0 0 14px; padding: 4px; width: 96%; }
+    .form-allowed-tags { background: darken($base-background, 2%); @include rtp-border($border-color); color: $gray; @extend .rtp-secondary-font-size; margin: 0 0 14px; padding: 4px; width: 96%; }
 
     // Compact Form
     .compact-comment-form { float: left; width: 33%; // Self
@@ -128,7 +133,7 @@
 
 #reply-title { font-size: 1.286em; line-height: 2em; margin: 0; // Self
     // Children
-    small { font-size: 11px; font-weight: bold; margin: 0 0 0 10px; text-transform: uppercase; }
+    small { @extend .rtp-base-font-family; font-size: 11px; font-weight: bold; margin: 0 0 0 10px; text-transform: uppercase; }
 }
 
 /* trackback and pingback inside comments */
