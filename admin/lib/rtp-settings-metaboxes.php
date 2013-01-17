@@ -148,7 +148,7 @@ function rtp_feed_option_metabox() {
                 <th scope="row"><label for="feedburner_url"><?php _e( 'FeedBurner URL', 'rtPanel' ); ?></label></th>
                 <td>
                     <input type="text" placeholder="http://www.example.com" value="<?php echo esc_attr( $rtp_general['feedburner_url'] ); ?>" size="40" name="rtp_general[feedburner_url]" id="feedburner_url" />
-                    <span class="description"><label for="feedburner_url"><?php printf( __( 'Specify <a href="%s" target="_blank" title="FeedBurner">FeedBurner</a> URL to redirect feeds', 'rtPanel' ), 'http://www.feedburner.com/' ); ?></label></label></span>
+                    <span class="description"><label for="feedburner_url"><?php printf( __( 'Specify <a href="%s" target="_blank" title="FeedBurner">FeedBurner</a> URL to redirect feed', 'rtPanel' ), 'http://www.feedburner.com/' ); ?></label></label></span>
                 </td>
             </tr>
         </tbody>

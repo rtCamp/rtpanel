@@ -900,12 +900,12 @@ function rtp_default_admin_sidebar() { ?>
                     <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
                 </form>
             </div>
-            <div class="rt-social-share" style="text-align:center; width: 135px; margin: 2px auto">
-                <div class="rt-facebook" style="float:left; margin-right:5px;">
-                    <a style=" text-align:center;" name="fb_share" type="box_count" share_url="http://rtpanel.com/"></a>
-                </div>
-                <div class="rt-twitter" style="">
+            <div class="rt-social-share">
+                <div class="rt-twitter rtp-social-box">
                     <a href="<?php printf( '%s', 'http://twitter.com/share' ); ?>"  class="twitter-share-button" data-text="I &hearts; #rtPanel"  data-url="http://rtcamp.com/rtpanel/" data-count="vertical" data-via="rtPanel"><?php _e( 'Tweet', 'rtPanel' ); ?></a>
+                </div>
+                <div class="rt-facebook rtp-social-box">
+                    <a style=" text-align:center;" name="fb_share" type="box_count" share_url="http://rtpanel.com/"></a>
                 </div>
                 <div class="clear"></div>
             </div>

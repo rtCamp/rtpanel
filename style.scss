@@ -14,67 +14,62 @@ Tags: black, blue, white, orange, light, one-column, two-columns, right-sidebar,
 // ******************** Importing Base. ******************** //
 @import "./rtpanel_sass/base";
 
-// ***** Variables : Check Details >> '_variables.scss' ***** //
 
-// ***** Typography Variables ***** //
-// Note: Defalult font sizes should be in Pixel. ( FYI: Font size will convert into EM's automatically. )
+// ***** Variables : See Details >> '_variables.scss' ***** //
 $base-font-size: 14px; // 16px !default;
 $secondary-font-size: 13px; // 14px !default;
 $base-line-height: 21px; // 24px !default;
 $base-font-family: "Helevetica Neue", Helvetica, Arial, "Microsoft Sans Serif", sans-serif;
 
-// ***** Normalize css ***** //
-@import "./rtpanel_sass/normalize"; // *** Note: We have modified normalize.css to get best results. *** //
+
+// ***** Normalize css : See Details >> '_normalize.scss' ***** //
+@import "./rtpanel_sass/normalize";
 
 
-// ***** Utility Classes ***** //
+// ***** Utility Classes : See Details >> '_utility.scss' ***** //
 @import "./rtpanel_sass/utility";
 
 
-// ******************** Typography ******************** //
+// ****** Typography : See Details >> '_typography.scss' ****** //
 @import "./rtpanel_sass/typography";
 
 
-// ******************** Links ******************** //
+// *********** Links : See Details >> '_links.scss' *********** //
 @import "./rtpanel_sass/links";
 
 
-// ******************** Input Types ******************** //
+// ***** Input Types : See Details >> '_input-types.scss' ***** //
 @import "./rtpanel_sass/input-types";
 
 
-// ******************** rtPanel Misc ******************** //
-@import "./rtpanel_sass/misc";
-
-
-// ******************** WP Editor ******************** //
+// ****** WP Editor : See Details >> '_input-types.scss' ****** //
 @import "./rtpanel_sass/wp-editor";
 
 
-// ******************** 960gs System ******************** //
+// ******** 960gs System : See Details >> '_grid.scss' ******** //
+/* Grids */
 //$ninesixty-gutter-width: 20px;
 //$ninesixty-grid-width: 960px;
 //$ninesixty-columns: 12;
 //@include grid-system-complete($ninesixty-columns);
-
-/* rtPanel Grids */
 @include rtp-grid-generator();
 
-// ******************** rtPanel Header ******************** //
+
+// ****** rtPanel Header : See Details >> '_header.scss' ****** //
 @import "./rtpanel_sass/header";
 
-// ********* Header ********* //
+// ***** Header ***** //
 @include rtp-header();
 
-// ********* Navigation ********* //
+// *** Navigation *** //
 @include rtp-nav-menu();
 
-// ******************** rtPanel Modules ******************** //
+
+// ***** rtPanel Modules : See Details >> '_modules.scss' ***** //
 @import "./rtpanel_sass/modules";
 
-// ********* Main Wrapper Layout ********* //
+// ***** Layout ***** //
 @include rtp-layout();
-
 
 /* Post Loop */
 // Post Container
@@ -89,47 +84,64 @@ $base-font-family: "Helevetica Neue", Helvetica, Arial, "Microsoft Sans Serif", 
 // Post Content
 @include rtp-post-content();
 
-// ********* Post Meta ********* //
+// ***** Post Meta ***** //
 @include rtp-post-meta();
 
-// ********* Attachment Page Style ********* //
+// ****** Images ****** //
+@include rtp-image();
+
+// *** Attachment Page *** //
 @include rtp-attachment-page();
 
-// ********* Thumbnail With Shadow Effect ********* //
+// *** Thumbnail Container *** //
+@include rtp-thumbnail-container();
+
+// ***** Thumbnail With Shadow ***** //
 @include rtp-thumbnail-shadow();
 
-// ********* Image Caption Style ********* //
+// ***** Image Caption ***** //
 @include rtp-wp-caption();
 
-// ********* Gallery Styles ********* //
+// ***** Gallery ***** //
 @include rtp-gallery();
 
-// ********* Paged Navigation ********* //
+// ***** Paged Navigation ***** //
 @include rtp-paged-navigation();
 
-// ********* Comments Styles ********* //
+
+// ****** Comments : See Details >> '_comments.scss' ****** //
 @import "./rtpanel_sass/comments";
 
-// ********* Sidebar Styles ********* //
+
+// ****** Sidebar : See Details >> '_sidebar.scss' ****** //
 @import "./rtpanel_sass/sidebar";
 
-// ********* Footer Styles ********* //
+
+// ******* Footer : See Details >> '_footer.scss' ******* //
 @import "./rtpanel_sass/footer";
 
 
-// ********* 3rd Party Support Styles ********* //
+// ***** 3rd Party : See Details >> '_support.scss' ***** //
 @import "./rtpanel_sass/support";
-@include rtp-breadcrumb(); // Breadcrumb
-@include rtp-pagenavi(); // Pagenavi
-@include rtp-bbpress-style(); // bbPress
-@include rtp-google-custom-search-page(); // Google Custom Search
+
+// Breadcrumb
+@include rtp-breadcrumb();
+
+// Pagenavi
+@include rtp-pagenavi();
+
+// bbPress
+@include rtp-bbpress-style();
+
+// Google Custom Search
+@include rtp-google-custom-search-page();
 
 
-// ********* Responsive Structure ********* //
+// ***** Responsive Structure ***** //
 $ninesixty-gutter-width: 16px;
 $ninesixty-grid-width: 744px;
 @import "./rtpanel_sass/responsive";
 
 
-// ********* Print Style ********* //
+// ******* Print : See Details >> '_print.scss' ******* //
 @import "./rtpanel_sass/print";

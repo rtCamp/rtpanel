@@ -80,24 +80,48 @@
     /* End - Post Meta */    
 }
 
+// ***** Images ***** //
+@mixin rtp-image() {
+    /* Images */
+    img { @extend .rtp-border-box; margin: 5px; height: auto; max-width: 100%; // Self
+        // Floated Images
+        &.alignnone { margin-left: 0; margin-right: 10px; }
+        &.aligncenter { margin-left: auto; margin-right: auto; }
+        &.alignleft { margin-left: 0; margin-right: 15px; }
+        &.alignright { margin-left: 15px; margin-right: 0; }
+
+        // IE8 image width issue fix.
+        .ie8 & { width: auto; }
+    }
+}
+
+
+// ***** Thumbnail Container ***** //
+@mixin rtp-thumbnail-container() {
+    .rtp-thumbnail-container {
+        img { margin: 0; }
+
+        // Image Container Link
+        a { margin-top: 5px; margin-bottom: 5px;
+            // Floated Images
+            &.alignnone { margin-left: 0; margin-right: 10px; }
+            &.aligncenter { display: inline-block; margin-left: auto; margin-right: auto; }
+            &.alignleft { margin-left: 0; margin-right: 15px; }
+            &.alignright { margin-left: 15px; margin-right: 0; }
+        }
+    }
+}
+
 // ***** Thumbnail with shadow effect ***** //
 @mixin rtp-thumbnail-shadow() {
     /* Thumbnail with shadow effect */
-    .rtp-thumbnail-shadow img {
-        background: $base-background;
-        @include rtp-border($border-color);
-        @include box-shadow(0 0 4px darken($base-background, 20%));
-        //margin-top: 10px;
-        padding: 4px;
-
-        // Floated Images
-        //&.alignleft { margin-left: 5px; }
-        //&.alignright { margin-right: 5px; }
-        //&.aligncenter { margin: 5px auto; }
-    }
-
-    .rtp-thumbnail-shadow, .rtp-no-thumbnail-shadow {
-        a.aligncenter { display: inline-block; }
+    .rtp-thumbnail-shadow {
+        img {
+            background: $base-background;
+            @include rtp-border($border-color);
+            @include box-shadow(0 0 4px darken($base-background, 20%));
+            padding: 4px;
+        }
     }
 }
 

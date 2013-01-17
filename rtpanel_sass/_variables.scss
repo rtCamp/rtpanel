@@ -23,8 +23,11 @@ $secondary-link-hover-color: #111111 !default;
 $title-link-color: #111111 !default;
 $title-hover-color: #cd5a1b !default;
 
-// ***** Typography Defaults ***** //
+// Text Color
 $base-font-color: #333333 !default;
+
+// ***** Typography Defaults ***** //
+// Note: Defalult font sizes should be in Pixel. ( FYI: Font size will convert into EM's automatically. )
 $base-font-size: 16px !default;
 $secondary-font-size: 14px !default;
 $tertiary-font-size: 12px !default;

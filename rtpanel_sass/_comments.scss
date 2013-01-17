@@ -35,7 +35,6 @@
     > ol, > ul { @extend .rtp-vertical-rhythm; }
 }
 
-
 // Comment Body
 .comment-body { border-bottom: 1px solid $border-color; clear: both; margin: 0.75em 0; position: relative; }
 
@@ -107,14 +106,18 @@
 
     // Required Field
     .required { color: $error-text-color; }
-    
+
+    // Comment form comment
     .comment-form-comment, .form-submit { clear: both; margin-bottom: 3px; }
 
     // Above Comments
     .rtp-comment-above { margin-bottom: 0; }
 
     // Form Inputs
-    input[type=text], input[type=url], input[type=email] { width: 50%; }
+    input {
+        &[type=text], &[type=url], &[type=email] { width: 50%; }
+    }
+
     textarea { height: 110px; width: 98.33%; }
 
     // Allowed Tags

@@ -47,8 +47,7 @@
             ul.bbp-topic-revision-log img.avatar,
             div.bbp-template-notice img.avatar,
             .widget_display_topics img.avatar,
-            .widget_display_replies img.avatar,
-            p.bbp-topic-meta img.avatar { border: 0; margin-bottom: 0; }
+            .widget_display_replies img.avatar { border: 0; margin-bottom: 0; }
 
             li.bbp-header { background: #EEE; }
             .bbp-forums-list li { display: block; }
@@ -58,7 +57,7 @@
             fieldset.bbp-form input[type=checkbox] { margin: 0 2px 4px; }
         }
     }
-    
+
     .bbp_widget_login {
         .logout-link { @extend .rtp-tertiary-font-size; }
     }
@@ -67,7 +66,6 @@
 // ****** Google custom search page style ****** //
 @mixin rtp-google-custom-search-page() {
     /* Google custom search page style */
-    /* Border Elements */
     .search-layout-wrapper > hr { margin-top: 0; }
 
     #content .gsc-control-cse { @extend .rtp-base-font-family; padding: 0; }

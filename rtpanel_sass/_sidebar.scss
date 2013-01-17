@@ -14,21 +14,27 @@
 .rtp-comments-widget {
     // Children
     ul { margin-left: 0; }
+
+    // List
     li { list-style: none;
         &:last-child .rtp-reply { margin-bottom: 0; }
     }
+    
+    // Author Meta
     .author-comment { line-height: 1.385em; margin: 5px 0; }
     .author-vcard img { float: left; margin: 5px 10px 5px 0; }
     .alignright img { margin: 5px 0 5px 10px; }
 
     // Paragraph
     p { margin: 0; }
-    
+
+    // Reply Buttton
     .rtp-reply { clear: none; padding: 0; // Self
         // Link
         a { font-size: $tertiary-font-size; margin: 0; }
     }
-    
+
+    // Comment Date
     .comment-date { @extend .rtp-tertiary-font-size; }
 }
 
@@ -107,6 +113,5 @@ tfoot {
             &:hover { background-position: -264px -44px; }
         }
     }
-    
 }
 /* End - Sidebar */
