@@ -6,15 +6,15 @@
 
 // ***** Post Container ***** //
 @mixin rtp-post-container() {
-    .hentry { border-bottom: 1px dotted $border-color; clear: both; padding-top: 1.5em; padding-bottom: 1.5em; position: relative; }
+    .hentry { border-bottom: 1px dotted $border-color; clear: both; padding-bottom: 1.357em; padding-top: 1.290em; position: relative; }
     .rtp-singular, .attachment, .rtp-full-width {
         .hentry { border-bottom: 0; padding-bottom: 0; }
     }
-    
+
     // Read More
     .rtp-readmore {
         &,
-        &:visited { @extend .rtp-secondary-font-size; }
+        &:visited { float: left; @extend .rtp-secondary-font-size; }
     }
 }
 
@@ -72,7 +72,8 @@
     .rtp-post-comment {
         &,
         &:visited { font-size: 13px; font-style: normal; padding: 0 3px 0 2px; }
-        
+
+        // Span
         span { color: $title-link-color; font-size: 1.286em; }
     }
 
@@ -85,8 +86,8 @@
     /* Images */
     img { @extend .rtp-border-box; margin: 5px; height: auto; max-width: 100%; // Self
         // Floated Images
-        &.alignnone { margin-left: 0; margin-right: 10px; }
-        &.aligncenter { margin-left: auto; margin-right: auto; }
+        &.alignnone { margin-left: 0; margin-right: 15px; }
+        //&.aligncenter { margin-left: auto; margin-right: auto; }
         &.alignleft { margin-left: 0; margin-right: 15px; }
         &.alignright { margin-left: 15px; margin-right: 0; }
 
@@ -104,9 +105,9 @@
         // Image Container Link
         a { margin-top: 5px; margin-bottom: 5px;
             // Floated Images
-            &.alignnone { margin-left: 0; margin-right: 10px; }
-            &.aligncenter { display: inline-block; margin-left: auto; margin-right: auto; }
+            &.alignnone { display: inline-block; margin-bottom: 14px; margin-left: 0; margin-right: 15px; }
             &.alignleft { margin-left: 0; margin-right: 15px; }
+            &.aligncenter { display: inline-block; margin-bottom: 14px; }
             &.alignright { margin-left: 15px; margin-right: 0; }
         }
     }
@@ -128,15 +129,14 @@
 // ***** Image Caption Style ***** //
 @mixin rtp-wp-caption() {
     /* Image Caption Style */
-    .wp-caption { background-color: darken($base-background, 4%); @extend .rtp-border-box; margin: 7px; max-width: 100%; overflow: hidden; padding: 5px 5px 0; text-align: center; // Self
+    .wp-caption { background-color: darken($base-background, 4%); @extend .rtp-border-box; margin: 6px 5px 15px; max-width: 100%; overflow: hidden; padding: 5px 5px 0; text-align: center; // Self
         // Floated Elements
-        &.aligncenter { margin: 7px auto; }
-        &.alignright { margin: 7px 0 7px 15px; }
-        &.alignnone,
-        &.alignleft { margin: 7px 15px 7px 0; }
+        &.alignnone, &.alignleft { margin-left: 0; margin-right: 15px; }
+        &.aligncenter { margin-left: auto; margin-right: auto; }
+        &.alignright { margin-left: 15px; margin-right: 0; }
 
         a { border: 0; text-decoration: none; }
-        img { border: 0; margin: 0; padding: 0; }
+        img { margin: 0; }
     }
 
     .wp-caption-text { color: $gray; line-height: 1.286em; margin: 0 5px 8px; }
@@ -148,7 +148,6 @@
     /* Gallery */
     .gallery {  margin: 0 auto 10px; // Self
         // Children
-        .gallery-icon { overflow: hidden; padding: 5px; text-align: center; }
         br + br { display: none; }
     }
 
@@ -160,8 +159,14 @@
     }
 
     .gallery-caption { color: $gray; @extend .rtp-secondary-font-size; margin: 0 0 10px; padding: 0; text-align: center; }
-    .gallery-icon .attachment-thumbnail { background-color: darken($base-background, 4%); @include rtp-border($border-color); margin: 0; max-width: 100%; padding: 5px; }
-    .gallery-icon a:hover .attachment-thumbnail { border-color: darken($border-color, 30%); }
+
+    // Gallery Icon
+    
+    .gallery-icon { overflow: hidden; padding: 5px; text-align: center; // Self
+        //a { display: block; }
+        .attachment-thumbnail { background-color: darken($base-background, 4%); @include rtp-border($border-color); margin: 0; max-width: 100%; padding: 5px; }
+    }
+    
     /* End - Gallery */
 }
 

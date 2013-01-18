@@ -443,9 +443,11 @@ body#tinymce { background: white; margin: 0 10px; padding: 10px 5px; }
 #main-wrapper { background: white; }
 
 /* Post Loop */
-.hentry { border-bottom: 1px dotted #dddddd; clear: both; padding-top: 1.5em; padding-bottom: 1.5em; position: relative; }
+.hentry { border-bottom: 1px dotted #dddddd; clear: both; padding-bottom: 1.357em; padding-top: 1.290em; position: relative; }
 
 .rtp-singular .hentry, .attachment .hentry, .rtp-full-width .hentry { border-bottom: 0; padding-bottom: 0; }
+
+.rtp-readmore, .rtp-readmore:visited { float: left; }
 
 .sticky { background-color: whitesmoke; border: 0; margin: 0.75em 0 0; padding-left: 1em; padding-right: 1em; }
 
@@ -486,8 +488,7 @@ body#tinymce { background: white; margin: 0 10px; padding: 10px 5px; }
 /* End - Post Meta */
 /* Images */
 img { margin: 5px; height: auto; max-width: 100%; }
-img.alignnone { margin-left: 0; margin-right: 10px; }
-img.aligncenter { margin-left: auto; margin-right: auto; }
+img.alignnone { margin-left: 0; margin-right: 15px; }
 img.alignleft { margin-left: 0; margin-right: 15px; }
 img.alignright { margin-left: 15px; margin-right: 0; }
 .ie8 img { width: auto; }
@@ -504,21 +505,21 @@ img.alignright { margin-left: 15px; margin-right: 0; }
 
 .rtp-thumbnail-container img { margin: 0; }
 .rtp-thumbnail-container a { margin-top: 5px; margin-bottom: 5px; }
-.rtp-thumbnail-container a.alignnone { margin-left: 0; margin-right: 10px; }
-.rtp-thumbnail-container a.aligncenter { display: inline-block; margin-left: auto; margin-right: auto; }
+.rtp-thumbnail-container a.alignnone { display: inline-block; margin-bottom: 14px; margin-left: 0; margin-right: 15px; }
 .rtp-thumbnail-container a.alignleft { margin-left: 0; margin-right: 15px; }
+.rtp-thumbnail-container a.aligncenter { display: inline-block; margin-bottom: 14px; }
 .rtp-thumbnail-container a.alignright { margin-left: 15px; margin-right: 0; }
 
 /* Thumbnail with shadow effect */
 .rtp-thumbnail-shadow img { background: white; border: 1px solid #dddddd; -webkit-box-shadow: 0 0 4px #cccccc; -moz-box-shadow: 0 0 4px #cccccc; box-shadow: 0 0 4px #cccccc; padding: 4px; }
 
 /* Image Caption Style */
-.wp-caption { background-color: whitesmoke; margin: 7px; max-width: 100%; overflow: hidden; padding: 5px 5px 0; text-align: center; }
-.wp-caption.aligncenter { margin: 7px auto; }
-.wp-caption.alignright { margin: 7px 0 7px 15px; }
-.wp-caption.alignnone, .wp-caption.alignleft { margin: 7px 15px 7px 0; }
+.wp-caption { background-color: whitesmoke; margin: 6px 5px 15px; max-width: 100%; overflow: hidden; padding: 5px 5px 0; text-align: center; }
+.wp-caption.alignnone, .wp-caption.alignleft { margin-left: 0; margin-right: 15px; }
+.wp-caption.aligncenter { margin-left: auto; margin-right: auto; }
+.wp-caption.alignright { margin-left: 15px; margin-right: 0; }
 .wp-caption a { border: 0; text-decoration: none; }
-.wp-caption img { border: 0; margin: 0; padding: 0; }
+.wp-caption img { margin: 0; }
 
 .wp-caption-text { color: #666666; line-height: 1.286em; margin: 0 5px 8px; }
 
@@ -526,7 +527,6 @@ img.alignright { margin-left: 15px; margin-right: 0; }
 
 /* Gallery */
 .gallery { margin: 0 auto 10px; }
-.gallery .gallery-icon { overflow: hidden; padding: 5px; text-align: center; }
 .gallery br + br { display: none; }
 
 .gallery-item { display: inline-block; margin: 0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 5px; vertical-align: top; }
@@ -551,9 +551,8 @@ img.alignright { margin-left: 15px; margin-right: 0; }
 
 .gallery-caption { color: #666666; margin: 0 0 10px; padding: 0; text-align: center; }
 
+.gallery-icon { overflow: hidden; padding: 5px; text-align: center; }
 .gallery-icon .attachment-thumbnail { background-color: whitesmoke; border: 1px solid #dddddd; margin: 0; max-width: 100%; padding: 5px; }
-
-.gallery-icon a:hover .attachment-thumbnail { border-color: #919191; }
 
 /* End - Gallery */
 /* Paged Navigation */
