@@ -50,7 +50,7 @@ dfn { font-style: italic; }
 mark { background: #FF0; color: $black; }
 
 /* Improves readability of pre-formatted text in all browsers. */
-pre { white-space: pre; white-space: pre-wrap; }
+pre { white-space: pre-wrap; }
 
 /* Sets consistent quote types. */
 q { quotes: '\201C' '\201D' '\2018' '\2019'; }
@@ -230,6 +230,8 @@ samp {
     @extend .rtp-secondary-font-size;
 }
 
+/* Address differences between Firefox and other browsers. */
+hr { @include box-sizing(content-box); height: 0; }
 
 /* Generic Lists: */
 ul, ol {

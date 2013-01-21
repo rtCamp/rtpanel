@@ -47,7 +47,7 @@ dfn { font-style: italic; }
 mark { background: #FF0; color: black; }
 
 /* Improves readability of pre-formatted text in all browsers. */
-pre { white-space: pre; white-space: pre-wrap; }
+pre { white-space: pre-wrap; }
 
 /* Sets consistent quote types. */
 q { quotes: '\201C' '\201D' '\2018' '\2019'; }
@@ -129,6 +129,9 @@ pre { background-color: whitesmoke; padding: 5px 10px; overflow-x: auto; }
 pre code { background-color: transparent; border: 0; color: inherit; padding: 0; }
 
 /* Corrects font family set oddly in Safari 5 and Chrome. */
+/* Address differences between Firefox and other browsers. */
+hr { -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; height: 0; }
+
 /* Generic Lists: */
 ul, ol { margin-left: 30px; padding-left: 0; }
 ul ul, ul ol, ol ul, ol ol { margin: 0 0 0 1.5em; }
@@ -203,7 +206,7 @@ iframe { border: 0; max-width: 100%; }
 .rtp-content-box { -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; }
 
 /* Font Families */
-.rtp-base-font-family, .tagline, #reply-title small, #content .gsc-control-cse, .gsc-table-result { font-family: "Helevetica Neue", Helvetica, Arial, "Microsoft Sans Serif", sans-serif; }
+.rtp-base-font-family, .tagline, #reply-title small, #content .gsc-control-cse, .gsc-table-result { font-family: Helvetica, Arial, sans-serif; }
 
 /* Corrects font family set oddly in Safari 5 and Chrome. */
 .rtp-font-monospace, code, kbd, pre, samp { font-family: Consolas, monaco, monospace; }
@@ -215,7 +218,7 @@ iframe { border: 0; max-width: 100%; }
 .rtp-tertiary-font-size, .rtp-edit-link a, .commentlist .trackback em, .commentlist .pingback em, .comment-meta, .rtp-comments-widget .comment-date, .widget_calendar table, .bbp_widget_login .logout-link { font-size: 12px; line-height: 1.75em; }
 
 /* Typography */
-body, body#tinymce { color: #333333; font: 87.5%/1.5em "Helevetica Neue", Helvetica, Arial, "Microsoft Sans Serif", sans-serif; }
+body, body#tinymce { color: #333333; font: 87.5%/1.5em Helvetica, Arial, sans-serif; }
 
 h1, .h1 { font-size: 2.28571em; line-height: 1.3125em; }
 
@@ -235,7 +238,7 @@ a, a:active, a:visited { color: #006999; text-decoration: none; }
 a:hover, a:focus { color: #cd5a1b; text-decoration: underline; }
 
 /* Heading Links */
-h1 a, h1 a:active, h1 a:visited, h2 a, h2 a:active, h2 a:visited { color: #111111; }
+h1 a, h1 a:active, h1 a:visited, h2 a, h2 a:active, h2 a:visited { color: #333333; }
 h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus { color: #cd5a1b; text-decoration: none; }
 
 /* Generic Links */
@@ -457,7 +460,7 @@ body#tinymce { background: white; margin: 0 10px; padding: 10px 5px; }
 
 .rtp-has-comments { width: 80%; }
 
-.rtp-main-title { border-bottom: 1px solid #dddddd; color: #111111; float: none; margin-top: 0.75em; padding-bottom: 0.2em; }
+.rtp-main-title { border-bottom: 1px solid #dddddd; color: #333333; float: none; margin-top: 0.75em; padding-bottom: 0.2em; }
 
 .post-content { clear: both; }
 
@@ -481,7 +484,7 @@ body#tinymce { background: white; margin: 0 10px; padding: 10px 5px; }
 
 /* Post Comment */
 .rtp-post-comment, .rtp-post-comment:visited { font-size: 13px; font-style: normal; padding: 0 3px 0 2px; }
-.rtp-post-comment span { color: #111111; font-size: 1.286em; }
+.rtp-post-comment span { color: #333333; font-size: 1.286em; }
 
 .post-tags { clear: left; }
 
