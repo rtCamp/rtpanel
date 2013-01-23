@@ -407,6 +407,9 @@ body#tinymce { background: white; margin: 0 10px; padding: 10px 5px; }
 
 .rtp-pull-11 { left: -880px; }
 
+/* Main Wrapper Background */
+#main-wrapper { background: white; }
+
 /* Header */
 #header { margin-bottom: 10px; margin-top: 10px; }
 
@@ -442,9 +445,6 @@ body#tinymce { background: white; margin: 0 10px; padding: 10px 5px; }
 .rtp-icon-bar:first-child { margin-top: 0; }
 
 /* End - Navigation */
-/* Main Wrapper Background */
-#main-wrapper { background: white; }
-
 /* Post Loop */
 .hentry { border-bottom: 1px dotted #dddddd; clear: both; padding-bottom: 1.357em; padding-top: 1.290em; position: relative; }
 
@@ -464,9 +464,7 @@ body#tinymce { background: white; margin: 0 10px; padding: 10px 5px; }
 
 .post-content { clear: both; }
 
-.rtp-singular .post-content a { text-decoration: underline; }
-
-.blog .post-content p, .search-results .post-content p, .archive .post-content p { margin-bottom: 1em; }
+.blog .post-content p, .archive .post-content p, .search-results .post-content p { margin-bottom: 1em; }
 
 .rtp-not-found { margin: 1.5em 0; }
 

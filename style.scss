@@ -54,37 +54,20 @@ $base-line-height: 21px; // 24px !default;
 @include rtp-grid-generator();
 
 
+// ***** rtPanel Modules : See Details >> '_layout.scss' ***** //
+@import "./rtpanel_sass/layout";
+
+
 // ****** rtPanel Header : See Details >> '_header.scss' ****** //
 @import "./rtpanel_sass/header";
 
-// ***** Header ***** //
-@include rtp-header();
 
-// *** Navigation *** //
-@include rtp-nav-menu();
+// ***** rtPanel Modules : See Details >> '_post-loop.scss' ***** //
+@import "./rtpanel_sass/post-loop";
 
 
 // ***** rtPanel Modules : See Details >> '_modules.scss' ***** //
 @import "./rtpanel_sass/modules";
-
-// ***** Layout ***** //
-@include rtp-layout();
-
-/* Post Loop */
-// Post Container
-@include rtp-post-container();
-
-// Sticky Post
-@include rtp-sticky-post();
-
-// Post Header
-@include rtp-post-header();
-
-// Post Content
-@include rtp-post-content();
-
-// ***** Post Meta ***** //
-@include rtp-post-meta();
 
 // ****** Images ****** //
 @include rtp-image();
@@ -93,7 +76,7 @@ $base-line-height: 21px; // 24px !default;
 @include rtp-attachment-page();
 
 // *** Thumbnail Container *** //
-@include rtp-thumbnail-container();
+@include rtp-thumbnail();
 
 // ***** Thumbnail With Shadow ***** //
 @include rtp-thumbnail-shadow();
