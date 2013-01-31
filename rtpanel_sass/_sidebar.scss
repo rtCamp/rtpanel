@@ -1,5 +1,5 @@
 /* Sidebar */
-#sidebar { margin-top: 1.2em; }
+#sidebar { margin-top: 2em; }
 .widgettitle { font-size: 1.385em; line-height: 1.2em; margin-top: 0; }
 
 .widget { @extend .rtp-secondary-font-size; @extend .rtp-vertical-rhythm;
@@ -41,7 +41,7 @@
 /* Calendar Widget */
 .widget_calendar {
     // Children
-    table { @extend .rtp-tertiary-font-size; }
+    table { @extend .rtp-tertiary-font-size; margin: 0 0 4px; }
     th, td { color: $gray; text-align: center; }
     #today { background-color: darken($base-background, 6%); font-weight: 700; }
 }

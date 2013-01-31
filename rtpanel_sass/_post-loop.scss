@@ -21,7 +21,7 @@
 .post-header { margin-bottom: 1em; }
 .post-title { float: left; line-height: 1.2em; margin: 0; }
 .rtp-has-comments { width: 80%; }
-.rtp-main-title { border-bottom: 1px solid $border-color; color: $title-link-color; float: none; margin-top: 0.75em; padding-bottom: 0.2em; }
+.rtp-main-title { border-bottom: 1px solid $border-color; color: $title-link-color; float: none; margin-top: 0.480em; padding-bottom: 0.2em; }
 
 // ***** Post Content ***** //
 .post-content { clear: both; }
@@ -45,7 +45,7 @@
 }
 
 .post-meta-bottom { padding: 1em 0 0;
-    .single & { padding: 0; }
+    .single & { margin: 1.5em 0 0; padding: 0; }
 }
 
 .rtp-post-comment-count { margin: 0.7em 0 0; text-align: right; }

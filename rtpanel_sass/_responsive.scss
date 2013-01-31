@@ -65,11 +65,30 @@ $cols: $ninesixty-columns;
     .rtp-post-comment-count { clear: both; float: left; margin: 0 0 15px; }
     .rtp-section-separator:after { left: 0; max-width: 100%; }
     #respond .compact-comment-form { width: 70%; }
+    
+    // Two column widgets
+    .widget { @include box-sizing(border-box); float: left; width: 50%;
+        &:nth-child(odd) { clear: left; padding-right: 1%; }
+        &:nth-child(even) { padding-left: 1%; }
+    }
 }
 
 /* Max Screen Width: 320px */
 @media screen and (max-width: 320px) {
     #header { width: 70%; }
+    
+    // One column widgets
+    .widget { float: none; width: 100%;
+        &:nth-child(odd) { clear: none; padding-right: 0; }
+        &:nth-child(even) { padding-left: 0; }
+    }
 }
 
+
+@mixin rtp-wider-screen() {
+    @media screen and (min-width: 1200px) {
+        /* Grid Containers */
+        @include rtp-grid-generator($cols);
+    }
+}
 /* End - Responsive Structure */

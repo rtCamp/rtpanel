@@ -1327,9 +1327,8 @@ function rtp_upgrade_theme_notice_js() { ?>
     <script type="text/javascript" >
         jQuery(function(){
             jQuery('#wpbody-content').css( 'padding-bottom', '85px' );
-            jQuery('.upgrade_theme_notice_close').css( 'color', '#CC0000' );
-            jQuery('.upgrade_theme_notice_close').css( 'cursor', 'pointer' );
-            jQuery('.upgrade_theme_notice_close').click(function(e){
+            jQuery('.upgrade_theme_notice_close').css({'color': '#CC0000', 'cursor': 'pointer'})
+            .click(function(e){
                 e.preventDefault();
                 jQuery('.upgrade_theme_notice').hide();
                 // call ajax

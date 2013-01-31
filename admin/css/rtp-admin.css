@@ -143,4 +143,4 @@ textarea[disabled] { background-color: Silver; }
 
 .rt-social-share { margin: 2px auto; text-align: center; width: 135px; }
 .rt-social-share .rt-twitter { float: left; margin-right: 5px; }
-.rt-social-share .rt-facebook { float: left; margin-left: 5px; position: relative; top: -15px; }
+.rt-social-share .rt-facebook { float: left; margin-left: 5px; position: relative; }
