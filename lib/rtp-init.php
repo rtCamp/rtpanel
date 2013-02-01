@@ -80,7 +80,7 @@ if ( !function_exists( 'rtp_header_style' ) ) {
      */
     function rtp_header_style() {
         if ( get_header_image() ) { ?>
-            <style> #header-wrapper { background: url(<?php header_image(); ?>) no-repeat;width: <?php echo HEADER_IMAGE_WIDTH; ?>px; height: <?php echo HEADER_IMAGE_HEIGHT; ?>px; } </style><?php
+            <style> #header-wrapper { background: url('<?php header_image(); ?>') no-repeat;width: <?php echo HEADER_IMAGE_WIDTH; ?>px; height: <?php echo HEADER_IMAGE_HEIGHT; ?>px; } </style><?php
         }
     }
 }
@@ -92,7 +92,7 @@ if ( !function_exists( 'rtp_admin_header_style' ) ) {
      * @since rtPanel 2.0
      */
     function rtp_admin_header_style() { ?>
-        <style type="text/css">  #headimg { width: <?php echo HEADER_IMAGE_WIDTH; ?>px; height: <?php echo HEADER_IMAGE_HEIGHT; ?>px; } </style><?php
+        <style> #headimg { width: <?php echo HEADER_IMAGE_WIDTH; ?>px; height: <?php echo HEADER_IMAGE_HEIGHT; ?>px; } </style><?php
     }
 }
 
