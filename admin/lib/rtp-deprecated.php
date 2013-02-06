@@ -94,3 +94,14 @@ function rtp_nofollow_callback( $matches ) {
     }
     return $link;
 }
+
+/**
+ * Header image background style
+ *  
+ * @return null
+ *  
+ */
+function rtp_header_style(){
+    _rtp_deprecated_function( __FUNCTION__, '3.0' );
+    return '';    
+}
