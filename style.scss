@@ -125,9 +125,10 @@ $ninesixty-grid-width: 744px;
 @import "./rtpanel_sass/responsive";
 
 // ***** Responsive structure for wider screen size more than 1200px ***** //
+$screen-width: 1200px;
 $ninesixty-gutter-width: 20px;
-$ninesixty-grid-width: 1200px;
-@include rtp-wider-screen();
+$ninesixty-grid-width: $screen-width;
+@include rtp-wider-screen($screen-width);
 
 
 // ******* Print : See Details >> '_print.scss' ******* //

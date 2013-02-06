@@ -71,6 +71,10 @@ $cols: $ninesixty-columns;
         &:nth-child(odd) { clear: left; padding-right: 1%; }
         &:nth-child(even) { padding-left: 1%; }
     }
+
+    // Make padding less
+    th, td { padding: 2px }
+    
 }
 
 /* Max Screen Width: 320px */
@@ -78,15 +82,15 @@ $cols: $ninesixty-columns;
     #header { width: 70%; }
     
     // One column widgets
-    .widget { float: none; width: 100%;
+    .widget { width: 100%;
         &:nth-child(odd) { clear: none; padding-right: 0; }
         &:nth-child(even) { padding-left: 0; }
     }
 }
 
-
-@mixin rtp-wider-screen() {
-    @media screen and (min-width: 1200px) {
+/* Wider Screen Monitors */
+@mixin rtp-wider-screen($screen-width: 1200px) {
+    @media screen and (min-width: $screen-width) {
         /* Grid Containers */
         @include rtp-grid-generator($cols);
     }

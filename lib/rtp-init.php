@@ -41,7 +41,7 @@ if ( !function_exists( 'rtpanel_setup' ) ) {
             'height'                => apply_filters( 'rtp_header_image_height', 140 ),
             'header-text'           => false,
             // Callback for styling the header.
-            'wp-head-callback'      => 'rtp_header_style',
+            'wp-head-callback'      => '',
             // Callback for styling the header preview in the admin.
             'admin-head-callback'   => 'rtp_admin_header_style',
 	);
@@ -61,7 +61,8 @@ if ( !function_exists( 'rtpanel_setup' ) ) {
             define( 'HEADER_IMAGE_HEIGHT' , apply_filters( 'rtp_header_image_height', 140 ) );
 
             // adding support for the header image
-            add_custom_image_header( 'rtp_header_style', 'rtp_admin_header_style' );
+            // Removed background image for header image
+            // add_custom_image_header( 'rtp_header_style', 'rtp_admin_header_style' );
         }
 
         // Make use of wp_nav_menu() for navigation purpose
@@ -72,18 +73,20 @@ if ( !function_exists( 'rtpanel_setup' ) ) {
 }
 add_action( 'after_setup_theme', 'rtpanel_setup' );// Tell WordPress to run rtpanel_setup() when the 'after_setup_theme' hook is run
 
-if ( !function_exists( 'rtp_header_style' ) ) {
-    /**
-     * Site header styling
-     *
-     * @since rtPanel 2.0
-     */
-    function rtp_header_style() {
+/**
+* Site header image
+*
+* @since rtPanel 2.3
+*/
+if ( !function_exists( 'rtp_header_image' ) ) {
+    function rtp_header_image() {
         if ( get_header_image() ) { ?>
-            <style> #header-wrapper { background: url('<?php header_image(); ?>') no-repeat;width: <?php echo HEADER_IMAGE_WIDTH; ?>px; height: <?php echo HEADER_IMAGE_HEIGHT; ?>px; } </style><?php
+            <img class="rtp-header-image rtp-margin-0" src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?>" /><?php
         }
     }
 }
+add_action('rtp_hook_before_header', 'rtp_header_image');
+
 
 if ( !function_exists( 'rtp_admin_header_style' ) ) {
     /**

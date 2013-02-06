@@ -38,7 +38,8 @@ global $rtp_general; ?><!DOCTYPE html>
 
             <?php rtp_hook_begin_main_wrapper(); ?>
 
-            <header id="header-wrapper" role="banner" class="rtp-container-12 clearfix">
+            <?php $header_class = get_header_image() ? ' rtp-header-wrapper-image' : ''; ?>
+            <header id="header-wrapper" role="banner" class="rtp-container-12 clearfix<?php echo $header_class; ?>">
 
                 <?php rtp_hook_before_header(); ?>
 
