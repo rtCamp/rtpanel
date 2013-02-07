@@ -206,7 +206,7 @@ iframe { border: 0; max-width: 100%; }
 .rtp-content-box { -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; }
 
 /* Font Families */
-.rtp-base-font-family, .tagline, #reply-title small, #content .gsc-control-cse, .gsc-table-result { font-family: Helvetica, Arial, sans-serif; }
+.rtp-base-font-family, .tagline, #reply-title small, #content .gsc-control-cse, .gsc-table-result { font-family: Arial, Helvetica, sans-serif; }
 
 /* Corrects font family set oddly in Safari 5 and Chrome. */
 .rtp-font-monospace, code, kbd, pre, samp { font-family: Consolas, monaco, monospace; }
@@ -218,7 +218,7 @@ iframe { border: 0; max-width: 100%; }
 .rtp-tertiary-font-size, .rtp-edit-link a, .commentlist .trackback em, .commentlist .pingback em, .comment-meta, .rtp-comments-widget .comment-date, .widget_calendar table, .bbp_widget_login .logout-link { font-size: 12px; line-height: 1.75em; }
 
 /* Typography */
-body, body#tinymce { color: #333333; font: 87.5%/1.5em Helvetica, Arial, sans-serif; }
+body, body#tinymce { color: #333333; font: 87.5%/1.5em Arial, Helvetica, sans-serif; }
 
 h1, .h1 { font-size: 2.28571em; line-height: 1.3125em; }
 
