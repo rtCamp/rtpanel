@@ -112,7 +112,7 @@
 // ****** Paged Navigation ****** //
 @mixin rtp-paged-navigation() {
     /* Paged Navigation */
-    .rtp-navigation, .rtp-comments-pagination { clear: both; @extend .rtp-secondary-font-size; padding-bottom: 1.5em; padding-bottom: 1.5em; // Self
+    .rtp-navigation, .rtp-comments-pagination { clear: both; @extend .rtp-secondary-font-size; padding-bottom: 1.5em; padding-top: 1.5em; // Self
         // Links
         a { text-decoration: none;
             // Hover

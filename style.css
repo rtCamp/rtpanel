@@ -558,7 +558,7 @@ img.alignright { margin-left: 15px; margin-right: 0; }
 
 /* End - Gallery */
 /* Paged Navigation */
-.rtp-navigation, .rtp-comments-pagination { clear: both; padding-bottom: 1.5em; padding-bottom: 1.5em; }
+.rtp-navigation, .rtp-comments-pagination { clear: both; padding-bottom: 1.5em; padding-top: 1.5em; }
 .rtp-navigation a, .rtp-comments-pagination a { text-decoration: none; }
 .rtp-navigation a:hover, .rtp-comments-pagination a:hover { text-decoration: underline; }
 
