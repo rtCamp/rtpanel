@@ -50,7 +50,7 @@ mark { background: #FF0; color: black; }
 pre { white-space: pre-wrap; }
 
 /* Sets consistent quote types. */
-q { quotes: '\201C' '\201D' '\2018' '\2019'; }
+q { quotes: "\201C" "\201D" "\2018" "\2019"; }
 
 /* Addresses inconsistent and variable font size in all browsers. */
 small { font-size: 80%; }
@@ -123,7 +123,7 @@ code { background-color: #f7f7f9; border: 1px solid #e1e1e8; -webkit-border-radi
 
 caption { background-color: #ebebeb; font-weight: 700; padding: 5px; }
 
-kbd { background-color: whitesmoke; border: 1px solid #dddddd; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; display: inline-block; text-shadow: 0 1px 0 white; white-space: nowrap; margin: 0 .1em; padding: 0 0.6em; }
+kbd { background-color: whitesmoke; border: 1px solid #dddddd; box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; display: inline-block; text-shadow: 0 1px 0 white; white-space: nowrap; margin: 0 0.1em; padding: 0 0.6em; }
 
 pre { background-color: whitesmoke; padding: 5px 10px; overflow-x: auto; }
 pre code { background-color: transparent; border: 0; color: inherit; padding: 0; }
@@ -893,7 +893,7 @@ input.gsc-input { margin-left: 0; }
 /* Print Style Sheet */
 @media print { * { background: transparent; color: #444; text-shadow: none; }
   a, a:visited { color: #444; text-decoration: underline; }
-  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  pre, blockquote { border: 1px solid #999999; page-break-inside: avoid; }
   img { height: auto; max-width: 100%; page-break-inside: avoid; }
   h2, h3 { orphans: 3; page-break-after: avoid; widows: 3; }
   p { orphans: 3; widows: 3; }
