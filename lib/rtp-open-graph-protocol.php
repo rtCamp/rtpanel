@@ -117,13 +117,15 @@ class rtp_ogp {
                 if ( !empty ( $thumbnail ) ) {
                     $image = $thumbnail[0];
                 }
-            } else {
-                $image = rtp_generate_thumbs( get_post_thumbnail_id( $post->ID ) );
-                $image = ( $image ) ? $image : apply_filters( 'rtp_default_ogp_image_path', '' );
+            } else {                
+                $image = apply_filters( 'rtp_default_ogp_image_path', '' );                
+                if(empty($image)){
+                    $image = $rtp_general['logo_upload'];
+                }
             }
         } else {
             $image = $rtp_general['logo_upload'];
-        }
+        }        
         return $image;
     }
 }

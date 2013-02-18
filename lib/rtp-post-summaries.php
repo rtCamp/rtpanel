@@ -74,97 +74,17 @@ function rtp_show_post_thumbnail( $post_id = null, $thumbnail_size = 'thumbnail'
             echo '<figure class="rtp-thumbnail-container ' . $image_align . ' ' . $thumbnail_frame . '">'; ?>
                 <a role="link" class="<?php echo $image_align; ?>" href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( $thumbnail_size, array( 'title' => the_title_attribute( array( 'echo' => false ) ), 'class' => 'post-thumb ' . $image_align ) ); ?></a><?php
             echo '</figure>';
-        } else {
-            $image = rtp_generate_thumbs( '', $thumbnail_size, $post_id );
-            $image = ( $image ) ? $image : apply_filters( 'rtp_default_image_path', $default_img_path );
-            if ( $image ) {
+        } else {            
+            $image = apply_filters( 'rtp_default_image_path', $default_img_path );
+            if ( isset($image) && !empty($image) ) {
                 $image_id = rtp_get_attachment_id_from_src( $image, true );
                 $alt = get_post_meta( $image_id, '_wp_attachment_image_alt', true) ? get_post_meta( $image_id, '_wp_attachment_image_alt', true) : 'Image';
                 echo '<figure class="rtp-thumbnail-container ' . $image_align . ' ' . $thumbnail_frame . '">'; ?>
                 <a role="link" class="<?php echo $image_align; ?>" href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><img role="img" class="<?php echo 'post-thumb ' . $image_align; ?> wp-post-image" title="<?php the_title_attribute(); ?>" alt="<?php echo $alt; ?>" <?php echo rtp_get_image_dimensions( $image ); ?> src="<?php echo $image; ?>" /></a><?php
                 echo '</figure>';
-            }
         }
     }
 }
-
-/**
- * Returns required thumbnail 'src' value
- *
- * IMPORTANT : To be used along with add_image_size( $name, $width = 0, $height = 0, $crop = FALSE )
- * incase being used for images other than content thumbnail
- *
- * @param int $attach_id The id of the featured image
- * @param string $size The image size required as output ( Must be registered using
- * add_image_size or should use WordPress defaults like thumbnail, medium, large or full )
- * @param int $the_id The current post should be passed if function is used outside the loop
- * @return string
- *
- * @since rtPanel 2.0
- */
-function rtp_generate_thumbs( $attach_id = null, $size = 'thumbnail', $the_id = '' ) {
-
-    /* $the_id should be set if called outside the loop else global $post */
-    if ( $the_id != '' ) {
-        $post = get_post( $the_id );
-    } else {
-        global $post;
-    }
-
-    /* If featured image is set return the required src */
-    if ( $attach_id ) {
-        $image_src = wp_get_attachment_image_src( $attach_id, $size );
-        return $image_src[0] ;
-    } elseif ( preg_match( '/<img\s.*?src="(.*?)".*?>/is', $post->post_content, $match ) ) {
-
-       /* If the image is inserted into the post through media library
-        * Catch the attachment's id from the first img tag's wp-image class
-        */
-        if ( preg_match( '/wp-image-([\d]*)/i', $match[0], $thumb_id ) ) {
-            $image_src = wp_get_attachment_image_src( $thumb_id[1] , $size );
-
-            // check if the id has parents for sanity (To check if the thumbnail id is proper)
-            $attachment_parents = get_post_ancestors( $thumb_id[1] );
-
-            // initialise the variable for further processing
-            $proceed = 0;
-            if( is_array( $attachment_parents ) ) {
-                foreach ( $attachment_parents as $parent ) {
-                    if ( $parent == $post->ID ) {
-                        $proceed = 1;
-                    }
-                }
-            } elseif ( $attachment_parents == $post->ID ) {
-                $proceed = 1;
-            } else {
-                $proceed = 0;
-            }
-
-            /* if proceed = 0 then download the img src and update the post content accordingly */
-            if( @!$proceed ) {
-                $updated_post = array();
-                $updated_post['ID'] = $post->ID;
-
-                /* remove the misleading wp-image class from img tag and update the current post */
-                $updated_image_tag = str_replace( $thumb_id[0], '', $match[0] );
-                $updated_post['post_content'] = str_replace($match[0], $updated_image_tag, $post->post_content );
-                wp_update_post( $updated_post );
-
-                /* trying to manage the replace and creation of image incase wordpress doesn't fetch url */
-                $double_check_tag = $match[0];
-                unset($match[0]);
-                $match[0] = $updated_image_tag;
-                return rtp_create_external_thumb($match, $post, $size, $double_check_tag);
-            }
-
-            // if proceed = 1 then just return the img src
-            return $image_src[0];
-
-        } else {
-            // if the img src does not contain wp-image class then need to download and create thumb
-            return rtp_create_external_thumb($match, $post, $size);
-        }
-    }
 }
 
 /**
