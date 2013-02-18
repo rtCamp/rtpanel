@@ -105,3 +105,19 @@ function rtp_header_style(){
     _rtp_deprecated_function( __FUNCTION__, '3.0' );
     return '';    
 }
+
+/**
+ * Returns required thumbnail 'src' value from content
+ *
+ * @param int $attach_id The id of the featured image
+ * @param string $size The image size required as output ( Must be registered using
+ * add_image_size or should use WordPress defaults like thumbnail, medium, large or full )
+ * @param int $the_id The current post should be passed if function is used outside the loop
+ * @return string
+ *
+ * @since rtPanel 3.0
+ */
+function rtp_generate_thumbs( $attach_id = null, $size = 'thumbnail', $the_id = '' ) {
+    _rtp_deprecated_function( __FUNCTION__, '3.0', 'Not used anymore' );
+    return '';
+}
