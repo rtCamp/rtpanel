@@ -19,7 +19,7 @@
 /* Theme Option Container */
 .rtpanel-admin { overflow: hidden; width: 76%; }
 .rtpanel-admin h2 { border-bottom: 1px solid #cccccc; padding-bottom: 0; }
-.rtpanel-admin .updated p { background-color: #FFFFE0; border: 1px solid #E6DB55; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; margin: 0 auto; padding: 7px; width: 95%; }
+.rtpanel-admin .updated p { background-color: #FFFFE0; border: 1px solid #e6db55; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; margin: 0 auto; padding: 7px; width: 95%; }
 
 #icon-rtpanel { background: url("../../img/rtp-icon.jpg") no-repeat; }
 
@@ -48,13 +48,13 @@ h2 .nav-tab { font-size: 20px; padding: 4px 6px; }
 .postbox { min-width: 175px; }
 
 .rtpanel-admin div.updated, .rtpanel-admin div.error { background: transparent; border-bottom: 0; border-left: 1px solid #cccccc; -webkit-border-radius: 0; -moz-border-radius: 0; -ms-border-radius: 0; -o-border-radius: 0; border-radius: 0; border-right: 1px solid #cccccc; border-top: 0; display: block; margin: 0; padding: 10px 0; text-align: center; }
-.rtpanel-admin div.error p { background: #ffebe8; border: 1px solid #C00; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; margin: 0 auto; padding: 7px; width: 95%; }
+.rtpanel-admin div.error p { background: #ffebe8; border: 1px solid #cc0000; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; margin: 0 auto; padding: 7px; width: 95%; }
 
-.admin-main-heading h2 { border-bottom: 1px solid #EAEAEA; font-size: 153.9%; padding: 14px 0 3px; }
+.admin-main-heading h2 { border-bottom: 1px solid #eaeaea; font-size: 153.9%; padding: 14px 0 3px; }
 
 .admin-sub-module { clear: both; overflow: hidden; }
 
-.admin-or { color: #888; display: block; float: left; font-family: Georgia, 'Times New Roman', 'Bitstream Charter', Times, serif; font-size: 153.9%; font-style: italic; padding: 30px 25px 30px 0; }
+.admin-or { color: #888; display: block; float: left; font-family: Georgia, "Times New Roman", "Bitstream Charter", Times, serif; font-size: 153.9%; font-style: italic; padding: 30px 25px 30px 0; }
 
 /* Logo and Favicon style */
 .logo-upload, .logo-url, .fav-upload, .fav-url { display: block; float: left; height: 100px; padding: 0 25px 0 0; }
