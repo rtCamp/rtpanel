@@ -12,7 +12,7 @@ Tags: black, blue, white, orange, light, one-column, two-columns, right-sidebar,
 */
 
 // ******************** Importing Base. ******************** //
-@import "./rtpanel_sass/base";
+@import "./sass/base";
 
 
 // ***** Variables : See Details >> '_variables.scss' ***** //
@@ -22,27 +22,27 @@ $base-line-height: 21px; // 24px !default;
 
 
 // ***** Normalize css : See Details >> '_normalize.scss' ***** //
-@import "./rtpanel_sass/normalize";
+@import "./sass/normalize";
 
 
 // ***** Utility Classes : See Details >> '_utility.scss' ***** //
-@import "./rtpanel_sass/utility";
+@import "./sass/utility";
 
 
 // ****** Typography : See Details >> '_typography.scss' ****** //
-@import "./rtpanel_sass/typography";
+@import "./sass/typography";
 
 
 // *********** Links : See Details >> '_links.scss' *********** //
-@import "./rtpanel_sass/links";
+@import "./sass/links";
 
 
 // ***** Input Types : See Details >> '_input-types.scss' ***** //
-@import "./rtpanel_sass/input-types";
+@import "./sass/input-types";
 
 
 // ****** WP Editor : See Details >> '_input-types.scss' ****** //
-@import "./rtpanel_sass/wp-editor";
+@import "./sass/wp-editor";
 
 
 // ******** 960gs System : See Details >> '_grid.scss' ******** //
@@ -55,19 +55,19 @@ $base-line-height: 21px; // 24px !default;
 
 
 // ***** rtPanel Modules : See Details >> '_layout.scss' ***** //
-@import "./rtpanel_sass/layout";
+@import "./sass/layout";
 
 
 // ****** rtPanel Header : See Details >> '_header.scss' ****** //
-@import "./rtpanel_sass/header";
+@import "./sass/header";
 
 
 // ***** rtPanel Modules : See Details >> '_post-loop.scss' ***** //
-@import "./rtpanel_sass/post-loop";
+@import "./sass/post-loop";
 
 
 // ***** rtPanel Modules : See Details >> '_modules.scss' ***** //
-@import "./rtpanel_sass/modules";
+@import "./sass/modules";
 
 // ****** Images ****** //
 @include rtp-image();
@@ -92,19 +92,19 @@ $base-line-height: 21px; // 24px !default;
 
 
 // ****** Comments : See Details >> '_comments.scss' ****** //
-@import "./rtpanel_sass/comments";
+@import "./sass/comments";
 
 
 // ****** Sidebar : See Details >> '_sidebar.scss' ****** //
-@import "./rtpanel_sass/sidebar";
+@import "./sass/sidebar";
 
 
 // ******* Footer : See Details >> '_footer.scss' ******* //
-@import "./rtpanel_sass/footer";
+@import "./sass/footer";
 
 
 // ***** 3rd Party : See Details >> '_support.scss' ***** //
-@import "./rtpanel_sass/support";
+@import "./sass/support";
 
 // Breadcrumb
 @include rtp-breadcrumb();
@@ -122,7 +122,7 @@ $base-line-height: 21px; // 24px !default;
 // ***** Responsive Structure ***** //
 $ninesixty-gutter-width: 16px;
 $ninesixty-grid-width: 744px;
-@import "./rtpanel_sass/responsive";
+@import "./sass/responsive";
 
 // ***** Responsive structure for wider screen size more than 1200px ***** //
 //$screen-width: 1200px;
@@ -132,4 +132,4 @@ $ninesixty-grid-width: 744px;
 
 
 // ******* Print : See Details >> '_print.scss' ******* //
-@import "./rtpanel_sass/print";
+@import "./sass/print";
