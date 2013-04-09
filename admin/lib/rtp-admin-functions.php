@@ -863,9 +863,9 @@ function rtp_default_admin_sidebar() { ?>
         <div title="<?php _e('Click to toggle', 'rtPanel'); ?>" class="handlediv"><br /></div>
         <h3 class="hndle"><span><?php _e('Getting Social is Good', 'rtPanel'); ?></span></h3>
         <div class="inside" style="text-align:center;">
-            <a href="<?php printf( '%s', 'http://www.facebook.com/rtPanel' ); ?>" target="_blank" title="<?php _e( 'Become a fan on Facebook', 'rtPanel' ); ?>" class="rtpanel-facebook"><?php _e( 'Facebook', 'rtPanel' ); ?></a>
-            <a href="<?php printf( '%s', 'http://twitter.com/rtPanel' ); ?>" target="_blank" title="<?php _e( 'Follow us on Twitter', 'rtPanel' ); ?>" class="rtpanel-twitter"><?php _e( 'Twitter', 'rtPanel' ); ?></a>
-            <a href="<?php printf( '%s', 'http://feeds.feedburner.com/rtpanel' ); ?>" target="_blank" title="<?php _e( 'Subscribe to our feeds', 'rtPanel' ); ?>" class="rtpanel-rss"><?php _e( 'RSS Feed', 'rtPanel' ); ?></a>
+            <a href="http://www.facebook.com/rtPanel" target="_blank" title="<?php _e( 'Become a fan on Facebook', 'rtPanel' ); ?>" class="rtpanel-facebook"><?php _e( 'Facebook', 'rtPanel' ); ?></a>
+            <a href="http://twitter.com/rtPanel" target="_blank" title="<?php _e( 'Follow us on Twitter', 'rtPanel' ); ?>" class="rtpanel-twitter"><?php _e( 'Twitter', 'rtPanel' ); ?></a>
+            <a href="http://feeds.feedburner.com/rtpanel" target="_blank" title="<?php _e( 'Subscribe to our feeds', 'rtPanel' ); ?>" class="rtpanel-rss"><?php _e( 'RSS Feed', 'rtPanel' ); ?></a>
         </div>
     </div>
 
@@ -873,7 +873,7 @@ function rtp_default_admin_sidebar() { ?>
         <div title="<?php _e('Click to toggle', 'rtPanel'); ?>" class="handlediv"><br /></div>
         <h3 class="hndle"><span><?php _e( 'Promote, Donate, Share', 'rtPanel' ); ?>...</span></h3>
         <div class="inside">
-            <p><?php printf( __( 'Buy coffee/beer for team behind <a href="%s" title="rtPanel">rtPanel</a>.', 'rtPanel' ), 'http://rtcamp.com/rtpanel/' ); ?></p>
+            <p><?php _e( 'Buy coffee/beer for team behind <a href="http://rtcamp.com/rtpanel/" title="rtPanel">rtPanel</a>.', 'rtPanel' ); ?></p>
             <div class="rt-paypal" style="text-align:center">
                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
                     <input type="hidden" name="cmd" value="_donations" />
@@ -889,7 +889,7 @@ function rtp_default_admin_sidebar() { ?>
             </div>
             <div class="rt-social-share">
                 <div class="rt-twitter rtp-social-box">
-                    <a href="<?php printf( '%s', 'http://twitter.com/share' ); ?>"  class="twitter-share-button" data-text="I &hearts; #rtPanel"  data-url="http://rtcamp.com/rtpanel/" data-count="vertical" data-via="rtPanel"><?php _e( 'Tweet', 'rtPanel' ); ?></a>
+                    <a href="http://twitter.com/share"  class="twitter-share-button" data-text="I &hearts; #rtPanel"  data-url="http://rtcamp.com/rtpanel/" data-count="vertical" data-via="rtPanel"><?php _e( 'Tweet', 'rtPanel' ); ?></a>
                 </div>
                 <div class="rt-facebook rtp-social-box">
                     <a style=" text-align:center;" name="fb_share" type="box_count" share_url="http://rtpanel.com/"></a>
@@ -902,7 +902,7 @@ function rtp_default_admin_sidebar() { ?>
     <div class="postbox" id="support">
         <div title="<?php _e( 'Click to toggle', 'rtPanel'); ?>" class="handlediv"><br /></div>
         <h3 class="hndle"><span><?php _e( 'Free Support', 'rtPanel' ); ?></span></h3>
-        <div class="inside"><p><?php printf( __( ' If you are facing any problems while using rtPanel, or have good ideas for improvements, please discuss the same in our <a href="%s" target="_blank" title="Click here for rtPanel Free Support">Support forums</a>', 'rtPanel' ), 'http://rtcamp.com/support/forum/rtpanel/' ); ?>.</p></div>
+        <div class="inside"><p><?php _e( ' If you are facing any problems while using rtPanel, or have good ideas for improvements, please discuss the same in our <a href="http://rtcamp.com/support/forum/rtpanel/" target="_blank" title="Click here for rtPanel Free Support">Support forums</a>', 'rtPanel' ); ?>.</p></div>
     </div>
 
     <div class="postbox" id="latest_news">
@@ -1164,9 +1164,9 @@ add_action( 'admin_head', 'rtp_custom_admin_logo' );
  */
 function rtp_custom_admin_footer( $footer_text ) {
     echo $footer_text;
-    printf( '<br /><br />' . __( 'Currently using <a href="%s" title="rtPanel" target="_blank">rtPanel</a>', 'rtPanel' ) . ' | '
-            . __( '<a href="%s" title="Click here for rtPanel Free Support" target="_blank">Support</a>', 'rtPanel' ) . ' | '
-            . __( '<a href="%s" title="Click here for rtPanel Documentation" target="_blank">Documentation</a>', 'rtPanel' ), 'http://rtcamp.com/rtpanel/', 'http://rtcamp.com/support/forum/rtpanel/', 'http://rtcamp.com/rtpanel/docs/' );
+    echo '<br /><br />' . __( 'Currently using <a href="http://rtcamp.com/rtpanel/" title="rtPanel" target="_blank">rtPanel</a>', 'rtPanel' ) . ' | '
+            . __( '<a href="http://rtcamp.com/support/forum/rtpanel/" title="Click here for rtPanel Free Support" target="_blank">Support</a>', 'rtPanel' ) . ' | '
+            . __( '<a href="http://rtcamp.com/rtpanel/docs/" title="Click here for rtPanel Documentation" target="_blank">Documentation</a>', 'rtPanel' );
 }
 add_filter( 'admin_footer_text', 'rtp_custom_admin_footer' );
 

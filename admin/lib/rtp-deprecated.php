@@ -30,9 +30,9 @@ function _rtp_deprecated_function( $function, $version, $replacement = null ) {
 function _rtp_deprecated_argument( $function, $version, $message = null ) {
     if ( WP_DEBUG ) {
         if ( ! is_null( $message ) )
-            trigger_error( sprintf( __('%1$s was called with an argument that is <strong>deprecated</strong> since rtPanel version %2$s! %3$s'), $function, $version, $message ) );
+            trigger_error( sprintf( __('%1$s was called with an argument that is <strong>deprecated</strong> since rtPanel version %2$s! %3$s', 'rtPanel' ), $function, $version, $message ) );
         else
-            trigger_error( sprintf( __('%1$s was called with an argument that is <strong>deprecated</strong> since rtPanel version %2$s with no alternative available.'), $function, $version ) );
+            trigger_error( sprintf( __('%1$s was called with an argument that is <strong>deprecated</strong> since rtPanel version %2$s with no alternative available.', 'rtPanel'), $function, $version ) );
     }
 }
 
