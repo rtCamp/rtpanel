@@ -458,7 +458,6 @@ function rtp_post_comments_validate( $input ) {
             $input[$option] = $value;
 
         $input['notices']       = $rtp_post_comments['notices'];
-        $input['upgrade_theme'] = $rtp_post_comments['upgrade_theme'];
         $input['summary_show']  = $default[1]['summary_show'];
         $input['word_limit']    = $default[1]['word_limit'];
         $input['read_text']     = $default[1]['read_text'];
@@ -483,7 +482,6 @@ function rtp_post_comments_validate( $input ) {
             $input[$option] = $value;
 
         $input['notices']                   = $rtp_post_comments['notices'];
-        $input['upgrade_theme']             = $rtp_post_comments['upgrade_theme'];
         $input['post_date_u']               = $default[1]['post_date_u'];
         $input['post_date_format_u']        = $default[1]['post_date_format_u'];
         $input['post_date_custom_format_u'] = $default[1]['post_date_custom_format_u'];
@@ -518,7 +516,6 @@ function rtp_post_comments_validate( $input ) {
             $input[$option] = $value;
 
         $input['notices']         = $rtp_post_comments['notices'];
-        $input['upgrade_theme']   = $rtp_post_comments['upgrade_theme'];
         $input['pagination_show'] = $default[1]['pagination_show'];
         $input['prev_text']       = $default[1]['prev_text'];
         $input['next_text']       = $default[1]['next_text'];
@@ -533,7 +530,6 @@ function rtp_post_comments_validate( $input ) {
             $input[$option] = $value;
 
         $input['notices']          = $rtp_post_comments['notices'];
-        $input['upgrade_theme']    = $rtp_post_comments['upgrade_theme'];
         $input['compact_form']     = $default[1]['compact_form'];
         $input['hide_labels']      = $default[1]['hide_labels'];
         $input['comment_textarea'] = $default[1]['comment_textarea'];
@@ -547,14 +543,12 @@ function rtp_post_comments_validate( $input ) {
             $input[$option] = $value;
 
         $input['notices']       = $rtp_post_comments['notices'];
-        $input['upgrade_theme'] = $rtp_post_comments['upgrade_theme'];
         $input['gravatar_show'] = $default[1]['gravatar_show'];
         $input['gravatar_size'] = $default[1]['gravatar_size'];
         add_settings_error( 'gravatar', 'reset_gravatar', __( 'The Gravatar Settings have been restored to default.', 'rtPanel' ), 'updated' );
     } elseif ( isset ( $_POST['rtp_reset'] ) ) {
         $input = $default[1];
         $input['notices'] = $rtp_post_comments['notices'];
-        $input['upgrade_theme'] = $rtp_post_comments['upgrade_theme'];
         $args = array( '_builtin' => false );
         $taxonomies = get_taxonomies( $args, 'names' );
         if ( !empty( $taxonomies ) ) {
@@ -583,12 +577,6 @@ function rtp_post_comments_validate( $input ) {
 function rtp_theme_setup_values() {
     global $rtp_general, $rtp_post_comments, $rtp_version;
 
-    /* Check if upgrade of theme is required, or not */
-    if ( ( is_array( $rtp_post_comments ) && !isset( $rtp_post_comments['upgrade_theme'] ) ) || ( version_compare( RTP_VERSION, $rtp_version['rtPanel'], '!=' ) ) ) {
-        $rtp_post_comments['upgrade_theme'] = '1';
-        update_option( 'rtp_post_comments', $rtp_post_comments );
-    }
-    
     $default_general = array(
         'logo_use'        => 'image',
         'logo_upload'     => RTP_IMG_FOLDER_URL . '/rtp-logo.jpg',
@@ -609,7 +597,6 @@ function rtp_theme_setup_values() {
     );
 
     $default_post_comments = array(
-        'upgrade_theme'              => isset ( $rtp_post_comments['upgrade_theme'] ) ? $rtp_post_comments['upgrade_theme'] : 1,
         'notices'                    => isset ( $rtp_post_comments['notices'] ) ? $rtp_post_comments['notices'] : 0,
         'summary_show'               => '1',
         'word_limit'                 => 55,
@@ -1229,23 +1216,6 @@ function rtp_handle_regenerate_notice() {
 add_action( 'wp_ajax_hide_regenerate_thumbnail_notice', 'rtp_handle_regenerate_notice' );
 
 /**
- * Handles ajax call to remove the upgrade theme notice
- *
- * @uses $rtp_post_comments array
- *
- * @since rtPanel 2.1
- */
-function rtp_handle_upgrade_theme_notice() {
-    global $rtp_post_comments;
-    if( isset( $_POST['hide_upgrade_theme'] ) ) {
-        $rtp_post_comments['upgrade_theme'] = '0';
-        update_option( 'rtp_post_comments', $rtp_post_comments );
-    }
-    die();
-}
-add_action( 'wp_ajax_hide_upgrade_theme_notice', 'rtp_handle_upgrade_theme_notice' );
-
-/**
  *  Displays the regenerate thumbnail notice
  *
  * @since rtPanel 2.0
@@ -1268,23 +1238,6 @@ function rtp_regenerate_thumbnail_notice( $return = false ) {
     } else {
         return;
     }
-}
-
-/**
- *  Displays the upgrade theme notice
- *
- * @since rtPanel 2.0
- */
-function rtp_upgrade_theme_notice() {
-    global $rtp_post_comments;
-    if( current_user_can( 'administrator' ) && isset( $rtp_post_comments['upgrade_theme'] ) && $rtp_post_comments['upgrade_theme'] ) {
-        echo '<div class="updated upgrade_theme_notice"><p>' . sprintf( __( 'Thank you for choosing rtPanel. Please check the <a href="%s" title="rtPanel ChangeLog" target="_blank">ChangeLog</a>.', 'rtPanel' ), 'http://rtcamp.com/rtpanel/changelog/' ) . ' <span class="alignright upgrade_theme_notice_close" href="#">X</span></p></div>';
-    }
-}
-
-/* Shows 'upgrade theme' notice ( Admin User Only !!! ) */
-if ( is_admin() && @$rtp_post_comments['upgrade_theme'] ) {
-    add_action( 'admin_notices', 'rtp_upgrade_theme_notice');
 }
 
 /* Shows 'regenerate thumbnail' notice ( Admin User Only !!! ) */
@@ -1317,31 +1270,6 @@ function rtp_regenerate_thumbnail_notice_js() { ?>
     </script><?php
 }
 add_action( 'admin_head', 'rtp_regenerate_thumbnail_notice_js' );
-
-/**
- * Outputs neccessary script to hide upgrade theme notice
- *
- * @since rtPanel 2.0
- */
-function rtp_upgrade_theme_notice_js() { ?>
-    <script type="text/javascript" >
-        jQuery(function(){
-            jQuery('#wpbody-content').css( 'padding-bottom', '85px' );
-            jQuery('.upgrade_theme_notice_close').css({'color': '#CC0000', 'cursor': 'pointer'})
-            .click(function(e){
-                e.preventDefault();
-                jQuery('.upgrade_theme_notice').hide();
-                // call ajax
-                jQuery.ajax({
-                    url:"<?php echo admin_url('admin-ajax.php'); ?>",
-                    type:'POST',
-                    data:'action=hide_upgrade_theme_notice&hide_upgrade_theme=1'
-                });
-            });
-        });
-    </script><?php
-}
-add_action( 'admin_head', 'rtp_upgrade_theme_notice_js' );
 
 /* Removes 'regenerate thumbnail' notice ( Admin User Only !!! ) */
 if ( is_admin() && $pagenow == 'tools.php' && ( @$_GET['page'] == 'regenerate-thumbnails' ) && @$_POST['regenerate-thumbnails'] ) {

@@ -115,10 +115,6 @@ function rtp_default_scripts() {
     // Nested Comment Support
     ( is_singular() && get_option( 'thread_comments' ) ) ? wp_enqueue_script('comment-reply') : '';
 
-    if ( !rtp_is_bbPress() ) {
-        wp_dequeue_style( array( 'bbpress-style', 'bbp-default-bbpress', 'bbp-twentyten-bbpress' ) );
-    }
-    
 }
 add_action( 'wp_enqueue_scripts', 'rtp_default_scripts' );
 
