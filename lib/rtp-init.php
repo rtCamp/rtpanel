@@ -109,7 +109,7 @@ function rtp_default_scripts() {
     global $rtp_general;
 
     /* Mobile Navigation Script */
-    wp_enqueue_script( 'rtp-custom', RTP_JS_FOLDER_URL . '/rtp-mobile.js', array( 'jquery' ), '', true );
+    wp_enqueue_script( 'rtp-mobile', RTP_JS_FOLDER_URL . '/rtp-mobile.js', array( 'jquery' ), '', true );
 
     echo ( $rtp_general['custom_styles'] ) ? '<style>' . $rtp_general['custom_styles'] . '</style>' . "\r\n" : '';
     // Nested Comment Support
