@@ -290,6 +290,8 @@ function rtp_general_validate( $input ) {
             $input[$option] = $value;
         
         $input['footer_sidebar'] = $default[0]['footer_sidebar'];
+        $input['buddypress_sidebar'] = $default[0]['buddypress_sidebar'];
+        $input['bbpress_sidebar'] = $default[0]['bbpress_sidebar'];
         add_settings_error( 'sidebar', 'reset_sidebar', __( 'The Sidebar Settings have been restored to Default.', 'rtPanel' ), 'updated' );
     } elseif ( isset($_POST['rtp_custom_styles_reset'] ) ) {
         $options = maybe_unserialize( $rtp_general );
@@ -576,24 +578,26 @@ function rtp_post_comments_validate( $input ) {
  */
 function rtp_theme_setup_values() {
     global $rtp_general, $rtp_post_comments, $rtp_version;
-
+    
     $default_general = array(
-        'logo_use'        => 'image',
-        'logo_upload'     => RTP_IMG_FOLDER_URL . '/rtp-logo.jpg',
-        'logo_id'         => 0,
-        'logo_width'      => 224,
-        'logo_height'     => 51,
-        'login_head'      => '0',
-        'favicon_use'     => 'image',
-        'favicon_upload'  => RTP_IMG_FOLDER_URL . '/favicon.ico',
-        'favicon_id'      => 0,
-        'fb_app_id'       => '',
-        'fb_admins'       => '',
-        'feedburner_url'  => '',
-        'footer_sidebar'  => '1',
-        'custom_styles'   => '',
-        'search_code'     => '',
-        'search_layout'   => '1',
+        'logo_use'              => 'image',
+        'logo_upload'           => RTP_IMG_FOLDER_URL . '/rtp-logo.jpg',
+        'logo_id'               => 0,
+        'logo_width'            => 224,
+        'logo_height'           => 51,
+        'login_head'            => '0',
+        'favicon_use'           => 'image',
+        'favicon_upload'        => RTP_IMG_FOLDER_URL . '/favicon.ico',
+        'favicon_id'            => 0,
+        'fb_app_id'             => '',
+        'fb_admins'             => '',
+        'feedburner_url'        => '',
+        'footer_sidebar'        => '1',
+        'buddypress_sidebar'    =>  0,
+        'bbpress_sidebar'       =>  0,
+        'custom_styles'         => '',
+        'search_code'           => '',
+        'search_layout'         => '1',
     );
 
     $default_post_comments = array(
