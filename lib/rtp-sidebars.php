@@ -26,7 +26,7 @@ function rtp_widgets_init() {
     ) );
     
     // BuddyPress Sidebar
-    if ( isset( $rtp_general['buddypress_sidebar'] ) && ($rtp_general['buddypress_sidebar'] === "buddypress-sidebar") ) {
+    if ( class_exists( 'BuddyPress') && isset( $rtp_general['buddypress_sidebar'] ) && ($rtp_general['buddypress_sidebar'] === "buddypress-sidebar") ) {
          register_sidebar( array(
             'name' => __( 'BuddyPress Sidebar Widgets', 'rtPanel' ),
             'id' => "buddypress-sidebar-widgets",
@@ -38,7 +38,7 @@ function rtp_widgets_init() {
     }
     
     // bbPress Sidebar
-    if ( isset( $rtp_general['bbpress_sidebar'] ) && ($rtp_general['bbpress_sidebar'] === "bbpress-sidebar") ) {
+    if ( class_exists( 'bbPress') && isset( $rtp_general['bbpress_sidebar'] ) && ($rtp_general['bbpress_sidebar'] === "bbpress-sidebar") ) {
          register_sidebar( array(
             'name' => __( 'bbPress Sidebar Widgets', 'rtPanel' ),
             'id' => "bbpress-sidebar-widgets",

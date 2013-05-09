@@ -10,11 +10,11 @@
     $sidebar_id = rtp_get_sidebar_id();
     $class_name = "";
     if ( $sidebar_id === "buddypress-sidebar-widgets" )
-        $class_name = "buddypress-sidebar";
+        $class_name = " rtp-buddypress-sidebar";
     else if ( $sidebar_id === "bbpress-sidebar-widgets" )
-        $class_name = "bbpress-sidebar"; ?>
+        $class_name = " rtp-bbpress-sidebar"; ?>
 
-    <aside id="sidebar" class="rtp-grid-4 <?php echo $class_name; ?>" role="complementary">
+    <aside id="sidebar" class="rtp-grid-4<?php echo $class_name; ?>" role="complementary">
         <?php rtp_hook_begin_sidebar(); ?>
 
             <?php   // Default Widgets ( Fallback )

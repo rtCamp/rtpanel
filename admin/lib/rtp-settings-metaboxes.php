@@ -174,10 +174,10 @@ function rtp_sidebar_options_metabox() {
     global $rtp_general; ?>
     <table class="form-table">
         <tbody>
-            <input type="hidden" name="rtp_general[buddypress_sidebar]" value="0" /><?php
+            <input type="hidden" name="rtp_general[buddypress_sidebar]" value="default-sidebar" /><?php
             if ( is_plugin_active(RTP_BUDDYPRESS) ) { ?>
                 <tr valign="top">
-                    <th scope="row"><label for="buddypress_sidebar"><?php _e( 'BuddyPress Sidebar Settings', 'rtPanel' ); ?></label></th>
+                    <th scope="row"><label for="buddypress_sidebar"><?php _e( 'BuddyPress Sidebar', 'rtPanel' ); ?></label></th>
                     <td>
                         <select id="buddypress_sidebar" name="rtp_general[buddypress_sidebar]">
                             <option <?php selected( $rtp_general['buddypress_sidebar'], 'default-sidebar' ); ?> value="default-sidebar"><?php _e( 'Default Sidebar', 'rtPanel' ); ?></option>
@@ -187,10 +187,10 @@ function rtp_sidebar_options_metabox() {
                     </td>
                 </tr><?php
             } ?>
-            <input type="hidden" name="rtp_general[bbpress_sidebar]" value="0" /><?php
+            <input type="hidden" name="rtp_general[bbpress_sidebar]" value="default-sidebar" /><?php
             if ( is_plugin_active(RTP_BBRESS) ) { ?>
                 <tr valign="top">
-                    <th scope="row"><label for="bbpress_sidebar"><?php _e( 'bbPress Sidebar Settings', 'rtPanel' ); ?></label></th>
+                    <th scope="row"><label for="bbpress_sidebar"><?php _e( 'bbPress Sidebar', 'rtPanel' ); ?></label></th>
                     <td>
                         <select id="bbpress_sidebar" name="rtp_general[bbpress_sidebar]">
                             <option <?php selected( $rtp_general['bbpress_sidebar'], 'default-sidebar' ); ?> value="default-sidebar"><?php _e( 'Default Sidebar', 'rtPanel' ); ?></option>
