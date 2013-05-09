@@ -68,9 +68,12 @@ $link-hover-color: #cd5a1b;
 .options-main-container { border: 1px solid $gray; border-top: 0; margin-bottom: 15px; overflow: hidden; padding: 0; }
 .options-container { margin: 5px 10px; overflow: hidden; padding: 0; }
 
-#wpbody-content {
-    .metabox-holder { margin-bottom: 10px; padding: 10px 0 0; width: 100%; }
-    .metabox-fixed { clear: both; margin: 0 10px 0 0; width: 22%; }
+// Prevent to changes from buddyPress Media
+#wpbody {
+    #wpbody-content {
+        .metabox-holder { margin-bottom: 10px; padding: 10px 0 0; width: 100%; }
+        .metabox-fixed { clear: both; margin: 0 10px 0 0; width: 22%; }
+    }
 }
 
 /* Theme Options Inside Style */

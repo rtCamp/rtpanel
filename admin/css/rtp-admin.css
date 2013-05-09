@@ -30,8 +30,8 @@ h2 .nav-tab { font-size: 20px; padding: 4px 6px; }
 
 .options-container { margin: 5px 10px; overflow: hidden; padding: 0; }
 
-#wpbody-content .metabox-holder { margin-bottom: 10px; padding: 10px 0 0; width: 100%; }
-#wpbody-content .metabox-fixed { clear: both; margin: 0 10px 0 0; width: 22%; }
+#wpbody #wpbody-content .metabox-holder { margin-bottom: 10px; padding: 10px 0 0; width: 100%; }
+#wpbody #wpbody-content .metabox-fixed { clear: both; margin: 0 10px 0 0; width: 22%; }
 
 /* Theme Options Inside Style */
 .inside { overflow: hidden; }
