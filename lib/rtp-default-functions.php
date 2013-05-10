@@ -274,3 +274,33 @@ function rtp_default_comment_count() {
     remove_filter( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
 }
 add_action( 'rtp_hook_end_post_title', 'rtp_default_comment_count' );
+
+/**
+ * Get the sidebar ID for current page.
+ *
+ * @since rtPanel 3.1
+ */
+function rtp_get_sidebar_id() {
+    global $rtp_general;
+    $sidebar_id = "sidebar-widgets";
+    
+    if ( function_exists('bp_current_component') && bp_current_component() ) {
+        
+        if ( $rtp_general['buddypress_sidebar'] === "buddypress-sidebar" ) {
+            $sidebar_id = "buddypress-sidebar-widgets";
+        } else if ( $rtp_general['buddypress_sidebar'] === "no-sidebar" ) {
+            $sidebar_id = 0;
+        }
+        
+    } else if ( function_exists('is_bbpress') && is_bbpress() ) {
+        
+        if ( $rtp_general['bbpress_sidebar'] === "bbpress-sidebar" ) {
+            $sidebar_id = "bbpress-sidebar-widgets";
+        } else if ( $rtp_general['bbpress_sidebar'] === "no-sidebar" ) {
+            $sidebar_id = 0;
+        }
+        
+    }
+    
+    return $sidebar_id;
+}
