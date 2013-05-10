@@ -13,6 +13,8 @@ define( 'RTP_HOOKS_EDITOR', 'rtpanel-hooks-editor/rtpanel-hooks-editor.php' );
 define( 'RTP_SUBSCRIBE_TO_COMMENTS', 'subscribe-to-comments/subscribe-to-comments.php' );
 define( 'RTP_YOAST_SEO', 'wordpress-seo/wp-seo.php' );
 define( 'RTP_REGENERATE_THUMBNAILS', 'regenerate-thumbnails/regenerate-thumbnails.php' );
+define( 'RTP_BUDDYPRESS', 'buddypress/bp-loader.php' );
+define( 'RTP_BBRESS', 'bbpress/bbpress.php' );
 
 /**
  * Registers rtPanel General and Post & Comments options
@@ -172,6 +174,32 @@ function rtp_sidebar_options_metabox() {
     global $rtp_general; ?>
     <table class="form-table">
         <tbody>
+            <input type="hidden" name="rtp_general[buddypress_sidebar]" value="default-sidebar" /><?php
+            if ( is_plugin_active(RTP_BUDDYPRESS) ) { ?>
+                <tr valign="top">
+                    <th scope="row"><label for="buddypress_sidebar"><?php _e( 'BuddyPress Sidebar', 'rtPanel' ); ?></label></th>
+                    <td>
+                        <select id="buddypress_sidebar" name="rtp_general[buddypress_sidebar]">
+                            <option <?php selected( $rtp_general['buddypress_sidebar'], 'default-sidebar' ); ?> value="default-sidebar"><?php _e( 'Default Sidebar', 'rtPanel' ); ?></option>
+                            <option <?php selected( $rtp_general['buddypress_sidebar'], 'buddypress-sidebar' ); ?> value="buddypress-sidebar"><?php _e( 'Enable BuddyPress Sidebar', 'rtPanel' ); ?></option>
+                            <option <?php selected( $rtp_general['buddypress_sidebar'], 'no-sidebar' ); ?> value="no-sidebar"><?php _e( 'Disable Sidebar', 'rtPanel' ); ?></option>
+                        </select>
+                    </td>
+                </tr><?php
+            } ?>
+            <input type="hidden" name="rtp_general[bbpress_sidebar]" value="default-sidebar" /><?php
+            if ( is_plugin_active(RTP_BBRESS) ) { ?>
+                <tr valign="top">
+                    <th scope="row"><label for="bbpress_sidebar"><?php _e( 'bbPress Sidebar', 'rtPanel' ); ?></label></th>
+                    <td>
+                        <select id="bbpress_sidebar" name="rtp_general[bbpress_sidebar]">
+                            <option <?php selected( $rtp_general['bbpress_sidebar'], 'default-sidebar' ); ?> value="default-sidebar"><?php _e( 'Default Sidebar', 'rtPanel' ); ?></option>
+                            <option <?php selected( $rtp_general['bbpress_sidebar'], 'bbpress-sidebar' ); ?> value="bbpress-sidebar"><?php _e( 'Enable bbPress Sidebar', 'rtPanel' ); ?></option>
+                            <option <?php selected( $rtp_general['bbpress_sidebar'], 'no-sidebar' ); ?> value="no-sidebar"><?php _e( 'Disable Sidebar', 'rtPanel' ); ?></option>
+                        </select>
+                    </td>
+                </tr><?php
+            } ?>
             <tr valign="top">
                 <th scope="row"><label for="footer_sidebar"><?php _e( 'Enable Footer Sidebar', 'rtPanel' ); ?></label></th>
                 <td>
