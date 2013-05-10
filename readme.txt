@@ -34,7 +34,6 @@ If you make changes to thumbnail height, width or crop settings, you must use "R
 = 3.1 =
 * Added: bbPress Support
 * Added: BuddyPress Support
-* Added: BuddyPress Media Support
 
 = 3.0 =
 * Added: Sass/Compass CSS Prepocessor
