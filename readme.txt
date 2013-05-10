@@ -31,6 +31,11 @@ If you make changes to thumbnail height, width or crop settings, you must use "R
 
 == Changelog ==
 
+= 3.1 =
+* Added: bbPress Support
+* Added: BuddyPress Support
+* Added: BuddyPress Media Support
+
 = 3.0 =
 * Added: Sass/Compass CSS Prepocessor
 * Modified: Styles and CSS Classes
@@ -97,8 +102,3 @@ If you make changes to thumbnail height, width or crop settings, you must use "R
 * Modified: Editor Stylesheet
 * Removed: IE6 Support
 * Removed: JS support for onfoucs onblur on text and textarea fields ( Using HTML5 placeholder instead )
-
-== Upgrade Notice ==
-
-= 3.0 =
-This upgrade moves from CSS to SASS and contains major markup changes. Do not upgrade if your child theme contains major modifications.
