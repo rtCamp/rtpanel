@@ -73,45 +73,41 @@ tfoot {
         &:last-child { margin-right: 0; }
     }
     
-    a { background: url('./img/rtp-social-icons-32-32.png') no-repeat; display: block; height: 35px; margin: 0; overflow: hidden; padding: 0; text-indent: -9999px; text-transform: uppercase; width: 35px; // Self
-        // Facebook
-        &.facebook:hover { background-position: 0 -44px; }
+    a { @extend .rtp-image-sprite; display: block; height: 35px; margin: 0; overflow: hidden; padding: 0; text-indent: -9999px; text-transform: uppercase; width: 35px; }
+    
+    // Facebook
+    .facebook { @include rtp-image-sprite(facebook);
+        &:hover { @include rtp-image-sprite(facebook-hover); }
+    }
 
-        // Twitter
-        &.twitter {
-            background-position: -44px 0;
-            &:hover { background-position: -44px -44px; }
-        }
+    // Twitter
+    .twitter { @include rtp-image-sprite(twitter);
+        &:hover { @include rtp-image-sprite(twitter-hover); }
+    }
 
-        // RSS
-        &.rss {
-            background-position: -88px 0;
-            &:hover { background-position: -88px -44px; }
-        }
+    // RSS
+    .rss { @include rtp-image-sprite(rss);
+        &:hover { @include rtp-image-sprite(rss-hover); }
+    }
 
-        // LinkedIn
-        &.linkedin {
-            background-position: -132px 0;
-            &:hover { background-position: -132px -44px; }
-        }
+    // LinkedIn
+    .linkedin { @include rtp-image-sprite(linkedin);
+        &:hover { @include rtp-image-sprite(linkedin-hover); }
+    }
 
-        // Myspace
-        &.myspace {
-            background-position: -176px 0;
-            &:hover { background-position: -176px -44px; }
-        }
+    // Myspace
+    .myspace { @include rtp-image-sprite(myspace);
+        &:hover { @include rtp-image-sprite(myspace-hover); }
+    }
 
-        // StubleUpon
-        &.stumbleupon {
-            background-position: -220px 0;
-            &:hover { background-position: -220px -44px; }
-        }
+    // StubleUpon
+    .stumbleupon { @include rtp-image-sprite(stumbleupon);
+        &:hover { @include rtp-image-sprite(stumbleupon-hover); }
+    }
 
-        // Google
-        &.google {
-            background-position: -264px 0;
-            &:hover { background-position: -264px -44px; }
-        }
+    // Google
+    .google { @include rtp-image-sprite(gplus);
+        &:hover { @include rtp-image-sprite(gplus-hover); }
     }
 }
 /* End - Sidebar */

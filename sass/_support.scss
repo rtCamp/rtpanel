@@ -61,6 +61,25 @@
     .bbp_widget_login {
         .logout-link { @extend .rtp-tertiary-font-size; }
     }
+    
+    #buddypress {
+        .standard-form textarea,
+        .standard-form input[type="text"],
+        .standard-form select,
+        .standard-form input[type="password"],
+        .dir-search input[type="text"] { width: auto; }
+    }
+
+    #subnav {
+        select { width: auto; }
+    }
+
+    .message-search {
+        input { width: auto; padding: 1px 5px 2px; }
+    }
+
+    .mejs-container { max-width: 100%; }
+
 }
 
 // ****** Google custom search page style ****** //

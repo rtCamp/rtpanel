@@ -45,6 +45,10 @@ $base-line-height: 21px; // 24px !default;
 @import "./sass/wp-editor";
 
 
+// ****** Compass Generate Sprite : See Details >> '_sprite.scss' ****** //
+@import "./sass/sprite";
+
+
 // ******** 960gs System : See Details >> '_grid.scss' ******** //
 /* Grids */
 //$ninesixty-gutter-width: 20px;

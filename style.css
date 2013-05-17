@@ -279,6 +279,23 @@ body#tinymce { background: white; margin: 0 10px; padding: 10px 5px; }
 
 .wp-caption-dt { border: 0; padding: 0; }
 
+/* Compass Generate Sprite */
+.rtp-image-sprite, .rtp-image-facebook, .rtp-image-gplus, .rtp-image-linkedin, .rtp-image-myspace, .rtp-image-rss, .rtp-image-stumbleupon, .rtp-image-twitter, .social-icons a, .social-icons .facebook, .social-icons .facebook:hover, .social-icons .twitter, .social-icons .twitter:hover, .social-icons .rss, .social-icons .rss:hover, .social-icons .linkedin, .social-icons .linkedin:hover, .social-icons .myspace, .social-icons .myspace:hover, .social-icons .stumbleupon, .social-icons .stumbleupon:hover, .social-icons .google, .social-icons .google:hover { background: url('./img/rtp-image-sceaa260bdd.png') no-repeat; }
+
+.rtp-image-facebook { background-position: 0 -702px; }
+
+.rtp-image-gplus { background-position: 0 -324px; }
+
+.rtp-image-linkedin { background-position: 0 -648px; }
+
+.rtp-image-myspace { background-position: 0 -540px; }
+
+.rtp-image-rss { background-position: 0 -270px; }
+
+.rtp-image-stumbleupon { background-position: 0 -486px; }
+
+.rtp-image-twitter { background-position: 0 -432px; }
+
 /* Grids */
 .rtp-container-12 { margin-left: auto; margin-right: auto; width: 960px; }
 
@@ -682,20 +699,21 @@ tfoot #next { border-left: 0; text-align: right; }
 .social-icons { margin: 0; }
 .social-icons li { float: left; list-style: none; margin: 10px 8px 0 0; padding: 0; }
 .social-icons li:last-child { margin-right: 0; }
-.social-icons a { background: url("./img/rtp-social-icons-32-32.png") no-repeat; display: block; height: 35px; margin: 0; overflow: hidden; padding: 0; text-indent: -9999px; text-transform: uppercase; width: 35px; }
-.social-icons a.facebook:hover { background-position: 0 -44px; }
-.social-icons a.twitter { background-position: -44px 0; }
-.social-icons a.twitter:hover { background-position: -44px -44px; }
-.social-icons a.rss { background-position: -88px 0; }
-.social-icons a.rss:hover { background-position: -88px -44px; }
-.social-icons a.linkedin { background-position: -132px 0; }
-.social-icons a.linkedin:hover { background-position: -132px -44px; }
-.social-icons a.myspace { background-position: -176px 0; }
-.social-icons a.myspace:hover { background-position: -176px -44px; }
-.social-icons a.stumbleupon { background-position: -220px 0; }
-.social-icons a.stumbleupon:hover { background-position: -220px -44px; }
-.social-icons a.google { background-position: -264px 0; }
-.social-icons a.google:hover { background-position: -264px -44px; }
+.social-icons a { display: block; height: 35px; margin: 0; overflow: hidden; padding: 0; text-indent: -9999px; text-transform: uppercase; width: 35px; }
+.social-icons .facebook { background-position: 0 -702px; }
+.social-icons .facebook:hover { background-position: 0 -594px; }
+.social-icons .twitter { background-position: 0 -432px; }
+.social-icons .twitter:hover { background-position: 0 -108px; }
+.social-icons .rss { background-position: 0 -270px; }
+.social-icons .rss:hover { background-position: 0 0; }
+.social-icons .linkedin { background-position: 0 -648px; }
+.social-icons .linkedin:hover { background-position: 0 -378px; }
+.social-icons .myspace { background-position: 0 -540px; }
+.social-icons .myspace:hover { background-position: 0 -216px; }
+.social-icons .stumbleupon { background-position: 0 -486px; }
+.social-icons .stumbleupon:hover { background-position: 0 -162px; }
+.social-icons .google { background-position: 0 -324px; }
+.social-icons .google:hover { background-position: 0 -54px; }
 
 /* End - Sidebar */
 /* Footer */
@@ -738,6 +756,14 @@ footerbar-widget .social-icons { margin: 10px 0 0; }
 .bbPress #bbpress-forums li.bbp-header { background: #EEE; }
 .bbPress #bbpress-forums .bbp-forums-list li { display: block; }
 .bbPress #bbpress-forums fieldset.bbp-form input[type=radio], .bbPress #bbpress-forums fieldset.bbp-form input[type=checkbox] { margin: 0 2px 4px; }
+
+#buddypress .standard-form textarea, #buddypress .standard-form input[type="text"], #buddypress .standard-form select, #buddypress .standard-form input[type="password"], #buddypress .dir-search input[type="text"] { width: auto; }
+
+#subnav select { width: auto; }
+
+.message-search input { width: auto; padding: 1px 5px 2px; }
+
+.mejs-container { max-width: 100%; }
 
 /* Google custom search page style */
 .search-layout-wrapper > hr { margin-top: 0; }

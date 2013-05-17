@@ -1,9 +1,9 @@
 # Set this to the root of your project when deployed:
-http_path = "/"
+http_path = "./"
 css_dir = ".."
 sass_dir = ".."
-images_dir = "img"
-javascripts_dir = "js"
+images_dir = "./img"
+javascripts_dir = "./js"
 
 output_style = :compact
 environment = :production
