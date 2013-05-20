@@ -304,3 +304,14 @@ function rtp_get_sidebar_id() {
     
     return $sidebar_id;
 }
+
+/**
+ * Adds custom css through theme options
+ *
+ * @since rtPanel 3.2
+ */
+function rtp_custom_css(){
+    global $rtp_general;
+    echo ( $rtp_general['custom_styles'] ) ? '<style>' . $rtp_general['custom_styles'] . '</style>' . "\r\n" : '';
+}
+add_action( 'rtp_head', 'rtp_custom_css' );

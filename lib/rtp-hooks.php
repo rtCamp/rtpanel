@@ -8,6 +8,15 @@
  */
 
 /**
+ * Adds styles or scripts after wp_head()
+ *
+ * @since rtPanel 3.2
+ */
+function rtp_head() {
+    do_action( 'rtp_head' );
+}
+
+/**
  * Adds content at the beginning of body
  *
  * @since rtPanel 2.1

@@ -29,6 +29,9 @@ global $rtp_general; ?><!DOCTYPE html>
         <![endif]-->
 
         <?php wp_head(); ?>
+        
+        <?php rtp_head(); ?>
+        
     </head>
     <body <?php body_class(); ?>><!-- ends in footer.php -->
 
