@@ -14,7 +14,7 @@
     else if ( $sidebar_id === "bbpress-sidebar-widgets" )
         $class_name = " rtp-bbpress-sidebar"; ?>
 
-    <aside id="sidebar" class="rtp-grid-4<?php echo $class_name; ?>" role="complementary">
+    <aside id="sidebar" class="large-4 columns<?php echo $class_name; ?>" role="complementary">
         <?php rtp_hook_begin_sidebar(); ?>
 
             <?php   // Default Widgets ( Fallback )
