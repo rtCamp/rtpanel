@@ -40,9 +40,9 @@ if ( have_posts() ) {
                 <?php $has_comments = ( ( get_comments_number() || @comments_open() ) && !is_attachment() && !rtp_is_bbPress() ) ? ' rtp-has-comments' : ''; ?>
 
                 <?php   if ( is_singular() ) { ?>
-                            <h1 class="post-title<?php echo $has_comments; ?>"><?php the_title(); ?></h1><?php
+                            <h2 class="post-title<?php echo $has_comments; ?>"><?php the_title(); ?></h2><?php
                         } else { ?>
-                            <h2 class="post-title<?php echo $has_comments; ?>"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permanent Link to %s', 'rtPanel' ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a></h2><?php
+                            <h3 class="post-title<?php echo $has_comments; ?>"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permanent Link to %s', 'rtPanel' ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a></h3><?php
                         } ?>
 
                 <?php rtp_hook_end_post_title(); ?>
