@@ -17,9 +17,9 @@
  */
 function rtp_no_ellipsis( $text ) {
     global $post, $rtp_post_comments;
-    $alignment = ' alignright';
+    $alignment = ' right';
     if ( $rtp_post_comments['summary_show'] && $rtp_post_comments['thumbnail_show'] && ( 'Right' == $rtp_post_comments['thumbnail_position'] ) ) {
-       $alignment = ' alignleft';
+       $alignment = ' left';
     }
     $read_text =  ( !empty($rtp_post_comments['read_text'] ) ) ? $rtp_post_comments['read_text'] : '';
     $text = str_replace( '[...]', '&hellip;', $text );
@@ -69,10 +69,10 @@ function rtp_show_post_thumbnail( $post_id = null, $thumbnail_size = 'thumbnail'
     global $rtp_post_comments;
     if ( !is_singular() && $rtp_post_comments['summary_show'] && $rtp_post_comments['thumbnail_show'] && !rtp_is_bbPress() ) {
         $thumbnail_frame = ( $rtp_post_comments['thumbnail_frame'] ) ? 'rtp-thumbnail-shadow' : 'rtp-no-thumbnail-shadow';
-        $image_align = 'align' . strtolower( $rtp_post_comments['thumbnail_position'] );
+        $image_align =  strtolower( $rtp_post_comments['thumbnail_position'] ); 
         if ( has_post_thumbnail() ) {
             echo '<figure class="rtp-thumbnail-container ' . $image_align . ' ' . $thumbnail_frame . '">'; ?>
-                <a role="link" class="<?php echo $image_align; ?>" href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( $thumbnail_size, array( 'title' => the_title_attribute( array( 'echo' => false ) ), 'class' => 'post-thumb ' . $image_align ) ); ?></a><?php
+                <a role="link" class="th radius <?php echo $image_align; ?>" href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( $thumbnail_size, array( 'title' => the_title_attribute( array( 'echo' => false ) ), 'class' => 'post-thumb ' . $image_align ) ); ?></a><?php
             echo '</figure>';
         } else {            
             $image = apply_filters( 'rtp_default_image_path', $default_img_path );
