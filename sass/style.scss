@@ -1,0 +1,141 @@
+/*!
+Theme Name: rtPanel
+Theme URI: http://rtcamp.com/rtpanel/
+Description: WordPress theme framework with Custom Menu, Header and Background along with Logo, Favicon, Featured Image, Feedburner, Facebook Open Graph, Google Custom Search Integration and more options. Now includes a SAAS based CSS preprocessor and translation support. This theme comes with free technical support by team of 20+ full-time developers.
+Version: 3.2
+Author: rtCamp
+Author URI: http://rtcamp.com/
+Contributors: rtCampers ( http://rtcamp.com/about/rtcampers/ )
+License: GNU General Public License, v2 (or newer)
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, blue, white, orange, light, one-column, two-columns, right-sidebar, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, flexible-width, full-width-template, buddypress
+*/
+// Global Foundation Settings
+@import "settings";
+
+// Comment out this import if you don't want to use normalize
+@import "normalize";
+
+// Comment out this import if you are customizing you imports below
+@import "foundation";
+
+.fixed{
+	&.sticky{
+		&.row{
+			max-width:100%;
+			.name{
+				display: inline;
+			}
+		}
+	}
+
+}
+.sticky{
+	&.post.fixed{
+		width: auto;
+		left: auto;
+		position: relative;
+		top: auto;
+		z-index: inherit;
+	}
+}
+
+@media only screen and (min-width: 58.75em) {
+	.top-bar{
+		.name{
+			display: none
+		}
+
+	}
+}
+.sidebar-widget{
+	@extend .large-12;
+	@extend .small-6;
+	@extend .columns;
+}
+.widget ul{
+
+}
+nav ul.page-numbers{
+	margin-top:10px;
+	@extend .pagination;
+	li{
+		a,span.current{
+			padding-right: 10px;
+			padding-left: 10px;
+			border: 1px solid #dddddd;		
+		}
+		span{
+			&.current{
+				height: 26px;
+				display: block;
+				padding-right: 10px;
+				padding-left: 10px;
+				border: 1px solid #666666;		
+			}
+		}
+	}
+	
+}
+.alignleft{
+	@extend left;
+}
+.alignight{
+	@extend right;
+}
+
+.widget{
+	ul{
+		margin-left:20px;
+	}
+}
+article{
+	&.post{
+		overflow-x: hidden;
+		border-bottom: 1px solid #666;
+		padding-bottom: 10px
+	}
+}
+.rtp-thumbnail-container{
+	margin-left:2px;
+	margin-right:2px;
+}
+// Import specific parts of Foundation by commenting the import "foundation"
+// and uncommenting what you want below. You must uncomment the following if customizing
+
+// @import "foundation/components/global"; // *always required
+// @import "foundation/components/grid";
+// @import "foundation/components/visibility";
+// @import "foundation/components/block-grid";
+// @import "foundation/components/type";
+// @import "foundation/components/buttons";
+// @import "foundation/components/forms"; // *requires components/buttons
+// @import "foundation/components/custom-forms"; // *requires components/buttons, components/forms
+// @import "foundation/components/button-groups"; // *requires components/buttons
+// @import "foundation/components/dropdown-buttons"; // *requires components/buttons
+// @import "foundation/components/split-buttons"; // *requires components/buttons
+// @import "foundation/components/flex-video";
+// @import "foundation/components/section";
+// @import "foundation/components/top-bar";  // *requires components/grid
+// @import "foundation/components/orbit";
+// @import "foundation/components/reveal";
+// @import "foundation/components/joyride";
+// @import "foundation/components/clearing";
+// @import "foundation/components/alert-boxes";
+// @import "foundation/components/breadcrumbs";
+// @import "foundation/components/keystrokes";
+// @import "foundation/components/labels";
+// @import "foundation/components/inline-lists";
+// @import "foundation/components/pagination";
+// @import "foundation/components/panels";
+// @import "foundation/components/pricing-tables";
+// @import "foundation/components/progress-bars";
+// @import "foundation/components/side-nav";
+// @import "foundation/components/sub-nav";
+// @import "foundation/components/switch";
+// @import "foundation/components/magellan";
+// @import "foundation/components/tables";
+// @import "foundation/components/thumbs";
+// @import "foundation/components/tooltips";
+// @import "foundation/components/dropdown";
+
