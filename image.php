@@ -10,7 +10,7 @@ get_header(); ?>
 
 <?php global $rtp_post_comments; ?>
 
-    <section id="content" class="rtp-image-attachment rtp-grid-12">
+    <section id="content" class="rtp-image-attachment large-12">
         <?php rtp_hook_begin_content(); ?>
 
         <?php 
@@ -18,7 +18,7 @@ get_header(); ?>
             the_post();
             if ( $post->post_parent ) { ?>
                 <div class="rtp-navigation clearfix">
-                    <div class="alignleft"><a role="link" href="<?php echo get_permalink( $post->post_parent ); ?>">&larr; <?php echo get_the_title( $post->post_parent ); ?></a></div>
+                    <div class="left"><a role="link" href="<?php echo get_permalink( $post->post_parent ); ?>">&larr; <?php echo get_the_title( $post->post_parent ); ?></a></div>
                 </div><?php
             } ?>
 
@@ -72,7 +72,7 @@ get_header(); ?>
                                             } elseif ( $count %6 == 0 ) {
                                                 $alpha_omega = ' rtp-omega';
                                             }
-                                            echo '<li role="listitem" class="rtp-grid-2' . $alpha_omega . '">' . wp_get_attachment_link( $attachment->ID, 'thumbnail', true ) . '</li>';
+                                            echo '<li role="listitem" class="large-2' . $alpha_omega . '">' . wp_get_attachment_link( $attachment->ID, 'thumbnail', true ) . '</li>';
                                             $count++;
                                         }
                                     } ?>
