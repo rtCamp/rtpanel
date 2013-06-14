@@ -72,7 +72,7 @@ function rtp_show_post_thumbnail( $post_id = null, $thumbnail_size = 'thumbnail'
         $image_align =  strtolower( $rtp_post_comments['thumbnail_position'] ); 
         if ( has_post_thumbnail() ) {
             echo '<figure class="rtp-thumbnail-container ' . $image_align . ' ' . $thumbnail_frame . '">'; ?>
-                <a role="link" class="th radius <?php echo $image_align; ?>" href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( $thumbnail_size, array( 'title' => the_title_attribute( array( 'echo' => false ) ), 'class' => 'post-thumb ' . $image_align ) ); ?></a><?php
+                <a role="link" class="<?php echo $image_align; ?>" href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( $thumbnail_size, array( 'title' => the_title_attribute( array( 'echo' => false ) ), 'class' => 'post-thumb ' . $image_align ) ); ?></a><?php
             echo '</figure>';
         } else {            
             $image = apply_filters( 'rtp_default_image_path', $default_img_path );
@@ -362,7 +362,7 @@ function rtp_html5_caption( $output, $attr, $content ) {
     $idtag = NULL;
     if ( $id ) $idtag = 'id="' . esc_attr($id) . '" ';
 
-    return '<figure ' . $idtag . 'aria-describedby="figcaption_' . $id . '" class="wp-caption ' . esc_attr($align) . '" style="width: ' . ((int) $width) . 'px">'
+    return '<figure ' . $idtag . 'aria-describedby="figcaption_' . $id . '" class="wp-caption ' . esc_attr($align) . '" >'
     . do_shortcode( $content ) . '<figcaption id="figcaption_' . $id . '" class="wp-caption-text">' . $caption . '</figcaption></figure>';
 }
 add_filter( 'img_caption_shortcode', 'rtp_html5_caption', '', 3 );
