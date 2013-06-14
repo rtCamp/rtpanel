@@ -44,13 +44,3 @@ jQuery(document).ready(function($) {
     }
 
 });
-jQuery(document).ready(function($) {
-    function stickyposittion(e) {
-        $("header .fixed").css("top", $("#wpadminbar").css("height"))
-        $("body").css("padding-top", jQuery(".fixed:first").position().top + jQuery(".fixed:first").height())
-    }
-    // ADMIN BAR
-    if (jQuery("#wpadminbar").length > 0) {
-        jQuery(window).bind("scroll", stickyposittion);
-    }
-});
