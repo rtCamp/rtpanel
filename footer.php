@@ -26,7 +26,7 @@ global $rtp_general; ?>
                 <?php rtp_hook_before_footer(); ?>
                     
                 <div id="footer" class="row">
-                    <div id="footer" class="large-12">
+                    <div id="footer" class="large-12 columns">
                         <p>&copy; <?php echo date( 'Y' ); echo ' - '; bloginfo( 'name' ); ?>
                         <em><?php printf( __( 'Designed on <a role="link" href="%s" class="rtp-common-link" title="rtPanel WordPress Theme Framework">rtPanel WordPress Theme Framework</a>.', 'rtPanel' ), 'http://rtcamp.com/rtpanel/' ); ?></em></p>
                     </div>
