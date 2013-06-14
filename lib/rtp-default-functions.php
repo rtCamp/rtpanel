@@ -134,7 +134,11 @@ add_action('rtp_hook_post_meta_bottom','rtp_default_post_meta'); // Post Meta Bo
  * @since rtPanel 2.0
  */
 function rtp_default_nav_menu() {
-     echo '<div class="row sticky"><div class="large-12"><nav id="rtp-primary-menu" role="navigation" class="top-bar' . apply_filters( 'rtp_mobile_nav_support', ' rtpa-mobile-nav' ) . '">';
+    $admin_bar_class_fix ='';
+    if (is_admin_bar_showing()){
+        $admin_bar_class_fix="rtp-pading-topbar";
+    }
+     echo '<div class="row sticky ' . $admin_bar_class_fix. '"><div class="large-12"><nav id="rtp-primary-menu" role="navigation" class="top-bar' . apply_filters( 'rtp_mobile_nav_support', ' rtpa-mobile-nav' ) . '">';
      ?>
            <ul class="title-area">
                 <li class="name">
