@@ -30,10 +30,10 @@ function rtp_custom_search_form( $form ) {
     //<label class="hidden">' . __( 'Search for:', 'rtPanel' ) . '</label>
     $form = '<form role="search" class="searchform" action="' . home_url( '/' ) . '">
                 <div class="row collapse">
-                    <div class="small-12 large-9 columns">
+                    <div class="serachtext">
                         <input type="search" required="required" ' . $placeholder . 'value="' . esc_attr( apply_filters( 'the_search_query', get_search_query() ) ).'" name="s" class="' . $search_class . '" title="' . apply_filters( 'rtp_search_placeholder', __( 'Search Here...', 'rtPanel' ) ). '"' . $chrome_voice_search . ' />
                     </div>
-                    <div class="small-12 large-3 columns">
+                    <div class="serachbutton">
                         <input type="submit" class="searchsubmit postfix radius" value="' . esc_attr( __( 'Search', 'rtPanel' ) ) . '" title="Search" />
                     </div>
                </div>

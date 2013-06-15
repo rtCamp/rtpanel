@@ -37,24 +37,22 @@ global $rtp_general; ?><!DOCTYPE html>
 
         <?php rtp_hook_begin_body(); ?>
 
-        <div id="main-wrapper" class="large-block-grid-12 clearfix"><!-- ends in footer.php -->
+        <div id="main-wrapper" class="clearfix"><!-- ends in footer.php -->
 
             <?php rtp_hook_begin_main_wrapper(); ?>
 
             <?php $header_class = get_header_image() ? ' rtp-header-wrapper-image' : ''; ?>
-            <header id="header-wrapper" role="banner" class="clearfix<?php echo $header_class; ?>">
+            <header id="header-wrapper" role="banner" class="row clearfix<?php echo $header_class; ?>">
 
                 <?php rtp_hook_before_header(); ?>
 
-                <div id="header" class="row clearfix">
-                    <div class="large-12 columns">
+                <div id="header" class="large-16 columns clearfix">
                     <?php rtp_hook_before_logo(); ?>
 
                         <?php $heading = ( is_home() || is_front_page() ) ? 'h2' : 'h3'; ?>
                         <<?php echo $heading; ?> class="rtp-site-logo clearfix"><a role="link" href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name' ); ?>"><?php echo ( 'image' == $rtp_general['logo_use'] ) ? '<img role="img" alt="' . get_bloginfo( 'name' ) . '" ' . rtp_get_image_dimensions( $rtp_general['logo_upload'] ) . ' src="' . $rtp_general['logo_upload'] . '" />' : get_bloginfo( 'name' ); ?></a></<?php echo $heading; ?>>
                         
                     <?php rtp_hook_after_logo(); ?>
-                    </div>
                 </div><!-- #header -->
 
                 <?php rtp_hook_after_header(); ?>

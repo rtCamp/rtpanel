@@ -10,7 +10,7 @@ get_header(); ?>
 
 <?php global $rtp_post_comments; ?>
 
-    <section id="content" class="rtp-image-attachment large-12 columns">
+    <section id="content" class="rtp-image-attachment large-16 columns">
         <?php rtp_hook_begin_content(); ?>
 
         <?php 

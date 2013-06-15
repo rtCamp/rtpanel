@@ -30,7 +30,7 @@ $default-float: left;
 
 // $body-bg: #fff;
 // $body-font-color: #222;
-// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-font-family: "Open Sans",Open Sans, Arial, sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
 
@@ -44,7 +44,7 @@ $default-float: left;
 
 // Colors
 
-// $primary-color: #2ba6cb;
+$primary-color: #0088cc; //rtpanel-link #006999;
 // $secondary-color: #e9e9e9;
 // $alert-color: #c60f13;
 // $success-color: #5da423;
@@ -113,9 +113,9 @@ $default-float: left;
 // Grid Variables
 //
 
-// $row-width: emCalc(1000px);
-// $column-gutter: emCalc(30px);
-// $total-columns: 12;
+$row-width: emCalc(1280px);
+$column-gutter: emCalc(20px);
+$total-columns: 16;
 
 //
 // Block Grid Variables
@@ -137,12 +137,12 @@ $default-float: left;
 // Heading font styles
 
 // $header-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-// $header-font-weight: bold;
+$header-font-weight: normal;
 // $header-font-style: normal;
 // $header-font-color: #222;
 // $header-line-height: 1.4;
 // $header-top-margin: .2em;
-// $header-bottom-margin: .5em;
+ $header-bottom-margin: .1em;
 // $header-text-rendering: optimizeLegibility;
 
 // Heading font sizes
@@ -776,7 +776,7 @@ $default-float: left;
 
 // Caption styles
 
-// $orbit-container-bg: #f5f5f5;
+$orbit-container-bg: #fff; //#f5f5f5;
 // $orbit-caption-bg-old: rgb(0,0,0);
 // $orbit-caption-bg: rgba(0,0,0,0.6);
 // $orbit-caption-font-color: #fff;
@@ -1208,7 +1208,7 @@ $default-float: left;
 // Height and margin
 
 // $topbar-height: 45px;
-// $topbar-margin-bottom: emCalc(30px);
+$topbar-margin-bottom: emCalc(0px);
 
 // Control Input height for top bar
 
@@ -1216,7 +1216,7 @@ $default-float: left;
 
 // Controlling the styles for the title in the top bar
 
-// $topbar-title-weight: bold;
+$topbar-title-weight: 300;
 // $topbar-title-font-size: emCalc(17px);
 
 // Style the top bar dropdown elements
@@ -1233,7 +1233,7 @@ $default-float: left;
 // $topbar-link-color: #fff;
 // $topbar-link-color-hover: #fff;
 // $topbar-link-color-active: #fff;
-// $topbar-link-weight: bold;
+$topbar-link-weight: normal;
 // $topbar-link-font-size: emCalc(13px);
 // $topbar-link-hover-lightness: -30%; // Darken by 30%
 // $topbar-link-bg-hover: darken($topbar-bg, 3%);

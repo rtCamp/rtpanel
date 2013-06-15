@@ -138,7 +138,7 @@ function rtp_default_nav_menu() {
     if (is_admin_bar_showing()){
         $admin_bar_class_fix="rtp-pading-topbar";
     }
-     echo '<div class="row sticky ' . $admin_bar_class_fix. '"><div class="large-12"><nav id="rtp-primary-menu" role="navigation" class="top-bar' . apply_filters( 'rtp_mobile_nav_support', ' rtpa-mobile-nav' ) . '">';
+     echo '<div class="rtp-nav-container large-16 columns sticky radi' . $admin_bar_class_fix . ' "><nav id="rtp-primary-menu " role="navigation" class="top-bar' . apply_filters( 'rtp_mobile_nav_support', ' rtpa-mobile-nav' ) . '">';
      ?>
            <ul class="title-area">
                 <li class="name">
@@ -157,7 +157,7 @@ function rtp_default_nav_menu() {
                 wp_list_pages( array( 'title_li' => '', 'sort_column' => 'menu_order', 'number' => '5', 'depth' => apply_filters( 'rtp_nav_menu_depth', 4 ) ) );
             echo '</ul></section>';
         }
-    echo '</nav></div></div>';
+    echo '</nav></div>';
 }
 add_action('rtp_hook_after_header','rtp_default_nav_menu'); // Adds default nav menu after #header
 
@@ -226,8 +226,7 @@ function rtp_default_archive_pagination() {
             global $wp_query, $rtp_post_comments;
             if ( isset( $rtp_post_comments['pagination_show'] ) && $rtp_post_comments['pagination_show'] ) {
                 if ( ( $wp_query->max_num_pages > 1 ) ) { ?>
-                <div class="row">
-                    <nav class="wp-pagenavi large-12 columns"><?php
+                    <nav class="wp-pagenavi large-16 columns"><?php
                         echo paginate_links( array(
                                 'base' => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
                                 'format' => '?paged=%#%',
@@ -240,7 +239,6 @@ function rtp_default_archive_pagination() {
                                 'type' => 'list'
                             ) ); ?>
                     </nav>
-                </div>
                             <?php
                 }
             } elseif ( function_exists( 'wp_pagenavi' ) ) {
@@ -443,7 +441,7 @@ function rtp_orbit_slider(WP_Query $slider_q=null,$slide_number = 100, $content_
     
     $slider_image = '';
     $slider_pagination = false;
-    $slider_html = '<div class="large-12 rtp-orbit-slider-row"><ul data-orbit id="rtp-orbit-slider" data-options="timer_speed:2500; bullets:false;">';
+    $slider_html = '<div class="large-16 rtp-orbit-slider-row"><ul data-orbit id="rtp-orbit-slider" data-options="timer_speed:2500; bullets:false;">';
 
     if ( $slider_q->have_posts() ) {
         while ( $slider_q->have_posts() ) { $slider_q->the_post();

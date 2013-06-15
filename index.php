@@ -10,11 +10,11 @@ get_header(); ?>
 
     <?php
         $rtp_content_class = '';
-        $rtp_grid = "large-8 columns";
+        $rtp_grid = "large-11 columns";
 
         // Full width grid for buddypress or bbpress
         if ( rtp_get_sidebar_id() === 0 )
-            $rtp_grid = "large-12";
+            $rtp_grid = "large-16";
         
         if ( is_archive() ) {
             $rtp_content_class = ' class="' . $rtp_grid . ' rtp-multiple-post" ';
