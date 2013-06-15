@@ -149,15 +149,16 @@ function rtp_default_nav_menu() {
                 <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
             </ul>
 <?php
+        echo '<section class="top-bar-section">';
         /* Call wp_nav_menu() for Wordpress Navigaton with fallback wp_list_pages() if menu not set in admin panel */
         if ( function_exists( 'wp_nav_menu' ) && has_nav_menu( 'primary' ) ) {
             wp_nav_menu( array( 'container' => '', 'menu_id' => 'rtp-nav-menu', 'theme_location' => 'primary', 'depth' => apply_filters( 'rtp_nav_menu_depth', 4 ) ) );
         } else {
-            echo '<section class="top-bar-section"><ul class="left" id="rtp-nav-menu">';
+            echo '<ul class="left" id="rtp-nav-menu">';
                 wp_list_pages( array( 'title_li' => '', 'sort_column' => 'menu_order', 'number' => '5', 'depth' => apply_filters( 'rtp_nav_menu_depth', 4 ) ) );
-            echo '</ul></section>';
+            echo '</ul>';
         }
-    echo '</nav></div>';
+    echo '</section></nav></div>';
 }
 add_action('rtp_hook_after_header','rtp_default_nav_menu'); // Adds default nav menu after #header
 
