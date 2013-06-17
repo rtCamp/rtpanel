@@ -464,16 +464,18 @@ function rtp_orbit_slider(WP_Query $slider_q=null,$slide_number = 100, $content_
                     }
                      
                     $slider_html .= '</li>';
+                    $slider_pagination = true;
             }
 
-            $slider_pagination = true;
+            
         }
 
         $slider_html .= '</ul></div>';
-        echo $slider_html;
+        if ($slider_pagination)
+            echo $slider_html;
     }
     wp_reset_postdata();
- 
+
 }
 
 function rtp_call_slider(){
