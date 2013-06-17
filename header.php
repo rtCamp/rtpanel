@@ -23,11 +23,9 @@ global $rtp_general; ?><!DOCTYPE html>
         <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
         <link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>" type="text/css" media="all" />
-
         <!--[if lt IE 9]>
-            <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
+        <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
         <![endif]-->
-
         <?php wp_head(); ?>
         
         <?php rtp_head(); ?>
@@ -42,11 +40,11 @@ global $rtp_general; ?><!DOCTYPE html>
             <?php rtp_hook_begin_main_wrapper(); ?>
 
             <?php $header_class = get_header_image() ? ' rtp-header-wrapper-image' : ''; ?>
-            <header id="header-wrapper" role="banner" class="row clearfix<?php echo $header_class; ?>">
+            <header id="header-wrapper" role="banner" class="<?php echo $header_class; ?>">
 
                 <?php rtp_hook_before_header(); ?>
 
-                <div id="header" class="large-16 columns clearfix">
+                <div id="header" class="row clearfix">
                     <?php rtp_hook_before_logo(); ?>
 
                         <?php $heading = ( is_home() || is_front_page() ) ? 'h2' : 'h3'; ?>
