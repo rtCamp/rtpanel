@@ -297,3 +297,7 @@ function rtp_hook_single_pagination() {
 function rtp_hook_archive_pagination() {
     do_action( 'rtp_hook_archive_pagination' );
 }
+
+function rtp_hook_before_content_wrapper(){
+    do_action("rtp_hook_before_content_wrapper");
+}
