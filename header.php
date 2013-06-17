@@ -58,6 +58,6 @@ global $rtp_general; ?><!DOCTYPE html>
                 <?php rtp_hook_after_header(); ?>
 
             </header><!-- #header-wrapper -->
-
+            <?php rtp_hook_before_content_wrapper(); ?>
             <div id="content-wrapper"<?php echo ( is_search() && $rtp_general['search_code'] && $rtp_general['search_layout'] ) ? ' class="row search-layout-wrapper clearfix"' : ' class="row clearfix"'; ?>><!-- ends in footer.php -->
                 <?php rtp_hook_begin_content_wrapper(); ?>
