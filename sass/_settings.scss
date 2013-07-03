@@ -114,8 +114,8 @@ $primary-color: #0088cc; //rtpanel-link #006999;
 //
 
 $row-width: emCalc(1280px);
-$column-gutter: emCalc(20px);
-$total-columns: 16;
+$column-gutter: emCalc(24px);
+$total-columns: 12;
 
 //
 // Block Grid Variables
@@ -123,7 +123,7 @@ $total-columns: 16;
 
 // Maximum number of block grid elements per row
 
-// $block-grid-elements: 12;
+$block-grid-elements: 12;
 // $block-grid-default-spacing: emCalc(20px);
 
 // Enables media queries for block-grid classes. Set to false if writing semantic HTML.
