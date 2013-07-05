@@ -34,7 +34,7 @@ if ( have_posts() ) {
         <article id="post-<?php if ( !rtp_is_bbPress() ) { the_ID(); } else { echo 'forum-index'; } ?>" <?php post_class( 'rtp-post-box large-16 columns' ); ?>>
             <?php rtp_hook_begin_post(); ?>
 
-            <header class="post-header clearfix large-16 columns">
+            <header class="post-header clearfix large-12 columns">
                 <?php rtp_hook_begin_post_title(); ?>
 
                 <?php $has_comments = ( ( get_comments_number() || @comments_open() ) && !is_attachment() && !rtp_is_bbPress() ) ? ' rtp-has-comments' : ''; ?>
@@ -50,7 +50,7 @@ if ( have_posts() ) {
                 <?php rtp_hook_post_meta( 'top' ); ?>
             </header><!-- .post-title -->
 
-            <div class="post-content clearfix large-16 columns">
+            <div class="post-content clearfix large-12 columns">
                 <?php rtp_hook_begin_post_content(); ?>
 
                 <?php rtp_show_post_thumbnail(); ?>

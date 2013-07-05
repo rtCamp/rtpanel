@@ -14,14 +14,14 @@ if ( post_password_required() ) { ?>
 }
 
 if ( have_comments() || ( ( !is_attachment() && comments_open() ) || ( is_attachment() && $rtp_post_comments['attachment_comments'] ) ) ) { ?>
-    <div class="comments-container clearfix large-16 columns"><?php
+    <div class="comments-container clearfix large-12 columns"><?php
         if ( have_comments() ) { ?>
             <div class="rtp-comment-count clearfix row" id="comments"><?php 
                 add_filter( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
                 $comment_count = sprintf( _n( '<span class="count">%1$s</span> Comment', '<span class="count">%1$s</span> Comments', get_comments_number(), 'rtPanel' ), number_format_i18n( get_comments_number() ) ) . '&hellip; ';
                 remove_filter( 'get_comments_number', 'rtp_only_comment_count', 11 );
                 if ( ( get_comments_number() && comments_open() ) || get_comments_number() ) { ?>
-                    <h4 class="large-11 columns"><?php echo $comment_count; ?><?php
+                    <h4 class="large-8 columns"><?php echo $comment_count; ?><?php
                     echo ( comments_open() ) ? sprintf( __( '<small class="rtp-thoughts">&nbsp;Share your <a role="link" href="%s" title="Share your views">views</a></small>', 'rtPanel' ), '#respond' ) : '';
                     echo "</h4>";
                 } 
@@ -31,7 +31,7 @@ if ( have_comments() || ( ( !is_attachment() && comments_open() ) || ( is_attach
                 } ?>
             </div><!-- .rtp-comment-count -->
 
-            <ol class="commentlist large-16 column"><?php
+            <ol class="commentlist large-12 column"><?php
                 $args = ( $rtp_post_comments['comment_separate'] ) ? 'callback=rtp_comment_list&type=comment' : 'callback=rtp_comment_list&type=all';
                 wp_list_comments( $args ); ?>
             </ol><!-- .commentlist -->
