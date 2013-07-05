@@ -301,3 +301,7 @@ function rtp_hook_archive_pagination() {
 function rtp_hook_before_content_wrapper(){
     do_action("rtp_hook_before_content_wrapper");
 }
+
+function rtp_hook_after_content_wrapper(){
+    do_action("rtp_hook_after_content_wrapper");
+}

@@ -10,7 +10,7 @@ global $rtp_general; ?>
 
                 <?php rtp_hook_end_content_wrapper(); ?>
             </div><!-- #content-wrapper -->
-
+<?php rtp_hook_after_content_wrapper(); ?>
             <footer id="footer-wrapper" role="contentinfo" class="clearfix rtp-section-separator"><?php
                 if ( $rtp_general['footer_sidebar'] ) { ?>
                     <aside role="complementary" id="footerbar" class="clearfix row rtp-section-separator"><?php
