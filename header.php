@@ -57,5 +57,9 @@ global $rtp_general; ?><!DOCTYPE html>
 
             </header><!-- #header-wrapper -->
             <?php rtp_hook_before_content_wrapper(); ?>
-            <div id="content-wrapper"<?php echo ( is_search() && $rtp_general['search_code'] && $rtp_general['search_layout'] ) ? ' class="row search-layout-wrapper clearfix"' : ' class="row clearfix"'; ?>><!-- ends in footer.php -->
+            
+            <?php 
+                $content_wrapper_class = ( is_search() && $rtp_general['search_code'] && $rtp_general['search_layout'] ) ? 'row search-layout-wrapper clearfix"' : ' class="row clearfix"';
+            ?>
+            <div id="content-wrapper" class="<?php echo apply_filters("rtp_content_wrapper_class",$content_wrapper_class); ?>"><!-- ends in footer.php -->
                 <?php rtp_hook_begin_content_wrapper(); ?>
