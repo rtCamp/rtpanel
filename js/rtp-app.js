@@ -8,6 +8,9 @@ jQuery(document).ready(function($) {
         if (($(window).width() < 767) && !switched) {
             switched = true;
             $("table").each(function(i, element) {
+                if($(this).hasClass("no-responsive")){
+                    return true;
+                }
                 splitTable($(element));
             });
             return true;
@@ -15,6 +18,9 @@ jQuery(document).ready(function($) {
         else if (switched && ($(window).width() > 767)) {
             switched = false;
             $("table").each(function(i, element) {
+                if($(this).hasClass("no-responsive")){
+                    return true;
+                }
                 unsplitTable($(element));
             });
         }
