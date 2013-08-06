@@ -144,17 +144,16 @@ function rtp_default_nav_menu () {
     if ( is_admin_bar_showing () ) {
         $admin_bar_class_fix = "rtp-pading-topbar";
     }
-    echo '<div class="row"><div class="rtp-nav-container large-12 columns radi' . $admin_bar_class_fix . ' "><nav id="rtp-primary-menu " role="navigation" class="top-bar' . apply_filters ( 'rtp_mobile_nav_support', ' rtpa-mobile-nav' ) . '">';
-    ?>
+
+    echo '<div class="row"><div class="rtp-nav-container large-12 columns ' . $admin_bar_class_fix . ' "><nav id="rtp-primary-menu " role="navigation" class="top-bar' . apply_filters ( 'rtp_mobile_nav_support', ' rtpa-mobile-nav' ) . '">'; ?>
     <ul class="title-area">
         <li class="name">
-            <h1><a href="/"><?php echo bloginfo ( 'name' ); ?></a></h1>
+            <h1><a role="link" href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name' ); ?>"><?php echo bloginfo ( 'name' ); ?></a></h1>
         </li>
 
         <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
         <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-    </ul>
-    <?php
+    </ul><?php
     echo '<section class="top-bar-section">';
     /* Call wp_nav_menu() for Wordpress Navigaton with fallback wp_list_pages() if menu not set in admin panel */
     if ( function_exists ( 'wp_nav_menu' ) && has_nav_menu ( 'primary' ) ) {

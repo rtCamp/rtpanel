@@ -23,14 +23,12 @@ global $rtp_general; ?><!DOCTYPE html>
         <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
         <link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>" type="text/css" media="all" />
-        <!--[if lt IE 9]>
-        <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
-        <![endif]-->
+
         <?php wp_head(); ?>
-        
+
         <?php rtp_head(); ?>
-        
     </head>
+
     <body <?php body_class(); ?>><!-- ends in footer.php -->
 
         <?php rtp_hook_begin_body(); ?>

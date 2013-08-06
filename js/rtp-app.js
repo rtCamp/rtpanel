@@ -1,4 +1,5 @@
 jQuery(document).foundation();
+
 /**
  * Responsive Table JS
  */
@@ -30,8 +31,7 @@ jQuery(document).ready(function($) {
     $(window).bind("resize", updateTables);
 
 
-    function splitTable(original)
-    {
+    function splitTable(original) {
         original.wrap("<div class='table-wrapper' />");
 
         var copy = original.clone();
