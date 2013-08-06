@@ -1,0 +1,21 @@
+// Header Content Footer
+.rtp-header-wrapper, .rtp-content-wrapper, .rtp-footer-wrapper {
+    @extend .row;
+}
+
+.rtp-footer {
+    @extend .columns;
+}
+
+// Footer Widgets
+.rtp-footer-widget {
+    @extend .large-#{$total-columns/3};
+    @extend .columns;
+}
+
+// Sidebar
+.sidebar-widget {
+    @extend .large-#{$total-columns};
+    @extend .small-#{$total-columns/2};
+    @extend .columns;
+}

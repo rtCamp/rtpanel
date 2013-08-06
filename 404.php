@@ -8,7 +8,7 @@
  */
 get_header(); ?>
 
-    <section id="content" role="main" class="large-12 columns">
+    <section id="content" role="main" class="rtp-content">
 
         <?php rtp_hook_begin_content(); ?>
 

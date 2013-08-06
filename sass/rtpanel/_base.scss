@@ -1,5 +1,13 @@
 // Basic rtPanel Styles
-$rt-default-bordor-color :#dddddd;
+$black: #000000;
+$white: #ffffff;
+$gray: #666666;
+$border-color: #dddddd;
+
+// Basic style for theme.
+@import "utility";
+@import "layout";
+
 
 // Links
 a {
@@ -53,6 +61,17 @@ a {
     }
 }
 
+.post-meta {
+    color: $gray;
+    font-size: 0.875em;
+    font-style: italic;
+    margin-bottom: 1.25em;
+}
+
+.post-title {
+    
+}
+
 // Gallery 'data-clearing' ==> Attribute Selector
 [data-clearing] {
     li {
@@ -69,13 +88,6 @@ a {
             display: none;
         }
     }
-}
-
-// Sidebar
-.sidebar-widget {
-    @extend .large-#{$total-columns};
-    @extend .small-#{$total-columns/2};
-    @extend .columns;
 }
 
 .widget {
@@ -110,20 +122,15 @@ nav ul.page-numbers{
 	}
 	
 }
-.alignleft{
-	@extend .left;
-}
-.alignight{
-	@extend .right;
+
+
+.post {
+    overflow-x: hidden;
+    border-bottom: 1px dotted #{$border-color};
+    padding-bottom: 1.875em;
+    padding-top: 1em;
 }
 
-article{
-	&.post{
-		overflow-x: hidden;
-		border-bottom: 1px dotted #{$rt-default-bordor-color};
-		padding-bottom: 10px
-	}
-}
 .rtp-thumbnail-container{
 	margin-left:2px;
 	margin-right:2px;
@@ -149,8 +156,8 @@ img.post-thumb{
 	}
 }
 .rtp-comment-count{
-	border-bottom: 1px solid #{$rt-default-bordor-color};
-	border-top: 1px solid #{$rt-default-bordor-color};
+	border-bottom: 1px solid #{$border-color};
+	border-top: 1px solid #{$border-color};
 	.rtp-manage-comments{line-height:36px;}
 }
 .comment-body{
@@ -161,11 +168,11 @@ img.post-thumb{
 }
 .commentlist{
 		.comment-body{
-			border-bottom: 1px solid #{$rt-default-bordor-color};
+			border-bottom: 1px solid #{$border-color};
 		}
 		ul{
 			.children{
-				border-bottom: 1px solid #{$rt-default-bordor-color};
+				border-bottom: 1px solid #{$border-color};
 				&:last-child{
 					border-bottom: none;
 				}

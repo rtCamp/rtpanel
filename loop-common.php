@@ -31,18 +31,18 @@ if ( have_posts() ) {
     while( have_posts() ) {
         the_post(); ?>
 
-        <article id="post-<?php if ( !rtp_is_bbPress() ) { the_ID(); } else { echo 'forum-index'; } ?>" <?php post_class( 'rtp-post-box large-16 columns' ); ?>>
+        <article id="post-<?php if ( !rtp_is_bbPress() ) { the_ID(); } else { echo 'forum-index'; } ?>" <?php post_class( 'rtp-post-box' ); ?>>
             <?php rtp_hook_begin_post(); ?>
 
-            <header class="post-header clearfix large-12 columns">
+            <header class="post-header">
                 <?php rtp_hook_begin_post_title(); ?>
 
                 <?php $has_comments = ( ( get_comments_number() || @comments_open() ) && !is_attachment() && !rtp_is_bbPress() ) ? ' rtp-has-comments' : ''; ?>
 
                 <?php   if ( is_singular() ) { ?>
-                            <h2 class="post-title<?php echo $has_comments; ?>"><?php the_title(); ?></h2><?php
+                            <h1 class="post-title<?php echo $has_comments; ?>"><?php the_title(); ?></h1><?php
                         } else { ?>
-                            <h3 class="post-title<?php echo $has_comments; ?>"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permanent Link to %s', 'rtPanel' ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a></h3><?php
+                            <h2 class="post-title<?php echo $has_comments; ?>"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permanent Link to %s', 'rtPanel' ), the_title_attribute( 'echo=0' ) ); ?>"><?php the_title(); ?></a></h2><?php
                         } ?>
 
                 <?php rtp_hook_end_post_title(); ?>
@@ -50,7 +50,7 @@ if ( have_posts() ) {
                 <?php rtp_hook_post_meta( 'top' ); ?>
             </header><!-- .post-title -->
 
-            <div class="post-content clearfix large-12 columns">
+            <div class="post-content">
                 <?php rtp_hook_begin_post_content(); ?>
 
                 <?php rtp_show_post_thumbnail(); ?>
@@ -88,7 +88,7 @@ if ( have_posts() ) {
 
         <?php rtp_hook_begin_post(); ?>
 
-        <div class="post-content clearfix rtp-not-found">
+        <div class="post-content rtp-not-found">
             <p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'rtPanel' ); ?></p>
             <?php get_search_form(); ?>
         </div>

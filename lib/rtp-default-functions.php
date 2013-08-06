@@ -84,19 +84,18 @@ function rtp_default_post_meta ( $placement = 'top' ) {
                     rtp_hook_begin_post_meta_top ();
 
                 // Author Link
-                echo '<h6 class="subheader"><p class="post-publish">';
                 if ( $rtp_post_comments[ 'post_author_' . $position ] || $rtp_post_comments[ 'post_date_' . $position ] ) {
-                    ?>
-                    <?php
+                    
                     if ( $rtp_post_comments[ 'post_author_' . $position ] ) {
-                        printf ( __ ( 'Posted by <span class="author radius secondary label">%s</span>', 'rtPanel' ), ( ! $rtp_post_comments[ 'author_link_' . $position ] ? get_the_author () . ( $rtp_post_comments[ 'author_count_' . $position ] ? '(' . get_the_author_posts () . ')' : '' ) : sprintf ( __ ( '<a class="fn" href="%1$s" title="%2$s">%3$s</a>', 'rtPanel' ), get_author_posts_url ( get_the_author_meta ( 'ID' ), get_the_author_meta ( 'user_nicename' ) ), esc_attr ( sprintf ( __ ( 'Posts by %s', 'rtPanel' ), get_the_author () ) ), get_the_author () ) . ( $rtp_post_comments[ 'author_count_' . $position ] ? '(' . get_the_author_posts () . ')' : '' ) ) );
+                        printf ( __ ( '<span class="">Posted by</span> <span class="author">%s</span>', 'rtPanel' ), ( ! $rtp_post_comments[ 'author_link_' . $position ] ? get_the_author () . ( $rtp_post_comments[ 'author_count_' . $position ] ? '(' . get_the_author_posts () . ')' : '' ) : sprintf ( __ ( '<a class="fn" href="%1$s" title="%2$s">%3$s</a>', 'rtPanel' ), get_author_posts_url ( get_the_author_meta ( 'ID' ), get_the_author_meta ( 'user_nicename' ) ), esc_attr ( sprintf ( __ ( 'Posts by %s', 'rtPanel' ), get_the_author () ) ), get_the_author () ) . ( $rtp_post_comments[ 'author_count_' . $position ] ? '(' . get_the_author_posts () . ')' : '' ) ) );
                     }
+                    
                     echo ( $rtp_post_comments[ 'post_author_' . $position ] && $rtp_post_comments[ 'post_date_' . $position ] ) ? ' ' : '';
+                    
                     if ( $rtp_post_comments[ 'post_date_' . $position ] ) {
                         printf ( __ ( 'on <time class="published" datetime="%s">%s</time>', 'rtPanel' ), get_the_date ( 'c' ), get_the_time ( $rtp_post_comments[ 'post_date_format_' . $position ] ) );
                     }
-                    ?>
-                    <?php
+                    
                 }
 
                 // Post Categories
@@ -111,7 +110,7 @@ function rtp_default_post_meta ( $placement = 'top' ) {
                 foreach ( $taxonomies as $key => $taxonomy ) {
                     ( get_the_terms ( $post->ID, $key ) && isset ( $rtp_post_comments[ 'post_' . $key . '_' . $position ] ) && $rtp_post_comments[ 'post_' . $key . '_' . $position ] ) ? the_terms ( $post->ID, $key, '<p class="post-custom-tax post-' . $key . '">' . $taxonomy->labels->singular_name . ': ', ', ', '</p>' ) : '';
                 }
-                echo "</p></h6>";
+                
                 if ( 'bottom' == $placement )
                     rtp_hook_end_post_meta_bottom ();
                 else
@@ -142,10 +141,10 @@ add_action ( 'rtp_hook_post_meta_bottom', 'rtp_default_post_meta' ); // Post Met
 function rtp_default_nav_menu () {
     $admin_bar_class_fix = '';
     if ( is_admin_bar_showing () ) {
-        $admin_bar_class_fix = "rtp-pading-topbar";
+        $admin_bar_class_fix = " rtp-pading-topbar";
     }
 
-    echo '<div class="row"><div class="rtp-nav-container large-12 columns ' . $admin_bar_class_fix . ' "><nav id="rtp-primary-menu " role="navigation" class="top-bar' . apply_filters ( 'rtp_mobile_nav_support', ' rtpa-mobile-nav' ) . '">'; ?>
+    echo '<div class="rtp-nav-container' . $admin_bar_class_fix . '"><nav id="rtp-primary-menu" role="navigation" class="top-bar' . apply_filters ( 'rtp_mobile_nav_support', ' rtpa-mobile-nav' ) . '">'; ?>
     <ul class="title-area">
         <li class="name">
             <h1><a role="link" href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name' ); ?>"><?php echo bloginfo ( 'name' ); ?></a></h1>
@@ -164,7 +163,7 @@ function rtp_default_nav_menu () {
         wp_list_pages ( array( 'title_li' => '', 'sort_column' => 'menu_order', 'number' => '5', 'depth' => apply_filters ( 'rtp_nav_menu_depth', 4 ) ) );
         echo '</ul>';
     }
-    echo '</section></nav></div></div>';
+    echo '</section></nav></div>';
 }
 
 add_action ( 'rtp_hook_after_header', 'rtp_default_nav_menu' ); // Adds default nav menu after #header
@@ -257,7 +256,7 @@ function rtp_default_archive_pagination () {
             if ( isset ( $rtp_post_comments[ 'pagination_show' ] ) && $rtp_post_comments[ 'pagination_show' ] ) {
                 if ( ( $wp_query->max_num_pages > 1 ) ) {
                     ?>
-                    <nav class="wp-pagenavi large-12 columns"><?php
+                    <nav class="wp-pagenavi"><?php
                     echo paginate_links ( array(
                         'base' => str_replace ( 999999999, '%#%', esc_url ( get_pagenum_link ( 999999999 ) ) ),
                         'format' => '?paged=%#%',
@@ -478,7 +477,7 @@ function rtp_orbit_slider ( WP_Query $slider_q = null, $slide_number = 100, $con
     if ( $slider_q->have_posts () ) {
         $slider_image = '';
         $slider_pagination = false;
-        $slider_html = '<div class="large-12 rtp-orbit-slider-row"><ul data-orbit id="rtp-orbit-slider" data-options="timer_speed:2500; bullets:false;">';
+        $slider_html = '<div class="rtp-orbit-slider-row"><ul data-orbit id="rtp-orbit-slider" data-options="timer_speed:2500; bullets:false;">';
 
 
         while ( $slider_q->have_posts () ) {
