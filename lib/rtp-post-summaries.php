@@ -266,7 +266,7 @@ function rtp_create_external_thumb( $match, $post, $size, $double_check_tag = ''
 function rtp_get_attachment_id_from_src( $image_src, $hard_find = false ) {
     global $wpdb;
     $temp = $image_src;
-	$responce_code = wp_remote_get( $image_src = preg_replace('/-\d+x\d+(?=\.(jpg|jpeg|png|gif)$)/i', '', $image_src ) );
+	$response_code = wp_remote_get( $image_src = preg_replace('/-\d+x\d+(?=\.(jpg|jpeg|png|gif)$)/i', '', $image_src ) );
     if ( $hard_find && !( 200 == wp_remote_retrieve_response_code( $responce_code ) ) ) {
        $image_src = $temp;
     }
