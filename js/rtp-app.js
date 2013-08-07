@@ -1,4 +1,5 @@
 jQuery(document).foundation();
+
 /**
  * Responsive Table JS
  */
@@ -8,6 +9,9 @@ jQuery(document).ready(function($) {
         if (($(window).width() < 767) && !switched) {
             switched = true;
             $("table").each(function(i, element) {
+                if($(this).hasClass("no-responsive")){
+                    return true;
+                }
                 splitTable($(element));
             });
             return true;
@@ -15,6 +19,9 @@ jQuery(document).ready(function($) {
         else if (switched && ($(window).width() > 767)) {
             switched = false;
             $("table").each(function(i, element) {
+                if($(this).hasClass("no-responsive")){
+                    return true;
+                }
                 unsplitTable($(element));
             });
         }
@@ -24,8 +31,7 @@ jQuery(document).ready(function($) {
     $(window).bind("resize", updateTables);
 
 
-    function splitTable(original)
-    {
+    function splitTable(original) {
         original.wrap("<div class='table-wrapper' />");
 
         var copy = original.clone();
