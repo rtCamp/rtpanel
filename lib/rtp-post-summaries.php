@@ -3,7 +3,7 @@
  * Functions related to Post Summaries
  *
  * @package rtPanel
- * 
+ *
  * @since rtPanel 2.0
  */
 
@@ -12,7 +12,7 @@
  *
  * @param string $text
  * @return string
- * 
+ *
  * @since rtPanel 2.0
  */
 function rtp_no_ellipsis( $text ) {
@@ -69,12 +69,12 @@ function rtp_show_post_thumbnail( $post_id = null, $thumbnail_size = 'thumbnail'
     global $rtp_post_comments;
     if ( !is_singular() && $rtp_post_comments['summary_show'] && $rtp_post_comments['thumbnail_show'] && !rtp_is_bbPress() ) {
         $thumbnail_frame = ( $rtp_post_comments['thumbnail_frame'] ) ? 'rtp-thumbnail-shadow' : 'rtp-no-thumbnail-shadow';
-        $image_align =  strtolower( $rtp_post_comments['thumbnail_position'] ); 
+        $image_align =  strtolower( $rtp_post_comments['thumbnail_position'] );
         if ( has_post_thumbnail() ) {
             echo '<figure class="rtp-thumbnail-container ' . $image_align . ' ' . $thumbnail_frame . '">'; ?>
                 <a role="link" class="<?php echo $image_align; ?>" href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( $thumbnail_size, array( 'title' => the_title_attribute( array( 'echo' => false ) ), 'class' => 'post-thumb ' . $image_align ) ); ?></a><?php
             echo '</figure>';
-        } else {            
+        } else {
             $image = apply_filters( 'rtp_default_image_path', $default_img_path );
             if ( isset($image) && !empty($image) ) {
                 $image_id = rtp_get_attachment_id_from_src( $image, true );
@@ -190,7 +190,7 @@ function rtp_create_external_thumb( $match, $post, $size, $double_check_tag = ''
             wp_update_attachment_metadata( $new_image_id, wp_generate_attachment_metadata( $new_image_id, $img_info['file'] ) );
             $updated_post = array();
             $updated_post['ID'] = $post->ID;
-            
+
             if ( is_int( $new_image_id ) ) {
                 $image_src = wp_get_attachment_image_src( $new_image_id, $size );
 
@@ -216,7 +216,7 @@ function rtp_create_external_thumb( $match, $post, $size, $double_check_tag = ''
                     // Update the post
                     wp_update_post( $updated_post );
                 }
-                
+
                 return $image_src[0];
             } else {
                 $updated_post = array();
@@ -230,7 +230,7 @@ function rtp_create_external_thumb( $match, $post, $size, $double_check_tag = ''
                     $updated_class = $class[1].' wp-image-'.$new_image_id;
                     $updated_image_tag = str_replace( 'class="'.$class[1].'"', 'class="'.$updated_class.'"', $match[0] );
                     $updated_post['post_content'] = str_replace( $match[0], $updated_image_tag, $post->post_content );
-                    
+
                     if ( $double_check_tag != '' ) {
                         $updated_post['post_content'] = str_replace( $double_check_tag, $updated_image_tag, $post->post_content );
                     }
@@ -255,7 +255,7 @@ function rtp_create_external_thumb( $match, $post, $size, $double_check_tag = ''
 
 /**
  * Used to get the attachment id provided 'src'
- * 
+ *
  * @uses $wpdb object
  * @param string $image_src The Image Source
  * @param boolean $hard_find
@@ -266,7 +266,8 @@ function rtp_create_external_thumb( $match, $post, $size, $double_check_tag = ''
 function rtp_get_attachment_id_from_src( $image_src, $hard_find = false ) {
     global $wpdb;
     $temp = $image_src;
-    if ( $hard_find && !( 200 == wp_remote_retrieve_response_code( wp_remote_get( $image_src = preg_replace('/-\d+x\d+(?=\.(jpg|jpeg|png|gif)$)/i', '', $image_src ) ) ) ) ) {
+	$responce_code = wp_remote_get( $image_src = preg_replace('/-\d+x\d+(?=\.(jpg|jpeg|png|gif)$)/i', '', $image_src ) );
+    if ( $hard_find && !( 200 == wp_remote_retrieve_response_code( $responce_code ) ) ) {
        $image_src = $temp;
     }
     $query = "SELECT ID FROM {$wpdb->posts} WHERE post_type='attachment' AND guid='$image_src' LIMIT 1";
@@ -276,7 +277,7 @@ function rtp_get_attachment_id_from_src( $image_src, $hard_find = false ) {
 
 /**
  * Used to get the image dimensions, provided the 'src'
- * 
+ *
  * @param string $image_src The Image Source
  * @return mixed
  *
@@ -313,11 +314,11 @@ function rtp_get_image_dimensions( $src, $array = false, $deprecated = '', $id =
         return array( 'width' => $width, 'height' => $height );
     }
     return ' width="' . $width . '" height="' . $height . '"';
-} 
+}
 
 /**
  * Used to style password protected post form
- * 
+ *
  * @return string
  *
  * @since rtPanel 2.1
@@ -343,7 +344,7 @@ add_filter( 'the_password_form', 'rtp_get_the_password_form' );
 
 /**
  * Converts default caption markup to html5
- * 
+ *
  * @return string
  *
  * @since rtPanel 2.1
@@ -358,7 +359,7 @@ function rtp_html5_caption( $output, $attr, $content ) {
 
     if ( 1 > (int) $width || empty($caption) )
             return $content;
-    
+
     $idtag = NULL;
     if ( $id ) $idtag = 'id="' . esc_attr($id) . '" ';
 
