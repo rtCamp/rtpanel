@@ -266,7 +266,8 @@ function rtp_create_external_thumb( $match, $post, $size, $double_check_tag = ''
 function rtp_get_attachment_id_from_src( $image_src, $hard_find = false ) {
     global $wpdb;
     $temp = $image_src;
-    if ( $hard_find && !( 200 == wp_remote_retrieve_response_code( wp_remote_get( $image_src = preg_replace('/-\d+x\d+(?=\.(jpg|jpeg|png|gif)$)/i', '', $image_src ) ) ) ) ) {
+    $response = wp_remote_get( $image_src = preg_replace('/-\d+x\d+(?=\.(jpg|jpeg|png|gif)$)/i', '', $image_src ) );
+    if ( $hard_find && !( 200 == wp_remote_retrieve_response_code( $response ) ) ) {
        $image_src = $temp;
     }
     $query = "SELECT ID FROM {$wpdb->posts} WHERE post_type='attachment' AND guid='$image_src' LIMIT 1";
@@ -292,7 +293,8 @@ function rtp_get_image_dimensions( $src, $array = false, $deprecated = '', $id =
         $height = $rtp_general['logo_height'];
     } else {
         $metadata = wp_get_attachment_metadata( $id );
-        if ( ( !preg_match('/(\d+x\d+)(\.(jpg|jpeg|png|gif)$)/i', $src ) || ( 200 != wp_remote_retrieve_response_code( wp_remote_get( preg_replace('/-\d+x\d+(?=\.(jpg|jpeg|png|gif)$)/i', '', $src ) ) ) ) ) && ( isset( $metadata ) && isset( $metadata['width'] ) && isset( $metadata['height'] ) ) ) {
+        $response = wp_remote_get( preg_replace('/-\d+x\d+(?=\.(jpg|jpeg|png|gif)$)/i', '', $src ) );
+        if ( ( !preg_match('/(\d+x\d+)(\.(jpg|jpeg|png|gif)$)/i', $src ) || ( 200 != wp_remote_retrieve_response_code( $response ) ) ) && ( isset( $metadata ) && isset( $metadata['width'] ) && isset( $metadata['height'] ) ) ) {
             $width = $metadata['width'];
             $height = $metadata['height'];
         } elseif ( isset( $metadata['sizes'] ) ) {
