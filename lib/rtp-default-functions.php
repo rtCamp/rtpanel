@@ -448,7 +448,7 @@ function rtp_galary_shorcode ( $output, $attr ) {
     foreach ( $attachments as $id => $attachment ) {
         $url = wp_get_attachment_image_src ( $id, "full" );
         $output .= "<{$itemtag} class='gallery-item'>";
-        $output .= "<a href='" . $url[ 0 ] . "'>" . wp_get_attachment_image ( $id, 'thumbnail', false, array( "data-caption" => trim ( $attachment->post_excerpt ) ) );
+        $output .= "<a href='" . $url[ 0 ] . "'>" . wp_get_attachment_image ( $id, 'thumbnail', false, array( "data-caption" => trim ( $attachment->post_excerpt ) ) ) . "</a>";
         $output .= "</{$itemtag}>";
     }
 
