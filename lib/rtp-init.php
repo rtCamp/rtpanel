@@ -245,7 +245,7 @@ function rtp_general_sanitize_option(){
             $value = untrailingslashit( $value );
     
     /* Hack for serialized data containing URLs http://www.php.net/manual/en/function.unserialize.php#107886 */
-    $value = preg_replace_callback( '!s:(\d+):"(.*?)";!se', "'s:'.strlen('$2').':\"$2\";'", $value );
+    $value = preg_replace( '!s:(\d+):"(.*?)";!se', "'s:'.strlen('$2').':\"$2\";'", $value );
     
     return apply_filters( 'option_' . $option, maybe_unserialize( $value ) );
 }

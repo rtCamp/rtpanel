@@ -14,10 +14,9 @@
     else if ( $sidebar_id === "bbpress-sidebar-widgets" )
         $class_name = " rtp-bbpress-sidebar"; ?>
 
-    <aside id="sidebar" class="large-4 columns<?php echo $class_name; ?>" role="complementary">
-        <div class="panel">
-            <div class="row">
-        <?php rtp_hook_begin_sidebar(); ?>
+    <aside id="sidebar" class="rtp-sidebar-section<?php echo $class_name; ?>" role="complementary">
+        <div class="rtp-sidebar-inner-wrapper">
+            <?php rtp_hook_begin_sidebar(); ?>
 
             <?php   // Default Widgets ( Fallback )
                     if ( !($sidebar_id && dynamic_sidebar( $sidebar_id )) ) { ?>
@@ -27,7 +26,6 @@
                         <div class="widget sidebar-widget"><h3 class="widgettitle"><?php _e( 'Meta', 'rtPanel' ); ?></h3><ul><?php wp_register(); ?><li><?php wp_loginout(); ?></li><?php wp_meta(); ?></ul></div><?php
                     } ?>
 
-        <?php rtp_hook_end_sidebar(); ?>
-            </div>
+            <?php rtp_hook_end_sidebar(); ?>
         </div>
     </aside><!-- #sidebar -->

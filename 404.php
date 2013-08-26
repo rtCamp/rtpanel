@@ -8,7 +8,7 @@
  */
 get_header(); ?>
 
-    <section id="content" role="main" class="rtp-content">
+    <section id="content" role="main" class="rtp-content-section rtp-404-content">
 
         <?php rtp_hook_begin_content(); ?>
 

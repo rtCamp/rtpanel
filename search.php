@@ -10,7 +10,7 @@ get_header(); ?>
 
 <?php global $rtp_general; ?>
 
-    <section id="content" role="main" class="rtp-multiple-post<?php echo ( $rtp_general['search_code'] && $rtp_general['search_layout'] ) ? ' large-12' : ' large-8'; ?> columns"><!-- content begins --><?php
+    <section id="content" role="main" class="rtp-content-section rtp-multiple-post<?php echo ( $rtp_general['search_code'] && $rtp_general['search_layout'] ) ? ' rtp-full-width-content' : ''; ?>"><!-- content begins --><?php
 
         rtp_hook_begin_content();
 

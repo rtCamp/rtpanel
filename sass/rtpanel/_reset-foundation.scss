@@ -1,0 +1,239 @@
+// Navigation
+//.fixed {
+//    &.sticky {
+//        &.rtp-nav-container {
+//            max-width: 100%;
+//            padding: 0;
+//            
+//            .name {
+//                display: inline;
+//            }
+//            
+//            &.rtp-pading-topbar {
+//                top: 28px;
+//            }
+//        }
+//    }
+//}
+
+// Sticky Post
+//.sticky {
+//    &.post {
+//        &.fixed {
+//            width: auto;
+//            left: auto;
+//            position: relative;
+//            top: auto;
+//            z-index: inherit;
+//        }
+//        
+//        @extend .panel;
+//    }
+//}
+
+// Post Content
+//.post-content {
+//    
+//    // Video Container
+//    .video-container {
+//        @include flex-video-container;	
+//    }
+//
+//    // Lists
+//    ol, ul {
+//        margin-left: 20px;
+//    }
+//}
+
+// Gallery 'data-clearing' ==> Attribute Selector
+//[data-clearing] {
+//    li {
+//        &.gallery-item {	
+//            margin-right: 0;
+//        }
+//    }
+//}
+
+// Top Bar
+//@media only screen and (min-width: 58.75em) {
+//    .top-bar {
+//        .name {
+//            display: none;
+//        }
+//    }
+//}
+
+//.widget {
+//    ul {
+//        margin-left:20px;
+//    }
+//}
+//
+//.wp-caption{
+//	&.aligncenter{
+//		text-align: center;
+//	}
+//} 
+//nav ul.page-numbers{
+//	margin-top:10px;
+//	@extend .pagination;
+//	li{
+//		a,span.current{
+//			padding-right: 10px;
+//			padding-left: 10px;
+//			border: 1px solid #dddddd;		
+//		}
+//		span{
+//			&.current{
+//				height: 26px;
+//				display: block;
+//				padding-right: 10px;
+//				padding-left: 10px;
+//				border: 1px solid #666666;		
+//			}
+//		}
+//	}
+//	
+//}
+
+//.wp-caption-text{
+//	position:relative;
+//	@extend .clearing-caption;
+//}
+//.clearing-container{
+//	li{
+//		&:nth-of-type(n){
+//			clear: none;
+//		}
+//	}
+//}
+//.rtp-comment-count{
+//	border-bottom: 1px solid #{$border-color};
+//	border-top: 1px solid #{$border-color};
+//	.rtp-manage-comments{line-height:36px;}
+//}
+//.comment-body{
+//	.vcard{
+//		@extend .right;
+//		margin: 5px 0 5px 5px;
+//	}
+//}
+//.commentlist{
+//		.comment-body{
+//			border-bottom: 1px solid #{$border-color};
+//		}
+//		ul{
+//			.children{
+//				border-bottom: 1px solid #{$border-color};
+//				&:last-child{
+//					border-bottom: none;
+//				}
+//			}
+//		}
+//}
+
+
+/* Mobile */
+//@media only screen and (max-width: 767px) {
+	
+//	table{ margin-bottom: 0; }
+//	
+//	.pinned { 
+//		position: absolute; 
+//		left: 0; 
+//		top: 0; 
+//		background: #fff;
+//		width: 35%; 
+//		overflow: hidden; 
+//		overflow-x: scroll;
+//		border-right: 1px solid #ccc;
+//		border-left: 1px solid #ccc;
+//		table { 
+//			border-right: none;
+//			border-left: none;
+//			width: 100%;
+//			th{
+//				white-space: nowrap;
+//			} 
+//			td{
+//				white-space: nowrap;
+//				&:last-child { border-bottom: 0; }
+//			}
+//		}
+//	}
+
+//	div.table-wrapper { position: relative; margin-bottom: 20px; overflow: hidden; border-right: 1px solid #ccc; }
+//	div.table-wrapper div.scrollable table { margin-left: 35%; }
+//	div.table-wrapper div.scrollable { overflow: scroll; overflow-y: hidden; }	
+//	
+//	table td, table th { position: relative; white-space: nowrap; overflow: hidden; }
+//	.scrollable table th:first-child, .scrollable table td:first-child, .scrollable table td:first-child { display: none; }
+//}
+
+
+//.rtp-navigation{
+//	padding-top:10px;
+//	padding-bottom:30px;
+//	font-size: 14px;
+//}
+//.rtp-reply {
+//	clear: both;
+//}
+//.current_page_item{
+//	@extend .active;
+//}
+//.orbit-container{
+//	img{
+//		margin:0 auto;
+//		width: 100%;
+//	}
+//}
+//input[type="search"]{
+//	margin-bottom:0px;
+//}
+//.clearing-blackout {
+//	z-index:9999999;
+//}
+//ul[data-orbit]{
+//	li{
+//		list-style: none;
+//		display: none;
+//		&:first-child{
+//			display: inline;
+//		}
+//	}
+//}
+//.orbit-container{
+//	ul[data-orbit]{
+//		li{
+//			list-style: none;
+//			display: inline;
+//		}
+//	}
+//}
+//.searchform{
+//	div{
+//		&.row{
+//			@extend .collapse;
+//			.serachtext{
+//				@extend .large-#{$total-columns * 0.75};
+//				@extend .small-#{$total-columns};
+//				@extend .columns;
+//				padding:0px;
+//			}
+//			.serachbutton{
+//				padding:0px;
+//				@extend .columns;
+//				@extend .large-#{$total-columns * 0.25};
+//				@extend .small-#{$total-columns};
+//			}	
+//		}
+//	}
+//}
+//#sidebar{
+//	.row{
+//		&.panel{
+//			margin-left: 0px;
+//		}
+//	}
+//}

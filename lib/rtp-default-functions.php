@@ -144,7 +144,7 @@ function rtp_default_nav_menu () {
         $admin_bar_class_fix = " rtp-pading-topbar";
     }
 
-    echo '<div class="rtp-nav-container' . $admin_bar_class_fix . '"><nav id="rtp-primary-menu" role="navigation" class="top-bar' . apply_filters ( 'rtp_mobile_nav_support', ' rtpa-mobile-nav' ) . '">'; ?>
+    echo '<div class="rtp-nav-container' . $admin_bar_class_fix . '"><nav id="rtp-primary-menu" role="navigation" class="top-bar' . apply_filters ( 'rtp_mobile_nav_support', ' rtp-mobile-nav' ) . '">'; ?>
     <ul class="title-area">
         <li class="name">
             <h1><a role="link" href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name' ); ?>"><?php echo bloginfo ( 'name' ); ?></a></h1>
@@ -220,7 +220,7 @@ add_action ( 'rtp_hook_begin_content', 'rtp_breadcrumb_support' );
 function rtp_blog_description () {
     if ( get_bloginfo ( 'description' ) ) {
         ?>
-        <h3 class="tagline subheader"><?php bloginfo ( 'description' ); ?></h3><?php
+        <h3 class="tagline"><?php bloginfo ( 'description' ); ?></h3><?php
     }
 }
 

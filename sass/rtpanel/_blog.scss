@@ -1,0 +1,85 @@
+/* Post Loop */
+// ***** Post Container ***** //
+.hentry { border-bottom: 1px dotted $border-color; clear: both; padding-bottom: 1.357em; padding-top: 1.290em; position: relative;
+    @extend .clearfix;
+}
+
+.rtp-singular,
+.attachment,
+.rtp-full-width {
+    .hentry { border-bottom: 0; padding-bottom: 0; }
+}
+
+// Read More
+.rtp-readmore {
+    &,
+    &:visited { font-size: emCalc(13); }
+}
+
+// ***** Sticky Post ***** //
+.sticky {
+    &.post {
+        &.fixed {
+            width: auto;
+            left: auto;
+            position: relative;
+            top: auto;
+            z-index: inherit;
+        }
+        
+        @extend .panel;
+    }
+}
+
+// ***** Post Header ***** //
+.post-header { margin-bottom: 1em; }
+.post-title { float: left; line-height: 1.2em; margin: 0; }
+.rtp-has-comments { width: 80%; }
+.rtp-main-title { border-bottom: 1px solid $border-color; color: $title-link-color; float: none; margin-top: 0.480em; padding-bottom: 0.2em; }
+
+// ***** Post Content ***** //
+.post-content { @extend .clearfix; }
+//.rtp-singular .post-content a { text-decoration: underline; }
+
+// Post Content Paragraph
+.blog,
+.archive,
+.search-results {
+    .post-content {
+        p { margin-bottom: 1em; }
+    }
+}
+
+// Not Found Page
+.rtp-not-found { margin: 1.5em 0; }
+
+/* Post Meta */
+.post-meta { clear: both; color: $gray; font-size: emCalc(13); font-style: italic; padding: 0.4em 0 0;
+    p { margin: 0; }
+}
+
+.post-meta-bottom { padding: 1em 0 0;
+    .single & { margin: 1.5em 0 0; padding: 0; }
+}
+
+.rtp-post-comment-count { margin: 0.7em 0 0; text-align: right; }
+
+// Edit Link
+.rtp-edit-link {
+    a { font-size: emCalc(12); }
+}
+
+/* Curly Brackets Style */
+.rtp-curly-bracket { color: darken($base-background, 14%); font-size: 1.428em; font-weight: normal; }
+
+/* Post Comment */
+.rtp-post-comment {
+    &,
+    &:visited { font-size: emCalc(13); font-style: normal; padding: 0 3px 0 2px; }
+
+    // Span
+    span { color: $title-link-color; font-size: 1.286em; }
+}
+
+.post-tags { clear: left; }
+/* End - Post Meta */

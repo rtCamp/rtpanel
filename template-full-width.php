@@ -9,7 +9,7 @@
 get_header();
 $content_width = $max_content_width; ?>
 
-    <section id="content" class="large-12 rtp-full-width">
+    <section id="content" class="rtp-content-section rtp-full-width-content">
         <?php rtp_hook_begin_content(); ?>
 
         <?php get_template_part( 'loop', 'common' ); ?>
