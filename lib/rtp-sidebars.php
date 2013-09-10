@@ -54,7 +54,7 @@ function rtp_widgets_init() {
          register_sidebar( array(
             'name' => __( 'Footer Widgets', 'rtPanel' ),
             'id' => "footer-widgets",
-            'before_widget' => '<div id="%1$s" class="widget rtp-grid-4 footerbar-widget %2$s">',
+            'before_widget' => '<div id="%1$s" class="widget footerbar-widget %2$s">',
             'after_widget' => '</div>',
             'before_title' => '<h3 class="widgettitle">',
             'after_title' => '</h3>',

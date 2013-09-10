@@ -10,6 +10,12 @@
 // Reset Foundation
 @import "reset-foundation";
 
+// WP Editor
+@import "wp-editor";
+
+// Reset Foundation
+@import "links";
+
 // Layout
 @import "layout";
 
@@ -42,6 +48,9 @@
 
 // ***** Image Caption ***** //
 @include rtp-wp-caption();
+
+// ***** Gallery ***** //
+@include rtp-gallery();
 
 // ***** Paged Navigation ***** //
 @include rtp-paged-navigation();

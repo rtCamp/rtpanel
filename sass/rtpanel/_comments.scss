@@ -105,7 +105,7 @@
     label { line-height: 2.692em; margin: 0 0 0 10px; }
 
     // Required Field
-    .required { color: $error-text-color; }
+    .required { color: $alert-color; }
 
     // Comment form comment
     .comment-form-comment, .form-submit { clear: both; margin-bottom: 3px; }
