@@ -9,7 +9,8 @@
  * @since rtPanel 2.0
  */
 global $rtp_general; ?><!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
+<!--[if IE 8]><html class="no-js lt-ie9" <?php language_attributes(); ?>><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" <?php language_attributes(); ?>><!--<![endif]-->
     <head>
         <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
         <title><?php wp_title( '' ); ?></title>
@@ -33,12 +34,12 @@ global $rtp_general; ?><!DOCTYPE html>
 
         <?php rtp_hook_begin_body(); ?>
 
-        <div id="main-wrapper"><!-- ends in footer.php -->
+        <div id="main-wrapper" class="rtp-main-wrapper"><!-- ends in footer.php -->
 
             <?php rtp_hook_begin_main_wrapper(); ?>
 
             <?php $header_class = get_header_image() ? ' rtp-header-wrapper-image' : ''; ?>
-            <header id="header-wrapper" role="banner" class="rtp-header-wrapper<?php echo $header_class; ?>">
+            <header id="header-wrapper" role="banner" class="clearfix rtp-header-wrapper<?php echo $header_class; ?>">
 
                 <?php rtp_hook_before_header(); ?>
 
@@ -57,7 +58,7 @@ global $rtp_general; ?><!DOCTYPE html>
             <?php rtp_hook_before_content_wrapper(); ?>
             
             <?php 
-                $content_wrapper_class = ( is_search() && $rtp_general['search_code'] && $rtp_general['search_layout'] ) ? 'rtp-content-wrapper search-layout-wrapper' : 'rtp-content-wrapper';
+                $content_wrapper_class = ( is_search() && $rtp_general['search_code'] && $rtp_general['search_layout'] ) ? 'clearfix rtp-content-wrapper search-layout-wrapper' : 'clearfix rtp-content-wrapper';
             ?>
             <div id="content-wrapper" class="<?php echo apply_filters("rtp_content_wrapper_class", $content_wrapper_class); ?>"><!-- ends in footer.php -->
                 <?php rtp_hook_begin_content_wrapper(); ?>

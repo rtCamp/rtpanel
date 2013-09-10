@@ -10,20 +10,23 @@ get_header(); ?>
 
     <?php
         $rtp_content_class = '';
-        $full_width_content = "";
+        $rtp_content_width = '';
 
         // Full width grid for buddypress or bbpress
-        if ( rtp_get_sidebar_id() === 0 )
-            $full_width_content = "rtp-full-width-content";
-        
-        if ( is_archive() ) {
-            $rtp_content_class = ' class="rtp-content-section ' . $full_width_content . ' rtp-multiple-post" ';
-        } elseif ( is_page() || is_single() || is_404() ) {
-            $rtp_content_class = ' class="rtp-content-section ' . $full_width_content . ' rtp-singular" ';
-        } elseif ( is_home() ) {
-            $rtp_content_class = ' class="rtp-content-section ' . $full_width_content . ' rtp-blog-post" ';
+        if ( rtp_get_sidebar_id() === 0 ) {
+            $rtp_content_width = 'rtp-full-width-content';
         } else {
-            $rtp_content_class = ' class="rtp-content-section ' . $full_width_content . '"';
+            $rtp_content_width = apply_filters( 'rtp_set_content_grid_class', 'large-8 columns' );
+        }
+
+        if ( is_archive() ) {
+            $rtp_content_class = ' class="rtp-content-section ' . $rtp_content_width . ' rtp-multiple-post" ';
+        } elseif ( is_page() || is_single() || is_404() ) {
+            $rtp_content_class = ' class="rtp-content-section ' . $rtp_content_width . ' rtp-singular" ';
+        } elseif ( is_home() ) {
+            $rtp_content_class = ' class="rtp-content-section ' . $rtp_content_width . ' rtp-blog-post" ';
+        } else {
+            $rtp_content_class = ' class="rtp-content-section ' . $rtp_content_width . '"';
         }
     ?>
     <section id="content" role="main"<?php echo $rtp_content_class; ?>>

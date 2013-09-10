@@ -13,7 +13,7 @@ global $rtp_general; ?>
 
             <?php rtp_hook_after_content_wrapper(); ?>
 
-            <footer id="footer-wrapper" role="contentinfo" class="rtp-footer-wrapper"><?php
+            <footer id="footer-wrapper" role="contentinfo" class="clearfix rtp-footer-wrapper"><?php
                 if ( $rtp_general['footer_sidebar'] ) { ?>
                     <aside role="complementary" id="rtp-footer-widgets-wrapper" class="rtp-footerbar clearfix"><?php
                         // Default Widgets ( Fallback )

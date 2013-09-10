@@ -22,7 +22,7 @@ get_header(); ?>
                 </div><?php
             } ?>
 
-            <article <?php post_class( 'rtp-image-box row' ); ?>>
+            <article <?php post_class( 'clearfix rtp-image-box' ); ?>>
                 <?php rtp_hook_begin_post(); ?>
 
                 <header class="post-header clearfix">

@@ -112,8 +112,11 @@ function rtp_default_scripts() {
 
     wp_enqueue_script( 'rtp-app-js', RTP_JS_FOLDER_URL . '/rtp-app.js', array( 'rtp-foundation-js' ), '', true );
 
+    /* IE 8 Support */
+    wp_enqueue_script( 'rtp-respond', RTP_JS_FOLDER_URL . '/respond.min.js',array(), '', false );
+
     // Google Font: Open Sans
-    wp_enqueue_style( 'rtp-google-font', 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700', '', NULL );
+    //wp_enqueue_style( 'rtp-google-font', 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700', '', NULL );
 
     // Nested Comment Support
     ( is_singular() && get_option( 'thread_comments' ) ) ? wp_enqueue_script('comment-reply') : '';

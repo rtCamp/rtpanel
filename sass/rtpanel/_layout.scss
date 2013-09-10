@@ -1,54 +1,14 @@
-// Header
-.rtp-header-wrapper {
+.rtp-main-wrapper {
     @extend .row;
 }
 
-.rtp-header, .rtp-nav-container {
+/* Header */
+.rtp-header, .rtp-primary-nav-wrapper {
     @extend .columns;
     @extend .large-#{$total-columns};
 }
 
-// Content Wrapper
-.rtp-content-wrapper {
-    @extend .row;
-}
-
-.rtp-content-section {
-    @extend .columns;
-    @extend .large-#{$total-columns/2+2};
-}
-
-// Sidebar
-.rtp-sidebar-section {
-    @extend .columns;
-    @extend .large-#{$total-columns/3};
-}
-
-.rtp-sidebar-inner-wrapper { @extend .panel; }
-
-.sidebar-widget {
-    
-}
-
-// Footer
-.rtp-footer-wrapper {
-    @extend .row;
-}
-
-.rtp-footer {
-    @extend .columns;
-}
-
-// Footer Widgets
-.footerbar-widget {
-    @extend .columns;
-    @extend .large-#{$total-columns/3};
-    
-    &:nth-child(3n+1) { clear: left; }
-}
-
-
-// Full Width Content
+/* Full Width Content */
 .rtp-full-width-content {
     @extend .columns;
     @extend .large-#{$total-columns};

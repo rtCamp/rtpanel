@@ -8,13 +8,15 @@
  */
     
     $sidebar_id = rtp_get_sidebar_id();
-    $class_name = "";
-    if ( $sidebar_id === "buddypress-sidebar-widgets" )
-        $class_name = " rtp-buddypress-sidebar";
-    else if ( $sidebar_id === "bbpress-sidebar-widgets" )
-        $class_name = " rtp-bbpress-sidebar"; ?>
+    $class_name = '';
+    $rtp_sidebar_grid_class = apply_filters( 'rtp_set_sidebar_grid_class', 'large-4 columns' );
 
-    <aside id="sidebar" class="rtp-sidebar-section<?php echo $class_name; ?>" role="complementary">
+    if ( $sidebar_id === 'buddypress-sidebar-widgets' )
+        $class_name = ' rtp-buddypress-sidebar';
+    else if ( $sidebar_id === 'bbpress-sidebar-widgets' )
+        $class_name = ' rtp-bbpress-sidebar'; ?>
+
+    <aside id="sidebar" class="rtp-sidebar-section<?php echo $class_name; echo ( !empty( $rtp_sidebar_grid_class ) ) ? ' '.$rtp_sidebar_grid_class : $rtp_sidebar_grid_class; ?>" role="complementary">
         <div class="rtp-sidebar-inner-wrapper">
             <?php rtp_hook_begin_sidebar(); ?>
 

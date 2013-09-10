@@ -1,5 +1,7 @@
 /* Sidebar */
-.widgettitle {  }
+
+/* Panel Style */
+.rtp-sidebar-inner-wrapper { @extend .panel; }
 
 .widget {
     // Current Menu item highlight

@@ -138,33 +138,19 @@ add_action ( 'rtp_hook_post_meta_bottom', 'rtp_default_post_meta' ); // Post Met
  *
  * @since rtPanel 2.0
  */
-function rtp_default_nav_menu () {
-    $admin_bar_class_fix = '';
-    if ( is_admin_bar_showing () ) {
-        $admin_bar_class_fix = " rtp-pading-topbar";
-    }
-
-    echo '<div class="rtp-nav-container' . $admin_bar_class_fix . '"><nav id="rtp-primary-menu" role="navigation" class="top-bar' . apply_filters ( 'rtp_mobile_nav_support', ' rtp-mobile-nav' ) . '">'; ?>
-    <ul class="title-area">
-        <li class="name">
-            <h1><a role="link" href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name' ); ?>"><?php echo bloginfo ( 'name' ); ?></a></h1>
-        </li>
-
-        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-        <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-    </ul><?php
-    echo '<section class="top-bar-section">';
-    /* Call wp_nav_menu() for Wordpress Navigaton with fallback wp_list_pages() if menu not set in admin panel */
-    if ( function_exists ( 'wp_nav_menu' ) && has_nav_menu ( 'primary' ) ) {
-        add_filter ( "wp_nav_menu_items", "filter_wp_nav_menu_items", 1, 2 );
-        wp_nav_menu ( array( 'container' => '', 'menu_id' => 'rtp-nav-menu', 'theme_location' => 'primary', 'depth' => apply_filters ( 'rtp_nav_menu_depth', 4 ) ) );
-    } else {
-        echo '<ul class="left" id="rtp-nav-menu">';
-        wp_list_pages ( array( 'title_li' => '', 'sort_column' => 'menu_order', 'number' => '5', 'depth' => apply_filters ( 'rtp_nav_menu_depth', 4 ) ) );
-        echo '</ul>';
-    }
-    echo '</section></nav></div>';
+function rtp_default_nav_menu() {
+     echo '<nav id="rtp-primary-menu" role="navigation" class="rtp-primary-nav-wrapper' . apply_filters( 'rtp_mobile_nav_support', ' rtp-mobile-nav' ) . '">';
+        /* Call wp_nav_menu() for Wordpress Navigaton with fallback wp_list_pages() if menu not set in admin panel */
+        if ( function_exists( 'wp_nav_menu' ) && has_nav_menu( 'primary' ) ) {
+            wp_nav_menu( array( 'container' => '', 'menu_class' => 'menu rtp-primary-nav-container clearfix', 'menu_id' => 'rtp-nav-menu', 'theme_location' => 'primary', 'depth' => apply_filters( 'rtp_nav_menu_depth', 4 ) ) );
+        } else {
+            echo '<ul id="rtp-nav-menu" class="menu rtp-primary-nav-container clearfix">';
+                wp_list_pages( array( 'title_li' => '', 'sort_column' => 'menu_order', 'number' => '5', 'depth' => apply_filters( 'rtp_nav_menu_depth', 4 ) ) );
+            echo '</ul>';
+        }
+    echo '</nav>';
 }
+add_action('rtp_hook_after_header','rtp_default_nav_menu'); // Adds default nav menu after #header
 
 add_action ( 'rtp_hook_after_header', 'rtp_default_nav_menu' ); // Adds default nav menu after #header
 

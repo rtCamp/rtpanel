@@ -31,7 +31,7 @@ if ( have_posts() ) {
     while( have_posts() ) {
         the_post(); ?>
 
-        <article id="post-<?php if ( !rtp_is_bbPress() ) { the_ID(); } else { echo 'forum-index'; } ?>" <?php post_class( 'rtp-post-box' ); ?>>
+        <article id="post-<?php if ( !rtp_is_bbPress() ) { the_ID(); } else { echo 'forum-index'; } ?>" <?php post_class( 'clearfix rtp-post-box' ); ?>>
             <?php rtp_hook_begin_post(); ?>
 
             <header class="post-header">
