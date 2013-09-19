@@ -1549,18 +1549,6 @@ h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus { color: #cd5a1b; text-decoration
 .widget .current-menu-item > a, .widget .current_page_item > a { color: #cd5a1b; }
 .widget > ul, .widget > ol { margin-left: 1.25em; }
 
-/* Recent Comment with Gravatar Widget */
-.rtp-comments-widget ul { margin-left: 0; }
-.rtp-comments-widget li { list-style: none; }
-.rtp-comments-widget li:last-child .rtp-reply { margin-bottom: 0; }
-.rtp-comments-widget .author-comment { line-height: 1.385em; margin: 5px 0; }
-.rtp-comments-widget .author-vcard img { float: left; margin: 5px 10px 5px 0; }
-.rtp-comments-widget .alignright img { margin: 5px 0 5px 10px; }
-.rtp-comments-widget p { margin: 0; }
-.rtp-comments-widget .rtp-reply { clear: none; padding: 0; }
-.rtp-comments-widget .rtp-reply a { font-size: 0.75em; margin: 0; }
-.rtp-comments-widget .comment-date { font-size: 0.75em; }
-
 /* Calendar Widget */
 .widget_calendar table { font-size: 0.75em; margin: 0 0 4px; }
 .widget_calendar th, .widget_calendar td { color: #666666; text-align: center; }
