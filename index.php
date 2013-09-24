@@ -14,7 +14,7 @@ get_header(); ?>
 
         // Full width grid for buddypress or bbpress
         if ( rtp_get_sidebar_id() === 0 ) {
-            $rtp_content_width = 'rtp-full-width-content';
+            $rtp_content_width = apply_filters( 'rtp_set_full_width_grid_class', 'large-12 columns rtp-full-width-content' );
         } else {
             $rtp_content_width = apply_filters( 'rtp_set_content_grid_class', 'large-8 columns' );
         }

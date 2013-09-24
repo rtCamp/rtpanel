@@ -22,6 +22,12 @@
 // Header
 @import "header";
 
+// Navigation
+@import "nav";
+
+// Mobile Menu
+@import "mobile-menu";
+
 // Blog
 @import "blog";
 
@@ -33,6 +39,9 @@
 
 // Footer
 @import "footer";
+
+// Responsive
+@import "responsive";
 
 // Modules
 @import "modules";
@@ -63,7 +72,7 @@
 @import "support";
 
 // Breadcrumb
-@include rtp-breadcrumb();
+//@include rtp-breadcrumb();
 
 // Pagenavi
 @include rtp-pagenavi();

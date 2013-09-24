@@ -34,12 +34,12 @@ global $rtp_general; ?><!DOCTYPE html>
 
         <?php rtp_hook_begin_body(); ?>
 
-        <div id="main-wrapper" class="rtp-main-wrapper"><!-- ends in footer.php -->
+        <div id="main-wrapper" class="rtp-main-wrapper row"><!-- ends in footer.php -->
 
             <?php rtp_hook_begin_main_wrapper(); ?>
 
             <?php $header_class = get_header_image() ? ' rtp-header-wrapper-image' : ''; ?>
-            <header id="header-wrapper" role="banner" class="clearfix rtp-header-wrapper<?php echo $header_class; ?>">
+            <header id="header-wrapper" role="banner" class="clearfix large-12 columns<?php echo $header_class; ?>">
 
                 <?php rtp_hook_before_header(); ?>
 

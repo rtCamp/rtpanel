@@ -48,5 +48,14 @@ jQuery(document).ready(function($) {
         original.unwrap();
         original.unwrap();
     }
-
+    
+    /* Mobile Slide Menu */
+    if ( $.isFunction($.fn.sidr) ) {
+        $('#header').append('<a class="rtp-menu-icon" id="rtp-mobile-menu-button" href="#rtp-primary-menu"><span></span></a>');
+        $('#rtp-mobile-menu-button').sidr({
+            side: 'right',
+            speed : 800,
+            source: '.rtp-mobile-nav'
+        });
+    }
 });

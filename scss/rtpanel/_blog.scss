@@ -1,8 +1,7 @@
 /* Post Loop */
 // ***** Post Container ***** //
-.hentry { border-bottom: 1px dotted $border-color; clear: both; padding-bottom: 1.357em; padding-top: 1.290em; position: relative;
-    @extend .clearfix;
-}
+.hentry { border-bottom: 1px dotted $border-color; clear: both; padding-bottom: 1.357em; padding-top: 1.290em; position: relative; }
+// @extend .clearfix;
 
 .rtp-singular,
 .attachment,
@@ -38,7 +37,7 @@
 .rtp-main-title { border-bottom: 1px solid $border-color; color: $title-link-color; float: none; margin-top: 0.480em; padding-bottom: 0.2em; }
 
 // ***** Post Content ***** //
-.post-content { @extend .clearfix; }
+.post-content {  } // @extend .clearfix;
 //.rtp-singular .post-content a { text-decoration: underline; }
 
 // Post Content Paragraph

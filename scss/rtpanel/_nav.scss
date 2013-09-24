@@ -1,0 +1,49 @@
+// ***** Navigation ***** //
+$menu-background: #333333;
+$menu-hover-active-background: $link-color;
+$submenu-bg: $menu-hover-active-background;
+$submenu-hover: lighten($menu-background, 5%);
+
+/* Navigation */
+.rtp-nav-wrapper { background-color: $menu-background; clear: both; margin-bottom: emCalc(20); }
+
+#rtp-nav-menu { @include rtp-margin-padding-0; // Self
+    
+    // Menu List
+    li { float: left; list-style: none; position: relative; @include transition(all .2s ease-in-out); // Self
+
+        // Submenu Links
+        &:hover > a { background-color: $menu-hover-active-background; text-decoration: none; }
+
+        // Show Dropdown on Mouse Hover
+        &:hover > ul { display: block; }
+    }
+
+    // Navigation Links
+    a { color: $white; display: block; height: auto; line-height: 1.5em; padding: 8px 20px; text-decoration: none; @include transition(all .2s ease-in-out); // Self
+        // Hover
+        &:hover { background-color: $menu-hover-active-background; }
+    }
+
+    // Submenu Support //
+    ul { background-color: $submenu-bg; box-shadow: 0 0 3px rgba(0,0,0,0.2); display: none; left: 0; @include rtp-margin-padding-0; position: absolute; top: 37px; @include transition(all .2s ease-in-out); width: 180px; z-index: 9; // Self
+
+        // Submenu List
+        li { box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2); min-width: 180px;
+
+            // Submenu Links
+            &:hover > a { background-color: $submenu-hover; text-decoration: none; }
+        }
+
+        // Submenu children List
+        ul { left: 100%; top: 0; }
+
+    }
+
+    // Current Menu Style
+    .current-menu-item, .current_page_ancestor, .current_page_item {
+        > a { background-color: $menu-hover-active-background; text-decoration: none; }
+    }
+
+}
+/* End - Navigation */

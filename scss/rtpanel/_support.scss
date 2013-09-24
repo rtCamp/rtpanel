@@ -7,24 +7,16 @@
 // ***** Pagenavi Style ***** //
 @mixin rtp-pagenavi() {
     /* Pagenavi Style */
-    .wp-pagenavi { @include pagination;
-        li { line-height: 1.9em; height: auto;
-            a, .current {
-                padding-right: 10px;
-                padding-left: 10px;
-                border: 1px solid $border-color;		
-            }
+    .wp-pagenavi {
 
-            span {
-                &.current {
-                    height: 26px;
-                    display: block;
-                    padding-right: 10px;
-                    padding-left: 10px;
-                    border: 1px solid $gray;		
-                }
-            }
-        }
+        ul { margin: emCalc(20) 0; overflow: hidden; }
+
+        li { display: inline-block; list-style: none; }
+        
+        a,
+        span { @include rtp-border($border-color); display: inline-block; float: none; font-weight: normal; margin: 2px; padding: 5px 10px; text-decoration: none; }
+
+        a:hover, .current { background: #F5F5F5; }
     }
     /* End - Paged Navigation */
 }

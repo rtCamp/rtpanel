@@ -14,10 +14,12 @@
 /* Calendar Widget */
 .widget_calendar {
     // Children
-    table { font-size: emCalc(12); margin: 0 0 4px; }
-    th, td { color: $gray; text-align: center; }
-    #today { background-color: darken($base-background, 6%); font-weight: 700; }
+    table { font-size: emCalc(14); margin: 0 0 4px; width: 100%; }
+    th, td { border: 1px solid $border-color; color: $gray; text-align: center; }
+    caption { background: $border-color; font-weight: bold; line-height: 2.5em; }
 }
+
+#today { background-color: darken($base-background, 6%); font-weight: 700; }
 
 tfoot {
     // Children
