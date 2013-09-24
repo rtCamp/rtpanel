@@ -1,9 +1,7 @@
 /* Sidebar */
+.rtp-sidebar-inner-wrapper { @include rtp-panel; }
 
-/* Panel Style */
-.rtp-sidebar-inner-wrapper { @extend .panel; }
-
-.widget {
+.widget { margin-bottom: emCalc(20);
     // Current Menu item highlight
     .current-menu-item > a, .current_page_item > a { color: $link-hover-color; }
 

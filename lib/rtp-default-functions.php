@@ -428,7 +428,7 @@ function rtp_galary_shorcode ( $output, $attr ) {
     $gallery_style = $gallery_div = '';
 
     $size_class = sanitize_html_class ( $size );
-    $gallery_div = "<ul id='$selector' class='gallery galleryid-{$id} gallery-columns-{$columns} large-block-grid-{$columns} gallery-size-{$size_class} clearing-thumbs' data-clearing>";
+    $gallery_div = "<ul id='$selector' class='gallery galleryid-{$id} gallery-columns-{$columns} large-block-grid-{$columns} small-block-grid-{$columns} gallery-size-{$size_class} clearing-thumbs' data-clearing>";
     $output = apply_filters ( 'gallery_style', $gallery_style . "\n\t\t" . $gallery_div );
 
     foreach ( $attachments as $id => $attachment ) {

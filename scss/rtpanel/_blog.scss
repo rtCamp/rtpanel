@@ -1,7 +1,10 @@
 /* Post Loop */
 // ***** Post Container ***** //
-.hentry { border-bottom: 1px dotted $border-color; clear: both; padding-bottom: 1.357em; padding-top: 1.290em; position: relative; }
-// @extend .clearfix;
+.hentry { border-bottom: 1px dotted $border-color; padding-bottom: 1.357em; padding-top: 1.290em; position: relative; // Removed clear: both;
+
+    // ***** Sticky Post ***** //
+    &.sticky { @include rtp-panel; }
+}
 
 .rtp-singular,
 .attachment,
@@ -10,25 +13,7 @@
 }
 
 // Read More
-.rtp-readmore {
-    &,
-    &:visited { font-size: emCalc(13); }
-}
-
-// ***** Sticky Post ***** //
-.sticky {
-    &.post {
-        &.fixed {
-            width: auto;
-            left: auto;
-            position: relative;
-            top: auto;
-            z-index: inherit;
-        }
-        
-        @extend .panel;
-    }
-}
+.rtp-readmore { font-size: emCalc(13); }
 
 // ***** Post Header ***** //
 .post-header { margin-bottom: 1em; }

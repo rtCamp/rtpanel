@@ -1,8 +1,5 @@
 // Footer Widgets
 .footerbar-widget {
-    @extend .columns;
-    @extend .large-#{$total-columns/3};
-    
     // *** clear **** //
     &:nth-child(3n+1) { clear: left; }
 }

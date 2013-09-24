@@ -110,14 +110,16 @@ function rtp_default_scripts() {
     wp_enqueue_script( 'rtp-modernizr', RTP_JS_FOLDER_URL . '/custom.modernizr.js',array(), '', false );
     wp_enqueue_script( 'rtp-foundation-js', RTP_JS_FOLDER_URL . '/foundation.min.js', array( 'jquery' ), '', true );
     wp_enqueue_script( 'rtp-jquery-sidr', RTP_JS_FOLDER_URL . '/jquery.sidr.min.js', array( 'jquery' ), '', true );
-
     wp_enqueue_script( 'rtp-app-js', RTP_JS_FOLDER_URL . '/rtp-app.js', array( 'rtp-foundation-js' ), '', true );
 
     /* IE 8 Support */
     wp_enqueue_script( 'rtp-respond', RTP_JS_FOLDER_URL . '/respond.min.js',array(), '', false );
 
-    // Google Font: Open Sans
-    //wp_enqueue_style( 'rtp-google-font', 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700', '', NULL );
+    /* Google Font: Open Sans */
+    wp_enqueue_style( 'rtp-google-font', 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700', '', NULL );
+
+    /* Font Awesome icons */
+    wp_enqueue_style( 'rtp-font-awesome', '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css', '', NULL );
 
     // Nested Comment Support
     ( is_singular() && get_option( 'thread_comments' ) ) ? wp_enqueue_script('comment-reply') : '';

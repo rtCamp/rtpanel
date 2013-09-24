@@ -50,3 +50,13 @@
     text-indent: -9999px;
     text-transform: uppercase; // IE hack
 }
+
+// Panel
+@mixin rtp-panel() {
+    border-style: $panel-border-style;
+    border-width: $panel-border-size;
+    border-color: darken($panel-bg, $panel-function-factor);
+    //margin-bottom: $panel-margin-bottom;
+    padding: $panel-padding;
+    background: $panel-bg;
+}

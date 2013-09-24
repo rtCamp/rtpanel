@@ -16,7 +16,7 @@ $sidr-text-color: $white;
     height: 100%;
     z-index: 999999;
     width: 260px;
-    overflow-x: none;
+    overflow-x: hidden;
     overflow-y: auto;
 
     &.right {

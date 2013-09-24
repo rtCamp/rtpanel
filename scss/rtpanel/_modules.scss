@@ -73,26 +73,10 @@
 // ***** WP Gallery ***** //
 @mixin rtp-gallery() {
     /* Gallery */
-    .gallery {  margin: 0 auto 10px; // Self
-        // Children
-        br + br { display: none; }
+    .gallery {
+        &[data-clearing] li { margin-right: 0; }
     }
 
-    .gallery-item { display: inline-block; margin: 0; @include box-sizing(border-box); padding: 5px; vertical-align: top; }
-
-    // Gallery Columns
-    @for $i from 1 through 9 {
-      .gallery-columns-#{$i} .gallery-item { width: 100% / $i; }
-    }
-
-    .gallery-caption { color: $gray; margin: 0 0 10px; padding: 0; text-align: center; }
-
-    // Gallery Icon
-    
-    .gallery-icon { overflow: hidden; padding: 5px; text-align: center; // Self
-        //a { display: block; }
-        .attachment-thumbnail { background-color: darken($base-background, 4%); @include rtp-border($border-color); margin: 0; max-width: 100%; padding: 5px; }
-    }
     /* End - Gallery */
 }
 

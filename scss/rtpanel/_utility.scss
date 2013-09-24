@@ -15,12 +15,12 @@
 
 // Alignleft
 .alignleft {
-    @extend .left;
+    float: left;
 }
 
 // Alignright
 .alignright {
-    @extend .right;
+    float: right;
 }
 
 // Aligncenter
