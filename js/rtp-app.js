@@ -4,9 +4,14 @@ jQuery(document).foundation();
  * Responsive Table JS
  */
 jQuery(document).ready(function($) {
+
+    /* WP Calendar Widget */
+    $('.widget_calendar table').addClass('no-responsive');
+
+    /* No Responsive Tables */
     var switched = false;
     var updateTables = function() {
-        if (($(window).width() < 767) && !switched) {
+        if (($(window).width() < 768) && !switched) {
             switched = true;
             $("table").each(function(i, element) {
                 if($(this).hasClass("no-responsive")){
@@ -16,7 +21,7 @@ jQuery(document).ready(function($) {
             });
             return true;
         }
-        else if (switched && ($(window).width() > 767)) {
+        else if (switched && ($(window).width() > 768)) {
             switched = false;
             $("table").each(function(i, element) {
                 if($(this).hasClass("no-responsive")){
@@ -29,7 +34,6 @@ jQuery(document).ready(function($) {
 
     $(window).load(updateTables);
     $(window).bind("resize", updateTables);
-
 
     function splitTable(original) {
         original.wrap("<div class='table-wrapper' />");
@@ -48,7 +52,7 @@ jQuery(document).ready(function($) {
         original.unwrap();
         original.unwrap();
     }
-    
+
     /* Mobile Slide Menu */
     if ( $.isFunction($.fn.sidr) ) {
         $('#header').append('<a class="rtp-menu-icon" id="rtp-mobile-menu-button" href="#rtp-primary-menu"><span></span></a>');

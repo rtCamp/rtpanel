@@ -1,9 +1,7 @@
 /* Default Links */
 a {
     // Self, Active & Visited
-    &,
-    &:active,
-    &:visited { color: $link-color; text-decoration: none; }
+    & { color: $link-color; text-decoration: none; }
 
     // Hover & Focus
     &:hover,
@@ -14,9 +12,7 @@ a {
 h1, h2 {
     a {
         // Self, Active & Visited
-        &,
-        &:active,
-        &:visited { color: $title-link-color; }
+        & { color: $title-link-color; }
 
         // Hover & Focus
         &:hover,
@@ -31,9 +27,7 @@ h1, h2 {
     a,
     span {
         // Self, Active & Visited
-        &,
-        &:active,
-        &:visited { color: $secondary-link-color; }
+        & { color: $secondary-link-color; }
 
         // Hover & Focus
         &:hover,

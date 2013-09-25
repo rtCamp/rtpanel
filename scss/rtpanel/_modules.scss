@@ -130,3 +130,11 @@
         .rtp-navigation { margin: 10px 0 0; padding-bottom: 0; }
     }
 }
+
+// ****** Search ****** //
+@mixin rtp-search() {
+    // Search
+    .rtp-search-form-wrapper {
+        .rtp-search-input { float: left; height: 36px; width: 75%; }
+    }
+}

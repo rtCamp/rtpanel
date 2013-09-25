@@ -64,6 +64,9 @@
 // ***** Paged Navigation ***** //
 @include rtp-paged-navigation();
 
+// ***** Search ***** //
+@include rtp-search();
+
 
 // ***** 3rd Party : See Details >> '_support.scss' ***** //
 @import "support";

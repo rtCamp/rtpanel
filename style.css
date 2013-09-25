@@ -1477,15 +1477,15 @@ body#tinymce { background: white; margin: 0 10px; padding: 10px 5px; }
 .wp-caption-dt { border: 0; padding: 0; }
 
 /* Default Links */
-a, a:active, a:visited { color: #006999; text-decoration: none; }
+a { color: #006999; text-decoration: none; }
 a:hover, a:focus { color: #cd5a1b; text-decoration: underline; }
 
 /* Heading Links */
-h1 a, h1 a:active, h1 a:visited, h2 a, h2 a:active, h2 a:visited { color: #006999; }
+h1 a, h2 a { color: #006999; }
 h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus { color: #cd5a1b; text-decoration: none; }
 
 /* Generic Links */
-.rtp-common-link, .rtp-common-link:active, .rtp-common-link:visited, .rtp-common-link a, .rtp-common-link a:active, .rtp-common-link a:visited, .rtp-common-link span, .rtp-common-link span:active, .rtp-common-link span:visited { color: #666666; }
+.rtp-common-link, .rtp-common-link a, .rtp-common-link span { color: #666666; }
 .rtp-common-link:hover, .rtp-common-link:focus, .rtp-common-link a:hover, .rtp-common-link a:focus, .rtp-common-link span:hover, .rtp-common-link span:focus { color: #111111; }
 
 /* Header */
@@ -1744,6 +1744,8 @@ img.right, img.alignright { margin-left: 20px; margin-right: 0; }
 .single .rtp-navigation, .single .rtp-comments-pagination { padding-top: 1.5em; }
 
 .single-attachment .rtp-navigation, .rtp-image-attachment .rtp-navigation { margin: 10px 0 0; padding-bottom: 0; }
+
+.rtp-search-form-wrapper .rtp-search-input { float: left; height: 36px; width: 75%; }
 
 /* Pagenavi Style */
 .wp-pagenavi ul { margin: 1.25em 0; overflow: hidden; }
