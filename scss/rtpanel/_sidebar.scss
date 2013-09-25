@@ -1,7 +1,7 @@
 /* Sidebar */
 .rtp-sidebar-inner-wrapper { @include rtp-panel; }
 
-.widget { margin-bottom: emCalc(20);
+.widget { margin-bottom: emCalc(30);
     // Current Menu item highlight
     .current-menu-item > a, .current_page_item > a { color: $link-hover-color; }
 
@@ -40,13 +40,13 @@ tfoot {
 .stay-connected { clear: both; font-weight: normal; padding: 5px 0 0; }
 
 // ***** Social Icons ***** //
-.social-icons { margin: 0; // Self
+ul.social-icons { margin: 0; // Self
     // List
     li { float: left; list-style: none; margin: 10px 8px 0 0; padding: 0; // Self
         &:last-child { margin-right: 0; }
     }
     
-    a { display: block; height: 35px; margin: 0; overflow: hidden; padding: 0; text-indent: -9999px; text-transform: uppercase; width: 35px; }
+    a { background: $gray; color: $white; display: block; font-size: emCalc(20); height: 30px; line-height: 30px; margin: 0; overflow: hidden; padding: 0; text-align: center; text-decoration: none; width: 30px; }
     
     // Facebook
     .facebook {

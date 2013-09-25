@@ -1578,7 +1578,7 @@ h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus { color: #cd5a1b; text-decoration
 /* Sidebar */
 .rtp-sidebar-inner-wrapper { border-style: solid; border-width: 1px; border-color: #d9d9d9; padding: 1.25em; background: #f2f2f2; }
 
-.widget { margin-bottom: 1.25em; }
+.widget { margin-bottom: 1.875em; }
 .widget .current-menu-item > a, .widget .current_page_item > a { color: #cd5a1b; }
 .widget > ul, .widget > ol { margin-left: 1.25em; }
 
@@ -1603,10 +1603,10 @@ tfoot #next { border-left: 0; text-align: right; }
 
 .stay-connected { clear: both; font-weight: normal; padding: 5px 0 0; }
 
-.social-icons { margin: 0; }
-.social-icons li { float: left; list-style: none; margin: 10px 8px 0 0; padding: 0; }
-.social-icons li:last-child { margin-right: 0; }
-.social-icons a { display: block; height: 35px; margin: 0; overflow: hidden; padding: 0; text-indent: -9999px; text-transform: uppercase; width: 35px; }
+ul.social-icons { margin: 0; }
+ul.social-icons li { float: left; list-style: none; margin: 10px 8px 0 0; padding: 0; }
+ul.social-icons li:last-child { margin-right: 0; }
+ul.social-icons a { background: #666666; color: white; display: block; font-size: 1.25em; height: 30px; line-height: 30px; margin: 0; overflow: hidden; padding: 0; text-align: center; text-decoration: none; width: 30px; }
 
 /* End - Sidebar */
 /* Comments */
@@ -1692,9 +1692,9 @@ tfoot #next { border-left: 0; text-align: right; }
 @media only screen and (max-width: 767px) { .rtp-nav-wrapper { display: none; }
   .rtp-menu-icon { display: block; } }
 /* Images */
-img.none, img.alignnone { margin-left: 0; margin-right: 20px; }
-img.left, img.alignleft { margin-left: 0; margin-right: 20px; }
-img.right, img.alignright { margin-left: 20px; margin-right: 0; }
+img.none, img.alignnone { margin-left: 0; margin-right: 1.25em; }
+img.left, img.alignleft { margin-left: 0; margin-right: 1.25em; }
+img.right, img.alignright { margin-left: 1.25em; margin-right: 0; }
 .ie8 img { width: auto; }
 
 /* Attachment Style */
@@ -1709,10 +1709,10 @@ img.right, img.alignright { margin-left: 20px; margin-right: 0; }
 
 .rtp-thumbnail-container img { margin: 0; }
 .rtp-thumbnail-container a { margin-top: 5px; margin-bottom: 5px; }
-.rtp-thumbnail-container a.none, .rtp-thumbnail-container a.alignnone { display: inline-block; margin-bottom: 14px; margin-left: 0; margin-right: 20px; }
-.rtp-thumbnail-container a.left, .rtp-thumbnail-container a.alignleft { margin-left: 0; margin-right: 20px; }
+.rtp-thumbnail-container a.none, .rtp-thumbnail-container a.alignnone { display: inline-block; margin-bottom: 14px; margin-left: 0; margin-right: 1.25em; }
+.rtp-thumbnail-container a.left, .rtp-thumbnail-container a.alignleft { margin-left: 0; margin-right: 1.25em; }
 .rtp-thumbnail-container a.center, .rtp-thumbnail-container a.aligncenter { display: inline-block; margin-bottom: 14px; }
-.rtp-thumbnail-container a.right, .rtp-thumbnail-container a.alignright { margin-left: 20px; margin-right: 0; }
+.rtp-thumbnail-container a.right, .rtp-thumbnail-container a.alignright { margin-left: 1.25em; margin-right: 0; }
 
 /* Thumbnail with shadow effect */
 .rtp-thumbnail-shadow img { background: white; border: 1px solid #dddddd; -webkit-box-shadow: 0 0 4px #cccccc; -moz-box-shadow: 0 0 4px #cccccc; box-shadow: 0 0 4px #cccccc; padding: 4px; }

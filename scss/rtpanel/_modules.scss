@@ -1,15 +1,17 @@
+$image-space: emCalc(20);
+
 // ***** Images ***** //
 @mixin rtp-image() {
     /* Images */
     img {
         // Floated Images
         &.none,
-        &.alignnone { margin-left: 0; margin-right: 20px; }
+        &.alignnone { margin-left: 0; margin-right: $image-space; }
         //&.aligncenter { margin-left: auto; margin-right: auto; }
         &.left,
-        &.alignleft { margin-left: 0; margin-right: 20px; }
+        &.alignleft { margin-left: 0; margin-right: $image-space; }
         &.right,
-        &.alignright { margin-left: 20px; margin-right: 0; }
+        &.alignright { margin-left: $image-space; margin-right: 0; }
 
         // IE8 image width issue fix.
         .ie8 & { width: auto; }
@@ -26,13 +28,13 @@
         a { margin-top: 5px; margin-bottom: 5px;
             // Floated Images
             &.none,
-            &.alignnone { display: inline-block; margin-bottom: 14px; margin-left: 0; margin-right: 20px; }
+            &.alignnone { display: inline-block; margin-bottom: 14px; margin-left: 0; margin-right: $image-space; }
             &.left,
-            &.alignleft { margin-left: 0; margin-right: 20px; }
+            &.alignleft { margin-left: 0; margin-right: $image-space; }
             &.center,
             &.aligncenter { display: inline-block; margin-bottom: 14px; }
             &.right,
-            &.alignright { margin-left: 20px; margin-right: 0; }
+            &.alignright { margin-left: $image-space; margin-right: 0; }
         }
     }
 }
