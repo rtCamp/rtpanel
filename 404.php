@@ -8,7 +8,7 @@
  */
 get_header(); ?>
 
-    <section id="content" role="main" class="rtp-grid-8">
+    <section id="content" role="main" class="rtp-grid-8 rtp-singular">
 
         <?php rtp_hook_begin_content(); ?>
 
