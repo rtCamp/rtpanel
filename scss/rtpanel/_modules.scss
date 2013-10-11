@@ -46,7 +46,7 @@ $image-space: emCalc(20);
     .rtp-thumbnail-shadow {
         img {
             background: $base-background;
-            @include rtp-border($border-color);
+            @include rtp-border();
             @include box-shadow(0 0 4px darken($base-background, 20%));
             padding: 4px;
         }
@@ -95,7 +95,7 @@ $image-space: emCalc(20);
         li { line-height: 1em; list-style: none; margin-top: 10px; margin-bottom: 10px; text-align: center; }
         // Images
         img {
-            background-color: darken($base-background, 4%); @include rtp-border($border-color); margin: 0; padding: 5px;
+            background-color: darken($base-background, 4%); @include rtp-border(); margin: 0; padding: 5px;
             &:hover { border-color: darken($border-color, 30%); }
         }
     }

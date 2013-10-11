@@ -121,7 +121,7 @@
     textarea { height: 110px; width: 98.33%; }
 
     // Allowed Tags
-    .form-allowed-tags { background: darken($base-background, 2%); @include rtp-border($border-color); color: $gray; font-size: emCalc(13); margin: 0 0 14px; padding: 4px; width: 96%; }
+    .form-allowed-tags { background: darken($base-background, 2%); @include rtp-border(); color: $gray; font-size: emCalc(13); margin: 0 0 14px; padding: 4px; width: 96%; }
 
     // Compact Form
     .compact-comment-form { float: left; width: 33%; // Self

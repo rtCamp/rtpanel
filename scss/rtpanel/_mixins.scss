@@ -1,8 +1,8 @@
 // ********* rtPanel Mixins *********
 
 // Border 1px
-@mixin rtp-border($border-color) {
-    border: 1px solid $border-color;
+@mixin rtp-border($width: 1px, $style: solid, $color: $border-color) {
+    border: $width $style $color;
 }
 
 // ********* rtPanel Constant Mixins ********* //
@@ -11,38 +11,6 @@
 @mixin rtp-margin-padding-0() {
     margin: 0;
     padding: 0;
-}
-
-// Reset Grids
-@mixin rtp-reset-grid() {
-    @include box-sizing(border-box);
-    margin-left: 0;
-    margin-right: 0;
-    width: 100%;
-}
-
-// Reset Prefix Space
-@mixin rtp-reset-prefix() {
-    padding-left: 0;
-}
-
-// Reset Suffix Space
-@mixin rtp-reset-suffix() {
-    padding-right: 0;
-}
-
-// Reset Push and Pull Space
-@mixin rtp-reset-push-pull() {
-    left: 0;
-}
-
-// Center Aligned Grid
-@mixin rtp-grid-center() {
-    clear: both;
-    display: block;
-    float: none;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 // Text Indent
@@ -56,7 +24,36 @@
     border-style: $panel-border-style;
     border-width: $panel-border-size;
     border-color: darken($panel-bg, $panel-function-factor);
-    //margin-bottom: $panel-margin-bottom;
     padding: $panel-padding;
     background: $panel-bg;
+}
+
+
+// ***** Mixins for Rem Font Sizing ***** //
+$rtp-base-font-size: $em-base;
+@mixin rtp-rem-fallback( $property, $values... ) {
+    $max: length( $values );
+    $pxValues: '';
+    $remValues: '';
+
+    @for $i from 1 through $max {
+        $value: strip-unit( nth( $values, $i ) );
+        $pxValues: #{ $pxValues + $value }px;
+
+        @if $i < $max {
+            $pxValues: #{ $pxValues + ' ' };
+        }
+    }
+
+    @for $i from 1 through $max {
+        $value: strip-unit( nth( $values, $i ) ) / strip-unit( $rtp-base-font-size ) * 1;
+        $remValues: #{ $remValues + $value }rem;
+
+        @if $i < $max {
+            $remValues: #{ $remValues + ' ' };
+        }
+    }
+
+    #{$property}: $pxValues; 
+    #{$property}: $remValues; 
 }

@@ -37,7 +37,7 @@ ol, ul {
     // [class*="block-grid-"]
     &:not([class*="block-grid-"]) {
         font-size: emCalc(14); margin-left: 1.25rem;
-        
+
         ul,
         ol { font-size: 1em; }
     }
