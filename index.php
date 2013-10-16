@@ -6,29 +6,29 @@
  * 
  * @since rtPanel 2.0
  */
-get_header(); ?>
+get_header(); 
 
-    <?php
         $rtp_content_class = '';
-        $rtp_content_width = '';
+        $rtp_content_grid_class = '';
 
         // Full width grid for buddypress or bbpress
         if ( rtp_get_sidebar_id() === 0 ) {
-            $rtp_content_width = apply_filters( 'rtp_set_full_width_grid_class', 'large-12 columns rtp-full-width-content' );
+            $rtp_content_grid_class = apply_filters( 'rtp_set_full_width_grid_class', 'large-12 columns rtp-full-width-content' );
         } else {
-            $rtp_content_width = apply_filters( 'rtp_set_content_grid_class', 'large-8 columns' );
+            $rtp_content_grid_class = apply_filters( 'rtp_set_content_grid_class', 'large-8 columns' );
         }
 
         if ( is_archive() ) {
-            $rtp_content_class = ' class="rtp-content-section ' . $rtp_content_width . ' rtp-multiple-post" ';
+            $rtp_content_class = ' class="rtp-content-section ' . $rtp_content_grid_class . ' rtp-multiple-post" ';
         } elseif ( is_page() || is_single() || is_404() ) {
-            $rtp_content_class = ' class="rtp-content-section ' . $rtp_content_width . ' rtp-singular" ';
+            $rtp_content_class = ' class="rtp-content-section ' . $rtp_content_grid_class . ' rtp-singular" ';
         } elseif ( is_home() ) {
-            $rtp_content_class = ' class="rtp-content-section ' . $rtp_content_width . ' rtp-blog-post" ';
+            $rtp_content_class = ' class="rtp-content-section ' . $rtp_content_grid_class . ' rtp-blog-post" ';
         } else {
-            $rtp_content_class = ' class="rtp-content-section ' . $rtp_content_width . '"';
+            $rtp_content_class = ' class="rtp-content-section ' . $rtp_content_grid_class . '"';
         }
     ?>
+
     <section id="content" role="main"<?php echo $rtp_content_class; ?>>
         <?php rtp_hook_begin_content(); ?>
 

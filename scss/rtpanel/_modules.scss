@@ -79,6 +79,9 @@ $image-space: emCalc(20);
         &[data-clearing] li { margin-right: 0; }
     }
 
+    // Caption
+    .gallery-caption { color: $gray; margin: 0 0 10px; padding: 0; text-align: center; }
+
     /* End - Gallery */
 }
 

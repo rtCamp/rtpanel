@@ -1732,6 +1732,8 @@ img.right, img.alignright { margin-left: 1.25em; margin-right: 0; }
 /* Gallery */
 .gallery[data-clearing] li { margin-right: 0; }
 
+.gallery-caption { color: #666666; margin: 0 0 10px; padding: 0; text-align: center; }
+
 /* End - Gallery */
 /* Paged Navigation */
 .rtp-navigation, .rtp-comments-pagination { clear: both; padding-bottom: 1.5em; padding-top: 1.5em; }
