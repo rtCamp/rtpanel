@@ -7,9 +7,11 @@
  * @since rtPanel 2.0
  */
 get_header();
-$content_width = $max_content_width; ?>
 
-    <section id="content" class="rtp-content-section rtp-full-width-content">
+    $content_width = $max_content_width;
+    $rtp_content_grid_class = apply_filters( 'rtp_set_full_width_grid_class', 'large-12 columns rtp-full-width-content' ); ?>
+
+    <section id="content" class="rtp-content-section <?php echo $rtp_content_grid_class; ?>">
         <?php rtp_hook_begin_content(); ?>
 
         <?php get_template_part( 'loop', 'common' ); ?>

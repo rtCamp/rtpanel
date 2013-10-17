@@ -6,9 +6,11 @@
  * 
  * @since rtPanel 2.0
  */
-get_header(); ?>
+get_header();
 
-    <section id="content" role="main" class="clearfix rtp-content-section rtp-404-content">
+    $rtp_content_grid_class = apply_filters( 'rtp_set_content_grid_class', 'large-8 columns' ); ?>
+
+    <section id="content" role="main" class="rtp-content-section rtp-404-content <?php echo $rtp_content_grid_class; ?>">
 
         <?php rtp_hook_begin_content(); ?>
 

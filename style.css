@@ -1753,9 +1753,9 @@ img.right, img.alignright { margin-left: 1.25em; margin-right: 0; }
 .wp-pagenavi ul { margin: 1.25em 0; overflow: hidden; }
 .wp-pagenavi li { display: inline-block; list-style: none; }
 .wp-pagenavi a, .wp-pagenavi span { border: 1px solid #dddddd; display: inline-block; float: none; font-weight: normal; margin: 2px; padding: 5px 10px; text-decoration: none; }
-.wp-pagenavi a:hover, .wp-pagenavi .current { background: #F5F5F5; }
+.wp-pagenavi a:hover, .wp-pagenavi a:focus { background: #F5F5F5; }
+.wp-pagenavi .current { background: #F5F5F5; }
 
-/* End - Paged Navigation */
 /* Common bbPress Style */
 .bbPress .hentry { border: 0; }
 .bbPress .bbp-forum-freshness > a { font-size: 13px; }

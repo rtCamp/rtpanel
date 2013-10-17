@@ -6,16 +6,16 @@
  * 
  * @since rtPanel 2.1
  */
-get_header(); ?>
+get_header();
 
-<?php global $rtp_post_comments; ?>
+    global $rtp_post_comments;
+    $rtp_content_grid_class = apply_filters( 'rtp_set_full_width_grid_class', 'large-12 columns rtp-full-width-content' ); ?>
 
-    <section id="content" class="rtp-content-section rtp-image-attachment rtp-full-width-content">
+    <section id="content" class="rtp-content-section rtp-image-attachment <?php echo $rtp_content_grid_class; ?>">
         <?php rtp_hook_begin_content(); ?>
 
         <?php 
-        while( have_posts() ) {
-            the_post();
+        while( have_posts() ) { the_post();
             if ( $post->post_parent ) { ?>
                 <div class="rtp-navigation clearfix">
                     <div class="left"><a role="link" href="<?php echo get_permalink( $post->post_parent ); ?>">&larr; <?php echo get_the_title( $post->post_parent ); ?></a></div>
