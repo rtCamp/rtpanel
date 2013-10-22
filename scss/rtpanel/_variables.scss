@@ -4,46 +4,21 @@ $black: #000000;
 $white: #FFFFFF;
 $gray: #666666;
 
-$alpha-font-size: emCalc(15);
-$beta-font-size: emCalc(14);
-$gamma-font-size: emCalc(12);
-$delta-font-size: emCalc(10);
-
 // ***** Dynamic Variables ***** //
 // Borders
-$border-color: #dddddd !default;
+$border-color: #dddddd;
 
 // Backgrounds
-$base-background: $white !default;
+$base-background: $white;
 
 // ***** Links ***** //
-$link-color: #006999 !default;
-$link-hover-color: #cd5a1b !default;
+$link-color: #006999;
+$link-hover-color: #cd5a1b;
 
 // Secondary Links
-$secondary-link-color: $gray !default;
-$secondary-link-hover-color: #111111 !default;
+$secondary-link-color: $gray;
+$secondary-link-hover-color: #111111;
 
 // Title Links
-$title-link-color: $link-color !default;
-$title-hover-color: $link-hover-color !default;
-
-// Text Color
-$base-font-color: #333333 !default;
-
-// ***** Typography Defaults ***** //
-p { font-size: emCalc(14); }
-ol, ul {
-    // [class*="block-grid-"]
-    &:not([class*="block-grid-"]) {
-        font-size: emCalc(14); margin-left: 1.25rem;
-
-        ul,
-        ol { font-size: 1em; }
-    }
-}
-
-dl {
-    // [class*="block-grid-"]
-    &:not([class*="block-grid-"]) { font-size: emCalc(14); }
-}
+$title-link-color: $link-color;
+$title-hover-color: $link-hover-color;

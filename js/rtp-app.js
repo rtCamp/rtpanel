@@ -5,6 +5,13 @@ jQuery(document).foundation();
  */
 jQuery(document).ready(function($) {
 
+    /* Add parent-menu class in navigation */
+    $('.rtp-page-nav-wrapper .menu > li').each(function() {
+        if ($(this).children().hasClass('sub-menu')) {
+            $(this).addClass('rtp-parent-menu');
+        }
+    });
+
     /* WP Calendar Widget */
     $('.widget_calendar table').addClass('no-responsive');
 
@@ -14,7 +21,7 @@ jQuery(document).ready(function($) {
         if (($(window).width() < 768) && !switched) {
             switched = true;
             $("table").each(function(i, element) {
-                if($(this).hasClass("no-responsive")){
+                if ($(this).hasClass("no-responsive")) {
                     return true;
                 }
                 splitTable($(element));
@@ -24,7 +31,7 @@ jQuery(document).ready(function($) {
         else if (switched && ($(window).width() > 768)) {
             switched = false;
             $("table").each(function(i, element) {
-                if($(this).hasClass("no-responsive")){
+                if ($(this).hasClass("no-responsive")) {
                     return true;
                 }
                 unsplitTable($(element));
@@ -54,11 +61,11 @@ jQuery(document).ready(function($) {
     }
 
     /* Mobile Slide Menu */
-    if ( $.isFunction($.fn.sidr) ) {
+    if ($.isFunction($.fn.sidr)) {
         $('#header').append('<a class="rtp-menu-icon" id="rtp-mobile-menu-button" href="#rtp-primary-menu"><span></span></a>');
         $('#rtp-mobile-menu-button').sidr({
             side: 'right',
-            speed : 800,
+            speed: 800,
             source: '.rtp-mobile-nav'
         });
     }

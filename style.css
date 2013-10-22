@@ -1453,13 +1453,6 @@ a.th { display: inline-block; max-width: 100%; }
 .f-dropdown.medium { max-width: 500px; }
 .f-dropdown.large { max-width: 800px; }
 
-p { font-size: 0.875em; }
-
-ol:not([class*="block-grid-"]), ul:not([class*="block-grid-"]) { font-size: 0.875em; margin-left: 1.25rem; }
-ol:not([class*="block-grid-"]) ul, ol:not([class*="block-grid-"]) ol, ul:not([class*="block-grid-"]) ul, ul:not([class*="block-grid-"]) ol { font-size: 1em; }
-
-dl:not([class*="block-grid-"]) { font-size: 0.875em; }
-
 /* The Magnificent "Clear" fix */
 .clearfix { zoom: 1; }
 .clearfix:before, .clearfix:after { content: ' '; display: table; }
@@ -1470,6 +1463,15 @@ dl:not([class*="block-grid-"]) { font-size: 0.875em; }
 .alignright { float: right; }
 
 .aligncenter { display: block; margin-left: auto; margin-right: auto; text-align: center; }
+
+p { font-size: 0.875em; }
+
+ol:not([class*="block-grid-"]), ul:not([class*="block-grid-"]) { font-size: 0.875em; margin-left: 1.25rem; }
+ol:not([class*="block-grid-"]) ul, ol:not([class*="block-grid-"]) ol, ul:not([class*="block-grid-"]) ul, ul:not([class*="block-grid-"]) ol { font-size: 1em; }
+
+dl:not([class*="block-grid-"]) { font-size: 0.875em; }
+
+.top-bar-section ul { margin-left: 0; }
 
 /* WP-Editor TinyMCE Style */
 body#tinymce { background: white; margin: 0 10px; padding: 10px 5px; }

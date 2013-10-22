@@ -1,0 +1,20 @@
+// ***** Typography Defaults ***** //
+p { font-size: emCalc(14); }
+
+ol, ul {
+    // [class*="block-grid-"]
+    &:not([class*="block-grid-"]) {
+        font-size: emCalc(14); margin-left: 1.25rem;
+
+        ul,
+        ol { font-size: 1em; }
+    }
+}
+
+dl {
+    // [class*="block-grid-"]
+    &:not([class*="block-grid-"]) { font-size: emCalc(14); }
+}
+
+// Reset left margin
+.top-bar-section ul { margin-left: 0; }
