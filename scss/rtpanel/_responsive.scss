@@ -2,3 +2,9 @@
   .rtp-nav-wrapper { display: none; }
   .rtp-menu-icon { display: block; }
 }
+
+
+@media only screen and (min-width: 767px) {
+    body { position: relative !important; right: 0 !important; width: auto !important; }
+    .sidr { display: none !important; right: 0 !important; }
+}

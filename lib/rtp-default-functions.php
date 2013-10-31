@@ -111,6 +111,8 @@ function rtp_default_post_meta ( $placement = 'top' ) {
                     ( get_the_terms ( $post->ID, $key ) && isset ( $rtp_post_comments[ 'post_' . $key . '_' . $position ] ) && $rtp_post_comments[ 'post_' . $key . '_' . $position ] ) ? the_terms ( $post->ID, $key, '<p class="post-custom-tax post-' . $key . '">' . $taxonomy->labels->singular_name . ': ', ', ', '</p>' ) : '';
                 }
                 
+                rtp_default_comment_count();
+                
                 if ( 'bottom' == $placement )
                     rtp_hook_end_post_meta_bottom ();
                 else
@@ -177,7 +179,7 @@ function filter_wp_nav_menu_items ( $items, $args ) {
  */
 function rtp_edit_link () {
     // Call Edit Link
-    edit_post_link ( __ ( '[ edit ]', 'rtPanel' ), '<p class="rtp-edit-link left">', '&nbsp;</p>' );
+    edit_post_link ( __ ( '[ edit ]', 'rtPanel' ), '<p class="rtp-edit-link alignleft">', '&nbsp;</p>' );
 }
 
 add_action ( 'rtp_hook_begin_post_meta_top', 'rtp_edit_link' );
@@ -306,14 +308,13 @@ function rtp_default_comment_count () {
     global $rtp_post_comments;
     // Comment Count
     add_filter ( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
-    if ( ( ( get_comments_number () || @comments_open () ) && ! is_attachment () && ! rtp_is_bbPress () ) || ( is_attachment () && $rtp_post_comments[ 'attachment_comments' ] ) ) { // If post meta is set to top then only display the comment count.
-        ?>
-        <p class="alignright rtp-post-comment-count"><span class="rtp-curly-bracket">{</span><?php comments_popup_link ( _x ( '<span>0</span> Comments', 'comments number', 'rtPanel' ), _x ( '<span>1</span> Comment', 'comments number', 'rtPanel' ), _x ( '<span>%</span> Comments', 'comments number', 'rtPanel' ), 'rtp-post-comment rtp-common-link' ); ?><span class="rtp-curly-bracket">}</span></p><?php
+    if ( ( ( get_comments_number () || @comments_open () ) && ! is_attachment () && ! rtp_is_bbPress () ) || ( is_attachment () && $rtp_post_comments[ 'attachment_comments' ] ) ) { // If post meta is set to top then only display the comment count. ?>
+        <span class="rtp-post-comment-count"><?php comments_popup_link ( _x ( '<span>0</span> Comments', 'comments number', 'rtPanel' ), _x ( '<span>1</span> Comment', 'comments number', 'rtPanel' ), _x ( '<span>%</span> Comments', 'comments number', 'rtPanel' ), 'rtp-post-comment rtp-common-link' ); ?></span><?php
     }
     remove_filter ( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
 }
 
-add_action ( 'rtp_hook_end_post_title', 'rtp_default_comment_count' );
+// add_action ( 'rtp_hook_end_post_title', 'rtp_default_comment_count' );
 
 /**
  * Get the sidebar ID for current page.
