@@ -28,7 +28,7 @@ get_header();
                 <header class="post-header clearfix">
                     <?php rtp_hook_begin_post_title(); ?>
 
-                    <h1 class="post-title<?php echo $rtp_post_comments['attachment_comments'] ? '' : ' rtp-has-comments' ?>"><?php the_title(); ?></h1>
+                    <h1 class="post-title"><?php the_title(); ?></h1>
 
                     <?php rtp_hook_end_post_title(); ?>
 

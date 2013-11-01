@@ -18,7 +18,7 @@ if ( have_comments() || ( ( !is_attachment() && comments_open() ) || ( is_attach
         if ( have_comments() ) { ?>
             <div class="rtp-comment-count clearfix" id="comments"><?php 
                 add_filter( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
-                $comment_count = sprintf( _n( '<span class="count">%1$s</span> Comment', '<span class="count">%1$s</span> Comments', get_comments_number(), 'rtPanel' ), number_format_i18n( get_comments_number() ) ) . '&hellip; ';
+                $comment_count = sprintf( _n( '<span class="count">%1$s</span> Comment', '<span class="count">%1$s</span> Comments', get_comments_number(), 'rtPanel' ), number_format_i18n( get_comments_number() ) );
                 remove_filter( 'get_comments_number', 'rtp_only_comment_count', 11 );
                 if ( ( get_comments_number() && comments_open() ) || get_comments_number() ) { ?>
                     <h4 class="rtp-comment-count-container"><?php echo $comment_count; ?></h4><?php
