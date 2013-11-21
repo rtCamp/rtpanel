@@ -27,8 +27,9 @@ function rtp_comment_list( $comment, $args, $depth ) {
                 if ( $rtp_post_comments['gravatar_show'] ) { // check if gravatar support is enabled
                     $gravatar_size = $rtp_post_comments['gravatar_size']; ?>
                     <div class="vcard">
-                        <?php echo get_avatar( $comment, $gravatar_size ); ?>
-                    </div><?php 
+                        <?php echo get_avatar( $comment, $gravatar_size ); 
+                        rtp_hook_after_comment_author_avatar()?>
+                    </div><?php
                 } ?>
 
                 <div class="comment-author">

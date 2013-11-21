@@ -305,3 +305,6 @@ function rtp_hook_before_content_wrapper(){
 function rtp_hook_after_content_wrapper(){
     do_action("rtp_hook_after_content_wrapper");
 }
+function rtp_hook_after_comment_author_avatar(){
+    do_action("rtp_hook_after_comment_author_avatar");
+}
