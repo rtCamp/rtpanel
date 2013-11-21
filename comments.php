@@ -26,7 +26,7 @@ if ( have_comments() || ( ( !is_attachment() && comments_open() ) || ( is_attach
                 } 
 
                 if ( current_user_can( 'moderate_comments' ) ) { ?>
-                        <h6 class="subheader rtp-manage-comments"><span class="rtp-curly-bracket">{ </span><a role="link" href="<?php echo get_admin_url( '', 'edit-comments.php?p=' . get_the_ID() ); ?>"><?php _e( 'Manage Comments', 'rtPanel' ); ?></a><span class="rtp-curly-bracket"> }</span></h6><?php 
+                        <h6 class="subheader rtp-manage-comments"><a role="link" href="<?php echo get_admin_url( '', 'edit-comments.php?p=' . get_the_ID() ); ?>"><?php _e( 'Manage Comments', 'rtPanel' ); ?></a></h6><?php 
                 } ?>
             </div><!-- .rtp-comment-count -->
 
@@ -116,7 +116,7 @@ if ( have_comments() || ( ( !is_attachment() && comments_open() ) || ( is_attach
         */
         add_filter( 'get_comments_number', 'pingback_trackback_count', 11, 2 );
         if ( $rtp_post_comments['comment_separate'] && get_comments_number() ) { ?>
-                <h3 class="rtp-comments-header"><span class="rtp-curly-bracket">{</span> <span class="count"><?php echo get_comments_number(); ?></span> <?php ( 1 == get_comments_number() ) ? _e( 'Trackback', 'rtPanel') : _e( 'Trackbacks', 'rtPanel' ); ?> <span class="rtp-curly-bracket">}</span></h3>
+                <h3 class="rtp-comments-header"><span class="count"><?php echo get_comments_number(); ?></span> <?php ( 1 == get_comments_number() ) ? _e( 'Trackback', 'rtPanel') : _e( 'Trackbacks', 'rtPanel' ); ?></h3>
                 <ol id="trackbacks"><?php
                         $args = 'callback=rtp_ping_list&type=pings';
                         wp_list_comments( $args ); ?>

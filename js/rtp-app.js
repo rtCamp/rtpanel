@@ -5,13 +5,6 @@ jQuery(document).foundation();
  */
 jQuery(document).ready(function($) {
 
-    /* Add parent-menu class in navigation */
-    $('.rtp-page-nav-wrapper .menu > li').each(function() {
-        if ($(this).children().hasClass('sub-menu')) {
-            $(this).addClass('rtp-parent-menu');
-        }
-    });
-
     /* WP Calendar Widget */
     $('.widget_calendar table').addClass('no-responsive');
 
