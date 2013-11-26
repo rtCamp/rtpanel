@@ -44,6 +44,5 @@ $submenu-hover: lighten($menu-background, 5%);
     .current-menu-item, .current_page_ancestor, .current_page_item {
         > a { background-color: $menu-hover-active-background; text-decoration: none; }
     }
-
 }
 /* End - Navigation */

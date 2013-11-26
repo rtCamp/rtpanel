@@ -178,7 +178,7 @@ function filter_wp_nav_menu_items ( $items, $args ) {
  */
 function rtp_edit_link () {
     // Call Edit Link
-    edit_post_link ( __ ( 'edit', 'rtPanel' ), '<p class="rtp-edit-link alignleft">', '&nbsp;</p>' );
+    edit_post_link ( __ ( '[ edit ]', 'rtPanel' ), '<p class="rtp-edit-link alignleft">', '&nbsp;</p>' );
 }
 
 add_action ( 'rtp_hook_begin_post_meta_top', 'rtp_edit_link' );

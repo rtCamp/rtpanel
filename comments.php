@@ -22,7 +22,7 @@ if ( have_comments() || ( ( !is_attachment() && comments_open() ) || ( is_attach
                 remove_filter( 'get_comments_number', 'rtp_only_comment_count', 11 );
                 if ( ( get_comments_number() && comments_open() ) || get_comments_number() ) { ?>
                     <h4 class="rtp-comment-count-container"><?php echo $comment_count; ?></h4><?php
-                    echo ( comments_open() ) ? sprintf( __( '<small class="rtp-thoughts">&nbsp;Add <a role="link" href="%s" title="Add your comment">your comment</a></small>', 'rtPanel' ), '#respond' ) : '';
+                    echo ( comments_open() ) ? sprintf( __( '<small class="rtp-thoughts">&nbsp;Share your <a role="link" href="%s" title="Share your views">views</a></small>', 'rtPanel' ), '#respond' ) : '';
                 } 
 
                 if ( current_user_can( 'moderate_comments' ) ) { ?>

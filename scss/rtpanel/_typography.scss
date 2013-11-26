@@ -1,36 +1,21 @@
 // ***** Typography Defaults ***** //
-//ol, ul { @include rtp-rem-fallback(margin-left, 20); }
-
-// [class*="block-grid-"], .top-bar-section ul, ul.breadcrumbs, ul.button-group, ul.rtp-button-group, ul.vcard,
-// dl.sub-nav, ul.sub-nav, ul.clearing-thumbs, ul.side-nav, ul.rtp-side-nav, ul.inline-list, ul.orbit-slides-container,
-// ul.pricing-table, ul.f-dropdown { margin-left: auto; }
-
-// p.title { font-size: inherit; }
-
-// Headings
-.h1, h1 { @include rtp-rem-fallback(font-size, 50); }
-.h2, h2 { @include rtp-rem-fallback(font-size, 40); }
-.h3, h3 { @include rtp-rem-fallback(font-size, 25); }
-.h4, h4 { @include rtp-rem-fallback(font-size, 20); }
-.h5, h5 { @include rtp-rem-fallback(font-size, 18); }
-.h6, h6 { @include rtp-rem-fallback(font-size, 16); }
 
 /* Fonts */
-.rtp-font-size-10 { @include rtp-rem-fallback(font-size, 10); }
-.rtp-font-size-11 { @include rtp-rem-fallback(font-size, 11); }
-.rtp-font-size-12 { @include rtp-rem-fallback(font-size, 12); }
-.rtp-font-size-13 { @include rtp-rem-fallback(font-size, 13); }
-.rtp-font-size-14 { @include rtp-rem-fallback(font-size, 14); }
-.rtp-font-size-15 { @include rtp-rem-fallback(font-size, 15); }
-.rtp-font-size-16 { @include rtp-rem-fallback(font-size, 16); }
-.rtp-font-size-18 { @include rtp-rem-fallback(font-size, 18); }
-.rtp-font-size-20 { @include rtp-rem-fallback(font-size, 20); }
-.rtp-font-size-22 { @include rtp-rem-fallback(font-size, 22); }
-.rtp-font-size-24 { @include rtp-rem-fallback(font-size, 24); }
-.rtp-font-size-28 { @include rtp-rem-fallback(font-size, 28); }
+.rtp-font-size-10 { font-size: rem-calc(10); }
+.rtp-font-size-11 { font-size: rem-calc(11); }
+.rtp-font-size-12 { font-size: rem-calc(12); }
+.rtp-font-size-13 { font-size: rem-calc(13); }
+.rtp-font-size-14 { font-size: rem-calc(14); }
+.rtp-font-size-15 { font-size: rem-calc(15); }
+.rtp-font-size-16 { font-size: rem-calc(16); }
+.rtp-font-size-18 { font-size: rem-calc(18); }
+.rtp-font-size-20 { font-size: rem-calc(20); }
+.rtp-font-size-22 { font-size: rem-calc(22); }
+.rtp-font-size-24 { font-size: rem-calc(24); }
+.rtp-font-size-28 { font-size: rem-calc(28); }
 
 .rtp-reset-line-height { line-height: 1; }
 
 .keystroke, kbd {
-    @include box-shadow(0 1px rgba(203,203,203,.75), inset 0 -1px #fff);
+    @include box-shadow(0 1px rgba(203,203,203,.75), inset 0 -1px $white);
 }

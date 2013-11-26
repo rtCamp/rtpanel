@@ -2,7 +2,7 @@
 Theme Name: rtPanel
 Theme URI: http://rtcamp.com/rtpanel/
 Description: WordPress theme framework with Custom Menu, Header and Background along with Logo, Favicon, Featured Image, Feedburner, Facebook Open Graph, Google Custom Search Integration and more options. Now includes a SAAS based CSS preprocessor and translation support. This theme comes with free technical support by team of 20+ full-time developers.
-Version: 4
+Version: 5
 Author: rtCamp
 Author URI: http://rtcamp.com/
 Contributors: rtCampers ( http://rtcamp.com/about/rtcampers/ )
@@ -21,7 +21,12 @@ Tags: black, blue, white, orange, light, one-column, two-columns, right-sidebar,
 @import "normalize";
 
 // Comment out this import if you are customizing you imports below
-@import "rtpanel/rtp-foundation";
+@import "foundation";
 
+/* Foundation Style Ends Here */
+
+// rtPanel Styles
+
+/* rtPanel Style Starts From Here */
 // Basic style for theme.
 @import "rtpanel/base";

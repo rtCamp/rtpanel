@@ -1,47 +1,41 @@
-// Comment out this import if you are customizing you imports below
-@import "foundation";
-
 // ***** Import specific parts of Foundation by commenting the import "foundation" ***** //
 // ***** and uncommenting what you want below. You must uncomment the following if customizing ***** //
 
-// @import "foundation/components/global"; // ***** always required ***** //
-// @import "foundation/components/grid";
+// Make sure the charset is set appropriately
+@charset "UTF-8";
 
-// ***** Use this grid if you want to start using the new Foundation 5 grid early. ***** //
-// ***** It will change breakpoints to min-width: 640px and 1024px. ***** //
-
-// @import "foundation/components/grid-5";
-
-// @import "foundation/components/visibility";
-// @import "foundation/components/block-grid";
-// @import "foundation/components/type";
-// @import "foundation/components/buttons";
-// @import "foundation/components/forms"; // ***** requires components/buttons ***** //
-// @import "foundation/components/custom-forms"; // ***** requires components/buttons, components/forms ***** //
-// @import "foundation/components/button-groups"; // ***** requires components/buttons ***** //
-// @import "foundation/components/dropdown-buttons"; // ***** requires components/buttons ***** //
-// @import "foundation/components/split-buttons"; // ***** requires components/buttons ***** //
-// @import "foundation/components/flex-video";
-// @import "foundation/components/section";
-// @import "foundation/components/top-bar";  // ***** requires components/grid ***** //
-// @import "foundation/components/orbit";
-// @import "foundation/components/reveal";
-// @import "foundation/components/joyride";
-// @import "foundation/components/clearing";
-// @import "foundation/components/alert-boxes";
-// @import "foundation/components/breadcrumbs";
-// @import "foundation/components/keystrokes";
-// @import "foundation/components/labels";
-// @import "foundation/components/inline-lists";
-// @import "foundation/components/pagination";
-// @import "foundation/components/panels";
-// @import "foundation/components/pricing-tables";
-// @import "foundation/components/progress-bars";
-// @import "foundation/components/side-nav";
-// @import "foundation/components/sub-nav";
-// @import "foundation/components/switch";
-// @import "foundation/components/magellan";
-// @import "foundation/components/tables";
-// @import "foundation/components/thumbs";
-// @import "foundation/components/tooltips";
-// @import "foundation/components/dropdown";
+// Behold, here are all the Foundation components.
+@import
+  "foundation/components/accordion",
+  "foundation/components/alert-boxes",
+  "foundation/components/block-grid",
+  "foundation/components/breadcrumbs",
+  "foundation/components/button-groups",
+  "foundation/components/buttons",
+  "foundation/components/clearing",
+  "foundation/components/dropdown",
+  "foundation/components/dropdown-buttons",
+  "foundation/components/flex-video",
+  "foundation/components/forms",
+  "foundation/components/grid",
+  "foundation/components/inline-lists",
+  "foundation/components/joyride",
+  "foundation/components/keystrokes",
+  "foundation/components/labels",
+  "foundation/components/magellan",
+  "foundation/components/orbit",
+  "foundation/components/pagination",
+  "foundation/components/panels",
+  "foundation/components/pricing-tables",
+  "foundation/components/progress-bars",
+  "foundation/components/reveal",
+  "foundation/components/side-nav",
+  "foundation/components/split-buttons",
+  "foundation/components/sub-nav",
+  "foundation/components/switch",
+  "foundation/components/tables",
+  "foundation/components/tabs",
+  "foundation/components/thumbs",
+  "foundation/components/tooltips",
+  "foundation/components/offcanvas",
+  "foundation/components/visibility";
