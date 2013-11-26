@@ -1598,9 +1598,10 @@ h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus { color: #cd5a1b; text-decoration
 .rtp-edit-link a { float: left; line-height: 1em; }
 
 /* Curly Brackets Style */
+.rtp-curly-bracket { color: #dbdbdb; font-size: 1.428em; font-weight: normal; }
+
 /* Post Comment */
 .rtp-post-comment, .rtp-post-comment:visited { font-size: 0.92857em; font-style: normal; padding: 0 3px 0 2px; }
-.rtp-post-comment span { color: #006999; font-size: 1.286em; }
 
 .post-tags { clear: left; }
 
