@@ -1,3 +1,5 @@
+@import 'rtpanel/variables';
+
 // 
 // FOUNDATION SETTINGS
 //
@@ -42,8 +44,9 @@ $column-gutter: rem-calc(20);
 $include-open-sans: false;
 
 // $body-bg: #fff;
-// $body-font-color: #222;
-$body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-font-color: #4C4C4C;
+$body-font-family: 'Open Sans', sans-serif;
+// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
 
@@ -56,7 +59,7 @@ $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $default-float: left;
 
 // We use these as default colors throughout
-// $primary-color: #008CBA;
+$primary-color: $link-color;
 // $secondary-color: #e7e7e7;
 // $alert-color: #f04124;
 // $success-color: #43AC6A;

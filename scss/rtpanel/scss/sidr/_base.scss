@@ -1,11 +1,4 @@
-// Fonts
-$sidr-font-family: $body-font-family;
-$sidr-font-size: emCalc(15);
-
-// Colors
-$sidr-background : #333;
-$sidr-background-shadow-color : #222;
-$sidr-text-color: $white;
+@import "compass/css3";
 
 .sidr {
     /* Default Settings */
@@ -16,8 +9,17 @@ $sidr-text-color: $white;
     height: 100%;
     z-index: 999999;
     width: 260px;
-    overflow-x: hidden;
+    overflow-x: none;
     overflow-y: auto;
+
+    .sidr-inner {
+        padding: 0 0 15px;
+
+        > p {
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+    }
 
     &.right {
         left: auto;
@@ -36,6 +38,30 @@ $sidr-text-color: $white;
     color: $sidr-text-color;
     @include single-box-shadow($sidr-background-shadow-color, 0, 0, 5px, 5px, inset);
 
+    h1, h2, h3, h4, h5, h6 {
+        font-size: $sidr-font-size - 4;
+        font-weight: normal;
+        padding: 0 15px;
+        margin: 0 0 5px;
+        color: $sidr-text-color;
+        line-height: 24px;
+        @include background-image(linear-gradient(lighten($sidr-background, 10%), darken($sidr-background, 10%)));
+        @include single-box-shadow(rgba(#000, .2), 0, 5px, 5px, 3px);
+    }
+
+    p {
+        font-size: $sidr-font-size - 2;
+        margin: 0 0 12px;
+        a {
+            color: rgba($sidr-text-color, .9);
+        }
+    }
+
+    > p {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
     ul {
         display: block;
         margin: 0 0 15px;
@@ -52,7 +78,7 @@ $sidr-text-color: $white;
 
             &:hover,
             &.active,
-            &.sidr-class-current-menu-item {
+            &.sidr-class-active {
                 border-top: none;
                 line-height: 49px;
 
@@ -81,7 +107,7 @@ $sidr-text-color: $white;
 
                     &:hover,
                     &.active,
-                    &.sidr-class-current-menu-item {
+                    &.sidr-class-active {
                         border-top: none;
                         line-height: 41px;
 
@@ -98,11 +124,52 @@ $sidr-text-color: $white;
             }
         }
     }
-}
 
-.sidr-inner {
-    padding: 0 0 15px;
-}
+    form {
+        margin: 0 15px;
+    }
 
-// Menu Button
-a.rtp-menu-icon { display: none; float: left; }
+    label {
+        font-size: $sidr-font-size - 2;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="date"],
+    input[type="datetime"],
+    input[type="email"],
+    input[type="number"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="time"],
+    input[type="url"],
+    textarea, select {
+        width: 100%;
+        font-size: $sidr-font-size - 2;
+        padding: 5px;
+        @include box-sizing(border-box);
+        margin: 0 0 10px;
+        @include border-radius(2px);
+        border: none;
+        background: rgba(#000, .1);
+        color: rgba($sidr-text-color, .6);
+        display: block;
+        clear: both;
+    }
+
+    input[type=checkbox] {
+        width: auto;
+        display: inline;
+        clear: none;
+    }
+
+    input[type=button],
+    input[type=submit] {
+        color: $sidr-background;
+        background: $sidr-text-color;
+
+        &:hover {
+            background: rgba($sidr-text-color, .9);
+        }
+    }
+}

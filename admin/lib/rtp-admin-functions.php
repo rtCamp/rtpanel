@@ -71,7 +71,7 @@ function rtp_general_validate($input) {
                 add_settings_error('html-upload-fav', 'html-upload-fav', __('Please upload a valid image file.', 'rtPanel'), 'error');
             }
         } elseif ('logo' == $input['favicon_use']) {
-            if (RTP_IMG_FOLDER_URL . '/rtp-logo.jpg' == $input['logo_upload']) {
+            if (RTP_IMG_FOLDER_URL . '/rtp-logo.png' == $input['logo_upload']) {
                 $input['favicon_upload'] = RTP_IMG_FOLDER_URL . '/favicon.ico';
                 $input['favicon_id'] = 0;
             } else {
@@ -580,7 +580,7 @@ function rtp_theme_setup_values() {
 
     $default_general = array(
         'logo_use' => 'image',
-        'logo_upload' => RTP_IMG_FOLDER_URL . '/rtp-logo.jpg',
+        'logo_upload' => RTP_IMG_FOLDER_URL . '/rtp-logo.png',
         'logo_id' => 0,
         'logo_width' => 224,
         'logo_height' => 51,

@@ -62,9 +62,9 @@ jQuery(document).ready(function($) {
 
     /* Mobile Slide Menu */
     if ($.isFunction($.fn.sidr)) {
-        $('#header').append('<a class="rtp-menu-icon" id="rtp-mobile-menu-button" href="#rtp-primary-menu"><span></span></a>');
+        $('#rtp-primary-menu').prepend('<a class="rtp-menu-icon menu-icon" id="rtp-mobile-menu-button" href="#rtp-primary-menu"><span></span></a>');
         $('#rtp-mobile-menu-button').sidr({
-            side: 'right',
+            side: 'left',
             speed: 800,
             source: '.rtp-mobile-nav'
         });

@@ -38,31 +38,33 @@ global $rtp_general; ?><!DOCTYPE html>
 
         <?php rtp_hook_begin_body(); ?>
 
-        <div id="main-wrapper" class="rtp-main-wrapper row"><!-- ends in footer.php -->
+        <div id="main-wrapper" class="rtp-main-wrapper"><!-- ends in footer.php -->
 
             <?php rtp_hook_begin_main_wrapper(); ?>
 
             <?php $header_class = get_header_image() ? ' rtp-header-wrapper-image' : ''; ?>
-            <header id="header-wrapper" role="banner" class="clearfix large-12 columns<?php echo $header_class; ?>">
+            <div id="header-wrapper" class="row<?php echo $header_class; ?>">
+                    
+                    <header id="header" class="rtp-header large-12 columns" role="banner">
+                        
+                        <?php rtp_hook_before_header(); ?>
+                        
+                        <?php rtp_hook_before_logo(); ?>
 
-                <?php rtp_hook_before_header(); ?>
+                            <?php $heading = ( is_home() || is_front_page() ) ? 'h2' : 'h3'; ?>
+                            <<?php echo $heading; ?> class="rtp-site-logo"><a role="link" href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name' ); ?>"><?php echo ( 'image' == $rtp_general['logo_use'] ) ? '<img role="img" alt="' . get_bloginfo( 'name' ) . '" ' . rtp_get_image_dimensions( $rtp_general['logo_upload'] ) . ' src="' . $rtp_general['logo_upload'] . '" />' : get_bloginfo( 'name' ); ?></a></<?php echo $heading; ?>>
 
-                <div id="header" class="rtp-header">
-                    <?php rtp_hook_before_logo(); ?>
+                        <?php rtp_hook_after_logo(); ?>
+                            
+                        <?php rtp_hook_after_header(); ?>
+                            
+                    </header><!-- #header -->
 
-                        <?php $heading = ( is_home() || is_front_page() ) ? 'h2' : 'h3'; ?>
-                        <<?php echo $heading; ?> class="rtp-site-logo"><a role="link" href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name' ); ?>"><?php echo ( 'image' == $rtp_general['logo_use'] ) ? '<img role="img" alt="' . get_bloginfo( 'name' ) . '" ' . rtp_get_image_dimensions( $rtp_general['logo_upload'] ) . ' src="' . $rtp_general['logo_upload'] . '" />' : get_bloginfo( 'name' ); ?></a></<?php echo $heading; ?>>
-
-                    <?php rtp_hook_after_logo(); ?>
-                </div><!-- #header -->
-
-                <?php rtp_hook_after_header(); ?>
-
-            </header><!-- #header-wrapper -->
+            </div><!-- #header-wrapper -->
             <?php rtp_hook_before_content_wrapper(); ?>
             
             <?php 
-                $content_wrapper_class = ( is_search() && $rtp_general['search_code'] && $rtp_general['search_layout'] ) ? 'clearfix rtp-content-wrapper search-layout-wrapper' : 'clearfix rtp-content-wrapper';
+                $content_wrapper_class = ( is_search() && $rtp_general['search_code'] && $rtp_general['search_layout'] ) ? 'row rtp-content-wrapper search-layout-wrapper' : 'row rtp-content-wrapper';
             ?>
             <div id="content-wrapper" class="<?php echo apply_filters("rtp_content_wrapper_class", $content_wrapper_class); ?>"><!-- ends in footer.php -->
                 <?php rtp_hook_begin_content_wrapper(); ?>

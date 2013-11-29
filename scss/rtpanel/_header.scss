@@ -1,9 +1,9 @@
 // ***** Header ***** //
 /* Header */
-#header { margin-bottom: 10px; margin-top: 10px; } 
+.rtp-header { margin-bottom: rem-calc(30); }
 
 // Logo
-.rtp-site-logo { margin: 0; overflow: hidden;
+.rtp-site-logo { float: left; margin: 0; overflow: hidden;
     // Float is used to remove excess spacing bellow logo image
     a { float: left; }
 
@@ -12,6 +12,6 @@
 }
 
 // Tagline
-.tagline { clear: left; color: $gray; margin: 10px 0 0; }
+.tagline { color: $gray-light; float: right; line-height: 1; margin: rem-calc(15) 0 0; }
 
 /* End - Header */
