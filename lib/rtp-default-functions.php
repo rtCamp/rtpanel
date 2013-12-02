@@ -157,7 +157,7 @@ function rtp_default_nav_menu() {
     echo '</nav>';
 }
 
-add_action ( 'rtp_hook_before_header', 'rtp_default_nav_menu' ); // Adds default nav menu after #header
+add_action ( 'rtp_hook_begin_header', 'rtp_default_nav_menu' ); // Adds default nav menu after #header
 
 function filter_wp_nav_menu_items ( $items, $args ) {
     $items = str_replace ( "\"sub-menu\"", "\"sub-menu dropdown\"", $items );

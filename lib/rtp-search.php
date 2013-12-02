@@ -31,7 +31,7 @@ function rtp_custom_search_form( $form ) {
                 <div class="rtp-search-form-wrapper">
                     <label class="hide">' . __( 'Search for:', 'rtPanel' ) . '</label>
                     <input type="search" required="required" ' . $placeholder . 'value="' . esc_attr( apply_filters( 'the_search_query', get_search_query() ) ).'" name="s" class="' . $search_class . '" title="' . apply_filters( 'rtp_search_placeholder', __( 'Search Here...', 'rtPanel' ) ). '"' . $chrome_voice_search . ' />
-                    <input type="submit" class="searchsubmit rtp-search-button button small" value="' . esc_attr( __( 'Search', 'rtPanel' ) ) . '" title="Search" />
+                    <input type="submit" class="searchsubmit rtp-search-button button tiny" value="' . esc_attr( __( 'Search', 'rtPanel' ) ) . '" title="Search" />
                 </div>
              </form>';          
     return $form;

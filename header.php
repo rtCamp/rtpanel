@@ -43,6 +43,7 @@ global $rtp_general; ?><!DOCTYPE html>
             <?php rtp_hook_begin_main_wrapper(); ?>
 
             <?php $header_class = get_header_image() ? ' rtp-header-wrapper-image' : ''; ?>
+
             <div id="header-wrapper" class="row<?php echo $header_class; ?>">
 
                     <?php rtp_hook_before_header(); ?>
@@ -50,14 +51,16 @@ global $rtp_general; ?><!DOCTYPE html>
                     <header id="header" class="rtp-header large-12 columns" role="banner">
 
                         <?php rtp_hook_begin_header(); ?>
+                        
+                        <div class="rtp-logo-container clearfix">
+                            <?php rtp_hook_before_logo(); ?>
 
-                        <?php rtp_hook_before_logo(); ?>
+                                <?php $heading = ( is_home() || is_front_page() ) ? 'h2' : 'h3'; ?>
+                                <<?php echo $heading; ?> class="rtp-site-logo"><a role="link" href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name' ); ?>"><?php echo ( 'image' == $rtp_general['logo_use'] ) ? '<img role="img" alt="' . get_bloginfo( 'name' ) . '" ' . rtp_get_image_dimensions( $rtp_general['logo_upload'] ) . ' src="' . $rtp_general['logo_upload'] . '" />' : get_bloginfo( 'name' ); ?></a></<?php echo $heading; ?>>
 
-                            <?php $heading = ( is_home() || is_front_page() ) ? 'h2' : 'h3'; ?>
-                            <<?php echo $heading; ?> class="rtp-site-logo"><a role="link" href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name' ); ?>"><?php echo ( 'image' == $rtp_general['logo_use'] ) ? '<img role="img" alt="' . get_bloginfo( 'name' ) . '" ' . rtp_get_image_dimensions( $rtp_general['logo_upload'] ) . ' src="' . $rtp_general['logo_upload'] . '" />' : get_bloginfo( 'name' ); ?></a></<?php echo $heading; ?>>
-
-                        <?php rtp_hook_after_logo(); ?>
-
+                            <?php rtp_hook_after_logo(); ?>
+                        </div>
+                        <hr />
                         <?php rtp_hook_end_header(); ?>
 
                     </header><!-- #header -->

@@ -1,5 +1,5 @@
 // ***** Navigation ***** //
-$background-menu: $link-color;
+$background-menu: #444;
 $submenu-bg: $white;
 $submenu-width: 240px;
 $submenu-link-color: #7D7D7D;
@@ -7,11 +7,12 @@ $submenu-link-color: #7D7D7D;
 $menu-full-bg: true;
 $menu-separator: true;
 
-$menu-height: 54px;
+$menu-height: 45px;
+$menu-font-size: rem-calc(14);
 
 
 
-$menu-spacing: rem-calc(15 30);
+$menu-spacing: rem-calc(12 30);
 
 @mixin rtp-bg-color( $bg: $background-menu ) {
     background-color: $bg;
@@ -22,8 +23,8 @@ $menu-spacing: rem-calc(15 30);
 }
 
 @mixin rtp-menu-separator() {
-    border-right: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 1px 0 0 rgba(255, 255, 255, 0.11);
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 0 0 rgba(255, 255, 255, 0.15);
 }
 
 /* Navigation */
@@ -61,14 +62,14 @@ $menu-spacing: rem-calc(15 30);
     }
 
     // Navigation Links
-    a { color: $white; display: block; height: auto; line-height: 1.5; padding: $menu-spacing; text-decoration: none;
+    a { color: $white; font-size: $menu-font-size; display: block; height: auto; line-height: 1.5; padding: $menu-spacing; text-decoration: none;
 
         // Hover
         &:hover { @include rtp-active-menu(); }
     }
 
     // Submenu Support //
-    ul { background-color: $submenu-bg; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28); display: none; left: 0; @include rtp-margin-padding-0; position: absolute; top: 54px; width: $submenu-width; z-index: 9; // Self
+    ul { background-color: $submenu-bg; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28); display: none; left: 0; @include rtp-margin-padding-0; position: absolute; top: $menu-height; width: $submenu-width; z-index: 9; // Self
 
         a { color: $submenu-link-color; }
     

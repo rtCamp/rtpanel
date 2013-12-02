@@ -1,6 +1,8 @@
 /* Post Loop */
 // ***** Post Container ***** //
 .hentry { border-bottom: 1px dotted $border-color; padding-bottom: rem-calc(30); padding-top: rem-calc(26); position: relative; // Removed clear: both;
+    
+    &:first-child { padding-top: 0; }
 
     // ***** Sticky Post ***** //
     &.sticky { @include rtp-panel; }
@@ -9,11 +11,11 @@
 .rtp-singular,
 .attachment,
 .rtp-full-width {
-    .hentry { border-bottom: 0; padding-bottom: 0; }
+    .hentry {  } // border-bottom: 0; padding-bottom: 0;
 }
 
 // Read More
-.rtp-readmore { font-size: rem-calc(13); }
+.rtp-readmore { font-size: rem-calc(14); } // font-size: rem-calc(13);
 
 // ***** Post Header ***** //
 .post-header { margin-bottom: rem-calc(26); }
@@ -29,7 +31,7 @@
 /* Post Meta */
 .post-meta { clear: both; color: $gray-light; font-size: rem-calc(13);
     a {
-        & { border-bottom: 1px dotted; color: $gray-light; text-decoration: none; }
+        & { color: $gray-light; text-decoration: none; }
         &:hover, &:focus { color: $link-hover-color; }
     }
 }

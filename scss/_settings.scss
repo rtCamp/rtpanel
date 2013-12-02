@@ -147,6 +147,13 @@ $paragraph-margin-bottom: rem-calc(26);
 // $paragraph-text-rendering: optimizeLegibility;
 
 
+// Style the <hr> element
+
+// $hr-border-width: 1px;
+// $hr-border-style: solid;
+$hr-border-color: $border-color;
+$hr-margin: rem-calc(30);
+
 // Legacy
 // $small: $medium-up;
 // $medium: $medium-up;
