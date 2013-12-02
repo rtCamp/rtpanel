@@ -194,8 +194,10 @@ add_action ( 'rtp_hook_begin_post_meta_top', 'rtp_edit_link' );
  */
 function rtp_breadcrumb_support ( $text ) {
     // Breadcrumb Support
-    if ( function_exists ( 'bcn_display' ) ) {
-        echo '<div class="breadcrumb">';
+    if ( function_exists('yoast_breadcrumb') ) {
+        yoast_breadcrumb('<div id="breadcrumbs" class="breadcrumbs breadcrumbs-yoast">','</div>');
+    } else if ( function_exists ( 'bcn_display' ) ) {
+        echo '<div class="breadcrumbs breadcrumbs-navxt">';
         bcn_display ();
         echo '</div>';
     }
