@@ -3,7 +3,7 @@ $rtp-base-10: 10px;
 $black: #000000;
 $white: #FFFFFF;
 $gray: #666666;
-$gray-light: #999999;
+$gray-light: #a6b3be;
 
 // ***** Dynamic Variables ***** //
 // Borders
@@ -14,12 +14,18 @@ $base-background: $white;
 
 // ***** Links ***** //
 $link-color: #446CB3;
-$link-hover-color: #cd5a1b;
+$link-hover-color: #eb5b4c;
 
 // Secondary Links
 $secondary-link-color: $gray;
 $secondary-link-hover-color: #111111;
 
 // Title Links
-$title-link-color: $link-color;
+$title-link-color: #333333;
 $title-hover-color: $link-hover-color;
+
+// Typography
+
+// Optimal Typography for 16px Font Reference here: http://pearsonified.com/typography/
+$rtp-base-line-height: 1.625; // rem-calc(26)
+$rtp-base-spacing: rem-calc(26); // This will same as line height

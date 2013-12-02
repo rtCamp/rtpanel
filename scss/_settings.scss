@@ -15,15 +15,13 @@
 // Since the typical default browser font-size is 16px, that makes the calculation for grid size.
 // If you want your base font-size to be different and not have it affect the grid breakpoints,
 // set $rem-base to $base-font-size and make sure $base-font-size is a px value.
-
-$rem-base: 16px;
-$base-font-size: $rem-base;
+// $base-font-size: 100%;
 
 // The $base-line-height is 100% while $base-font-size is 150%
 // $base-line-height: 150%;
 
 // This is the default html and body font-size for the base rem value.
-// $rem-base: 16px;
+$rem-base: 16px;
 
 // We use this to control whether or not CSS classes come through in the gem files.
 // $include-html-classes: true;
@@ -101,6 +99,53 @@ $primary-color: $link-color;
 
 // $xxlarge-up: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)})";
 // $xxlarge-only: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)}) and (max-width:#{upper-bound($xxlarge-range)})";
+
+//
+// Typography Variables
+//
+
+// Control header font styles
+
+$header-font-family: 'Open Sans', sans-serif;
+// $header-font-weight: 400;
+// $header-font-style: normal;
+// $header-font-color: #222;
+// $header-line-height: 1.4;
+// $header-top-margin: .2em;
+// $header-bottom-margin: .5em;
+// $header-text-rendering: optimizeLegibility;
+
+// Control header font sizes
+
+$h1-font-size: rem-calc(38);
+$h2-font-size: rem-calc(32);
+$h3-font-size: rem-calc(24);
+$h4-font-size: rem-calc(20);
+$h5-font-size: rem-calc(18);
+$h6-font-size: rem-calc(14);
+
+// Control how subheaders are styled.
+
+// $subheader-line-height: 1.4;
+// $subheader-font-color: lighten($header-font-color, 30%);
+// $subheader-font-weight: 300;
+// $subheader-top-margin: .2em;
+// $subheader-bottom-margin: .5em;
+
+// A general <small> styling
+
+// Style paragraphs
+
+// $paragraph-font-family: inherit;
+// $paragraph-font-weight: inherit;
+// $paragraph-font-size: 1em;
+$paragraph-line-height: inherit;
+$paragraph-margin-bottom: rem-calc(26);
+// $paragraph-aside-font-size: rem-calc(14);
+// $paragraph-aside-line-height: 1.35;
+// $paragraph-aside-font-style: italic;
+// $paragraph-text-rendering: optimizeLegibility;
+
 
 // Legacy
 // $small: $medium-up;

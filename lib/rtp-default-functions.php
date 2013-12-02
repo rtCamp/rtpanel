@@ -102,13 +102,13 @@ function rtp_default_post_meta ( $placement = 'top' ) {
                 echo ( get_the_category_list () && $rtp_post_comments[ 'post_category_' . $position ] ) ? '&nbsp;' . __ ( 'in', 'rtPanel' ) . '&nbsp;' . get_the_category_list ( ', ' ) . '' : '';
 
                 // Post Tags
-                echo ( get_the_tag_list () && $rtp_post_comments[ 'post_tags_' . $position ] ) ? '<p class="post-tags alignleft">' . get_the_tag_list ( __ ( 'Tagged', 'rtPanel' ) . ': <span>', ', ', '</span>' ) . '</p>' : '';
+                echo ( get_the_tag_list () && $rtp_post_comments[ 'post_tags_' . $position ] ) ? '<span class="post-tags alignleft">' . get_the_tag_list ( __ ( 'Tagged', 'rtPanel' ) . ': <span>', ', ', '</span>' ) . '</span>' : '';
 
                 // Post Custom Taxonomies
                 $args = array( '_builtin' => false );
                 $taxonomies = get_taxonomies ( $args, 'objects' );
                 foreach ( $taxonomies as $key => $taxonomy ) {
-                    ( get_the_terms ( $post->ID, $key ) && isset ( $rtp_post_comments[ 'post_' . $key . '_' . $position ] ) && $rtp_post_comments[ 'post_' . $key . '_' . $position ] ) ? the_terms ( $post->ID, $key, '<p class="post-custom-tax post-' . $key . '">' . $taxonomy->labels->singular_name . ': ', ', ', '</p>' ) : '';
+                    ( get_the_terms ( $post->ID, $key ) && isset ( $rtp_post_comments[ 'post_' . $key . '_' . $position ] ) && $rtp_post_comments[ 'post_' . $key . '_' . $position ] ) ? the_terms ( $post->ID, $key, '<span class="post-custom-tax post-' . $key . '">' . $taxonomy->labels->singular_name . ': ', ', ', '</span>' ) : '';
                 }
                 
                 rtp_default_comment_count();
@@ -142,6 +142,8 @@ add_action ( 'rtp_hook_post_meta_bottom', 'rtp_default_post_meta' ); // Post Met
  */
 function rtp_default_nav_menu() {
      echo '<nav id="rtp-primary-menu" role="navigation" class="rtp-nav-wrapper' . apply_filters( 'rtp_mobile_nav_support', ' rtp-mobile-nav' ) . '">';
+        rtp_hook_begin_primary_menu();
+
         /* Call wp_nav_menu() for Wordpress Navigaton with fallback wp_list_pages() if menu not set in admin panel */
         if ( function_exists( 'wp_nav_menu' ) && has_nav_menu( 'primary' ) ) {
             wp_nav_menu( array( 'container' => '', 'menu_class' => 'menu rtp-nav-container clearfix', 'menu_id' => 'rtp-nav-menu', 'theme_location' => 'primary', 'depth' => apply_filters( 'rtp_nav_menu_depth', 4 ) ) );
@@ -150,6 +152,8 @@ function rtp_default_nav_menu() {
                 wp_list_pages( array( 'title_li' => '', 'sort_column' => 'menu_order', 'number' => '5', 'depth' => apply_filters( 'rtp_nav_menu_depth', 4 ) ) );
             echo '</ul>';
         }
+
+        rtp_hook_end_primary_menu();
     echo '</nav>';
 }
 
@@ -178,7 +182,7 @@ function filter_wp_nav_menu_items ( $items, $args ) {
  */
 function rtp_edit_link () {
     // Call Edit Link
-    edit_post_link ( __ ( 'edit', 'rtPanel' ), '<p class="rtp-edit-link alignleft">', '&nbsp;</p>' );
+    edit_post_link ( __ ( 'edit', 'rtPanel' ), '<span class="rtp-edit-link">', '&nbsp;</span>' );
 }
 
 add_action ( 'rtp_hook_begin_post_meta_top', 'rtp_edit_link' );

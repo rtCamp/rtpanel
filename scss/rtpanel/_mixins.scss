@@ -1,5 +1,10 @@
 // ********* rtPanel Mixins *********
 
+@mixin rtp-link ( $link-color: $link-color, $hover-color: $link-hover-color ) {
+    & { color: $link-color; }
+    &:hover, &:focus { color: $link-hover-color; }
+}
+
 // Border 1px
 @mixin rtp-border($width: 1px, $style: solid, $color: $border-color) {
     border: $width $style $color;

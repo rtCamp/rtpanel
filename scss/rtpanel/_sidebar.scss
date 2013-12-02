@@ -1,7 +1,7 @@
 /* Sidebar */
-.rtp-sidebar-inner-wrapper {  } // @include rtp-panel;
+.rtp-sidebar-inner-wrapper { padding-left: rem-calc(40); }
 
-.widget { margin-bottom: emCalc(30);
+.widget { margin-bottom: rem-calc(30);
     // Current Menu item highlight
     .current-menu-item > a, .current_page_item > a { color: $link-hover-color; }
 
@@ -12,7 +12,7 @@
 /* Calendar Widget */
 .widget_calendar {
     // Children
-    table { font-size: emCalc(14); margin: 0 0 4px; width: 100%; }
+    table { font-size: rem-calc(14); margin: 0 0 4px; width: 100%; }
     th, td { border: 1px solid $border-color; color: $gray; text-align: center; }
     caption { background: $border-color; font-weight: bold; line-height: 2.5em; }
 }
@@ -28,52 +28,5 @@ tfoot {
 #prev + .pad { border-left: 0; border-right: 0; }
 
 /* Tag Cloud Widget */
-.tagcloud a { line-height: 1em; }
-
-/* Subscribe Widget */
-.email-subscription-container {
-    // Children
-    p { margin: 0; }
-    label { display: block; margin: 0 0 5px; }
-}
-// Stay Connected    
-.stay-connected { clear: both; font-weight: normal; padding: 5px 0 0; }
-
-// ***** Social Icons ***** //
-ul.social-icons { margin: 0; // Self
-    // List
-    li { float: left; list-style: none; margin: 10px 8px 0 0; padding: 0; // Self
-        &:last-child { margin-right: 0; }
-    }
-    
-    a { background: $gray; color: $white; display: block; font-size: emCalc(20); height: 30px; line-height: 30px; margin: 0; overflow: hidden; padding: 0; text-align: center; text-decoration: none; width: 30px; }
-    
-    // Facebook
-    .facebook {
-    }
-
-    // Twitter
-    .twitter {
-    }
-
-    // RSS
-    .rss { 
-    }
-
-    // LinkedIn
-    .linkedin { 
-    }
-
-    // Myspace
-    .myspace { 
-    }
-
-    // StubleUpon
-    .stumbleupon {
-    }
-
-    // Google
-    .google { 
-    }
-}
+.tagcloud a { line-height: 1; }
 /* End - Sidebar */

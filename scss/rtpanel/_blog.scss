@@ -1,6 +1,6 @@
 /* Post Loop */
 // ***** Post Container ***** //
-.hentry { border-bottom: 1px dotted $border-color; padding-bottom: 1.357em; padding-top: 1.290em; position: relative; // Removed clear: both;
+.hentry { border-bottom: 1px dotted $border-color; padding-bottom: rem-calc(30); padding-top: rem-calc(26); position: relative; // Removed clear: both;
 
     // ***** Sticky Post ***** //
     &.sticky { @include rtp-panel; }
@@ -13,32 +13,25 @@
 }
 
 // Read More
-.rtp-readmore { font-size: emCalc(13); }
+.rtp-readmore { font-size: rem-calc(13); }
 
 // ***** Post Header ***** //
-.post-header { margin-bottom: 1em; }
-.post-title { float: left; line-height: 1.2em; margin: 0; }
+.post-header { margin-bottom: rem-calc(26); }
+.post-title { float: left; line-height: 1.2; margin: 0 0 em-calc(8); }
 .rtp-main-title { border-bottom: 1px solid $border-color; color: $title-link-color; float: none; margin-top: 0.480em; padding-bottom: 0.2em; }
 
 // ***** Post Content ***** //
 .post-content {  } // @extend .clearfix;
-//.rtp-singular .post-content a { text-decoration: underline; }
-
-// Post Content Paragraph
-.blog,
-.archive,
-.search-results {
-    .post-content {
-        p { margin-bottom: 1em; }
-    }
-}
 
 // Not Found Page
 .rtp-not-found { margin: 1.5em 0; }
 
 /* Post Meta */
-.post-meta { clear: both; color: $gray; font-size: emCalc(13); font-style: italic; padding: 0.4em 0 0;
-    p { margin: 0; }
+.post-meta { clear: both; color: $gray-light; font-size: rem-calc(13);
+    a {
+        & { border-bottom: 1px dotted; color: $gray-light; text-decoration: none; }
+        &:hover, &:focus { color: $link-hover-color; }
+    }
 }
 
 .post-meta-bottom { padding: 1em 0 0;
@@ -49,7 +42,7 @@
 
 // Edit Link
 .rtp-edit-link {
-    a { float: left; line-height: 1em; }
+    a {  }
 }
 
 /* Curly Brackets Style */
@@ -58,10 +51,10 @@
 /* Post Comment */
 .rtp-post-comment {
     &,
-    &:visited { font-size: emCalc(13); font-style: normal; padding: 0 3px 0 2px; }
+    &:visited {  }
 
     // Span
-    span { color: $title-link-color; font-size: 1.286em; }
+    span { }
 }
 
 .post-tags { clear: left; }
