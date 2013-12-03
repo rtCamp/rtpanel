@@ -10,10 +10,9 @@ $menu-separator: true;
 $menu-height: 45px;
 $menu-font-size: rem-calc(14);
 
-
-
 $menu-spacing: rem-calc(12 30);
 
+// Mixins
 @mixin rtp-bg-color( $bg: $background-menu ) {
     background-color: $bg;
 }

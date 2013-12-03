@@ -864,7 +864,54 @@ get_header();
             </li>
         </ol>
 
+        <div id="firstModal" class="reveal-modal" data-reveal>
+            <h2>This is a modal.</h2>
+            <p>Reveal makes these very easy to summon and dismiss. The close button is simply an anchor with a unicode character icon and a class of <code>close-reveal-modal</code>. Clicking anywhere outside the modal will also dismiss it.</p>
+            <p>Finally, if your modal summons another Reveal modal, the plugin will handle that for you gracefully.</p>
+            <p><a href="#" data-reveal-id="secondModal" class="secondary button">Second Modal...</a></p>
+            <a class="close-reveal-modal">×</a>
+        </div>
+
+        <div id="secondModal" class="reveal-modal" data-reveal>
+            <h2>This is a second modal.</h2>
+            <p>See? It just slides into place after the other first modal. Very handy when you need subsequent dialogs, or when a modal option impacts or requires another decision.</p>
+            <a class="close-reveal-modal">×</a>
+        </div>
+
+        <div id="videoModal" class="reveal-modal medium" data-reveal>
+            <h2>This modal has video</h2>
+            <div class="flex-video">
+                <iframe width="800" height="315" src="http://www.youtube.com/embed/IkOQw96cfyE" frameborder="0" allowfullscreen=""></iframe>
+            </div>
+            <a class="close-reveal-modal">×</a>
+        </div>
+
+
+        <!-- Joyride -->
+        <ol class="joyride-list" data-joyride>
+            <li data-id="numero1" data-class="custom so-awesome" data-text="Next">
+                <h4>Stop #1</h4>
+                <p>You can control all the details for you tour stop. Any valid HTML will work inside of Joyride.</p>
+            </li>
+            <li data-id="numero2" data-button="Next">
+                <h4>Stop #2</h4>
+                <p>Get the details right by styling Joyride with a custom stylesheet!</p>
+            </li>
+            <li data-button="Next">
+                <h4>Stop #3</h4>
+                <p>It works as a modal too!</p>
+            </li>
+        </ol>
+        <div class="joyride-modal-bg"></div>
+
+        <script>
+            jQuery('#start-jr').on('click', function() {
+                jQuery(document).foundation('joyride', 'start');
+            });
+        </script>
+
         <?php rtp_hook_end_content(); ?>
+
     </section><!-- #content -->
 
 <?php get_footer(); ?>

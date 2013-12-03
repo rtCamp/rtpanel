@@ -154,6 +154,14 @@ $paragraph-margin-bottom: rem-calc(26);
 $hr-border-color: $border-color;
 $hr-margin: rem-calc(30);
 
+// We use these to style lists
+// $list-style-position: outside !default;
+$list-side-margin: 2rem;
+$list-ordered-side-margin: 2rem;
+// $list-side-margin-no-bullet: 0 !default;
+// $list-nested-margin: rem-calc(20) !default;
+
+
 // Legacy
 // $small: $medium-up;
 // $medium: $medium-up;
@@ -899,7 +907,7 @@ $hr-margin: rem-calc(30);
 
 // These control the background color for the table and even rows
 // $table-bg: #fff;
-// $table-even-row-bg: #f9f9f9  ;
+// $table-even-row-bg: #f9f9f9;
 
 // These control the table cell border style
 // $table-border-style: solid;

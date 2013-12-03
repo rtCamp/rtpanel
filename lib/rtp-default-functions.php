@@ -175,6 +175,19 @@ function filter_wp_nav_menu_items ( $items, $args ) {
     return $items;
 }
 
+
+/**
+ * Header Separator Border
+ *
+ * @since rtPanel 4.0
+ */
+function rtp_header_separator_border() {
+     echo '<hr />';
+}
+
+add_action ( 'rtp_hook_end_header', 'rtp_header_separator_border' ); // Adds default nav menu after #header
+
+
 /**
  * 'Edit' link for post/page
  *
@@ -314,7 +327,7 @@ function rtp_default_comment_count () {
     // Comment Count
     add_filter ( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
     if ( ( ( get_comments_number () || @comments_open () ) && ! is_attachment () && ! rtp_is_bbPress () ) || ( is_attachment () && $rtp_post_comments[ 'attachment_comments' ] ) ) { // If post meta is set to top then only display the comment count. ?>
-        <span class="rtp-post-comment-count"><?php comments_popup_link ( _x ( '<span>0</span> Comments', 'comments number', 'rtPanel' ), _x ( '<span>1</span> Comment', 'comments number', 'rtPanel' ), _x ( '<span>%</span> Comments', 'comments number', 'rtPanel' ), 'rtp-post-comment rtp-common-link' ); ?></span><?php
+        <span class="rtp-post-comment-count"><span class="rtp-comment-pipe">|</span> <?php comments_popup_link ( _x ( '<span>0</span> Comments', 'comments number', 'rtPanel' ), _x ( '<span>1</span> Comment', 'comments number', 'rtPanel' ), _x ( '<span>%</span> Comments', 'comments number', 'rtPanel' ), 'rtp-post-comment rtp-common-link' ); ?></span><?php
     }
     remove_filter ( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
 }

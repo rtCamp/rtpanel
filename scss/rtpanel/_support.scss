@@ -1,7 +1,7 @@
 // ***** Breacrumb Style ***** //
 @mixin rtp-breadcrumb() {
     /* Breacrumb */
-    .breadcrumb { border-bottom: 1px solid $border-color; color: $gray; font-size: emCalc(13); padding: 10px 0 5px; }
+    .breadcrumb { border-bottom: 1px solid $border-color; color: $gray; font-size: rem-calc(13); padding: 10px 0 5px; }
 }
 
 // ***** Pagenavi Style ***** //
@@ -9,7 +9,7 @@
     /* Pagenavi Style */
     .wp-pagenavi {
 
-        ul { margin: emCalc(20) 0; overflow: hidden; }
+        ul { margin: rem-calc(30) 0; overflow: hidden; }
 
         li { display: inline-block; list-style: none; }
         
@@ -59,7 +59,7 @@
     }
 
     .bbp_widget_login {
-        .logout-link { font-size: emCalc(12); }
+        .logout-link { font-size: rem-calc(12); }
     }
     
     #buddypress {

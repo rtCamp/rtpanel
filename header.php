@@ -60,7 +60,7 @@ global $rtp_general; ?><!DOCTYPE html>
 
                             <?php rtp_hook_after_logo(); ?>
                         </div>
-                        <hr />
+
                         <?php rtp_hook_end_header(); ?>
 
                     </header><!-- #header -->
