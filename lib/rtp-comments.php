@@ -35,12 +35,12 @@ function rtp_comment_list( $comment, $args, $depth ) {
                 <div class="comment-author">
                     <cite class="fn"><?php comment_author_link(); ?></cite>
                     <span class="comment-meta">
-                        <a class="rtp-common-link" href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>" title="<?php comment_date(); ?>">
-                            <abbr title="<?php comment_date(); ?>"><?php printf( __( '%1$s at %2$s', 'rtPanel' ), get_comment_date(), get_comment_time() ); ?></abbr>
+                        <a class="rtp-common-link rtp-comment-date" href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>" title="<?php comment_date(); ?>">
+                            <time datetime="<?php comment_date('Y-m-d'); ?>"><?php printf( __( '%1$s at %2$s', 'rtPanel' ), get_comment_date(), get_comment_time() ); ?></time>
                         </a>
                         <?php edit_comment_link( __( '[ edit ]', 'rtPanel' ) ); ?>
                     </span>
-                    <?php echo ( $comment->comment_approved == '0' ) ? '<em>' . _e( 'Your comment is awaiting moderation. ', 'rtPanel' ) . '</em>' : ''; ?>
+                    <?php echo ( $comment->comment_approved == '0' ) ? '<span class="rtp-comment-await">' . __( 'Your comment is awaiting moderation. ', 'rtPanel' ) . '</span>' : ''; ?>
                 </div>
 
                 <div class="comment-text">

@@ -11,7 +11,7 @@
 .rtp-singular,
 .attachment,
 .rtp-full-width {
-    .hentry {  } // border-bottom: 0; padding-bottom: 0;
+    .hentry { padding-bottom: rem-calc(5); } // border-bottom: 0; padding-bottom: 0;
 }
 
 // Read More

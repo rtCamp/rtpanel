@@ -18,7 +18,7 @@ global $rtp_general; ?>
                 $rtp_footer_widget_grid_class = apply_filters( 'rtp_set_footer_widget_grid_class', 'large-4 columns' );
 
                 if ( $rtp_general['footer_sidebar'] ) { ?>
-                    <aside role="complementary" id="rtp-footer-widgets-wrapper" class="rtp-footerbar clearfix"><?php
+                    <aside role="complementary" id="rtp-footer-widgets-wrapper" class="rtp-footerbar row"><?php
                         // Default Widgets ( Fallback )
                         if ( !dynamic_sidebar( 'footer-widgets' ) ) { ?>
                             <div class="widget footerbar-widget <?php echo $rtp_footer_widget_grid_class; ?>"><h3 class="widgettitle"><?php _e( 'Archives', 'rtPanel' ); ?></h3><ul><?php wp_get_archives( array( 'type' => 'monthly' ) ); ?></ul></div>

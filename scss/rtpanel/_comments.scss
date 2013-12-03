@@ -1,11 +1,13 @@
 /* Comments */
-.rtp-comment-count { border-bottom: 1px dotted $border-color; color: $gray; padding: rem-calc(10 0); }
+.rtp-comment-count { border-bottom: 1px dotted $border-color; color: $gray; padding: rem-calc(10 0);
+    &:empty { display: none; }
+}
 
 // Title
 .rtp-comment-count-container { float: left; line-height: 1.2; margin: 0; }
 
 // Manage Comments
-.rtp-manage-comments { float: left; font-size: 1rem; line-height: 1; margin: rem-calc(5 0 0 10); }
+.rtp-manage-comments { float: left; line-height: 1; margin: rem-calc(8 0 0 10); }
 
 // Thoughts
 .rtp-thoughts { float: right; font-size: rem-calc(14); line-height: 1.85; }
@@ -68,7 +70,7 @@
 // Comment Meta
 .comment-meta { float: right; font-size: rem-calc(12); margin-top: rem-calc(5);
     // Children
-    abbr { border: 0; }
+    //abbr { color: $gray-light; border: 0; }
     
     // Comment Edit Link
     .comment-edit-link { margin: rem-calc(0 0 0 5);
@@ -158,10 +160,12 @@
 }
 
 .comment-reply-title {
-    .comment-title { float: left; line-height: 1; }
+    .comment-title { line-height: 1; }
     small { font-size: rem-calc(12); position: relative; text-transform: uppercase; top: -rem-calc(5); }
     a { line-height: 1; }
 }
+
+.rtp-comment-await { color: $gray-light; font-size: rem-calc(12); }
 
 /* trackback and pingback inside comments */
 .rtp-comments-header { margin: 0; // Self

@@ -108,7 +108,7 @@ $image-space: rem-calc(20);
 // ****** Paged Navigation ****** //
 @mixin rtp-paged-navigation() {
     /* Paged Navigation */
-    .rtp-navigation, .rtp-comments-pagination { clear: both; padding-bottom: 1.5em; padding-top: 1.5em; // Self
+    .rtp-navigation, .rtp-comments-pagination { clear: both; padding-bottom: rem-calc(20); padding-top: rem-calc(20); // Self
         // Links
         a { text-decoration: none;
             // Hover
@@ -126,7 +126,7 @@ $image-space: rem-calc(20);
         .rtp-navigation,
         .rtp-comments-pagination {
             //padding-bottom: 0;
-            padding-top: 1.5em;
+            //padding-top: 1.5em;
         }
     }
 
