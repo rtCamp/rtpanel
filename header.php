@@ -56,7 +56,7 @@ global $rtp_general; ?><!DOCTYPE html>
                             <?php rtp_hook_before_logo(); ?>
 
                                 <?php $heading = ( is_home() || is_front_page() ) ? 'h2' : 'h3'; ?>
-                                <<?php echo $heading; ?> class="rtp-site-logo"><a role="link" href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name' ); ?>"><?php echo ( 'image' == $rtp_general['logo_use'] ) ? '<img role="img" alt="' . get_bloginfo( 'name' ) . '" ' . rtp_get_image_dimensions( $rtp_general['logo_upload'] ) . ' src="' . $rtp_general['logo_upload'] . '" />' : get_bloginfo( 'name' ); ?></a></<?php echo $heading; ?>>
+                                <<?php echo $heading; ?> class="rtp-site-logo"><a role="link" href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name' ); ?>"><?php echo ( 'image' == $rtp_general['logo_use'] ) ? '<img role="img" alt="' . get_bloginfo( 'name' ) . '" height="' . $rtp_general['logo_height'] . '" width="' . $rtp_general['logo_width'] . '" src="' . $rtp_general['logo_upload'] . '" />' : get_bloginfo( 'name' ); ?></a></<?php echo $heading; ?>>
 
                             <?php rtp_hook_after_logo(); ?>
                         </div>
