@@ -86,26 +86,6 @@ function rtp_general_validate($input) {
             $input['login_head'] = $rtp_general['login_head'];
         }
 
-        if (!empty($input['feedburner_url'])) {
-            $result = wp_remote_get($input['feedburner_url']);
-            if (is_wp_error($result) || $result["response"]["code"] != 200) {
-                $input['feedburner_url'] = $rtp_general['feedburner_url'];
-                add_settings_error('feedburner_url', 'invalid_feedburner_url', __('The FeedBurner URL is not a valid url. The changes made have been reverted.', 'rtPanel'));
-            } elseif ($input['feedburner_url'] != $rtp_general['feedburner_url']) {
-                add_settings_error('feedburner_url', 'valid_feedburner_url', __('The FeedBurner Settings have been updated.', 'rtPanel'), 'updated');
-            }
-        }
-
-        if (trim($input['fb_app_id']) != $rtp_general['fb_app_id']) {
-            $input['fb_app_id'] = trim($input['fb_app_id']);
-            add_settings_error('fb_app_id', 'valid_fb_app_id', __('The Facebook App ID has been updated.', 'rtPanel'), 'updated');
-        }
-
-        if (trim($input['fb_admins']) != $rtp_general['fb_admins']) {
-            $input['fb_admins'] = trim($input['fb_admins']);
-            add_settings_error('fb_admins', 'valid_fb_admins', __('The Facebook Admin ID(s) has been updated.', 'rtPanel'), 'updated');
-        }
-
         if (!empty($input['search_code'])) {
             if (!preg_match('/customSearchControl.draw\(\'cse\'(.*)\)\;/i', $input['search_code']) && !preg_match('/\<gcse:(searchresults-only|searchresults|search).*\>\<\/gcse:(searchresults-only|searchresults|search)\>/i', $input['search_code'])) {
                 $input['search_code'] = $rtp_general['search_code'];
@@ -253,25 +233,6 @@ function rtp_general_validate($input) {
         $input['favicon_upload'] = $default[0]['favicon_upload'];
         $input['favicon_id'] = $default[0]['favicon_id'];
         add_settings_error('logo_favicon_settings', 'logo_favicon_reset', __('The Logo Settings have been restored to Default.', 'rtPanel'), 'updated');
-    } elseif (isset($_POST['rtp_fb_ogp_reset'])) {
-        $options = maybe_unserialize($rtp_general);
-        unset($input);
-
-        foreach ($options as $option => $value)
-            $input[$option] = $value;
-
-        $input['fb_app_id'] = $default[0]['fb_app_id'];
-        $input['fb_admins'] = $default[0]['fb_admins'];
-        add_settings_error('facebook_ogp', 'reset_facebook_ogp', __('The Facebook Open Graph Settings have been restored to Default.', 'rtPanel'), 'updated');
-    } elseif (isset($_POST['rtp_feed_reset'])) {
-        $options = maybe_unserialize($rtp_general);
-        unset($input);
-
-        foreach ($options as $option => $value)
-            $input[$option] = $value;
-
-        $input['feedburner_url'] = $default[0]['feedburner_url'];
-        add_settings_error('feedburner_url', 'reset_feeburner_url', __('The Feedburner Settings have been restored to Default.', 'rtPanel'), 'updated');
     } elseif (isset($_POST['rtp_google_reset'])) {
         $options = maybe_unserialize($rtp_general);
         unset($input);
@@ -588,9 +549,6 @@ function rtp_theme_setup_values() {
         'favicon_use' => 'image',
         'favicon_upload' => RTP_IMG_FOLDER_URL . '/favicon.ico',
         'favicon_id' => 0,
-        'fb_app_id' => '',
-        'fb_admins' => '',
-        'feedburner_url' => '',
         'footer_sidebar' => '1',
         'buddypress_sidebar' => 'default-sidebar',
         'bbpress_sidebar' => 'default-sidebar',
@@ -742,59 +700,6 @@ function rtp_theme_activation($themename, $theme = false) {
 }
 
 add_action('after_switch_theme', 'rtp_theme_activation', '', 2);
-
-/**
- * Feedburner Redirection Code
- *
- * @uses string $feed
- * @uses array $rtp_general
- *
- * @since rtPanel 2.0
- */
-function rtp_feed_redirect() {
-    global $feed, $rtp_general, $withcomments;
-    if (is_feed() && $feed != 'comments-rss2' && ( $withcomments != 1 ) && !is_singular() && !is_archive() && !empty($rtp_general['feedburner_url'])) {
-        if (function_exists('status_header')) {
-            status_header(302);
-        }
-        header('Location: ' . trim($rtp_general['feedburner_url']));
-        header('HTTP/1.1 302 Temporary Redirect');
-        exit();
-    }
-}
-
-/**
- * Used to check the feed type ( default or comment feed )
- *
- * @uses $rtp_general array
- *
- * @since rtPanel 2.0
- */
-function rtp_check_url() {
-    global $rtp_general;
-    switch (basename($_SERVER['PHP_SELF'])) {
-        case 'wp-rss.php' :
-        case 'wp-rss2.php' :
-        case 'wp-atom.php' :
-        case 'wp-rdf.php' : if (trim($rtp_general['feedburner_url']) != '') {
-                if (function_exists('status_header')) {
-                    status_header(302);
-                }
-                header('Location: ' . trim($rtp_general['feedburner_url']));
-                header('HTTP/1.1 302 Temporary Redirect');
-                exit();
-            }
-            break;
-
-        case 'wp-commentsrss2.php': break;
-    }
-}
-
-/* Condition to redirect WordPress feeds to feed burner */
-if (isset($_SERVER['HTTP_USER_AGENT']) && !preg_match('/feedburner|feedvalidator/i', $_SERVER['HTTP_USER_AGENT'])) {
-    add_action('template_redirect', 'rtp_feed_redirect');
-    add_action('init', 'rtp_check_url');
-}
 
 /* condition to check Admin Login Logo option */
 if (isset($rtp_general['logo_use']) && isset($rtp_general['login_head']) && ( 'image' == $rtp_general['logo_use'] ) && $rtp_general['login_head']) {
