@@ -222,6 +222,9 @@ function delete_plugin_confirmation(plugin) {
     } else if ( plugin == 'Regenerate Thumbnails'){
         jQuery('#regenerate-delete').val(1);
         jQuery('#regenerate-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    }else if ( plugin == 'rtMedia for WordPress, BuddyPress and bbPress'){
+        jQuery('#rtmedia-delete').val(1);
+        jQuery('#rtmedia-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
     }
     jQuery('#rt_general_form').submit();
 }
@@ -248,6 +251,9 @@ function activate_plugin(plugin) {
     } else if ( plugin == 'Regenerate Thumbnails'){
         jQuery('#regenerate-activate').val(1);
         jQuery('#regenerate-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    }else if ( plugin == 'rtMedia for WordPress, BuddyPress and bbPress'){
+        jQuery('#rtmedia-activate').val(1);
+        jQuery('#rtmedia-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
     }
     jQuery('#rt_general_form').submit();
 }
@@ -274,6 +280,9 @@ function deactivate_plugin(plugin) {
     } else if ( plugin == 'Regenerate Thumbnails'){
         jQuery('#regenerate-deactivate').val(1);
         jQuery('#regenerate-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    }else if ( plugin == 'rtMedia for WordPress, BuddyPress and bbPress'){
+        jQuery('#rtmedia-deactivate').val(1);
+        jQuery('#rtmedia-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
     }
     jQuery('#rt_general_form').submit();
 }
