@@ -15,6 +15,7 @@ define( 'RTP_YOAST_SEO', 'wordpress-seo/wp-seo.php' );
 define( 'RTP_REGENERATE_THUMBNAILS', 'regenerate-thumbnails/regenerate-thumbnails.php' );
 define( 'RTP_BUDDYPRESS', 'buddypress/bp-loader.php' );
 define( 'RTP_BBRESS', 'bbpress/bbpress.php' );
+define( 'RTP_MEDIA', 'buddypress-media/index.php' );
 
 /**
  * Registers rtPanel General and Post & Comments options
@@ -237,7 +238,10 @@ function rtp_plugin_metabox() {
     $yoast_seo_delete = wp_create_nonce( RTP_YOAST_SEO . '-delete' );
     $regenerate_activate = wp_create_nonce( RTP_REGENERATE_THUMBNAILS . '-activate' );
     $regenerate_deactivate = wp_create_nonce( RTP_REGENERATE_THUMBNAILS . '-deactivate' );
-    $regenerate_delete = wp_create_nonce( RTP_REGENERATE_THUMBNAILS . '-delete' ); ?>
+    $regenerate_delete = wp_create_nonce( RTP_REGENERATE_THUMBNAILS . '-delete' );
+    $rtmedia_activate = wp_create_nonce( RTP_MEDIA . '-activate' );
+    $rtmedia_deactivate = wp_create_nonce( RTP_MEDIA . '-deactivate' );
+    $rtmedia_delete = wp_create_nonce( RTP_MEDIA . '-delete' ); ?>
     <table class="form-table">
         <tr>
             <th><?php _e( 'Name', 'rtPanel' ); ?></th>
@@ -364,7 +368,37 @@ function rtp_plugin_metabox() {
                     <span class="not-installed"> ----- </span>
                 <?php } ?>
             </td>
-        </tr>
+        </tr>        
+        <tr>
+            <td><a target="_blank" href="http://wordpress.org/plugins/buddypress-media/"><?php _e( 'rtMedia for WordPress, BuddyPress and bbPress', 'rtPanel' ); ?></a></td>
+            <td>
+                <?php 
+                if ( is_plugin_active( RTP_MEDIA ) ) {
+                    echo '<span class="active">' . __( 'Active', 'rtPanel' ) . '</span>';
+                } elseif ( array_key_exists( RTP_MEDIA, $plugins ) ) {
+                    echo '<span class="inactive">' . __( 'Inactive', 'rtPanel' ) . '</span>';
+                } else {
+                    echo '<span class="not-installed">' . __( 'Not Installed', 'rtPanel' ) . '</span>';
+                }
+                ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_MEDIA ) ) { ?>
+                    <input type="hidden" value="<?php echo $rtmedia_deactivate; ?>" name="_wpnonce_rtmedia_deactivate" id="_wpnonce_rtmedia_deactivate" /><input id="rtmedia-deactivate" type="hidden" name="rtmedia-deactivate" value="0" /><a class="rtmedia-deactivate" href="#rtmedia-deactivate" onclick="deactivate_plugin('rtMedia for WordPress, BuddyPress and bbPress')"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
+                <?php } elseif ( array_key_exists( RTP_MEDIA, $plugins ) ) { ?>
+                    <input type="hidden" value="<?php echo $rtmedia_activate; ?>" name="_wpnonce_rtmedia_activate" id="_wpnonce_rtmedia_activate" /><input id="rtmedia-activate" type="hidden" name="rtmedia-activate" value="0" /><a class="rtmedia-activate" href="#rtmedia-activate" onclick="activate_plugin( 'rtMedia for WordPress, BuddyPress and bbPress' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo $rtmedia_delete; ?>" name="_wpnonce_rtmedia_delete" id="_wpnonce_rtmedia_delete" /><input id="rtmedia-delete" type="hidden" name="rtmedia-delete" value="0" /><a class="rtmedia-delete" href="#rtmedia-delete" onclick="delete_plugin_confirmation( 'rtMedia for WordPress, BuddyPress and bbPress' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=buddypress-media' ), 'install-plugin_buddypress-media' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
+                <?php } ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_MEDIA ) || array_key_exists( RTP_MEDIA, $plugins ) ) { ?>
+                    <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_MEDIA ) ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <span class="not-installed"> ----- </span>
+                <?php } ?>
+            </td>
+        </tr>        
         <tr>
             <td class="last-child"><a href="http://wordpress.org/extend/plugins/regenerate-thumbnails/"><?php _e( 'Regenerate Thumbnails', 'rtPanel' ); ?></a></td>
             <td class="last-child">

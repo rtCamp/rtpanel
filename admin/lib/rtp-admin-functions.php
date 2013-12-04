@@ -191,7 +191,31 @@ function rtp_general_validate($input) {
                 delete_plugins(array(RTP_YOAST_SEO));
                 add_settings_error('delete-plugin', 'plugin_deletion', __('Yoast WordPress SEO Plugin has been Deleted.', 'rtPanel'), 'updated');
             }
-        } elseif (isset($_POST['regenerate-activate']) && ( $_POST['regenerate-activate'] == 1 )) {
+        }elseif (isset($_POST['rtmedia-activate']) && ( $_POST['rtmedia-activate'] == 1 )) {
+            $nonce = $_REQUEST['_wpnonce_rtmedia_activate'];
+            if (!wp_verify_nonce($nonce, RTP_MEDIA . '-activate')) {
+                add_settings_error('activate-plugin', 'failure_plugin_activation', __('You do not have sufficient permissions to activate this plugin.', 'rtPanel'));
+            } else {
+                activate_plugin(RTP_MEDIA);
+                add_settings_error('activate-plugin', 'plugin_activation', __('rtMedia for WordPress, BuddyPress and bbPress Plugin has been Activated.', 'rtPanel'), 'updated');
+            }
+        } elseif (isset($_POST['rtmedia-deactivate']) && ( $_POST['rtmedia-deactivate'] == 1 )) {
+            $nonce = $_REQUEST['_wpnonce_rtmedia_deactivate'];
+            if (!wp_verify_nonce($nonce, RTP_MEDIA . '-deactivate')) {
+                add_settings_error('deactivate-plugin', 'failure_plugin_deactivation', __('You do not have sufficient permissions to deactivate this plugin.', 'rtPanel'));
+            } else {
+                deactivate_plugins(array(RTP_MEDIA));
+                add_settings_error('deactivate-plugin', 'plugin_deactivation', __('rtMedia for WordPress, BuddyPress and bbPress Plugin has been Deactivated.', 'rtPanel'), 'updated');
+            }
+        } elseif (isset($_POST['rtmedia-delete']) && ( $_POST['rtmedia-delete'] == 1 )) {
+            $nonce = $_REQUEST['_wpnonce_rtmedia_delete'];
+            if (!wp_verify_nonce($nonce, RTP_MEDIA . '-delete')) {
+                add_settings_error('delete-plugin', 'failure_plugin_deletion', __('You do not have sufficient permissions to delete this plugin.', 'rtPanel'));
+            } else {
+                delete_plugins(array(RTP_MEDIA));
+                add_settings_error('delete-plugin', 'plugin_deletion', __('rtMedia for WordPress, BuddyPress and bbPress Plugin has been Deleted.', 'rtPanel'), 'updated');
+            }
+        }elseif (isset($_POST['regenerate-activate']) && ( $_POST['regenerate-activate'] == 1 )) {
             $nonce = $_REQUEST['_wpnonce_regenerate_activate'];
             if (!wp_verify_nonce($nonce, RTP_REGENERATE_THUMBNAILS . '-activate')) {
                 add_settings_error('activate-plugin', 'failure_plugin_activation', __('You do not have sufficient permissions to activate this plugin.', 'rtPanel'));
