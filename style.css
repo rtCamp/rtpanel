@@ -1691,6 +1691,10 @@ a.rtp-menu-icon { display: none; float: left; }
 
 .rtp-main-title { border-bottom: 1px solid #dddddd; color: #333333; float: none; margin-top: 0.480em; padding-bottom: 0.2em; }
 
+table tr.even, table tr.alt, table tr:nth-of-type(2n) { background: none transparent; }
+
+.post-content table tr.even, .post-content table tr.alt, .post-content table tr:nth-of-type(2n) { background: none #F9F9F9; }
+
 .rtp-not-found { margin: 1.5em 0; }
 
 /* Post Meta */
@@ -1882,14 +1886,16 @@ img.right, img.alignright { margin-left: 1.25rem; margin-right: 0; }
 
 .rtp-search-form-wrapper .rtp-search-input { float: left; height: 36px; width: 75%; }
 
-/* Pagenavi Style */
+/* Import Plugin SCSS Files */
+/* Include Support CSS */
+.breadcrumb { border-bottom: 1px solid #dddddd; color: #666666; font-size: 0.8125rem; padding: 10px 0 5px; }
+
 .wp-pagenavi ul { margin: 1.875rem 0; overflow: hidden; }
 .wp-pagenavi li { display: inline-block; list-style: none; }
 .wp-pagenavi a, .wp-pagenavi span { border: 1px solid #dddddd; display: inline-block; float: none; font-weight: normal; margin: 2px; padding: 5px 10px; text-decoration: none; }
 .wp-pagenavi a:hover, .wp-pagenavi a:focus { background: #F5F5F5; }
 .wp-pagenavi .current { background: #F5F5F5; }
 
-/* Common bbPress Style */
 .bbPress .hentry { border: 0; }
 .bbPress .bbp-forum-freshness > a { font-size: 13px; }
 .bbPress #bbpress-forums { font-size: 100%; }
@@ -1908,3 +1914,87 @@ img.right, img.alignright { margin-left: 1.25rem; margin-right: 0; }
 .message-search input { width: auto; padding: 1px 5px 2px; }
 
 .mejs-container { max-width: 100%; }
+
+.search-layout-wrapper > hr { margin-top: 0; }
+
+#content .gsc-control-cse { padding: 0; }
+
+#cse table.gstl_0 { border-width: 0; margin: 0; }
+#cse .gsc-result-info { margin: 0; }
+#cse .gs-web-image-box, #cse .gs-promotion-image-box { padding: 3px 0 0; }
+#cse .gsc-webResult.gsc-result { border-width: 0 0 1px; border-color: #dddddd; border-style: none none dotted; clear: both; margin: 0; padding: 10px 0; position: relative; }
+#cse .gsc-result .gs-title { height: auto; text-decoration: none; }
+#cse .gsc-result .gsc-cursor-box .gsc-cursor-page { border: 1px solid #dddddd; color: #446cb3; display: inline-block; float: none; font-weight: normal; margin: 2px; padding: 5px 10px; text-decoration: none; }
+#cse .gsc-result .gsc-cursor-box .gsc-cursor-page:hover { border-color: #919191; color: #eb5b4c; text-decoration: underline; }
+#cse .gsc-result .gsc-cursor-current-page, #cse .gsc-result .gsc-cursor-current-page:hover { border-color: #919191; color: #333; font-weight: normal; text-decoration: none; }
+#cse .gsc-result a.gs-title, #cse .gsc-result a.gs-title b { color: #446cb3; text-decoration: none; }
+#cse .gsc-result a.gs-title:hover, #cse .gsc-result a.gs-title b:hover { color: #eb5b4c; }
+#cse .gsc-result img.gs-image, #cse .gsc-result img.gs-promotion-image { margin: 0; }
+#cse input.gsc-input { border: 1px solid #dddddd; }
+#cse input.gsc-input:hover { border-color: #919191; }
+#cse .cse input.gsc-search-button, #cse input.gsc-search-button { height: auto; margin: 0; min-width: 50px; padding: 6px 18px; }
+#cse .gsc-tabdActive .gsc-results .gsc-cursor { display: block; margin: 15px 0 5px; overflow: hidden; text-align: center; }
+
+.gsc-input-box .gscb_a { line-height: 25px; }
+.gsc-input-box .gsst_a { line-height: 18px; padding-top: 0; }
+.gsc-input-box .gsib_b { line-height: 18px; padding-bottom: 0; padding-top: 0; }
+
+table.gsc-search-box td { border-width: 0; }
+table.gsc-search-box td.gsc-input { padding-left: 0; }
+table.gsc-search-box td.gsib_a { line-height: 18px; padding-top: 0; }
+
+.gsc-table-result { border-width: 0; margin: 0; }
+.gsc-table-result td { border-width: 0; margin: 0; }
+.gsc-table-result .gsc-thumbnail { padding-left: 0; }
+
+.gsc-above-wrapper-area-container { border-width: 0; }
+
+.gsc-result-info-container { border-width: 0; padding: 0; }
+
+td.gsc-clear-button { padding-right: 0; }
+
+input.gsc-input { margin-left: 0; }
+
+.gs-promotion-table, .gs-promotion-table td, .gsc-resultsHeader, .gsc-resultsHeader td { border-width: 0; margin: 0; }
+
+.type-product.hentry { border-bottom: 0 none; }
+
+input.qty { margin-bottom: 0; }
+
+.panel.entry-content { background: none transparent; border: 0 none; padding: 1rem !important; }
+
+body .woocommerce-message:before, body .woocommerce-error:before, body .woocommerce-info:before { padding-top: 0; }
+
+body div.pp_woocommerce .pp_nav p, body div.pp_woocommerce .pp_description { font-size: 1rem; line-height: 1.1rem; }
+
+body div.pp_woocommerce .pp_arrow_previous, body div.pp_woocommerce .pp_arrow_next, body div.pp_woocommerce .pp_previous:before, body div.pp_woocommerce .pp_next:before { height: 20px; width: 20px; }
+
+body div.pp_woocommerce .pp_close { height: 25px; right: -13px; text-shadow: 0 1px 0 #FFFFFF; top: -13px; width: 25px; }
+
+body .label { background: none transparent; line-height: 2.5rem; padding: 0; }
+
+body .value { padding: 0; }
+
+.reset_variations { display: inline-block !important; margin-bottom: 15px; }
+
+.cart_totals table { float: right; }
+
+.gform_fields input, .gform_fields select, .gform_fields textarea.textarea { margin: 0; }
+.gform_fields .gfield { margin-bottom: 12px; }
+
+.gform_wrapper .ginput_complex .ginput_left, .gform_wrapper .ginput_complex .ginput_right, .gform_wrapper .ginput_complex .ginput_full { margin-bottom: 5px; }
+
+.gform_wrapper .gfield_time_hour input { display: inline-block; margin-right: 4px; }
+
+.gfield_checkbox li input[type=checkbox], .gfield_radio li input[type=radio] { width: auto !important; margin: 0; }
+
+/*  Fix for List element  */
+table.gfield_list thead, table.gfield_list tfoot, table.gfield_list tr:nth-of-type(2n) { background-color: transparent; }
+
+.ninja-forms-form-wrap label { display: inline-block; }
+
+.ninja-forms-form-wrap input, .ninja-forms-form-wrap select, .ninja-forms-form-wrap textarea { display: inline-block; margin: 0; }
+
+.ninja-forms-form-wrap .label-left label { width: 29%; }
+
+.ninja-forms-form-wrap .checkbox-wrap label { margin: 0; }

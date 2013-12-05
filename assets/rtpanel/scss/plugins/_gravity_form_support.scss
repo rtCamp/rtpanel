@@ -1,0 +1,28 @@
+// ***** Gravity Form Style ***** //
+@mixin rtp-gravity-form-style() {
+    .gform_fields {
+        input,
+        select,
+        textarea.textarea {
+            margin: 0;
+        }
+        .gfield { margin-bottom: 12px; }
+    }
+    .gform_wrapper .ginput_complex .ginput_left,
+    .gform_wrapper .ginput_complex .ginput_right,
+    .gform_wrapper .ginput_complex .ginput_full {
+        margin-bottom: 5px;
+    }
+    .gform_wrapper .gfield_time_hour input {
+            display: inline-block;
+            margin-right: 4px;
+    }
+    .gfield_checkbox li input[type=checkbox],
+    .gfield_radio li input[type=radio] {
+            width: auto !important;
+            margin: 0;
+    }
+    /*  Fix for List element  */
+    table.gfield_list thead, table.gfield_list tfoot,
+    table.gfield_list tr:nth-of-type(2n) { background-color: transparent; }
+}

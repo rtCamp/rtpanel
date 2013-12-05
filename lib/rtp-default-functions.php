@@ -611,3 +611,56 @@ function rtp_img_attachement_interchange_string ( $ID, $large = false, $medium =
     }
     return $str;
 }
+
+/**
+ * Add WooCommerce Support, tested upto WooCommerce version 2.0.20
+ * 
+ * @since rtPanel 4.0
+ */
+if ( !is_admin() && class_exists('Woocommerce') ) {
+    
+    /**
+     * Unhook WooCommerce Wrappers
+     */
+    remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
+    remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
+    
+    /**
+     * Hook rtPanel wrappers
+     */
+    add_action('woocommerce_before_main_content', 'rtp_woocommerce_wrapper_start', 10 );
+    add_action('woocommerce_after_main_content', 'rtp_woocommerce_wrapper_end', 10 );
+}
+
+/**
+ * rtPanel WooCommerce Wrapper Start
+ * 
+ * @since rtPanel 4.0
+ */
+function rtp_woocommerce_wrapper_start() {    
+    $rtp_content_grid_class = apply_filters( 'rtp_set_content_grid_class', 'large-8 columns ' );
+    $rtp_content_class = ' class="rtp-content-section ' . $rtp_content_grid_class . ' rtp-singular" ';
+    
+    echo '<section id="content" role="main"' . $rtp_content_class . '>';
+}
+
+/**
+ * rtPanel WooCommerce Wrapper End
+ * 
+ * @since rtPanel 4.0
+ */
+function rtp_woocommerce_wrapper_end() {
+    echo '</section>';
+}
+
+/**
+ * Add WooCommerce support
+ * 
+ * @since rtPanel 4.0
+ */
+function rtp_add_woocommerce_support() {
+    if ( class_exists('Woocommerce') ) {
+        add_theme_support( 'woocommerce' );
+    }
+}
+add_action( 'init', 'rtp_add_woocommerce_support' );
