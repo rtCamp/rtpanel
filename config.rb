@@ -1,17 +1,19 @@
 # Require any additional compass plugins here.
-add_import_path "bower_components/foundation/scss"
+add_import_path "assets/foundation/bower_components/foundation/scss"
 
 # Set this to the root of your project when deployed:
-add_import_path "bower_components/foundation/scss"
-
 http_path = "/"
-css_dir = "../"
-sass_dir = "."
+css_dir = "/"
+sass_dir = "assets/rtpanel"
 images_dir = "img"
 javascripts_dir = "js"
+
 output_style = :compact
+
 relative_assets = true
+
 line_comments = false
+color_output = false
 
 #environment = :production
 

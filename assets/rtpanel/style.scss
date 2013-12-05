@@ -11,8 +11,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: black, blue, white, orange, light, one-column, two-columns, right-sidebar, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, flexible-width, full-width-template, buddypress
 */
 
-@import "compass/css3";
-//@import "compass/typography";
+// Import Compass
+@import "compass";
 
 // Global Foundation Settings
 @import "settings";
@@ -28,5 +28,6 @@ Tags: black, blue, white, orange, light, one-column, two-columns, right-sidebar,
 // rtPanel Styles
 
 /* rtPanel Style Starts From Here */
+
 // Basic style for theme.
-@import "rtpanel/base";
+@import "scss/base";
