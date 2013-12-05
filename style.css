@@ -723,9 +723,9 @@ tfoot #next { border-left: 0; text-align: right; }
 #footerbar { margin-bottom: 1em; overflow: hidden; position: relative; }
 #footerbar.rtp-section-separator:after { visibility: visible; }
 
-footerbar-widget:nth-child(3n+1) { clear: both; }
-footerbar-widget .email-subscription-container { margin: 0; }
-footerbar-widget .social-icons { margin: 10px 0 0; }
+.footerbar-widget:nth-child(3n+1) { clear: both; }
+.footerbar-widget .email-subscription-container { margin: 0; }
+.footerbar-widget .social-icons { margin: 10px 0 0; }
 
 /* Copyrights */
 #footer { clear: both; color: #666666; margin-bottom: 1em; text-align: center; }
