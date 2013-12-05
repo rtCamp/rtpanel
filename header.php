@@ -13,7 +13,30 @@ global $rtp_general; ?><!DOCTYPE html>
 <!--[if gt IE 8]><!--><html class="no-js" <?php language_attributes(); ?>><!--<![endif]-->
     <head>
         <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
-        <title><?php wp_title( '' ); ?></title>
+        <!--<title><?php bloginfo('name'); ?> | <?php is_front_page() ? bloginfo('description') : wp_title(''); ?></title>-->
+        
+        <title><?php
+            /*
+             * Print the <title> tag based on what is being viewed.
+             */
+            global $page, $paged;
+
+            wp_title( '|', true, 'right' );
+
+            // Add the blog name.
+            bloginfo( 'name' );
+
+            // Add the blog description for the home/front page.
+            $site_description = get_bloginfo( 'description', 'display' );
+            if ( $site_description && ( is_home() || is_front_page() ) ) {
+                echo " | $site_description";
+            }
+
+            // Add a page number if necessary:
+            if ( $paged >= 2 || $page >= 2 ) {
+                echo ' | ' . sprintf( __( 'Page %s', 'twentyten' ), max( $paged, $page ) );
+            } ?>
+        </title>
 
         <!-- Mobile Viewport Fix ( j.mp/mobileviewport & davidbcalhoun.com/2010/viewport-metatag ) -->
         <meta name="viewport" content="<?php echo apply_filters( 'rtp_viewport', 'width=device-width, initial-scale=1.0, maximum-scale=1.0' ); ?>" />
@@ -42,26 +65,28 @@ global $rtp_general; ?><!DOCTYPE html>
 
             <?php rtp_hook_begin_main_wrapper(); ?>
 
-            <?php $header_class = get_header_image() ? ' rtp-header-wrapper-image' : ''; ?>
-
-            <div id="header-wrapper" class="row<?php echo $header_class; ?>">
+            <div id="header-wrapper" class="rtp-header-wrapper">
 
                     <?php rtp_hook_before_header(); ?>
 
-                    <header id="header" class="rtp-header large-12 columns" role="banner">
+                    <header id="header" class="row rtp-section-container" role="banner">
 
-                        <?php rtp_hook_begin_header(); ?>
-                        
-                        <div class="rtp-logo-container clearfix">
-                            <?php rtp_hook_before_logo(); ?>
+                        <?php $header_class = get_header_image() ? ' rtp-header-wrapper-image' : ''; ?>
 
-                                <?php $heading = ( is_home() || is_front_page() ) ? 'h2' : 'h3'; ?>
-                                <<?php echo $heading; ?> class="rtp-site-logo"><a role="link" href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name' ); ?>"><?php echo ( 'image' == $rtp_general['logo_use'] ) ? '<img role="img" alt="' . get_bloginfo( 'name' ) . '" height="' . $rtp_general['logo_height'] . '" width="' . $rtp_general['logo_width'] . '" src="' . $rtp_general['logo_upload'] . '" />' : get_bloginfo( 'name' ); ?></a></<?php echo $heading; ?>>
+                        <div class="rtp-header large-12 columns <?php echo $header_class; ?>">
+                            <?php rtp_hook_begin_header(); ?>
 
-                            <?php rtp_hook_after_logo(); ?>
+                            <div class="rtp-logo-container clearfix">
+                                <?php rtp_hook_before_logo(); ?>
+
+                                    <?php $heading = ( is_home() || is_front_page() ) ? 'h1' : 'h2'; ?>
+                                    <<?php echo $heading; ?> class="rtp-site-logo"><a role="link" href="<?php echo home_url( '/' ); ?>" title="<?php bloginfo( 'name' ); ?>"><?php echo ( 'image' == $rtp_general['logo_use'] ) ? '<img role="img" alt="' . get_bloginfo( 'name' ) . '" height="' . $rtp_general['logo_height'] . '" width="' . $rtp_general['logo_width'] . '" src="' . $rtp_general['logo_upload'] . '" />' : get_bloginfo( 'name' ); ?></a></<?php echo $heading; ?>>
+
+                                <?php rtp_hook_after_logo(); ?>
+                            </div>
+
+                            <?php rtp_hook_end_header(); ?>
                         </div>
-
-                        <?php rtp_hook_end_header(); ?>
 
                     </header><!-- #header -->
 
@@ -69,7 +94,7 @@ global $rtp_general; ?><!DOCTYPE html>
 
             </div><!-- #header-wrapper -->
             <?php rtp_hook_before_content_wrapper(); ?>
-            
+
             <?php 
                 $content_wrapper_class = ( is_search() && $rtp_general['search_code'] && $rtp_general['search_layout'] ) ? 'row rtp-content-wrapper search-layout-wrapper' : 'row rtp-content-wrapper';
             ?>

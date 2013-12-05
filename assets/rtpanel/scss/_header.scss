@@ -16,4 +16,14 @@
 // Tagline
 .tagline { color: $gray-light; float: left; line-height: 1; margin: rem-calc(28) 0 0; }
 
+// Header Image Wrapper
+.rtp-header-wrapper-image {
+    .rtp-nav-wrapper { margin-bottom: 0; }
+}
+
+// Header Image
+.rtp-header-image {
+    margin-bottom: rem-calc(30);
+}
+
 /* End - Header */

@@ -37,8 +37,8 @@ if ( !function_exists( 'rtpanel_setup' ) ) {
         // Add support for custom headers.
 	$rtp_custom_header_support = array(
             // The height and width of our custom header.
-            'width'                 => apply_filters( 'rtp_header_image_width', 960 ),
-            'height'                => apply_filters( 'rtp_header_image_height', 140 ),
+            'width'                 => apply_filters( 'rtp_header_image_width', 1200 ),
+            'height'                => apply_filters( 'rtp_header_image_height', 200 ),
             'header-text'           => false,
             // Callback for styling the header.
             'wp-head-callback'      => '',
@@ -85,7 +85,7 @@ if ( !function_exists( 'rtp_header_image' ) ) {
         }
     }
 }
-add_action('rtp_hook_before_header', 'rtp_header_image');
+add_action('rtp_hook_begin_header', 'rtp_header_image');
 
 
 if ( !function_exists( 'rtp_admin_header_style' ) ) {
