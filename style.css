@@ -1790,22 +1790,25 @@ tfoot #next { border-left: 0; text-align: right; }
 .commentlist { clear: both; margin: 0; }
 .commentlist > li:first-child { border-top: 0; }
 .commentlist .children { margin-left: 5.25rem; }
-.commentlist .vcard { border: 0; float: left; margin: 0.5rem 1.25rem 0 0; padding: 0; }
-.commentlist .vcard img { margin-bottom: 0.625rem; }
+.commentlist .vcard { border: 0; float: left; margin: 0.5rem 0.5rem 0.1875rem 0.5rem; padding: 0; }
+.commentlist .vcard img { -webkit-border-radius: 1000px; -moz-border-radius: 1000px; -ms-border-radius: 1000px; -o-border-radius: 1000px; border-radius: 1000px; border: 2px solid white; }
 .commentlist .fn { font-size: 1.125rem; font-style: normal; }
 .commentlist .trackback, .commentlist .pingback { overflow: hidden; padding: 0 0 0.9375rem; }
 .commentlist .trackback em, .commentlist .pingback em { color: #666666; font-size: 0.75rem; }
+.commentlist pre { background-color: #EFEFEF; padding: 10px; }
 
-.comment-text { clear: right; padding: 0.625rem 0 0; overflow: hidden; }
+.comment-text { clear: both; padding: 0.625rem 0 0; overflow: hidden; }
 .comment-text > ol, .comment-text > ul { margin-bottom: 1.625rem; }
 
 .comment-body { clear: both; margin: 1.375rem 0 1.875rem; position: relative; }
 
-.comment { border-top: 1px solid #dddddd; list-style: none; }
+.comment { list-style: none; }
 code .comment { border-top: 0; }
 .comment li { margin-bottom: 0; }
 
-.comment-meta { float: right; font-size: 0.75rem; margin-top: 0.3125rem; }
+.comment-author { background: #e7e7e7; padding: 17px 5px 5px 5px; }
+
+.comment-meta { font-size: 0.75rem; margin-top: 0.3125rem; float: right; }
 .comment-meta .comment-edit-link { margin: 0 0 0 0.3125rem; }
 .comment-meta .comment-edit-link:hover { text-decoration: none; }
 
@@ -1814,6 +1817,8 @@ code .comment { border-top: 0; }
 .rtp-reply a { display: block; font-size: 0.875rem; }
 
 /* Admin Comments */
+.comment-author-admin > .comment-body .comment-author, .bypostauthor > .comment-body .comment-author, .byuser > .comment-body .comment-author { background-color: #DADADA; }
+
 /* Comment Form */
 #respond { clear: both; font-size: 0.8125rem; }
 .comments-container > #respond { margin-bottom: 1.25rem; }
@@ -1821,19 +1826,19 @@ code .comment { border-top: 0; }
 .comment-body + #respond { margin-top: 0; padding: 0 0 0.8em; }
 .comment #respond .form-submit { margin-bottom: 0; }
 #respond p { margin: 0.8em 0; }
-#respond .comment-notes, #respond .logged-in-as { color: #666666; margin: 10px 0 0; }
-#respond .subscribe-to-comments #subscribe { margin-bottom: 10px; }
-#respond .subscribe-to-comments label { margin-left: 5px; }
-#respond label { display: inline-block; line-height: 2.692em; margin: 0 0 0 10px; }
+#respond .comment-notes, #respond .logged-in-as { color: #666666; margin: 0.625rem 0 0; }
+#respond .subscribe-to-comments #subscribe { margin-bottom: 0.625rem; }
+#respond .subscribe-to-comments label { margin-left: 0.3125rem; }
+#respond label { display: inline-block; line-height: 2.692em; margin: 0 0 0.625rem; }
 #respond .required { color: #f04124; }
-#respond .comment-form-comment, #respond .form-submit { clear: both; margin-bottom: 3px; }
+#respond .comment-form-comment, #respond .form-submit { clear: both; margin-bottom: 0.1875rem; }
 #respond .form-submit { float: left; margin-right: 1.25rem; }
 #respond .rtp-comment-above { margin-bottom: 0; }
 #respond input[type=text], #respond input[type=url], #respond input[type=email] { width: 50%; }
 #respond textarea { height: 110px; width: 98.33%; }
 #respond .form-allowed-tags { background: #fafafa; border: 1px solid #dddddd; color: #666666; font-size: 0.8125rem; margin: 0 0 14px; padding: 4px; width: 96%; }
 #respond .compact-comment-form { float: left; width: 33%; }
-#respond .compact-comment-form label { margin-left: 2px; }
+#respond .compact-comment-form label { margin-left: 0.125rem; }
 #respond .compact-comment-form input { width: 98%; }
 #respond label[for=subscribe-reloaded] { float: left; margin: 0.625rem 0 2.5rem; width: 80%; }
 #respond label[for=subscribe-reloaded] span { display: block; line-height: 1.6; }
