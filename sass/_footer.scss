@@ -10,7 +10,7 @@
 }
 
 // Footerbar Widgets
-footerbar-widget {
+.footerbar-widget {
     // Children
     &:nth-child(3n+1) { clear: both; }
     .email-subscription-container { margin: 0; }
