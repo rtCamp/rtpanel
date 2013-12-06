@@ -1,0 +1,17 @@
+// ***** Pagenavi Style ***** //
+@mixin rtp-pagenavi() {
+    .wp-pagenavi {
+        ul { margin: rem-calc(30) 0; overflow: hidden; }
+
+        li { display: inline-block; list-style: none; }
+
+        a,
+        span { @include rtp-border(); display: inline-block; float: none; font-weight: normal; margin: 2px; padding: 5px 10px; text-decoration: none; }
+
+        a {
+            &:hover, &:focus { background: #F5F5F5; }
+        }
+
+        .current { background: #F5F5F5; }
+    }
+}

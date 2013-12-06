@@ -23,7 +23,11 @@
 .rtp-main-title { border-bottom: 1px solid $border-color; color: $title-link-color; float: none; margin-top: 0.480em; padding-bottom: 0.2em; }
 
 // ***** Post Content ***** //
-.post-content {  } // @extend .clearfix;
+table tr.even, table tr.alt, table tr:nth-of-type(2n) { background: none transparent; }
+
+.post-content {
+    table tr.even, table tr.alt, table tr:nth-of-type(2n) { background: none #F9F9F9; }
+} // @extend .clearfix;
 
 // Not Found Page
 .rtp-not-found { margin: 1.5em 0; }

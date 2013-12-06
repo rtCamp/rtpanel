@@ -1,0 +1,14 @@
+// ****** WooCommerce CSS Support ****** //
+@mixin rtp-woocommerce() {
+    .type-product.hentry { border-bottom: 0 none; }
+    input.qty { margin-bottom: 0; }
+    .panel.entry-content { background: none transparent; border: 0 none; padding: 1rem !important; }
+    body .woocommerce-message:before, body .woocommerce-error:before, body .woocommerce-info:before { padding-top: 0; }
+    body div.pp_woocommerce .pp_nav p, body div.pp_woocommerce .pp_description { font-size: 1rem; line-height: 1.1rem; }
+    body div.pp_woocommerce .pp_arrow_previous, body div.pp_woocommerce .pp_arrow_next, body div.pp_woocommerce .pp_previous:before, body div.pp_woocommerce .pp_next:before { height: 20px; width: 20px; }
+    body div.pp_woocommerce .pp_close { height: 25px; right: -13px; text-shadow: 0 1px 0 #FFFFFF; top: -13px; width: 25px; }
+    body .label { background: none transparent; line-height: rem-calc(40); padding: 0; }
+    body .value { padding: 0; }
+    .reset_variations { display: inline-block !important; margin-bottom: 15px; }
+    .cart_totals table { float: right; }
+}

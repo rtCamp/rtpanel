@@ -1,0 +1,4 @@
+// ***** Breadcrumb Style ***** //
+@mixin rtp-breadcrumb() {
+    .breadcrumb { border-bottom: 1px solid $border-color; color: $gray; font-size: rem-calc(13); padding: 10px 0 5px; }
+}
