@@ -1,4 +1,4 @@
-jQuery(document).foundation();
+//jQuery(document).foundation();
 
 /**
  * Responsive Table JS

@@ -1741,7 +1741,7 @@ table tr.even, table tr.alt, table tr:nth-of-type(2n) { background: none transpa
 .single .post-meta-bottom { margin: 1.5em 0 0; padding: 0; }
 
 .rtp-post-comment-count { margin: 0.7em 0 0; text-align: right; }
-.rtp-post-comment-count:before { color: #CCC; content: '\e800'; font-family: "fontello"; font-size: 0.875rem; margin: 0 0.3125rem; }
+.rtp-post-comment-count:before { color: #CCC; font-size: 0.875rem; margin: 0 0.3125rem; }
 
 /* Curly Brackets Style */
 /* Post Comment */
