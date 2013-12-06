@@ -32,7 +32,7 @@ function rtp_comment_list( $comment, $args, $depth ) {
                     </div><?php
                 } ?>
 
-                <div class="comment-author">
+                <div class="comment-author clearfix">
                     <cite class="fn"><?php comment_author_link(); ?></cite>
                     <span class="comment-meta">
                         <a class="rtp-common-link rtp-comment-date" href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>" title="<?php comment_date(); ?>">

@@ -32,8 +32,10 @@
     .children { margin-left: rem-calc(84); }
     
     // Children
-    .vcard { border: 0; float: left; margin: rem-calc(8 20 0 0); padding: 0;
-        img { margin-bottom: rem-calc(10); }
+    .vcard { 
+        border: 0; float: left; margin: rem-calc(8 8 3 8); padding: 0; // Self
+        
+        img { @include border-radius($global-rounded); @include rtp-border($width: 2px, $color: #FFFFFF); }
     }
 
     .fn { font-size: rem-calc(18); font-style: normal; }
@@ -44,6 +46,8 @@
         // EM Element
         em { color: $gray; font-size: rem-calc(12); }
     }
+    
+    pre { background-color: #EFEFEF; padding: 10px; }
 }
 
 // Avatar
@@ -52,23 +56,23 @@
 .rtp-comment-author-role {  }
 
 // Comment Text
-.comment-text { clear: right; padding: rem-calc(10 0 0); overflow: hidden;
+.comment-text { clear: both; padding: rem-calc(10 0 0); overflow: hidden;
     > ol, > ul { margin-bottom: rem-calc(26); }
 }
 
 // Comment Body
 .comment-body { clear: both; margin: rem-calc(22 0 30); position: relative; }
 
-.comment { border-top: 1px solid $border-color; list-style: none; // Self
+.comment { list-style: none; // Self
     code & { border-top: 0; }
     li { margin-bottom: 0; }
 }
 
 // Comment Author  border-bottom: 1px solid $border-color; 
-.comment-author {  }
+.comment-author { background: $secondary-color; padding: 17px 5px 5px 5px; }
 
 // Comment Meta
-.comment-meta { float: right; font-size: rem-calc(12); margin-top: rem-calc(5);
+.comment-meta { font-size: rem-calc(12); margin-top: rem-calc(5); float: right;
     // Children
     //abbr { color: $gray-light; border: 0; }
     
@@ -86,7 +90,7 @@
 
 /* Admin Comments */
 .comment-author-admin, .bypostauthor, .byuser {
-    > .comment-body { } // background-color: darken($base-background, 4%); @include rtp-rem-fallback(padding, 10, 10, 0);
+    > .comment-body .comment-author { background-color: #DADADA; } // background-color: darken($base-background, 4%); @include rtp-rem-fallback(padding, 10, 10, 0);
 }
 
 /* Comment Form */
@@ -113,22 +117,22 @@
     p { margin: 0.8em 0; }
 
     // Comment Notes
-    .comment-notes, .logged-in-as { color: $gray; margin: 10px 0 0; }
+    .comment-notes, .logged-in-as { color: $gray; margin: rem-calc(10 0 0); }
 
     // Subscribe To Comments
     .subscribe-to-comments {
-        #subscribe { margin-bottom: 10px; }
-        label { margin-left: 5px; }
+        #subscribe { margin-bottom: rem-calc(10); }
+        label { margin-left: rem-calc(5); }
     }
 
     // Label
-    label { display: inline-block; line-height: 2.692em; margin: 0 0 0 10px; }
+    label { display: inline-block; line-height: 2.692em; margin: rem-calc(0 0 10); }
 
     // Required Field
     .required { color: $alert-color; }
 
     // Comment form comment
-    .comment-form-comment, .form-submit { clear: both; margin-bottom: 3px; }
+    .comment-form-comment, .form-submit { clear: both; margin-bottom: rem-calc(3); }
 
     .form-submit { float: left; margin-right: rem-calc(20); }
     
@@ -148,7 +152,7 @@
     // Compact Form
     .compact-comment-form { float: left; width: 33%; // Self
         // Compact Form Label and Input
-        label { margin-left: 2px; }
+        label { margin-left: rem-calc(2); }
         input { width: 98%; }
     }
 
