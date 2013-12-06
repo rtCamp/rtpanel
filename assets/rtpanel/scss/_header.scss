@@ -5,7 +5,7 @@
 .rtp-logo-container { margin-bottom: rem-calc(30); }
 
 // Logo
-.rtp-site-logo { float: left; margin: 0 rem-calc(30) 0 0; overflow: hidden;
+.rtp-site-logo { float: left; font-size: rem-calc(40); margin: 0 rem-calc(30) 0 0; overflow: hidden;
     // Float is used to remove excess spacing bellow logo image
     a { float: left; }
 
@@ -14,7 +14,7 @@
 }
 
 // Tagline
-.tagline { color: $gray-light; float: left; line-height: 1; margin: rem-calc(28) 0 0; }
+.tagline { color: $gray-light; float: left; font-size: rem-calc(22); margin: rem-calc(20) 0 0; }
 
 // Header Image Wrapper
 .rtp-header-wrapper-image {

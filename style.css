@@ -1202,14 +1202,14 @@ a:hover, a:focus { color: #3d61a1; }
 a img { border: none; }
 
 /* Default paragraph styles */
-p { font-family: inherit; font-weight: normal; font-size: 1rem; line-height: inherit; margin-bottom: 1.625rem; text-rendering: optimizeLegibility; }
+p { font-family: inherit; font-weight: normal; font-size: 1rem; line-height: inherit; margin-bottom: 1.75rem; text-rendering: optimizeLegibility; }
 p aside { font-size: 0.875rem; line-height: 1.35; font-style: italic; }
 
 /* Default header styles */
 h1, h2, h3, h4, h5, h6 { font-family: "Open Sans", sans-serif; font-weight: 400; font-style: normal; color: #222222; text-rendering: optimizeLegibility; margin-top: 0.2rem; margin-bottom: 0.5rem; line-height: 1.4; }
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small { font-size: 60%; color: #6f6f6f; line-height: 0; }
 
-h1 { font-size: 1.75rem; }
+h1 { font-size: 1.625rem; }
 
 h2 { font-size: 1.25rem; }
 
@@ -1233,7 +1233,7 @@ small { font-size: 60%; line-height: inherit; }
 code { font-family: Consolas, "Liberation Mono", Courier, monospace; font-weight: bold; color: #bb260d; }
 
 /* Lists */
-ul, ol, dl { font-size: 1rem; line-height: inherit; margin-bottom: 1.625rem; list-style-position: outside; font-family: inherit; }
+ul, ol, dl { font-size: 1rem; line-height: inherit; margin-bottom: 1.75rem; list-style-position: outside; font-family: inherit; }
 
 ul { margin-left: 2rem; }
 ul.no-bullet { margin-left: 0; }
@@ -1261,7 +1261,7 @@ abbr, acronym { text-transform: uppercase; font-size: 90%; color: #4c4c4c; borde
 abbr { text-transform: none; }
 
 /* Blockquotes */
-blockquote { margin: 0 0 1.625rem; padding: 0.5625rem 1.25rem 0 1.1875rem; border-left: 1px solid #dddddd; }
+blockquote { margin: 0 0 1.75rem; padding: 0.5625rem 1.25rem 0 1.1875rem; border-left: 1px solid #dddddd; }
 blockquote cite { display: block; font-size: 0.8125rem; color: #555555; }
 blockquote cite:before { content: "\2014 \0020"; }
 blockquote cite a, blockquote cite a:visited { color: #555555; }
@@ -1277,7 +1277,7 @@ blockquote, blockquote p { line-height: inherit; color: #6f6f6f; }
 .vevent abbr { cursor: default; text-decoration: none; font-weight: bold; border: none; padding: 0 0.0625rem; }
 
 @media only screen and (min-width: 40.063em) { h1, h2, h3, h4, h5, h6 { line-height: 1.4; }
-  h1 { font-size: 2.375rem; }
+  h1 { font-size: 2.25rem; }
   h2 { font-size: 1.875rem; }
   h3 { font-size: 1.5rem; }
   h4 { font-size: 1.25rem; } }
@@ -1576,7 +1576,40 @@ html, body { overflow-x: hidden; }
 
 .aligncenter { display: block; margin-left: auto; margin-right: auto; text-align: center; }
 
-body { line-height: 1.625; }
+.clear-both { clear: both; }
+
+.clear-none { clear: none; }
+
+.clear-left { clear: left; }
+
+.clear-right { clear: right; }
+
+.rtp-error, .rtp-info, .rtp-notice, .rtp-success, .rtp-warning { border: 1px solid; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; display: block; margin-bottom: 1.25rem; padding: 3.125rem 0.625rem; line-height: 1.75; }
+.rtp-error p:last-child, .rtp-info p:last-child, .rtp-notice p:last-child, .rtp-success p:last-child, .rtp-warning p:last-child { margin: 0; }
+
+.rtp-notice { background-color: #F9F9F9; border-color: #EEEEEE; color: #666666; }
+
+.rtp-info { background-color: #E0F2FB; border-color: #D9EDF7; color: #006999; }
+
+.rtp-success { background-color: #DFF0D8; border-color: #D6E9C6; color: #468847; }
+
+.rtp-warning { background-color: #FCF8E3; border-color: #FBEED5; color: #C09853; }
+
+.rtp-error { background-color: #F2DEDE; border-color: #EED3D7; color: #B94A48; }
+
+.rtp-inline-block { display: inline-block; }
+
+/* Text align */
+.rtp-text-left { text-align: left; }
+
+.rtp-text-right { text-align: right; }
+
+.rtp-text-center { text-align: center; }
+
+/* Borders */
+.rtp-border-0 { border: 0 !important; }
+
+body { line-height: 1.75rem; }
 
 /* Fonts */
 .rtp-font-size-10 { font-size: 0.625rem; }
@@ -1624,11 +1657,11 @@ h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus { color: #eb5b4c; text-decoration
 /* Header */
 .rtp-logo-container { margin-bottom: 1.875rem; }
 
-.rtp-site-logo { float: left; margin: 0 1.875rem 0 0; overflow: hidden; }
+.rtp-site-logo { float: left; font-size: 2.5rem; margin: 0 1.875rem 0 0; overflow: hidden; }
 .rtp-site-logo a { float: left; }
 .rtp-site-logo img { float: left; margin: 0; }
 
-.tagline { color: #999999; float: left; line-height: 1; margin: 1.75rem 0 0; }
+.tagline { color: #999999; float: left; font-size: 1.375rem; margin: 1.25rem 0 0; }
 
 .rtp-header-wrapper-image .rtp-nav-wrapper { margin-bottom: 0; }
 
@@ -1677,7 +1710,7 @@ h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus { color: #eb5b4c; text-decoration
 a.rtp-menu-icon { display: none; float: left; }
 
 /* Post Loop */
-.hentry { border-bottom: 1px dotted #dddddd; padding-bottom: 1.875rem; padding-top: 1.625rem; position: relative; }
+.hentry { border-bottom: 1px dotted #dddddd; padding-bottom: 1.875rem; padding-top: 1.75rem; position: relative; }
 .hentry:first-child { padding-top: 0; }
 .hentry.sticky { border-style: solid; border-width: 1px; border-color: #d9d9d9; padding: 1.25rem; background: #f2f2f2; }
 
@@ -1685,11 +1718,13 @@ a.rtp-menu-icon { display: none; float: left; }
 
 .rtp-readmore { font-size: 0.875rem; }
 
-.post-header { margin-bottom: 1.625rem; }
+.post-header { margin-bottom: 1rem; }
 
-.post-title { float: left; line-height: 1.2; margin: 0 0 0.5rem; }
+.post-title { line-height: 1.2; margin: 0 0 0.3125rem; }
 
 .rtp-main-title { border-bottom: 1px solid #dddddd; color: #333333; float: none; margin-top: 0.480em; padding-bottom: 0.2em; }
+
+.blog .post-content p, .archive .post-content p, .search-results .post-content p { margin-bottom: 1rem; }
 
 table tr.even, table tr.alt, table tr:nth-of-type(2n) { background: none transparent; }
 
@@ -1706,6 +1741,7 @@ table tr.even, table tr.alt, table tr:nth-of-type(2n) { background: none transpa
 .single .post-meta-bottom { margin: 1.5em 0 0; padding: 0; }
 
 .rtp-post-comment-count { margin: 0.7em 0 0; text-align: right; }
+.rtp-post-comment-count:before { color: #CCC; content: '\e800'; font-family: "fontello"; font-size: 0.875rem; margin: 0 0.3125rem; }
 
 /* Curly Brackets Style */
 /* Post Comment */

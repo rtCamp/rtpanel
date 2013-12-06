@@ -27,8 +27,12 @@ $title-hover-color: $link-hover-color;
 // Typography
 
 // Optimal Typography for 16px Font Reference here: http://pearsonified.com/typography/
-$rtp-base-line-height: 1.625; // rem-calc(26)
-$rtp-base-spacing: rem-calc(26); // This will same as line height
+$rtp-base-line-height: rem-calc(28); // rem-calc(28)
+$rtp-base-spacing: rem-calc(28); // This will same as line height
+
+// Icon Font Settings
+$rtp-icon-font: true;
+$rtp-icon-font-family: 'fontello';
 
 // ***** Control Support Plugins Styles ***** //
 $load-bbpress-styles : true;

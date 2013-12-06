@@ -1,6 +1,6 @@
 /* Post Loop */
 // ***** Post Container ***** //
-.hentry { border-bottom: 1px dotted $border-color; padding-bottom: rem-calc(30); padding-top: rem-calc(26); position: relative; // Removed clear: both;
+.hentry { border-bottom: 1px dotted $border-color; padding-bottom: rem-calc(30); padding-top: $rtp-base-spacing; position: relative; // Removed clear: both;
     
     &:first-child { padding-top: 0; }
 
@@ -18,9 +18,18 @@
 .rtp-readmore { font-size: rem-calc(14); } // font-size: rem-calc(13);
 
 // ***** Post Header ***** //
-.post-header { margin-bottom: rem-calc(26); }
-.post-title { float: left; line-height: 1.2; margin: 0 0 em-calc(8); }
+.post-header { margin-bottom: 1rem; }
+.post-title { line-height: 1.2; margin: 0 0 em-calc(5); }
 .rtp-main-title { border-bottom: 1px solid $border-color; color: $title-link-color; float: none; margin-top: 0.480em; padding-bottom: 0.2em; }
+
+// Post Content Paragraph
+.blog,
+.archive,
+.search-results {
+    .post-content {
+        p { margin-bottom: 1rem; } //  margin-bottom: 1em;
+    }
+}
 
 // ***** Post Content ***** //
 table tr.even, table tr.alt, table tr:nth-of-type(2n) { background: none transparent; }
@@ -44,7 +53,12 @@ table tr.even, table tr.alt, table tr:nth-of-type(2n) { background: none transpa
     .single & { margin: 1.5em 0 0; padding: 0; }
 }
 
-.rtp-post-comment-count { margin: 0.7em 0 0; text-align: right; }
+.rtp-post-comment-count { margin: 0.7em 0 0; text-align: right;
+
+    @if $rtp-icon-font {
+        &:before { color: #CCC; content: '\e800'; font-family: $rtp-icon-font-family; font-size: rem-calc(14); margin: rem-calc(0 5); }    
+    }
+}
 
 // Edit Link
 .rtp-edit-link {

@@ -16,7 +16,7 @@ global $rtp_general; ?>
 
             <?php rtp_hook_after_content_wrapper(); ?>
 
-            <footer id="footer-wrapper" role="contentinfo" class="clearfix rtp-footer-wrapper"><?php
+            <footer id="footer-wrapper" role="contentinfo" class="clearfix rtp-footer-wrapper rtp-section-container"><?php
                 /* Grid class for widget */
                 $rtp_footer_widget_grid_class = apply_filters( 'rtp_set_footer_widget_grid_class', 'large-4 columns' );
 
@@ -49,6 +49,6 @@ global $rtp_general; ?>
         <?php wp_footer(); ?>
 
         <?php rtp_hook_end_body(); ?>
-
+<script src="//localhost:35729/livereload.js"></script>
     </body>
 </html>

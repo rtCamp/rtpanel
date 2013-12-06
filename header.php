@@ -65,14 +65,13 @@ global $rtp_general; ?><!DOCTYPE html>
 
             <?php rtp_hook_begin_main_wrapper(); ?>
 
-            <div id="header-wrapper" class="rtp-header-wrapper">
+            <div id="header-wrapper" class="rtp-header-wrapper rtp-section-container">
 
                     <?php rtp_hook_before_header(); ?>
 
-                    <header id="header" class="row rtp-section-container" role="banner">
+                    <header id="header" class="row" role="banner">
 
                         <?php $header_class = get_header_image() ? ' rtp-header-wrapper-image' : ''; ?>
-
                         <div class="rtp-header large-12 columns <?php echo $header_class; ?>">
                             <?php rtp_hook_begin_header(); ?>
 
