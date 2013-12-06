@@ -14,7 +14,7 @@ global $rtp_general; ?><!DOCTYPE html>
     <head>
         <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
         <!--<title><?php bloginfo('name'); ?> | <?php is_front_page() ? bloginfo('description') : wp_title(''); ?></title>-->
-        
+
         <title><?php
             /*
              * Print the <title> tag based on what is being viewed.
@@ -93,10 +93,13 @@ global $rtp_general; ?><!DOCTYPE html>
                     <?php rtp_hook_after_header(); ?>
 
             </div><!-- #header-wrapper -->
+
             <?php rtp_hook_before_content_wrapper(); ?>
 
-            <?php 
-                $content_wrapper_class = ( is_search() && $rtp_general['search_code'] && $rtp_general['search_layout'] ) ? 'row rtp-content-wrapper search-layout-wrapper' : 'row rtp-content-wrapper';
-            ?>
+            <?php $content_wrapper_class = ( is_search() && $rtp_general['search_code'] && $rtp_general['search_layout'] ) ? 'rtp-content-wrapper rtp-section-container search-layout-wrapper' : 'rtp-content-wrapper rtp-section-container'; ?>
+
             <div id="content-wrapper" class="<?php echo apply_filters("rtp_content_wrapper_class", $content_wrapper_class); ?>"><!-- ends in footer.php -->
+
                 <?php rtp_hook_begin_content_wrapper(); ?>
+
+                <div class="row">

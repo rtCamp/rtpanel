@@ -107,7 +107,7 @@ $primary-color: $link-color;
 // Control header font styles
 
 $header-font-family: 'Open Sans', sans-serif;
-// $header-font-weight: 400;
+$header-font-weight: 400;
 // $header-font-style: normal;
 // $header-font-color: #222;
 // $header-line-height: 1.4;
@@ -118,7 +118,7 @@ $header-font-family: 'Open Sans', sans-serif;
 // Control header font sizes
 
 $h1-font-size: rem-calc(38);
-$h2-font-size: rem-calc(32);
+$h2-font-size: rem-calc(30);
 $h3-font-size: rem-calc(24);
 $h4-font-size: rem-calc(20);
 $h5-font-size: rem-calc(18);

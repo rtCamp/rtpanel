@@ -8,7 +8,10 @@
  */
 global $rtp_general; ?>
 
+                </div> <!-- End of content-wrapper row -->
+
                 <?php rtp_hook_end_content_wrapper(); ?>
+
             </div><!-- #content-wrapper -->
 
             <?php rtp_hook_after_content_wrapper(); ?>
@@ -46,6 +49,6 @@ global $rtp_general; ?>
         <?php wp_footer(); ?>
 
         <?php rtp_hook_end_body(); ?>
-        <!--<script src="//localhost:35729/livereload.js"></script>-->
+
     </body>
 </html>
