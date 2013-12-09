@@ -187,6 +187,15 @@ function rtp_is_bbPress() {
 }
 
 /**
+ * Check if BuddyPress Exists and if on a BuddyPress Page
+ *
+ * @since rtPanel 4.0
+ */
+function rtp_is_buddypress() {
+    return ( function_exists('bp_current_component') && bp_current_component() );
+}
+
+/**
  * Sanitizes options having urls in serilized data.
  *
  * @since rtPanel 2.1

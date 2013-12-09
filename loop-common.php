@@ -34,7 +34,7 @@ if ( have_posts() ) {
         <article id="post-<?php if ( !rtp_is_bbPress() ) { the_ID(); } else { echo 'forum-index'; } ?>" <?php post_class( 'clearfix rtp-post-box' ); ?>>
             <?php rtp_hook_begin_post(); ?>
 
-            <header class="post-header">
+            <header class="post-header <?php echo rtp_is_buddypress() ? 'clearfix' : ''; ?>">
                 <?php rtp_hook_begin_post_title(); ?>
 
                 <?php   if ( is_singular() ) { ?>

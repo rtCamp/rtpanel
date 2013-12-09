@@ -2,6 +2,7 @@
 
 @import "plugins/_bbpress";
 @import "plugins/_breadcrumb";
+@import "plugins/_buddypress";
 @import "plugins/_google_custom_search";
 @import "plugins/_pagenavi";
 @import "plugins/_woocommerce";
@@ -22,6 +23,11 @@
 // bbPress
 @if $load-bbpress-styles {
     @include rtp-bbpress-style();
+}
+
+// BuddyPress
+@if $load-buddypress-styles {
+    @include rtp-buddypress-style();
 }
 
 // Google Custom Search

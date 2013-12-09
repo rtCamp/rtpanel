@@ -32,3 +32,11 @@
     padding: $panel-padding;
     background: $panel-bg;
 }
+
+// ********* Buttons********* //
+
+// Tiny Button
+@mixin rtp-button-tiny() {
+    font-size: rem-calc(11);
+    padding: rem-calc(6) rem-calc(20) rem-calc(8);
+}
