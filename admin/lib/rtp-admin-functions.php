@@ -808,7 +808,7 @@ function rtp_default_admin_sidebar() {
         <div title="<?php _e( 'Click to toggle', 'rtPanel' ); ?>" class="handlediv"><br /></div>
         <h3 class="hndle"><span><?php _e( 'Promote, Donate, Share', 'rtPanel' ); ?>...</span></h3>
         <div class="inside">
-            <p><?php _e( 'Buy coffee/beer for team behind <a href="http://rtcamp.com/rtpanel/" title="rtPanel">rtPanel</a>.', 'rtPanel' ); ?></p>
+            <p><?php printf( __( 'Buy coffee/beer for team behind <a href="%s" title="rtPanel">rtPanel</a>.', 'rtPanel' ), 'http://rtcamp.com/rtpanel/' ); ?></p>
             <div class="rt-paypal" style="text-align:center">
                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
                     <input type="hidden" name="cmd" value="_donations" />
@@ -818,7 +818,7 @@ function rtp_default_admin_sidebar() {
                     <input type="hidden" name="no_note" value="0" />
                     <input type="hidden" name="currency_code" value="USD" />
                     <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest" />
-                    <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!" />
+                    <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" name="submit" alt="<?php _e( 'PayPal - The safer, easier way to pay online!', 'rtPanel' ); ?>" />
                     <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
                 </form>
             </div>
@@ -837,7 +837,7 @@ function rtp_default_admin_sidebar() {
     <div class="postbox" id="support">
         <div title="<?php _e( 'Click to toggle', 'rtPanel' ); ?>" class="handlediv"><br /></div>
         <h3 class="hndle"><span><?php _e( 'Free Support', 'rtPanel' ); ?></span></h3>
-        <div class="inside"><p><?php _e( ' If you are facing any problems while using rtPanel, or have good ideas for improvements, please discuss the same in our <a href="http://rtcamp.com/support/forum/rtpanel/" target="_blank" title="Click here for rtPanel Free Support">Support forums</a>', 'rtPanel' ); ?>.</p></div>
+        <div class="inside"><p><?php printf( __( 'If you are facing any problems while using rtPanel, or have good ideas for improvements, please discuss the same in our <a href="%s" target="_blank" title="Click here for rtPanel Free Support">Support forums</a>', 'rtPanel' ), 'http://rtcamp.com/support/forum/rtpanel/' ); ?>.</p></div>
     </div>
 
     <div class="postbox" id="latest_news">
