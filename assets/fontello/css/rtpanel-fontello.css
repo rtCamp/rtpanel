@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'rtpanel-fontello';
-  src: url('../font/rtpanel-fontello.eot?57978012');
-  src: url('../font/rtpanel-fontello.eot?57978012#iefix') format('embedded-opentype'),
-       url('../font/rtpanel-fontello.woff?57978012') format('woff'),
-       url('../font/rtpanel-fontello.ttf?57978012') format('truetype'),
-       url('../font/rtpanel-fontello.svg?57978012#rtpanel-fontello') format('svg');
+  src: url('../font/rtpanel-fontello.eot?46527615');
+  src: url('../font/rtpanel-fontello.eot?46527615#iefix') format('embedded-opentype'),
+       url('../font/rtpanel-fontello.woff?46527615') format('woff'),
+       url('../font/rtpanel-fontello.ttf?46527615') format('truetype'),
+       url('../font/rtpanel-fontello.svg?46527615#rtpanel-fontello') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -14,7 +14,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'rtpanel-fontello';
-    src: url('../font/rtpanel-fontello.svg?57978012#rtpanel-fontello') format('svg');
+    src: url('../font/rtpanel-fontello.svg?46527615#rtpanel-fontello') format('svg');
   }
 }
 */
@@ -50,10 +50,13 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
  
-.rtp-icon-spin5:before { content: '\e805'; } /* '' */
-.rtp-icon-search:before { content: '\e806'; } /* '' */
-.rtp-icon-comment:before { content: '\e800'; } /* '' */
-.rtp-icon-facebook:before { content: '\e801'; } /* '' */
-.rtp-icon-linkedin:before { content: '\e803'; } /* '' */
-.rtp-icon-pinterest-circled:before { content: '\e804'; } /* '' */
-.rtp-icon-twitter:before { content: '\e802'; } /* '' */
+.rtp-icon-spin5:before { content: '\e801'; } /* '' */
+.rtp-icon-search:before { content: '\e802'; } /* '' */
+.rtp-icon-thumbs-up:before { content: '\e808'; } /* '' */
+.rtp-icon-comment:before { content: '\e803'; } /* '' */
+.rtp-icon-rss:before { content: '\e807'; } /* '' */
+.rtp-icon-facebook:before { content: '\e800'; } /* '' */
+.rtp-icon-linkedin:before { content: '\e804'; } /* '' */
+.rtp-icon-pinterest-circled:before { content: '\e806'; } /* '' */
+.rtp-icon-twitter:before { content: '\e805'; } /* '' */
+.rtp-icon-facebook-rect:before { content: '\e809'; } /* '' */
