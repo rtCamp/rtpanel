@@ -1,0 +1,53 @@
+// ***** Common BuddyPress Style ***** //
+@mixin rtp-buddypress-style() {
+    .buddypress {
+        .post-header { margin-bottom: 0; }
+        #messages_search_submit { margin-left: -5px; }
+
+        .standard-form textarea,
+        .standard-form input[type="text"],
+        .standard-form select,
+        .standard-form input[type="password"],
+        .dir-search input[type="text"] { width: auto; }
+
+        .hentry { padding-top: 0.75rem; }
+        #buddypress {
+            div.dir-search { margin: -43px 0 10px; }
+            label { display: inline-block; margin: 0; }
+            input[type="button"], button, .button, input[type="submit"] { 
+                @include rtp-button-tiny();
+                background-color: $link-color; color: #fff;
+                &:hover, &:focus { background-color: #3D61A1; color: #fff; }
+                margin-bottom: 0;
+            }
+            form#whats-new-form { padding: 10px 0 0 !important; }
+            #whats-new-post-in { margin-top: 0 !important; }
+            #whats-new-options { margin-top: 12px; }
+            input, select { display: inline-block; margin-bottom: 0; height: rem-calc(37); }
+            select { padding: 5px; width: auto; height: auto; }
+            .item-list-tabs { background-color: #DDDDDD; padding: 10px 15px 0; //Self
+                li {
+                    a { backgournd: none transparent;
+                        span { line-height: 1.8; }
+                    }
+                    &.current a, &.selected a { border-radius: 3px 3px 0 0; opacity: 1; background: none #fff; }
+                }
+            }
+            #subnav { padding: 0 0 10px; border-bottom: 1px solid #DDDDDD; }
+            form#whats-new-form textarea { width: 100%; margin: 0; }
+            form#whats-new-form #whats-new-submit { margin: 0; }
+            #activity-stream p { font-size: 1rem; line-height: 1.5; margin: 0; }
+            table {
+                &.profile-fields td, &.profile-fields th { padding: 0 8px; }
+                td.thread-options { padding: 0; width: 14%; }
+                p { font-size: 0.875rem; }
+            }
+            .thread-options .button { margin-bottom: 0; }
+            .label { color: $body-font-color; }
+            ul.button-nav { margin: 15px 0 0; }
+            .messages-notices tr td:last-child { width: 18%; }
+        }
+        #search-members-form label { float: left; }
+        .clear { clear: both; }
+    }
+}

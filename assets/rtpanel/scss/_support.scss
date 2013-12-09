@@ -2,11 +2,13 @@
 
 @import "plugins/_bbpress";
 @import "plugins/_breadcrumb";
+@import "plugins/_buddypress";
 @import "plugins/_google_custom_search";
 @import "plugins/_pagenavi";
 @import "plugins/_woocommerce";
 @import "plugins/_gravity_form_support";
 @import "plugins/_ninja_forms";
+@import "plugins/_rtMedia";
 
 /* Include Support CSS */
 // Breadcrumb
@@ -22,6 +24,11 @@
 // bbPress
 @if $load-bbpress-styles {
     @include rtp-bbpress-style();
+}
+
+// BuddyPress
+@if $load-buddypress-styles {
+    @include rtp-buddypress-style();
 }
 
 // Google Custom Search
@@ -42,4 +49,9 @@
 // Ninja Forms
 @if $load-ninja-forms-styles {
     @include rtp-ninja-forms-style();
+}
+
+// rtMedia
+@if $load-rtmedia-styles {
+    @include rtp-rtmedia-style();
 }

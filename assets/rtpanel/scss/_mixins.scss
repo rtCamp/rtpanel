@@ -33,9 +33,6 @@
     background: $panel-bg;
 }
 
-
-
-
 // Messages
 @mixin rtp-message( $color: $color-info, $lighten: 42, $border: true ) {
     background-color: lighten( $color, $lighten );
@@ -68,4 +65,9 @@
 // Error
 @mixin rtp-error() {
     @include rtp-message( $color-error, 40 );
+}
+
+// Tiny Button
+@mixin rtp-button-tiny() {
+    @include button-size($padding:$button-tny);
 }
