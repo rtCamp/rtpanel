@@ -27,6 +27,25 @@ get_header();
                 <div class="row">
                     <div class="large-12 columns">
 
+                      <h4>rtPanel: Fontello Fonts</h4>
+                      <div class="row">
+                        <div class="small-6 large-6 columns">
+                          <div class="the-icons span3"><i class="rtp-icon-spin5 animate-spin"></i> <span class="i-name">rtp-icon-spin5</span></div>
+                          <div class="the-icons span3"><i class="rtp-icon-search"></i> <span class="i-name">rtp-icon-search</span></div>
+                          <div class="the-icons span3"><i class="rtp-icon-comment"></i> <span class="i-name">rtp-icon-comment</span></div>
+                          <div class="the-icons span3"><i class="rtp-icon-facebook"></i> <span class="i-name">rtp-icon-facebook</span></div>
+                          <div class="the-icons span3"><i class="rtp-icon-linkedin"></i> <span class="i-name">rtp-icon-linkedin</span></div>
+                        </div>
+                          <div class="small-6 large-6 columns">
+                            <div class="the-icons span3"><i class="rtp-icon-twitter"></i> <span class="i-name">rtp-icon-twitter</span></div>
+                            <div class="the-icons span3"><i class="rtp-icon-rss"></i> <span class="i-name">rtp-icon-rss</span></div>
+                            <div class="the-icons span3"><i class="rtp-icon-thumbs-up"></i> <span class="i-name">rtp-icon-thumbs-up</span></div>
+                            <div class="the-icons span3"><i class="rtp-icon-facebook-rect"></i> <span class="i-name">rtp-icon-facebook-rect</span></div>
+                            <div class="the-icons span3"><i class="rtp-icon-pinterest-circled"></i> <span class="i-name">rtp-icon-pinterest-circled</span></div>
+                          </div>
+                      </div>
+                      <hr>
+                      
                       <h4>Alert Boxes</h4>
 
                       <div data-alert class="alert-box radius">
