@@ -517,7 +517,7 @@ function rtp_orbit_slider ( WP_Query $slider_q = null, $slide_number = 100, $con
 
 function rtp_call_slider () {
     if ( is_home () ) {
-        $slider_q = new WP_Query ( array( "post_parent" => 1722, "post_status" => "inherit", "post_type" => "any", 'post_mime_type' => 'image' ) );
+        $slider_q = new WP_Query ( array( "post_type" => "any", 'post_mime_type' => 'image' ) );
         rtp_orbit_slider ( $slider_q );
     }
 }
