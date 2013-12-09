@@ -117,7 +117,7 @@ function rtp_default_scripts() {
 
     /* Fontello icons */
     wp_enqueue_style( 'rtp-icon-fonts-animation', RTP_ASSETS_URL . '/fontello/css/animation.css', '', NULL );
-    wp_enqueue_style( 'rtp-icon-fonts', RTP_ASSETS_URL . '/fontello/css/fontello.css', '', NULL );
+    wp_enqueue_style( 'rtp-icon-fonts', RTP_ASSETS_URL . '/fontello/css/rtpanel-fontello.css', '', NULL );
 
     // Nested Comment Support
     ( is_singular() && get_option( 'thread_comments' ) ) ? wp_enqueue_script('comment-reply') : '';
