@@ -1587,15 +1587,15 @@ html, body { overflow-x: hidden; }
 .rtp-error, .rtp-info, .rtp-notice, .rtp-success, .rtp-warning { border: 1px solid; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; display: block; margin-bottom: 1.25rem; padding: 3.125rem 0.625rem; line-height: 1.75; }
 .rtp-error p:last-child, .rtp-info p:last-child, .rtp-notice p:last-child, .rtp-success p:last-child, .rtp-warning p:last-child { margin: 0; }
 
-.rtp-notice { background-color: #F9F9F9; border-color: #EEEEEE; color: #666666; }
+.rtp-notice { background-color: #f9f9f9; border-color: #eeeeee; color: #666666; }
 
-.rtp-info { background-color: #E0F2FB; border-color: #D9EDF7; color: #006999; }
+.rtp-info { background-color: #e0f2fb; border-color: #d9edf7; color: #006999; }
 
-.rtp-success { background-color: #DFF0D8; border-color: #D6E9C6; color: #468847; }
+.rtp-success { background-color: #dff0d8; border-color: #d6e9c6; color: #468847; }
 
-.rtp-warning { background-color: #FCF8E3; border-color: #FBEED5; color: #C09853; }
+.rtp-warning { background-color: #fcf8e3; border-color: #fbeed5; color: #c09853; }
 
-.rtp-error { background-color: #F2DEDE; border-color: #EED3D7; color: #B94A48; }
+.rtp-error { background-color: #f2dede; border-color: #eed3d7; color: #b94a48; }
 
 .rtp-inline-block { display: inline-block; }
 
@@ -1742,6 +1742,8 @@ table tr.even, table tr.alt, table tr:nth-of-type(2n) { background: none transpa
 
 .rtp-post-comment-count { margin: 0.7em 0 0; text-align: right; }
 .rtp-post-comment-count:before { color: #CCC; font-size: 0.875rem; margin: 0 0.3125rem; }
+
+.rtp-edit-link a { -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; border: 1px solid; background-color: #e0f2fb; border-color: #d9edf7; color: #006999; display: inline-block; line-height: 1; padding: 0.1875rem 0.375rem; }
 
 /* Curly Brackets Style */
 /* Post Comment */

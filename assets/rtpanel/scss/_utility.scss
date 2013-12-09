@@ -34,11 +34,11 @@ html, body {
     p:last-child { margin: 0; }
 }
 
-.rtp-notice { background-color: #F9F9F9; border-color: #EEEEEE; color: #666666; }
-.rtp-info { background-color: #E0F2FB; border-color: #D9EDF7; color: #006999; }
-.rtp-success { background-color: #DFF0D8; border-color: #D6E9C6; color: #468847; }
-.rtp-warning { background-color: #FCF8E3; border-color: #FBEED5; color: #C09853; }
-.rtp-error { background-color: #F2DEDE; border-color: #EED3D7; color: #B94A48; }
+.rtp-notice { @include rtp-notice(); }
+.rtp-info { @include rtp-info(); }
+.rtp-success { @include rtp-success(); }
+.rtp-warning { @include rtp-warning(); }
+.rtp-error { @include rtp-error(); }
 
 // inline-block
 .rtp-inline-block { display: inline-block; }

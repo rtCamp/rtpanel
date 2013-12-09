@@ -54,7 +54,6 @@ table tr.even, table tr.alt, table tr:nth-of-type(2n) { background: none transpa
 }
 
 .rtp-post-comment-count { margin: 0.7em 0 0; text-align: right;
-
     @if $rtp-icon-font {
         &:before { color: #CCC; font-size: rem-calc(14); margin: rem-calc(0 5); }    
     }
@@ -62,7 +61,7 @@ table tr.even, table tr.alt, table tr:nth-of-type(2n) { background: none transpa
 
 // Edit Link
 .rtp-edit-link {
-    a {  }
+    a { @include border-radius(3px); border: 1px solid; @include rtp-info(); display: inline-block; line-height: 1; padding: rem-calc(3 6); }
 }
 
 /* Curly Brackets Style */

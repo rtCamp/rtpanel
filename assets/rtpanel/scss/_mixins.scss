@@ -33,10 +33,35 @@
     background: $panel-bg;
 }
 
-// ********* Buttons********* //
 
-// Tiny Button
-@mixin rtp-button-tiny() {
-    font-size: rem-calc(11);
-    padding: rem-calc(6) rem-calc(20) rem-calc(8);
+
+
+// Messages
+@mixin rtp-message( $background-color: #F9F9F9, $border-color: #EEEEEE, $color: #666666 ) {
+    background-color: $background-color; border-color: $border-color; color: $color;
+}
+
+// Notice
+@mixin rtp-notice() {
+   @include rtp-message();
+}
+
+// Info
+@mixin rtp-info() {
+    @include rtp-message($background-color: #E0F2FB, $border-color: #D9EDF7, $color: #006999);
+}
+
+// Success
+@mixin rtp-success() {
+    @include rtp-message($background-color: #DFF0D8, $border-color: #D6E9C6, $color: #468847);
+}
+
+// Warning
+@mixin rtp-warning() {
+    @include rtp-message($background-color: #FCF8E3, $border-color: #FBEED5, $color: #C09853);
+}
+
+// Error
+@mixin rtp-error() {
+    @include rtp-message($background-color: #F2DEDE, $border-color: #EED3D7, $color: #B94A48);
 }
