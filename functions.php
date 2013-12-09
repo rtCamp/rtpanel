@@ -7,7 +7,7 @@
  * @since rtPanel 2.0
  */
 
-define( 'RTP_VERSION', '3.0' );
+define( 'RTP_VERSION', '4.0' );
 
 /* Define Directory Constants */
 define( 'RTP_ADMIN', get_template_directory() . '/admin' );
@@ -20,7 +20,7 @@ define( 'RTP_TEMPLATE_URL', get_template_directory_uri() );
 define( 'RTP_CSS_FOLDER_URL', get_template_directory_uri() . '/css' );
 define( 'RTP_JS_FOLDER_URL', get_template_directory_uri() . '/js' );
 define( 'RTP_IMG_FOLDER_URL', get_template_directory_uri() . '/img' );
-define( 'RTP_ASSETS_URL', get_template_directory_uri() . '/assets/' );
+define( 'RTP_ASSETS_URL', get_template_directory_uri() . '/assets' );
 define( 'RTP_BOWER_COMPONENTS_URL', get_template_directory_uri() . '/assets/foundation/bower_components' );
 
 $rtp_general = get_option( 'rtp_general' ); // rtPanel General Options

@@ -189,19 +189,10 @@ $link-hover-color: #cd5a1b;
 /* Getting Social is Good widget */
 #social {
     .inside {
-        a { background: url('../../img/rtp-social-icons-32-32.png') no-repeat; display:inline-block; height: 35px; margin: 0 0 0 9px; padding: 0; text-indent: -9999px; text-transform: uppercase; width: 35px;
-            &:hover{ background-position: 0 -44px; }
-        }
-
-        // Twitter
-        .rtpanel-twitter { background-position: -44px 0;
-            &:hover{ background-position: -44px -44px; }
-        }
-
-        // RSS
-        .rtpanel-rss { background-position: -88px 0;
-            &:hover { background-position: -88px -44px; }
-        }
+        a { background-color: #666;color: #FFF;display: inline-block;height: 30px;font-size: 1.25rem;line-height: 30px;margin: 10px 5px 0 0;overflow: hidden;padding: 0;text-align: center;text-decoration: none;width: 30px;-webkit-border-radius: 1000px;-moz-border-radius: 1000px;border-radius: 1000px; }
+        .rtp-icon-rss:hover { background-color: #FAA33D; }
+        .rtp-icon-facebook:hover { background-color: #537BBD; }
+        .rtp-icon-twitter:hover { background-color: #40BFF5; }
     }
 }
 
@@ -297,3 +288,5 @@ textarea[disabled] { background-color: Silver; }
     .rt-twitter { float: left; margin-right: 5px; }
     .rt-facebook { float: left; margin-left: 5px; position: relative; }
 }
+.js .metabox-holder .postbox .handlediv:before { content: '\f142';font: 400 20px/1 dashicons;right: 12px;display: inline-block;padding: 8px 0 0 10px;top: 0;position: relative; }
+.js .metabox-holder .postbox.closed .handlediv:before { content: '\f140'; }

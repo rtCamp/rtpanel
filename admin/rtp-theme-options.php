@@ -87,6 +87,8 @@ class rtp_theme {
     function rtp_admin_page_styles() {
         wp_enqueue_style( 'rtp-admin-styles', RTP_TEMPLATE_URL . '/admin/css/rtp-admin.css' );
         wp_enqueue_style( 'thickbox'); //thickbox for logo and favicon upload option
+        wp_enqueue_style( 'rtp-icon-fonts-animation', RTP_ASSETS_URL . '/fontello/css/animation.css', '', NULL );
+        wp_enqueue_style( 'rtp-icon-fonts', RTP_ASSETS_URL . '/fontello/css/rtpanel-fontello.css', '', NULL );
     }
  
     /**
