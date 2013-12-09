@@ -33,9 +33,6 @@
     background: $panel-bg;
 }
 
-
-
-
 // Messages
 @mixin rtp-message( $background-color: #F9F9F9, $border-color: #EEEEEE, $color: #666666 ) {
     background-color: $background-color; border-color: $border-color; color: $color;
@@ -64,4 +61,9 @@
 // Error
 @mixin rtp-error() {
     @include rtp-message($background-color: #F2DEDE, $border-color: #EED3D7, $color: #B94A48);
+}
+
+// Tiny Button
+@mixin rtp-button-tiny() {
+    @include button-size($padding:$button-tny);
 }

@@ -18,8 +18,8 @@
             #whats-new-options { margin-top: 12px; }
             input, select { display: inline-block; margin-bottom: 0; height: rem-calc(37); }
             select { padding: 5px; width: auto; height: auto; }
-            .item-list-tabs { background-color: #DDDDDD; padding: 10px 10px 0; //Self
-                li { margin: 0 5px;
+            .item-list-tabs { background-color: #DDDDDD; padding: 10px 15px 0; //Self
+                li {
                     a { backgournd: none transparent;
                         span { line-height: 1.8; }
                     }

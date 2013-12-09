@@ -1,7 +1,7 @@
 // ***** Common bbPress Style ***** //
 @mixin rtp-bbpress-style() {
-    .bbPress {
-        // Children    
+    .bbpress {
+        // Children
         .hentry { border: 0; }
         .bbp-forum-freshness > a { font-size: 13px; }
 
@@ -28,6 +28,16 @@
             // Forum Inputs
             fieldset.bbp-form input[type=radio],
             fieldset.bbp-form input[type=checkbox] { margin: 0 2px 4px; }
+
+            .subscription-toggle { float: right; font-size: rem-calc(16); }
+            .bbp-header .subscription-toggle { font-size: rem-calc(12); }
+            textarea.wp-editor-area { border: 1px solid #CCCCCC; }
+            .bbp-author-avatar img.avatar { border: 0 none; margin: 0 3px; }
+            p.bbp-topic-meta img.avatar, ul.bbp-reply-revision-log img.avatar, ul.bbp-topic-revision-log img.avatar, div.bbp-template-notice img.avatar, .widget_display_topics img.avatar, .widget_display_replies img.avatar { border: 0 none; float: none; margin: 0 3px; }
+
+            button, .button {
+                @include rtp-button-tiny();
+            }
         }
     }
 
