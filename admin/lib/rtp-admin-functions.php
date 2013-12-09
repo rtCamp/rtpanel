@@ -585,7 +585,7 @@ function rtp_theme_setup_values() {
         'notices' => isset($rtp_post_comments['notices']) ? $rtp_post_comments['notices'] : 0,
         'summary_show' => '1',
         'word_limit' => 55,
-        'read_text' => __( 'Read More&hellip;', 'rtPanel' ),
+        'read_text' => __('Read More &rarr;', 'rtPanel'),
         'thumbnail_show' => '1',
         'thumbnail_position' => 'Right',
         'thumbnail_width' => get_option( 'thumbnail_size_w' ),

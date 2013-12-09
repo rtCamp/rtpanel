@@ -486,7 +486,7 @@ function rtp_post_summaries_metabox() {
                 </td>
             </tr>
             <tr valign="top">
-                <th scope="row"><label for="read_text"><?php _e( 'Read More Text', 'rtPanel' ); ?></label></th>
+                <th scope="row"><label for="read_text"><?php _e( 'Read More &rarr;', 'rtPanel' ); ?></label></th>
                 <td>
                     <input type="text" value="<?php echo esc_attr( $rtp_post_comments['read_text'] ); ?>" size="30" name="rtp_post_comments[read_text]" id="read_text" />
                     <span class="description"><label for="read_text"><?php _e( 'This will be added after each post summary. Text added here will be automatically converted into a hyperlink pointing to the respective post.', 'rtPanel' ); ?></label></span>
