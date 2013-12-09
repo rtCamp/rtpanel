@@ -195,7 +195,7 @@ add_action ( 'rtp_hook_end_header', 'rtp_header_separator_border' ); // Adds def
  */
 function rtp_edit_link () {
     // Call Edit Link
-    edit_post_link ( __ ( 'edit', 'rtPanel' ), '<span class="rtp-edit-link">', '&nbsp;</span>' );
+    edit_post_link ( __ ( 'Edit', 'rtPanel' ), '<span class="rtp-edit-link">', '&nbsp;</span>' );
 }
 
 add_action ( 'rtp_hook_begin_post_meta_top', 'rtp_edit_link' );

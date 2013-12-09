@@ -61,7 +61,7 @@ table tr.even, table tr.alt, table tr:nth-of-type(2n) { background: none transpa
 
 // Edit Link
 .rtp-edit-link {
-    a { @include border-radius(3px); border: 1px solid; @include rtp-info(); display: inline-block; line-height: 1; padding: rem-calc(3 6); }
+    a { @include rtp-message($border: false); border: 1px solid lighten($color-info, 34); @include border-radius(3px); color: $color-info; display: inline-block; line-height: 1; padding: rem-calc(4 8); }
 }
 
 /* Curly Brackets Style */
