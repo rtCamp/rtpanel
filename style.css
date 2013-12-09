@@ -1949,14 +1949,13 @@ img.right, img.alignright { margin-left: 1.25rem; margin-right: 0; }
 .bbpress #bbpress-forums fieldset.bbp-form input[type=radio], .bbpress #bbpress-forums fieldset.bbp-form input[type=checkbox] { margin: 0 2px 4px; }
 .bbpress #bbpress-forums .subscription-toggle { float: right; font-size: 1rem; }
 .bbpress #bbpress-forums .bbp-header .subscription-toggle { font-size: 0.75rem; }
-.bbpress #bbpress-forums textarea.wp-editor-area { border: 1px solid #CCCCCC; }
+.bbpress #bbpress-forums textarea.wp-editor-area { border: 1px solid #CCCCCC; height: auto; }
 .bbpress #bbpress-forums .bbp-author-avatar img.avatar { border: 0 none; margin: 0 3px; }
 .bbpress #bbpress-forums p.bbp-topic-meta img.avatar, .bbpress #bbpress-forums ul.bbp-reply-revision-log img.avatar, .bbpress #bbpress-forums ul.bbp-topic-revision-log img.avatar, .bbpress #bbpress-forums div.bbp-template-notice img.avatar, .bbpress #bbpress-forums .widget_display_topics img.avatar, .bbpress #bbpress-forums .widget_display_replies img.avatar { border: 0 none; float: none; margin: 0 3px; }
+.bbpress #bbpress-forums #bbp-search-form #bbp_search { float: left; }
 .bbpress #bbpress-forums button, .bbpress #bbpress-forums .button { padding-top: 0.625rem; padding-right: 1.25rem; padding-bottom: 0.6875rem; padding-left: 1.25rem; font-size: 0.6875rem; /*     @else                            { font-size: $padding - rem-calc(2); } */ }
 
 .bbp_widget_login .logout-link { font-size: 0.75rem; }
-
-#buddypress .standard-form textarea, #buddypress .standard-form input[type="text"], #buddypress .standard-form select, #buddypress .standard-form input[type="password"], #buddypress .dir-search input[type="text"] { width: auto; }
 
 #subnav select { width: auto; }
 
@@ -1966,6 +1965,7 @@ img.right, img.alignright { margin-left: 1.25rem; margin-right: 0; }
 
 .buddypress .post-header { margin-bottom: 0; }
 .buddypress #messages_search_submit { margin-left: -5px; }
+.buddypress .standard-form textarea, .buddypress .standard-form input[type="text"], .buddypress .standard-form select, .buddypress .standard-form input[type="password"], .buddypress .dir-search input[type="text"] { width: auto; }
 .buddypress .hentry { padding-top: 0.75rem; }
 .buddypress #buddypress div.dir-search { margin: -43px 0 10px; }
 .buddypress #buddypress label { display: inline-block; margin: 0; }
@@ -2077,3 +2077,11 @@ table.gfield_list thead, table.gfield_list tfoot, table.gfield_list tr:nth-of-ty
 .ninja-forms-form-wrap .label-left label { width: 29%; }
 
 .ninja-forms-form-wrap .checkbox-wrap label { margin: 0; }
+
+#buddypress { position: relative; }
+#buddypress .mfp-close { color: #333333; font-size: 1.7rem !important; line-height: 0.5; margin-right: 4px; margin-top: 5px; right: 2.5%; border: 0 none; }
+#buddypress .mfp-close:hover, #buddypress .mfp-close:focus { border: 0 none; }
+#buddypress .rtmedia-container .rtmedia-item-actions { clear: left; }
+#buddypress .rtmedia-container .rtmedia-item-actions form { margin-bottom: 5px; }
+#buddypress .rtmedia-container .rtmedia-item-actions .rtmedia-like { padding-left: 0.625rem; padding-right: 0.8125rem; }
+#buddypress .rtmedia-container .rtmedia-item-actions .rtmedia-like span { margin-right: 6px; }

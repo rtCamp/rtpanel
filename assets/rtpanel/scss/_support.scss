@@ -8,6 +8,7 @@
 @import "plugins/_woocommerce";
 @import "plugins/_gravity_form_support";
 @import "plugins/_ninja_forms";
+@import "plugins/_rtMedia";
 
 /* Include Support CSS */
 // Breadcrumb
@@ -48,4 +49,9 @@
 // Ninja Forms
 @if $load-ninja-forms-styles {
     @include rtp-ninja-forms-style();
+}
+
+// rtMedia
+@if $load-rtmedia-styles {
+    @include rtp-rtmedia-style();
 }

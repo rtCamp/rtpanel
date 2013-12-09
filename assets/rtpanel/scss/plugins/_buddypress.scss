@@ -3,6 +3,13 @@
     .buddypress {
         .post-header { margin-bottom: 0; }
         #messages_search_submit { margin-left: -5px; }
+
+        .standard-form textarea,
+        .standard-form input[type="text"],
+        .standard-form select,
+        .standard-form input[type="password"],
+        .dir-search input[type="text"] { width: auto; }
+
         .hentry { padding-top: 0.75rem; }
         #buddypress {
             div.dir-search { margin: -43px 0 10px; }

@@ -1,4 +1,22 @@
 // ***** Common rtMedia Style ***** //
 @mixin rtp-rtmedia-style() {
-    
+    #buddypress { position: relative;
+        .mfp-close {
+            color: #333333;
+            font-size: 1.7rem !important;
+            line-height: 0.5;
+            margin-right: 4px;
+            margin-top: 5px;
+            right: 2.5%;
+            border: 0 none;
+            &:hover, &:focus { border: 0 none; }
+        }
+        .rtmedia-container {
+            .rtmedia-item-actions { clear: left;
+                form { margin-bottom: 5px; }
+                .rtmedia-like { padding-left: rem-calc(10); padding-right: rem-calc(13); }
+                .rtmedia-like span { margin-right: 6px; }
+            }
+        }
+    }
 }
