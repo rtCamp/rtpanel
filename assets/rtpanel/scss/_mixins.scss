@@ -66,3 +66,8 @@
 @mixin rtp-error() {
     @include rtp-message( $color-error, 40 );
 }
+
+// Tiny Button
+@mixin rtp-button-tiny() {
+    @include button-size($padding:$button-tny);
+}
