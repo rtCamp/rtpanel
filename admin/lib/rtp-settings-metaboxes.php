@@ -47,10 +47,12 @@ function rtp_logo_option_metabox() {
                     <th scope="row"><label for="logo_use"><?php _e( 'For Logo', 'rtPanel' ); ?></label></th>
                     <td colspan="3">
                         <div class="alignleft">
-                        <p style="margin-bottom: 10px;"><input type="radio" name="rtp_general[logo_use]" value="site_title" id="use_site_title" class="rtp_logo" <?php checked( 'site_title', $rtp_general['logo_use'] ); ?> />
-                        <label for="use_site_title" style="margin-right: 30px;"><?php _e( 'Use Site Title', 'rtPanel' ); ?></label>
-                        <input type="radio" name="rtp_general[logo_use]" value="image" id="use_logo_image" class="rtp_logo" <?php checked( 'image', $rtp_general['logo_use'] ); ?> />
-                        <label for="use_logo_image"><?php _e( 'Upload Logo', 'rtPanel' ); ?></label></p>
+                        <p style="margin-bottom: 10px;">
+                            <input type="radio" name="rtp_general[logo_use]" value="site_title" id="use_site_title" class="rtp_logo" <?php checked( 'site_title', $rtp_general['logo_use'] ); ?> />
+                            <label for="use_site_title" style="margin-right: 30px;"><?php _e( 'Use Site Title', 'rtPanel' ); ?></label>
+                            <input type="radio" name="rtp_general[logo_use]" value="image" id="use_logo_image" class="rtp_logo" <?php checked( 'image', $rtp_general['logo_use'] ); ?> />
+                            <label for="use_logo_image"><?php _e( 'Upload Logo', 'rtPanel' ); ?></label>
+                        </p>
                         <input type="file" name="html-upload-logo" id="html-upload-logo"<?php echo $logo_style; ?>>
                         <input type="hidden"  name="rtp_general[logo_upload]" id="logo_upload_url" value="<?php if( isset( $rtp_general['logo_upload'] ) ) echo $rtp_general['logo_upload']; ?>" />
                         <input type="hidden"  name="rtp_general[logo_id]" id="logo_id" value="<?php if( isset( $rtp_general['logo_id'] ) ) echo $rtp_general['logo_id']; ?>" />
@@ -774,7 +776,7 @@ function rtp_pagination_metabox() {
 }
 
 /**
- * Comment Form Settings Metabox - Post & Comments Tab
+ * Comment Settings Metabox - Post & Comments Tab
  *
  * @uses $rtp_post_comments array
  *
@@ -784,6 +786,13 @@ function rtp_comment_form_metabox() {
     global $rtp_post_comments; ?>
     <table class="form-table">
         <tbody>
+            <tr valign="top">
+                <th scope="row"><p><label for="gravatar_show"><?php _e( 'Enable Gravatar', 'rtPanel' ); ?></label></p></th>
+                <td>
+                    <input type="hidden" name="rtp_post_comments[gravatar_show]" value="0" />
+                    <input type="checkbox" name="rtp_post_comments[gravatar_show]" value="1" id="gravatar_show" <?php checked( $rtp_post_comments['gravatar_show'] ); ?> />
+                </td>
+            </tr>
             <tr valign="top">
                 <th scope="row"><p><label for="compact_form"><?php _e( 'Enable Compact Form', 'rtPanel' ); ?></label></p></th>
                 <td>
@@ -816,47 +825,7 @@ function rtp_comment_form_metabox() {
     </table>
     <div class="rtp_submit">
         <?php submit_button('Save All Changes', 'primary', 'rtp_submit', false ); ?>
-        <?php submit_button('Reset Comment Form Settings', 'secondary', 'rtp_comment_reset', false ); ?>
-        <div class="clear"></div>
-    </div><?php
-}
-
-/**
- * Gravatar Settings Metabox - Post & Comments Tab
- *
- * @uses $rtp_post_comments array
- *
- * @since rtPanel 2.0
- */
-function rtp_gravatar_metabox() {
-    global $rtp_post_comments; ?>
-    <table class="form-table">
-        <tbody>
-            <tr valign="top">
-                <th scope="row"><p><label for="gravatar_show"><?php _e( 'Enable Gravatar Support', 'rtPanel' ); ?></label></p></th>
-                <td>
-                    <input type="hidden" name="rtp_post_comments[gravatar_show]" value="0" />
-                    <input type="checkbox" name="rtp_post_comments[gravatar_show]" value="1" id="gravatar_show" <?php checked( $rtp_post_comments['gravatar_show'] ); ?> />
-                </td>
-            </tr>
-            <tr valign="top" class="gravatar-size">
-                <th scope="row"><p><label for="gravatar_size"><?php _e( 'Gravatar Size', 'rtPanel' ); ?></label></p></th>
-                <td>
-                    <select name="rtp_post_comments[gravatar_size]" id="gravatar_size">
-                        <option value="32" <?php selected( '32', $rtp_post_comments['gravatar_size'] ); ?>>32px X 32px</option>
-                        <option value="40" <?php selected( '40', $rtp_post_comments['gravatar_size'] ); ?>>40px X 40px</option>
-                        <option value="48" <?php selected( '48', $rtp_post_comments['gravatar_size'] ); ?>>48px X 48px</option>
-                        <option value="56" <?php selected( '56', $rtp_post_comments['gravatar_size'] ); ?>>56px X 56px</option>
-                        <option value="64" <?php selected( '64', $rtp_post_comments['gravatar_size'] ); ?>>64px X 64px</option>
-                        <option value="96" <?php selected( '96', $rtp_post_comments['gravatar_size'] ); ?>>96px X 96px</option>
-                    </select>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <div class="rtp_submit">
-        <?php submit_button('Save All Changes', 'primary', 'rtp_submit', false ); ?>
-        <?php submit_button('Reset Gravatar Settings', 'secondary', 'rtp_gravatar_reset', false ); ?>
+        <?php submit_button('Reset Comment Settings', 'secondary', 'rtp_comment_reset', false ); ?>
         <div class="clear"></div>
     </div><?php
 }

@@ -36,24 +36,11 @@
 }
 
 /* Theme Option Container */
-.rtpanel-admin {
-  overflow: hidden;
-  width: 76%;
-}
+.rtpanel-admin { overflow: hidden;width: 76%;position: relative;max-width: 1050px;font-size: 15px; }
 .rtpanel-admin h2 {
   border-bottom: 1px solid #cccccc;
   padding-bottom: 0;
-}
-.rtpanel-admin .updated p {
-  background-color: #FFFFE0;
-  border: 1px solid #e6db55;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  border-radius: 3px;
-  margin: 0 auto;
-  padding: 7px;
-  width: 95%;
+  padding-left: 6px;
 }
 
 #icon-rtpanel {
@@ -129,33 +116,6 @@ h2 .nav-tab {
 
 .postbox {
   min-width: 175px;
-}
-
-.rtpanel-admin div.updated, .rtpanel-admin div.error {
-  background: transparent;
-  border-bottom: 0;
-  border-left: 1px solid #cccccc;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  border-radius: 0;
-  border-right: 1px solid #cccccc;
-  border-top: 0;
-  display: block;
-  margin: 0;
-  padding: 10px 0;
-  text-align: center;
-}
-.rtpanel-admin div.error p {
-  background: #ffebe8;
-  border: 1px solid #cc0000;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  border-radius: 3px;
-  margin: 0 auto;
-  padding: 7px;
-  width: 95%;
 }
 
 .admin-main-heading h2 {
@@ -269,10 +229,6 @@ h2 .nav-tab {
 }
 .inner-sidebar #side-sortables {
   width: 99.7% !important;
-}
-
-#gravatar_size {
-  width: 120px;
 }
 
 /* Getting Social is Good widget */
@@ -425,5 +381,3 @@ textarea[disabled] {
   margin-left: 5px;
   position: relative;
 }
-.js .metabox-holder .postbox .handlediv:before { content: '\f142';font: 400 20px/1 dashicons;right: 12px;display: inline-block;padding: 8px 0 0 10px;top: 0;position: relative; z-index: 3; }
-.js .metabox-holder .postbox.closed .handlediv:before { content: '\f140'; }

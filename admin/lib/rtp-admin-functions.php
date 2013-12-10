@@ -432,10 +432,6 @@ function rtp_post_comments_validate($input) {
             $input['end_size'] = $rtp_post_comments['end_size'];
             $input['mid_size'] = $rtp_post_comments['mid_size'];
         }
-
-        if (!$input['gravatar_show']) {
-            $input['gravatar_size'] = $rtp_post_comments['gravatar_size'];
-        }
     } elseif (isset($_POST['rtp_summary_reset'])) {
         $options = maybe_unserialize($rtp_post_comments);
         unset($input);
@@ -520,18 +516,8 @@ function rtp_post_comments_validate($input) {
         $input['hide_labels'] = $default[1]['hide_labels'];
         $input['comment_textarea'] = $default[1]['comment_textarea'];
         $input['comment_separate'] = $default[1]['comment_separate'];
-        add_settings_error( 'comment', 'reset_comment', __( 'The Comment Form Settings have been restored to default.', 'rtPanel' ), 'updated' );
-    } elseif (isset($_POST['rtp_gravatar_reset'])) {
-        $options = maybe_unserialize($rtp_post_comments);
-        unset($input);
-
-        foreach ($options as $option => $value)
-            $input[$option] = $value;
-
-        $input['notices'] = $rtp_post_comments['notices'];
         $input['gravatar_show'] = $default[1]['gravatar_show'];
-        $input['gravatar_size'] = $default[1]['gravatar_size'];
-        add_settings_error( 'gravatar', 'reset_gravatar', __( 'The Gravatar Settings have been restored to default.', 'rtPanel' ), 'updated' );
+        add_settings_error( 'comment', 'reset_comment', __( 'The Comment Settings have been restored to default.', 'rtPanel' ), 'updated' );
     } elseif (isset($_POST['rtp_reset'])) {
         $input = $default[1];
         $input['notices'] = $rtp_post_comments['notices'];
@@ -564,7 +550,7 @@ function rtp_theme_setup_values() {
     global $rtp_general, $rtp_post_comments, $rtp_version;
 
     $default_general = array(
-        'logo_use' => 'image',
+        'logo_use' => 'site_title',
         'logo_upload' => RTP_IMG_FOLDER_URL . '/rtp-logo.png',
         'logo_id' => 0,
         'logo_width' => 224,
@@ -619,7 +605,6 @@ function rtp_theme_setup_values() {
         'comment_separate' => '1',
         'attachment_comments' => '0',
         'gravatar_show' => '1',
-        'gravatar_size' => '64',
     );
 
     $args = array( '_builtin' => false);
@@ -939,7 +924,7 @@ function rtp_theme_options_help() {
     $post_comment_help .= '</p><p>';
     $post_comment_help .= __( '<strong>Pagination Settings:</strong> Enable this setting to use default WordPress pagination.', 'rtPanel' );
     $post_comment_help .= '</p><p>';
-    $post_comment_help .= __( '<strong>Comment Form Settings:</strong> You can specify the comment form settings from this option.', 'rtPanel' );
+    $post_comment_help .= __( '<strong>Comment Settings:</strong> You can specify the comment settings from this option.', 'rtPanel' );
     $post_comment_help .= '</p><p>';
     $post_comment_help .= __( '<strong>Gravtar Settings:</strong> Specify the general Gravtar support from this option.', 'rtPanel' );
     $post_comment_help .= '</p>';
