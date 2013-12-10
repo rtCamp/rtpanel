@@ -2,7 +2,6 @@
 @mixin rtp-buddypress-style() {
     .buddypress {
         .post-header { margin-bottom: 0; }
-        #messages_search_submit { margin-left: -5px; }
 
         .standard-form textarea,
         .standard-form input[type="text"],
@@ -11,19 +10,24 @@
         .dir-search input[type="text"] { width: auto; }
 
         .hentry { padding-top: 0.75rem; }
+        .message-search, .dir-search {
+            label { float: left; }
+        }
+        .rtmedia-item-thumbnail { margin: 0 auto; }
         #buddypress {
             div.dir-search { margin: -43px 0 10px; }
             label { display: inline-block; margin: 0; }
             input[type="button"], button, .button, input[type="submit"] { 
                 @include rtp-button-tiny();
-                background-color: $link-color; color: #fff;
+                background-color: $link-color; color: #fff; border: 0 none;
                 &:hover, &:focus { background-color: #3D61A1; color: #fff; }
                 margin-bottom: 0;
+                &:hover, &:focus { border: 0 none; }
             }
             form#whats-new-form { padding: 10px 0 0 !important; }
             #whats-new-post-in { margin-top: 0 !important; }
             #whats-new-options { margin-top: 12px; }
-            input, select { display: inline-block; margin-bottom: 0; height: rem-calc(37); }
+            input[type="text"], select { display: inline-block; margin-bottom: 0; height: rem-calc(37); }
             select { padding: 5px; width: auto; height: auto; }
             .item-list-tabs { background-color: #DDDDDD; padding: 10px 15px 0; //Self
                 li {
@@ -47,7 +51,6 @@
             ul.button-nav { margin: 15px 0 0; }
             .messages-notices tr td:last-child { width: 18%; }
         }
-        #search-members-form label { float: left; }
         .clear { clear: both; }
     }
 }

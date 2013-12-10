@@ -108,7 +108,7 @@ $image-space: rem-calc(20);
 // ****** Paged Navigation ****** //
 @mixin rtp-paged-navigation() {
     /* Paged Navigation */
-    .rtp-navigation, .rtp-comments-pagination { clear: both; padding-bottom: rem-calc(20); padding-top: rem-calc(20); // Self
+    .rtp-navigation, .rtp-comments-pagination { border-bottom: 1px dotted $border-color; clear: both; margin-bottom: $rtp-base-spacing; padding-bottom: rem-calc(20); padding-top: rem-calc(20); // Self
         // Links
         a { text-decoration: none;
             // Hover
@@ -140,6 +140,6 @@ $image-space: rem-calc(20);
 @mixin rtp-search() {
     // Search
     .rtp-search-form-wrapper {
-        .rtp-search-input { float: left; height: rem-calc(36); width: 75%; }
+        .rtp-search-input { float: left; height: 37px; width: 75%; }
     }
 }

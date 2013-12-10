@@ -17,8 +17,20 @@ body { line-height: $rtp-base-line-height; }
 .rtp-font-size-24 { font-size: rem-calc(24); }
 .rtp-font-size-28 { font-size: rem-calc(28); }
 
+// Headings
+h4,
+h5,
+h6 { font-weight: 700; }
+
+// reset line height
 .rtp-reset-line-height { line-height: 1; }
 
+// keys
 .keystroke, kbd {
     @include box-shadow(0 1px rgba(203,203,203,.75), inset 0 -1px $white);
+}
+
+// Pre
+pre { background: $panel-bg; padding: rem-calc(10); @include radius; margin-bottom: $rtp-base-spacing; white-space: pre; overflow-x: auto; word-wrap: normal;
+    code { background: $panel-bg !important; overflow: auto; }
 }

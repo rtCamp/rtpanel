@@ -87,19 +87,19 @@ function rtp_default_post_meta ( $placement = 'top' ) {
                 if ( $rtp_post_comments[ 'post_author_' . $position ] || $rtp_post_comments[ 'post_date_' . $position ] ) {
                     
                     if ( $rtp_post_comments[ 'post_author_' . $position ] ) {
-                        printf ( __ ( '<span class="">Posted by</span> <span class="author">%s</span>', 'rtPanel' ), ( ! $rtp_post_comments[ 'author_link_' . $position ] ? get_the_author () . ( $rtp_post_comments[ 'author_count_' . $position ] ? '(' . get_the_author_posts () . ')' : '' ) : sprintf ( __ ( '<a class="fn" href="%1$s" title="%2$s">%3$s</a>', 'rtPanel' ), get_author_posts_url ( get_the_author_meta ( 'ID' ), get_the_author_meta ( 'user_nicename' ) ), esc_attr ( sprintf ( __ ( 'Posts by %s', 'rtPanel' ), get_the_author () ) ), get_the_author () ) . ( $rtp_post_comments[ 'author_count_' . $position ] ? '(' . get_the_author_posts () . ')' : '' ) ) );
+                        printf ( __ ( '<span class="">By</span> <span class="author">%s</span>', 'rtPanel' ), ( ! $rtp_post_comments[ 'author_link_' . $position ] ? get_the_author () . ( $rtp_post_comments[ 'author_count_' . $position ] ? '(' . get_the_author_posts () . ')' : '' ) : sprintf ( __ ( '<a class="fn" href="%1$s" title="%2$s">%3$s</a>', 'rtPanel' ), get_author_posts_url ( get_the_author_meta ( 'ID' ), get_the_author_meta ( 'user_nicename' ) ), esc_attr ( sprintf ( __ ( 'Posts by %s', 'rtPanel' ), get_the_author () ) ), get_the_author () ) . ( $rtp_post_comments[ 'author_count_' . $position ] ? '(' . get_the_author_posts () . ')' : '' ) ) );
                     }
                     
                     echo ( $rtp_post_comments[ 'post_author_' . $position ] && $rtp_post_comments[ 'post_date_' . $position ] ) ? ' ' : '';
                     
                     if ( $rtp_post_comments[ 'post_date_' . $position ] ) {
-                        printf ( __ ( 'on <time class="published" datetime="%s">%s</time>', 'rtPanel' ), get_the_date ( 'c' ), get_the_time ( $rtp_post_comments[ 'post_date_format_' . $position ] ) );
+                        printf ( __ ( '<span class="rtp-meta-separator">&middot;</span> <time class="published" datetime="%s">%s</time>', 'rtPanel' ), get_the_date ( 'c' ), get_the_time ( $rtp_post_comments[ 'post_date_format_' . $position ] ) );
                     }
                     
                 }
 
                 // Post Categories
-                echo ( get_the_category_list () && $rtp_post_comments[ 'post_category_' . $position ] ) ? '&nbsp;' . __ ( 'in', 'rtPanel' ) . '&nbsp;' . get_the_category_list ( ', ' ) . '' : '';
+                echo ( get_the_category_list () && $rtp_post_comments[ 'post_category_' . $position ] ) ? ' <span class="rtp-meta-separator">&middot;</span> ' . get_the_category_list ( ', ' ) . '' : '';
 
                 // Post Tags
                 echo ( get_the_tag_list () && $rtp_post_comments[ 'post_tags_' . $position ] ) ? '<span class="post-tags alignleft">' . get_the_tag_list ( __ ( 'Tagged', 'rtPanel' ) . ': <span>', ', ', '</span>' ) . '</span>' : '';
@@ -327,7 +327,7 @@ function rtp_default_comment_count () {
     // Comment Count
     add_filter ( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
     if ( ( ( get_comments_number () || @comments_open () ) && ! is_attachment () && ! rtp_is_bbPress () ) || ( is_attachment () && $rtp_post_comments[ 'attachment_comments' ] ) ) { // If post meta is set to top then only display the comment count. ?>
-        <span class="rtp-post-comment-count rtp-icon-comment"><?php comments_popup_link ( _x ( 'Leave a comment', 'comments number', 'rtPanel' ), _x ( '<span>1</span> Comment', 'comments number', 'rtPanel' ), _x ( '<span>%</span> Comments', 'comments number', 'rtPanel' ), 'rtp-post-comment rtp-common-link' ); ?></span><?php
+        <span class="rtp-post-comment-count"><?php comments_popup_link ( _x ( 'Leave a comment', 'comments number', 'rtPanel' ), _x ( '<span>1</span> Comment', 'comments number', 'rtPanel' ), _x ( '<span>%</span> Comments', 'comments number', 'rtPanel' ), 'rtp-post-comment rtp-common-link' ); ?></span><?php
     }
     remove_filter ( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
 }
