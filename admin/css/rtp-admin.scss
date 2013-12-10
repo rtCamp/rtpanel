@@ -46,14 +46,9 @@ $link-hover-color: #cd5a1b;
 }
 
 /* Theme Option Container */
-.rtpanel-admin { overflow: hidden; width: 76%; // Self
+.rtpanel-admin { overflow: hidden;width: 76%;position: relative;max-width: 1050px;font-size: 15px; // Self
     // Heading
-     h2 { border-bottom: 1px solid $gray; padding-bottom: 0; }
-
-     // Update Theme Notice
-    .updated {
-        p { background-color: #FFFFE0; border: 1px solid #E6DB55; @include border-radius(3px); margin: 0 auto; padding: 7px; width: 95%; }
-    }
+     h2 { border-bottom: 1px solid $gray; padding-bottom: 0; padding-left: 6px; }
 }
 
 // rtPanel Icon
@@ -109,18 +104,6 @@ $link-hover-color: #cd5a1b;
 
 // Postbox
 .postbox { min-width: 175px; }
-
-// rtPanel Admin
-.rtpanel-admin {
-    div {
-        &.updated,
-        &.error { background: transparent; border-bottom: 0; border-left: 1px solid $gray; @include border-radius(0); border-right: 1px solid $gray; border-top: 0; display: block; margin: 0; padding: 10px 0; text-align: center; }
-
-        &.error {
-            p { background: $light-red; border: 1px solid #C00; @include border-radius(3px); margin: 0 auto; padding: 7px; width: 95%; }
-        }
-    }
-}
 
 // Admin Heading
 .admin-main-heading {
@@ -183,8 +166,6 @@ $link-hover-color: #cd5a1b;
 .inner-sidebar { width: 50% !important;
     #side-sortables { width: 99.7% !important; }
 }
-
-#gravatar_size { width: 120px; }
 
 /* Getting Social is Good widget */
 #social {
@@ -288,5 +269,3 @@ textarea[disabled] { background-color: Silver; }
     .rt-twitter { float: left; margin-right: 5px; }
     .rt-facebook { float: left; margin-left: 5px; position: relative; }
 }
-.js .metabox-holder .postbox .handlediv:before { content: '\f142';font: 400 20px/1 dashicons;right: 12px;display: inline-block;padding: 8px 0 0 10px;top: 0;position: relative; z-index: 3; }
-.js .metabox-holder .postbox.closed .handlediv:before { content: '\f140'; }

@@ -12,7 +12,7 @@
 /* Calendar Widget */
 .widget_calendar {
     // Children
-    table { font-size: rem-calc(14); margin: 0 0 4px; width: 100%; }
+    table { font-size: rem-calc(14); margin: rem-calc(0 0 4); width: 100%; }
     th, td { border: 1px solid $border-color; color: $gray; text-align: center; }
     caption { background: $border-color; font-weight: bold; line-height: 2.5em; }
 }
