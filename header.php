@@ -46,8 +46,6 @@ global $rtp_general; ?><!DOCTYPE html>
 
         <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
-        <link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>" type="text/css" media="all" />
-
         <!--[if lt IE 9]>
             <script src="<?php echo RTP_JS_FOLDER_URL; ?>/respond.min.js"></script>
         <![endif]-->
