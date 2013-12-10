@@ -1,6 +1,6 @@
 // ****** WooCommerce CSS Support ****** //
 @mixin rtp-woocommerce() {
-    .type-product.hentry { border-bottom: 0 none; }
+    .type-product.hentry { border-bottom: 0; }
     input.qty { margin-bottom: 0; }
     .panel.entry-content { background: none transparent; border: 0 none; padding: 1rem !important; }
     body .woocommerce-message:before, body .woocommerce-error:before, body .woocommerce-info:before { padding-top: 0; }
@@ -11,4 +11,14 @@
     body .value { padding: 0; }
     .reset_variations { display: inline-block !important; margin-bottom: 15px; }
     .cart_totals table { float: right; }
+    
+    // ***** Post Content ***** //
+    table {
+        tr {
+            &.even, &.alt, &:nth-of-type(2n) {
+                background: transparent;
+                .post-content & { background: #F9F9F9; }
+            }
+        }
+    }
 }

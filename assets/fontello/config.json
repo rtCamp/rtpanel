@@ -31,9 +31,27 @@
       "src": "fontawesome"
     },
     {
+      "uid": "9c1376672bb4f1ed616fdd78a23667e9",
+      "css": "comment-empty",
+      "code": 59402,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "5408be43f7c42bccee419c6be53fdef5",
+      "css": "doc-text",
+      "code": 59405,
+      "src": "fontawesome"
+    },
+    {
       "uid": "72b1277834cba5b7944b0a6cac7ddb0d",
       "css": "rss",
       "code": 59399,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "531bc468eecbb8867d822f1c11f1e039",
+      "css": "calendar-1",
+      "code": 59404,
       "src": "fontawesome"
     },
     {
@@ -53,6 +71,12 @@
       "css": "pinterest-circled",
       "code": 59398,
       "src": "fontawesome"
+    },
+    {
+      "uid": "413717f5ea649e8d8b93938be277264a",
+      "css": "calendar",
+      "code": 59403,
+      "src": "entypo"
     },
     {
       "uid": "d090355c31f497b61d676416c1fd39fb",
