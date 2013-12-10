@@ -1941,14 +1941,14 @@ img.right, img.alignright { margin-left: 1.25rem; margin-right: 0; }
 
 .bbpress .hentry { border: 0; }
 .bbpress .bbp-forum-freshness > a { font-size: 13px; }
-.bbpress #bbpress-forums { font-size: 100%; }
+.bbpress #bbpress-forums { font-size: 100%; /*.bbp-header .subscription-toggle { font-size: rem-calc(12); }*/ }
 .bbpress #bbpress-forums ul.bbp-lead-topic, .bbpress #bbpress-forums ul.bbp-topics, .bbpress #bbpress-forums ul.bbp-forums, .bbpress #bbpress-forums ul.bbp-replies { font-size: 100%; }
 .bbpress #bbpress-forums p.bbp-topic-meta img.avatar, .bbpress #bbpress-forums ul.bbp-reply-revision-log img.avatar, .bbpress #bbpress-forums ul.bbp-topic-revision-log img.avatar, .bbpress #bbpress-forums div.bbp-template-notice img.avatar, .bbpress #bbpress-forums .widget_display_topics img.avatar, .bbpress #bbpress-forums .widget_display_replies img.avatar { border: 0; margin-bottom: 0; }
 .bbpress #bbpress-forums li.bbp-header { background: #EEE; }
 .bbpress #bbpress-forums .bbp-forums-list li { display: block; }
 .bbpress #bbpress-forums fieldset.bbp-form input[type=radio], .bbpress #bbpress-forums fieldset.bbp-form input[type=checkbox] { margin: 0 2px 4px; }
 .bbpress #bbpress-forums .subscription-toggle { float: right; font-size: 1rem; }
-.bbpress #bbpress-forums .bbp-header .subscription-toggle { font-size: 0.75rem; }
+.bbpress #bbpress-forums .bbp-reply-author br { display: none; }
 .bbpress #bbpress-forums textarea.wp-editor-area { border: 1px solid #CCCCCC; height: auto; }
 .bbpress #bbpress-forums .bbp-author-avatar img.avatar { border: 0 none; margin: 0 3px; }
 .bbpress #bbpress-forums p.bbp-topic-meta img.avatar, .bbpress #bbpress-forums ul.bbp-reply-revision-log img.avatar, .bbpress #bbpress-forums ul.bbp-topic-revision-log img.avatar, .bbpress #bbpress-forums div.bbp-template-notice img.avatar, .bbpress #bbpress-forums .widget_display_topics img.avatar, .bbpress #bbpress-forums .widget_display_replies img.avatar { border: 0 none; float: none; margin: 0 3px; }
