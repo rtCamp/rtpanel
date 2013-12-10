@@ -68,16 +68,10 @@ h2 .nav-tab {
   padding: 4px 6px;
 }
 
-.options-main-container {
-  border: 1px solid #cccccc;
-  border-top: 0;
-  margin-bottom: 15px;
-  overflow: hidden;
-  padding: 0;
-}
+.options-main-container { margin-bottom: 15px; overflow: hidden; padding: 0; }
 
 .options-container {
-  margin: 5px 10px;
+  margin: 5px 0px;
   overflow: hidden;
   padding: 0;
 }
@@ -313,7 +307,7 @@ h2 .nav-tab {
   margin: 0 0 0 12px;
 }
 #latest_news .inside ul li {
-  list-style: square;
+  list-style: disc;
   padding: 0 0 7px;
 }
 
@@ -431,5 +425,5 @@ textarea[disabled] {
   margin-left: 5px;
   position: relative;
 }
-.js .metabox-holder .postbox .handlediv:before { content: '\f142';font: 400 20px/1 dashicons;right: 12px;display: inline-block;padding: 8px 0 0 10px;top: 0;position: relative; }
+.js .metabox-holder .postbox .handlediv:before { content: '\f142';font: 400 20px/1 dashicons;right: 12px;display: inline-block;padding: 8px 0 0 10px;top: 0;position: relative; z-index: 3; }
 .js .metabox-holder .postbox.closed .handlediv:before { content: '\f140'; }
