@@ -1741,6 +1741,7 @@ a.rtp-menu-icon { display: none; float: left; }
 .post-meta-bottom { padding: 1em 0 0; }
 .single .post-meta-bottom { margin: 1.5em 0 0; padding: 0; }
 
+.rtp-post-comment-count { margin-left: 0.5rem; }
 .rtp-post-comment-count a:before { content: '\e80a'; font-family: "rtpanel-fontello"; font-size: 0.875rem; margin: 0 0.3125rem; }
 
 .rtp-edit-link a { background-color: #daeff7; border: 1px solid #b8e1ef; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; color: #2ea2cc; font-size: 0.75rem; display: inline-block; line-height: 1; margin-right: 0.375rem; padding: 0.25rem 0.5rem; }
