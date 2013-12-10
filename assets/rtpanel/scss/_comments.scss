@@ -47,7 +47,7 @@
         em { color: $gray; font-size: rem-calc(12); }
     }
     
-    pre { background-color: #EFEFEF; padding: 10px; }
+    pre { background-color: #EFEFEF; padding: rem-calc(10); }
 }
 
 // Avatar
@@ -69,10 +69,11 @@
 }
 
 // Comment Author  border-bottom: 1px solid $border-color; 
-.comment-author { background: $secondary-color; padding: 17px 5px 5px 5px; }
+.comment-author { background: $secondary-color; padding: rem-calc(17 5 5 5); }
+.no-gravatar { padding: rem-calc(5); }
 
 // Comment Meta
-.comment-meta { font-size: rem-calc(12); margin-top: rem-calc(5); float: right;
+.comment-meta { font-size: rem-calc(12); margin-top: rem-calc(2); float: right;
     // Children
     //abbr { color: $gray-light; border: 0; }
     
@@ -144,10 +145,10 @@
         &[type=text], &[type=url], &[type=email] { width: 50%; }
     }
 
-    textarea { height: 110px; width: 98.33%; }
+    textarea { height: rem-calc(110); width: 98.33%; }
 
     // Allowed Tags
-    .form-allowed-tags { background: darken($base-background, 2%); @include rtp-border(); color: $gray; font-size: emCalc(13); margin: 0 0 14px; padding: 4px; width: 96%; }
+    .form-allowed-tags { background: darken($base-background, 2%); @include rtp-border(); color: $gray; font-size: emCalc(13); margin: rem-calc(0 0 14); padding: rem-calc(4); width: 96%; }
 
     // Compact Form
     .compact-comment-form { float: left; width: 33%; // Self

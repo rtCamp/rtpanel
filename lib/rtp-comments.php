@@ -25,14 +25,14 @@ function rtp_comment_list( $comment, $args, $depth ) {
 
             <div id="comment-<?php comment_ID(); ?>" class="comment-body clearfix"><?php
                 if ( $rtp_post_comments['gravatar_show'] ) { // check if gravatar support is enabled
-                    $gravatar_size = $rtp_post_comments['gravatar_size']; ?>
+                    $gravatar_size = apply_filters( 'rtp_gravatar_size', 48 ); ?>
                     <div class="vcard">
                         <?php echo get_avatar( $comment, $gravatar_size ); 
                         rtp_hook_after_comment_author_avatar()?>
                     </div><?php
                 } ?>
 
-                <div class="comment-author clearfix">
+                <div class="comment-author clearfix <?php echo ( $rtp_post_comments['gravatar_show'] ) ? '' : 'no-gravatar'; ?>">
                     <cite class="fn"><?php comment_author_link(); ?></cite>
                     <span class="comment-meta">
                         <a class="rtp-common-link rtp-comment-date" href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>" title="<?php comment_date(); ?>">

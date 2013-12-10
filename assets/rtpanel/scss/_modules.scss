@@ -25,14 +25,14 @@ $image-space: rem-calc(20);
         img { margin: 0; }
 
         // Image Container Link
-        a { margin-top: 5px; margin-bottom: 5px;
+        a { margin-top: rem-calc(5); margin-bottom: rem-calc(5);
             // Floated Images
             &.none,
-            &.alignnone { display: inline-block; margin-bottom: 14px; margin-left: 0; margin-right: $image-space; }
+            &.alignnone { display: inline-block; margin-bottom: rem-calc(14); margin-left: 0; margin-right: $image-space; }
             &.left,
             &.alignleft { margin-left: 0; margin-right: $image-space; }
             &.center,
-            &.aligncenter { display: inline-block; margin-bottom: 14px; }
+            &.aligncenter { display: inline-block; margin-bottom: rem-calc(14); }
             &.right,
             &.alignright { margin-left: $image-space; margin-right: 0; }
         }
@@ -48,7 +48,7 @@ $image-space: rem-calc(20);
             background: $base-background;
             @include rtp-border();
             @include box-shadow(0 0 4px darken($base-background, 20%));
-            padding: 4px;
+            padding: rem-calc(4);
         }
     }
 }
@@ -57,18 +57,18 @@ $image-space: rem-calc(20);
 // ***** Image Caption Style ***** //
 @mixin rtp-wp-caption() {
     /* Image Caption Style */
-    .wp-caption { background-color: darken($base-background, 4%); margin: 6px 5px 15px; max-width: 100%; overflow: hidden; padding: 5px 5px 0; text-align: center; // Self
+    .wp-caption { background-color: darken($base-background, 4%); margin: rem-calc(6 5 15); max-width: 100%; overflow: hidden; padding: rem-calc(5 5 0); text-align: center; // Self
         // Floated Elements
-        &.alignnone, &.alignleft { margin-left: 0; margin-right: 15px; }
+        &.alignnone, &.alignleft { margin-left: 0; margin-right: rem-calc(15); }
         &.aligncenter { margin-left: auto; margin-right: auto; }
-        &.alignright { margin-left: 15px; margin-right: 0; }
+        &.alignright { margin-left: rem-calc(15); margin-right: 0; }
 
         a { border: 0; text-decoration: none; }
         img { margin: 0; }
     }
 
-    .wp-caption-text { color: $gray; line-height: 1.286em; margin: 0 5px 8px; }
-    .rtp-image-box .wp-caption + p { margin: 20px 0 10px; }
+    .wp-caption-text { color: $gray; line-height: 1.286em; margin: rem-calc(0 5 8); }
+    .rtp-image-box .wp-caption + p { margin: rem-calc(20 0 10); }
 }
 
 
@@ -80,7 +80,7 @@ $image-space: rem-calc(20);
     }
 
     // Caption
-    .gallery-caption { color: $gray; margin: 0 0 10px; padding: 0; text-align: center; }
+    .gallery-caption { color: $gray; margin: rem-calc(0 0 10); padding: 0; text-align: center; }
 
     /* End - Gallery */
 }
@@ -95,10 +95,10 @@ $image-space: rem-calc(20);
     // Attachment Page Images
     .rtp-sibling-attachments { padding: 0; margin: 0 0 1em; // Self
         // List
-        li { line-height: 1em; list-style: none; margin-top: 10px; margin-bottom: 10px; text-align: center; }
+        li { line-height: 1em; list-style: none; margin-top: rem-calc(10); margin-bottom: rem-calc(10); text-align: center; }
         // Images
         img {
-            background-color: darken($base-background, 4%); @include rtp-border(); margin: 0; padding: 5px;
+            background-color: darken($base-background, 4%); @include rtp-border(); margin: 0; padding: rem-calc(5);
             &:hover { border-color: darken($border-color, 30%); }
         }
     }
@@ -132,7 +132,7 @@ $image-space: rem-calc(20);
 
     // Attachment Page
     .single-attachment, .rtp-image-attachment {
-        .rtp-navigation { margin: 10px 0 0; padding-bottom: 0; }
+        .rtp-navigation { margin: rem-calc(10 0 0); padding-bottom: 0; }
     }
 }
 
