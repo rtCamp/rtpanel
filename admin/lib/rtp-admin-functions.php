@@ -792,15 +792,14 @@ function rtp_login_site_url() {
  *
  * @since rtPanel 2.0
  */
-function rtp_default_admin_sidebar() {
-    ?>
+function rtp_default_admin_sidebar() { ?>
     <div class="postbox" id="social">
         <div title="<?php _e( 'Click to toggle', 'rtPanel' ); ?>" class="handlediv"><br /></div>
         <h3 class="hndle"><span><?php _e( 'Getting Social is Good', 'rtPanel' ); ?></span></h3>
-        <div class="inside" style="text-align:center;">
-            <a href="http://www.facebook.com/rtPanel" target="_blank" title="<?php _e( 'Become a fan on Facebook', 'rtPanel' ); ?>" class="rtp-icon-facebook"></a>
-            <a href="http://twitter.com/rtPanel" target="_blank" title="<?php _e( 'Follow us on Twitter', 'rtPanel' ); ?>" class="rtp-icon-twitter"></a>
-            <a href="http://feeds.feedburner.com/rtpanel" target="_blank" title="<?php _e( 'Subscribe to our feeds', 'rtPanel' ); ?>" class="rtp-icon-rss"></a>
+        <div class="inside" style="text-align: center;"><?php
+            printf( __( '<a href="%s" target="_blank" title="Become a fan on Facebook" class="rtp-icon-facebook"></a>', 'rtPanel' ), 'http://www.facebook.com/rtPanel' );
+            printf( __( '<a href="%s" target="_blank" title="Follow us on Twitter" class="rtp-icon-twitter"></a>', 'rtPanel' ), 'http://twitter.com/rtPanel' );
+            printf( __( '<a href="%s" target="_blank" title="Subscribe to our feeds" class="rtp-icon-rss"></a>', 'rtPanel' ), 'http://feeds.feedburner.com/rtpanel' ); ?>
         </div>
     </div>
 
@@ -824,10 +823,10 @@ function rtp_default_admin_sidebar() {
             </div>
             <div class="rt-social-share">
                 <div class="rt-twitter rtp-social-box">
-                    <a href="http://twitter.com/share"  class="twitter-share-button" data-text="I &hearts; #rtPanel"  data-url="http://rtcamp.com/rtpanel/" data-count="vertical" data-via="rtPanel"><?php _e( 'Tweet', 'rtPanel' ); ?></a>
+                    <?php printf( __( '<a href="%s"  class="twitter-share-button" data-text="I &hearts; #rtPanel"  data-url="%s" data-count="vertical" data-via="rtPanel">Tweet</a>', 'rtPanel' ), 'http://twitter.com/share', 'http://rtcamp.com/rtpanel/' ); ?>
                 </div>
                 <div class="rt-facebook rtp-social-box">
-                    <a style=" text-align:center;" name="fb_share" type="box_count" share_url="http://rtpanel.com/"></a>
+                    <?php printf( __( '<a style="text-align: center;" name="fb_share" type="box_count" share_url="%s"></a>', '' ), 'http://rtpanel.com/' ); ?>
                 </div>
                 <div class="clear"></div>
             </div>
@@ -907,10 +906,6 @@ function rtp_theme_options_help() {
     $general_help .= __( '<strong>Logo Settings:</strong> Theme\'s logo can be managed from this setting.', 'rtPanel' );
     $general_help .= '</p><p>';
     $general_help .= __( '<strong>Favicon Settings:</strong> Theme\'s favicon can be managed from this setting.', 'rtPanel' );
-    $general_help .= '</p><p>';
-    $general_help .= __( '<strong>Facebook Open Graph Settings:</strong> This setting will provide an option to specify Faceboook App ID/Admin ID(s), required for Open Graph.', 'rtPanel' );
-    $general_help .= '</p><p>';
-    $general_help .= __( '<strong>FeedBurner Settings:</strong> FeedBurner URL can be specified from this setting to redirect your feeds.', 'rtPanel' );
     $general_help .= '</p><p>';
     $general_help .= __( '<strong>Google Custom Search Integration:</strong> This option would enable you to harness the power of Google Search instead of the default WordPress search by specifying the Google Custom Search Code.  You also have the option of rendering the Google Search Page without the sidebar.', 'rtPanel' );
     $general_help .= '</p><p>';
