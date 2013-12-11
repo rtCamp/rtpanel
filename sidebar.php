@@ -28,11 +28,7 @@
                     if ( !( $sidebar_id && dynamic_sidebar( $sidebar_id ) ) ) { ?>
                         <div class="widget sidebar-widget">
                             <p>
-                                <?php _e( '<strong>rtPanel</strong> is free and equipped with everything you need to produce a professional website. <br />It is one of the most optimized WordPress Framework available today.', 'rtPanel' ); ?>
-                            </p>
-
-                            <p>
-                                <?php printf( __( '<a href="%s" class="button">Download Now &rarr;</a>', 'rtPanel' ), 'http://wordpress.org/themes/rtpanel' ); ?>
+                                <?php _e( '<strong>rtPanel</strong> is equipped with everything you need to produce a professional website. <br />It is one of the most optimized WordPress Theme Framework available today.', 'rtPanel' ); ?>
                             </p>
 
                             <p class="rtp-message-success">
