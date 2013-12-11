@@ -70,4 +70,5 @@
 // Tiny Button
 @mixin rtp-button-tiny() {
     @include button-size($padding:$button-tny);
+    @include button-style($bg:$primary-color, $radius:false);
 }

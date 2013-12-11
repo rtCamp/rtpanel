@@ -13,14 +13,12 @@
         .message-search, .dir-search {
             label { float: left; }
         }
-        .rtmedia-item-thumbnail { margin: 0 auto; }
         #buddypress {
             div.dir-search { margin: -43px 0 10px; }
             label { display: inline-block; margin: 0; }
             input[type="button"], button, .button, input[type="submit"] { 
                 @include rtp-button-tiny();
-                background-color: $link-color; color: #fff; border: 0 none;
-                &:hover, &:focus { background-color: #3D61A1; color: #fff; }
+                color: #fff; border: 0 none;
                 margin-bottom: 0;
                 &:hover, &:focus { border: 0 none; }
             }
