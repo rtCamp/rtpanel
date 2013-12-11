@@ -1935,7 +1935,9 @@ img.right, img.alignright { margin-left: 1.25rem; margin-right: 0; }
 
 /* Import Plugin SCSS Files */
 /* Include Support CSS */
-.breadcrumb { border-bottom: 1px solid #dddddd; color: #666666; font-size: 0.8125rem; padding: 10px 0 5px; }
+.breadcrumbs { border-bottom: 1px solid #dddddd; color: #666666; font-size: 0.8125rem; }
+.breadcrumbs > * { float: none; }
+.breadcrumbs > *:before { content: ""; display: none; }
 
 .wp-pagenavi ul { margin: 1.875rem 0; overflow: hidden; }
 .wp-pagenavi li { display: inline-block; list-style: none; }
