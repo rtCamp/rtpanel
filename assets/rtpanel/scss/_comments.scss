@@ -33,12 +33,12 @@
     
     // Children
     .vcard { 
-        border: 0; float: left; margin: rem-calc(8 8 3 8); padding: 0; // Self
+        border: 0; float: left; margin: rem-calc(8 15 3 8); padding: 0; // Self
         
         img { @include border-radius($global-rounded); @include rtp-border($width: 2px, $color: #FFFFFF); }
     }
 
-    .fn { font-size: rem-calc(18); font-style: normal; }
+    .fn { font-size: rem-calc(20); font-style: normal; font-weight: 600; }
 
     // Trackback Pingback
     .trackback,
@@ -56,12 +56,13 @@
 .rtp-comment-author-role {  }
 
 // Comment Text
-.comment-text { clear: both; padding: rem-calc(10 0 0); overflow: hidden;
+.comment-text { clear: both; padding: rem-calc(15 15 0); overflow: hidden; @include rtp-border();
+    p { margin: rem-calc(0 0 15 0); }
     > ol, > ul { margin-bottom: rem-calc(26); }
 }
 
 // Comment Body
-.comment-body { clear: both; margin: rem-calc(22 0 30); position: relative; }
+.comment-body { clear: both; margin: rem-calc(10 0); position: relative; }
 
 .comment { list-style: none; // Self
     code & { border-top: 0; }
@@ -69,11 +70,11 @@
 }
 
 // Comment Author  border-bottom: 1px solid $border-color; 
-.comment-author { background: $secondary-color; padding: rem-calc(17 5 5 5); }
+.comment-author { padding: rem-calc(17 5 5 5); }
 .no-gravatar { padding: rem-calc(5); }
 
 // Comment Meta
-.comment-meta { font-size: rem-calc(12); margin-top: rem-calc(2); float: right;
+.comment-meta { font-size: rem-calc(14); margin: rem-calc(2 0 0 15);
     // Children
     //abbr { color: $gray-light; border: 0; }
     
@@ -84,14 +85,14 @@
 }
 
 /* Comment Reply Link */
-.rtp-reply { clear: both; float: left; // Self
+.rtp-reply { clear: both; float: right; margin: rem-calc(5 5 0 0); // Self
     // Children
     a { display: block; font-size: rem-calc(14); }
 }
 
 /* Admin Comments */
 .comment-author-admin, .bypostauthor, .byuser {
-    > .comment-body .comment-author { background-color: #DADADA; } // background-color: darken($base-background, 4%); @include rtp-rem-fallback(padding, 10, 10, 0);
+    > .comment-body .comment-author { background-color: aliceblue; } // background-color: darken($base-background, 4%); @include rtp-rem-fallback(padding, 10, 10, 0);
 }
 
 /* Comment Form */
@@ -166,7 +167,7 @@
 
 .comment-reply-title {
     .comment-title { line-height: 1; }
-    small { font-size: rem-calc(12); position: relative; text-transform: uppercase; top: -rem-calc(5); }
+    small { font-size: rem-calc(14); position: relative; }
     a { line-height: 1; }
 }
 

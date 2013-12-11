@@ -98,15 +98,15 @@ if ( have_comments() || ( ( !is_attachment() && comments_open() ) || ( is_attach
             $comments_before = '<p class="comment-notes">' . __( 'Your email address will not be published.', 'rtPanel' ) . '</p>';
 
             comment_form( array(
-                        'fields' => apply_filters( 'comment_form_default_fields', $fields ) ,
-                        'comment_notes_before' => $comments_before,
-                        'comment_notes_after' => $comments_after,
-                        'comment_field' => '<p class="comment-form-comment' . ( ( $rtp_post_comments['comment_textarea'] ) ? ' rtp-comment-above' : ' rtp-comment-below' ) . '"><textarea role="textbox" aria-multiline="true" id="comment" required="required" placeholder="' . apply_filters( 'rtp_comment_placeholder', __( 'Comment...', 'rtPanel' ) ) . '" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
-                        'title_reply' => '<span class="comment-title">' . __( 'Leave a Comment', 'rtPanel' ) . '</span>',
-                        'title_reply_to' => '<span class="comment-title">' . __( 'Leave a Comment', 'rtPanel' ) . '</span>',
-                        'cancel_reply_link' => __( 'Cancel reply', 'rtPanel' ),
-                        'label_submit' => __( 'Submit', 'rtPanel' ),
-                    )
+                    'fields'                => apply_filters( 'comment_form_default_fields', $fields ) ,
+                    'comment_notes_before'  => $comments_before,
+                    'comment_notes_after'   => $comments_after,
+                    'comment_field'         => '<p class="comment-form-comment' . ( ( $rtp_post_comments['comment_textarea'] ) ? ' rtp-comment-above' : ' rtp-comment-below' ) . '"><textarea role="textbox" aria-multiline="true" id="comment" required="required" placeholder="' . apply_filters( 'rtp_comment_placeholder', __( 'Comment...', 'rtPanel' ) ) . '" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
+                    'title_reply'           => '<span class="comment-title">' . __( 'Leave a Comment', 'rtPanel' ) . '</span>',
+                    'title_reply_to'        => '<span class="comment-title">' . __( 'Leave a Comment', 'rtPanel' ) . '</span>',
+                    'cancel_reply_link'     => __( 'Cancel reply', 'rtPanel' ),
+                    'label_submit'          => __( 'Submit', 'rtPanel' ),
+                )
             );
 
         } // if you delete this the sky will fall on your head
