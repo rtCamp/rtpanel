@@ -19,9 +19,19 @@
                 .rtmedia-like span { margin-right: 6px; }
             }
         }
+        input[type="button"], button, .button, input[type="submit"] { 
+            @include rtp-button-tiny();
+            background-image: none;
+            margin-bottom: 0;
+            border: 0 none;
+            &:hover, &:focus { border: 0 none; }
+        }
+        .rtmedia-item-thumbnail { margin: 0 auto; }
         .rtmedia-upload-input { margin-right: 10px; }
         #whats-new-options .icon-plus-sign { margin-right: 5px; }
         ul.large-block-grid-3 .rtmedia-list-item { margin: 0 !important; }
         ul.rtmedia-list .rtmedia-list-item { height: auto; }
+        
+        ~ .rtp-readmore { display: none; }
     }
 }
