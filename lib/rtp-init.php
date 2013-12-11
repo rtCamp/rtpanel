@@ -107,7 +107,7 @@ if ( !function_exists( 'rtp_admin_header_style' ) ) {
  */
 function rtp_default_scripts() {
     /* Mobile Navigation Script */
-    wp_enqueue_script( 'rtp-modernizr', RTP_BOWER_COMPONENTS_URL . '/foundation/js/vendor/custom.modernizr.js',array(), '', false );
+    wp_enqueue_script( 'rtp-modernizr', RTP_BOWER_COMPONENTS_URL . '/foundation/js/vendor/custom.modernizr.js', array(), '', false );
     wp_enqueue_script( 'rtp-foundation-js', RTP_BOWER_COMPONENTS_URL . '/foundation/js/foundation.min.js', array( 'jquery' ), '', true );
     wp_enqueue_script( 'rtp-jquery-sidr', RTP_JS_FOLDER_URL . '/jquery.sidr.min.js', array( 'jquery' ), '', true );
     wp_enqueue_script( 'rtp-app-js', RTP_JS_FOLDER_URL . '/rtp-app.js', array( 'rtp-foundation-js' ), '', true );
@@ -119,6 +119,9 @@ function rtp_default_scripts() {
     wp_enqueue_style( 'rtp-icon-fonts-animation', RTP_ASSETS_URL . '/fontello/css/animation.css', '', NULL );
     wp_enqueue_style( 'rtp-icon-fonts', RTP_ASSETS_URL . '/fontello/css/rtpanel-fontello.css', '', NULL );
 
+    // Loads our main stylesheet.
+    wp_enqueue_style( 'rtpanel-style', get_stylesheet_uri(), array(), '0.4' );
+    
     // Nested Comment Support
     ( is_singular() && get_option( 'thread_comments' ) ) ? wp_enqueue_script('comment-reply') : '';
 
