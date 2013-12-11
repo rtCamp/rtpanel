@@ -464,67 +464,6 @@ function rtp_galary_shorcode ( $output, $attr ) {
 add_filter ( "post_gallery", "rtp_galary_shorcode", 1, 2 );
 
 /**
- * Foundation Orbit Slider Funtion
- *
- * @param WP_Query $slider_q
- * @param type $slide_number
- * @param type $content_length
- * @param type $show_title
- * @param type $show_excerpt
- * @param type $show_navigation
- * @param type $show_pagination
- */
-function rtp_orbit_slider ( WP_Query $slider_q = null, $slide_number = 100, $content_length = 200, $show_title = true, $show_excerpt = true, $show_navigation = true, $show_pagination = true ) {
-    if ( $slider_q == null ) {
-        $slider_q = new WP_Query ( array( 'ignore_sticky_posts' => 1, 'posts_per_page' => $slide_number, 'order' => 'DESC' ) );
-    }
-
-    if ( $slider_q->have_posts () ) {
-        $slider_image = '';
-        $slider_pagination = false;
-        $slider_html = '<div class="rtp-orbit-slider-row"><ul data-orbit id="rtp-orbit-slider" data-options="timer_speed:2500; bullets:false;">';
-
-
-        while ( $slider_q->have_posts () ) {
-            $slider_q->the_post ();
-            $image_details = wp_get_attachment_image_src ( get_post_thumbnail_id (), "full" );
-            if ( $image_details ) {
-                $slider_image = $image_details[ 0 ];
-            } else {
-                $slider_image = false;
-            }
-
-            if ( $slider_image ) {
-                $slider_html .= '<li>';
-                $slider_html .= '<img  src ="' . $slider_image . '" alt="' . esc_attr ( get_the_title () ) . '" data-interchange="' . rtp_img_attachement_interchange_string ( get_post_thumbnail_id (), "full", "full", "large" ) . '"/>';
-                if ( $show_excerpt ) {
-                    $slider_html .= "<div class='orbit-caption'>";
-                    $slider_html .= ( strlen ( get_the_content () ) > $content_length ) ? wp_html_excerpt ( get_the_content (), $content_length ) . '... ' : wp_html_excerpt ( get_the_content (), $content_length );
-                    $slider_html .="</div>";
-                }
-
-                $slider_html .= '</li>';
-                $slider_pagination = true;
-            }
-        }
-
-        $slider_html .= '</ul></div>';
-        if ( $slider_pagination )
-            echo $slider_html;
-    }
-    wp_reset_postdata ();
-}
-
-function rtp_call_slider () {
-    if ( is_home () ) {
-        $slider_q = new WP_Query ( array( "post_type" => "any", 'post_mime_type' => 'image' ) );
-        rtp_orbit_slider ( $slider_q );
-    }
-}
-
-add_action ( "rtp_hook_begin_content_wrapper", "rtp_call_slider", 1, 0 );
-
-/**
  *
  * @param type $ID
  * @param type $large
