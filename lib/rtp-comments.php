@@ -45,8 +45,8 @@ function rtp_comment_list( $comment, $args, $depth ) {
 
                 <div class="comment-text">
                     <?php comment_text(); ?>
-                    <div class="rtp-reply rtp-common-link"><?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'], 'reply_text' => __( 'Reply', 'rtPanel' ), ) ) ); ?></div>
                 </div>
+                <div class="rtp-reply rtp-common-link"><?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'], 'reply_text' => __( 'Reply', 'rtPanel' ), ) ) ); ?></div>
 
             </div><!-- .comment-body --><?php
 }
