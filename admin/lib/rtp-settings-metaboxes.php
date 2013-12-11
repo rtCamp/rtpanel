@@ -140,7 +140,7 @@ function rtp_sidebar_options_metabox() {
                 <th scope="row"><label for="footer_sidebar"><?php _e( 'Enable Footer Sidebar', 'rtPanel' ); ?></label></th>
                 <td>
                     <input type="hidden" name="rtp_general[footer_sidebar]" value="0" />
-                    <input type="checkbox" value="1" size="40" name="rtp_general[footer_sidebar]" id="footer_sidebar" <?php checked( $rtp_general['footer_sidebar'] ); ?> />
+                    <input type="checkbox" value="0" size="40" name="rtp_general[footer_sidebar]" id="footer_sidebar" <?php checked( $rtp_general['footer_sidebar'] ); ?> />
                     <span class="description"><label for="footer_sidebar"><?php _e( 'Check this to enable footer sidebar', 'rtPanel' ); ?></label><br /></span>
                 </td>
             </tr>

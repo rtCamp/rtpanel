@@ -559,7 +559,7 @@ function rtp_theme_setup_values() {
         'favicon_use' => 'image',
         'favicon_upload' => RTP_IMG_FOLDER_URL . '/favicon.ico',
         'favicon_id' => 0,
-        'footer_sidebar' => '1',
+        'footer_sidebar' => '0',
         'buddypress_sidebar' => 'default-sidebar',
         'bbpress_sidebar' => 'default-sidebar',
         'custom_styles' => '',
@@ -821,7 +821,7 @@ function rtp_default_admin_sidebar() { ?>
     <div class="postbox" id="support">
         <div title="<?php _e( 'Click to toggle', 'rtPanel' ); ?>" class="handlediv"><br /></div>
         <h3 class="hndle"><span><?php _e( 'Free Support', 'rtPanel' ); ?></span></h3>
-        <div class="inside"><p><?php printf( __( 'If you are facing any problems while using rtPanel, or have good ideas for improvements, please discuss the same in our <a href="%s" target="_blank" title="Click here for rtPanel Free Support">Support forums</a>', 'rtPanel' ), 'http://rtcamp.com/support/forum/rtpanel/' ); ?>.</p></div>
+        <div class="inside"><?php printf( __( 'If you are facing any problems while using rtPanel, or have good ideas for improvements, please discuss the same in our <a href="%s" target="_blank" title="Click here for rtPanel Free Support">Support forums</a>', 'rtPanel' ), 'http://rtcamp.com/support/forum/rtpanel/' ); ?>.</div>
     </div>
 
     <div class="postbox" id="latest_news">
