@@ -1793,36 +1793,37 @@ tfoot #next { border-left: 0; text-align: right; }
 .commentlist { clear: both; margin: 0; }
 .commentlist > li:first-child { border-top: 0; }
 .commentlist .children { margin-left: 5.25rem; }
-.commentlist .vcard { border: 0; float: left; margin: 0.5rem 0.5rem 0.1875rem 0.5rem; padding: 0; }
+.commentlist .vcard { border: 0; float: left; margin: 0.5rem 0.9375rem 0.1875rem 0.5rem; padding: 0; }
 .commentlist .vcard img { -webkit-border-radius: 1000px; -moz-border-radius: 1000px; -ms-border-radius: 1000px; -o-border-radius: 1000px; border-radius: 1000px; border: 2px solid white; }
-.commentlist .fn { font-size: 1.125rem; font-style: normal; }
+.commentlist .fn { font-size: 1.25rem; font-style: normal; font-weight: 600; }
 .commentlist .trackback, .commentlist .pingback { overflow: hidden; padding: 0 0 0.9375rem; }
 .commentlist .trackback em, .commentlist .pingback em { color: #666666; font-size: 0.75rem; }
 .commentlist pre { background-color: #EFEFEF; padding: 0.625rem; }
 
-.comment-text { clear: both; padding: 0.625rem 0 0; overflow: hidden; }
+.comment-text { clear: both; padding: 0.9375rem 0.9375rem 0; overflow: hidden; border: 1px solid #dddddd; }
+.comment-text p { margin: 0 0 0.9375rem 0; }
 .comment-text > ol, .comment-text > ul { margin-bottom: 1.625rem; }
 
-.comment-body { clear: both; margin: 1.375rem 0 1.875rem; position: relative; }
+.comment-body { clear: both; margin: 0.625rem 0; position: relative; }
 
 .comment { list-style: none; }
 code .comment { border-top: 0; }
 .comment li { margin-bottom: 0; }
 
-.comment-author { background: #e7e7e7; padding: 1.0625rem 0.3125rem 0.3125rem 0.3125rem; }
+.comment-author { padding: 1.0625rem 0.3125rem 0.3125rem 0.3125rem; }
 
 .no-gravatar { padding: 0.3125rem; }
 
-.comment-meta { font-size: 0.75rem; margin-top: 0.125rem; float: right; }
+.comment-meta { font-size: 0.875rem; margin: 0.125rem 0 0 0.9375rem; }
 .comment-meta .comment-edit-link { margin: 0 0 0 0.3125rem; }
 .comment-meta .comment-edit-link:hover { text-decoration: none; }
 
 /* Comment Reply Link */
-.rtp-reply { clear: both; float: left; }
+.rtp-reply { clear: both; float: right; margin: 0.3125rem 0.3125rem 0 0; }
 .rtp-reply a { display: block; font-size: 0.875rem; }
 
 /* Admin Comments */
-.comment-author-admin > .comment-body .comment-author, .bypostauthor > .comment-body .comment-author, .byuser > .comment-body .comment-author { background-color: #DADADA; }
+.comment-author-admin > .comment-body .comment-author, .bypostauthor > .comment-body .comment-author, .byuser > .comment-body .comment-author { background-color: aliceblue; }
 
 /* Comment Form */
 #respond { clear: both; font-size: 0.8125rem; }
@@ -1850,7 +1851,7 @@ code .comment { border-top: 0; }
 #respond select[name=subscribe-reloaded] { float: left; margin-bottom: 0; margin-right: 1.25rem; width: 50%; }
 
 .comment-reply-title .comment-title { line-height: 1; }
-.comment-reply-title small { font-size: 0.75rem; position: relative; text-transform: uppercase; top: -rem-calc(5); }
+.comment-reply-title small { font-size: 0.875rem; position: relative; }
 .comment-reply-title a { line-height: 1; }
 
 .rtp-comment-await { color: #999999; font-size: 0.75rem; }
@@ -1934,7 +1935,9 @@ img.right, img.alignright { margin-left: 1.25rem; margin-right: 0; }
 
 /* Import Plugin SCSS Files */
 /* Include Support CSS */
-.breadcrumb { border-bottom: 1px solid #dddddd; color: #666666; font-size: 0.8125rem; padding: 10px 0 5px; }
+.breadcrumbs { border-bottom: 1px solid #dddddd; color: #666666; font-size: 0.8125rem; }
+.breadcrumbs > * { float: none; }
+.breadcrumbs > *:before { content: ""; display: none; }
 
 .wp-pagenavi ul { margin: 1.875rem 0; overflow: hidden; }
 .wp-pagenavi li { display: inline-block; list-style: none; }
