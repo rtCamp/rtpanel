@@ -1,10 +1,10 @@
 @media only screen and (max-width: 767px) {
-  .rtp-nav-container { display: none; }
-  a.rtp-menu-icon { display: block; }
+    .rtp-nav-container { display: none; }
+    a.rtp-menu-icon { display: block; }
 }
 
 
 @media only screen and (min-width: 767px) {
-    body { position: relative !important; right: 0 !important; width: auto !important; }
+    body { left: auto !important; position: relative !important; right: auto !important; width: auto !important; }
     .sidr { display: none !important; right: 0 !important; }
 }
