@@ -46,7 +46,7 @@ $link-hover-color: #cd5a1b;
 }
 
 /* Theme Option Container */
-.rtpanel-admin { overflow: hidden;width: 76%;position: relative;max-width: 1050px;font-size: 15px; // Self
+.rtpanel-admin { overflow: hidden;width: 75%;position: relative;max-width: 1050px;font-size: 15px; // Self
     // Heading
      h2 { border-bottom: 1px solid $gray; padding-bottom: 0; padding-left: 6px; }
 }
@@ -67,7 +67,7 @@ $link-hover-color: #cd5a1b;
 #wpbody {
     #wpbody-content {
         .metabox-holder { margin-bottom: 10px; padding: 10px 0 0; width: 100%; }
-        .metabox-fixed { clear: both; margin: 0 10px 0 0; width: 22%; }
+        .metabox-fixed { clear: both; margin: 12px 10px 0 0; width: 22%; }
     }
 }
 
@@ -179,8 +179,10 @@ $link-hover-color: #cd5a1b;
 
 // Latest News
 #latest_news .inside {
-    ul { margin: 0 0 0 12px;
-        li { list-style: disc; padding: 0 0 7px; }
+    ul { margin: 0 0 0 15px;
+        li { list-style: disc; padding: 0 0 7px;
+        &:last-child { padding-bottom: 0; }
+        }
     }
 }
 
