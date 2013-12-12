@@ -1100,12 +1100,15 @@ add_filter( 'admin_footer_text', 'rtp_custom_admin_footer' );
 function rtp_export_version() {
     global $wp_version;
     require_once( ABSPATH . '/wp-admin/includes/update.php' );
-    /* Backward Compatability for version prior to WordPress 3.4 */
-    $theme_info = function_exists( 'wp_get_theme' ) ? wp_get_theme() : get_theme(get_current_theme());
-    if (is_child_theme()) {
-        $theme_info = function_exists( 'wp_get_theme' ) ? wp_get_theme( 'rtpanel' ) : get_theme($theme_info['Parent Theme']);
+    
+    if ( function_exists( 'wp_get_theme' ) ) {
+        $theme_info = wp_get_theme();
+        
+        if ( is_child_theme() ) {
+            $theme_info = wp_get_theme( 'rtpanel' );
+        }
     }
-    $theme_version = array( 'wp' => $wp_version, 'rtPanel' => $theme_info['Version']);
+    $theme_version = array( 'wp' => $wp_version, 'rtPanel' => $theme_info['Version'] );
     return $theme_version;
 }
 
