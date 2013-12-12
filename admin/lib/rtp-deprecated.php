@@ -179,7 +179,7 @@ if ( !class_exists('rtp_ogp') ) {
 
             $data['og:site_name'] = get_bloginfo('name');
 
-            if ( is_singular () && !is_front_page() ) {
+            if ( is_singular() && !is_front_page() ) {
                 $append = '';
                 $post_content = ( isset( $post->post_excerpt ) && trim( $post->post_excerpt ) ) ? $post->post_excerpt : $post->post_content;
                 if( strlen( wp_html_excerpt( $post_content, 130 ) ) >= 130 )
