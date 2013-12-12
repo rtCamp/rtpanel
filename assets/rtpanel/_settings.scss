@@ -59,13 +59,13 @@ $body-font-family: 'Open Sans', sans-serif;
 // We use these as default colors throughout
 $primary-color: $link-color;
 // $secondary-color: #e7e7e7;
-// $alert-color: #f04124;
-// $success-color: #43AC6A;
-// $warning-color: #f08a24;
-// $info-color: #a0d3e8;
+$alert-color: $color-error;
+$success-color: $color-success;
+$warning-color: $color-warning;
+$info-color: $color-info;
 
 // We use these to make sure border radius matches unless we want it different.
-// $global-radius: 3px;
+$global-radius: 5px;
 // $global-rounded: 1000px;
 
 // We use these to control inset shadow shiny edges and depressions.
@@ -150,7 +150,7 @@ $paragraph-margin-bottom: rem-calc(28);
 // Style the <hr> element
 
 // $hr-border-width: 1px;
-// $hr-border-style: solid;
+$hr-border-style: dotted;
 $hr-border-color: $border-color;
 $hr-margin: rem-calc(30);
 

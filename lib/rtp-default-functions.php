@@ -185,7 +185,7 @@ function rtp_header_separator_border() {
      echo '<hr />';
 }
 
-add_action ( 'rtp_hook_end_header', 'rtp_header_separator_border' ); // Adds default nav menu after #header
+add_action ( 'rtp_hook_end_header', 'rtp_header_separator_border' );
 
 
 /**
@@ -262,7 +262,7 @@ function rtp_default_archive_pagination () {
             if ( isset ( $rtp_post_comments[ 'pagination_show' ] ) && $rtp_post_comments[ 'pagination_show' ] ) {
                 if ( ( $wp_query->max_num_pages > 1 ) ) {
                     ?>
-                    <nav class="wp-pagenavi"><?php
+                    <nav class="wp-pagenavi rtp-pagenavi"><?php
                     echo paginate_links ( array(
                         'base' => str_replace ( 999999999, '%#%', esc_url ( get_pagenum_link ( 999999999 ) ) ),
                         'format' => '?paged=%#%',
@@ -603,3 +603,16 @@ function rtp_woocommerce_wrapper_start() {
 function rtp_woocommerce_wrapper_end() {
     echo '</section>';
 }
+
+/**
+ * Footer Separator Border
+ *
+ * @since rtPanel 4.0
+ */
+function rtp_footer_separator_border() {
+     echo '<div class="row"><div class="columns large-12">';
+     echo '<hr />';
+     echo '</div></div>';
+}
+
+add_action ( 'rtp_hook_after_content_wrapper', 'rtp_footer_separator_border' );

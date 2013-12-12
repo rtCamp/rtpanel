@@ -1,0 +1,32 @@
+// ********* Mixin ********* //
+@mixin rtp-button( $bg: $link-color, $color: $white, $dark: 4%, $light: 3%, $radius: $global-radius ) {
+    & { background-color: $bg; border-radius: $radius; border: 0; color: $color; }
+    &:hover,
+    &:focus { background-color: darken($bg, $dark); }
+    &:active { background-color: lighten($bg, $light); }
+}
+
+// Button Shadow
+@mixin rtp-button-shadow( $opacity: 0.14 ) {
+    @include box-shadow( inset 0 -2px rgba(0, 0, 0, $opacity) );
+}
+
+input[type=submit] {
+    @include rtp-button(); @include rtp-button-shadow(); @include button-size;
+}
+
+
+// Button Success
+.rtp-button-success {
+    @include rtp-button($color-success);
+}
+
+// Button Alert
+.rtp-button-alert {
+    @include rtp-button($color-error, 10%, 4%);
+}
+
+// Button Width
+.rtp-button-width-large { min-width: rem-calc(220); }
+.rtp-button-width-medium { min-width: rem-calc(180); }
+.rtp-button-width-small { min-width: rem-calc(140); }
