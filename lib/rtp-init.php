@@ -40,30 +40,10 @@ if ( !function_exists( 'rtpanel_setup' ) ) {
             'width'                 => apply_filters( 'rtp_header_image_width', 1200 ),
             'height'                => apply_filters( 'rtp_header_image_height', 200 ),
             'header-text'           => false,
-            // Callback for styling the header.
             'wp-head-callback'      => '',
-            // Callback for styling the header preview in the admin.
-            'admin-head-callback'   => 'rtp_admin_header_style',
+            'admin-head-callback'   => '',
 	);
 	add_theme_support( 'custom-header', $rtp_custom_header_support );
-        
-        /* Backward Compatability for version prior to WordPress 3.4 */
-        if ( ! function_exists( 'get_custom_header' ) ) {
-            add_custom_background(); // Add support for custom background
-
-            // Don't support text inside the header image
-            if ( !defined( 'NO_HEADER_TEXT' ) ) {
-                define( 'NO_HEADER_TEXT', true );
-            }
-
-            define( 'HEADER_TEXTCOLOR' , '' );
-            define( 'HEADER_IMAGE_WIDTH' , apply_filters( 'rtp_header_image_width', 960 ) );
-            define( 'HEADER_IMAGE_HEIGHT' , apply_filters( 'rtp_header_image_height', 140 ) );
-
-            // adding support for the header image
-            // Removed background image for header image
-            // add_custom_image_header( 'rtp_header_style', 'rtp_admin_header_style' );
-        }
 
         // Make use of wp_nav_menu() for navigation purpose
         register_nav_menus( array(
@@ -85,19 +65,7 @@ if ( !function_exists( 'rtp_header_image' ) ) {
         }
     }
 }
-add_action('rtp_hook_begin_header', 'rtp_header_image');
-
-
-if ( !function_exists( 'rtp_admin_header_style' ) ) {
-    /**
-     * Admin header preview styling
-     *
-     * @since rtPanel 2.0
-     */
-    function rtp_admin_header_style() { ?>
-        <style> #headimg { width: <?php echo HEADER_IMAGE_WIDTH; ?>px; height: <?php echo HEADER_IMAGE_HEIGHT; ?>px; } </style><?php
-    }
-}
+add_action( 'rtp_hook_begin_header', 'rtp_header_image' );
 
 /**
  * Enqueues rtPanel Default Scripts
