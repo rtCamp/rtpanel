@@ -53,7 +53,7 @@ module.exports = function(grunt) {
         wordpressdeploy: {
             options: {
                 backup_dir: "backups/",
-                rsync_args: ['--verbose', '--progress', '--archive', '--compress', '--omit-dir-times', '--delete'],
+                rsync_args: ['-avz'],
                 exclusions: ['Gruntfile.js', '.git/', 'tmp/*', 'backups/', 'wp-config.php', 'composer.json', 'composer.lock', 'README.md', '.gitignore', 'package.json', 'node_modules', '.sass-cache', 'npm-debug.log', '.scss-cache']
             },
             local: {
@@ -76,12 +76,12 @@ module.exports = function(grunt) {
                 "ssh_host": "user@staging_host"
             },
             final: {
-                "title": "staging",
+                "title": "final",
                 "database": "database_name",
                 "user": "database_username",
                 "pass": "database_password",
                 "host": "database_host",
-                "url": "http://staging_url",
+                "url": "http://final_url",
                 "path": "/staging_path",
                 "ssh_host": "user@staging_host"
             }
@@ -91,6 +91,11 @@ module.exports = function(grunt) {
     
     // Register Task
     // Ref. http://gruntjs.com/api/grunt.task
-    grunt.task.registerTask(taskName, taskList);
-    task.registerTask('default', ['watch', 'imagemin', 'wordpressdeploy']);
+    
+    grunt.registerTask('iconFonts', ['fontello']);
+
+    // register task
+    grunt.registerTask('default', ['iconFonts', 'imagemin', 'watch']);
+    
+    //grunt.registerTask('default', ['wordpressdeploy']);
 };
