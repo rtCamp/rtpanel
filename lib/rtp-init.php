@@ -167,6 +167,16 @@ function rtp_is_buddypress() {
 }
 
 /**
+ * Check if BuddyPress Exists and if on a BuddyPress Page
+ *
+ * @since rtPanel 4.0
+ */
+function rtp_is_yarpp() {
+    global $post;
+    return ( function_exists('related_posts') && in_array( $post->post_type, get_option('yarpp')['auto_display_post_types']) );
+}
+
+/**
  * Sanitizes options having urls in serilized data.
  *
  * @since rtPanel 2.1
