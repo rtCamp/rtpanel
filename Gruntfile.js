@@ -54,15 +54,16 @@ module.exports = function(grunt) {
                     optimizationLevel: 7,
                     progressive: true
                 },
-                files: [{
-                        expand: true,
-                        cwd: 'img/',
-                        src: '**/*',
-                        dest: 'img/'
-                    }]
+
+                files: {
+                    expand: true,
+                    cwd: 'img/',
+                    src: ['**/*'],
+                    dest: 'img/test/'
+                }
             }
         },
-        
+
         // WordPress Deployment
         // Ref. https://npmjs.org/package/grunt-wordpress-deploy
         wordpressdeploy: {
@@ -71,6 +72,7 @@ module.exports = function(grunt) {
                 rsync_args: ['-avz'],
                 exclusions: ['Gruntfile.js', '.git/', 'tmp/*', 'backups/', 'wp-config.php', 'composer.json', 'composer.lock', 'README.md', '.gitignore', 'package.json', 'node_modules', '.sass-cache', 'npm-debug.log', '.scss-cache']
             },
+
             local: {
                 "title": "local",
                 "database": "database_name",
@@ -91,6 +93,7 @@ module.exports = function(grunt) {
                 "path": "/staging_path",
                 "ssh_host": "user@staging_host"
             },
+
             final: {
                 "title": "final",
                 "database": "database_name",
@@ -109,15 +112,13 @@ module.exports = function(grunt) {
 
     // register task
     // grunt.registerTask('imagemin', ['imagemin']);
-    
+
     // Fontello Fonts
     // grunt.registerTask('iconFonts', ['fontello']);
 
-    // register task
-    grunt.registerTask('default', ['fontello', 'watch']);
+    // WordPress Deploy
+    //grunt.registerTask('default', ['wordpressdeploy']);
 
     // register task
-    grunt.registerTask('default', ['iconFonts', 'imagemin', 'watch']);
-    
-    //grunt.registerTask('default', ['wordpressdeploy']);
+    grunt.registerTask('default', ['fontello', 'imagemin', 'watch']);
 };
