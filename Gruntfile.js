@@ -47,6 +47,7 @@ module.exports = function(grunt) {
         },
         
         // Image Optimization
+        // Note : This needs to improve
         // Ref. https://npmjs.org/package/grunt-contrib-imagemin
         imagemin: {
             dist: {
@@ -120,5 +121,5 @@ module.exports = function(grunt) {
     //grunt.registerTask('default', ['wordpressdeploy']);
 
     // register task
-    grunt.registerTask('default', ['fontello', 'imagemin', 'watch']);
+    grunt.registerTask('default', ['fontello', 'watch']);
 };
