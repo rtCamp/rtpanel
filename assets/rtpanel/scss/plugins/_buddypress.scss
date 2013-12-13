@@ -1,4 +1,4 @@
-// ***** Common BuddyPress Style ***** //
+    // ***** Common BuddyPress Style ***** //
 @mixin rtp-buddypress-style() {
     .buddypress {
         .post-header { margin-bottom: 0; }
@@ -18,9 +18,11 @@
             label { display: inline-block; margin: 0; }
             input[type="button"], button, .button, input[type="submit"] { 
                 @include rtp-button-tiny();
-                color: #fff; border: 0 none;
-                margin-bottom: 0;
-                &:hover, &:focus { border: 0 none; }
+                @include rtp-button();
+                @include rtp-button-shadow();
+                text-shadow: none;
+                background-image: none; text-decoration: none;
+                &:hover, &:focus { background-image: none;border: 0 none; }
             }
             form#whats-new-form { padding: 10px 0 0 !important; }
             #whats-new-post-in { margin-top: 0 !important; }

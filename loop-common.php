@@ -69,7 +69,7 @@ if ( have_posts() ) {
 
         </article><!-- .rtp-post-box --><?php
 
-        /* Post Pagination */
+            /* Post Pagination */
         rtp_hook_single_pagination();
 
         // Comment Form
