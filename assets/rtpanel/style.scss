@@ -27,5 +27,9 @@ Tags: black, blue, white, orange, light, one-column, two-columns, right-sidebar,
 
 /* rtPanel Style Starts From Here */
 
+// Fontello Fonts
+@import "../fontello/scss/rtpanel-fontello";
+@import "../fontello/scss/animation";
+
 // Basic style for theme.
 @import "scss/base";
