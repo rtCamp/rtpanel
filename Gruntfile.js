@@ -12,7 +12,7 @@ module.exports = function(grunt) {
                 files: ['assets/rtpanel/**/*.{scss,sass}'],
                 tasks: ['compass']
             },
-            
+
             livereload: {
                 options: { livereload: true },
                 files: ['style.css', 'js/*.js', '*.html', '*.php', 'img/**/*.{png,jpg,jpeg,gif,webp,svg}']
@@ -25,6 +25,20 @@ module.exports = function(grunt) {
                 options: {
                     config: 'config.rb',
                     force: true
+                }
+            }
+        },
+
+        // Fontello Icons
+        fontello: {
+            iconFonts: {
+                options: {
+                  config: 'assets/fontello/config.json',
+                  fonts: 'assets/fontello/font',
+                  styles: 'assets/fontello/scss',
+                  // scss: true
+                  // zip: 'test/output',
+                  force: true
                 }
             }
         },
@@ -54,12 +68,14 @@ module.exports = function(grunt) {
                 recursive: true,
                 syncDestIgnoreExcl: true
             },
+
             staging: {
                 options: {
                     dest: "~/path/to/theme",
                     host: "user@host.com"
                 }
             },
+
             production: {
                 options: {
                     dest: "~/path/to/theme",
@@ -67,16 +83,18 @@ module.exports = function(grunt) {
                 }
             }
         }
-
     });
 
     // rename tasks
-    grunt.renameTask('rsync', 'deploy');
+    // grunt.renameTask('rsync', 'deploy');
 
     // register task
-    grunt.registerTask('default', ['watch']);
+    // grunt.registerTask('imagemin', ['imagemin']);
     
+    // Fontello Fonts
+    grunt.registerTask('iconFonts', ['fontello']);
+
     // register task
-    grunt.registerTask('imagemin', ['imagemin']);
+    grunt.registerTask('default', ['iconFonts', 'watch']);
 
 };
