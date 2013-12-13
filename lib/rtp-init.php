@@ -167,7 +167,7 @@ function rtp_is_buddypress() {
 }
 
 /**
- * Check if BuddyPress Exists and if on a BuddyPress Page
+ * Check if yarpp plugin exists and if cuurent post type is activated in yarpp
  *
  * @since rtPanel 4.0
  */

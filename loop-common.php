@@ -69,10 +69,8 @@ if ( have_posts() ) {
 
         </article><!-- .rtp-post-box --><?php
 
-        if ( !rtp_is_yarpp() ) {
             /* Post Pagination */
-            rtp_hook_single_pagination();
-        }
+        rtp_hook_single_pagination();
 
         // Comment Form
         rtp_hook_comments();
