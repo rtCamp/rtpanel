@@ -83,16 +83,11 @@ function rtp_default_scripts() {
     /* Google Font: Open Sans */
     wp_enqueue_style( 'rtp-google-font', 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700', '', NULL );
 
-    /* Fontello icons */
-    wp_enqueue_style( 'rtp-icon-fonts-animation', RTP_ASSETS_URL . '/fontello/css/animation.css', '', NULL );
-    wp_enqueue_style( 'rtp-icon-fonts', RTP_ASSETS_URL . '/fontello/css/rtpanel-fontello.css', '', NULL );
-
     // Loads our main stylesheet.
     wp_enqueue_style( 'rtpanel-style', get_stylesheet_uri(), array(), '0.4' );
-    
+
     // Nested Comment Support
     ( is_singular() && get_option( 'thread_comments' ) ) ? wp_enqueue_script('comment-reply') : '';
-
 }
 add_action( 'wp_enqueue_scripts', 'rtp_default_scripts' );
 
@@ -164,6 +159,16 @@ function rtp_is_bbPress() {
  */
 function rtp_is_buddypress() {
     return ( function_exists('bp_current_component') && bp_current_component() );
+}
+
+/**
+ * Check if yarpp plugin exists and if cuurent post type is activated in yarpp
+ *
+ * @since rtPanel 4.0
+ */
+function rtp_is_yarpp() {
+    global $post;
+    return ( function_exists('related_posts') && in_array( $post->post_type, get_option('yarpp')['auto_display_post_types']) );
 }
 
 /**

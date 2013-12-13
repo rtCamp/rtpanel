@@ -238,7 +238,7 @@ add_action ( 'rtp_hook_after_logo', 'rtp_blog_description' );
  * @since rtPanel 2.1
  */
 function rtp_default_single_pagination() {
-    if ( is_single() && ( get_adjacent_post ( '', '', true ) || get_adjacent_post ( '', '', false ) ) ) {
+    if ( !rtp_is_yarpp() && is_single() && ( get_adjacent_post ( '', '', true ) || get_adjacent_post ( '', '', false ) ) ) {
         ?>
         <div class="rtp-navigation clearfix">
         <?php if ( get_adjacent_post ( '', '', true ) ) { ?><div class="left"><?php previous_post_link ( '%link', __ ( '&larr; %title', 'rtPanel' ) ); ?></div><?php } ?>

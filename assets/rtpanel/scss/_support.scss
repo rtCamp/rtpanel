@@ -9,6 +9,7 @@
 @import "plugins/_gravity_form_support";
 @import "plugins/_ninja_forms";
 @import "plugins/_rtMedia";
+@import "plugins/_yarpp";
 
 /* Include Support CSS */
 // Breadcrumb
@@ -54,4 +55,9 @@
 // rtMedia
 @if $load-rtmedia-styles {
     @include rtp-rtmedia-style();
+}
+
+// yarpp
+@if $load-yarpp-styles {
+    @include rtp-yarpp-style();
 }

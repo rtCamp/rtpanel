@@ -43,8 +43,11 @@
         }
     }
 
+    .bbp-login-form {
+        label { margin-bottom: 0; }
+    }
     .bbp_widget_login {
-        .logout-link { font-size: rem-calc(12); }
+        .logout-link:hover, .logout-link:focus { text-decoration: none; }
     }
 
     #subnav {

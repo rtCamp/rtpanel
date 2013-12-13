@@ -21,10 +21,12 @@
         }
         input[type="button"], button, .button, input[type="submit"] { 
             @include rtp-button-tiny();
-            background-image: none;
+            @include rtp-button();
+            @include rtp-button-shadow();
+            text-shadow: none;
             margin-bottom: 0;
-            border: 0 none;
-            &:hover, &:focus { border: 0 none; }
+            background-image: none; text-decoration: none;
+            &:hover, &:focus { background-image: none;border: 0 none; }
         }
         .rtmedia-item-thumbnail { margin: 0 auto; }
         .rtmedia-upload-input { margin-right: 10px; }

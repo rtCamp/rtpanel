@@ -69,6 +69,6 @@
 
 // Tiny Button
 @mixin rtp-button-tiny() {
-    @include button-size($padding:$button-tny);
+    @include button-size($padding:$button-tny, $is-input:true);
     @include button-style($bg:$primary-color, $radius:false);
 }
