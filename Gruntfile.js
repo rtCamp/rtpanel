@@ -31,12 +31,12 @@ module.exports = function(grunt) {
 
         // Fontello Icons
         fontello: {
-            iconFonts: {
+            dist: {
                 options: {
                   config: 'assets/fontello/config.json',
                   fonts: 'assets/fontello/font',
-                  styles: 'assets/fontello/scss',
-                  // scss: true
+                  styles: 'assets/fontello/css',
+                  scss: true,
                   // zip: 'test/output',
                   force: true
                 }
@@ -92,9 +92,9 @@ module.exports = function(grunt) {
     // grunt.registerTask('imagemin', ['imagemin']);
     
     // Fontello Fonts
-    grunt.registerTask('iconFonts', ['fontello']);
+    // grunt.registerTask('iconFonts', ['fontello']);
 
     // register task
-    grunt.registerTask('default', ['iconFonts', 'watch']);
+    grunt.registerTask('default', ['fontello', 'watch']);
 
 };
