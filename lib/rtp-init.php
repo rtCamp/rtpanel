@@ -44,6 +44,17 @@ if ( !function_exists( 'rtpanel_setup' ) ) {
             'admin-head-callback'   => '',
 	);
 	add_theme_support( 'custom-header', $rtp_custom_header_support );
+        
+        /*
+	 * Switches default core markup for search form, comment form,
+	 * and comments to output valid HTML5.
+	 */
+	add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
+        
+        /**
+         * Adds RSS feed links to head for posts and comments.
+         */
+	add_theme_support( 'automatic-feed-links' );
 
         // Make use of wp_nav_menu() for navigation purpose
         register_nav_menus( array(
