@@ -27,7 +27,7 @@ $menu-spacing: rem-calc(12 30);
 }
 
 /* Navigation */
-.rtp-nav-wrapper { @include rtp-bg-color(); clear: both; height: $menu-height; margin-bottom: rem-calc(30); position: relative;
+.rtp-nav-wrapper { @include rtp-bg-color(); clear: both; min-height: $menu-height; margin-bottom: rem-calc(30); position: relative;
     @if $menu-full-bg {
         &:before, &:after { content: ' '; position: absolute; background: $background-menu; top: 0;  bottom: 0; width: rem-calc(9999); } 
         &:before { right: 100%; }

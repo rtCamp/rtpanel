@@ -105,4 +105,4 @@ $sidr-text-color: $white;
 }
 
 // Menu Button
-a.rtp-menu-icon { display: none; float: left; }
+a.rtp-menu-icon { color: $white; font-size: rem-calc(21); display: none; float: left; margin-top: rem-calc(8); }

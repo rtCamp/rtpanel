@@ -7,9 +7,10 @@
 .rtp-icon-doc-text:before { content: '\e80d'; } /* '' */
 .rtp-icon-rss:before { content: '\e807'; } /* '' */
 .rtp-icon-search:before { content: '\e802'; } /* '' */
+.rtp-icon-calendar-1:before { content: '\e80c'; } /* '' */
 .rtp-icon-facebook:before { content: '\e800'; } /* '' */
 .rtp-icon-linkedin:before { content: '\e804'; } /* '' */
 .rtp-icon-pinterest-circled:before { content: '\e806'; } /* '' */
 .rtp-icon-calendar:before { content: '\e80b'; } /* '' */
 .rtp-icon-twitter:before { content: '\e805'; } /* '' */
-.rtp-icon-calendar-1:before { content: '\e80c'; } /* '' */
+.rtp-icon-menu:before { content: '\e80e'; } /* '' */

@@ -32,7 +32,7 @@
                             </p>
 
                             <p class="rtp-message-success">
-                                <?php printf( __( 'This theme comes with free technical <a title="Click here for rtPanel Free Support" target="_blank" href="%s">Support</a> by team of 20+ full-time developers.', 'rtPanel' ), 'https://rtcamp.com/support/forum/rtpanel/' ); ?>
+                                <?php printf( __( 'This theme comes with free technical <a title="Click here for rtPanel Free Support" target="_blank" href="%s">Support</a> by team of 30+ full-time developers.', 'rtPanel' ), 'https://rtcamp.com/support/forum/rtpanel/' ); ?>
                             </p>
                         </div><?php
                     } ?>
