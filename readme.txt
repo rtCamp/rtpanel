@@ -1,14 +1,14 @@
 === rtPanel ===
 Theme Name: rtPanel
 Theme URI: http://rtcamp.com/rtpanel/
-Description: WordPress theme framework with Custom Menu, Header and Background along with Logo, Favicon, Featured Image, Feedburner, Facebook Open Graph, Google Custom Search Integration and more options. Now includes a SAAS based CSS preprocessor and translation support. This theme comes with free technical support by team of 20+ full-time developers. Support Links: <a href="http://rtcamp.com/support/forum/rtpanel/" title="rtPanel Free Support" rel="follow">rtPanel Support forum</a>, <a href="http://rtcamp.com/rtpanel/docs/" title="rtPanel Documentation" rel="follow">Documentation</a> or visit <a href="http://rtcamp.com/rtpanel/" title="rtPanel" rel="follow">rtPanel</a>.
-Version: 3.2
+Description: WordPress theme framework with Custom Menu, Header and Background along with Logo, Favicon, Featured Image, Google Custom Search Integration and more options. Now includes a Foundation 5 framework, Grunt Task Runner, Bower package manager, SAAS based CSS preprocessor and translation support. This theme comes with free technical support by team of 30+ full-time developers. Support Links: <a href="http://rtcamp.com/support/forum/rtpanel/" title="rtPanel Free Support" rel="follow">rtPanel Support forum</a>, <a href="http://rtcamp.com/rtpanel/docs/" title="rtPanel Documentation" rel="follow">Documentation</a> or visit <a href="http://rtcamp.com/rtpanel/" title="rtPanel" rel="follow">rtPanel</a>.
+Version: 4.0
 Author: rtCamp
 Author URI: http://rtcamp.com/
 Contributors: rtCampers ( http://rtcamp.com/about/rtcampers/ )
 License: GNU General Public License, v2 (or newer)
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: black, blue, white, orange, light, one-column, two-columns, right-sidebar, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, flexible-width, full-width-template, buddypress
+Tags: black, blue, white, orange, light, one-column, two-columns, right-sidebar, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, fluid-layout, responsive-layout, full-width-template, buddypress
 
 == Description ==
 rtPanel is the most easy to use WordPress Theme Framework. You will find many state of the art options and widgets with rtPanel.
@@ -30,6 +30,14 @@ By using rtPanel, developers and users can specify settings for basic functions 
 If you make changes to thumbnail height, width or crop settings, you must use "Regenerate Thumbnail Plugin" ( http://wordpress.org/extend/plugins/regenerate-thumbnails/ ) to regenerate thumbnails on old posts.
 
 == Changelog ==
+
+= 4.0 =
+* Added: Foundation 5 Framework, Grunt Task Runner, Bower Package Manager
+* Added: WooCommerce, rtMedia, BuddyPress, bbPress, Gravity Form, Ninja Form Plugins Support
+* Modified: rtPanel theme options, Styles and CSS Classes
+* Resolved: Minor Bugs
+* Removed: Fallback for older version of WordPress
+* Removed: rtPanel default widgets
 
 = 3.2 =
 * Added: Sprite support through Sass/Compass
