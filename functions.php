@@ -9,6 +9,12 @@
 
 define( 'RTP_VERSION', '4.0' );
 
+/* Define Links */
+define( 'RTP_AUTHOR_URL', 'https://rtcamp.com/' );                      // Theme Author URL
+define( 'RTP_THEME_URL', RTP_AUTHOR_URL . 'rtpanel/' );                 // Theme URI
+define( 'RTP_DOCS_URL', RTP_THEME_URL . 'docs/' );                      // Theme Documentation URL
+define( 'RTP_FORUM_URL', RTP_AUTHOR_URL . 'support/forum/rtpanel/' );   // Theme Support Forum URL
+
 /* Define Directory Constants */
 define( 'RTP_ADMIN', get_template_directory() . '/admin' );
 define( 'RTP_CSS', get_template_directory() . '/css' );

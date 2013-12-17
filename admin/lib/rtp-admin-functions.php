@@ -792,7 +792,7 @@ function rtp_default_admin_sidebar() { ?>
         <div title="<?php _e( 'Click to toggle', 'rtPanel' ); ?>" class="handlediv"><br /></div>
         <h3 class="hndle"><span><?php _e( 'Promote, Donate, Share', 'rtPanel' ); ?>...</span></h3>
         <div class="inside">
-            <p><?php printf( __( 'Buy coffee/beer for team behind <a href="%s" title="rtPanel">rtPanel</a>.', 'rtPanel' ), 'http://rtcamp.com/rtpanel/' ); ?></p>
+            <p><?php printf( __( 'Buy coffee/beer for team behind <a href="%s" title="rtPanel">rtPanel</a>.', 'rtPanel' ), RTP_THEME_URL ); ?></p>
             <div class="rt-paypal" style="text-align:center">
                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
                     <input type="hidden" name="cmd" value="_donations" />
@@ -808,7 +808,7 @@ function rtp_default_admin_sidebar() { ?>
             </div>
             <div class="rt-social-share">
                 <div class="rt-twitter rtp-social-box">
-                    <?php printf( __( '<a href="%s"  class="twitter-share-button" data-text="I &hearts; #rtPanel"  data-url="%s" data-count="vertical" data-via="rtPanel">Tweet</a>', 'rtPanel' ), 'http://twitter.com/share', 'http://rtcamp.com/rtpanel/' ); ?>
+                    <?php printf( __( '<a href="%s"  class="twitter-share-button" data-text="I &hearts; #rtPanel"  data-url="%s" data-count="vertical" data-via="rtPanel">Tweet</a>', 'rtPanel' ), 'http://twitter.com/share', RTP_THEME_URL ); ?>
                 </div>
                 <div class="rt-facebook rtp-social-box">
                     <?php printf( __( '<a style="text-align: center;" name="fb_share" type="box_count" share_url="%s"></a>', '' ), 'http://rtpanel.com/' ); ?>
@@ -931,9 +931,9 @@ function rtp_theme_options_help() {
     $post_comment_help .= '<p>' . __( 'Remember to click "<strong>Save All Changes</strong>" to save any changes you have made to the theme options.', 'rtPanel' ) . '</p>';
 
     $sidebar = '<p><strong>' . __( 'For more information, <br />you can always visit:', 'rtPanel' ) . '</strong></p>' .
-            '<p>' . __( '<a href="http://rtcamp.com/rtpanel/" target="_blank" title="rtPanel Official Page">rtPanel Official Page</a>', 'rtPanel' ) . '</p>' .
-            '<p>' . __( '<a href="http://rtcamp.com/rtpanel/docs/" target="_blank" title="rtPanel Documentation">rtPanel Documentation</a>', 'rtPanel' ) . '</p>' .
-            '<p>' . __( '<a href="http://rtcamp.com/support/forum/rtpanel/" target="_blank" title="rtPanel Forum">rtPanel Forum</a>', 'rtPanel' ) . '</p>';
+            '<p>' . __( '<a href="' . RTP_THEME_URL . '" target="_blank" title="rtPanel Official Page">rtPanel Official Page</a>', 'rtPanel' ) . '</p>' .
+            '<p>' . __( '<a href="' . RTP_DOCS_URL . '" target="_blank" title="rtPanel Documentation">rtPanel Documentation</a>', 'rtPanel' ) . '</p>' .
+            '<p>' . __( '<a href="' . RTP_AUTHOR_URL . '" target="_blank" title="rtPanel Forum">rtPanel Forum</a>', 'rtPanel' ) . '</p>';
 
     $screen = get_current_screen();
     $screen->add_help_tab(array( 'title' => __( 'General', 'rtPanel' ), 'id' => 'rtp-general-help', 'content' => $general_help));
@@ -1085,9 +1085,9 @@ add_action( 'admin_head', 'rtp_custom_admin_logo' );
  */
 function rtp_custom_admin_footer($footer_text) {
     echo $footer_text;
-    echo '<br /><br />' . __( 'Currently using <a href="http://rtcamp.com/rtpanel/" title="rtPanel" target="_blank">rtPanel</a>', 'rtPanel' ) . ' | '
-    . __( '<a href="http://rtcamp.com/support/forum/rtpanel/" title="Click here for rtPanel Free Support" target="_blank">Support</a>', 'rtPanel' ) . ' | '
-    . __( '<a href="http://rtcamp.com/rtpanel/docs/" title="Click here for rtPanel Documentation" target="_blank">Documentation</a>', 'rtPanel' );
+    echo '<br /><br />' . __( 'Currently using <a href="' . RTP_THEME_URL . '" title="rtPanel" target="_blank">rtPanel</a>', 'rtPanel' ) . ' | '
+    . __( '<a href="' . RTP_FORUM_URL . '" title="Click here for rtPanel Free Support" target="_blank">Support</a>', 'rtPanel' ) . ' | '
+    . __( '<a href="' . RTP_DOCS_URL . '" title="Click here for rtPanel Documentation" target="_blank">Documentation</a>', 'rtPanel' );
 }
 
 add_filter( 'admin_footer_text', 'rtp_custom_admin_footer' );
