@@ -75,8 +75,8 @@ function rtp_default_post_meta ( $placement = 'top' ) {
         if ( rtp_has_postmeta ( $position ) ) {
             if ( $position == 'l' ) {
                 echo '<footer class="post-footer">';
-            }
-            ?>
+            } ?>
+
             <div class="clearfix post-meta post-meta-<?php echo $placement; ?>"><?php
                 if ( 'bottom' == $placement )
                     rtp_hook_begin_post_meta_bottom();
@@ -89,20 +89,22 @@ function rtp_default_post_meta ( $placement = 'top' ) {
                     if ( $rtp_post_comments[ 'post_author_' . $position ] ) {
                         printf ( __ ( '<span class="">By</span> <span class="author">%s</span>', 'rtPanel' ), ( ! $rtp_post_comments[ 'author_link_' . $position ] ? get_the_author() . ( $rtp_post_comments[ 'author_count_' . $position ] ? '(' . get_the_author_posts() . ')' : '' ) : sprintf ( __ ( '<a class="fn" href="%1$s" title="%2$s">%3$s</a>', 'rtPanel' ), get_author_posts_url ( get_the_author_meta ( 'ID' ), get_the_author_meta ( 'user_nicename' ) ), esc_attr ( sprintf ( __ ( 'Posts by %s', 'rtPanel' ), get_the_author() ) ), get_the_author() ) . ( $rtp_post_comments[ 'author_count_' . $position ] ? '(' . get_the_author_posts() . ')' : '' ) ) );
                     }
-                    
+
                     echo ( $rtp_post_comments[ 'post_author_' . $position ] && $rtp_post_comments[ 'post_date_' . $position ] ) ? ' ' : '';
-                    
+
                     if ( $rtp_post_comments[ 'post_date_' . $position ] ) {
                         printf ( __ ( '<span class="rtp-meta-separator">&middot;</span> <time class="published" datetime="%s">%s</time>', 'rtPanel' ), get_the_date ( 'c' ), get_the_time ( $rtp_post_comments[ 'post_date_format_' . $position ] ) );
                     }
-                    
                 }
 
                 // Post Categories
                 echo ( get_the_category_list() && $rtp_post_comments[ 'post_category_' . $position ] ) ? ' <span class="rtp-meta-separator">&middot;</span> ' . get_the_category_list ( ', ' ) . '' : '';
 
+                // Comment Count
+                rtp_default_comment_count();
+
                 // Post Tags
-                echo ( get_the_tag_list() && $rtp_post_comments[ 'post_tags_' . $position ] ) ? '<span class="post-tags alignleft">' . get_the_tag_list ( __ ( 'Tagged', 'rtPanel' ) . ': <span>', ', ', '</span>' ) . '</span>' : '';
+                echo ( get_the_tag_list() && $rtp_post_comments[ 'post_tags_' . $position ] ) ? '<p class="post-tags">' . get_the_tag_list ( __ ( 'Tagged', 'rtPanel' ) . ': <span>', ', ', '</span>' ) . '</p>' : '';
 
                 // Post Custom Taxonomies
                 $args = array( '_builtin' => false );
@@ -110,9 +112,7 @@ function rtp_default_post_meta ( $placement = 'top' ) {
                 foreach ( $taxonomies as $key => $taxonomy ) {
                     ( get_the_terms ( $post->ID, $key ) && isset ( $rtp_post_comments[ 'post_' . $key . '_' . $position ] ) && $rtp_post_comments[ 'post_' . $key . '_' . $position ] ) ? the_terms ( $post->ID, $key, '<span class="post-custom-tax post-' . $key . '">' . $taxonomy->labels->singular_name . ': ', ', ', '</span>' ) : '';
                 }
-                
-                rtp_default_comment_count();
-                
+
                 if ( 'bottom' == $placement )
                     rtp_hook_end_post_meta_bottom();
                 else
@@ -120,13 +120,13 @@ function rtp_default_post_meta ( $placement = 'top' ) {
                 ?>
 
             </div><!-- .post-meta --><?php
+
             if ( $position == 'l' ) {
                 echo '</footer>';
             }
         }
     } elseif ( ! rtp_is_bbPress() ) {
-        if ( get_edit_post_link() && ( 'top' == $placement ) ) {
-            ?>
+        if ( get_edit_post_link() && ( 'top' == $placement ) ) { ?>
             <div class="post-meta post-meta-top"><?php rtp_hook_end_post_meta_top(); ?></div><?php
         }
     }

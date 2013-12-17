@@ -4,7 +4,7 @@ $post-meta-styles: true !default;
 /* Post Loop */
 // ***** Post Container ***** //
 .hentry { border-bottom: 1px dotted $border-color; padding-bottom: rem-calc(30); padding-top: $rtp-base-spacing; position: relative; // Removed clear: both;
-    
+
     &:first-child { padding-top: 0; }
 
     // ***** Sticky Post ***** //
@@ -52,6 +52,10 @@ $post-meta-styles: true !default;
             & { color: $gray-light; text-decoration: none; }
             &:hover, &:focus { color: $link-hover-color; }
         }
+        
+        > .rtp-meta-separator {
+            &:first-child { display: none; }
+        }
     }
 
     .post-meta-bottom { padding: 1em 0 0;
@@ -76,6 +80,6 @@ $post-meta-styles: true !default;
     
     .rtp-meta-separator { padding: rem-calc(0 2); }
 
-    .post-tags { clear: left; }
+    .post-tags { font-size: inherit; margin-bottom: 0; }
     /* End - Post Meta */
 }
