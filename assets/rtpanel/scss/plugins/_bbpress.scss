@@ -38,7 +38,7 @@
 
             #bbp-search-form #bbp_search { float: left; }
             button, .button {
-                @include rtp-button-tiny();
+                @include rtp-button(); @include rtp-button-shadow(); @include button-size($button-tny);
             }
         }
     }

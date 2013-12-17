@@ -1,191 +1,198 @@
-/* Comments */
-.rtp-comment-count { border-bottom: 1px dotted $border-color; color: $gray; padding: rem-calc(10 0);
-    &:empty { display: none; }
-}
+// $rtp-comment-style: true;
+$rtp-comment-style-type: box; // you can use box, clean,...
 
-// Title
-.rtp-comment-count-container { float: left; line-height: 1.2; margin: 0; }
-
-// Manage Comments
-.rtp-manage-comments { float: left; line-height: 1; margin: rem-calc(8 0 0 10); }
-
-// Thoughts
-.rtp-thoughts { float: right; font-size: rem-calc(14); line-height: 1.85; }
-
-/* Comments Display */
-.comments-container { // border-top: 1px dotted $border-color;
-
-    // Empty Element
-    &:empty { border-top: 0; }
-}
-
-// comment-form
-.comment-form { overflow: hidden; }
-
-// Commentlist
-.commentlist { clear: both; margin: 0; // Self
-
-    > li {
-        &:first-child { border-top: 0; }
-    }
+// Box type style
+@if( $rtp-comment-style-type == box ) {
     
-    .children { margin-left: rem-calc(84); }
-    
-    // Children
-    .vcard { 
-        border: 0; float: left; margin: rem-calc(8 15 3 8); padding: 0; // Self
-        
-        img { @include border-radius($global-rounded); @include rtp-border($width: 2px, $color: #FFFFFF); }
+    /* Comments */
+    .rtp-comment-count { border-bottom: 1px dotted $border-color; color: $gray; padding: rem-calc(10 0);
+        &:empty { display: none; }
     }
 
-    .fn { font-size: rem-calc(24); font-style: normal; text-transform: capitalize; }
+    // Title
+    .rtp-comment-count-container { float: left; line-height: 1.2; margin: 0; }
 
-    // Trackback Pingback
-    .trackback,
-    .pingback { overflow: hidden; padding: rem-calc(0 0 15);
-        // EM Element
-        em { color: $gray; font-size: rem-calc(12); }
-    }
-    
-    pre { background-color: #EFEFEF; padding: rem-calc(10); }
-}
+    // Manage Comments
+    .rtp-manage-comments { float: left; line-height: 1; margin: rem-calc(8 0 0 10); }
 
-// Avatar
-.avatar {  }
+    // Thoughts
+    .rtp-thoughts { float: right; font-size: rem-calc(14); line-height: 1.85; }
 
-.rtp-comment-author-role {  }
+    /* Comments Display */
+    .comments-container { // border-top: 1px dotted $border-color;
 
-// Comment Text
-.comment-text { clear: both; padding: rem-calc(15 15 0); overflow: hidden; @include rtp-border();
-    p { margin: rem-calc(0 0 15 0); }
-    > ol, > ul { margin-bottom: rem-calc(26); }
-}
-
-// Comment Body
-.comment-body { clear: both; margin: rem-calc(10 0); position: relative; }
-
-.comment { list-style: none; // Self
-    code & { border-top: 0; }
-    li { margin-bottom: 0; }
-}
-
-// Comment Author  border-bottom: 1px solid $border-color; 
-.comment-author { padding: rem-calc(17 5 5 5); }
-.no-gravatar { padding: rem-calc(5); }
-
-// Comment Meta
-.comment-meta { font-size: rem-calc(14); margin: rem-calc(2 0 0 15);
-    // Children
-    //abbr { color: $gray-light; border: 0; }
-    
-    // Comment Edit Link
-    .comment-edit-link { margin: rem-calc(0 0 0 5);
-        &:hover { text-decoration: none; }
-    }
-}
-
-/* Comment Reply Link */
-.rtp-reply { clear: both; float: right; margin: rem-calc(5 5 0 0); // Self
-    // Children
-    a { display: block; font-size: rem-calc(14); }
-}
-
-/* Admin Comments */
-.comment-author-admin, .bypostauthor, .byuser {
-    > .comment-body .comment-author { background-color: aliceblue; } // background-color: darken($base-background, 4%); @include rtp-rem-fallback(padding, 10, 10, 0);
-}
-
-/* Comment Form */
-#respond { clear: both; font-size: rem-calc(13);
-
-    // Respond Form direct children of 'comments-container'
-    .comments-container > & { margin-bottom: rem-calc(20); }
-
-    // Comment List form
-    .commentlist + & { margin: 0 0 1.5em; }
-
-    // Comment body
-    .comment-body + & { margin-top: 0; padding: 0 0 0.8em; } // border-bottom: 1px solid $border-color; 
-
-    // Comment
-    .comment & {
-        .form-submit { margin-bottom: 0; }
+        // Empty Element
+        &:empty { border-top: 0; }
     }
 
-    // Form
-    form { }
+    // comment-form
+    .comment-form { overflow: hidden; }
 
-    // Form Paragraph
-    p { margin: 0.8em 0; }
+    // Commentlist
+    .commentlist { clear: both; margin: 0; // Self
 
-    // Comment Notes
-    .comment-notes, .logged-in-as { color: $gray; margin: rem-calc(10 0 0); }
+        > li {
+            &:first-child { border-top: 0; }
+        }
 
-    // Subscribe To Comments
-    .subscribe-to-comments {
-        #subscribe { margin-bottom: rem-calc(10); }
-        label { margin-left: rem-calc(5); }
+        .children { margin-left: rem-calc(84); }
+
+        // Children
+        .vcard { 
+            border: 0; float: left; margin: rem-calc(8 15 3 8); padding: 0; // Self
+
+            img { @include border-radius($global-rounded); @include rtp-border($width: 2px, $color: #FFFFFF); }
+        }
+
+        .fn { font-size: rem-calc(24); font-style: normal; text-transform: capitalize; }
+
+        // Trackback Pingback
+        .trackback,
+        .pingback { overflow: hidden; padding: rem-calc(0 0 15);
+            // EM Element
+            em { color: $gray; font-size: rem-calc(12); }
+        }
+
+        pre { background-color: #EFEFEF; padding: rem-calc(10); }
     }
 
-    // Label
-    label { display: inline-block; line-height: 2.692em; margin: rem-calc(0 0 10 20); }
+    // Avatar
+    .avatar {  }
 
-    // Required Field
-    .required { color: $alert-color; }
+    .rtp-comment-author-role {  }
 
-    // Comment form comment
-    .comment-form-comment, .form-submit { clear: both; margin-bottom: rem-calc(3); }
-
-    .form-submit { float: left; margin-right: rem-calc(20); }
-    
-    // Above Comments
-    .rtp-comment-above { margin-bottom: 0; }
-
-    // Form Inputs
-    input {
-        &[type=text], &[type=url], &[type=email] { width: 50%; }
+    // Comment Text
+    .comment-text { clear: both; padding: rem-calc(15 15 0); overflow: hidden; @include rtp-border();
+        p { margin: rem-calc(0 0 15 0); }
+        > ol, > ul { margin-bottom: rem-calc(26); }
     }
 
-    textarea { height: rem-calc(110); width: 98.33%; }
+    // Comment Body
+    .comment-body { clear: both; margin: rem-calc(10 0); position: relative; }
 
-    // Allowed Tags
-    .form-allowed-tags { background: darken($base-background, 2%); @include rtp-border(); color: $gray; font-size: emCalc(13); margin: rem-calc(0 0 14); padding: rem-calc(4); width: 96%; }
-
-    // Compact Form
-    .compact-comment-form { float: left; width: 33%; // Self
-        // Compact Form Label and Input
-        label { margin-left: rem-calc(2); }
-        input { width: 98%; }
+    .comment { list-style: none; // Self
+        code & { border-top: 0; }
+        li { margin-bottom: 0; }
     }
 
-    label[for=subscribe-reloaded] { float: left; margin: rem-calc(10 0 40); width: 80%;
-        span { display: block; line-height: 1.6; }
+    // Comment Author  border-bottom: 1px solid $border-color; 
+    .comment-author { padding: rem-calc(17 5 5 5); }
+    .no-gravatar { padding: rem-calc(5); }
+
+    // Comment Meta
+    .comment-meta { font-size: rem-calc(14); margin: rem-calc(2 0 0 15);
+        // Children
+        //abbr { color: $gray-light; border: 0; }
+
+        // Comment Edit Link
+        .comment-edit-link { margin: rem-calc(0 0 0 5);
+            &:hover { text-decoration: none; }
+        }
     }
-    
-    select[name=subscribe-reloaded] { float: left; margin-bottom: 0; margin-right: rem-calc(20); width: 50%; }
-}
 
-.comment-reply-title {
-    .comment-title { line-height: 1; }
-    small { font-size: rem-calc(14); position: relative; }
-    a { line-height: 1; }
-}
-
-.rtp-comment-await { color: $gray-light; font-size: rem-calc(12); }
-
-/* trackback and pingback inside comments */
-.rtp-comments-header { margin: 0; // Self
-    // Trackbacks
-    + #trackbacks { margin: rem-calc(20 0 40 40); 
-        li { margin-bottom: rem-calc(10); }
+    /* Comment Reply Link */
+    .rtp-reply { clear: both; float: right; margin: rem-calc(5 5 0 0); // Self
+        // Children
+        a { display: block; font-size: rem-calc(14); }
     }
-}
 
-/*.hide-labels { overflow: hidden; }*/
+    /* Admin Comments */
+    .comment-author-admin, .bypostauthor, .byuser {
+        > .comment-body .comment-author { background-color: aliceblue; } // background-color: darken($base-background, 4%); @include rtp-rem-fallback(padding, 10, 10, 0);
+    }
 
-// Plugin rtAccountDiv
-#rtAccountDiv {
-    ul { margin: rem-calc(20 0); }
+    /* Comment Form */
+    .comment-respond { clear: both; font-size: rem-calc(13);
+
+        // Respond Form direct children of 'comments-container'
+        .comments-container > & { margin-bottom: rem-calc(20); }
+
+        // Comment List form
+        .commentlist + & { margin: 0 0 1.5em; }
+
+        // Comment body
+        .comment-body + & { margin-top: 0; padding: 0 0 0.8em; } // border-bottom: 1px solid $border-color; 
+
+        // Comment
+        .comment & {
+            .form-submit { margin-bottom: 0; }
+        }
+
+        // Form
+        form { }
+
+        // Form Paragraph
+        p { margin: 0.8em 0; }
+
+        // Comment Notes
+        .comment-notes, .logged-in-as { color: $gray; margin: rem-calc(10 0 0); }
+
+        // Subscribe To Comments
+        .subscribe-to-comments {
+            #subscribe { margin-bottom: rem-calc(10); }
+            label { margin-left: rem-calc(5); }
+        }
+
+        // Label
+        label { display: inline-block; line-height: 2.692em; margin: rem-calc(0 0 10 20); }
+
+        // Required Field
+        .required { color: $alert-color; }
+
+        // Comment form comment
+        .comment-form-comment, .form-submit { clear: both; margin-bottom: rem-calc(3); }
+
+        .form-submit { float: left; margin-right: rem-calc(20); }
+
+        // Above Comments
+        .rtp-comment-above { margin-bottom: 0; }
+
+        // Form Inputs
+        input {
+            &[type=text], &[type=url], &[type=email] { width: 50%; }
+        }
+
+        textarea { height: rem-calc(110); width: 98.33%; }
+
+        // Allowed Tags
+        .form-allowed-tags { background: darken($base-background, 2%); @include rtp-border(); color: $gray; font-size: emCalc(13); margin: rem-calc(0 0 14); padding: rem-calc(4); width: 96%; }
+
+        // Compact Form
+        .compact-comment-form { float: left; width: 33%; // Self
+            // Compact Form Label and Input
+            label { margin-left: rem-calc(2); }
+            input { width: 98%; }
+        }
+
+        label[for=subscribe-reloaded] { float: left; margin: rem-calc(10 0 40); width: 80%;
+            span { display: block; line-height: 1.6; }
+        }
+
+        select[name=subscribe-reloaded] { float: left; margin-bottom: 0; margin-right: rem-calc(20); width: 50%; }
+    }
+
+    .comment-reply-title {
+        .comment-title { line-height: 1; }
+        small { font-size: rem-calc(14); position: relative; }
+        a { line-height: 1; }
+    }
+
+    .rtp-comment-await { color: $gray-light; font-size: rem-calc(12); }
+
+    /* trackback and pingback inside comments */
+    .rtp-comments-header { margin: 0; // Self
+        // Trackbacks
+        + #trackbacks { margin: rem-calc(20 0 40 40); 
+            li { margin-bottom: rem-calc(10); }
+        }
+    }
+
+    /*.hide-labels { overflow: hidden; }*/
+
+    // Plugin rtAccountDiv
+    #rtAccountDiv {
+        ul { margin: rem-calc(20 0); }
+    }
 }
 
 /* End of Comments Section */

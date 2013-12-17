@@ -8,7 +8,7 @@ sass_dir = "assets/rtpanel"
 images_dir = "img"
 javascripts_dir = "js"
 
-output_style = :compressed
+output_style = :compact
 
 relative_assets = true
 
