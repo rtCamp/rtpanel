@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: rtPanel 4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-12 19:09+0530\n"
-"PO-Revision-Date: 2013-12-12 19:09+0530\n"
+"POT-Creation-Date: 2013-12-17 19:56+0530\n"
+"PO-Revision-Date: 2013-12-17 19:56+0530\n"
 "Last-Translator: rtCamp <support@rtcamp.com>\n"
 "Language-Team: rtCampers <support@rtcamp.com>\n"
 "Language: en\n"
@@ -16,11 +16,11 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../functions.php:32
+#: ../functions.php:38
 msgid "&laquo; Previous"
 msgstr ""
 
-#: ../functions.php:33
+#: ../functions.php:39
 msgid "Next &raquo;"
 msgstr ""
 
@@ -35,7 +35,7 @@ msgstr ""
 #, php-format
 msgid ""
 "This theme comes with free technical <a title=\"Click here for rtPanel Free "
-"Support\" target=\"_blank\" href=\"%s\">Support</a> by team of 20+ full-time "
+"Support\" target=\"_blank\" href=\"%s\">Support</a> by team of 30+ full-time "
 "developers."
 msgstr ""
 
@@ -175,7 +175,7 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: ../comments.php:119 ../lib/rtp-comments.php:66
+#: ../comments.php:119 ../lib/rtp-comments.php:70
 msgid "Trackback"
 msgstr ""
 
@@ -183,7 +183,7 @@ msgstr ""
 msgid "Trackbacks"
 msgstr ""
 
-#: ../lib/rtp-init.php:50
+#: ../lib/rtp-init.php:61
 msgid "Primary Navigation"
 msgstr ""
 
@@ -199,28 +199,28 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: ../lib/rtp-comments.php:39
+#: ../lib/rtp-comments.php:43
 #, php-format
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: ../lib/rtp-comments.php:41
+#: ../lib/rtp-comments.php:45
 msgid "[ edit ]"
 msgstr ""
 
-#: ../lib/rtp-comments.php:43
+#: ../lib/rtp-comments.php:47
 msgid "Your comment is awaiting moderation. "
 msgstr ""
 
-#: ../lib/rtp-comments.php:49
+#: ../lib/rtp-comments.php:53
 msgid "Reply"
 msgstr ""
 
-#: ../lib/rtp-comments.php:66
+#: ../lib/rtp-comments.php:70
 msgid "Comment"
 msgstr ""
 
-#: ../lib/rtp-comments.php:66
+#: ../lib/rtp-comments.php:70
 msgid "Pingback"
 msgstr ""
 
@@ -1288,21 +1288,15 @@ msgid "For more information, <br />you can always visit:"
 msgstr ""
 
 #: ../admin/lib/rtp-admin-functions.php:934
-msgid ""
-"<a href=\"http://rtcamp.com/rtpanel/\" target=\"_blank\" title=\"rtPanel "
-"Official Page\">rtPanel Official Page</a>"
+msgid "rtPanel Official Page"
 msgstr ""
 
 #: ../admin/lib/rtp-admin-functions.php:935
-msgid ""
-"<a href=\"http://rtcamp.com/rtpanel/docs/\" target=\"_blank\" title="
-"\"rtPanel Documentation\">rtPanel Documentation</a>"
+msgid "rtPanel Documentation"
 msgstr ""
 
 #: ../admin/lib/rtp-admin-functions.php:936
-msgid ""
-"<a href=\"http://rtcamp.com/support/forum/rtpanel/\" target=\"_blank\" title="
-"\"rtPanel Forum\">rtPanel Forum</a>"
+msgid "rtPanel Forum"
 msgstr ""
 
 #: ../admin/lib/rtp-admin-functions.php:940
@@ -1310,35 +1304,37 @@ msgid "Post &amp; Comment"
 msgstr ""
 
 #: ../admin/lib/rtp-admin-functions.php:1088
-msgid ""
-"Currently using <a href=\"http://rtcamp.com/rtpanel/\" title=\"rtPanel\" "
-"target=\"_blank\">rtPanel</a>"
+msgid "Currently using <a href=\""
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1089
-msgid ""
-"<a href=\"http://rtcamp.com/support/forum/rtpanel/\" title=\"Click here for "
-"rtPanel Free Support\" target=\"_blank\">Support</a>"
+#: ../admin/lib/rtp-admin-functions.php:1088
+msgid "Click here for rtPanel Free Support"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1090
-msgid ""
-"<a href=\"http://rtcamp.com/rtpanel/docs/\" title=\"Click here for rtPanel "
-"Documentation\" target=\"_blank\">Documentation</a>"
+#: ../admin/lib/rtp-admin-functions.php:1088
+msgid "Support"
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1122
+#: ../admin/lib/rtp-admin-functions.php:1088
+msgid "Click here for rtPanel Documentation"
+msgstr ""
+
+#: ../admin/lib/rtp-admin-functions.php:1088
+msgid "Documentation"
+msgstr ""
+
+#: ../admin/lib/rtp-admin-functions.php:1120
 msgid "rtPanel Version "
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1163
+#: ../admin/lib/rtp-admin-functions.php:1161
 #, php-format
 msgid ""
 "The Thumbnail Settings have been updated. Please <a href=\"%s\" title="
 "\"Regenerate Thumbnails\">Regenerate Thumbnails</a>."
 msgstr ""
 
-#: ../admin/lib/rtp-admin-functions.php:1302
+#: ../admin/lib/rtp-admin-functions.php:1300
 msgid ""
 "<strong>Note:</strong> If you have overriden the header.php in your child "
 "theme make sure you place <strong>rtp_head();</strong> on the line just "

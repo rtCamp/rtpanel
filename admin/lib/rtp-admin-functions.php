@@ -931,9 +931,9 @@ function rtp_theme_options_help() {
     $post_comment_help .= '<p>' . __( 'Remember to click "<strong>Save All Changes</strong>" to save any changes you have made to the theme options.', 'rtPanel' ) . '</p>';
 
     $sidebar = '<p><strong>' . __( 'For more information, <br />you can always visit:', 'rtPanel' ) . '</strong></p>' .
-            '<p>' . __( '<a href="' . RTP_THEME_URL . '" target="_blank" title="rtPanel Official Page">rtPanel Official Page</a>', 'rtPanel' ) . '</p>' .
-            '<p>' . __( '<a href="' . RTP_DOCS_URL . '" target="_blank" title="rtPanel Documentation">rtPanel Documentation</a>', 'rtPanel' ) . '</p>' .
-            '<p>' . __( '<a href="' . RTP_AUTHOR_URL . '" target="_blank" title="rtPanel Forum">rtPanel Forum</a>', 'rtPanel' ) . '</p>';
+            '<p><a href="' . RTP_THEME_URL . '" target="_blank" title="' . __( 'rtPanel Official Page', 'rtPanel' ) . '">' . __( 'rtPanel Official Page', 'rtPanel' ) . '</a></p>' .
+            '<p><a href="' . RTP_DOCS_URL . '" target="_blank" title="' . __( 'rtPanel Documentation', 'rtPanel' ) . '">' . __( 'rtPanel Documentation', 'rtPanel' ) . '</a></p>' .
+            '<p><a href="' . RTP_AUTHOR_URL . '" target="_blank" title="' . __( 'rtPanel Forum', 'rtPanel' ) . '">' . __( 'rtPanel Forum', 'rtPanel' ) . '</a></p>';
 
     $screen = get_current_screen();
     $screen->add_help_tab(array( 'title' => __( 'General', 'rtPanel' ), 'id' => 'rtp-general-help', 'content' => $general_help));
@@ -1085,9 +1085,7 @@ add_action( 'admin_head', 'rtp_custom_admin_logo' );
  */
 function rtp_custom_admin_footer($footer_text) {
     echo $footer_text;
-    echo '<br /><br />' . __( 'Currently using <a href="' . RTP_THEME_URL . '" title="rtPanel" target="_blank">rtPanel</a>', 'rtPanel' ) . ' | '
-    . __( '<a href="' . RTP_FORUM_URL . '" title="Click here for rtPanel Free Support" target="_blank">Support</a>', 'rtPanel' ) . ' | '
-    . __( '<a href="' . RTP_DOCS_URL . '" title="Click here for rtPanel Documentation" target="_blank">Documentation</a>', 'rtPanel' );
+    echo '<br /><br />' . __( 'Currently using <a href="' . RTP_THEME_URL . '" title="rtPanel" target="_blank">rtPanel</a>', 'rtPanel' ) . ' | <a href="' . RTP_FORUM_URL . '" title="' . __( 'Click here for rtPanel Free Support', 'rtPanel' ) . '" target="_blank">' . __( 'Support', 'rtPanel' ) . '</a> | <a href="' . RTP_DOCS_URL . '" title="' . __( 'Click here for rtPanel Documentation', 'rtPanel' ) . '" target="_blank">' . __( 'Documentation', 'rtPanel' ) . '</a>';
 }
 
 add_filter( 'admin_footer_text', 'rtp_custom_admin_footer' );

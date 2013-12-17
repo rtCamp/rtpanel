@@ -86,10 +86,10 @@ add_action( 'rtp_hook_begin_header', 'rtp_header_image' );
  */
 function rtp_default_scripts() {
     /* Mobile Navigation Script */
-    wp_enqueue_script( 'rtp-modernizr', RTP_BOWER_COMPONENTS_URL . '/foundation/js/vendor/custom.modernizr.js', array(), '', false );
-    wp_enqueue_script( 'rtp-foundation-js', RTP_BOWER_COMPONENTS_URL . '/foundation/js/foundation.min.js', array( 'jquery' ), '', true );
+    wp_enqueue_script( 'rtp-modernizr', RTP_BOWER_COMPONENTS_URL . '/foundation/js/vendor/custom.modernizr.js', array( 'jquery' ), '', false );
+    wp_enqueue_script( 'rtp-foundation-js', RTP_BOWER_COMPONENTS_URL . '/foundation/js/foundation.min.js', array( 'jquery', 'rtp-modernizr' ), '', true );
     wp_enqueue_script( 'rtp-jquery-sidr', RTP_JS_FOLDER_URL . '/jquery.sidr.min.js', array( 'jquery' ), '', true );
-    wp_enqueue_script( 'rtp-app-js', RTP_JS_FOLDER_URL . '/rtp-app.js', array( 'rtp-foundation-js' ), '', true );
+    wp_enqueue_script( 'rtp-app-js', RTP_JS_FOLDER_URL . '/rtp-app.js', array( 'jquery', 'rtp-foundation-js', 'rtp-jquery-sidr' ), '', true );
 
     /* Google Font: Open Sans */
     wp_enqueue_style( 'rtp-google-font', 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700', '', NULL );
@@ -99,7 +99,7 @@ function rtp_default_scripts() {
     wp_enqueue_style( 'rtp-icon-fonts', RTP_ASSETS_URL . '/fontello/css/rtpanel-fontello.css', '', NULL );
 
     // Loads our main stylesheet.
-    wp_enqueue_style( 'rtpanel-style', get_stylesheet_uri(), array(), '4.0' );
+    wp_enqueue_style( 'rtpanel-style', get_stylesheet_uri(), array( 'rtp-google-font', 'rtp-icon-fonts-animation', 'rtp-icon-fonts' ), '4.0' );
 
     // Nested Comment Support
     ( is_singular() && get_option( 'thread_comments' ) ) ? wp_enqueue_script('comment-reply') : '';
