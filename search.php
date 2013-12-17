@@ -50,4 +50,4 @@ get_header();
 
     <?php if ( !$rtp_general['search_code'] || !$rtp_general['search_layout'] ) rtp_hook_sidebar(); ?>
 
-<?php get_footer(); ?>
+<?php get_footer();

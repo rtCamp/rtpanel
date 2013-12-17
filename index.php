@@ -39,4 +39,4 @@ get_header();
 
     <?php (rtp_get_sidebar_id() === 0) ? '' : rtp_hook_sidebar(); ?>
 
-<?php get_footer(); ?>
+<?php get_footer();

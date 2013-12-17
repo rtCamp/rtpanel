@@ -1345,5 +1345,4 @@ function rtp_upgrade_32_notice_js() {
         </script><?php
     }
 }
-
 add_action( 'admin_head', 'rtp_upgrade_32_notice_js' );

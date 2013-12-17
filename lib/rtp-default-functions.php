@@ -614,5 +614,4 @@ function rtp_footer_separator_border() {
      echo '<hr />';
      echo '</div></div>';
 }
-
 add_action ( 'rtp_hook_after_content_wrapper', 'rtp_footer_separator_border' );
