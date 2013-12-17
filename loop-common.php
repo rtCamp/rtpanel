@@ -93,4 +93,4 @@ if ( have_posts() ) {
 
         <?php rtp_hook_end_post(); ?>
     <?php
-} ?>
+}

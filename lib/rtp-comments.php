@@ -109,4 +109,3 @@ function pingback_trackback_count( $count, $post_id ) {
     }
     return $pingtrack_count;
 }
-?>

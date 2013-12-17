@@ -97,4 +97,4 @@ get_header();
         <?php rtp_hook_end_content(); ?>
     </section><!-- #content -->
 
-<?php get_footer(); ?>
+<?php get_footer();
