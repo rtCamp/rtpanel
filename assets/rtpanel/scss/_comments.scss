@@ -38,7 +38,7 @@
         img { @include border-radius($global-rounded); @include rtp-border($width: 2px, $color: #FFFFFF); }
     }
 
-    .fn { font-size: rem-calc(20); font-style: normal; font-weight: 600; }
+    .fn { font-size: rem-calc(24); font-style: normal; text-transform: capitalize; }
 
     // Trackback Pingback
     .trackback,
