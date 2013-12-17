@@ -17,9 +17,7 @@
             div.dir-search { margin: -43px 0 10px; }
             label { display: inline-block; margin: 0; }
             input[type="button"], button, .button, input[type="submit"] { 
-                @include rtp-button-tiny();
-                @include rtp-button();
-                @include rtp-button-shadow();
+                @include rtp-button(); @include rtp-button-shadow(); @include button-size($button-tny);
                 text-shadow: none;
                 background-image: none; text-decoration: none;
                 &:hover, &:focus { background-image: none;border: 0 none; }
@@ -31,10 +29,10 @@
             select { padding: 5px; width: auto; height: auto; }
             .item-list-tabs { background-color: #DDDDDD; padding: 10px 15px 0; //Self
                 li {
-                    a { backgournd: none transparent;
+                    a { background: transparent;
                         span { line-height: 1.8; }
                     }
-                    &.current a, &.selected a { border-radius: 3px 3px 0 0; opacity: 1; background: none #fff; }
+                    &.current a, &.selected a { border-radius: 3px 3px 0 0; opacity: 1; background: $white; }
                 }
             }
             #subnav { padding: 0 0 10px; border-bottom: 1px solid #DDDDDD; }

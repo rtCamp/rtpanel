@@ -18,12 +18,12 @@ input[type=submit] {
 
 // Button Success
 .rtp-button-success {
-    @include rtp-button($color-success);
+    @include rtp-button($bg: $color-success);
 }
 
 // Button Alert
 .rtp-button-alert {
-    @include rtp-button($color-error, 10%, 4%);
+    @include rtp-button($bg: $color-error, $dark: 10%, $light: 4%);
 }
 
 // Button Width
