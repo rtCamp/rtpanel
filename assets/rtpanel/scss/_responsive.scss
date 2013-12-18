@@ -1,10 +1,14 @@
 // More Information about Media Queries http://foundation.zurb.com/docs/media-queries.html
 
 // Medium screens
-//  max-width 1024px, use when QAing tablet-only issues */
+//  max-width 1024px
 @media only screen and (max-width: 64em) {
     .rtp-nav-container { display: none; }
     a.rtp-menu-icon { display: block; }
+    
+    // Fixed Menu issue for mobile and tabs
+    body { margin-top: -46px; }
+    .rtp-nav-wrapper { margin-top: 46px; }
 }
 
 // Large screens
