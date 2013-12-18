@@ -70,8 +70,8 @@ jQuery(document).ready(function() {
             jQuery('#use_logo').removeAttr('disabled');
             jQuery('.show-fields-logo').show();
         }
-    })
-    
+    });
+
     jQuery('.rtp_favicon').change(function(){
         if (jQuery(this).val()==='disable') {
             jQuery('#html-upload-fav').hide();
@@ -84,7 +84,7 @@ jQuery(document).ready(function() {
             jQuery('#favicon_metabox').show();
         }
     });
- 
+
     toggle_handler( post_date_u, '.post_date_format_u', '#post_date_u' );
     toggle_handler( post_date_l, '.post_date_format_l', '#post_date_l' );
     toggle_handler( post_author_u, '.post_author_u-sub', '#post_author_u' );
@@ -132,13 +132,14 @@ function init_content( container ) {
 }
 
 function contentshow_table( container, event_handler ) {
-    if( typeof jQuery(event_handler).attr('checked') !== 'undefined' && jQuery(event_handler).attr('checked') != false ) {
+    if( typeof jQuery(event_handler).attr('checked') !== 'undefined' && jQuery(event_handler).attr('checked') !== false ) {
         jQuery( jQuery(container) ).css('visibility','visible');
         jQuery( jQuery(container) ).css('display','block');
     } else {
         jQuery( jQuery(container) ).css('visibility','hidden');
         jQuery( jQuery(container) ).css('display','none');
     }
+
     jQuery(event_handler).click(function () {
         if (( jQuery(container+':hidden').length > 1)) {
             jQuery( jQuery(container) ).css('visibility','visible');
@@ -147,9 +148,9 @@ function contentshow_table( container, event_handler ) {
             jQuery( jQuery(container) ).css('visibility','hidden');
             jQuery( jQuery(container) ).css('display','none');
         }
-        });
+    });
 }
-    
+
 /* Format date according to changes in custom date field */
 function date_format( position ) {
     jQuery('input[name="rtp_post_comments[post_date_format_'+position+']"]').click(function(){
