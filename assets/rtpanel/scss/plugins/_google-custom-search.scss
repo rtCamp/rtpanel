@@ -1,5 +1,6 @@
 // ****** Google custom search page style ****** //
 @mixin rtp-google-custom-search-page() {
+
     .search-layout-wrapper > hr { margin-top: 0; }
 
     #content .gsc-control-cse { padding: 0; }
@@ -9,16 +10,16 @@
         .gsc-result-info { margin: 0; }
 
         .gs-web-image-box,
-        .gs-promotion-image-box { padding: 3px 0 0; }
+        .gs-promotion-image-box { padding: rem-calc(3 0 0); }
 
-        .gsc-webResult.gsc-result { border-width: 0 0 1px; border-color: $border-color; border-style: none none dotted; clear: both; margin: 0; padding: 10px 0; position: relative; }
+        .gsc-webResult.gsc-result { border-width: 0 0 1px; border-color: $border-color; border-style: none none dotted; clear: both; margin: 0; padding: rem-calc(10 0); position: relative; }
 
         .gsc-result {
             .gs-title { height: auto; text-decoration: none; }
 
             .gsc-cursor-box {
                 .gsc-cursor-page {
-                    @include rtp-border(); color: $link-color; display: inline-block; float: none; font-weight: normal; margin: 2px; padding: 5px 10px; text-decoration: none;
+                    @include rtp-border(); color: $link-color; display: inline-block; float: none; font-weight: normal; margin: rem-calc(2); padding: rem-calc(5 10); text-decoration: none;
                     &:hover { border-color: darken($border-color, 30%); color: $link-hover-color; text-decoration: underline; }
                 }
             }
@@ -39,9 +40,9 @@
         }
 
         .cse input.gsc-search-button,
-        input.gsc-search-button { height: auto; margin: 0; min-width: 50px; padding: 6px 18px; }
+        input.gsc-search-button { height: auto; margin: 0; min-width: rem-calc(50); padding: rem-calc(6 18); }
 
-        .gsc-tabdActive .gsc-results .gsc-cursor { display: block; margin: 15px 0 5px; overflow: hidden; text-align: center; }
+        .gsc-tabdActive .gsc-results .gsc-cursor { display: block; margin: rem-calc(15 0 5); overflow: hidden; text-align: center; }
 
     }
 

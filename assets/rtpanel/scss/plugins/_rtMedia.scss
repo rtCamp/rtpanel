@@ -1,24 +1,21 @@
 // ***** Common rtMedia Style ***** //
 @mixin rtp-rtmedia-style() {
+
     #buddypress { position: relative;
-        .mfp-close {
-            color: #333333;
-            font-size: 1.7rem !important;
-            line-height: 0.5;
-            margin-right: 4px;
-            margin-top: 5px;
-            right: 2.5%;
-            border: 0 none;
-            &:hover, &:focus { border: 0 none; }
+
+        .mfp-close { border: 0; color: #333333; font-size: rem-calc(28) !important; line-height: 0.5; margin-right: rem-calc(4); margin-top: rem-calc(5); right: 2.5%;
+            &:hover, &:focus { border: 0; }
             &:active { top: 0; }
         }
+
         .rtmedia-container {
             .rtmedia-item-actions { clear: left;
-                form { margin-bottom: 5px; }
+                form { margin-bottom: rem-calc(5); }
                 .rtmedia-like { padding-left: rem-calc(10); padding-right: rem-calc(13); }
-                .rtmedia-like span { margin-right: 6px; }
+                .rtmedia-like span { margin-right: rem-calc(6); }
             }
         }
+
         input[type="button"], button, .button, input[type="submit"] { 
             @include rtp-button(); @include rtp-button-shadow(); @include button-size($button-tny);
             text-shadow: none;
@@ -26,12 +23,17 @@
             background-image: none; text-decoration: none;
             &:hover, &:focus { background-image: none;border: 0 none; }
         }
+
         .rtmedia-item-thumbnail { margin: 0 auto; }
-        .rtmedia-upload-input { margin-right: 10px; }
-        #whats-new-options .icon-plus-sign { margin-right: 5px; }
+
+        .rtmedia-upload-input { margin-right: rem-calc(10); }
+
+        #whats-new-options .icon-plus-sign { margin-right: rem-calc(5); }
+
         ul.large-block-grid-3 .rtmedia-list-item { margin: 0 !important; }
+
         ul.rtmedia-list .rtmedia-list-item { height: auto; }
-        
+
         ~ .rtp-readmore { display: none; }
     }
 }

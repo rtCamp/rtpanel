@@ -1,54 +1,72 @@
-    // ***** Common BuddyPress Style ***** //
+// ***** Common BuddyPress Style ***** //
 @mixin rtp-buddypress-style() {
+
     .buddypress {
+
+        .hentry { padding-top: rem-calc(12); }
         .post-header { margin-bottom: 0; }
 
-        .standard-form textarea,
-        .standard-form input[type="text"],
-        .standard-form select,
-        .standard-form input[type="password"],
+        .standard-form {
+            textarea, input[type="text"], select, input[type="password"] { width: auto; }
+        }
+
         .dir-search input[type="text"] { width: auto; }
 
-        .hentry { padding-top: 0.75rem; }
         .message-search, .dir-search {
             label { float: left; }
         }
+
         #buddypress {
-            div.dir-search { margin: -43px 0 10px; }
+
+            div.dir-search { margin: rem-calc(-43 0 10); }
+
             label { display: inline-block; margin: 0; }
+
             input[type="button"], button, .button, input[type="submit"] { 
-                @include rtp-button(); @include rtp-button-shadow(); @include button-size($button-tny);
-                text-shadow: none;
-                background-image: none; text-decoration: none;
-                &:hover, &:focus { background-image: none;border: 0 none; }
+                @include rtp-button(); @include rtp-button-shadow(); @include button-size($button-tny); text-shadow: none; background-image: none; text-decoration: none;
+                &:hover, &:focus { background-image: none; border: 0; }
             }
-            form#whats-new-form { padding: 10px 0 0 !important; }
+
+            form#whats-new-form { padding: rem-calc(10 0 0) !important;
+                textarea { margin: 0; width: 100%; }
+                #whats-new-submit { margin: 0; }
+            }
+
             #whats-new-post-in { margin-top: 0 !important; }
-            #whats-new-options { margin-top: 12px; }
+            #whats-new-options { margin-top: rem-calc(12); }
+
             input[type="text"], select { display: inline-block; margin-bottom: 0; height: rem-calc(37); }
             select { padding: 5px; width: auto; height: auto; }
-            .item-list-tabs { background-color: #DDDDDD; padding: 10px 15px 0; //Self
+
+            .item-list-tabs { background-color: #DDDDDD; padding: rem-calc(10 15 0);
                 li {
                     a { background: transparent;
                         span { line-height: 1.8; }
                     }
-                    &.current a, &.selected a { border-radius: 3px 3px 0 0; opacity: 1; background: $white; }
+
+                    &.current a, &.selected a { background: $white; border-radius: 3px 3px 0 0; opacity: 1; }
                 }
             }
-            #subnav { padding: 0 0 10px; border-bottom: 1px solid #DDDDDD; }
-            form#whats-new-form textarea { width: 100%; margin: 0; }
-            form#whats-new-form #whats-new-submit { margin: 0; }
+
+            #subnav { padding: rem-calc(0 0 10); border-bottom: 1px solid $border-color; }
+
             #activity-stream p { font-size: 1rem; line-height: 1.5; margin: 0; }
+
             table {
-                &.profile-fields td, &.profile-fields th { padding: 0 8px; }
+                &.profile-fields td, &.profile-fields th { padding: rem-calc(0 8); }
                 td.thread-options { padding: 0; width: 14%; }
-                p { font-size: 0.875rem; }
+                p { font-size: rem-calc(14); }
             }
+
             .thread-options .button { margin-bottom: 0; }
+
             .label { color: $body-font-color; }
-            ul.button-nav { margin: 15px 0 0; }
+
+            ul.button-nav { margin: rem-calc(15 0 0); }
+
             .messages-notices tr td:last-child { width: 18%; }
         }
+
         .clear { clear: both; }
     }
 }

@@ -2,7 +2,7 @@
 @mixin rtp-breadcrumb() {
     .breadcrumbs { border-bottom: 1px solid $border-color; color: $gray; font-size: rem-calc(13);
         & > * { float: none;
-            &:before { content: ""; display: none; }
+            &:before { content: ' '; display: none; }
         }
     }
 }

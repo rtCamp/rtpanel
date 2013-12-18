@@ -1,12 +1,12 @@
 // ***** Common bbPress Style ***** //
 @mixin rtp-bbpress-style() {
     .bbpress {
-        // Children
+        
+        // Post
         .hentry { border: 0; }
-        .bbp-forum-freshness > a { font-size: 13px; }
+        .bbp-forum-freshness > a { font-size: rem-calc(13); }
 
-        #bbpress-forums {
-            font-size: $base-font-size;
+        #bbpress-forums { font-size: $base-font-size;
 
             ul {
                 &.bbp-lead-topic,
@@ -27,14 +27,13 @@
 
             // Forum Inputs
             fieldset.bbp-form input[type=radio],
-            fieldset.bbp-form input[type=checkbox] { margin: 0 2px 4px; }
+            fieldset.bbp-form input[type=checkbox] { margin: rem-calc(0 2 4); }
 
             .subscription-toggle { float: right; font-size: rem-calc(16); }
             .bbp-reply-author br { display: none; }
-            /*.bbp-header .subscription-toggle { font-size: rem-calc(12); }*/
-            textarea.wp-editor-area { border: 1px solid #CCCCCC; height: auto; }
-            .bbp-author-avatar img.avatar { border: 0 none; margin: 0 3px; }
-            p.bbp-topic-meta img.avatar, ul.bbp-reply-revision-log img.avatar, ul.bbp-topic-revision-log img.avatar, div.bbp-template-notice img.avatar, .widget_display_topics img.avatar, .widget_display_replies img.avatar { border: 0 none; float: none; margin: 0 3px; }
+            textarea.wp-editor-area { border: 1px solid #CCC; height: auto; }
+            .bbp-author-avatar img.avatar { border: 0; margin: rem-calc(0 3); }
+            p.bbp-topic-meta img.avatar, ul.bbp-reply-revision-log img.avatar, ul.bbp-topic-revision-log img.avatar, div.bbp-template-notice img.avatar, .widget_display_topics img.avatar, .widget_display_replies img.avatar { border: 0; float: none; margin: rem-calc(0 3); }
 
             #bbp-search-form #bbp_search { float: left; }
             button, .button {
@@ -46,6 +45,7 @@
     .bbp-login-form {
         label { margin-bottom: 0; }
     }
+
     .bbp_widget_login {
         .logout-link:hover, .logout-link:focus { text-decoration: none; }
     }
@@ -55,7 +55,7 @@
     }
 
     .message-search {
-        input { width: auto; padding: 1px 5px 2px; }
+        input { width: auto; padding: rem-calc(1 5 2); }
     }
 
     .mejs-container { max-width: 100%; }
