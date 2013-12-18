@@ -20,9 +20,7 @@
             }
         }
         input[type="button"], button, .button, input[type="submit"] { 
-            @include rtp-button-tiny();
-            @include rtp-button();
-            @include rtp-button-shadow();
+            @include rtp-button(); @include rtp-button-shadow(); @include button-size($button-tny);
             text-shadow: none;
             margin-bottom: 0;
             background-image: none; text-decoration: none;

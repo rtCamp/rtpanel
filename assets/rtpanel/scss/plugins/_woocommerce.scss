@@ -23,9 +23,7 @@
     }
     .woocommerce .rtp-main-wrapper, .woocommerce-page .rtp-main-wrapper {
         button, .button, input[type="submit"], #payment #place_order, #content-wrapper #content .button {
-            @include rtp-button-tiny();
-            @include rtp-button();
-            @include rtp-button-shadow();
+            @include rtp-button(); @include rtp-button-shadow(); @include button-size($button-tny);
             text-shadow: none;
             background-image: none;
             &:hover, &:focus { background-image: none; }
