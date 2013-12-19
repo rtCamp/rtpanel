@@ -47,19 +47,18 @@ module.exports = function(grunt) {
         },
 
         // Image Optimization
-        // Note : This needs to improve
+        // Note: This is one time running task, so run grunt after adding images in img/ folder
         // Ref. https://npmjs.org/package/grunt-contrib-imagemin
         imagemin: {
-            dist: {
+            dynamic: {
                 options: {
                     optimizationLevel: 7,
                     progressive: true
                 },
-
                 files: [{
                     expand: true,
                     cwd: 'img/',
-                    src: ['**/*'],
+                    src: ['**/*.{png,jpg,gif}'],
                     dest: 'img/'
                 }]
             }
@@ -112,7 +111,7 @@ module.exports = function(grunt) {
     // grunt.renameTask('rsync', 'deploy');
 
     // register task
-    // grunt.registerTask('imagemin', ['imagemin']);
+//     grunt.registerTask('imagemin', ['imagemin']);
 
     // Fontello Fonts
     // grunt.registerTask('iconFonts', ['fontello']);
@@ -121,5 +120,5 @@ module.exports = function(grunt) {
     //grunt.registerTask('default', ['wordpressdeploy']);
 
     // register task
-    grunt.registerTask('default', ['fontello', 'watch']);
+    grunt.registerTask('default', ['fontello', 'imagemin', 'watch']);
 };
