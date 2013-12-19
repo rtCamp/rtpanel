@@ -56,12 +56,12 @@ module.exports = function(grunt) {
                     progressive: true
                 },
 
-                files: {
+                files: [{
                     expand: true,
                     cwd: 'img/',
                     src: ['**/*'],
-                    dest: 'img/test/'
-                }
+                    dest: 'img/'
+                }]
             }
         },
 
