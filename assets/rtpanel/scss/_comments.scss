@@ -180,9 +180,12 @@ $rtp-comment-style-type: box; // you can use box, clean,...
     .rtp-comment-await { color: $gray-light; font-size: rem-calc(12); }
 
     /* trackback and pingback inside comments */
-    .rtp-comments-header { margin: 0; // Self
+    .rtp-comments-header { margin: rem-calc(30 0 0); // Self
+
+        .commentlist + & { margin: rem-calc(10 0 0); }
+
         // Trackbacks
-        + #trackbacks { margin: rem-calc(20 0 40 40); 
+        + #trackbacks { margin: rem-calc(8 0 40 40); 
             li { margin-bottom: rem-calc(10); }
         }
     }
