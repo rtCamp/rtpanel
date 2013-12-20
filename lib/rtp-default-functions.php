@@ -87,7 +87,7 @@ function rtp_default_post_meta ( $placement = 'top' ) {
                 if ( $rtp_post_comments[ 'post_author_' . $position ] || $rtp_post_comments[ 'post_date_' . $position ] ) {
                     
                     if ( $rtp_post_comments[ 'post_author_' . $position ] ) {
-                        printf ( __ ( '<span class="">By</span> <span class="author">%s</span>', 'rtPanel' ), ( ! $rtp_post_comments[ 'author_link_' . $position ] ? get_the_author() . ( $rtp_post_comments[ 'author_count_' . $position ] ? '(' . get_the_author_posts() . ')' : '' ) : sprintf ( __ ( '<a class="fn" href="%1$s" title="%2$s">%3$s</a>', 'rtPanel' ), get_author_posts_url ( get_the_author_meta ( 'ID' ), get_the_author_meta ( 'user_nicename' ) ), esc_attr ( sprintf ( __ ( 'Posts by %s', 'rtPanel' ), get_the_author() ) ), get_the_author() ) . ( $rtp_post_comments[ 'author_count_' . $position ] ? '(' . get_the_author_posts() . ')' : '' ) ) );
+                        printf ( __ ( '<span class="rtp-post-author-prefix">By</span> <span class="author">%s</span>', 'rtPanel' ), ( ! $rtp_post_comments[ 'author_link_' . $position ] ? get_the_author() . ( $rtp_post_comments[ 'author_count_' . $position ] ? '(' . get_the_author_posts() . ')' : '' ) : sprintf ( __ ( '<a class="fn" href="%1$s" title="%2$s">%3$s</a>', 'rtPanel' ), get_author_posts_url ( get_the_author_meta ( 'ID' ), get_the_author_meta ( 'user_nicename' ) ), esc_attr ( sprintf ( __ ( 'Posts by %s', 'rtPanel' ), get_the_author() ) ), get_the_author() ) . ( $rtp_post_comments[ 'author_count_' . $position ] ? '(' . get_the_author_posts() . ')' : '' ) ) );
                     }
 
                     echo ( $rtp_post_comments[ 'post_author_' . $position ] && $rtp_post_comments[ 'post_date_' . $position ] ) ? ' ' : '';
