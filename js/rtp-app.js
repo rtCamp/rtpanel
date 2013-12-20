@@ -5,6 +5,11 @@ jQuery(document).foundation();
  * Responsive Table JS
  */
 jQuery(document).ready(function($) {
+    
+    /* WooCommerce Promo code */
+    if($('p.demo_store').length > 0){
+        $('body').addClass('rtp-has-promo-bar');
+    }
 
     /* Add parent-menu class in navigation */
     $('.rtp-page-nav-wrapper .menu > li').each(function() {
