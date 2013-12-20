@@ -1,0 +1,10 @@
+// ***** Common Contact Form 7 Style ***** //
+
+@mixin rtp-cf7() {
+    border: 0; margin: rem-calc(30 0 15); padding: 10px;
+}
+/* Error */
+div.wpcf7-validation-errors { @include rtp-cf7(); @include rtp-error(); }
+
+/* Success */
+div.wpcf7-mail-sent-ok { @include rtp-cf7(); @include rtp-success(); }
