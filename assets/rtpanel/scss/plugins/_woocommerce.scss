@@ -1,6 +1,10 @@
 // ****** WooCommerce CSS Support ****** //
 @mixin rtp-woocommerce() {
 
+    /* Promobar Fix */
+    .rtp-has-promo-bar { margin-top: 44px; }
+    .rtp-has-promo-bar.admin-bar p.demo_store { top: 32px; }
+
     .type-product.hentry { border-bottom: 0; }
 
     input.qty { margin-bottom: 0; }
