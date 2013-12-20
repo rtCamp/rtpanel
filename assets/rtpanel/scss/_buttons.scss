@@ -30,3 +30,10 @@ input[type=submit] {
 .rtp-button-width-large { min-width: rem-calc(220); }
 .rtp-button-width-medium { min-width: rem-calc(180); }
 .rtp-button-width-small { min-width: rem-calc(140); }
+
+// Input Next button fix
+input {
+    ~ input[type="button"], ~ input[type="submit"], ~ button {
+        @include border-radius(0 $global-radius $global-radius 0);
+    }    
+}
