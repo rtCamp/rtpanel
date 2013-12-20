@@ -15,25 +15,32 @@ if ( post_password_required() ) { ?>
 
 if ( have_comments() || ( ( !is_attachment() && comments_open() ) || ( is_attachment() && $rtp_post_comments['attachment_comments'] ) ) ) { ?>
     <div class="comments-container clearfix"><?php
-        if ( have_comments() ) { ?>
-            <div class="rtp-comment-count clearfix" id="comments"><?php 
-                add_filter( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
-                $comment_count = sprintf( _n( '<span class="count">%1$s</span> Comment', '<span class="count">%1$s</span> Comments', get_comments_number(), 'rtPanel' ), number_format_i18n( get_comments_number() ) );
-                remove_filter( 'get_comments_number', 'rtp_only_comment_count', 11 );
-                if ( ( get_comments_number() && comments_open() ) || get_comments_number() ) { ?>
-                    <h4 class="rtp-comment-count-container"><?php echo $comment_count; ?></h4><?php
-                    echo ( comments_open() ) ? sprintf( __( '<small class="rtp-thoughts">&nbsp;Add <a role="link" href="%s" title="Add your comment">your comment</a></small>', 'rtPanel' ), '#respond' ) : '';
-                } 
+        if ( have_comments() ) {
+            
+            add_filter( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
+            $comments_count_only = get_comments_number();
+            remove_filter( 'get_comments_number', 'rtp_only_comment_count', 11 );
 
-                if ( current_user_can( 'moderate_comments' ) ) { ?>
+            if( $comments_count_only ) { ?>
+
+                <div class="rtp-comment-count clearfix" id="comments"><?php 
+                    $comment_count = sprintf( _n( '<span class="count">%1$s</span> Comment', '<span class="count">%1$s</span> Comments', $comments_count_only, 'rtPanel' ), number_format_i18n( $comments_count_only ) );
+                    if ( ( comments_open() ) || $comments_count_only ) { ?>
+                        <h4 class="rtp-comment-count-container"><?php echo $comment_count; ?></h4><?php
+                        echo ( comments_open() ) ? sprintf( __( '<small class="rtp-thoughts">&nbsp;Add <a role="link" href="%s" title="Add your comment">your comment</a></small>', 'rtPanel' ), '#respond' ) : '';
+                    }
+
+                    if ( current_user_can( 'moderate_comments' ) ) { ?>
                         <h6 class="subheader rtp-manage-comments"><a role="link" href="<?php echo get_admin_url( '', 'edit-comments.php?p=' . get_the_ID() ); ?>"><?php _e( 'Manage Comments', 'rtPanel' ); ?></a></h6><?php 
-                } ?>
-            </div><!-- .rtp-comment-count -->
+                    } ?>
+                </div><!-- .rtp-comment-count -->
 
-            <ol class="commentlist"><?php
-                $args = ( $rtp_post_comments['comment_separate'] ) ? 'callback=rtp_comment_list&type=comment' : 'callback=rtp_comment_list&type=all';
-                wp_list_comments( $args ); ?>
-            </ol><!-- .commentlist -->
+                <ol class="commentlist"><?php
+                    $args = ( $rtp_post_comments['comment_separate'] ) ? 'callback=rtp_comment_list&type=comment' : 'callback=rtp_comment_list&type=all';
+                    wp_list_comments( $args ); ?>
+                </ol><!-- .commentlist -->
+
+            <?php } ?>
 
             <!-- Comment Pagination --><?php
             if ( get_previous_comments_link() || get_next_comments_link() ) { ?>
