@@ -23,7 +23,7 @@ $post-meta-styles: true !default;
 // ***** Post Header ***** //
 .post-header { margin-bottom: 1rem; }
 .post-title { margin: 0 0 em-calc(5); }
-.rtp-main-title { border-bottom: 1px solid $border-color; color: $title-link-color; float: none; margin-top: 0.480em; padding-bottom: 0.2em; }
+.rtp-main-title { border-bottom: 1px dotted $border-color; padding-bottom: rem-calc(10); }
 
 // Post Content Paragraph
 .blog,

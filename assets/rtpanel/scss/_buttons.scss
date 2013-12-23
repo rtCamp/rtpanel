@@ -15,7 +15,6 @@ input[type=submit] {
     @include rtp-button(); @include rtp-button-shadow(); @include button-size;
 }
 
-
 // Button Success
 .rtp-button-success {
     @include rtp-button($bg: $color-success);
@@ -32,8 +31,21 @@ input[type=submit] {
 .rtp-button-width-small { min-width: rem-calc(140); }
 
 // Input Next button fix
-input {
-    ~ input[type="button"], ~ input[type="submit"], ~ button {
-        @include border-radius(0 $global-radius $global-radius 0);
-    }    
+    input[type="text"],
+    input[type="password"],
+    input[type="date"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="month"],
+    input[type="week"],
+    input[type="email"],
+    input[type="number"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="time"],
+    input[type="url"],
+    textarea {
+    + input[type="button"], + input[type="submit"], + button {
+        border-radius: 0 $global-radius $global-radius 0 !important;
+    }
 }

@@ -3,8 +3,8 @@
 
     .buddypress {
 
-        .hentry { padding-top: rem-calc(12); }
-        .post-header { margin-bottom: 0; }
+        .hentry {  } // padding-top: rem-calc(12);
+        .post-header {  } // margin-bottom: 0;
 
         .standard-form {
             textarea, input[type="text"], select, input[type="password"] { width: auto; }
@@ -17,14 +17,41 @@
         }
 
         #buddypress {
-
+            
+            
+            ul.item-list {
+                li {  } // padding: rem-calc(30 0);
+            }
+            
             div.dir-search { margin: rem-calc(-43 0 10); }
 
             label { display: inline-block; margin: 0; }
 
-            input[type="button"], button, .button, input[type="submit"] { 
+            input[type="button"], button, .button, input[type="submit"], a.button, { 
                 @include rtp-button(); @include rtp-button-shadow(); @include button-size($button-tny); text-shadow: none; background-image: none; text-decoration: none;
                 &:hover, &:focus { background-image: none; border: 0; }
+            }
+            
+            .activity-meta {
+                .button { background: transparent; border-radius: 0; box-shadow: 0 0 0; color: inherit; font-size: rem-calc(14); margin: rem-calc(0 10 0 0);; padding: 0;
+                    &:before { color: inherit; display: inline-block; font-family: $rtp-icon-font-family; margin-right: rem-calc(5); }
+                    &:hover, &:focus { background: transparent; color: $link-color; }
+                }
+
+                .button.delete-activity {
+                    &:before { content: '\e813'; }
+                    &:hover, &:focus { color: $color-error; }
+                }
+
+                .button.fav {
+                    &:before { content: '\e810'; }
+                    &:hover, &:focus { color: $color-success; }
+                }
+            }
+            
+            a.bp-primary-action span,
+            #reply-title small a span { background: transparent; color: inherit; font-size: inherit; float: left; margin-left: 0; margin-right: rem-calc(5); padding: 0;
+                &:before {  content: '\e80a'; display: inline-block; font-family: $rtp-icon-font-family; margin-right: rem-calc(5); }
             }
 
             form#whats-new-form { padding: rem-calc(10 0 0) !important;

@@ -19,6 +19,18 @@
       "src": "fontawesome"
     },
     {
+      "uid": "f04a5d24e9e659145b966739c4fde82a",
+      "css": "bookmark",
+      "code": 59407,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "2f5ef6f6b7aaebc56458ab4e865beff5",
+      "css": "bookmark-empty",
+      "code": 59408,
+      "src": "fontawesome"
+    },
+    {
       "uid": "acf41aa4018e58d49525665469e35665",
       "css": "thumbs-up",
       "code": 59400,
@@ -34,6 +46,12 @@
       "uid": "9c1376672bb4f1ed616fdd78a23667e9",
       "css": "comment-empty",
       "code": 59402,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "f48ae54adfb27d8ada53d0fd9e34ee10",
+      "css": "trash",
+      "code": 59409,
       "src": "fontawesome"
     },
     {
@@ -95,6 +113,12 @@
       "css": "facebook-rect",
       "code": 59401,
       "src": "brandico"
+    },
+    {
+      "uid": "74415da8e36ed0afcea9b2b1454f4176",
+      "css": "cancel-circled2",
+      "code": 59411,
+      "src": "elusive"
     }
   ]
 }

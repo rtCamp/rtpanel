@@ -16,6 +16,17 @@
             button, input[type="button"], input[type="reset"], input[type="submit"] { width: auto; }
             
             .ninja-forms-field-error { @include rtp-error(); padding: rem-calc(5 10); margin: rem-calc(10 0 20); }
+            
+            .field-wrap, #ninja_forms_required_items { margin-bottom: $rtp-base-spacing; }
         }
     }
+
+    // Form required item warning
+    .ninja-forms-required-items { @include rtp-warning(); padding: rem-calc(10 15); text-shadow: 1px 0 0 $white; margin-bottom: $rtp-base-spacing; }
+    
+    .ninja-forms-field-description { overflow: hidden;
+        p { left: 4px; margin-bottom: 0; margin-left: 30%; position: relative; }
+    }
+    
+    .submit-wrap { left: -4px; margin-left: 30%; position: relative; }
 }
