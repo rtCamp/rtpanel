@@ -35,9 +35,9 @@ global $rtp_general; ?>
 
                 <div id="footer" class="rtp-footer rtp-section-container row">
 
-                    <?php $rtp_content_grid_class = apply_filters( 'rtp_set_full_width_grid_class', 'large-12 columns rtp-full-width-content' ); ?>
+                    <?php $rtp_set_grid_class = apply_filters( 'rtp_set_full_width_grid_class', 'large-12 columns rtp-full-width-grid' ); ?>
 
-                    <div class="rtp-footer-section <?php echo $rtp_content_grid_class; ?>">
+                    <div class="rtp-footer-section <?php echo $rtp_set_grid_class; ?>">
                         <p>&copy; <?php echo date( 'Y' ); echo ' - '; bloginfo( 'name' ); ?>
                         <em><?php printf( __( 'Designed on <a role="link" href="%s" class="rtp-common-link" title="rtPanel WordPress Theme Framework">rtPanel WordPress Theme Framework</a>.', 'rtPanel' ), RTP_THEME_URL ); ?></em></p>
                     </div>

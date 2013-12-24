@@ -45,7 +45,9 @@ global $rtp_general; ?><!DOCTYPE html>
                     <header id="header" class="row rtp-section-container" role="banner">
 
                         <?php $header_class = get_header_image() ? ' rtp-header-wrapper-image' : ''; ?>
-                        <div class="rtp-header large-12 columns <?php echo $header_class; ?>">
+                        <?php $rtp_set_grid_class = apply_filters( 'rtp_set_full_width_grid_class', 'large-12 columns rtp-full-width-grid' ); ?>
+
+                        <div class="rtp-header <?php echo $rtp_set_grid_class; ?> <?php echo $header_class; ?>">
                             <?php rtp_hook_begin_header(); ?>
 
                             <div class="rtp-logo-container clearfix">

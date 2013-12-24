@@ -13,7 +13,7 @@ get_header();
 
     // Full width grid for buddypress or bbpress
     if ( $rtp_general['search_code'] && $rtp_general['search_layout'] ) {
-        $rtp_content_grid_class = apply_filters( 'rtp_set_full_width_grid_class', 'large-12 columns rtp-full-width-content' );
+        $rtp_content_grid_class = apply_filters( 'rtp_set_full_width_grid_class', 'large-12 columns rtp-full-width-grid' );
     } else {
         $rtp_content_grid_class = apply_filters( 'rtp_set_content_grid_class', 'large-8 columns' );
     } ?>

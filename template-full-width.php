@@ -9,7 +9,7 @@
 get_header();
 
     $content_width = $max_content_width;
-    $rtp_content_grid_class = apply_filters( 'rtp_set_full_width_grid_class', 'large-12 columns rtp-full-width-content' ); ?>
+    $rtp_content_grid_class = apply_filters( 'rtp_set_full_width_grid_class', 'large-12 columns rtp-full-width-grid' ); ?>
 
     <section id="content" class="rtp-content-section <?php echo $rtp_content_grid_class; ?>">
         <?php rtp_hook_begin_content(); ?>
