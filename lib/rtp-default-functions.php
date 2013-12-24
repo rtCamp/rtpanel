@@ -610,8 +610,11 @@ function rtp_woocommerce_wrapper_end() {
  * @since rtPanel 4.0
  */
 function rtp_footer_separator_border() {
-     echo '<div class="row"><div class="columns large-12">';
-     echo '<hr />';
-     echo '</div></div>';
+    $rtp_content_grid_class = apply_filters( 'rtp_set_full_width_grid_class', 'large-12 columns rtp-full-width-grid' );
+    echo '<div class="row rtp-section-container">';
+    echo '<div class="'. $rtp_content_grid_class .'">';
+    echo '<hr />';
+    echo '</div>';
+    echo '</div>';
 }
 add_action ( 'rtp_hook_after_content_wrapper', 'rtp_footer_separator_border' );

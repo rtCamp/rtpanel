@@ -31,10 +31,16 @@
     table.gfield_list {
         thead, tfoot, tr:nth-of-type(2n) { background-color: transparent; }
     }
-    
+
     // Buttons
     input[type=submit], .button, button {
         @include rtp-button(); @include rtp-button-shadow(); @include button-size;
     }
 
+    // width issue fixed
+    #content-wrapper {
+        .gform_wrapper {
+            ul.gfield_radio li input + input { width: auto; }
+        }
+    }
 }
