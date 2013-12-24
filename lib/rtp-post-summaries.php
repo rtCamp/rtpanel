@@ -69,7 +69,7 @@ function rtp_show_post_thumbnail( $post_id = null, $thumbnail_size = 'thumbnail'
     global $rtp_post_comments;
     if ( !is_singular() && $rtp_post_comments['summary_show'] && $rtp_post_comments['thumbnail_show'] && !rtp_is_bbPress() ) {
         $thumbnail_frame = ( $rtp_post_comments['thumbnail_frame'] ) ? 'rtp-thumbnail-shadow' : 'rtp-no-thumbnail-shadow';
-        $image_align =  strtolower( $rtp_post_comments['thumbnail_position'] );
+        $image_align =  'align' . strtolower( $rtp_post_comments['thumbnail_position'] );
         if ( has_post_thumbnail() ) {
             echo '<figure class="rtp-thumbnail-container ' . $image_align . ' ' . $thumbnail_frame . '">'; ?>
                 <a role="link" class="<?php echo $image_align; ?>" href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail( $thumbnail_size, array( 'title' => the_title_attribute( array( 'echo' => false ) ), 'class' => 'post-thumb ' . $image_align ) ); ?></a><?php
@@ -82,9 +82,9 @@ function rtp_show_post_thumbnail( $post_id = null, $thumbnail_size = 'thumbnail'
                 echo '<figure class="rtp-thumbnail-container ' . $image_align . ' ' . $thumbnail_frame . '">'; ?>
                 <a role="link" class="<?php echo $image_align; ?>" href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><img role="img" class="<?php echo 'post-thumb ' . $image_align; ?> wp-post-image" title="<?php the_title_attribute(); ?>" alt="<?php echo $alt; ?>" <?php echo rtp_get_image_dimensions( $image ); ?> src="<?php echo $image; ?>" /></a><?php
                 echo '</figure>';
+            }
         }
     }
-}
 }
 
 /**
