@@ -183,7 +183,13 @@ function rtp_is_buddypress() {
  */
 function rtp_is_yarpp() {
     global $post;
-    return ( function_exists('related_posts') && in_array( $post->post_type, get_option('yarpp')['auto_display_post_types']) );
+    $rtp_yarpp = '';
+    if ( function_exists( 'related_posts' ) ) {
+        $rtp_yarpp = get_option( 'yarpp' );
+        return ( in_array( $post->post_type, $rtp_yarpp['auto_display_post_types'] ) );
+    } else {
+        return false;
+    }
 }
 
 /**
