@@ -14,33 +14,13 @@ global $rtp_general; ?><!DOCTYPE html>
     <head>
         <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 
-        <title><?php
-            /*
-             * Print the <title> tag based on what is being viewed.
-             */
-            global $page, $paged;
-
-            wp_title( '|', true, 'right' );
-
-            // Add the blog name.
-            bloginfo( 'name' );
-
-            // Add the blog description for the home/front page.
-            $site_description = get_bloginfo( 'description', 'display' );
-            if ( $site_description && ( is_home() || is_front_page() ) ) {
-                echo " | $site_description";
-            }
-
-            // Add a page number if necessary:
-            if ( $paged >= 2 || $page >= 2 ) {
-                echo ' | ' . sprintf( __( 'Page %s', 'rtPanel' ), max( $paged, $page ) );
-            } ?>
-        </title>
+        <title><?php wp_title( '|', true, 'right' ); ?></title>
 
         <!-- Mobile Viewport Fix ( j.mp/mobileviewport & davidbcalhoun.com/2010/viewport-metatag ) -->
         <meta name="viewport" content="<?php echo apply_filters( 'rtp_viewport', 'width=device-width, initial-scale=1.0, maximum-scale=1.0' ); ?>" />
 
         <link rel="profile" href="http://gmpg.org/xfn/11" />
+
         <?php if ( 'disable' != $rtp_general['favicon_use'] ) { ?><link rel="shortcut icon" type="image/x-icon" href="<?php echo $rtp_general['favicon_upload']; ?>" /><?php } ?>
 
         <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />

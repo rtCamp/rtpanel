@@ -26,6 +26,9 @@
     body { margin-top: -46px; }
     .rtp-nav-wrapper { margin-top: 46px; }
 
+    // Pagenavi
+    .rtp-pagenavi { margin-bottom: $rtp-base-spacing; }
+
     // Sidebar Spacing
     .rtp-sidebar-inner-wrapper { border-top: 1px dotted $border-color; padding-left: 0; padding-top: $rtp-base-spacing; }
 }
