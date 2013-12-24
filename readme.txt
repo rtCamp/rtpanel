@@ -2,7 +2,7 @@
 Theme Name: rtPanel
 Theme URI: http://rtcamp.com/rtpanel/
 Description: WordPress theme framework with Custom Menu, Header and Background along with Logo, Favicon, Featured Image, Google Custom Search Integration and more options. Now includes a Foundation 5 framework, Grunt Task Runner, Bower package manager, SAAS based CSS preprocessor and translation support. This theme comes with free technical support by team of 30+ full-time developers. Support Links: <a href="http://rtcamp.com/support/forum/rtpanel/" title="rtPanel Free Support" rel="follow">rtPanel Support forum</a>, <a href="http://rtcamp.com/rtpanel/docs/" title="rtPanel Documentation" rel="follow">Documentation</a> or visit <a href="http://rtcamp.com/rtpanel/" title="rtPanel" rel="follow">rtPanel</a>.
-Version: 4.0
+Version: 4.0.1
 Author: rtCamp
 Author URI: http://rtcamp.com/
 Contributors: rtCampers ( http://rtcamp.com/about/rtcampers/ )
@@ -42,6 +42,10 @@ By using rtPanel, developers and users can specify settings for basic functions 
 If you make changes to thumbnail height, width or crop settings, you must use "Regenerate Thumbnail Plugin" ( http://wordpress.org/extend/plugins/regenerate-thumbnails/ ) to regenerate thumbnails on old posts.
 
 == Changelog ==
+
+= 4.0.1 =
+* Modified: CSS Classes
+* Resolved: Minor Bugs
 
 = 4.0 =
 * Added: Foundation 5 Framework, Grunt Task Runner, Bower Package Manager
