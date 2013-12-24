@@ -38,11 +38,11 @@ global $rtp_general; ?><!DOCTYPE html>
 
             <?php rtp_hook_begin_main_wrapper(); ?>
 
-            <div id="header-wrapper" class="rtp-header-wrapper rtp-section-container">
+            <div id="header-wrapper" class="rtp-header-wrapper rtp-section-wrapper">
 
                     <?php rtp_hook_before_header(); ?>
 
-                    <header id="header" class="row" role="banner">
+                    <header id="header" class="row rtp-section-container" role="banner">
 
                         <?php $header_class = get_header_image() ? ' rtp-header-wrapper-image' : ''; ?>
                         <div class="rtp-header large-12 columns <?php echo $header_class; ?>">
@@ -68,10 +68,10 @@ global $rtp_general; ?><!DOCTYPE html>
 
             <?php rtp_hook_before_content_wrapper(); ?>
 
-            <?php $content_wrapper_class = ( is_search() && $rtp_general['search_code'] && $rtp_general['search_layout'] ) ? 'rtp-content-wrapper rtp-section-container search-layout-wrapper' : 'rtp-content-wrapper rtp-section-container'; ?>
+            <?php $content_wrapper_class = ( is_search() && $rtp_general['search_code'] && $rtp_general['search_layout'] ) ? 'rtp-content-wrapper rtp-section-wrapper search-layout-wrapper' : 'rtp-content-wrapper rtp-section-wrapper'; ?>
 
             <div id="content-wrapper" class="<?php echo apply_filters("rtp_content_wrapper_class", $content_wrapper_class); ?>"><!-- ends in footer.php -->
 
                 <?php rtp_hook_begin_content_wrapper(); ?>
 
-                <div class="row">
+                <div class="row rtp-section-container">
