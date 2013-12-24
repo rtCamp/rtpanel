@@ -70,6 +70,7 @@ h2 .nav-tab { font-size: 20px; padding: 4px 6px; }
 #social .inside a { background-color: #666; color: #FFF; display: inline-block; height: 30px; font-size: 1.25rem; line-height: 30px; margin: 10px 20px 0 0; overflow: hidden; padding: 0; text-align: center; text-decoration: none; width: 30px; -webkit-border-radius: 1000px; -moz-border-radius: 1000px; border-radius: 1000px; }
 #social .inside .rtp-icon-rss:hover { background-color: #FAA33D }
 #social .inside .rtp-icon-facebook:hover { background-color: #537BBD }
+#social .inside .rtp-icon-gplus:hover { background-color: #DD4B39 }
 #social .inside .rtp-icon-twitter:hover { background-color: #40BFF5 }
 #latest_news .inside ul { margin: 0 0 0 15px }
  #latest_news .inside ul li { list-style: disc; padding: 0 0 7px; }

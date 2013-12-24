@@ -8,7 +8,7 @@ Author URI: http://rtcamp.com/
 Contributors: rtCampers ( http://rtcamp.com/about/rtcampers/ )
 License: GNU General Public License, v2 (or newer)
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: black, blue, white, orange, light, one-column, two-columns, right-sidebar, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, fluid-layout, responsive-layout, full-width-template, buddypress
+Tags: black, blue, white, orange, light, one-column, two-columns, right-sidebar, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, responsive-layout, full-width-template, buddypress
 
 == Description ==
 rtPanel is the most easy to use WordPress Theme Framework. You will find many state of the art options and widgets with rtPanel.
@@ -16,15 +16,27 @@ rtPanel framework is used worldwide and keeping this in mind we have made it loc
 By using rtPanel, developers and users can specify settings for basic functions (like date format, excerpt word count etc.) directly from theme options. rtPanel provides theme options to manage some basic settings for your theme. 
 
 == Plugins Supported ==
-* rtPanel Hooks Editor - http://wordpress.org/extend/plugins/rtpanel-hooks-editor/
+* BuddyPress - http://wordpress.org/plugins/buddypress/
 
-* rtSocial - http://wordpress.org/extend/plugins/rtsocial/
+* bbPress - http://wordpress.org/plugins/bbpress/
 
-* Subscribe to Comments - http://wordpress.org/extend/plugins/subscribe-to-comments/
+* rtMedia - http://wordpress.org/plugins/buddypress-media/
 
-* WordPress SEO by Yoast - http://wordpress.org/extend/plugins/wordpress-seo/
+* rtPanel Hooks Editor - http://wordpress.org/plugins/rtpanel-hooks-editor/
 
-* Regenerate Thumbnails - http://wordpress.org/extend/plugins/regenerate-thumbnails/
+* rtSocial - http://wordpress.org/plugins/rtsocial/
+
+* Subscribe to Comments - http://wordpress.org/plugins/subscribe-to-comments/
+
+* WordPress SEO by Yoast - http://wordpress.org/plugins/wordpress-seo/
+
+* WooCommerce - http://wordpress.org/plugins/woocommerce/
+
+* Gravity Forms - http://www.gravityforms.com/
+
+* Ninja Forms - http://wordpress.org/plugins/ninja-forms/
+
+* Regenerate Thumbnails - http://wordpress.org/plugins/regenerate-thumbnails/
 
 == Important Note ==
 If you make changes to thumbnail height, width or crop settings, you must use "Regenerate Thumbnail Plugin" ( http://wordpress.org/extend/plugins/regenerate-thumbnails/ ) to regenerate thumbnails on old posts.
@@ -33,8 +45,8 @@ If you make changes to thumbnail height, width or crop settings, you must use "R
 
 = 4.0 =
 * Added: Foundation 5 Framework, Grunt Task Runner, Bower Package Manager
-* Added: WooCommerce, rtMedia, BuddyPress, bbPress, Gravity Form, Ninja Form Plugins Support
-* Modified: rtPanel theme options, Styles and CSS Classes
+* Added: Support for WooCommerce,  rtMedia, BuddyPress, bbPress, Gravity Form, Ninja Form Plugins
+* Modified: rtPanel theme options, UI and CSS Classes
 * Resolved: Minor Bugs
 * Removed: Fallback for older version of WordPress
 * Removed: rtPanel default widgets

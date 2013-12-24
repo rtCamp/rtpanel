@@ -782,9 +782,10 @@ function rtp_default_admin_sidebar() { ?>
         <div title="<?php _e( 'Click to toggle', 'rtPanel' ); ?>" class="handlediv"><br /></div>
         <h3 class="hndle"><span><?php _e( 'Getting Social is Good', 'rtPanel' ); ?></span></h3>
         <div class="inside" style="text-align: center;"><?php
-            printf( __( '<a href="%s" target="_blank" title="Become a fan on Facebook" class="rtp-icon-facebook"></a>', 'rtPanel' ), 'http://www.facebook.com/rtPanel' );
-            printf( __( '<a href="%s" target="_blank" title="Follow us on Twitter" class="rtp-icon-twitter"></a>', 'rtPanel' ), 'http://twitter.com/rtPanel' );
-            printf( __( '<a href="%s" target="_blank" title="Subscribe to our feeds" class="rtp-icon-rss"></a>', 'rtPanel' ), 'http://feeds.feedburner.com/rtpanel' ); ?>
+            printf( __( '<a href="%s" target="_blank" title="Like Us on Facebook" class="rtp-icon-facebook"></a>', 'rtPanel' ), 'https://www.facebook.com/rtCamp.solutions' );
+            printf( __( '<a href="%s" target="_blank" title="Follow Us on Twitter" class="rtp-icon-twitter"></a>', 'rtPanel' ), 'http://twitter.com/rtcamp' );
+            printf( __( '<a href="%s" target="_blank" title="Add to Circle" class="rtp-icon-gplus"></a>', 'rtPanel' ), 'https://plus.google.com/110214156830549460974/posts' );
+            printf( __( '<a href="%s" target="_blank" title="Subscribe to our feeds" class="rtp-icon-rss"></a>', 'rtPanel' ), 'http://rtcamp.com/feed/' ); ?>
         </div>
     </div>
 
