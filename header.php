@@ -14,7 +14,7 @@ global $rtp_general; ?><!DOCTYPE html>
     <head>
         <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 
-        <title><?php wp_title( '|', true, 'right' ); ?></title>
+        <title><?php echo ( is_home() || is_front_page() ) ? get_bloginfo( 'name', 'display' ) . " | " . get_bloginfo( 'description', 'display' ) : wp_title( '|', true, 'right' ) . get_bloginfo( 'name', 'display' ); ?></title>
 
         <!-- Mobile Viewport Fix ( j.mp/mobileviewport & davidbcalhoun.com/2010/viewport-metatag ) -->
         <meta name="viewport" content="<?php echo apply_filters( 'rtp_viewport', 'width=device-width, initial-scale=1.0, maximum-scale=1.0' ); ?>" />
