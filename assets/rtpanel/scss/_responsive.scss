@@ -23,8 +23,7 @@
     a.rtp-menu-icon { display: block; }
 
     // Fixed Menu issue for mobile and tabs
-    body { margin-top: -46px; }
-    .rtp-nav-wrapper { margin-top: 46px; }
+    html #wpadminbar { position: fixed; }
 
     // Pagenavi
     .rtp-pagenavi { margin-bottom: $rtp-base-spacing; }
