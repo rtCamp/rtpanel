@@ -1,5 +1,9 @@
 // ***** Header ***** //
 /* Header */
+.rtp-header-wrapper {
+    overflow-x: hidden; // This is used for Full Browser Width Navigation Bar
+}
+
 .rtp-header { }
 
 .rtp-logo-container { margin-bottom: rem-calc(30); }
