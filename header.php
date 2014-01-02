@@ -14,7 +14,7 @@ global $rtp_general; ?><!DOCTYPE html>
     <head>
         <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 
-        <title><?php echo ( is_home() || is_front_page() ) ? get_bloginfo( 'name', 'display' ) . " | " . get_bloginfo( 'description', 'display' ) : wp_title( '|', true, 'right' ) . get_bloginfo( 'name', 'display' ); ?></title>
+        <title><?php echo ( is_home() || is_front_page() ) ? get_bloginfo( 'name', 'display' ) . ( !empty( get_bloginfo( 'description', 'display' ) ) ? " | " . get_bloginfo( 'description', 'display' ) : '' ) : wp_title( '|', true, 'right' ) . get_bloginfo( 'name', 'display' ); ?></title>
 
         <!-- Mobile Viewport Fix ( j.mp/mobileviewport & davidbcalhoun.com/2010/viewport-metatag ) -->
         <meta name="viewport" content="<?php echo apply_filters( 'rtp_viewport', 'width=device-width, initial-scale=1.0, maximum-scale=1.0' ); ?>" />
@@ -26,8 +26,6 @@ global $rtp_general; ?><!DOCTYPE html>
         <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
         <?php wp_head(); ?>
-
-        <?php rtp_head(); ?>
     </head>
 
     <body <?php body_class(); ?>><!-- ends in footer.php -->

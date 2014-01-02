@@ -53,7 +53,5 @@ global $rtp_general; ?>
         </div><!-- #main-wrapper -->
 
         <?php wp_footer(); ?>
-
-        <?php rtp_hook_end_body(); ?>
     </body>
 </html>

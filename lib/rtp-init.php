@@ -260,3 +260,27 @@ function rtp_general_sanitize_option(){
     return apply_filters( 'option_' . $option, maybe_unserialize( $value ) );
 }
 add_filter( 'pre_option_rtp_general','rtp_general_sanitize_option', 1 );
+
+/**
+ * rtp_head() function call in wp_head
+ * 
+ * @since rtPanel 4.1
+ */
+function rtp_head_call() {
+    if ( function_exists( 'rtp_head' ) ) {
+        rtp_head();
+    }
+}
+add_action( 'wp_head', 'rtp_head_call', 999 );
+
+/**
+ * rtp_hook_end_body() function call in wp_footer
+ * 
+ * @since rtPanel 4.1
+ */
+function rtp_footer_call() {
+    if ( function_exists( 'rtp_hook_end_body' ) ) {
+        rtp_hook_end_body();
+    }
+}
+add_action( 'wp_footer', 'rtp_footer_call', 999 );

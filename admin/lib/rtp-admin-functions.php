@@ -556,7 +556,7 @@ function rtp_theme_setup_values() {
         'logo_width' => 224,
         'logo_height' => 51,
         'login_head' => '0',
-        'favicon_use' => 'image',
+        'favicon_use' => 'disable',
         'favicon_upload' => RTP_IMG_FOLDER_URL . '/favicon.ico',
         'favicon_id' => 0,
         'footer_sidebar' => '0',
@@ -1288,60 +1288,3 @@ function rtp_create_favicon($sizes) {
     $sizes['favicon'] = array( 'width' => 16, 'height' => 16, 'crop' => 1);
     return $sizes;
 }
-
-/**
- * Displays a message for child theme users regarding change in header.php
- *
- * @since rtPanel 3.2
- */
-function rtpanel_upgrade_32_notice() {
-    if (is_child_theme() && !get_site_option( 'rtp_upgrade_32' )) {
-        ?>
-        <div class="updated rtp_upgrade_32_notice">
-            <p><?php _e( '<strong>Note:</strong> If you have overriden the header.php in your child theme make sure you place <strong>rtp_head();</strong> on the line just after <strong>wp_head();</strong>. This hook is being used to output your custom css.', 'rtPanel' ); ?><a class="alignright rtp_upgrade_32" href="#">X</a></p>
-        </div><?php
-    }
-}
-
-add_action( 'admin_notices', 'rtpanel_upgrade_32_notice' );
-
-/**
- * Handles ajax call to remove the rtp_upgrade_32_notice
- *
- * @since rtPanel 3.2
- */
-function rtp_remove_upgrade_32_notice() {
-    if (is_child_theme()) {
-        update_site_option( 'rtp_upgrade_32', true);
-    }
-    die();
-}
-
-add_action( 'wp_ajax_remove_upgrade_32_notice', 'rtp_remove_upgrade_32_notice' );
-
-/**
- * Outputs neccessary script to remove rtp_upgrade_32_notice
- *
- * @since rtPanel 3.2
- */
-function rtp_upgrade_32_notice_js() {
-    if (is_child_theme() && !get_site_option( 'rtp_upgrade_32' )) {
-        ?>
-        <script type="text/javascript" >
-            jQuery(function(){
-                jQuery( '.rtp_upgrade_32' ).css( 'color', '#CC0000' );
-                jQuery( '.rtp_upgrade_32' ).click(function(e){
-                    e.preventDefault();
-                    jQuery( '.rtp_upgrade_32_notice' ).hide();
-                    // call ajax
-                    jQuery.ajax({
-                        url:"<?php echo admin_url( 'admin-ajax.php' ); ?>",
-                        type:'POST',
-                        data:'action=remove_upgrade_32_notice'
-                    });
-                });
-            });
-        </script><?php
-    }
-}
-add_action( 'admin_head', 'rtp_upgrade_32_notice_js' );
