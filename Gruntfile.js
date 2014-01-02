@@ -111,7 +111,7 @@ module.exports = function(grunt) {
     // grunt.renameTask('rsync', 'deploy');
 
     // register task
-//     grunt.registerTask('imagemin', ['imagemin']);
+    // grunt.registerTask('imagemin', ['imagemin']);
 
     // Fontello Fonts
     // grunt.registerTask('iconFonts', ['fontello']);
