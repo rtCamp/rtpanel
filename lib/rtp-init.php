@@ -284,3 +284,34 @@ function rtp_footer_call() {
     }
 }
 add_action( 'wp_footer', 'rtp_footer_call', 999 );
+
+/**
+ * Create formatted and SEO friendly title
+ * 
+ * @param string $title Default title text for current view
+ * @param string $sep Optional separator
+ * @return string The filtered title
+ * 
+ * @since rtPanel 4.1.1
+ */
+function rtp_wp_title( $title, $sep ) {
+    global $paged, $page;
+
+    if ( is_feed() ) { return $title; }
+    
+    // Add the site name
+    $title .= get_bloginfo( 'name' );
+
+    // Add the site description for the home/front page.
+    $site_description = get_bloginfo( 'description', 'display' );
+    if ( $site_description && ( is_home() || is_front_page() ) ) {
+        $title = "$title $sep $site_description";
+    }
+
+    // Add a page number if necessary.
+    if ( $paged >= 2 || $page >= 2 ) {
+            $title = "$title $sep " . sprintf( __( 'Page %s', 'rtPanel' ), max( $paged, $page ) );
+    }
+    return $title;
+}
+add_filter( 'wp_title', 'rtp_wp_title', 10, 2 );
