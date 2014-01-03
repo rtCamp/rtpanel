@@ -611,7 +611,7 @@ function rtp_woocommerce_wrapper_end() {
  */
 function rtp_footer_separator_border() {
     $rtp_content_grid_class = apply_filters( 'rtp_set_full_width_grid_class', 'large-12 columns rtp-full-width-grid' );
-    echo '<div class="row rtp-section-container">';
+    echo '<div class="row rtp-section-container rtp-footer-separator">';
     echo '<div class="'. $rtp_content_grid_class .'">';
     echo '<hr />';
     echo '</div>';
