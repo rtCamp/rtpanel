@@ -44,6 +44,18 @@ If you make changes to thumbnail height, width or crop settings, you must use "R
 == Changelog ==
 
 = 4.1.1 =
+* Modified: <title> tag in header.php
+* Modified: Default theme logo, used sample logo
+
+= 4.1 =
+* Modified: Favicon disabled by default
+* Removed: Hook after wp_head() and wp_footer()
+
+= 4.0.1 =
+* Modified: CSS Classes
+* Resolved: Minor Bugs
+
+= 4.0 =
 * Added: Foundation 5 Framework, Grunt Task Runner, Bower Package Manager
 * Added: Support for WooCommerce,  rtMedia, BuddyPress, bbPress, Gravity Form, Ninja Form Plugins
 * Modified: rtPanel theme options, UI and CSS Classes
