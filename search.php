@@ -6,11 +6,19 @@
  * 
  * @since rtPanel 2.0
  */
-get_header(); ?>
+get_header();
 
-<?php global $rtp_general; ?>
+    global $rtp_general;
+    $rtp_content_grid_class = '';
 
-    <section id="content" role="main" class="rtp-multiple-post<?php echo ( $rtp_general['search_code'] && $rtp_general['search_layout'] ) ? ' rtp-grid-12' : ' rtp-grid-8'; ?>"><!-- content begins --><?php
+    // Full width grid for buddypress or bbpress
+    if ( $rtp_general['search_code'] && $rtp_general['search_layout'] ) {
+        $rtp_content_grid_class = apply_filters( 'rtp_set_full_width_grid_class', 'large-12 columns rtp-full-width-grid' );
+    } else {
+        $rtp_content_grid_class = apply_filters( 'rtp_set_content_grid_class', 'large-8 columns' );
+    } ?>
+
+    <section id="content" role="main" class="rtp-content-section rtp-multiple-post <?php echo $rtp_content_grid_class; ?>"><?php
 
         rtp_hook_begin_content();
 
@@ -42,4 +50,4 @@ get_header(); ?>
 
     <?php if ( !$rtp_general['search_code'] || !$rtp_general['search_layout'] ) rtp_hook_sidebar(); ?>
 
-<?php get_footer(); ?>
+<?php get_footer();

@@ -1,0 +1,68 @@
+// ********* rtPanel Mixins *********
+
+@mixin rtp-link ( $link-color: $link-color, $hover-color: $link-hover-color ) {
+    & { color: $link-color; }
+    &:hover, &:focus { color: $link-hover-color; }
+}
+
+// Border 1px
+@mixin rtp-border($width: 1px, $style: solid, $color: $border-color) {
+    border: $width $style $color;
+}
+
+// ********* rtPanel Constant Mixins ********* //
+
+// Set margin and padding 0
+@mixin rtp-margin-padding-0() {
+    margin: 0;
+    padding: 0;
+}
+
+// Text Indent
+@mixin rtp-text-indent() {
+    text-indent: -9999px;
+    text-transform: uppercase; // IE hack
+}
+
+// Panel
+@mixin rtp-panel() {
+    border-style: $panel-border-style;
+    border-width: $panel-border-size;
+    border-color: darken($panel-bg, $panel-function-factor);
+    padding: $panel-padding;
+    background: $panel-bg;
+}
+
+// Messages
+@mixin rtp-message( $color: $color-info, $lighten: 42, $border: true ) {
+    background-color: lighten( $color, $lighten );
+
+    @if $border {
+        border-left: 4px solid $color;
+    }
+}
+
+// Notice
+@mixin rtp-notice() {
+   @include rtp-message( $color-notice, 20 );
+}
+
+// Info
+@mixin rtp-info() {
+    @include rtp-message( $color-info, 42 );
+}
+
+// Warning
+@mixin rtp-warning() {
+    @include rtp-message( $color-warning, 42 );
+}
+
+// Success
+@mixin rtp-success() {
+    @include rtp-message( $color-success, 38 );
+}
+
+// Error
+@mixin rtp-error() {
+    @include rtp-message( $color-error, 40 );
+}

@@ -6,29 +6,29 @@
  * 
  * @since rtPanel 2.1
  */
-get_header(); ?>
+get_header();
 
-<?php global $rtp_post_comments; ?>
+    global $rtp_post_comments;
+    $rtp_content_grid_class = apply_filters( 'rtp_set_full_width_grid_class', 'large-12 columns rtp-full-width-grid' ); ?>
 
-    <section id="content" class="rtp-image-attachment rtp-grid-12">
+    <section id="content" class="rtp-content-section rtp-image-attachment <?php echo $rtp_content_grid_class; ?>">
         <?php rtp_hook_begin_content(); ?>
 
         <?php 
-        while( have_posts() ) {
-            the_post();
+        while( have_posts() ) { the_post();
             if ( $post->post_parent ) { ?>
                 <div class="rtp-navigation clearfix">
-                    <div class="alignleft"><a role="link" href="<?php echo get_permalink( $post->post_parent ); ?>">&larr; <?php echo get_the_title( $post->post_parent ); ?></a></div>
+                    <div class="left"><a role="link" href="<?php echo get_permalink( $post->post_parent ); ?>">&larr; <?php echo get_the_title( $post->post_parent ); ?></a></div>
                 </div><?php
             } ?>
 
-            <article <?php post_class( 'rtp-image-box' ); ?>>
+            <article <?php post_class( 'clearfix rtp-image-box' ); ?>>
                 <?php rtp_hook_begin_post(); ?>
 
                 <header class="post-header clearfix">
                     <?php rtp_hook_begin_post_title(); ?>
 
-                    <h1 class="post-title<?php echo $rtp_post_comments['attachment_comments'] ? '' : ' rtp-has-comments' ?>"><?php the_title(); ?></h1>
+                    <h1 class="post-title"><?php the_title(); ?></h1>
 
                     <?php rtp_hook_end_post_title(); ?>
 
@@ -41,7 +41,7 @@ get_header(); ?>
 
                     <?php $img_info = wp_get_attachment_image_src( '', 'full' ); ?>
 
-                    <figure role="img" class="wp-caption aligncenter" aria-describedby="figcaption_attachment_<?php echo get_the_ID(); ?>"<?php echo ( $img_info[1] < $max_content_width ) ? ' style="width: ' . ((int) $img_info[1]) . 'px";' : ''; ?>>
+                    <figure role="img" class="wp-caption aligncenter" aria-describedby="figcaption_attachment_<?php echo get_the_ID(); ?>">
                         <a role="link" href="<?php echo $img_info[0]; ?>" title="<?php the_title_attribute(); ?>" rel="attachment"><?php echo wp_get_attachment_image( '', 'full' ); ?></a><?php
                         echo ( get_the_excerpt() ) ? '<figcaption id="figcaption_attachment_' . get_the_ID() . '" class="wp-caption-text">' . get_the_excerpt() . '</figcaption>' : ''; ?>
                     </figure>
@@ -62,7 +62,9 @@ get_header(); ?>
                             $attachments = get_children( $args );
 
                             if ( $attachments ) { ?>
-                                <ul role="list" class="rtp-sibling-attachments rtp-container-12 rtp-alpha rtp-omega clearfix"><?php
+                                <ul role="list" class="rtp-sibling-attachments rtp-alpha rtp-omega clearfix clearing-thumbs clearing-feature" data-clearing>
+                                    <li><a href="<?php echo $img_info[0];?>"><?php echo wp_get_attachment_image(get_the_ID(),'thumbnail', false, array("data-caption"=>get_the_excerpt()));?></a></li>
+                                <?php
                                     $count = 1;
                                     foreach( $attachments as $attachment ) {
                                         if ( get_the_ID() != $attachment->ID ) {
@@ -72,12 +74,13 @@ get_header(); ?>
                                             } elseif ( $count %6 == 0 ) {
                                                 $alpha_omega = ' rtp-omega';
                                             }
-                                            echo '<li role="listitem" class="rtp-grid-2' . $alpha_omega . '">' . wp_get_attachment_link( $attachment->ID, 'thumbnail', true ) . '</li>';
+                                            $url = wp_get_attachment_image_src($attachment->ID, "full");
+                                            echo '<li role="listitem" class="' . $alpha_omega . ' clearing-featured-img"><a class="" href="'. $url[0] . '">' . wp_get_attachment_image($attachment->ID,'thumbnail', false, array("data-caption"=>  $attachment->post_title))   . '</a></li>';  ///wp_get_attachment_link( $attachment->ID, 'thumbnail', true )
                                             $count++;
                                         }
                                     } ?>
                                 </ul><?php
-                            }
+                            }   
                         } ?>
 
                     <?php rtp_hook_end_post_content(); ?>
@@ -94,4 +97,4 @@ get_header(); ?>
         <?php rtp_hook_end_content(); ?>
     </section><!-- #content -->
 
-<?php get_footer(); ?>
+<?php get_footer();

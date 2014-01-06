@@ -1,0 +1,145 @@
+$image-space: rem-calc(20);
+
+// ***** Images ***** //
+@mixin rtp-image() {
+    /* Images */
+    img {
+        // Floated Images
+        &.none,
+        &.alignnone { margin-left: 0; margin-right: $image-space; }
+        //&.aligncenter { margin-left: auto; margin-right: auto; }
+        &.left,
+        &.alignleft { margin-left: 0; margin-right: $image-space; }
+        &.right,
+        &.alignright { margin-left: $image-space; margin-right: 0; }
+
+        // IE8 image width issue fix.
+        .ie8 & { width: auto; }
+    }
+}
+
+
+// ***** Thumbnail Container ***** //
+@mixin rtp-thumbnail() {
+    .rtp-thumbnail-container {
+        img { margin: 0; }
+
+        // Image Container Link
+        a { margin-top: rem-calc(5); margin-bottom: rem-calc(5);
+            // Floated Images
+            &.none,
+            &.alignnone { display: inline-block; margin-bottom: rem-calc(14); margin-left: 0; margin-right: $image-space; }
+            &.left,
+            &.alignleft { margin-left: 0; margin-right: $image-space; }
+            &.center,
+            &.aligncenter { display: inline-block; margin-bottom: rem-calc(14); }
+            &.right,
+            &.alignright { margin-left: $image-space; margin-right: 0; }
+        }
+    }
+}
+
+
+// ***** Thumbnail with shadow effect ***** //
+@mixin rtp-thumbnail-shadow() {
+    /* Thumbnail with shadow effect */
+    .rtp-thumbnail-shadow {
+        img {
+            background: $base-background;
+            @include rtp-border();
+            @include box-shadow(0 0 4px darken($base-background, 20%));
+            padding: rem-calc(4);
+        }
+    }
+}
+
+
+// ***** Image Caption Style ***** //
+@mixin rtp-wp-caption() {
+    /* Image Caption Style */
+    .wp-caption { background-color: darken($base-background, 4%); margin: rem-calc(6 5 15); max-width: 100%; overflow: hidden; padding: rem-calc(5 5 0); text-align: center; // Self
+        // Floated Elements
+        &.alignnone, &.alignleft { margin-left: 0; margin-right: rem-calc(15); }
+        &.aligncenter { margin-left: auto; margin-right: auto; }
+        &.alignright { margin-left: rem-calc(15); margin-right: 0; }
+
+        a { border: 0; text-decoration: none; }
+        img { margin: 0; }
+    }
+
+    .wp-caption-text { color: $gray; line-height: 1.286em; margin: rem-calc(0 5 8); }
+    .rtp-image-box .wp-caption + p { margin: rem-calc(20 0 10); }
+}
+
+
+// ***** WP Gallery ***** //
+@mixin rtp-gallery() {
+    /* Gallery */
+    .gallery {
+        &[data-clearing] li { margin-right: 0; }
+    }
+
+    // Caption
+    .gallery-caption { color: $gray; margin: rem-calc(0 0 10); padding: 0; text-align: center; }
+
+    /* End - Gallery */
+}
+
+
+// ****** Attachment Style ****** //
+@mixin rtp-attachment-page() {
+    /* Attachment Style */
+    .attachment .attachment-full { margin: 0; }
+    .post-content .attachment img { margin: 0 auto; }
+
+    // Attachment Page Images
+    .rtp-sibling-attachments { padding: 0; margin: 0 0 1em; // Self
+        // List
+        li { line-height: 1em; list-style: none; margin-top: rem-calc(10); margin-bottom: rem-calc(10); text-align: center; }
+        // Images
+        img {
+            background-color: darken($base-background, 4%); @include rtp-border(); margin: 0; padding: rem-calc(5);
+            &:hover { border-color: darken($border-color, 30%); }
+        }
+    }
+}
+
+
+// ****** Paged Navigation ****** //
+@mixin rtp-paged-navigation() {
+    /* Paged Navigation */
+    .rtp-navigation, .rtp-comments-pagination { border-bottom: 1px dotted $border-color; clear: both; margin-bottom: $rtp-base-spacing; padding-bottom: rem-calc(20); padding-top: rem-calc(20); // Self
+        // Links
+        a { text-decoration: none;
+            // Hover
+            &:hover { text-decoration: underline; }
+        }
+    }
+
+    .rtp-navigation {
+        .alignleft { text-align: left; }
+        .alignright { text-align: right; }
+    }
+
+    // Single Page Navigation
+    .single {
+        .rtp-navigation,
+        .rtp-comments-pagination {
+            //padding-bottom: 0;
+            //padding-top: 1.5em;
+        }
+    }
+
+    // Attachment Page
+    .single-attachment, .rtp-image-attachment {
+        .rtp-navigation { margin: rem-calc(10 0 0); padding-bottom: 0; }
+    }
+}
+
+// ****** Search ****** //
+@mixin rtp-search() {
+    // Search
+    .rtp-search-form-wrapper {
+        .rtp-search-input { float: left; height: 37px; width: 75%; }
+    }
+}

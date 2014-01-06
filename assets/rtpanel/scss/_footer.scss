@@ -1,0 +1,14 @@
+// Footer Widgets
+.footerbar-widget {
+    // *** clear **** //
+    &:nth-child(3n+1) { clear: left; }
+}
+
+/* Copyrights */
+#footer { color: $gray; text-align: center; // Self
+    // Footer Links
+    a { border-bottom: 1px solid $border-color; // Self
+        &:hover { text-decoration: none; }
+    }
+}
+/* End - Footer */

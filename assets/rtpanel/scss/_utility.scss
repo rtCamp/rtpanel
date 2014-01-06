@@ -1,0 +1,55 @@
+// ***** This is removed since it prevents vertical scroll. ***** //
+// ***** Previously this was used for Full Browser Width Navigation Bar ***** //
+// html, body {
+//     overflow-x: hidden;
+// }
+
+// Alignleft
+.alignleft {
+    float: left;
+}
+
+// Alignright
+.alignright {
+    float: right;
+}
+
+// Aligncenter
+.aligncenter { display: block; margin-left: auto; margin-right: auto; text-align: center; }
+
+// Clear Both
+.clear-both { clear: both; }
+
+// Clear None
+.clear-none { clear: none; }
+
+// Clear Left
+.clear-left { clear: left; }
+
+// Clear Right
+.clear-right { clear: right; }
+
+
+// Messages
+[class^="rtp-message-"],
+[class*=" rtp-message-"] {
+    padding: rem-calc(10 15); text-shadow: 1px 0 0 $white; // box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1); 
+    p:last-child { margin: 0; }
+}
+
+.rtp-message-notice { @include rtp-notice(); }
+.rtp-message-info { @include rtp-info(); }
+.rtp-message-success { @include rtp-success(); }
+.rtp-message-warning { @include rtp-warning(); }
+.rtp-message-error { @include rtp-error(); }
+
+// inline-block
+.rtp-inline-block { display: inline-block; }
+
+/* Text align */
+.rtp-text-left { text-align: left; }
+.rtp-text-right { text-align: right; }
+.rtp-text-center { text-align: center; }
+
+/* Borders */
+.rtp-border-0 { border: 0 !important; }

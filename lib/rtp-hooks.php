@@ -53,9 +53,27 @@ function rtp_hook_end_main_wrapper() {
 }
 
 /**
- * Adds content before #header
+ * Adds content begin #header
  *
  * @since rtPanel 2.0
+ */
+function rtp_hook_begin_header() {
+    do_action( 'rtp_hook_begin_header' );
+}
+
+/**
+ * Adds content end #header
+ *
+ * @since rtPanel 4.0
+ */
+function rtp_hook_end_header() {
+    do_action( 'rtp_hook_end_header' );
+}
+
+/**
+ * Adds content before #header
+ *
+ * @since rtPanel 4.0
  */
 function rtp_hook_before_header() {
     do_action( 'rtp_hook_before_header' );
@@ -87,6 +105,26 @@ function rtp_hook_before_logo() {
 function rtp_hook_after_logo() {
     do_action( 'rtp_hook_after_logo' );
 }
+
+
+/**
+ * Adds content at the beginning of primary_menu
+ *
+ * @since rtPanel 4.0
+ */
+function rtp_hook_begin_primary_menu() {
+    do_action( 'rtp_hook_begin_primary_menu' );
+}
+
+/**
+ * Adds content at the end of primary_menu
+ *
+ * @since rtPanel 4.0
+ */
+function rtp_hook_end_primary_menu() {
+    do_action( 'rtp_hook_end_primary_menu' );
+}
+
 
 /**
  * Adds content at the beginning of #content-wrapper
@@ -296,4 +334,16 @@ function rtp_hook_single_pagination() {
  */
 function rtp_hook_archive_pagination() {
     do_action( 'rtp_hook_archive_pagination' );
+}
+
+function rtp_hook_before_content_wrapper(){
+    do_action("rtp_hook_before_content_wrapper");
+}
+
+function rtp_hook_after_content_wrapper(){
+    do_action("rtp_hook_after_content_wrapper");
+}
+
+function rtp_hook_after_comment_author_avatar(){
+    do_action("rtp_hook_after_comment_author_avatar");
 }

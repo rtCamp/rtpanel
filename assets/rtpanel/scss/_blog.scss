@@ -1,0 +1,85 @@
+// Post meta styles
+$post-meta-styles: true !default;
+
+/* Post Loop */
+// ***** Post Container ***** //
+.hentry { border-bottom: 1px dotted $border-color; padding-bottom: rem-calc(30); padding-top: $rtp-base-spacing; position: relative; // Removed clear: both;
+
+    &:first-child { padding-top: 0; }
+
+    // ***** Sticky Post ***** //
+    &.sticky { @include rtp-panel; }
+}
+
+.rtp-singular,
+.attachment,
+.rtp-full-width {
+    .hentry { padding-bottom: rem-calc(5); } // border-bottom: 0; padding-bottom: 0;
+}
+
+// Read More
+.rtp-readmore { font-size: rem-calc(14); } // font-size: rem-calc(13);
+
+// ***** Post Header ***** //
+.post-header { margin-bottom: 1rem; }
+.post-title { margin: 0 0 em-calc(5); }
+.rtp-main-title { border-bottom: 1px dotted $border-color; padding-bottom: rem-calc(10); }
+
+// Post Content Paragraph
+.blog,
+.archive,
+.search-results {
+    .post-content {
+        p { margin-bottom: 1rem; } //  margin-bottom: 1em;
+    }
+}
+
+// ***** Post Content ***** //
+.post-content {
+
+} // @extend .clearfix;
+
+// Not Found Page
+.rtp-not-found { margin: 1.5em 0; }
+
+
+// Print Post meta styles
+@if $post-meta-styles {
+
+    /* Post Meta */
+    .post-meta { color: $gray-light; font-size: rem-calc(13);
+        a {
+            & { color: $gray-light; text-decoration: none; }
+            &:hover, &:focus { color: $link-hover-color; }
+        }
+        
+        > .rtp-meta-separator {
+            &:first-child { display: none; }
+        }
+    }
+
+    .post-meta-bottom { padding: 1em 0 0;
+        .single & { margin: 1.5em 0 0; padding: 0; }
+    }
+
+    .rtp-post-comment-count { margin-left: rem-calc(8);
+        @if $rtp-icon-font {
+            a:before { content: '\e80a'; font-family: $rtp-icon-font-family; font-size: rem-calc(14); margin: rem-calc(0 5); }    
+        }
+    }
+
+    // Edit Link
+    .rtp-edit-link {
+        a { @include rtp-message($border: false); border: 1px solid lighten($color-info, 34); @include border-radius(3px); color: $color-info; font-size: rem-calc(12); display: inline-block; line-height: 1; margin-right: rem-calc(6); padding: rem-calc(4 8); }
+    }
+
+    /* Post Comment */
+    .rtp-post-comment {
+    
+    }
+    
+    .rtp-meta-separator { padding: rem-calc(0 2); }
+
+    .post-tags { font-size: inherit; margin-bottom: 0; }
+    /* End - Post Meta */
+}

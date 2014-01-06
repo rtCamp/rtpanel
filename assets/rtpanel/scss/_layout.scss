@@ -1,0 +1,7 @@
+// This is used for Full Browser Width
+.rtp-main-wrapper {
+    overflow-x: hidden; // This is used for Full Browser Width Navigation Bar
+}
+
+// This is fallback use color if background color set through backend settings.
+.rtp-section-container { background: $white; }

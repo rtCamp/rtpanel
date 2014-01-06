@@ -15,6 +15,7 @@ define( 'RTP_YOAST_SEO', 'wordpress-seo/wp-seo.php' );
 define( 'RTP_REGENERATE_THUMBNAILS', 'regenerate-thumbnails/regenerate-thumbnails.php' );
 define( 'RTP_BUDDYPRESS', 'buddypress/bp-loader.php' );
 define( 'RTP_BBRESS', 'bbpress/bbpress.php' );
+define( 'RTP_MEDIA', 'buddypress-media/index.php' );
 
 /**
  * Registers rtPanel General and Post & Comments options
@@ -46,10 +47,12 @@ function rtp_logo_option_metabox() {
                     <th scope="row"><label for="logo_use"><?php _e( 'For Logo', 'rtPanel' ); ?></label></th>
                     <td colspan="3">
                         <div class="alignleft">
-                        <p style="margin-bottom: 10px;"><input type="radio" name="rtp_general[logo_use]" value="site_title" id="use_site_title" class="rtp_logo" <?php checked( 'site_title', $rtp_general['logo_use'] ); ?> />
-                        <label for="use_site_title" style="margin-right: 30px;"><?php _e( 'Use Site Title', 'rtPanel' ); ?></label>
-                        <input type="radio" name="rtp_general[logo_use]" value="image" id="use_logo_image" class="rtp_logo" <?php checked( 'image', $rtp_general['logo_use'] ); ?> />
-                        <label for="use_logo_image"><?php _e( 'Upload Logo', 'rtPanel' ); ?></label></p>
+                        <p style="margin-bottom: 10px;">
+                            <input type="radio" name="rtp_general[logo_use]" value="site_title" id="use_site_title" class="rtp_logo" <?php checked( 'site_title', $rtp_general['logo_use'] ); ?> />
+                            <label for="use_site_title" style="margin-right: 30px;"><?php _e( 'Use Site Title', 'rtPanel' ); ?></label>
+                            <input type="radio" name="rtp_general[logo_use]" value="image" id="use_logo_image" class="rtp_logo" <?php checked( 'image', $rtp_general['logo_use'] ); ?> />
+                            <label for="use_logo_image"><?php _e( 'Upload Logo', 'rtPanel' ); ?></label>
+                        </p>
                         <input type="file" name="html-upload-logo" id="html-upload-logo"<?php echo $logo_style; ?>>
                         <input type="hidden"  name="rtp_general[logo_upload]" id="logo_upload_url" value="<?php if( isset( $rtp_general['logo_upload'] ) ) echo $rtp_general['logo_upload']; ?>" />
                         <input type="hidden"  name="rtp_general[logo_id]" id="logo_id" value="<?php if( isset( $rtp_general['logo_id'] ) ) echo $rtp_general['logo_id']; ?>" />
@@ -91,73 +94,6 @@ function rtp_logo_option_metabox() {
     <div class="rtp_submit">
         <?php submit_button('Save All Changes', 'primary', 'rtp_submit', false ); ?>
         <?php submit_button('Reset Logo & Favicon Settings', 'secondary', 'rtp_logo_favicon_reset', false ); ?>
-        <div class="clear"></div>
-    </div>
-<?php
-}
-/**
- * Facebook Open Graph Metabox - General Tab
- *
- * @uses $rtp_general array
- *
- * @since rtPanel 2.0
- */
-function rtp_facebook_ogp_metabox() {
-    global $rtp_general; ?>
-    <table class="form-table">
-        <tbody>
-            <tr valign="top">
-                <th scope="row"><label for="fb_admins"><?php _e( 'Facebook Admin ID(s)', 'rtPanel' ); ?></label></th>
-                <td>
-                    <input type="text" value="<?php echo esc_attr( $rtp_general['fb_admins'] ); ?>" size="40" name="rtp_general[fb_admins]" id="fb_admins" />
-                    <span class="description"><label for="fb_admins"><?php _e( 'Specify Facebook Admin ID(s) ( Comma separated )', 'rtPanel' ); ?></label></span>
-                </td>
-            </tr>
-            <tr valign="top">
-                <th scope="row"><label for="fb_app_id"><?php _e( 'Facebook App ID', 'rtPanel' ); ?></label></th>
-                <td>
-                    <input type="text" value="<?php echo esc_attr( $rtp_general['fb_app_id'] ); ?>" size="40" name="rtp_general[fb_app_id]" id="fb_app_id" />
-                    <span class="description"><label for="fb_app_id"><?php printf( __( '<a href="%s" target="_blank" title="Find your App ID Here">Find your App ID Here</a>', 'rtPanel' ), 'https://developers.facebook.com/apps/' ); ?></label></span>
-                </td>
-            </tr>
-            <tr valign="top">
-                <td colspan="2">
-                    <strong><?php _e( 'Note', 'rtPanel' ); ?> : </strong><span class="description"><?php _e( 'Anyone would be sufficient.', 'rtPanel' ); ?></span>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <div class="rtp_submit">
-        <?php submit_button('Save All Changes', 'primary', 'rtp_submit', false ); ?>
-        <?php submit_button('Reset Facebook OGP Settings', 'secondary', 'rtp_fb_ogp_reset', false ); ?>
-        <div class="clear"></div>
-    </div>
-<?php
-}
-
-/**
- * Feedburner Settings Metabox - General Tab
- *
- * @uses $rtp_general array
- *
- * @since rtPanel 2.0
- */
-function rtp_feed_option_metabox() {
-    global $rtp_general; ?>
-    <table class="form-table">
-        <tbody>
-            <tr valign="top">
-                <th scope="row"><label for="feedburner_url"><?php _e( 'FeedBurner URL', 'rtPanel' ); ?></label></th>
-                <td>
-                    <input type="text" placeholder="http://www.example.com" value="<?php echo esc_attr( $rtp_general['feedburner_url'] ); ?>" size="40" name="rtp_general[feedburner_url]" id="feedburner_url" />
-                    <span class="description"><label for="feedburner_url"><?php printf( __( 'Specify <a href="%s" target="_blank" title="FeedBurner">FeedBurner</a> URL to redirect feed', 'rtPanel' ), 'http://www.feedburner.com/' ); ?></label></label></span>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <div class="rtp_submit">
-        <?php submit_button('Save All Changes', 'primary', 'rtp_submit', false ); ?>
-        <?php submit_button('Reset FeedBurner Settings', 'secondary', 'rtp_feed_reset', false ); ?>
         <div class="clear"></div>
     </div>
 <?php
@@ -304,7 +240,10 @@ function rtp_plugin_metabox() {
     $yoast_seo_delete = wp_create_nonce( RTP_YOAST_SEO . '-delete' );
     $regenerate_activate = wp_create_nonce( RTP_REGENERATE_THUMBNAILS . '-activate' );
     $regenerate_deactivate = wp_create_nonce( RTP_REGENERATE_THUMBNAILS . '-deactivate' );
-    $regenerate_delete = wp_create_nonce( RTP_REGENERATE_THUMBNAILS . '-delete' ); ?>
+    $regenerate_delete = wp_create_nonce( RTP_REGENERATE_THUMBNAILS . '-delete' );
+    $rtmedia_activate = wp_create_nonce( RTP_MEDIA . '-activate' );
+    $rtmedia_deactivate = wp_create_nonce( RTP_MEDIA . '-deactivate' );
+    $rtmedia_delete = wp_create_nonce( RTP_MEDIA . '-delete' ); ?>
     <table class="form-table">
         <tr>
             <th><?php _e( 'Name', 'rtPanel' ); ?></th>
@@ -431,7 +370,37 @@ function rtp_plugin_metabox() {
                     <span class="not-installed"> ----- </span>
                 <?php } ?>
             </td>
-        </tr>
+        </tr>        
+        <tr>
+            <td><a target="_blank" href="http://wordpress.org/plugins/buddypress-media/"><?php _e( 'rtMedia for WordPress, BuddyPress and bbPress', 'rtPanel' ); ?></a></td>
+            <td>
+                <?php 
+                if ( is_plugin_active( RTP_MEDIA ) ) {
+                    echo '<span class="active">' . __( 'Active', 'rtPanel' ) . '</span>';
+                } elseif ( array_key_exists( RTP_MEDIA, $plugins ) ) {
+                    echo '<span class="inactive">' . __( 'Inactive', 'rtPanel' ) . '</span>';
+                } else {
+                    echo '<span class="not-installed">' . __( 'Not Installed', 'rtPanel' ) . '</span>';
+                }
+                ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_MEDIA ) ) { ?>
+                    <input type="hidden" value="<?php echo $rtmedia_deactivate; ?>" name="_wpnonce_rtmedia_deactivate" id="_wpnonce_rtmedia_deactivate" /><input id="rtmedia-deactivate" type="hidden" name="rtmedia-deactivate" value="0" /><a class="rtmedia-deactivate" href="#rtmedia-deactivate" onclick="deactivate_plugin('rtMedia for WordPress, BuddyPress and bbPress')"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
+                <?php } elseif ( array_key_exists( RTP_MEDIA, $plugins ) ) { ?>
+                    <input type="hidden" value="<?php echo $rtmedia_activate; ?>" name="_wpnonce_rtmedia_activate" id="_wpnonce_rtmedia_activate" /><input id="rtmedia-activate" type="hidden" name="rtmedia-activate" value="0" /><a class="rtmedia-activate" href="#rtmedia-activate" onclick="activate_plugin( 'rtMedia for WordPress, BuddyPress and bbPress' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo $rtmedia_delete; ?>" name="_wpnonce_rtmedia_delete" id="_wpnonce_rtmedia_delete" /><input id="rtmedia-delete" type="hidden" name="rtmedia-delete" value="0" /><a class="rtmedia-delete" href="#rtmedia-delete" onclick="delete_plugin_confirmation( 'rtMedia for WordPress, BuddyPress and bbPress' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=buddypress-media' ), 'install-plugin_buddypress-media' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
+                <?php } ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_MEDIA ) || array_key_exists( RTP_MEDIA, $plugins ) ) { ?>
+                    <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_MEDIA ) ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <span class="not-installed"> ----- </span>
+                <?php } ?>
+            </td>
+        </tr>        
         <tr>
             <td class="last-child"><a href="http://wordpress.org/extend/plugins/regenerate-thumbnails/"><?php _e( 'Regenerate Thumbnails', 'rtPanel' ); ?></a></td>
             <td class="last-child">
@@ -519,7 +488,7 @@ function rtp_post_summaries_metabox() {
                 </td>
             </tr>
             <tr valign="top">
-                <th scope="row"><label for="read_text"><?php _e( 'Read More Text', 'rtPanel' ); ?></label></th>
+                <th scope="row"><label for="read_text"><?php _e( 'Read More &rarr;', 'rtPanel' ); ?></label></th>
                 <td>
                     <input type="text" value="<?php echo esc_attr( $rtp_post_comments['read_text'] ); ?>" size="30" name="rtp_post_comments[read_text]" id="read_text" />
                     <span class="description"><label for="read_text"><?php _e( 'This will be added after each post summary. Text added here will be automatically converted into a hyperlink pointing to the respective post.', 'rtPanel' ); ?></label></span>
@@ -807,7 +776,7 @@ function rtp_pagination_metabox() {
 }
 
 /**
- * Comment Form Settings Metabox - Post & Comments Tab
+ * Comment Settings Metabox - Post & Comments Tab
  *
  * @uses $rtp_post_comments array
  *
@@ -817,6 +786,13 @@ function rtp_comment_form_metabox() {
     global $rtp_post_comments; ?>
     <table class="form-table">
         <tbody>
+            <tr valign="top">
+                <th scope="row"><p><label for="gravatar_show"><?php _e( 'Enable Gravatar', 'rtPanel' ); ?></label></p></th>
+                <td>
+                    <input type="hidden" name="rtp_post_comments[gravatar_show]" value="0" />
+                    <input type="checkbox" name="rtp_post_comments[gravatar_show]" value="1" id="gravatar_show" <?php checked( $rtp_post_comments['gravatar_show'] ); ?> />
+                </td>
+            </tr>
             <tr valign="top">
                 <th scope="row"><p><label for="compact_form"><?php _e( 'Enable Compact Form', 'rtPanel' ); ?></label></p></th>
                 <td>
@@ -849,47 +825,7 @@ function rtp_comment_form_metabox() {
     </table>
     <div class="rtp_submit">
         <?php submit_button('Save All Changes', 'primary', 'rtp_submit', false ); ?>
-        <?php submit_button('Reset Comment Form Settings', 'secondary', 'rtp_comment_reset', false ); ?>
-        <div class="clear"></div>
-    </div><?php
-}
-
-/**
- * Gravatar Settings Metabox - Post & Comments Tab
- *
- * @uses $rtp_post_comments array
- *
- * @since rtPanel 2.0
- */
-function rtp_gravatar_metabox() {
-    global $rtp_post_comments; ?>
-    <table class="form-table">
-        <tbody>
-            <tr valign="top">
-                <th scope="row"><p><label for="gravatar_show"><?php _e( 'Enable Gravatar Support', 'rtPanel' ); ?></label></p></th>
-                <td>
-                    <input type="hidden" name="rtp_post_comments[gravatar_show]" value="0" />
-                    <input type="checkbox" name="rtp_post_comments[gravatar_show]" value="1" id="gravatar_show" <?php checked( $rtp_post_comments['gravatar_show'] ); ?> />
-                </td>
-            </tr>
-            <tr valign="top" class="gravatar-size">
-                <th scope="row"><p><label for="gravatar_size"><?php _e( 'Gravatar Size', 'rtPanel' ); ?></label></p></th>
-                <td>
-                    <select name="rtp_post_comments[gravatar_size]" id="gravatar_size">
-                        <option value="32" <?php selected( '32', $rtp_post_comments['gravatar_size'] ); ?>>32px X 32px</option>
-                        <option value="40" <?php selected( '40', $rtp_post_comments['gravatar_size'] ); ?>>40px X 40px</option>
-                        <option value="48" <?php selected( '48', $rtp_post_comments['gravatar_size'] ); ?>>48px X 48px</option>
-                        <option value="56" <?php selected( '56', $rtp_post_comments['gravatar_size'] ); ?>>56px X 56px</option>
-                        <option value="64" <?php selected( '64', $rtp_post_comments['gravatar_size'] ); ?>>64px X 64px</option>
-                        <option value="96" <?php selected( '96', $rtp_post_comments['gravatar_size'] ); ?>>96px X 96px</option>
-                    </select>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <div class="rtp_submit">
-        <?php submit_button('Save All Changes', 'primary', 'rtp_submit', false ); ?>
-        <?php submit_button('Reset Gravatar Settings', 'secondary', 'rtp_gravatar_reset', false ); ?>
+        <?php submit_button('Reset Comment Settings', 'secondary', 'rtp_comment_reset', false ); ?>
         <div class="clear"></div>
     </div><?php
 }

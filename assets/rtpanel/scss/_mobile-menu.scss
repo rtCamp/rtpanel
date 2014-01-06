@@ -1,0 +1,108 @@
+// Fonts
+$sidr-font-family: $body-font-family;
+$sidr-font-size: rem-calc(15);
+
+// Colors
+$sidr-background : #333;
+$sidr-background-shadow-color : #222;
+$sidr-text-color: $white;
+
+.sidr {
+    /* Default Settings */
+    display: none;
+    position: absolute;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    z-index: 999999;
+    width: 260px;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    &.right {
+        left: auto;
+        right: -260px;
+    }
+
+    &.left {
+        left: -260px;
+        right: auto;
+    }
+
+    /* Theme Settings */
+    font-family: $sidr-font-family;
+    font-size: $sidr-font-size;
+    background: $sidr-background;
+    color: $sidr-text-color;
+    @include single-box-shadow($sidr-background-shadow-color, 0, 0, 5px, 5px, inset);
+
+    ul {
+        display: block;
+        margin: 0 0 15px;
+        padding: 0;
+        border-top: 1px solid darken($sidr-background, 10%);
+        border-bottom: 1px solid lighten($sidr-background, 10%);
+
+        li {
+            display: block;
+            margin: 0;
+            line-height: 48px;
+            border-top: 1px solid lighten($sidr-background, 10%);
+            border-bottom: 1px solid darken($sidr-background, 10%);
+
+            &:hover,
+            &.active,
+            &.sidr-class-current-menu-item {
+                border-top: none;
+                line-height: 49px;
+
+                > a, > span {
+                    @include single-box-shadow($sidr-background-shadow-color, 0, 0, 15px, 3px, inset);
+                }
+            }
+
+            a, span {
+                padding: 0 15px;
+                display: block;
+                text-decoration: none;
+                color: $sidr-text-color;
+            }
+
+            ul {
+                border-bottom: none;
+                margin: 0;
+                li {
+                    line-height: 40px;
+                    font-size: $sidr-font-size - 2;
+
+                    &:last-child {
+                        border-bottom: none;
+                    }
+
+                    &:hover,
+                    &.active,
+                    &.sidr-class-current-menu-item {
+                        border-top: none;
+                        line-height: 41px;
+
+                        > a, > span {
+                            @include single-box-shadow($sidr-background-shadow-color, 0, 0, 15px, 3px, inset);
+                        }
+                    }
+
+                    a, span {
+                        color: rgba($sidr-text-color, .8);
+                        padding-left: 30px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.sidr-inner {
+    padding: 0 0 15px;
+}
+
+// Menu Button
+a.rtp-menu-icon { color: $white; font-size: rem-calc(21); display: none; float: left; margin-top: rem-calc(8); }

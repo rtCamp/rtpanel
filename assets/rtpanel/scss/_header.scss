@@ -1,0 +1,29 @@
+// ***** Header ***** //
+/* Header */
+.rtp-header { }
+
+.rtp-logo-container { margin-bottom: rem-calc(30); }
+
+// Logo
+.rtp-site-logo { float: left; font-size: rem-calc(40); margin: 0 rem-calc(30) 0 0; overflow: hidden;
+    // Float is used to remove excess spacing bellow logo image
+    a { float: left; }
+
+    // Logo : Float is used to remove excess spacing bellow logo image
+    img { float: left; margin: 0; }
+}
+
+// Tagline
+.tagline { color: $gray-light; float: left; margin: rem-calc(20) 0 0; } // font-size: rem-calc(22);
+
+// Header Image Wrapper
+.rtp-header-wrapper-image {
+    .rtp-nav-wrapper { margin-bottom: 0; }
+}
+
+// Header Image
+.rtp-header-image {
+    margin-bottom: rem-calc(30);
+}
+
+/* End - Header */
