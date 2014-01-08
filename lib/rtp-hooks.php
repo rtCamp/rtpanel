@@ -301,7 +301,7 @@ function rtp_hook_end_sidebar() {
 }
 
 /**
- * Adds content before #footer
+ * Adds content before #footer-wrapper
  *
  * @since rtPanel 2.0
  */
@@ -310,12 +310,30 @@ function rtp_hook_before_footer() {
 }
 
 /**
- * Adds content after #footer
+ * Adds content after #footer-wrapper
  *
  * @since rtPanel 2.0
  */
 function rtp_hook_after_footer() {
     do_action( 'rtp_hook_after_footer' );
+}
+
+/**
+ * Adds content begin #footer-wrapper
+ *
+ * @since rtPanel 4.1.2
+ */
+function rtp_hook_begin_footer() {
+    do_action( 'rtp_hook_begin_footer' );
+}
+
+/**
+ * Adds content ends #footer-wrapper
+ *
+ * @since rtPanel 4.1.2
+ */
+function rtp_hook_end_footer() {
+    do_action( 'rtp_hook_end_footer' );
 }
 
 /**

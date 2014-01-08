@@ -16,7 +16,13 @@ global $rtp_general; ?>
 
             <?php rtp_hook_after_content_wrapper(); ?>
 
-            <footer id="footer-wrapper" role="contentinfo" class="clearfix rtp-footer-wrapper rtp-section-wrapper"><?php
+            <?php rtp_hook_before_footer(); ?>
+
+            <footer id="footer-wrapper" role="contentinfo" class="clearfix rtp-footer-wrapper rtp-section-wrapper">
+
+                <?php rtp_hook_begin_footer(); ?>
+
+                <?php
                 /* Grid class for widget */
                 $rtp_footer_widget_grid_class = apply_filters( 'rtp_set_footer_widget_grid_class', 'large-4 columns' );
 
@@ -31,22 +37,11 @@ global $rtp_general; ?>
                     </aside><!-- #footerbar --><?php
                 } ?>
 
-                <?php rtp_hook_before_footer(); ?>
-
-                <div id="footer" class="rtp-footer rtp-section-container row">
-
-                    <?php $rtp_set_grid_class = apply_filters( 'rtp_set_full_width_grid_class', 'large-12 columns rtp-full-width-grid' ); ?>
-
-                    <div class="rtp-footer-section <?php echo $rtp_set_grid_class; ?>">
-                        <p>&copy; <?php echo date( 'Y' ); echo ' - '; bloginfo( 'name' ); ?>
-                        <em><?php printf( __( 'Designed on <a role="link" href="%s" class="rtp-common-link" title="rtPanel WordPress Theme Framework">rtPanel WordPress Theme Framework</a>.', 'rtPanel' ), RTP_THEME_URL ); ?></em></p>
-                    </div>
-
-                </div><!-- #footer -->
-
-                <?php rtp_hook_after_footer(); ?>
+                <?php rtp_hook_end_footer(); ?>
 
             </footer><!-- #footer-wrapper-->
+
+            <?php rtp_hook_after_footer(); ?>
 
             <?php rtp_hook_end_main_wrapper(); ?>
 
