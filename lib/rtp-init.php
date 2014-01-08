@@ -315,3 +315,13 @@ function rtp_wp_title( $title, $sep ) {
     return $title;
 }
 add_filter( 'wp_title', 'rtp_wp_title', 10, 2 );
+
+
+/**
+ * Check if current page is rtMedia page
+ *
+ * @since rtPanel 4.1.1
+ */
+function rtp_is_rtmedia() {
+    return ( get_post_type() == 'rtmedia' || get_post_type() == 'bp_member' );
+}
