@@ -37,11 +37,11 @@
     p:last-child { margin: 0; }
 }
 
-.rtp-message-notice,.notice { @include rtp-notice(); }
-.rtp-message-info,.info { @include rtp-info(); }
-.rtp-message-success,.success { @include rtp-success(); }
-.rtp-message-warning,.warning { @include rtp-warning(); }
-.rtp-message-error,.error { @include rtp-error(); }
+.rtp-message-notice, .notice { @include rtp-notice(); }
+.rtp-message-info, .info { @include rtp-info(); }
+.rtp-message-success, .success { @include rtp-success(); }
+.rtp-message-warning, .warning { @include rtp-warning(); }
+.rtp-message-error, .error { @include rtp-error(); }
 
 // inline-block
 .rtp-inline-block { display: inline-block; }
