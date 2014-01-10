@@ -44,7 +44,9 @@ If you make changes to thumbnail height, width or crop settings, you must use "R
 == Changelog ==
 
 = 4.1.2 =
+* Added: Jetpack plugin support
 * Modified: Escape all instances of home_url()
+* Resolved: rtMedia, BuddyPress and Contact Form issues
 
 = 4.1.1 =
 * Modified: <title> tag in header.php
