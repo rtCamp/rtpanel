@@ -323,5 +323,5 @@ add_filter( 'wp_title', 'rtp_wp_title', 10, 2 );
  * @since rtPanel 4.1.1
  */
 function rtp_is_rtmedia() {
-    return ( get_post_type() == 'rtmedia' || get_post_type() == 'bp_member' );
+    return ( in_array( get_post_type(), array( 'rtmedia', 'bp_member', 'bp_group') ) );
 }
