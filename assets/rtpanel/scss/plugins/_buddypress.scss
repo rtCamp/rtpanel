@@ -92,8 +92,32 @@
             ul.button-nav { margin: rem-calc(15 0 0); }
 
             .messages-notices tr td:last-child { width: 18%; }
+            
+            .bp-widget.base h4{ margin-bottom: 10px; }
+            
+            #groups_search_submit{ border-radius: 0 5px 5px 0; }
+            #send_message_form{
+                label{ margin-bottom: 10px; display: block; }
+                ul.acfb-holder li{ float: none; }
+                input,textarea{ margin-bottom: 20px; }
+            }
+            
+            #settings-form{
+                table{ margin-bottom: 20px; width: 100%; }
+                label{ display: block; }
+                input[type="text"],input[type="password"]{ margin:10px 0; }
+            }
+            
+            #rtMedia-galary-next:hover{ background-color: #DDDDDD; color: $link-color; }
+            
+            #profile-edit-form{
+            label{ margin-right: 20px; }    
+            .field-visibility-settings-notoggle{ margin-top: 10px; }
+            }
+            .item-list-tabs{ padding-top: 0.2rem;} 
+            div.item-list-tabs ul li a span{ border: none; display: inline-block; min-width: 26px; padding: 3px 6px; }
         }
 
-        .clear { clear: both; }
+        .clear { clear: both; }        
     }
 }
