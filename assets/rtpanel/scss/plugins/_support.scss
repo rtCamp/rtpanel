@@ -59,6 +59,11 @@
     @include rtp-ninja-forms-style();
 }
 
+// Contact Form 7
+@if $load-contact-form-7-styles {
+    @include rtp-contact-form-7-style();
+}
+
 // rtMedia
 @if $load-rtmedia-styles {
     @include rtp-rtmedia-style();

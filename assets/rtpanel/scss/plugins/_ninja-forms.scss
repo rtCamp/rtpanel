@@ -15,10 +15,16 @@
             input[type="checkbox"], input[type="radio"],
             button, input[type="button"], input[type="reset"], input[type="submit"] { width: auto; }
             
-            .ninja-forms-field-error { @include rtp-error(); padding: rem-calc(5 10); margin: rem-calc(10 0 20); }
+            .ninja-forms-field-error { @include rtp-error(); padding: rem-calc(5 10); margin: rem-calc(10 0 20);
+                            p{ margin:0; }
+                            }
             
             .field-wrap, #ninja_forms_required_items { margin-bottom: $rtp-base-spacing; }
+            .wp-editor-container .wp-editor-area{ border: 1px solid #cccccc; margin-left:0; }
+            
+            .ninja-forms-pass1, .ninja-forms-pass2 { margin-bottom: 1.75rem; }
         }
+        .field-wrap.label-left .ninja-forms-field { margin-left:0; }        
     }
 
     // Form required item warning
@@ -26,7 +32,5 @@
     
     .ninja-forms-field-description { overflow: hidden;
         p { left: 4px; margin-bottom: 0; margin-left: 30%; position: relative; }
-    }
-    
-    .submit-wrap { left: -4px; margin-left: 30%; position: relative; }
+    } 
 }
