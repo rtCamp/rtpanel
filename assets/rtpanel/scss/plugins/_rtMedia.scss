@@ -35,5 +35,9 @@
         ul.rtmedia-list .rtmedia-list-item { height: auto; }
 
         ~ .rtp-readmore { display: none; }
-    }
+    }    
+            #rtMedia-galary-next{ color: $link-color; 
+                    &:hover{ background-color: #DDDDDD; color: $link-hover-color; }
+            }
+        .post-content .rtmedia-container{ margin-bottom: 10px; }
 }

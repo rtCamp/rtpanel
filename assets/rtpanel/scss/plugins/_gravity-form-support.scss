@@ -19,6 +19,7 @@
         }
 
         .gfield_time_hour input { display: inline-block; margin-right: rem-calc(4); }
+        .gfield_time_ampm.ginput_container select { padding: 6px 2px; }
     }
 
     .gfield_checkbox li input[type=checkbox],

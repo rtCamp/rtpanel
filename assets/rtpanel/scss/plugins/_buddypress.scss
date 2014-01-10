@@ -18,6 +18,8 @@
 
         #buddypress {
             
+            #item-header-avatar{ float: left; }
+            div#item-header div#item-header-content { float: none; }
             
             ul.item-list {
                 li {  } // padding: rem-calc(30 0);
@@ -95,7 +97,8 @@
             
             .bp-widget.base h4{ margin-bottom: 10px; }
             
-            #groups_search_submit{ border-radius: 0 5px 5px 0; }
+            #groups_search_submit, #messages_search_submit{ border-radius: 0 5px 5px 0; }
+            ul.item-list{ border-top: 0; }
             #send_message_form{
                 label{ margin-bottom: 10px; display: block; }
                 ul.acfb-holder li{ float: none; }
@@ -106,16 +109,17 @@
                 table{ margin-bottom: 20px; width: 100%; }
                 label{ display: block; }
                 input[type="text"],input[type="password"]{ margin:10px 0; }
+            }        
+                        
+            #rtMedia-galary-next{ color: $link-color; 
+                    &:hover{ background-color: #DDDDDD; color: $link-hover-color; }
             }
-            
-            #rtMedia-galary-next:hover{ background-color: #DDDDDD; color: $link-color; }
             
             #profile-edit-form{
             label{ margin-right: 20px; }    
             .field-visibility-settings-notoggle{ margin-top: 10px; }
             }
-            .item-list-tabs{ padding-top: 0.2rem;} 
-            div.item-list-tabs ul li a span{ border: none; display: inline-block; min-width: 26px; padding: 3px 6px; }
+            .item-list-tabs{ padding-top: 0.2rem;}        
         }
 
         .clear { clear: both; }        
