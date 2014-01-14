@@ -24,7 +24,7 @@
                         display: block;
                         padding: $pagination-link-pad;
                         color: $pagination-link-font-color;
-                        @include radius($global-radius)
+                        @include radius($global-radius);
                     }
                     &:hover,
                     &:focus { background: $pagination-link-active-bg; }
