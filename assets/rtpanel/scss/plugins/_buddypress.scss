@@ -143,6 +143,9 @@
                 a.bbp-forum-permalink, a.bbp-topic-permalink, a.bbp-reply-permalink{ color: #666666; }
             }
             .activity .info { border-color: #cb2; }
+            div#message.error { clear: both;
+                    p{margin-bottom:0}
+                }
         }
         &.settings form .columns{ width: 100%; }
         .clear { clear: both; }
