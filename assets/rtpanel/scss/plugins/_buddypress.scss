@@ -146,6 +146,10 @@
             div#message.error { clear: both;
                     p{margin-bottom:0}
                 }
+            #group-settings-form{
+                label{ display: block; }
+                #group-name{ margin-bottom: rem-calc(10); }
+            }
         }
         &.settings form .columns{ width: 100%; }
         .clear { clear: both; }
