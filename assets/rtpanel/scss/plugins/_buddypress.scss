@@ -24,7 +24,7 @@
                         display: block;
                         padding: $pagination-link-pad;
                         color: $pagination-link-font-color;
-                        @include radius($global-radius);
+                        @include radius($global-radius)
                     }
                     &:hover,
                     &:focus { background: $pagination-link-active-bg; }
@@ -143,6 +143,13 @@
                 a.bbp-forum-permalink, a.bbp-topic-permalink, a.bbp-reply-permalink{ color: #666666; }
             }
             .activity .info { border-color: #cb2; }
+            div#message.error { clear: both;
+                    p{margin-bottom:0}
+                }
+            #group-settings-form{
+                label{ display: block; }
+                #group-name{ margin-bottom: rem-calc(10); }
+            }
         }
         &.settings form .columns{ width: 100%; }
         .clear { clear: both; }
