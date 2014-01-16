@@ -1,127 +1,157 @@
 // ***** Common BuddyPress Style ***** //
 @mixin rtp-buddypress-style() {
-
     .buddypress {
-
-        .hentry {  } // padding-top: rem-calc(12);
-        .post-header {  } // margin-bottom: 0;
-
+        .hentry { border-bottom: 0; }
         .standard-form {
             textarea, input[type="text"], select, input[type="password"] { width: auto; }
         }
-
         .dir-search input[type="text"] { width: auto; }
-
         .message-search, .dir-search {
             label { float: left; }
         }
-
         #buddypress {
-            
             #item-header-avatar{ float: left; }
             div#item-header div#item-header-content { float: none; }
-            
-            ul.item-list {
-                li {  } // padding: rem-calc(30 0);
+            div#subnav.item-list-tabs ul li.last{ margin-top : 2px; }
+            .mejs-container .mejs-controls .mejs-time{ height : auto; }
+            #group-dir-pag-top, #group-dir-pag-bottom, .pagination-links {
+                a {
+                    color: $pagination-li-font-color;
+                    font-size: $pagination-li-font-size;
+                    margin-#{$default-float}: $pagination-li-margin;
+                    text-decoration: none;
+                    span {
+                        display: block;
+                        padding: $pagination-link-pad;
+                        color: $pagination-link-font-color;
+                        @include radius($global-radius)
+                    }
+                    &:hover,
+                    &:focus { background: $pagination-link-active-bg; }
+                }
+                .current {
+                    background: $pagination-link-current-background;
+                    color: $pagination-link-current-font-color;
+                    font-weight: $pagination-link-current-font-weight;
+                    cursor: $pagination-link-current-cursor;
+                    &:hover,
+                    &:focus { background: $pagination-link-current-active-bg; }
+                }
             }
-            
             div.dir-search { margin: rem-calc(-43 0 10); }
-
             label { display: inline-block; margin: 0; }
-
-            input[type="button"], button, .button, input[type="submit"], a.button, { 
+            input[type="button"], button, .button, input[type="submit"], a.button, {
                 @include rtp-button(); @include rtp-button-shadow(); @include button-size($button-tny); text-shadow: none; background-image: none; text-decoration: none;
                 &:hover, &:focus { background-image: none; border: 0; }
             }
-            
             .activity-meta {
-                .button { background: transparent; border-radius: 0; box-shadow: 0 0 0; color: inherit; font-size: rem-calc(14); margin: rem-calc(0 10 0 0);; padding: 0;
+                .button { background: transparent; border-radius: 0; box-shadow: 0 0 0; color: inherit; font-size: rem-calc(14); margin: rem-calc(0 10 0 0); padding: 0;
                     &:before { color: inherit; display: inline-block; font-family: $rtp-icon-font-family; margin-right: rem-calc(5); }
                     &:hover, &:focus { background: transparent; color: $link-color; }
                 }
-
                 .button.delete-activity {
                     &:before { content: '\e813'; }
                     &:hover, &:focus { color: $color-error; }
                 }
-
                 .button.fav {
                     &:before { content: '\e810'; }
                     &:hover, &:focus { color: $color-success; }
                 }
             }
-            
             a.bp-primary-action span,
-            #reply-title small a span { background: transparent; color: inherit; font-size: inherit; float: left; margin-left: 0; margin-right: rem-calc(5); padding: 0;
+            #reply-title small a span { background: transparent; color: inherit; font-size: inherit;
                 &:before {  content: '\e80a'; display: inline-block; font-family: $rtp-icon-font-family; margin-right: rem-calc(5); }
             }
-
             form#whats-new-form { padding: rem-calc(10 0 0) !important;
                 textarea { margin: 0; width: 100%; }
                 #whats-new-submit { margin: 0; }
             }
-
             #whats-new-post-in { margin-top: 0 !important; }
             #whats-new-options { margin-top: rem-calc(12); }
-
             input[type="text"], select { display: inline-block; margin-bottom: 0; height: rem-calc(37); }
             select { padding: 5px; width: auto; height: auto; }
-
             .item-list-tabs { background-color: #DDDDDD; padding: rem-calc(10 15 0);
                 li {
                     a { background: transparent;
                         span { line-height: 1.8; }
                     }
-
                     &.current a, &.selected a { background: $white; border-radius: 3px 3px 0 0; opacity: 1; }
                 }
             }
-
             #subnav { padding: rem-calc(0 0 10); border-bottom: 1px solid $border-color; }
-
             #activity-stream p { font-size: 1rem; line-height: 1.5; margin: 0; }
-
             table {
                 &.profile-fields td, &.profile-fields th { padding: rem-calc(0 8); }
                 td.thread-options { padding: 0; width: 14%; }
                 p { font-size: rem-calc(14); }
             }
-
             .thread-options .button { margin-bottom: 0; }
-
             .label { color: $body-font-color; }
-
             ul.button-nav { margin: rem-calc(15 0 0); }
-
             .messages-notices tr td:last-child { width: 18%; }
-            
             .bp-widget.base h4{ margin-bottom: 10px; }
-            
-            #groups_search_submit, #messages_search_submit{ border-radius: 0 5px 5px 0; }
-            ul.item-list{ border-top: 0; }
+            #groups_search_submit, #messages_search_submit, #members_search_submit{ border-radius: 0 5px 5px 0; }
+            #groups_search, #members_search, #messages_search { border-radius: 5px 0 0 5px;}
+            ul.item-list { border-top: 0; }
             #send_message_form{
-                label{ margin-bottom: 10px; display: block; }
+                label{ margin-bottom: rem-calc(10); display: block; }
                 ul.acfb-holder li{ float: none; }
                 input,textarea{ margin-bottom: 20px; }
             }
-            
             #settings-form{
                 table{ margin-bottom: 20px; width: 100%; }
                 label{ display: block; }
-                input[type="text"],input[type="password"]{ margin:10px 0; }
-            }        
-                        
-            #rtMedia-galary-next{ color: $link-color; 
-                    &:hover{ background-color: #DDDDDD; color: $link-hover-color; }
+                input[type="text"],input[type="password"]{ margin: rem-calc(10 0); }
             }
-            
+            #rtMedia-galary-next{ color: $link-color;
+                &:hover{ background-color: #DDDDDD; color: $link-hover-color; }
+            }
             #profile-edit-form{
-            label{ margin-right: 20px; }    
-            .field-visibility-settings-notoggle{ margin-top: 10px; }
+                label{ display: block; }
+                .field-visibility-settings-notoggle{ margin-top: rem-calc(10); }
+                .radio{ margin-bottom: 0; list-style: none; margin-left: 0; }
             }
-            .item-list-tabs{ padding-top: 0.2rem;}        
+            .item-list-tabs{ padding-top: 0.2rem;}
+            form#whats-new-form #whats-new-options{
+                #rtmedia-add-media-button-post-update, select{ margin-top: 0; }
+            }
+            .activity-list li.load-more{  color: $link-color;
+                a{ display: block; color: $link-color;
+                    &:hover{ color: $link-hover-color; }
+                }
+                &:hover{ background-color: #DDDDDD;}
+            }
+            .standard-form #basic-details-section{
+                #signup_password, #signup_password_confirm{ width : 90%; }
+                input{ margin-bottom: rem-calc(10); }
+            }
+            .activity-list li.mini .activity-avatar img.avatar, .activity-list li.mini .activity-avatar img.FB_profile_pic { margin-top: 3px; }
+            .activity-list .activity-content .activity-header img.avatar{ margin: 0 10px 0 0!important; }
+            div.wp-editor-container{ border: 1px solid #cccccc; }
+            div#item-header div#item-actions h3 {font-size: rem-calc(20); margin: rem-calc(0 0 10);}
+            div#item-header ul img.avatar, div#item-header ul.avatars img.avatar { height: auto; width: auto; }
+            #bbpress-forums { margin: rem-calc(10 0);
+                ul.bbp-topic-revision-log img.avatar { margin-bottom: 0; }
+                .bbp-topic-content ul.bbp-topic-revision-log, .bbp-reply-content ul.bbp-topic-revision-log, .bbp-reply-content ul.bbp-reply-revision-log { padding-top: 0; }
+            }
+            ul.item-list li img.avatar{ margin-top: rem-calc(4); }
+            #groups-list .item-desc p{ margin-bottom: 0; }
+            .bbp-meta span.bbp-admin-links a{ color: $link-color;
+                &:hover{ color: $link-hover-color; }
+            }
+            .bbp-meta {
+                a.bbp-forum-permalink, a.bbp-topic-permalink, a.bbp-reply-permalink{ color: #666666; }
+            }
+            .activity .info { border-color: #cb2; }
+            div#message.error { clear: both;
+                    p{margin-bottom:0}
+                }
+            #group-settings-form{
+                label{ display: block; }
+                #group-name{ margin-bottom: rem-calc(10); }
+            }
         }
-
-        .clear { clear: both; }        
+        &.settings form .columns{ width: 100%; }
+        .clear { clear: both; }
     }
 }
