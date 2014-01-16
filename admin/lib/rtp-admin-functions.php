@@ -862,7 +862,7 @@ function rtp_get_feeds($feed_url = 'http://rtcamp.com/blog/category/rtpanel/feed
         foreach ($rss_items as $item) {
             ?>
                 <li>
-                    <a href='<?php echo $item->get_permalink(); ?>' title='<?php echo __( 'Posted ', 'rtPanel' ) . $item->get_date( 'j F Y | g:i a' ); ?>'><?php echo $item->get_title(); ?></a>
+                    <a href='<?php echo esc_attr($item->get_permalink()); ?>' title='<?php echo __( 'Posted ', 'rtPanel' ) . esc_attr($item->get_date( 'j F Y | g:i a' )); ?>'><?php echo $item->get_title(); ?></a>
                 </li><?php
         }
     }
@@ -1023,9 +1023,9 @@ function rtp_export() {
     header( 'Content-Type: text/xml; charset=' . get_option( 'blog_charset' ), true);
     ?>
     <rtpanel>
-        <rtp_version><?php echo maybe_serialize(rtp_export_version()); ?></rtp_version>
-        <rtp_general><?php echo $args['rtp_general']; ?></rtp_general>
-        <rtp_post_comments><?php echo $args['rtp_post_comments']; ?></rtp_post_comments>
+        <rtp_version><?php echo esc_attr(maybe_serialize(rtp_export_version())); ?></rtp_version>
+        <rtp_general><?php echo esc_attr($args['rtp_general']); ?></rtp_general>
+        <rtp_post_comments><?php echo esc_attr($args['rtp_post_comments']); ?></rtp_post_comments>
     </rtpanel>
     <?php
 }
@@ -1085,7 +1085,7 @@ add_action( 'admin_head', 'rtp_custom_admin_logo' );
  * @since rtPanel 2.0
  */
 function rtp_custom_admin_footer($footer_text) {
-    echo $footer_text;
+    echo esc_attr($footer_text);
     echo '<br /><br />' . __( 'Currently using <a href="' . RTP_THEME_URL . '" title="rtPanel" target="_blank">rtPanel</a>', 'rtPanel' ) . ' | <a href="' . RTP_FORUM_URL . '" title="' . __( 'Click here for rtPanel Free Support', 'rtPanel' ) . '" target="_blank">' . __( 'Support', 'rtPanel' ) . '</a> | <a href="' . RTP_DOCS_URL . '" title="' . __( 'Click here for rtPanel Documentation', 'rtPanel' ) . '" target="_blank">' . __( 'Documentation', 'rtPanel' ) . '</a>';
 }
 

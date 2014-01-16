@@ -20,7 +20,7 @@
     } ?>
 
     <!-- #sidebar -->
-    <aside id="sidebar" class="rtp-sidebar-section<?php echo $class_name; echo ( !empty( $rtp_sidebar_grid_class ) ) ? ' '.$rtp_sidebar_grid_class : $rtp_sidebar_grid_class; ?>" role="complementary">
+    <aside id="sidebar" class="rtp-sidebar-section<?php echo esc_attr($class_name); echo ( !empty( $rtp_sidebar_grid_class ) ) ? ' '.$rtp_sidebar_grid_class : $rtp_sidebar_grid_class; ?>" role="complementary">
         <div class="rtp-sidebar-inner-wrapper">
             <?php rtp_hook_begin_sidebar(); ?>
 

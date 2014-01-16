@@ -29,7 +29,7 @@ get_header();
         }
     ?>
 
-    <section id="content" role="main"<?php echo $rtp_content_class; ?>>
+    <section id="content" role="main"<?php echo esc_attr($rtp_content_class); ?>>
         <?php rtp_hook_begin_content(); ?>
 
         <?php get_template_part( 'loop', 'common' ); ?>

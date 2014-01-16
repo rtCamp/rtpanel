@@ -53,19 +53,19 @@ function rtp_logo_option_metabox() {
                             <input type="radio" name="rtp_general[logo_use]" value="image" id="use_logo_image" class="rtp_logo" <?php checked( 'image', $rtp_general['logo_use'] ); ?> />
                             <label for="use_logo_image"><?php _e( 'Upload Logo', 'rtPanel' ); ?></label>
                         </p>
-                        <input type="file" name="html-upload-logo" id="html-upload-logo"<?php echo $logo_style; ?>>
-                        <input type="hidden"  name="rtp_general[logo_upload]" id="logo_upload_url" value="<?php if( isset( $rtp_general['logo_upload'] ) ) echo $rtp_general['logo_upload']; ?>" />
-                        <input type="hidden"  name="rtp_general[logo_id]" id="logo_id" value="<?php if( isset( $rtp_general['logo_id'] ) ) echo $rtp_general['logo_id']; ?>" />
-                        <input type="hidden"  name="rtp_general[logo_width]" id="logo_width" value="<?php if( isset( $rtp_general['logo_width'] ) ) echo $rtp_general['logo_width']; ?>" />
-                        <input type="hidden"  name="rtp_general[logo_height]" id="logo_height" value="<?php if( isset( $rtp_general['logo_height'] ) ) echo $rtp_general['logo_height']; ?>" />
-                        <p class="login-head"<?php echo $logo_style; ?>>
+                        <input type="file" name="html-upload-logo" id="html-upload-logo"<?php echo esc_attr($logo_style); ?>>
+                        <input type="hidden"  name="rtp_general[logo_upload]" id="logo_upload_url" value="<?php if( isset( $rtp_general['logo_upload'] ) ) echo esc_attr($rtp_general['logo_upload']); ?>" />
+                        <input type="hidden"  name="rtp_general[logo_id]" id="logo_id" value="<?php if( isset( $rtp_general['logo_id'] ) ) echo esc_attr($rtp_general['logo_id']); ?>" />
+                        <input type="hidden"  name="rtp_general[logo_width]" id="logo_width" value="<?php if( isset( $rtp_general['logo_width'] ) ) echo esc_attr($rtp_general['logo_width']); ?>" />
+                        <input type="hidden"  name="rtp_general[logo_height]" id="logo_height" value="<?php if( isset( $rtp_general['logo_height'] ) ) echo esc_attr($rtp_general['logo_height']); ?>" />
+                        <p class="login-head"<?php echo esc_attr($logo_style); ?>>
                             <input type="hidden" name="rtp_general[login_head]" value="0" />
                             <input type="checkbox" name="rtp_general[login_head]" value="1" id="login_head" <?php checked( $rtp_general['login_head'] ); ?> />
                             <span class="description"><label for="login_head"><?php printf( __( 'Check this box to display logo on <a href="%s" title="Wordpress Login">WordPress Login Screen</a>', 'rtPanel' ), site_url('/wp-login.php') ); ?></label></span>
                         </p>
                         </div>
-                        <div class="image-preview alignright" id="logo_metabox"<?php echo $logo_style; ?>>
-                            <img alt="Logo" src="<?php echo $rtp_general['logo_upload']; ?>" />
+                        <div class="image-preview alignright" id="logo_metabox"<?php echo esc_attr($logo_style); ?>>
+                            <img alt="Logo" src="<?php echo esc_attr($rtp_general['logo_upload']); ?>" />
                         </div>
                     </td>
                     
@@ -80,12 +80,12 @@ function rtp_logo_option_metabox() {
                         <label for="use_logo"  style="margin-right: 30px;"><?php _e( 'Resize Logo and use as Favicon', 'rtPanel' ); ?></label>
                         <input type="radio" name="rtp_general[favicon_use]" value="image" id="use_favicon_image" class="rtp_favicon" <?php checked( 'image', $rtp_general['favicon_use'] ); ?> />
                         <label for="use_favicon_image"><?php _e( 'Upload Favicon', 'rtPanel' ); ?></label></p>
-                        <input type="file" name="html-upload-fav" id="html-upload-fav"<?php echo $favicon_style; ?>>
-                        <input type="hidden"  name="rtp_general[favicon_upload]" id="favicon_upload_url" value="<?php if( isset( $rtp_general['favicon_upload'] ) ) echo $rtp_general['favicon_upload']; ?>" />
-                        <input type="hidden"  name="rtp_general[favicon_id]" id="favicon_id" value="<?php if( isset( $rtp_general['favicon_id'] ) ) echo $rtp_general['favicon_id']; ?>" />
+                        <input type="file" name="html-upload-fav" id="html-upload-fav"<?php echo esc_attr($favicon_style); ?>>
+                        <input type="hidden"  name="rtp_general[favicon_upload]" id="favicon_upload_url" value="<?php if( isset( $rtp_general['favicon_upload'] ) ) echo esc_attr($rtp_general['favicon_upload']); ?>" />
+                        <input type="hidden"  name="rtp_general[favicon_id]" id="favicon_id" value="<?php if( isset( $rtp_general['favicon_id'] ) ) echo esc_attr($rtp_general['favicon_id']); ?>" />
                         </div>
                         <div class="image-preview alignright" id="favicon_metabox"<?php echo ( 'disable' == $rtp_general['favicon_use'] ) ? ' style="display: none"' : ''; ?>>
-                            <img alt="Favicon" src="<?php echo $rtp_general['favicon_upload']; ?>" />
+                            <img alt="Favicon" src="<?php echo esc_attr($rtp_general['favicon_upload']); ?>" />
                         </div>
                     </td>
                 </tr>
@@ -266,9 +266,9 @@ function rtp_plugin_metabox() {
             </td>
             <td>
                 <?php if ( is_plugin_active( RTP_HOOKS_EDITOR ) ) { ?>
-                    <input type="hidden" value="<?php echo $rtp_hooks_editor_deactivate; ?>" name="_wpnonce_rtp_hooks_editor_deactivate" id="_wpnonce_rtp_hooks_editor_deactivate" /><input id="rtp-hooks-editor-deactivate" type="hidden" name="rtp-hooks-editor-deactivate" value="0" /><a class="rtp-hooks-editor-deactivate" href="#rtp-hooks-editor-deactivate" onclick="deactivate_plugin('rtPanel Hooks Editor')"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
+                    <input type="hidden" value="<?php echo esc_attr($rtp_hooks_editor_deactivate); ?>" name="_wpnonce_rtp_hooks_editor_deactivate" id="_wpnonce_rtp_hooks_editor_deactivate" /><input id="rtp-hooks-editor-deactivate" type="hidden" name="rtp-hooks-editor-deactivate" value="0" /><a class="rtp-hooks-editor-deactivate" href="#rtp-hooks-editor-deactivate" onclick="deactivate_plugin('rtPanel Hooks Editor')"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
                 <?php } elseif ( array_key_exists( RTP_HOOKS_EDITOR, $plugins ) ) { ?>
-                    <input type="hidden" value="<?php echo $rtp_hooks_editor_activate; ?>" name="_wpnonce_rtp_hooks_editor_activate" id="_wpnonce_rtp_hooks_editor_activate" /><input id="rtp-hooks-editor-activate" type="hidden" name="rtp-hooks-editor-activate" value="0" /><a class="rtp-hooks-editor-activate" href="#rtp-hooks-editor-activate" onclick="activate_plugin('rtPanel Hooks Editor')"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo $rtp_hooks_editor_delete; ?>" name="_wpnonce_rtp_hooks_editor_delete" id="_wpnonce_rtp_hooks_editor_delete" /><input id="rtp-hooks-editor-delete" type="hidden" name="rtp-hooks-editor-delete" value="0" /><a class="rtp-hooks-editor-delete" href="#rtp-hooks-editor-delete" onclick="delete_plugin_confirmation( 'rtPanel Hooks Editor' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
+                    <input type="hidden" value="<?php echo esc_attr($rtp_hooks_editor_activate); ?>" name="_wpnonce_rtp_hooks_editor_activate" id="_wpnonce_rtp_hooks_editor_activate" /><input id="rtp-hooks-editor-activate" type="hidden" name="rtp-hooks-editor-activate" value="0" /><a class="rtp-hooks-editor-activate" href="#rtp-hooks-editor-activate" onclick="activate_plugin('rtPanel Hooks Editor')"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo esc_attr($rtp_hooks_editor_delete); ?>" name="_wpnonce_rtp_hooks_editor_delete" id="_wpnonce_rtp_hooks_editor_delete" /><input id="rtp-hooks-editor-delete" type="hidden" name="rtp-hooks-editor-delete" value="0" /><a class="rtp-hooks-editor-delete" href="#rtp-hooks-editor-delete" onclick="delete_plugin_confirmation( 'rtPanel Hooks Editor' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
                 <?php } else { ?>
                     <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=rtpanel-hooks-editor' ), 'install-plugin_rtpanel-hooks-editor' ); ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
                 <?php } ?>
@@ -296,9 +296,9 @@ function rtp_plugin_metabox() {
             </td>
             <td>
                 <?php if ( is_plugin_active( RTP_SOCIAL ) ) { ?>
-                    <input type="hidden" value="<?php echo $rtp_social_deactivate; ?>" name="_wpnonce_rtsocial_deactivate" id="_wpnonce_rtsocial_deactivate" /><input id="rtsocial-deactivate" type="hidden" name="rtsocial-deactivate" value="0" /><a class="rtsocial-deactivate" href="#rtsocial-deactivate" onclick="deactivate_plugin('rtSocial')"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
+                    <input type="hidden" value="<?php echo esc_attr($rtp_social_deactivate); ?>" name="_wpnonce_rtsocial_deactivate" id="_wpnonce_rtsocial_deactivate" /><input id="rtsocial-deactivate" type="hidden" name="rtsocial-deactivate" value="0" /><a class="rtsocial-deactivate" href="#rtsocial-deactivate" onclick="deactivate_plugin('rtSocial')"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
                 <?php } elseif ( array_key_exists( RTP_SOCIAL, $plugins ) ) { ?>
-                    <input type="hidden" value="<?php echo $rtp_social_activate; ?>" name="_wpnonce_rtsocial_activate" id="_wpnonce_rtsocial_activate" /><input id="rtsocial-activate" type="hidden" name="rtsocial-activate" value="0" /><a class="rtsocial-activate" href="#rtsocial-activate" onclick="activate_plugin('rtSocial')"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo $rtp_social_delete; ?>" name="_wpnonce_rtsocial_delete" id="_wpnonce_rtsocial_delete" /><input id="rtsocial-delete" type="hidden" name="rtsocial-delete" value="0" /><a class="rtsocial-delete" href="#rtsocial-delete" onclick="delete_plugin_confirmation( 'rtSocial' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
+                    <input type="hidden" value="<?php echo esc_attr($rtp_social_activate); ?>" name="_wpnonce_rtsocial_activate" id="_wpnonce_rtsocial_activate" /><input id="rtsocial-activate" type="hidden" name="rtsocial-activate" value="0" /><a class="rtsocial-activate" href="#rtsocial-activate" onclick="activate_plugin('rtSocial')"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo esc_attr($rtp_social_delete); ?>" name="_wpnonce_rtsocial_delete" id="_wpnonce_rtsocial_delete" /><input id="rtsocial-delete" type="hidden" name="rtsocial-delete" value="0" /><a class="rtsocial-delete" href="#rtsocial-delete" onclick="delete_plugin_confirmation( 'rtSocial' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
                 <?php } else { ?>
                     <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=rtsocial' ), 'install-plugin_rtsocial' ); ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
                 <?php } ?>
@@ -326,9 +326,9 @@ function rtp_plugin_metabox() {
             </td>
             <td>
                 <?php if ( is_plugin_active( RTP_SUBSCRIBE_TO_COMMENTS ) ) { ?>
-                    <input type="hidden" value="<?php echo $subscribe_deactivate; ?>" name="_wpnonce_subscribe_deactivate" id="_wpnonce_subscribe_deactivate" /><input id="subscribe-deactivate" type="hidden" name="subscribe-deactivate" value="0" /><a class="subscribe-deactivate" href="#subscribe-deactivate" onclick="deactivate_plugin('Subscribe To Comments')"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
+                    <input type="hidden" value="<?php echo esc_attr($subscribe_deactivate); ?>" name="_wpnonce_subscribe_deactivate" id="_wpnonce_subscribe_deactivate" /><input id="subscribe-deactivate" type="hidden" name="subscribe-deactivate" value="0" /><a class="subscribe-deactivate" href="#subscribe-deactivate" onclick="deactivate_plugin('Subscribe To Comments')"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
                 <?php } elseif ( array_key_exists( RTP_SUBSCRIBE_TO_COMMENTS, $plugins ) ) { ?>
-                    <input type="hidden" value="<?php echo $subscribe_activate; ?>" name="_wpnonce_subscribe_activate" id="_wpnonce_subscribe_activate" /><input id="subscribe-activate" type="hidden" name="subscribe-activate" value="0" /><a class="subscribe-activate" href="#subscribe-activate" onclick="activate_plugin('Subscribe To Comments')"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo $subscribe_delete; ?>" name="_wpnonce_subscribe_delete" id="_wpnonce_subscribe_delete" /><input id="subscribe-delete" type="hidden" name="subscribe-delete" value="0" /><a class="subscribe-delete" href="#subscribe-delete" onclick="delete_plugin_confirmation( 'Subscribe To Comments' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
+                    <input type="hidden" value="<?php echo esc_attr($subscribe_activate); ?>" name="_wpnonce_subscribe_activate" id="_wpnonce_subscribe_activate" /><input id="subscribe-activate" type="hidden" name="subscribe-activate" value="0" /><a class="subscribe-activate" href="#subscribe-activate" onclick="activate_plugin('Subscribe To Comments')"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo esc_attr($subscribe_delete); ?>" name="_wpnonce_subscribe_delete" id="_wpnonce_subscribe_delete" /><input id="subscribe-delete" type="hidden" name="subscribe-delete" value="0" /><a class="subscribe-delete" href="#subscribe-delete" onclick="delete_plugin_confirmation( 'Subscribe To Comments' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
                 <?php } else { ?>
                     <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=subscribe-to-comments' ), 'install-plugin_subscribe-to-comments' ); ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
                 <?php } ?>
@@ -356,9 +356,9 @@ function rtp_plugin_metabox() {
             </td>
             <td>
                 <?php if ( is_plugin_active( RTP_YOAST_SEO ) ) { ?>
-                    <input type="hidden" value="<?php echo $yoast_seo_deactivate; ?>" name="_wpnonce_yoast_seo_deactivate" id="_wpnonce_yoast_seo_deactivate" /><input id="yoast_seo-deactivate" type="hidden" name="yoast_seo-deactivate" value="0" /><a class="yoast_seo-deactivate" href="#yoast_seo-deactivate" onclick="deactivate_plugin('Yoast WordPress SEO')"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
+                    <input type="hidden" value="<?php echo esc_attr($yoast_seo_deactivate); ?>" name="_wpnonce_yoast_seo_deactivate" id="_wpnonce_yoast_seo_deactivate" /><input id="yoast_seo-deactivate" type="hidden" name="yoast_seo-deactivate" value="0" /><a class="yoast_seo-deactivate" href="#yoast_seo-deactivate" onclick="deactivate_plugin('Yoast WordPress SEO')"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
                 <?php } elseif ( array_key_exists( RTP_YOAST_SEO, $plugins ) ) { ?>
-                    <input type="hidden" value="<?php echo $yoast_seo_activate; ?>" name="_wpnonce_yoast_seo_activate" id="_wpnonce_yoast_seo_activate" /><input id="yoast_seo-activate" type="hidden" name="yoast_seo-activate" value="0" /><a class="yoast_seo-activate" href="#yoast_seo-activate" onclick="activate_plugin( 'Yoast WordPress SEO' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo $yoast_seo_delete; ?>" name="_wpnonce_yoast_seo_delete" id="_wpnonce_yoast_seo_delete" /><input id="yoast_seo-delete" type="hidden" name="yoast_seo-delete" value="0" /><a class="yoast_seo-delete" href="#yoast_seo-delete" onclick="delete_plugin_confirmation( 'Yoast WordPress SEO' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
+                    <input type="hidden" value="<?php echo esc_attr($yoast_seo_activate); ?>" name="_wpnonce_yoast_seo_activate" id="_wpnonce_yoast_seo_activate" /><input id="yoast_seo-activate" type="hidden" name="yoast_seo-activate" value="0" /><a class="yoast_seo-activate" href="#yoast_seo-activate" onclick="activate_plugin( 'Yoast WordPress SEO' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo esc_attr($yoast_seo_delete); ?>" name="_wpnonce_yoast_seo_delete" id="_wpnonce_yoast_seo_delete" /><input id="yoast_seo-delete" type="hidden" name="yoast_seo-delete" value="0" /><a class="yoast_seo-delete" href="#yoast_seo-delete" onclick="delete_plugin_confirmation( 'Yoast WordPress SEO' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
                 <?php } else { ?>
                     <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=wordpress-seo' ), 'install-plugin_wordpress-seo' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
                 <?php } ?>
@@ -386,9 +386,9 @@ function rtp_plugin_metabox() {
             </td>
             <td>
                 <?php if ( is_plugin_active( RTP_MEDIA ) ) { ?>
-                    <input type="hidden" value="<?php echo $rtmedia_deactivate; ?>" name="_wpnonce_rtmedia_deactivate" id="_wpnonce_rtmedia_deactivate" /><input id="rtmedia-deactivate" type="hidden" name="rtmedia-deactivate" value="0" /><a class="rtmedia-deactivate" href="#rtmedia-deactivate" onclick="deactivate_plugin('rtMedia for WordPress, BuddyPress and bbPress')"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
+                    <input type="hidden" value="<?php echo esc_attr($rtmedia_deactivate); ?>" name="_wpnonce_rtmedia_deactivate" id="_wpnonce_rtmedia_deactivate" /><input id="rtmedia-deactivate" type="hidden" name="rtmedia-deactivate" value="0" /><a class="rtmedia-deactivate" href="#rtmedia-deactivate" onclick="deactivate_plugin('rtMedia for WordPress, BuddyPress and bbPress')"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
                 <?php } elseif ( array_key_exists( RTP_MEDIA, $plugins ) ) { ?>
-                    <input type="hidden" value="<?php echo $rtmedia_activate; ?>" name="_wpnonce_rtmedia_activate" id="_wpnonce_rtmedia_activate" /><input id="rtmedia-activate" type="hidden" name="rtmedia-activate" value="0" /><a class="rtmedia-activate" href="#rtmedia-activate" onclick="activate_plugin( 'rtMedia for WordPress, BuddyPress and bbPress' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo $rtmedia_delete; ?>" name="_wpnonce_rtmedia_delete" id="_wpnonce_rtmedia_delete" /><input id="rtmedia-delete" type="hidden" name="rtmedia-delete" value="0" /><a class="rtmedia-delete" href="#rtmedia-delete" onclick="delete_plugin_confirmation( 'rtMedia for WordPress, BuddyPress and bbPress' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
+                    <input type="hidden" value="<?php echo esc_attr($rtmedia_activate); ?>" name="_wpnonce_rtmedia_activate" id="_wpnonce_rtmedia_activate" /><input id="rtmedia-activate" type="hidden" name="rtmedia-activate" value="0" /><a class="rtmedia-activate" href="#rtmedia-activate" onclick="activate_plugin( 'rtMedia for WordPress, BuddyPress and bbPress' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo esc_attr($rtmedia_delete); ?>" name="_wpnonce_rtmedia_delete" id="_wpnonce_rtmedia_delete" /><input id="rtmedia-delete" type="hidden" name="rtmedia-delete" value="0" /><a class="rtmedia-delete" href="#rtmedia-delete" onclick="delete_plugin_confirmation( 'rtMedia for WordPress, BuddyPress and bbPress' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
                 <?php } else { ?>
                     <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=buddypress-media' ), 'install-plugin_buddypress-media' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
                 <?php } ?>
@@ -415,9 +415,9 @@ function rtp_plugin_metabox() {
             </td>
             <td class="last-child">
                 <?php if ( is_plugin_active( RTP_REGENERATE_THUMBNAILS ) ) { ?>
-                    <input type="hidden" value="<?php echo $regenerate_deactivate; ?>" name="_wpnonce_regenerate_deactivate" id="_wpnonce_regenerate_deactivate" /><input id="regenerate-deactivate" type="hidden" name="regenerate-deactivate" value="0" /><a class="regenerate-deactivate" href="#regenerate-deactivate" onclick="deactivate_plugin( 'Regenerate Thumbnails' )"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
+                    <input type="hidden" value="<?php echo esc_attr($regenerate_deactivate); ?>" name="_wpnonce_regenerate_deactivate" id="_wpnonce_regenerate_deactivate" /><input id="regenerate-deactivate" type="hidden" name="regenerate-deactivate" value="0" /><a class="regenerate-deactivate" href="#regenerate-deactivate" onclick="deactivate_plugin( 'Regenerate Thumbnails' )"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
                 <?php } elseif ( array_key_exists( RTP_REGENERATE_THUMBNAILS, $plugins ) ) { ?>
-                    <input type="hidden" value="<?php echo $regenerate_activate; ?>" name="_wpnonce_regenerate_activate" id="_wpnonce_regenerate_activate" /><input id="regenerate-activate" type="hidden" name="regenerate-activate" value="0" /><a class="regenerate-activate" href="#regenerate-activate" onclick="activate_plugin( 'Regenerate Thumbnails' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo $regenerate_delete; ?>" name="_wpnonce_regenerate_delete" id="_wpnonce_regenerate_delete" /><input id="regenerate-delete" type="hidden" name="regenerate-delete" value="0" /><a class="regenerate-delete" href="#regenerate-delete" onclick="delete_plugin_confirmation( 'Regenerate Thumbnails' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
+                    <input type="hidden" value="<?php echo esc_attr($regenerate_activate); ?>" name="_wpnonce_regenerate_activate" id="_wpnonce_regenerate_activate" /><input id="regenerate-activate" type="hidden" name="regenerate-activate" value="0" /><a class="regenerate-activate" href="#regenerate-activate" onclick="activate_plugin( 'Regenerate Thumbnails' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo esc_attr($regenerate_delete); ?>" name="_wpnonce_regenerate_delete" id="_wpnonce_regenerate_delete" /><input id="regenerate-delete" type="hidden" name="regenerate-delete" value="0" /><a class="regenerate-delete" href="#regenerate-delete" onclick="delete_plugin_confirmation( 'Regenerate Thumbnails' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
                 <?php } else { ?>
                     <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=regenerate-thumbnails' ), 'install-plugin_regenerate-thumbnails' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
                 <?php } ?>
@@ -483,7 +483,7 @@ function rtp_post_summaries_metabox() {
             <tr valign="top">
                 <th scope="row"><label for="word_limit"><?php _e( 'Word Limit', 'rtPanel' ); ?></label></th>
                 <td>
-                    <input  maxlength="4" type="number" value="<?php echo $rtp_post_comments['word_limit']; ?>" size="4" name="rtp_post_comments[word_limit]" id="word_limit" />
+                    <input  maxlength="4" type="number" value="<?php echo esc_attr($rtp_post_comments['word_limit']); ?>" size="4" name="rtp_post_comments[word_limit]" id="word_limit" />
                     <span class="description"><label for="word_limit"><?php _e( 'Post Content will be cut around Word Limit you will specify here.', 'rtPanel' ); ?></label></span>
                 </td>
             </tr>
@@ -755,14 +755,14 @@ function rtp_pagination_metabox() {
             <tr valign="top">
                 <th scope="row"><label for="end_size"><?php _e( 'End Size', 'rtPanel' ); ?></label></th>
                 <td>
-                    <input  maxlength="4" type="number" value="<?php echo $rtp_post_comments['end_size']; ?>" size="4" name="rtp_post_comments[end_size]" id="end_size" />
+                    <input  maxlength="4" type="number" value="<?php echo esc_attr($rtp_post_comments['end_size']); ?>" size="4" name="rtp_post_comments[end_size]" id="end_size" />
                     <span class="description"><label for="end_size"><?php _e( 'How many numbers on either the start and the end list edges?', 'rtPanel' ); ?></label></span>
                 </td>
             </tr>
             <tr valign="top">
                 <th scope="row"><label for="mid_size"><?php _e( 'Mid Size', 'rtPanel' ); ?></label></th>
                 <td>
-                    <input  maxlength="4" type="number" value="<?php echo $rtp_post_comments['mid_size']; ?>" size="4" name="rtp_post_comments[mid_size]" id="mid_size" />
+                    <input  maxlength="4" type="number" value="<?php echo esc_attr($rtp_post_comments['mid_size']); ?>" size="4" name="rtp_post_comments[mid_size]" id="mid_size" />
                     <span class="description"><label for="mid_size"><?php _e( 'How many numbers to either side of current page, but not including current page?', 'rtPanel' ); ?></label></span>
                 </td>
             </tr>

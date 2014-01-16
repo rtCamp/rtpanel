@@ -18,7 +18,7 @@ get_header();
         $rtp_content_grid_class = apply_filters( 'rtp_set_content_grid_class', 'large-8 columns' );
     } ?>
 
-    <section id="content" role="main" class="rtp-content-section rtp-multiple-post <?php echo $rtp_content_grid_class; ?>"><?php
+    <section id="content" role="main" class="rtp-content-section rtp-multiple-post <?php echo esc_attr($rtp_content_grid_class); ?>"><?php
 
         rtp_hook_begin_content();
 
@@ -33,10 +33,10 @@ get_header();
                 <h1 class="post-title rtp-main-title"><?php printf( __( 'Search Results for: %s', 'rtPanel' ), '<span>' . get_search_query() . '</span>' ); ?></h1><?php
                 if ( 1 == $version ) {
                     $search_code = preg_split('/customSearchControl.draw\(\'cse\'(.*)\)\;/i', $rtp_general['search_code']);
-                    echo $search_code[0];
-                    echo $split_code[0];
+                    echo esc_attr($search_code[0]);
+                    echo esc_attr($split_code[0]);
                     echo "customSearchControl.execute('" . get_search_query() . "');";
-                    echo $search_code[1];
+                    echo esc_attr($search_code[1]);
                 } elseif ( 2 == $version ) {
                     echo preg_replace('/\<gcse:(searchresults-only|searchresults|search)(.*)\>\<\/gcse:(searchresults-only|searchresults|search)\>/i', '<gcse:$1 queryParameterName="s"$2></gcse:$3>', $rtp_general['search_code'] );
                 }
