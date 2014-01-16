@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: rtPanel 4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-24 14:32+0530\n"
-"PO-Revision-Date: 2013-12-24 14:32+0530\n"
+"POT-Creation-Date: 2014-01-16 13:53+0530\n"
+"PO-Revision-Date: 2014-01-16 13:53+0530\n"
 "Last-Translator: rtCamp <support@rtcamp.com>\n"
 "Language-Team: rtCampers <support@rtcamp.com>\n"
 "Language: en\n"
@@ -22,21 +22,6 @@ msgstr ""
 
 #: ../functions.php:39
 msgid "Next &raquo;"
-msgstr ""
-
-#: ../sidebar.php:31
-msgid ""
-"<strong>rtPanel</strong> is equipped with everything you need to produce a "
-"professional website. <br />It is one of the most optimized WordPress Theme "
-"Framework available today."
-msgstr ""
-
-#: ../sidebar.php:35
-#, php-format
-msgid ""
-"This theme comes with free technical <a title=\"Click here for rtPanel Free "
-"Support\" target=\"_blank\" href=\"%s\">Support</a> by team of 30+ full-time "
-"developers."
 msgstr ""
 
 #: ../loop-common.php:13 ../search.php:33
@@ -88,23 +73,16 @@ msgid ""
 "searching will help find a related post."
 msgstr ""
 
-#: ../footer.php:27
+#: ../footer.php:33
 msgid "Archives"
 msgstr ""
 
-#: ../footer.php:28
+#: ../footer.php:34
 msgid "Tags"
 msgstr ""
 
-#: ../footer.php:29
+#: ../footer.php:35
 msgid "Meta"
-msgstr ""
-
-#: ../footer.php:38
-#, php-format
-msgid ""
-"Designed on <a role=\"link\" href=\"%s\" class=\"rtp-common-link\" title="
-"\"rtPanel WordPress Theme Framework\">rtPanel WordPress Theme Framework</a>."
 msgstr ""
 
 #: ../comments.php:12
@@ -180,6 +158,11 @@ msgstr ""
 
 #: ../lib/rtp-init.php:61
 msgid "Primary Navigation"
+msgstr ""
+
+#: ../lib/rtp-init.php:313
+#, php-format
+msgid "Page %s"
 msgstr ""
 
 #: ../lib/rtp-search.php:27 ../lib/rtp-search.php:33
@@ -305,9 +288,39 @@ msgctxt "comments number"
 msgid "<span>%</span> Comments"
 msgstr ""
 
+#: ../lib/rtp-default-functions.php:632
+#, php-format
+msgid ""
+"Designed on <a role=\"link\" target=\"_blank\" href=\"%s\" class=\"rtp-"
+"common-link\" title=\"rtPanel WordPress Theme Framework\">rtPanel WordPress "
+"Theme Framework</a>."
+msgstr ""
+
+#: ../lib/rtp-default-functions.php:647
+msgid ""
+"<strong>rtPanel</strong> is equipped with everything you need to produce a "
+"professional website. <br />It is one of the most optimized WordPress Theme "
+"Framework available today."
+msgstr ""
+
+#: ../lib/rtp-default-functions.php:650
+#, php-format
+msgid ""
+"This theme comes with free technical <a title=\"Click here for rtPanel Free "
+"Support\" target=\"_blank\" href=\"%s\">Support</a> by team of 30+ full-time "
+"developers."
+msgstr ""
+
 #: ../lib/rtp-post-summaries.php:26
 #, php-format
 msgid "Read more on %s"
+msgstr ""
+
+#: ../lib/rtp-post-summaries.php:26
+#: ../admin/lib/rtp-settings-metaboxes.php:643
+#: ../admin/lib/rtp-settings-metaboxes.php:705
+#, php-format
+msgid "%s"
 msgstr ""
 
 #: ../lib/rtp-post-summaries.php:331
@@ -754,12 +767,6 @@ msgstr ""
 #: ../admin/lib/rtp-settings-metaboxes.php:633
 #: ../admin/lib/rtp-settings-metaboxes.php:695
 msgid "Post Tags"
-msgstr ""
-
-#: ../admin/lib/rtp-settings-metaboxes.php:643
-#: ../admin/lib/rtp-settings-metaboxes.php:705
-#, php-format
-msgid "%s"
 msgstr ""
 
 #: ../admin/lib/rtp-settings-metaboxes.php:654
@@ -1336,14 +1343,6 @@ msgstr ""
 msgid ""
 "The Thumbnail Settings have been updated. Please <a href=\"%s\" title="
 "\"Regenerate Thumbnails\">Regenerate Thumbnails</a>."
-msgstr ""
-
-#: ../admin/lib/rtp-admin-functions.php:1301
-msgid ""
-"<strong>Note:</strong> If you have overriden the header.php in your child "
-"theme make sure you place <strong>rtp_head();</strong> on the line just "
-"after <strong>wp_head();</strong>. This hook is being used to output your "
-"custom css."
 msgstr ""
 
 #: ../admin/lib/rtp-deprecated.php:24
