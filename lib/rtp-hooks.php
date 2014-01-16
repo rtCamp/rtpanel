@@ -292,6 +292,15 @@ function rtp_hook_begin_sidebar() {
 }
 
 /**
+ * Adds default content in sidebar
+ *
+ * @since rtPanel 4.1.2
+ */
+function rtp_hook_sidebar_content() {
+    do_action( 'rtp_hook_sidebar_content' );
+}
+
+/**
  * Adds content at the end of #sidebar
  *
  * @since rtPanel 2.0

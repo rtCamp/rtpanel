@@ -635,3 +635,20 @@ function rtp_footer_copyright_content() { ?>
     <?php
 }
 add_action ( 'rtp_hook_end_footer', 'rtp_footer_copyright_content' );
+
+/**
+ * Default sidebar text if widgets are inactive
+ * 
+ * @since rtPanel 4.1.2
+ */
+function rtp_sidebar_content() { ?>
+    <div class="widget sidebar-widget">
+        <p>
+            <?php _e( '<strong>rtPanel</strong> is equipped with everything you need to produce a professional website. <br />It is one of the most optimized WordPress Theme Framework available today.', 'rtPanel' ); ?>
+        </p>
+        <p class="rtp-message-success">
+            <?php printf( __( 'This theme comes with free technical <a title="Click here for rtPanel Free Support" target="_blank" href="%s">Support</a> by team of 30+ full-time developers.', 'rtPanel' ), 'https://rtcamp.com/support/forum/rtpanel/' ); ?>
+        </p>
+    </div><?php
+}
+add_action( 'rtp_hook_sidebar_content', 'rtp_sidebar_content' );
