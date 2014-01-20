@@ -3,7 +3,7 @@
     .buddypress {
         .hentry { border-bottom: 0; }
         .standard-form {
-            textarea, input[type="text"], select, input[type="password"] { width: auto; }
+            textarea, #{$form-input-text}, select { width: auto; }
         }
         .dir-search input[type="text"] { width: auto; }
         .message-search, .dir-search {

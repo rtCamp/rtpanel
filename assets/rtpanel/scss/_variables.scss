@@ -34,6 +34,13 @@ $rtp-base-spacing: rem-calc(28); // This will same as line height
 $rtp-icon-font: true;
 $rtp-icon-font-family: 'rtpanel-fontello';
 
+// Form Elements
+$form-input-text: unquote('input[type="text"], input[type="password"], input[type="search"], input[type="email"], input[type="tel"], input[type="url"]');
+$form-input-buttons: unquote('input[type="submit"], input[type="reset"], input[type="button"], button');
+$form-input-dates: unquote('input[type^="date"], input[type="month"], input[type="week"], input[type="time"]');
+$form-input-radio: unquote('input[type="radio"], input[type="checkbox"]');
+$form-input-not-radio: unquote('input:not([type="radio"]):not([type="checkbox"])');
+
 // ***** Control Support Plugins Styles ***** //
 $load-bbpress-styles : true;
 $load-breadcrumb-styles : true;

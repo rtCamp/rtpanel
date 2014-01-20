@@ -22,8 +22,9 @@
             li.bbp-header { background: #EEE; }
             .bbp-forums-list li { display: block; }
             // Forum Inputs
-            fieldset.bbp-form input[type=radio],
-            fieldset.bbp-form input[type=checkbox] { margin: rem-calc(0 2 4); }
+            fieldset.bbp-form {
+                #{$form-input-radio} { margin: rem-calc(0 2 4); } 
+            }
             .bbp-forum-info .bbp-forum-content, p.bbp-topic-meta { font-size: rem-calc(14); }
             .subscription-toggle { float: right; font-size: rem-calc(16); }
             .bbp-reply-author br { display: none; }
