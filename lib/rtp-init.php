@@ -99,7 +99,7 @@ function rtp_default_scripts() {
     wp_enqueue_style( 'rtp-icon-fonts', RTP_ASSETS_URL . '/fontello/css/rtpanel-fontello.css', '', NULL );
 
     // Loads our main stylesheet.
-    wp_enqueue_style( 'rtpanel-style', get_stylesheet_uri(), array( 'rtp-google-font', 'rtp-icon-fonts-animation', 'rtp-icon-fonts' ), '4.0' );
+    wp_enqueue_style( 'rtpanel-style', get_stylesheet_uri(), array( 'rtp-google-font', 'rtp-icon-fonts-animation', 'rtp-icon-fonts' ), RTP_VERSION );
 
     // Nested Comment Support
     ( is_singular() && get_option( 'thread_comments' ) ) ? wp_enqueue_script('comment-reply') : '';

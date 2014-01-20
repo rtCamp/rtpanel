@@ -4,7 +4,7 @@
         & > * { float: none;
             &:before { content: ' '; display: none; }
         }
-        & + .sticky { margin-top: 20px; }
+        & + .sticky, & + .rtp-main-title { margin-top: rem-calc(20); }
     }
     body.woocommerce .woocommerce-breadcrumb {
         @include crumb-container; @include radius($global-radius); border-bottom: 1px solid $border-color; color: $gray; font-size: rem-calc(13);  text-transform: uppercase; font-size: rem-calc(11); color: $link-color;

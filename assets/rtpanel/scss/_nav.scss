@@ -61,7 +61,7 @@ $menu-spacing: rem-calc(12 30);
     }
 
     // Navigation Links
-    a { color: $white; font-size: $menu-font-size; display: block; height: auto; line-height: 1.5; padding: $menu-spacing; text-decoration: none;
+    a { color: $white; font-size: $menu-font-size; display: block; height: auto; line-height: 1.5; padding: $menu-spacing; text-decoration: none; word-wrap: break-word;
 
         // Hover
         &:hover { @include rtp-active-menu(); }
@@ -73,7 +73,7 @@ $menu-spacing: rem-calc(12 30);
         a { color: $submenu-link-color; }
     
         // Submenu List
-        li { border-bottom: 1px solid #EEEEEE; min-width: $submenu-width;
+        li { border-bottom: 1px solid #EEEEEE; min-width: $submenu-width; width: 100%;
 
             // Submenu Links
             &:hover > a { @include rtp-active-menu(); }

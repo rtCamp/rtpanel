@@ -208,11 +208,11 @@ add_action ( 'rtp_hook_begin_post_meta_top', 'rtp_edit_link' );
 function rtp_breadcrumb_support ( $text ) {
     // Breadcrumb Support
     if ( function_exists('yoast_breadcrumb') ) {
-        yoast_breadcrumb('<div id="breadcrumbs" class="breadcrumbs breadcrumbs-yoast">','</div>');
+        yoast_breadcrumb('<nav role="navigation" id="breadcrumbs" class="breadcrumbs breadcrumbs-yoast">','</nav>');
     } else if ( function_exists ( 'bcn_display' ) ) {
-        echo '<div class="breadcrumbs breadcrumbs-navxt">';
+        echo '<nav role="navigation" class="breadcrumbs breadcrumbs-navxt">';
         bcn_display();
-        echo '</div>';
+        echo '</nav>';
     }
 }
 
@@ -629,9 +629,26 @@ function rtp_footer_copyright_content() { ?>
         <?php $rtp_set_grid_class = apply_filters( 'rtp_set_full_width_grid_class', 'large-12 columns rtp-full-width-grid' ); ?>
         <div class="rtp-footer-section <?php echo $rtp_set_grid_class; ?>">
             <p>&copy; <?php echo date( 'Y' ); echo ' - '; bloginfo( 'name' ); ?>
-            <em><?php printf( __( 'Designed on <a role="link" href="%s" class="rtp-common-link" title="rtPanel WordPress Theme Framework">rtPanel WordPress Theme Framework</a>.', 'rtPanel' ), RTP_THEME_URL ); ?></em></p>
+            <em><?php printf( __( 'Designed on <a role="link" target="_blank" href="%s" class="rtp-common-link" title="rtPanel WordPress Theme Framework">rtPanel WordPress Theme Framework</a>.', 'rtPanel' ), RTP_THEME_URL ); ?></em></p>
         </div>
     </div><!-- #footer -->
     <?php
 }
 add_action ( 'rtp_hook_end_footer', 'rtp_footer_copyright_content' );
+
+/**
+ * Default sidebar text if widgets are inactive
+ * 
+ * @since rtPanel 4.1.3
+ */
+function rtp_sidebar_content() { ?>
+    <div class="widget sidebar-widget">
+        <p>
+            <?php _e( '<strong>rtPanel</strong> is equipped with everything you need to produce a professional website. <br />It is one of the most optimized WordPress Theme Framework available today.', 'rtPanel' ); ?>
+        </p>
+        <p class="rtp-message-success">
+            <?php printf( __( 'This theme comes with free technical <a title="Click here for rtPanel Free Support" target="_blank" href="%s">Support</a> by team of 30+ full-time developers.', 'rtPanel' ), 'https://rtcamp.com/support/forum/rtpanel/' ); ?>
+        </p>
+    </div><?php
+}
+add_action( 'rtp_hook_sidebar_content', 'rtp_sidebar_content' );
