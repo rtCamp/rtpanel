@@ -26,7 +26,7 @@ if ( have_comments() || ( ( !is_attachment() && comments_open() ) || ( is_attach
                 <div class="rtp-comment-count clearfix" id="comments"><?php 
                     $comment_count = sprintf( _n( '<span class="count">%1$s</span> Comment', '<span class="count">%1$s</span> Comments', $comments_count_only, 'rtPanel' ), number_format_i18n( $comments_count_only ) );
                     if ( ( comments_open() ) || $comments_count_only ) { ?>
-                        <h4 class="rtp-comment-count-container"><?php echo $comment_count; ?></h4><?php
+                        <h4 class="rtp-comment-count-container"><?php echo esc_attr($comment_count); ?></h4><?php
                         echo ( comments_open() ) ? sprintf( __( '<small class="rtp-thoughts">&nbsp;Add <a role="link" href="%s" title="Add your comment">your comment</a></small>', 'rtPanel' ), '#respond' ) : '';
                     }
 
@@ -123,7 +123,7 @@ if ( have_comments() || ( ( !is_attachment() && comments_open() ) || ( is_attach
         */
         add_filter( 'get_comments_number', 'pingback_trackback_count', 11, 2 );
         if ( $rtp_post_comments['comment_separate'] && get_comments_number() ) { ?>
-                <h3 class="rtp-comments-header"><span class="count"><?php echo get_comments_number(); ?></span> <?php ( 1 == get_comments_number() ) ? _e( 'Trackback', 'rtPanel') : _e( 'Trackbacks', 'rtPanel' ); ?></h3>
+                <h3 class="rtp-comments-header"><span class="count"><?php echo esc_attr(get_comments_number()); ?></span> <?php ( 1 == get_comments_number() ) ? _e( 'Trackback', 'rtPanel') : _e( 'Trackbacks', 'rtPanel' ); ?></h3>
                 <ol id="trackbacks"><?php
                         $args = 'callback=rtp_ping_list&type=pings';
                         wp_list_comments( $args ); ?>

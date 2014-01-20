@@ -374,11 +374,11 @@ function rtp_custom_css() {
 add_action ( 'rtp_head', 'rtp_custom_css' );
 
 /**
- * Galary Shorcode hijack with foundation
+ * Gallery Shortcode Hack with Foundation
  *
  * @since rtPanel 3.2
  */
-function rtp_galary_shorcode ( $output, $attr ) {
+function rtp_gallery_shortcode ( $output, $attr ) {
     $post = get_post();
     static $instance = 0;
     $instance ++;
@@ -461,7 +461,7 @@ function rtp_galary_shorcode ( $output, $attr ) {
     return $output;
 }
 
-add_filter ( "post_gallery", "rtp_galary_shorcode", 1, 2 );
+add_filter ( "post_gallery", "rtp_gallery_shortcode", 1, 2 );
 
 /**
  *
