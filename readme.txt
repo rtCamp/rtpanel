@@ -44,7 +44,7 @@ If you make changes to thumbnail height, width or crop settings, you must use "R
 == Changelog ==
 
 = 4.1.3 =
-* Modified: rtMedia, BuddyPress and other plugin CSS
+* Modified: rtMedia, BuddyPress and other supported plugin CSS
 * Resolved: Navigation issue
 
 = 4.1.2 =
