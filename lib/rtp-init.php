@@ -85,11 +85,9 @@ add_action( 'rtp_hook_begin_header', 'rtp_header_image' );
  * @version 2.1
  */
 function rtp_default_scripts() {
-    /* Mobile Navigation Script */
-    wp_enqueue_script( 'rtp-modernizr', RTP_BOWER_COMPONENTS_URL . '/foundation/js/vendor/custom.modernizr.js', array( 'jquery' ), '', false );
-    wp_enqueue_script( 'rtp-foundation-js', RTP_BOWER_COMPONENTS_URL . '/foundation/js/foundation.min.js', array( 'jquery', 'rtp-modernizr' ), '', true );
-    wp_enqueue_script( 'rtp-jquery-sidr', RTP_JS_FOLDER_URL . '/jquery.sidr.min.js', array( 'jquery' ), '', true );
-    wp_enqueue_script( 'rtp-app-js', RTP_JS_FOLDER_URL . '/rtp-app.js', array( 'jquery', 'rtp-foundation-js', 'rtp-jquery-sidr' ), '', true );
+    /* Concat all js libraries to single rtp-concat-lib.js */
+    wp_enqueue_script( 'rtp-concat-lib', RTP_JS_FOLDER_URL . '/rtp-concat-lib.js', array( 'jquery' ), '', true );
+    wp_enqueue_script( 'rtp-app-js', RTP_JS_FOLDER_URL . '/rtp-app.js', array( 'jquery', 'rtp-concat-lib' ), '', true );
 
     /* Google Font: Open Sans */
     wp_enqueue_style( 'rtp-google-font', 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700', '', NULL );

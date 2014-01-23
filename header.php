@@ -21,7 +21,7 @@ global $rtp_general; ?><!DOCTYPE html>
 
         <link rel="profile" href="http://gmpg.org/xfn/11" />
 
-        <?php if ( 'disable' != $rtp_general['favicon_use'] ) { ?><link rel="shortcut icon" type="image/x-icon" href="<?php echo $rtp_general['favicon_upload']; ?>" /><?php } ?>
+        <?php if ( 'disable' != $rtp_general['favicon_use'] ) { ?><link rel="shortcut icon" type="image/x-icon" href="<?php echo esc_attr($rtp_general['favicon_upload']); ?>" /><?php } ?>
 
         <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
@@ -45,14 +45,14 @@ global $rtp_general; ?><!DOCTYPE html>
                         <?php $header_class = get_header_image() ? ' rtp-header-wrapper-image' : ''; ?>
                         <?php $rtp_set_grid_class = apply_filters( 'rtp_set_full_width_grid_class', 'large-12 columns rtp-full-width-grid' ); ?>
 
-                        <div class="rtp-header <?php echo $rtp_set_grid_class; ?> <?php echo $header_class; ?>">
+                        <div class="rtp-header <?php echo esc_attr($rtp_set_grid_class); ?> <?php echo esc_attr($header_class); ?>">
                             <?php rtp_hook_begin_header(); ?>
 
                             <div class="rtp-logo-container clearfix">
                                 <?php rtp_hook_before_logo(); ?>
 
                                     <?php $heading = ( is_home() || is_front_page() ) ? 'h1' : 'h2'; ?>
-                                    <<?php echo $heading; ?> class="rtp-site-logo"><a role="link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>"><?php echo ( 'image' == $rtp_general['logo_use'] ) ? '<img role="img" alt="' . get_bloginfo( 'name' ) . '" height="' . $rtp_general['logo_height'] . '" width="' . $rtp_general['logo_width'] . '" src="' . $rtp_general['logo_upload'] . '" />' : get_bloginfo( 'name' ); ?></a></<?php echo $heading; ?>>
+                                    <<?php echo esc_attr($heading); ?> class="rtp-site-logo"><a role="link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>"><?php echo ( 'image' == $rtp_general['logo_use'] ) ? '<img role="img" alt="' . get_bloginfo( 'name' ) . '" height="' . $rtp_general['logo_height'] . '" width="' . $rtp_general['logo_width'] . '" src="' . $rtp_general['logo_upload'] . '" />' : get_bloginfo( 'name' ); ?></a></<?php echo esc_attr($heading); ?>>
 
                                 <?php rtp_hook_after_logo(); ?>
                             </div>
@@ -70,7 +70,7 @@ global $rtp_general; ?><!DOCTYPE html>
 
             <?php $content_wrapper_class = ( is_search() && $rtp_general['search_code'] && $rtp_general['search_layout'] ) ? 'rtp-content-wrapper rtp-section-wrapper search-layout-wrapper' : 'rtp-content-wrapper rtp-section-wrapper'; ?>
 
-            <div id="content-wrapper" class="<?php echo apply_filters("rtp_content_wrapper_class", $content_wrapper_class); ?>"><!-- ends in footer.php -->
+            <div id="content-wrapper" class="<?php echo esc_attr(apply_filters("rtp_content_wrapper_class", $content_wrapper_class)); ?>"><!-- ends in footer.php -->
 
                 <?php rtp_hook_begin_content_wrapper(); ?>
 

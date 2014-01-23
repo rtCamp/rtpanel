@@ -31,20 +31,7 @@ input[type=submit] {
 .rtp-button-width-small { min-width: rem-calc(140); }
 
 // Input Next button fix
-    input[type="text"],
-    input[type="password"],
-    input[type="date"],
-    input[type="datetime"],
-    input[type="datetime-local"],
-    input[type="month"],
-    input[type="week"],
-    input[type="email"],
-    input[type="number"],
-    input[type="search"],
-    input[type="tel"],
-    input[type="time"],
-    input[type="url"],
-    textarea {
+    #{$form-input-text}, #{$form-input-dates}, textarea {
     + input[type="button"], + input[type="submit"], + button {
         border-radius: 0 $global-radius $global-radius 0 !important;
     }
