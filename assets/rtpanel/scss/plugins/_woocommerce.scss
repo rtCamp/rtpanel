@@ -64,4 +64,8 @@
             }
         }
     }
+    .widget_product_search {
+        input[type="text"] { @include rtp-sidebar-textbox(); }
+        input[type="submit"] { font-size: rem-calc(11); padding: rem-calc(10 20 11);}
+    }
 }

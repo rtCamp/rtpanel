@@ -140,6 +140,6 @@ $image-space: rem-calc(20);
 @mixin rtp-search() {
     // Search
     .rtp-search-form-wrapper {
-        .rtp-search-input { float: left; height: 37px; width: 75%; }
+        .rtp-search-input { @include rtp-sidebar-textbox(); }
     }
 }

@@ -10,6 +10,13 @@
     border: $width $style $color;
 }
 
+// Sidebar textbox with button
+@mixin rtp-sidebar-textbox($float: left, $height: 37px, $width: 75%) {
+    float: $float;
+    height: $height;
+    width: $width;
+}
+
 // ********* rtPanel Constant Mixins ********* //
 
 // Set margin and padding 0
