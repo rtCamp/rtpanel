@@ -1,7 +1,10 @@
 /* Sidebar */
-.rtp-sidebar-inner-wrapper { padding-left: rem-calc(40); }
+.rtp-sidebar-inner-wrapper { padding-left: rem-calc(40); 
+     input[type="submit"] { font-size: rem-calc(11); padding: rem-calc(10 20 11);}
+     .rtw-subscribe-widget-container input[type="submit"]{ border-radius: rem-calc(0 5 5 0) !important; }
+    }
 
-.widget { margin-bottom: rem-calc(30);
+.widget { margin-bottom: rem-calc(30); word-wrap: break-word;
     // Current Menu item highlight
     .current-menu-item > a, .current_page_item > a { color: $link-hover-color; }
 

@@ -40,5 +40,17 @@
             #rtMedia-galary-next{ color: $link-color; 
                     &:hover{ background-color: #DDDDDD; color: $link-hover-color; }
             }
-        .post-content .rtmedia-container{ margin-bottom: 10px; }
+        .post-content .rtmedia-container{ margin-bottom: rem-calc(10); }
+        
+    .RTMediaGalleryWidget{
+        ul { margin: 0; }
+        .media-tabs-container .rt-media-tab-panel ul li { margin: rem-calc(10 2); width: 32%; }
+        .media-tabs-container .rt-media-tab-panel{ padding: rem-calc(10); }
+        .media-tabs-container > ul li{ padding: rem-calc(4 0); }
+    }
+    .RTMediaUploaderWidget{
+        .rtmedia-upload-input.rtmedia-file{ margin-left : rem-calc(10);}
+        .rt-form-select.privacy{ margin-top : rem-calc(15); margin-bottom : rem-calc(5);}
+        input[type="submit"] { font-size: rem-calc(11); padding: rem-calc(10 20 11);}
+    }
 }

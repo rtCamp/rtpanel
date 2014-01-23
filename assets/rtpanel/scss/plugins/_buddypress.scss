@@ -1,6 +1,7 @@
 // ***** Common BuddyPress Style ***** //
 @mixin rtp-buddypress-style() {
     .buddypress {
+        #content div.item-list-tabs ul li.last select{ padding-right: rem-calc(8);}
         .hentry { border-bottom: 0; }
         .standard-form {
             textarea, #{$form-input-text}, select { width: auto; }
@@ -144,8 +145,8 @@
             }
             .activity .info { border-color: #cb2; }
             div#message.error { clear: both;
-                    p{margin-bottom:0}
-                }
+                p{margin-bottom:0}
+            }
             #group-settings-form{
                 label{ display: block; }
                 #group-name{ margin-bottom: rem-calc(10); }
@@ -153,5 +154,30 @@
         }
         &.settings form .columns{ width: 100%; }
         .clear { clear: both; }
+    }
+    .widget_bp_core_login_widget .logout {
+        @include rtp-button(); @include rtp-button-shadow(); @include button-size($button-tny);
+    }
+    .widget.buddypress.widget_bp_groups_widget,.widget.buddypress.widget_bp_core_friends_widget{
+        ul { margin: 0; }
+        ul li{ list-style: none; }
+        .item-options{ margin: 0; padding: 0.5em 0 1em; }
+        .item-options .selected{ color: $link-hover-color;  background: #dddddd; }
+        .item-options a{  background: #CCCCCC;   padding: rem-calc(5 10); }
+        ul.item-list img.avatar{ margin-top: rem-calc(8); }
+    }
+    .buddypress.widget_bp_core_login_widget {
+        #bp-login-widget-form { @include rtp-border(); padding: rem-calc(20); margin: rem-calc(20 0);
+            input[type="text"], input[type="password"]{ width: 100%;}
+            #bp-login-widget-submit{ float: right; margin-right: 0;}
+        }               
+    }
+    .widget_bp_core_friends_widget{
+        li { border: 0 none; margin-bottom: 0; padding: 0; width: 100%; } 
+    }
+    .widget.buddypress div.item-meta,
+    .widget.buddypress div.item-content {
+        margin-left: rem-calc(30);
+        span.activity{ font-size: rem-calc(12);}
     }
 }
