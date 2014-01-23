@@ -123,7 +123,7 @@ if ( have_comments() || ( ( !is_attachment() && comments_open() ) || ( is_attach
         */
         add_filter( 'get_comments_number', 'pingback_trackback_count', 11, 2 );
         if ( $rtp_post_comments['comment_separate'] && get_comments_number() ) { ?>
-                <h3 class="rtp-comments-header"><span class="count"><?php echo esc_attr(get_comments_number()); ?></span> <?php ( 1 == get_comments_number() ) ? _e( 'Trackback', 'rtPanel') : _e( 'Trackbacks', 'rtPanel' ); ?></h3>
+                <h3 class="rtp-comments-header"><span class="count"><?php echo get_comments_number(); ?></span> <?php ( 1 == get_comments_number() ) ? _e( 'Trackback', 'rtPanel') : _e( 'Trackbacks', 'rtPanel' ); ?></h3>
                 <ol id="trackbacks"><?php
                         $args = 'callback=rtp_ping_list&type=pings';
                         wp_list_comments( $args ); ?>

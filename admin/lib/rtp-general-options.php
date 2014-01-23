@@ -51,7 +51,7 @@ function rtp_general_options_page( $pagehook ) {
                         // close postboxes that should be closed
                         $('.if-js-closed').removeClass('if-js-closed').addClass('closed');
                         // postboxes setup
-                        postboxes.add_postbox_toggles('<?php echo esc_attr($pagehook); ?>');
+                        postboxes.add_postbox_toggles('<?php echo $pagehook; ?>');
                     });
                     //]]>
                 </script>

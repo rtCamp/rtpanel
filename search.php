@@ -33,10 +33,10 @@ get_header();
                 <h1 class="post-title rtp-main-title"><?php printf( __( 'Search Results for: %s', 'rtPanel' ), '<span>' . get_search_query() . '</span>' ); ?></h1><?php
                 if ( 1 == $version ) {
                     $search_code = preg_split('/customSearchControl.draw\(\'cse\'(.*)\)\;/i', $rtp_general['search_code']);
-                    echo esc_attr($search_code[0]);
-                    echo esc_attr($split_code[0]);
+                    echo $search_code[0];
+                    echo $split_code[0];
                     echo "customSearchControl.execute('" . get_search_query() . "');";
-                    echo esc_attr($search_code[1]);
+                    echo $search_code[1];
                 } elseif ( 2 == $version ) {
                     echo preg_replace('/\<gcse:(searchresults-only|searchresults|search)(.*)\>\<\/gcse:(searchresults-only|searchresults|search)\>/i', '<gcse:$1 queryParameterName="s"$2></gcse:$3>', $rtp_general['search_code'] );
                 }
@@ -46,8 +46,10 @@ get_header();
 
         <?php rtp_hook_end_content(); ?>
 
-    </section><!-- #content -->
-
-    <?php if ( !$rtp_general['search_code'] || !$rtp_general['search_layout'] ) rtp_hook_sidebar(); ?>
+    </section><!-- #content --><?php
+    
+    if ( ( !$rtp_general['search_code'] || !$rtp_general['search_layout'] ) && ( rtp_get_sidebar_id() !== 0 ) ) {
+        rtp_hook_sidebar();
+    } ?>
 
 <?php get_footer();

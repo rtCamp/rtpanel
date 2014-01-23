@@ -75,3 +75,5 @@ global $rtp_general; ?><!DOCTYPE html>
                 <?php rtp_hook_begin_content_wrapper(); ?>
 
                 <div class="row rtp-section-container">
+                    
+                    <?php rtp_hook_begin_content_row();
