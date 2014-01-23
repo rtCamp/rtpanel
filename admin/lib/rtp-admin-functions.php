@@ -1085,7 +1085,7 @@ add_action( 'admin_head', 'rtp_custom_admin_logo' );
  * @since rtPanel 2.0
  */
 function rtp_custom_admin_footer($footer_text) {
-    echo esc_attr($footer_text);
+    echo $footer_text;
     echo '<br /><br />' . __( 'Currently using <a href="' . RTP_THEME_URL . '" title="rtPanel" target="_blank">rtPanel</a>', 'rtPanel' ) . ' | <a href="' . RTP_FORUM_URL . '" title="' . __( 'Click here for rtPanel Free Support', 'rtPanel' ) . '" target="_blank">' . __( 'Support', 'rtPanel' ) . '</a> | <a href="' . RTP_DOCS_URL . '" title="' . __( 'Click here for rtPanel Documentation', 'rtPanel' ) . '" target="_blank">' . __( 'Documentation', 'rtPanel' ) . '</a>';
 }
 
