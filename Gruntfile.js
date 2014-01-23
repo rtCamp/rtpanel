@@ -69,7 +69,7 @@ module.exports = function(grunt) {
         // Ref. https://npmjs.org/package/grunt-contrib-concat
         concat: {
             options: {
-                banner: '/*! \n\* Concat JS libraries to single js file to reduce http request.\n\* This will include modernizr.js, foundation.min.js and jquery.sidr.min.js \n\* \n\* @since rtPanel 4.1.3\n\*/ '
+                banner: '/*! \n\* Concat JS libraries to single js file to reduce http request.\n\* This will include modernizr.js, foundation.min.js and jquery.sidr.min.js \n\* \n\* @since rtPanel 4.1.4\n\*/ '
             },
             dist: {
                 src: ['assets/foundation/bower_components/foundation/js/vendor/custom.modernizr.js', 'assets/foundation/bower_components/foundation/js/foundation.min.js', 'js/jquery.sidr.min.js'],

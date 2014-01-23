@@ -145,6 +145,24 @@ function rtp_hook_end_content_wrapper() {
 }
 
 /**
+ * Adds content at the begin of content row
+ *
+ * @since rtPanel 4.1.4
+ */
+function rtp_hook_begin_content_row() {
+    do_action( 'rtp_hook_begin_content_row' );
+}
+
+/**
+ * Adds content at the end of content row
+ *
+ * @since rtPanel 4.1.4
+ */
+function rtp_hook_end_content_row() {
+    do_action( 'rtp_hook_end_content_row' );
+}
+
+/**
  * Adds content at the beginning of #content
  *
  * @since rtPanel 2.0

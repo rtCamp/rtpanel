@@ -53,18 +53,18 @@ function rtp_logo_option_metabox() {
                             <input type="radio" name="rtp_general[logo_use]" value="image" id="use_logo_image" class="rtp_logo" <?php checked( 'image', $rtp_general['logo_use'] ); ?> />
                             <label for="use_logo_image"><?php _e( 'Upload Logo', 'rtPanel' ); ?></label>
                         </p>
-                        <input type="file" name="html-upload-logo" id="html-upload-logo"<?php echo esc_attr($logo_style); ?>>
+                        <input type="file" name="html-upload-logo" id="html-upload-logo"<?php echo $logo_style; ?>>
                         <input type="hidden"  name="rtp_general[logo_upload]" id="logo_upload_url" value="<?php if( isset( $rtp_general['logo_upload'] ) ) echo esc_attr($rtp_general['logo_upload']); ?>" />
                         <input type="hidden"  name="rtp_general[logo_id]" id="logo_id" value="<?php if( isset( $rtp_general['logo_id'] ) ) echo esc_attr($rtp_general['logo_id']); ?>" />
                         <input type="hidden"  name="rtp_general[logo_width]" id="logo_width" value="<?php if( isset( $rtp_general['logo_width'] ) ) echo esc_attr($rtp_general['logo_width']); ?>" />
                         <input type="hidden"  name="rtp_general[logo_height]" id="logo_height" value="<?php if( isset( $rtp_general['logo_height'] ) ) echo esc_attr($rtp_general['logo_height']); ?>" />
-                        <p class="login-head"<?php echo esc_attr($logo_style); ?>>
+                        <p class="login-head"<?php echo $logo_style; ?>>
                             <input type="hidden" name="rtp_general[login_head]" value="0" />
                             <input type="checkbox" name="rtp_general[login_head]" value="1" id="login_head" <?php checked( $rtp_general['login_head'] ); ?> />
                             <span class="description"><label for="login_head"><?php printf( __( 'Check this box to display logo on <a href="%s" title="Wordpress Login">WordPress Login Screen</a>', 'rtPanel' ), site_url('/wp-login.php') ); ?></label></span>
                         </p>
                         </div>
-                        <div class="image-preview alignright" id="logo_metabox"<?php echo esc_attr($logo_style); ?>>
+                        <div class="image-preview alignright" id="logo_metabox"<?php echo $logo_style; ?>>
                             <img alt="Logo" src="<?php echo esc_attr($rtp_general['logo_upload']); ?>" />
                         </div>
                     </td>
@@ -80,7 +80,7 @@ function rtp_logo_option_metabox() {
                         <label for="use_logo"  style="margin-right: 30px;"><?php _e( 'Resize Logo and use as Favicon', 'rtPanel' ); ?></label>
                         <input type="radio" name="rtp_general[favicon_use]" value="image" id="use_favicon_image" class="rtp_favicon" <?php checked( 'image', $rtp_general['favicon_use'] ); ?> />
                         <label for="use_favicon_image"><?php _e( 'Upload Favicon', 'rtPanel' ); ?></label></p>
-                        <input type="file" name="html-upload-fav" id="html-upload-fav"<?php echo esc_attr($favicon_style); ?>>
+                        <input type="file" name="html-upload-fav" id="html-upload-fav"<?php echo $favicon_style; ?>>
                         <input type="hidden"  name="rtp_general[favicon_upload]" id="favicon_upload_url" value="<?php if( isset( $rtp_general['favicon_upload'] ) ) echo esc_attr($rtp_general['favicon_upload']); ?>" />
                         <input type="hidden"  name="rtp_general[favicon_id]" id="favicon_id" value="<?php if( isset( $rtp_general['favicon_id'] ) ) echo esc_attr($rtp_general['favicon_id']); ?>" />
                         </div>
