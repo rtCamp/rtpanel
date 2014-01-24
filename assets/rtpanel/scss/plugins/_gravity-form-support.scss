@@ -34,4 +34,8 @@
             ul.gfield_radio li input + input { width: auto; }
         }
     }
+    .widget .gform_wrapper {
+                .top_label input.medium, .top_label select.medium { width : 97%; }   
+                .gfield_time_ampm select{ height: 37px; }
+        }
 }

@@ -51,7 +51,11 @@
             &:hover, &:focus { background-image: none; }
         }
     }
-
+    body.woocommerce ul.products li.product, body.woocommerce-page ul.products li.product{
+         .add_to_cart_button{ float: left;} 
+           .added_to_cart{ float: left; clear: both; }
+    }
+    
     // Pagination fixes
     body.woocommerce #content nav.woocommerce-pagination, body.woocommerce-page #content nav.woocommerce-pagination { 
         ul { 
