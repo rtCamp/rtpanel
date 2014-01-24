@@ -41,7 +41,7 @@
             }
             div.dir-search { margin: rem-calc(-43 0 10); }
             label { display: inline-block; margin: 0; }
-            input[type="button"], button, .button, input[type="submit"], a.button, {
+            button, .button, input[type="submit"], a.button, input[type="button"] {
                 @include rtp-button(); @include rtp-button-shadow(); @include button-size($button-tny); text-shadow: none; background-image: none; text-decoration: none;
                 &:hover, &:focus { background-image: none; border: 0; }
             }

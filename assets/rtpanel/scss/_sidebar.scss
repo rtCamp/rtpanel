@@ -1,8 +1,7 @@
 /* Sidebar */
 .rtp-sidebar-inner-wrapper { padding-left: rem-calc(40); 
-     input[type="submit"] { font-size: rem-calc(11); padding: rem-calc(10 20 11);}
-     .rtw-subscribe-widget-container input[type="submit"]{ border-radius: rem-calc(0 5 5 0) !important; }
-    }
+    input[type="submit"] { font-size: rem-calc(11); padding: rem-calc(10 20 11); }
+}
 
 .widget { margin-bottom: rem-calc(30); word-wrap: break-word;
     // Current Menu item highlight
@@ -10,6 +9,11 @@
 
     // Remove listing bottom margin
     > ul, > ol { margin-left: 1.25em; }
+    
+    .email-subscription-container input[type="submit"] { 
+        -webkit-border-radius: 0 $global-radius $global-radius 0;
+        border-radius:0 $global-radius $global-radius 0;
+    }
 }
 
 /* Calendar Widget */
