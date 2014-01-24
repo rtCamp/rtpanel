@@ -6,4 +6,5 @@
     .post-content .form-errors{ margin: 0; 
         .form-error-message{ @include rtp-error(); padding: rem-calc(5 10); margin: rem-calc(10 0 20); list-style: none; color: #4c4c4c; }
     }
+    .contact-form .select{ width: 300px;}
 }
