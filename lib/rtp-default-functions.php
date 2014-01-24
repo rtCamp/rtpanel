@@ -205,11 +205,11 @@ add_action ( 'rtp_hook_begin_post_meta_top', 'rtp_edit_link' );
  *
  * @since rtPanel 2.0.7
  */
-function rtp_breadcrumb_support ( $text ) {
+function rtp_breadcrumb_support( $text ) {
     // Breadcrumb Support
-    if ( function_exists('yoast_breadcrumb') ) {
-        yoast_breadcrumb('<nav role="navigation" id="breadcrumbs" class="breadcrumbs breadcrumbs-yoast">','</nav>');
-    } else if ( function_exists ( 'bcn_display' ) ) {
+    if ( function_exists( 'yoast_breadcrumb' ) ) {      // WordPress SEO by Yoast Plugin Support
+        yoast_breadcrumb( '<nav role="navigation" id="breadcrumbs" class="breadcrumbs breadcrumbs-yoast">', '</nav>' );
+    } else if ( function_exists ( 'bcn_display' ) ) {   // Breadcrumb NavXT Plugin Support
         echo '<nav role="navigation" class="breadcrumbs breadcrumbs-navxt">';
         bcn_display();
         echo '</nav>';
@@ -238,8 +238,7 @@ add_action ( 'rtp_hook_after_logo', 'rtp_blog_description' );
  * @since rtPanel 2.1
  */
 function rtp_default_single_pagination() {
-    if ( !rtp_is_yarpp() && is_single() && ( get_adjacent_post ( '', '', true ) || get_adjacent_post ( '', '', false ) ) ) {
-        ?>
+    if ( !rtp_is_yarpp() && is_single() && ( get_adjacent_post ( '', '', true ) || get_adjacent_post ( '', '', false ) ) ) { ?>
         <div class="rtp-navigation clearfix">
         <?php if ( get_adjacent_post ( '', '', true ) ) { ?><div class="left"><?php previous_post_link ( '%link', __ ( '&larr; %title', 'rtPanel' ) ); ?></div><?php } ?>
         <?php if ( get_adjacent_post ( '', '', false ) ) { ?><div class="right"><?php next_post_link ( '%link', __ ( '%title &rarr;', 'rtPanel' ) ); ?></div><?php } ?>
@@ -260,8 +259,7 @@ function rtp_default_archive_pagination() {
         if ( ! is_singular() ) {
             global $wp_query, $rtp_post_comments;
             if ( isset ( $rtp_post_comments[ 'pagination_show' ] ) && $rtp_post_comments[ 'pagination_show' ] ) {
-                if ( ( $wp_query->max_num_pages > 1 ) ) {
-                    ?>
+                if ( ( $wp_query->max_num_pages > 1 ) ) { ?>
                     <nav class="wp-pagenavi rtp-pagenavi"><?php
                     echo paginate_links ( array(
                         'base' => str_replace ( 999999999, '%#%', esc_url ( get_pagenum_link ( 999999999 ) ) ),
@@ -273,19 +271,17 @@ function rtp_default_archive_pagination() {
                         'end_size' => $rtp_post_comments[ 'end_size' ],
                         'mid_size' => $rtp_post_comments[ 'mid_size' ],
                         'type' => 'list'
-                    ) );
-                    ?>
-                    </nav>
+                    ) ); ?>
+                    </nav> <!-- End of .wp-pagenavi .rtp-pagenavi -->
                     <?php
                 }
-            } elseif ( function_exists ( 'wp_pagenavi' ) ) {
+            } elseif ( function_exists ( 'wp_pagenavi' ) ) { // WP-PageNavi Plugin Support
                 wp_pagenavi();
-            } elseif ( get_next_posts_link() || get_previous_posts_link() ) {
-                ?>
+            } elseif ( get_next_posts_link() || get_previous_posts_link() ) { ?>
                 <nav class="rtp-navigation clearfix">
                 <?php if ( get_next_posts_link() ) { ?><div class="left"><?php next_posts_link ( __ ( '&larr; Older Entries', 'rtPanel' ) ); ?></div><?php } ?>
                 <?php if ( get_previous_posts_link() ) { ?><div class="right"><?php previous_posts_link ( __ ( 'Newer Entries &rarr;', 'rtPanel' ) ); ?></div><?php } ?>
-                </nav><!-- .rtp-navigation --><?php
+                </nav><!-- End of .rtp-navigation --><?php
             }
         }
     }
@@ -327,7 +323,7 @@ function rtp_default_comment_count() {
     // Comment Count
     add_filter ( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
     if ( ( ( get_comments_number() || @comments_open() ) && ! is_attachment() && ! rtp_is_bbPress() ) || ( is_attachment() && $rtp_post_comments[ 'attachment_comments' ] ) ) { // If post meta is set to top then only display the comment count. ?>
-        <span class="rtp-post-comment-count"><?php comments_popup_link ( _x ( 'Leave a comment', 'comments number', 'rtPanel' ), _x ( '<span>1</span> Comment', 'comments number', 'rtPanel' ), _x ( '<span>%</span> Comments', 'comments number', 'rtPanel' ), 'rtp-post-comment rtp-common-link' ); ?></span><?php
+        <span class="rtp-post-comment-count"><?php comments_popup_link ( _x( 'Leave a comment', 'comments number', 'rtPanel' ), _x( '<span>1</span> Comment', 'comments number', 'rtPanel' ), _x( '<span>%</span> Comments', 'comments number', 'rtPanel' ), 'rtp-post-comment rtp-common-link' ); ?></span><?php
     }
     remove_filter ( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
 }
@@ -388,22 +384,21 @@ function rtp_gallery_shortcode ( $output, $attr ) {
             unset ( $attr[ 'orderby' ] );
     }
     extract ( shortcode_atts ( array(
-        'order' => 'ASC',
-        'orderby' => 'menu_order ID',
-        'id' => $post->ID,
-        'itemtag' => 'li',
-        'icontag' => '',
-        'captiontag' => '',
-        'columns' => 3,
-        'size' => 'thumbnail',
-        'include' => '',
-        'exclude' => ''
-                    ), $attr ) );
+        'order'         => 'ASC',
+        'orderby'       => 'menu_order ID',
+        'id'            => $post->ID,
+        'itemtag'       => 'li',
+        'icontag'       => '',
+        'captiontag'    => '',
+        'columns'       => 3,
+        'size'          => 'thumbnail',
+        'include'       => '',
+        'exclude'       => ''
+    ), $attr ) );
 
     $id = intval ( $id );
-    if ( 'RAND' == $order )
-        $orderby = 'none';
-
+    $orderby = ( 'RAND' == $order ) ? 'none' : '';
+    
     if ( ! empty ( $include ) ) {
         $_attachments = get_posts ( array( 'include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby ) );
 
@@ -417,8 +412,7 @@ function rtp_gallery_shortcode ( $output, $attr ) {
         $attachments = get_children ( array( 'post_parent' => $id, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby ) );
     }
 
-    if ( empty ( $attachments ) )
-        return '';
+    if ( empty ( $attachments ) ) { return ''; }
 
     if ( is_feed() ) {
         $output = "\n";
@@ -431,12 +425,9 @@ function rtp_gallery_shortcode ( $output, $attr ) {
     $captiontag = tag_escape ( $captiontag );
     $icontag = tag_escape ( $icontag );
     $valid_tags = wp_kses_allowed_html ( 'post' );
-    if ( ! isset ( $valid_tags[ $itemtag ] ) )
-        $itemtag = 'li';
-    if ( ! isset ( $valid_tags[ $captiontag ] ) )
-        $captiontag = '';
-    if ( ! isset ( $valid_tags[ $icontag ] ) )
-        $icontag = '';
+    if ( ! isset ( $valid_tags[ $itemtag ] ) ) { $itemtag = 'li'; }
+    if ( ! isset ( $valid_tags[ $captiontag ] ) ) { $captiontag = ''; }
+    if ( ! isset ( $valid_tags[ $icontag ] ) ) { $icontag = ''; }
 
     $columns = intval ( $columns );
     $itemwidth = $columns > 0 ? floor ( 100 / $columns ) : 100;
@@ -601,7 +592,7 @@ function rtp_woocommerce_wrapper_start() {
  * @since rtPanel 4.0
  */
 function rtp_woocommerce_wrapper_end() {
-    echo '</section>';
+    echo '</section> <!-- End of #content -->';
 }
 
 /**
