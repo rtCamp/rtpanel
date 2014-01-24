@@ -59,7 +59,7 @@
         input { width: auto; padding: rem-calc(1 5 2); }
     }
     .mejs-container { max-width: 100%; }
-    #sidebar {
+    #rtp-footer-widgets-wrapper, #sidebar {
         #bbp_search { @include rtp-sidebar-textbox(); }
         #bbp_search_submit, #user-submit, .bbp_widget_login .button{ font-size: rem-calc(11); padding: rem-calc(10 20 11);}
         .bbp_widget_login {           
