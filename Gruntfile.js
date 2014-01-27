@@ -88,7 +88,7 @@ module.exports = function(grunt) {
             options: {
                 backup_dir: "backups/",
                 rsync_args: ['-avz'],
-                exclusions: ['Gruntfile.js', '.git/', 'tmp/*', 'backups/', 'wp-config.php', 'composer.json', 'composer.lock', 'README.md', '.gitignore', 'package.json', 'node_modules', '.sass-cache', 'npm-debug.log', '.scss-cache']
+                exclusions: ['Gruntfile.js', '.bower.json', '.editorconfig', '.travis.yml', '.git/', '.svn/', 'tmp/*', 'wp-config.php', 'composer.json', 'composer.lock', '.gitignore', 'package.json', 'node_modules', '.sass-cache', 'npm-debug.log', '.scss-cache']
             },
 
             local: {
