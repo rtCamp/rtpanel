@@ -1,17 +1,14 @@
 // ***** Gravity Form Style ***** //
 @mixin rtp-gravity-form-style() {
     .gform_fields {
-        input, select, textarea.textarea {
-            margin: 0;
-        }
+        input, select, textarea.textarea { margin: 0; }
         .gfield { margin-bottom: rem-calc(12); }
     }
     .gform_wrapper {
         .ginput_complex {
-            ginput_left,
-            ginput_right,
+            ginput_left, ginput_right,
             ginput_full { margin-bottom: rem-calc(5); }
-        } 
+        }
         .gfield_time_hour input { display: inline-block; margin-right: rem-calc(4); }
         .gfield_time_ampm.ginput_container select { padding: rem-calc(6 2);}
     }
@@ -35,7 +32,7 @@
         }
     }
     .widget .gform_wrapper {
-                .top_label input.medium, .top_label select.medium { width : 97%; }   
-                .gfield_time_ampm select{ height: 37px; }
-        }
+        .top_label input.medium, .top_label select.medium { width : 97%; }   
+        .gfield_time_ampm select{ height: 37px; }
+    }
 }

@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: rtPanel 4.1.3\n"
+"Project-Id-Version: rtPanel 4.1.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-20 12:31+0530\n"
-"PO-Revision-Date: 2014-01-20 12:32+0530\n"
+"POT-Creation-Date: 2014-01-27 11:15+0530\n"
+"PO-Revision-Date: 2014-01-27 11:15+0530\n"
 "Last-Translator: rtCamp <support@rtcamp.com>\n"
 "Language-Team: rtCampers <support@rtcamp.com>\n"
 "Language: en\n"
@@ -73,15 +73,15 @@ msgid ""
 "searching will help find a related post."
 msgstr ""
 
-#: ../footer.php:33
+#: ../footer.php:35
 msgid "Archives"
 msgstr ""
 
-#: ../footer.php:34
+#: ../footer.php:36
 msgid "Tags"
 msgstr ""
 
-#: ../footer.php:35
+#: ../footer.php:37
 msgid "Meta"
 msgstr ""
 
@@ -160,7 +160,7 @@ msgstr ""
 msgid "Primary Navigation"
 msgstr ""
 
-#: ../lib/rtp-init.php:313
+#: ../lib/rtp-init.php:310
 #, php-format
 msgid "Page %s"
 msgstr ""
@@ -257,38 +257,38 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: ../lib/rtp-default-functions.php:244
+#: ../lib/rtp-default-functions.php:243
 msgid "&larr; %title"
 msgstr ""
 
-#: ../lib/rtp-default-functions.php:245
+#: ../lib/rtp-default-functions.php:244
 msgid "%title &rarr;"
 msgstr ""
 
-#: ../lib/rtp-default-functions.php:286
+#: ../lib/rtp-default-functions.php:282
 msgid "&larr; Older Entries"
 msgstr ""
 
-#: ../lib/rtp-default-functions.php:287
+#: ../lib/rtp-default-functions.php:283
 msgid "Newer Entries &rarr;"
 msgstr ""
 
-#: ../lib/rtp-default-functions.php:330
+#: ../lib/rtp-default-functions.php:326
 msgctxt "comments number"
 msgid "Leave a comment"
 msgstr ""
 
-#: ../lib/rtp-default-functions.php:330
+#: ../lib/rtp-default-functions.php:326
 msgctxt "comments number"
 msgid "<span>1</span> Comment"
 msgstr ""
 
-#: ../lib/rtp-default-functions.php:330
+#: ../lib/rtp-default-functions.php:326
 msgctxt "comments number"
 msgid "<span>%</span> Comments"
 msgstr ""
 
-#: ../lib/rtp-default-functions.php:632
+#: ../lib/rtp-default-functions.php:623
 #, php-format
 msgid ""
 "Designed on <a role=\"link\" target=\"_blank\" href=\"%s\" class=\"rtp-"
@@ -296,14 +296,14 @@ msgid ""
 "Theme Framework</a>."
 msgstr ""
 
-#: ../lib/rtp-default-functions.php:647
+#: ../lib/rtp-default-functions.php:638
 msgid ""
 "<strong>rtPanel</strong> is equipped with everything you need to produce a "
 "professional website. <br />It is one of the most optimized WordPress Theme "
 "Framework available today."
 msgstr ""
 
-#: ../lib/rtp-default-functions.php:650
+#: ../lib/rtp-default-functions.php:641
 #, php-format
 msgid ""
 "This theme comes with free technical <a title=\"Click here for rtPanel Free "

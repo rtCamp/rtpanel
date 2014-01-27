@@ -71,7 +71,7 @@
             #whats-new-options { margin-top: rem-calc(12); }
             input[type="text"], select { display: inline-block; margin-bottom: 0; height: rem-calc(37); }
             select { padding: 5px; width: auto; height: auto; }
-            .item-list-tabs { background-color: #DDDDDD; padding: rem-calc(10 15 0);
+            .item-list-tabs { background-color: $border-color; padding: rem-calc(10 15 0);
                 li {
                     a { background: transparent;
                         span { line-height: 1.8; }
@@ -105,7 +105,7 @@
                 input[type="text"],input[type="password"]{ margin: rem-calc(10 0); }
             }
             #rtMedia-galary-next{ color: $link-color;
-                &:hover{ background-color: #DDDDDD; color: $link-hover-color; }
+                &:hover{ background-color: $border-color; color: $link-hover-color; }
             }
             #profile-edit-form{
                 label{ display: block; }
@@ -120,7 +120,7 @@
                 a{ display: block; color: $link-color;
                     &:hover{ color: $link-hover-color; }
                 }
-                &:hover{ background-color: #DDDDDD;}
+                &:hover{ background-color: $border-color;}
             }
             .standard-form #basic-details-section{
                 #signup_password, #signup_password_confirm{ width : 90%; }
@@ -162,7 +162,7 @@
         ul { margin: 0; }
         ul li{ list-style: none; }
         .item-options{ margin: 0; padding: 0.5em 0 1em; }
-        .item-options .selected{ color: $link-hover-color;  background: #dddddd; }
+        .item-options .selected{ color: $link-hover-color;  background: $border-color; }
         .item-options a{  background: #CCCCCC;   padding: rem-calc(5 10); }
         ul.item-list img.avatar{ margin-top: rem-calc(8); }
     }

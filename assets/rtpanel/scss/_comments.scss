@@ -2,8 +2,8 @@
 $rtp-comment-style-type: box; // you can use box, clean,...
 
 // Box type style
-@if( $rtp-comment-style-type == box ) {
-    
+@if $rtp-comment-style-type == box {
+
     /* Comments */
     .rtp-comment-count { border-bottom: 1px dotted $border-color; color: $gray; padding: rem-calc(10 0);
         &:empty { display: none; }

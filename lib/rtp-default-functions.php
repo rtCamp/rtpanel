@@ -364,14 +364,14 @@ function rtp_get_sidebar_id() {
  */
 function rtp_custom_css() {
     global $rtp_general;
-    echo ( $rtp_general[ 'custom_styles' ] ) ? '<style>' . $rtp_general[ 'custom_styles' ] . '</style>' . "\r\n" : '';
+    echo ( $rtp_general[ 'custom_styles' ] ) ? '<style type="text/css">' . $rtp_general[ 'custom_styles' ] . '</style>' . "\r\n" : '';
 }
 
 add_action ( 'rtp_head', 'rtp_custom_css' );
 
 /**
  * Gallery Shortcode Hack with Foundation
- *
+ * 
  * @since rtPanel 3.2
  */
 function rtp_gallery_shortcode ( $output, $attr ) {

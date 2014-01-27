@@ -3,27 +3,18 @@
     
     #content-wrapper {
         .ninja-forms-form-wrap { overflow: hidden; 
-            
             label { display: inline-block; width: 30%;}
-            
             input, select, textarea { display: inline-block; margin: 0; width: 40%; }
-            
             .label-left label { width: 29%; }
-            
             .checkbox-wrap label { margin: 0; }
-            
             input[type="checkbox"], input[type="radio"],
             button, input[type="button"], input[type="reset"], input[type="submit"] { width: auto; }
-            
             .ninja-forms-field-error, .ninja-forms-error-msg { @include rtp-error(); padding: rem-calc(5 10); margin: rem-calc(10 0 20);
                 p{ margin:0; }
             }
-            
             .field-wrap, #ninja_forms_required_items { margin-bottom: $rtp-base-spacing; }
             .wp-editor-container .wp-editor-area{ border: 1px solid #cccccc; margin-left:0; width: 100%; }
-            
             .ninja-forms-pass1, .ninja-forms-pass2 { margin-bottom: 1.75rem; }            
-            
             .list-radio-wrap li,.list-checkbox-wrap li{ width: 100%;
                 .ninja-forms-field{ margin-right: rem-calc(10);}
             }
@@ -31,14 +22,13 @@
         .field-wrap.label-left .ninja-forms-field { margin-left:0; }        
         .wp_themeSkin table.mceLayout { border: 1px solid #CCCCCC; }
     }
-    
+
     // Form required item warning
     .ninja-forms-required-items { @include rtp-warning(); padding: rem-calc(10 15); text-shadow: 1px 0 0 $white; margin-bottom: $rtp-base-spacing; }
-    
     .ninja-forms-field-description { overflow: hidden;
         p { left: 4px; margin-bottom: 0; margin-left: 30%; position: relative; }
     } 
-    
+
     #content-wrapper .widget .ninja-forms-form{
         #{$form-input-text}, #{$form-input-dates}, select, textarea, #pass-strength-result { width : 90% ;}
         .label-left label{ width : 100% ;}

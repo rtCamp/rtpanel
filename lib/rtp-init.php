@@ -33,7 +33,7 @@ if ( !function_exists( 'rtpanel_setup' ) ) {
         load_theme_textdomain( 'rtPanel', get_template_directory() . '/languages' ); // Load the text domain
 
         add_theme_support( 'custom-background' ); // Add support for custom background
-        
+
         // Add support for custom headers.
 	$rtp_custom_header_support = array(
             // The height and width of our custom header.
@@ -44,13 +44,13 @@ if ( !function_exists( 'rtpanel_setup' ) ) {
             'admin-head-callback'   => '',
 	);
 	add_theme_support( 'custom-header', $rtp_custom_header_support );
-        
+
         /*
 	 * Switches default core markup for search form, comment form,
 	 * and comments to output valid HTML5.
 	 */
 	add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
-        
+
         /**
          * Adds RSS feed links to head for posts and comments.
          */
@@ -62,7 +62,7 @@ if ( !function_exists( 'rtpanel_setup' ) ) {
         ) );
     }
 }
-add_action( 'after_setup_theme', 'rtpanel_setup' );// Tell WordPress to run rtpanel_setup() when the 'after_setup_theme' hook is run
+add_action( 'after_setup_theme', 'rtpanel_setup' ); // Tell WordPress to run rtpanel_setup() when the 'after_setup_theme' hook is run
 
 /**
 * Site header image
@@ -87,7 +87,6 @@ add_action( 'rtp_hook_begin_header', 'rtp_header_image' );
 function rtp_default_scripts() {
     /* Concat all js libraries to single rtp-concat-lib.js */
     wp_enqueue_script( 'rtp-concat-lib', RTP_JS_FOLDER_URL . '/rtp-concat-lib.js', array( 'jquery' ), '', true );
-    wp_enqueue_script( 'rtp-app-js', RTP_JS_FOLDER_URL . '/rtp-app.js', array( 'jquery', 'rtp-concat-lib' ), '', true );
 
     /* Google Font: Open Sans */
     wp_enqueue_style( 'rtp-google-font', 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700', '', NULL );
@@ -100,7 +99,7 @@ function rtp_default_scripts() {
     wp_enqueue_style( 'rtpanel-style', get_stylesheet_uri(), array( 'rtp-google-font', 'rtp-icon-fonts-animation', 'rtp-icon-fonts' ), RTP_VERSION );
 
     // Nested Comment Support
-    ( is_singular() && get_option( 'thread_comments' ) ) ? wp_enqueue_script('comment-reply') : '';
+    ( is_singular() && get_option( 'thread_comments' ) ) ? wp_enqueue_script( 'comment-reply' ) : '';
 }
 add_action( 'wp_enqueue_scripts', 'rtp_default_scripts' );
 
@@ -313,7 +312,6 @@ function rtp_wp_title( $title, $sep ) {
     return $title;
 }
 add_filter( 'wp_title', 'rtp_wp_title', 10, 2 );
-
 
 /**
  * Check if current page is rtMedia page

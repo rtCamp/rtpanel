@@ -1,7 +1,7 @@
 // ***** Common bbPress Style ***** //
 @mixin rtp-yarpp-style() {
-    .yarpp-related { margin-bottom: 10px;
+    .yarpp-related { margin-bottom: rem-calc(10);
         .yarpp-thumbnails-horizontal .yarpp-thumbnail { height: auto; }
-        .yarpp-thumbnail .yarpp-thumbnail-title { margin: 10px auto 5px;text-align: center;width: 100%; display: block; }
+        .yarpp-thumbnail .yarpp-thumbnail-title { margin-top: rem-calc(10); margin-bottom: rem-calc(5); margin-left: auto; margin-right: auto; text-align: center; width: 100%; display: block; }
     }
 }

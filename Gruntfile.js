@@ -72,7 +72,12 @@ module.exports = function(grunt) {
                 banner: '/*! \n\* Concat JS libraries to single js file to reduce http request.\n\* This will include modernizr.js, foundation.min.js and jquery.sidr.min.js \n\* \n\* @since rtPanel 4.1.4\n\*/ '
             },
             dist: {
-                src: ['assets/foundation/bower_components/foundation/js/vendor/custom.modernizr.js', 'assets/foundation/bower_components/foundation/js/foundation.min.js', 'js/jquery.sidr.min.js'],
+                src: [
+                    'assets/foundation/bower_components/foundation/js/vendor/custom.modernizr.js', 
+                    'assets/foundation/bower_components/foundation/js/foundation.min.js', 
+                    'js/jquery.sidr.min.js',
+                    'js/rtp-app.js'
+                ],
                 dest: 'js/rtp-concat-lib.js'
             }
         },
@@ -119,9 +124,6 @@ module.exports = function(grunt) {
             }
         }
     });
-
-    // rename tasks
-    // grunt.renameTask('rsync', 'deploy');
 
     // register task
     // grunt.registerTask('imagemin', ['imagemin']);

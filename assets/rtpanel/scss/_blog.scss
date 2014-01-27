@@ -52,16 +52,13 @@ $post-meta-styles: true !default;
             & { color: $gray-light; text-decoration: none; }
             &:hover, &:focus { color: $link-hover-color; }
         }
-        
         > .rtp-meta-separator {
             &:first-child { display: none; }
         }
     }
-
     .post-meta-bottom { padding: 1em 0 0;
         .single & { margin: 1.5em 0 0; padding: 0; }
     }
-
     .rtp-post-comment-count { margin-left: rem-calc(8);
         @if $rtp-icon-font {
             a:before { content: '\e80a'; font-family: $rtp-icon-font-family; font-size: rem-calc(14); margin: rem-calc(0 5); }    
@@ -72,14 +69,9 @@ $post-meta-styles: true !default;
     .rtp-edit-link {
         a { @include rtp-message($border: false); border: 1px solid lighten($color-info, 34); @include border-radius(3px); color: $color-info; font-size: rem-calc(12); display: inline-block; line-height: 1; margin-right: rem-calc(6); padding: rem-calc(4 8); }
     }
-
     /* Post Comment */
-    .rtp-post-comment {
-    
-    }
-    
+    .rtp-post-comment {  }
     .rtp-meta-separator { padding: rem-calc(0 2); }
-
     .post-tags { font-size: inherit; margin-bottom: 0; }
     /* End - Post Meta */
 }

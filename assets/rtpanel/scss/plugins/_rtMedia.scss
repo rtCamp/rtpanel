@@ -1,13 +1,10 @@
 // ***** Common rtMedia Style ***** //
 @mixin rtp-rtmedia-style() {
-
     #buddypress { position: relative;
-
         .mfp-close { border: 0; color: #333333; font-size: rem-calc(28) !important; line-height: 0.5; margin-right: rem-calc(4); margin-top: rem-calc(5); right: 2.5%;
             &:hover, &:focus { border: 0; }
             &:active { top: 0; }
         }
-
         .rtmedia-container {
             .rtmedia-item-actions { clear: left;
                 form { margin-bottom: rem-calc(5); }
@@ -16,7 +13,6 @@
             }
            #details-tab .rt-form-select{ margin-left: rem-calc(16); }
         }
-
         input[type="button"], button, .button, input[type="submit"] { 
             @include rtp-button(); @include rtp-button-shadow(); @include button-size($button-tny);
             text-shadow: none;
@@ -24,31 +20,24 @@
             background-image: none; text-decoration: none;
             &:hover, &:focus { background-image: none;border: 0 none; }
         }
-
         .rtmedia-item-thumbnail { margin: 0 auto; }
-
         .rtmedia-upload-input { margin-right: rem-calc(10); }
-
         #whats-new-options .icon-plus-sign { margin-right: rem-calc(5); }
-
         ul.large-block-grid-3 .rtmedia-list-item { margin: 0 !important; }
-
         ul.rtmedia-list .rtmedia-list-item { height: auto; }
-
         ~ .rtp-readmore { display: none; }
         .rtmedia-image-editor .imgedit-settings{ padding-left: rem-calc(20);}
         div.rtmedia-activity-container ul.rtmedia-list li.media-type-music .rtmedia-item-thumbnail{ margin: 0 auto; }
     }    
-            #rtMedia-galary-next{ color: $link-color; 
-                    &:hover{ background-color: #DDDDDD; color: $link-hover-color; }
-            }
-        .post-content .rtmedia-container{ margin-bottom: rem-calc(10); }
-        
+    #rtMedia-galary-next{ color: $link-color;
+        &:hover{ background-color: $border-color; color: $link-hover-color; }
+    }
+    .post-content .rtmedia-container{ margin-bottom: rem-calc(10); }
     .RTMediaGalleryWidget{
         ul { margin: 0; }
         .media-tabs-container .rt-media-tab-panel ul li { margin: rem-calc(10 2); width: 32%; }
         .media-tabs-container .rt-media-tab-panel{ padding: rem-calc(10); }
-        .media-tabs-container > ul li{ padding: rem-calc(4 0); }
+        .media-tabs-container > ul li { padding: rem-calc(4 0); }
     }
     .RTMediaUploaderWidget{
         .rtmedia-upload-input.rtmedia-file{ margin-left : rem-calc(10);}

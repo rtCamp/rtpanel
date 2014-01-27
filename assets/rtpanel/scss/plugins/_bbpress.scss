@@ -1,16 +1,12 @@
 // ***** Common bbPress Style ***** //
 @mixin rtp-bbpress-style() {
     .bbpress {
-        // Post
         .hentry { border: 0; }
         .bbp-forum-freshness > a { font-size: rem-calc(13); }
-        // Title
         .bbp-forum-title { font-size: rem-calc(18); }
         #bbpress-forums { font-size: $base-font-size;
             ul {
-                &.bbp-lead-topic,
-                &.bbp-topics,
-                &.bbp-forums,
+                &.bbp-lead-topic, &.bbp-topics, &.bbp-forums,
                 &.bbp-replies { font-size: $base-font-size; }
             }
             p.bbp-topic-meta img.avatar,
@@ -34,9 +30,7 @@
             li.bbp-header, li.bbp-footer { font-size: rem-calc(18); font-weight: 400; padding: rem-calc(10 20); }
             .bbp-forums-list li { display: block; }
             #bbp-search-form #bbp_search { float: left; }
-            button, .button {
-                @include rtp-button(); @include rtp-button-shadow(); @include button-size($button-tny);
-            }
+            button, .button { @include rtp-button(); @include rtp-button-shadow(); @include button-size($button-tny); }
         }
         .bbp-meta span.bbp-admin-links a{ color: $link-color;
             &:hover{ color: $link-hover-color; }
@@ -62,11 +56,13 @@
     #rtp-footer-widgets-wrapper, #sidebar {
         #bbp_search { @include rtp-sidebar-textbox(); }
         #bbp_search_submit, #user-submit, .bbp_widget_login .button{ font-size: rem-calc(11); padding: rem-calc(10 20 11);}
-        .bbp_widget_login {           
-                        .bbp-logged-in h4{ margin-bottom: rem-calc(10); font-size: rem-calc(16);}                        
-            }
+        .bbp_widget_login {
+            .bbp-logged-in h4{ margin-bottom: rem-calc(10); font-size: rem-calc(16);}                        
+        }
         .bbp-login-form label{ width: auto; }
         .bbp-login-form .bbp-username, .bbp-login-form .bbp-email, .bbp-login-form .bbp-password, .bbp-login-form .bbp-remember-me, .bbp-login-form .bbp-submit-wrapper{margin-top:0;}
-        .widget_display_stats dl dt{ float: left; margin-right: rem-calc(15); }       
+        .widget_display_stats {
+            dt { float: left; font-weight: normal; width: 75%; }
+        }    
     }
 }
