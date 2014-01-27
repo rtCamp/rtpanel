@@ -123,6 +123,35 @@ function rtp_general_validate($input) {
                 add_settings_error( 'delete-plugin', 'plugin_deletion', __( 'rtSocial has been Deleted.', 'rtPanel' ), 'updated' );
             }
         }
+        
+        /**
+         * rtWidgets Plugin
+         */
+        if ( isset($_POST['rtwidgets-activate']) && ( $_POST['rtwidgets-activate'] == 1 ) ) {
+            $nonce = $_REQUEST['_wpnonce_rtwidgets_activate'];
+            if (!wp_verify_nonce($nonce, RTP_RTWIDGETS . '-activate' )) {
+                add_settings_error( 'activate-plugin', 'failure_plugin_activation', __( 'You do not have sufficient permissions to activate this plugin.', 'rtPanel' ));
+            } else {
+                activate_plugin(RTP_RTWIDGETS);
+                add_settings_error( 'activate-plugin', 'plugin_activation', __( 'rtWidgets has been Activated.', 'rtPanel' ), 'updated' );
+            }
+        } elseif (isset($_POST['rtwidgets-deactivate']) && ( $_POST['rtwidgets-deactivate'] == 1 )) {
+            $nonce = $_REQUEST['_wpnonce_rtwidgets_deactivate'];
+            if (!wp_verify_nonce($nonce, RTP_RTWIDGETS . '-deactivate' )) {
+                add_settings_error( 'deactivate-plugin', 'failure_plugin_deactivation', __( 'You do not have sufficient permissions to deactivate this plugin.', 'rtPanel' ));
+            } else {
+                deactivate_plugins(array(RTP_RTWIDGETS));
+                add_settings_error( 'deactivate-plugin', 'plugin_activation', __( 'rtWidgets has been Deactivated.', 'rtPanel' ), 'updated' );
+            }
+        } elseif (isset($_POST['rtwidgets-delete']) && ( $_POST['rtwidgets-delete'] == 1 )) {
+            $nonce = $_REQUEST['_wpnonce_rtwidgets_delete'];
+            if (!wp_verify_nonce($nonce, RTP_RTWIDGETS . '-delete' )) {
+                add_settings_error( 'delete-plugin', 'failure_plugin_deletion', __( 'You do not have sufficient permissions to delete this plugin.', 'rtPanel' ));
+            } else {
+                delete_plugins(array(RTP_RTWIDGETS));
+                add_settings_error( 'delete-plugin', 'plugin_deletion', __( 'rtWidgets has been Deleted.', 'rtPanel' ), 'updated' );
+            }
+        }
 
         /**
          * rtPanel Hooks Editor Plugin

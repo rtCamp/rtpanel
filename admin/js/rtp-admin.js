@@ -247,6 +247,9 @@ function delete_plugin_confirmation(plugin) {
     } else if ( plugin === 'Yet Another Related Posts Plugin (YARPP)' ) {
         jQuery('#yarpp-delete').val(1);
         jQuery('#yarpp-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin === 'rtWidgets' ) {
+        jQuery('#rtwidgets-delete').val(1);
+        jQuery('#rtwidgets-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
     }
     jQuery('#rt_general_form').submit();
 }
@@ -297,6 +300,9 @@ function activate_plugin(plugin) {
     } else if ( plugin === 'Yet Another Related Posts Plugin (YARPP)' ) {
         jQuery('#yarpp-activate').val(1);
         jQuery('#yarpp-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin === 'rtWidgets' ) {
+        jQuery('#rtwidgets-activate').val(1);
+        jQuery('#rtwidgets-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
     }
     jQuery('#rt_general_form').submit();
 }
@@ -347,6 +353,9 @@ function deactivate_plugin(plugin) {
     } else if ( plugin === 'Yet Another Related Posts Plugin (YARPP)' ) {
         jQuery('#yarpp-deactivate').val(1);
         jQuery('#yarpp-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin === 'rtWidgets' ) {
+        jQuery('#rtwidgets-deactivate').val(1);
+        jQuery('#rtwidgets-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
     }
     jQuery('#rt_general_form').submit();
 }

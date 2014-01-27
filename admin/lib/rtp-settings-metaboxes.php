@@ -9,6 +9,7 @@
 
 /* Define plugin support constants */
 define( 'RTP_SOCIAL', 'rtsocial/source.php' );
+define( 'RTP_RTWIDGETS', 'rtwidgets/rtwidgets-main.php' );
 define( 'RTP_HOOKS_EDITOR', 'rtpanel-hooks-editor/rtpanel-hooks-editor.php' );
 define( 'RTP_SUBSCRIBE_TO_COMMENTS', 'subscribe-to-comments-reloaded/subscribe-to-comments-reloaded.php' );
 define( 'RTP_YOAST_SEO', 'wordpress-seo/wp-seo.php' );
@@ -269,7 +270,10 @@ function rtp_plugin_metabox() {
     $rtp_woocommerce_delete = wp_create_nonce( RTP_WOOCOMMERCE . '-delete' );
     $rtp_yarpp_activate = wp_create_nonce( RTP_YARPP . '-activate' );
     $rtp_yarpp_deactivate = wp_create_nonce( RTP_YARPP . '-deactivate' );
-    $rtp_yarpp_delete = wp_create_nonce( RTP_YARPP . '-delete' ); ?>
+    $rtp_yarpp_delete = wp_create_nonce( RTP_YARPP . '-delete' );
+    $rtp_rtwidgets_activate = wp_create_nonce( RTP_RTWIDGETS . '-activate' );
+    $rtp_rtwidgets_deactivate = wp_create_nonce( RTP_RTWIDGETS . '-deactivate' );
+    $rtp_rtwidgets_delete = wp_create_nonce( RTP_RTWIDGETS . '-delete' ); ?>
 
     <table class="form-table">
         <tr>
@@ -446,7 +450,7 @@ function rtp_plugin_metabox() {
 
         <!-- Start of Regenerate Thumbnails Plugin -->
         <tr>
-            <td><a href="http://wordpress.org/extend/plugins/regenerate-thumbnails/"><?php _e( 'Regenerate Thumbnails', 'rtPanel' ); ?></a></td>
+            <td><a href="http://wordpress.org/plugins/regenerate-thumbnails/"><?php _e( 'Regenerate Thumbnails', 'rtPanel' ); ?></a></td>
             <td>
                 <?php
                 if ( is_plugin_active( RTP_REGENERATE_THUMBNAILS ) ) {
@@ -511,7 +515,7 @@ function rtp_plugin_metabox() {
 
         <!-- Start of rtPanel Hooks Editor Plugin -->
         <tr>
-            <td><a target="_blank" href="http://wordpress.org/extend/plugins/rtpanel-hooks-editor/"><?php _e( 'rtPanel Hooks Editor', 'rtPanel' ); ?></a></td>
+            <td><a target="_blank" href="http://wordpress.org/plugins/rtpanel-hooks-editor/"><?php _e( 'rtPanel Hooks Editor', 'rtPanel' ); ?></a></td>
             <td>
                 <?php
                 if ( is_plugin_active( RTP_HOOKS_EDITOR ) ) {
@@ -544,7 +548,7 @@ function rtp_plugin_metabox() {
 
         <!-- Start of rtSocial Plugin -->
         <tr>
-            <td><a target="_blank" href="http://wordpress.org/extend/plugins/rtsocial/"><?php _e( 'rtSocial', 'rtPanel' ); ?></a></td>
+            <td><a target="_blank" href="http://wordpress.org/plugins/rtsocial/"><?php _e( 'rtSocial', 'rtPanel' ); ?></a></td>
             <td>
                 <?php
                 if ( is_plugin_active( RTP_SOCIAL ) ) {
@@ -574,6 +578,39 @@ function rtp_plugin_metabox() {
             </td>
         </tr>
         <!-- End of rtSocial Plugin -->
+        
+        <!-- Start of rtWidgets Plugin -->
+        <tr>
+            <td><a target="_blank" href="http://wordpress.org/plugins/rtwidgets/"><?php _e( 'rtWidgets', 'rtPanel' ); ?></a></td>
+            <td>
+                <?php
+                if ( is_plugin_active( RTP_RTWIDGETS ) ) {
+                    echo '<span class="active">' . __( 'Active', 'rtPanel' ) . '</span>';
+                } elseif ( array_key_exists( RTP_RTWIDGETS, $plugins ) ) {
+                    echo '<span class="inactive">' . __( 'Inactive', 'rtPanel' ) . '</span>';
+                } else {
+                    echo '<span class="not-installed">' . __( 'Not Installed', 'rtPanel' ) . '</span>';
+                }
+                ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_RTWIDGETS ) ) { ?>
+                    <input type="hidden" value="<?php echo esc_attr($rtp_rtwidgets_deactivate); ?>" name="_wpnonce_rtwidgets_deactivate" id="_wpnonce_rtwidgets_deactivate" /><input id="rtwidgets-deactivate" type="hidden" name="rtwidgets-deactivate" value="0" /><a class="rtwidgets-deactivate" href="#rtwidgets-deactivate" onclick="deactivate_plugin('rtWidgets')"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
+                <?php } elseif ( array_key_exists( RTP_RTWIDGETS, $plugins ) ) { ?>
+                    <input type="hidden" value="<?php echo esc_attr($rtp_rtwidgets_activate); ?>" name="_wpnonce_rtwidgets_activate" id="_wpnonce_rtwidgets_activate" /><input id="rtwidgets-activate" type="hidden" name="rtwidgets-activate" value="0" /><a class="rtwidgets-activate" href="#rtwidgets-activate" onclick="activate_plugin('rtWidgets')"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo esc_attr($rtp_rtwidgets_delete); ?>" name="_wpnonce_rtwidgets_delete" id="_wpnonce_rtwidgets_delete" /><input id="rtwidgets-delete" type="hidden" name="rtwidgets-delete" value="0" /><a class="rtwidgets-delete" href="#rtwidgets-delete" onclick="delete_plugin_confirmation( 'rtWidgets' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=rtwidgets' ), 'install-plugin_rtwidgets' ); ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
+                <?php } ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_RTWIDGETS ) || array_key_exists( RTP_RTWIDGETS, $plugins ) ) { ?>
+                    <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_RTWIDGETS ) ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <span class="not-installed"> ----- </span>
+                <?php } ?>
+            </td>
+        </tr>
+        <!-- End of rtWidgets Plugin -->
 
         <!-- Start of Subscribe To Comments Reloaded Plugin -->
         <tr>
@@ -643,7 +680,7 @@ function rtp_plugin_metabox() {
 
         <!-- Start of WordPress SEO by Yoast Plugin -->
         <tr>
-            <td><a target="_blank" href="http://wordpress.org/extend/plugins/wordpress-seo/"><?php _e( 'WordPress SEO by Yoast', 'rtPanel' ); ?></a></td>
+            <td><a target="_blank" href="http://wordpress.org/plugins/wordpress-seo/"><?php _e( 'WordPress SEO by Yoast', 'rtPanel' ); ?></a></td>
             <td>
                 <?php
                 if ( is_plugin_active( RTP_YOAST_SEO ) ) {

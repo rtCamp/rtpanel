@@ -36,6 +36,8 @@ By using rtPanel, developers and users can specify settings for basic functions 
 
 * rtSocial - http://wordpress.org/plugins/rtsocial/
 
+* rtWidgets - http://wordpress.org/plugins/rtwidgets/
+
 * Subscribe To Comments Reloaded - http://wordpress.org/plugins/subscribe-to-comments-reloaded/
 
 * WooCommerce - excelling eCommerce - http://wordpress.org/plugins/woocommerce/
@@ -45,7 +47,7 @@ By using rtPanel, developers and users can specify settings for basic functions 
 * Yet Another Related Posts Plugin (YARPP) - http://wordpress.org/plugins/yet-another-related-posts-plugin/
 
 == Important Note ==
-If you make changes to thumbnail height, width or crop settings, you must use "Regenerate Thumbnail Plugin" ( http://wordpress.org/extend/plugins/regenerate-thumbnails/ ) to regenerate thumbnails on old posts.
+If you make changes to thumbnail height, width or crop settings, you must use "Regenerate Thumbnail Plugin" ( http://wordpress.org/plugins/regenerate-thumbnails/ ) to regenerate thumbnails on old posts.
 
 == Changelog ==
 
