@@ -16,9 +16,19 @@ rtPanel framework is used worldwide and keeping this in mind we have made it loc
 By using rtPanel, developers and users can specify settings for basic functions (like date format, excerpt word count etc.) directly from theme options. rtPanel provides theme options to manage some basic settings for your theme. 
 
 == Plugins Supported ==
+* bbPress - http://wordpress.org/plugins/bbpress/
+
 * BuddyPress - http://wordpress.org/plugins/buddypress/
 
-* bbPress - http://wordpress.org/plugins/bbpress/
+* Contact Form 7 - http://wordpress.org/plugins/contact-form-7/
+
+* Gravity Forms - http://www.gravityforms.com/
+
+* Jetpack by WordPress.com - http://wordpress.org/plugins/jetpack/
+
+* Ninja Forms - http://wordpress.org/plugins/ninja-forms/
+
+* Regenerate Thumbnails - http://wordpress.org/plugins/regenerate-thumbnails/
 
 * rtMedia - http://wordpress.org/plugins/buddypress-media/
 
@@ -26,17 +36,13 @@ By using rtPanel, developers and users can specify settings for basic functions 
 
 * rtSocial - http://wordpress.org/plugins/rtsocial/
 
-* Subscribe to Comments - http://wordpress.org/plugins/subscribe-to-comments/
+* Subscribe To Comments Reloaded - http://wordpress.org/plugins/subscribe-to-comments-reloaded/
+
+* WooCommerce - excelling eCommerce - http://wordpress.org/plugins/woocommerce/
 
 * WordPress SEO by Yoast - http://wordpress.org/plugins/wordpress-seo/
 
-* WooCommerce - http://wordpress.org/plugins/woocommerce/
-
-* Gravity Forms - http://www.gravityforms.com/
-
-* Ninja Forms - http://wordpress.org/plugins/ninja-forms/
-
-* Regenerate Thumbnails - http://wordpress.org/plugins/regenerate-thumbnails/
+* Yet Another Related Posts Plugin (YARPP) - http://wordpress.org/plugins/yet-another-related-posts-plugin/
 
 == Important Note ==
 If you make changes to thumbnail height, width or crop settings, you must use "Regenerate Thumbnail Plugin" ( http://wordpress.org/extend/plugins/regenerate-thumbnails/ ) to regenerate thumbnails on old posts.
@@ -46,7 +52,7 @@ If you make changes to thumbnail height, width or crop settings, you must use "R
 = 4.1.4 =
 * Added: Added two new hooks
 * Modified: Update Foundation 5.0 to 5.0.3
-* Modified: rtMedia, BuddyPress and other supported plugin CSS
+* Modified: rtMedia, BuddyPress, bbPress and other supported plugin CSS
 * Resolved: Fixed the esc_attr bugs
 
 = 4.1.3 =
