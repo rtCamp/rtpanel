@@ -208,7 +208,7 @@ function delete_plugin_confirmation(plugin) {
     } else if ( plugin === 'rtPanel Hooks Editor'){
         jQuery('#rtp-hooks-editor-delete').val(1);
         jQuery('#rtp-hooks-editor-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'Subscribe To Comments'){
+    } else if ( plugin === 'Subscribe To Comments Reloaded'){
         jQuery('#subscribe-delete').val(1);
         jQuery('#subscribe-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
     } else if ( plugin === 'WP PageNavi'){
@@ -223,9 +223,30 @@ function delete_plugin_confirmation(plugin) {
     } else if ( plugin === 'Regenerate Thumbnails'){
         jQuery('#regenerate-delete').val(1);
         jQuery('#regenerate-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    }else if ( plugin === 'rtMedia for WordPress, BuddyPress and bbPress'){
+    } else if ( plugin === 'rtMedia for WordPress, BuddyPress and bbPress' ) {
         jQuery('#rtmedia-delete').val(1);
         jQuery('#rtmedia-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin === 'bbPress' ) {
+        jQuery('#bbpress-delete').val(1);
+        jQuery('#bbpress-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin === 'BuddyPress' ) {
+        jQuery('#buddypress-delete').val(1);
+        jQuery('#buddypress-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin === 'Contact Form 7' ) {
+        jQuery('#cf7-delete').val(1);
+        jQuery('#cf7-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin === 'Ninja Forms' ) {
+        jQuery('#ninja_form-delete').val(1);
+        jQuery('#ninja_form-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin === 'WooCommerce - excelling eCommerce' ) {
+        jQuery('#woocommerce-delete').val(1);
+        jQuery('#woocommerce-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin === 'Jetpack by WordPress.com' ) {
+        jQuery('#jetpack-delete').val(1);
+        jQuery('#jetpack-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin === 'Yet Another Related Posts Plugin (YARPP)' ) {
+        jQuery('#yarpp-delete').val(1);
+        jQuery('#yarpp-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
     }
     jQuery('#rt_general_form').submit();
 }
@@ -237,7 +258,7 @@ function activate_plugin(plugin) {
     } else if ( plugin === 'rtPanel Hooks Editor'){
         jQuery('#rtp-hooks-editor-activate').val(1);
         jQuery('#rtp-hooks-editor-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'Subscribe To Comments'){
+    } else if ( plugin === 'Subscribe To Comments Reloaded'){
         jQuery('#subscribe-activate').val(1);
         jQuery('#subscribe-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
     } else if ( plugin === 'WP PageNavi'){
@@ -252,9 +273,30 @@ function activate_plugin(plugin) {
     } else if ( plugin === 'Regenerate Thumbnails'){
         jQuery('#regenerate-activate').val(1);
         jQuery('#regenerate-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    }else if ( plugin === 'rtMedia for WordPress, BuddyPress and bbPress'){
+    } else if ( plugin === 'rtMedia for WordPress, BuddyPress and bbPress'){
         jQuery('#rtmedia-activate').val(1);
         jQuery('#rtmedia-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin === 'bbPress' ) {
+        jQuery('#bbpress-activate').val(1);
+        jQuery('#bbpress-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin === 'BuddyPress' ) {
+        jQuery('#buddypress-activate').val(1);
+        jQuery('#buddypress-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin === 'Contact Form 7' ) {
+        jQuery('#cf7-activate').val(1);
+        jQuery('#cf7-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin === 'Ninja Forms' ) {
+        jQuery('#ninja_form-activate').val(1);
+        jQuery('#ninja_form-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin === 'WooCommerce - excelling eCommerce' ) {
+        jQuery('#woocommerce-activate').val(1);
+        jQuery('#woocommerce-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin === 'Jetpack by WordPress.com' ) {
+        jQuery('#jetpack-activate').val(1);
+        jQuery('#jetpack-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin === 'Yet Another Related Posts Plugin (YARPP)' ) {
+        jQuery('#yarpp-activate').val(1);
+        jQuery('#yarpp-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
     }
     jQuery('#rt_general_form').submit();
 }
@@ -266,7 +308,7 @@ function deactivate_plugin(plugin) {
     } else if ( plugin === 'rtPanel Hooks Editor'){
         jQuery('#rtp-hooks-editor-deactivate').val(1);
         jQuery('#rtp-hooks-editor-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'Subscribe To Comments'){
+    } else if ( plugin === 'Subscribe To Comments Reloaded'){
         jQuery('#subscribe-deactivate').val(1);
         jQuery('#subscribe-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
     } else if ( plugin === 'WP PageNavi'){
@@ -281,9 +323,30 @@ function deactivate_plugin(plugin) {
     } else if ( plugin === 'Regenerate Thumbnails'){
         jQuery('#regenerate-deactivate').val(1);
         jQuery('#regenerate-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    }else if ( plugin === 'rtMedia for WordPress, BuddyPress and bbPress'){
+    } else if ( plugin === 'rtMedia for WordPress, BuddyPress and bbPress'){
         jQuery('#rtmedia-deactivate').val(1);
         jQuery('#rtmedia-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin === 'bbPress' ) {
+        jQuery('#bbpress-deactivate').val(1);
+        jQuery('#bbpress-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin === 'BuddyPress' ) {
+        jQuery('#buddypress-deactivate').val(1);
+        jQuery('#buddypress-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin === 'Contact Form 7' ) {
+        jQuery('#cf7-deactivate').val(1);
+        jQuery('#cf7-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin === 'Ninja Forms' ) {
+        jQuery('#ninja_form-deactivate').val(1);
+        jQuery('#ninja_form-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin === 'WooCommerce - excelling eCommerce' ) {
+        jQuery('#woocommerce-deactivate').val(1);
+        jQuery('#woocommerce-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin === 'Jetpack by WordPress.com' ) {
+        jQuery('#jetpack-deactivate').val(1);
+        jQuery('#jetpack-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
+    } else if ( plugin === 'Yet Another Related Posts Plugin (YARPP)' ) {
+        jQuery('#yarpp-deactivate').val(1);
+        jQuery('#yarpp-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
     }
     jQuery('#rt_general_form').submit();
 }

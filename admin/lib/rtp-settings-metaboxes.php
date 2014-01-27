@@ -10,12 +10,17 @@
 /* Define plugin support constants */
 define( 'RTP_SOCIAL', 'rtsocial/source.php' );
 define( 'RTP_HOOKS_EDITOR', 'rtpanel-hooks-editor/rtpanel-hooks-editor.php' );
-define( 'RTP_SUBSCRIBE_TO_COMMENTS', 'subscribe-to-comments/subscribe-to-comments.php' );
+define( 'RTP_SUBSCRIBE_TO_COMMENTS', 'subscribe-to-comments-reloaded/subscribe-to-comments-reloaded.php' );
 define( 'RTP_YOAST_SEO', 'wordpress-seo/wp-seo.php' );
 define( 'RTP_REGENERATE_THUMBNAILS', 'regenerate-thumbnails/regenerate-thumbnails.php' );
 define( 'RTP_BUDDYPRESS', 'buddypress/bp-loader.php' );
-define( 'RTP_BBRESS', 'bbpress/bbpress.php' );
+define( 'RTP_BBPRESS', 'bbpress/bbpress.php' );
 define( 'RTP_MEDIA', 'buddypress-media/index.php' );
+define( 'RTP_CF7', 'contact-form-7/wp-contact-form-7.php' );
+define( 'RTP_NINJA_FORM', 'ninja-forms/ninja-forms.php' );
+define( 'RTP_WOOCOMMERCE', 'woocommerce/woocommerce.php' );
+define( 'RTP_JETPACK', 'jetpack/jetpack.php' );
+define( 'RTP_YARPP', 'yet-another-related-posts-plugin/yarpp.php' );
 
 /**
  * Registers rtPanel General and Post & Comments options
@@ -124,7 +129,7 @@ function rtp_sidebar_options_metabox() {
                 </tr><?php
             } ?>
             <input type="hidden" name="rtp_general[bbpress_sidebar]" value="default-sidebar" /><?php
-            if ( is_plugin_active(RTP_BBRESS) ) { ?>
+            if ( is_plugin_active(RTP_BBPRESS) ) { ?>
                 <tr valign="top">
                     <th scope="row"><label for="bbpress_sidebar"><?php _e( 'bbPress Sidebar', 'rtPanel' ); ?></label></th>
                     <td>
@@ -243,7 +248,29 @@ function rtp_plugin_metabox() {
     $regenerate_delete = wp_create_nonce( RTP_REGENERATE_THUMBNAILS . '-delete' );
     $rtmedia_activate = wp_create_nonce( RTP_MEDIA . '-activate' );
     $rtmedia_deactivate = wp_create_nonce( RTP_MEDIA . '-deactivate' );
-    $rtmedia_delete = wp_create_nonce( RTP_MEDIA . '-delete' ); ?>
+    $rtmedia_delete = wp_create_nonce( RTP_MEDIA . '-delete' );
+    $rtp_bbpress_activate = wp_create_nonce( RTP_BBPRESS . '-activate' );
+    $rtp_bbpress_deactivate = wp_create_nonce( RTP_BBPRESS . '-deactivate' );
+    $rtp_bbpress_delete = wp_create_nonce( RTP_BBPRESS . '-delete' );
+    $rtp_buddypress_activate = wp_create_nonce( RTP_BUDDYPRESS . '-activate' );
+    $rtp_buddypress_deactivate = wp_create_nonce( RTP_BUDDYPRESS . '-deactivate' );
+    $rtp_buddypress_delete = wp_create_nonce( RTP_BUDDYPRESS . '-delete' );
+    $rtp_cf7_activate = wp_create_nonce( RTP_CF7 . '-activate' );
+    $rtp_cf7_deactivate = wp_create_nonce( RTP_CF7 . '-deactivate' );
+    $rtp_cf7_delete = wp_create_nonce( RTP_CF7 . '-delete' );
+    $rtp_jetpack_activate = wp_create_nonce( RTP_JETPACK . '-activate' );
+    $rtp_jetpack_deactivate = wp_create_nonce( RTP_JETPACK . '-deactivate' );
+    $rtp_jetpack_delete = wp_create_nonce( RTP_JETPACK . '-delete' );
+    $rtp_ninja_form_activate = wp_create_nonce( RTP_NINJA_FORM . '-activate' );
+    $rtp_ninja_form_deactivate = wp_create_nonce( RTP_NINJA_FORM . '-deactivate' );
+    $rtp_ninja_form_delete = wp_create_nonce( RTP_NINJA_FORM . '-delete' );
+    $rtp_woocommerce_activate = wp_create_nonce( RTP_WOOCOMMERCE . '-activate' );
+    $rtp_woocommerce_deactivate = wp_create_nonce( RTP_WOOCOMMERCE . '-deactivate' );
+    $rtp_woocommerce_delete = wp_create_nonce( RTP_WOOCOMMERCE . '-delete' );
+    $rtp_yarpp_activate = wp_create_nonce( RTP_YARPP . '-activate' );
+    $rtp_yarpp_deactivate = wp_create_nonce( RTP_YARPP . '-deactivate' );
+    $rtp_yarpp_delete = wp_create_nonce( RTP_YARPP . '-delete' ); ?>
+
     <table class="form-table">
         <tr>
             <th><?php _e( 'Name', 'rtPanel' ); ?></th>
@@ -251,6 +278,238 @@ function rtp_plugin_metabox() {
             <th><?php _e( 'Action', 'rtPanel' ); ?></th>
             <th><?php _e( 'Edit', 'rtPanel' ); ?></th>
         </tr>
+
+        <!-- Start of bbPress Plugin -->
+        <tr>
+            <td><a target="_blank" href="http://wordpress.org/plugins/bbpress/"><?php _e( 'bbPress', 'rtPanel' ); ?></a></td>
+            <td>
+                <?php 
+                if ( is_plugin_active( RTP_BBPRESS ) ) {
+                    echo '<span class="active">' . __( 'Active', 'rtPanel' ) . '</span>';
+                } elseif ( array_key_exists( RTP_BBPRESS, $plugins ) ) {
+                    echo '<span class="inactive">' . __( 'Inactive', 'rtPanel' ) . '</span>';
+                } else {
+                    echo '<span class="not-installed">' . __( 'Not Installed', 'rtPanel' ) . '</span>';
+                }
+                ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_BBPRESS ) ) { ?>
+                    <input type="hidden" value="<?php echo esc_attr($rtp_bbpress_deactivate); ?>" name="_wpnonce_bbpress_deactivate" id="_wpnonce_bbpress_deactivate" /><input id="bbpress-deactivate" type="hidden" name="bbpress-deactivate" value="0" /><a class="bbpress-deactivate" href="#bbpress-deactivate" onclick="deactivate_plugin('bbPress')"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
+                <?php } elseif ( array_key_exists( RTP_BBPRESS, $plugins ) ) { ?>
+                    <input type="hidden" value="<?php echo esc_attr($rtp_bbpress_activate); ?>" name="_wpnonce_bbpress_activate" id="_wpnonce_bbpress_activate" /><input id="bbpress-activate" type="hidden" name="bbpress-activate" value="0" /><a class="bbpress-activate" href="#bbpress-activate" onclick="activate_plugin( 'bbPress' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo esc_attr( $rtp_bbpress_delete ); ?>" name="_wpnonce_bbpress_delete" id="_wpnonce_bbpress_delete" /><input id="bbpress-delete" type="hidden" name="bbpress-delete" value="0" /><a class="bbpress-delete" href="#bbpress-delete" onclick="delete_plugin_confirmation( 'bbPress' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=bbpress' ), 'install-plugin_bbpress' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
+                <?php } ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_BBPRESS ) || array_key_exists( RTP_BBPRESS, $plugins ) ) { ?>
+                    <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_BBPRESS ) ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <span class="not-installed"> ----- </span>
+                <?php } ?>
+            </td>
+        </tr>
+        <!-- End of bbPress Plugin -->
+
+        <!-- Start of BuddyPress Plugin -->
+        <tr>
+            <td><a target="_blank" href="http://wordpress.org/plugins/buddypress/"><?php _e( 'BuddyPress', 'rtPanel' ); ?></a></td>
+            <td>
+                <?php 
+                if ( is_plugin_active( RTP_BUDDYPRESS ) ) {
+                    echo '<span class="active">' . __( 'Active', 'rtPanel' ) . '</span>';
+                } elseif ( array_key_exists( RTP_BUDDYPRESS, $plugins ) ) {
+                    echo '<span class="inactive">' . __( 'Inactive', 'rtPanel' ) . '</span>';
+                } else {
+                    echo '<span class="not-installed">' . __( 'Not Installed', 'rtPanel' ) . '</span>';
+                }
+                ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_BUDDYPRESS ) ) { ?>
+                    <input type="hidden" value="<?php echo esc_attr($rtp_buddypress_deactivate); ?>" name="_wpnonce_buddypress_deactivate" id="_wpnonce_buddypress_deactivate" /><input id="buddypress-deactivate" type="hidden" name="buddypress-deactivate" value="0" /><a class="buddypress-deactivate" href="#buddypress-deactivate" onclick="deactivate_plugin( 'BuddyPress' )"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
+                <?php } elseif ( array_key_exists( RTP_BUDDYPRESS, $plugins ) ) { ?>
+                    <input type="hidden" value="<?php echo esc_attr($rtp_buddypress_activate); ?>" name="_wpnonce_buddypress_activate" id="_wpnonce_buddypress_activate" /><input id="buddypress-activate" type="hidden" name="buddypress-activate" value="0" /><a class="buddypress-activate" href="#buddypress-activate" onclick="activate_plugin( 'BuddyPress' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo esc_attr( $rtp_buddypress_delete ); ?>" name="_wpnonce_buddypress_delete" id="_wpnonce_buddypress_delete" /><input id="buddypress-delete" type="hidden" name="buddypress-delete" value="0" /><a class="buddypress-delete" href="#buddypress-delete" onclick="delete_plugin_confirmation( 'BuddyPress' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=buddypress' ), 'install-plugin_buddypress' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
+                <?php } ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_BUDDYPRESS ) || array_key_exists( RTP_BUDDYPRESS, $plugins ) ) { ?>
+                    <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_BUDDYPRESS ) ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <span class="not-installed"> ----- </span>
+                <?php } ?>
+            </td>
+        </tr>
+        <!-- End of BuddyPress Plugin -->
+
+        <!-- Start of Contact Form 7 Plugin -->
+        <tr>
+            <td><a target="_blank" href="http://wordpress.org/plugins/contact-form-7/"><?php _e( 'Contact Form 7', 'rtPanel' ); ?></a></td>
+            <td>
+                <?php 
+                if ( is_plugin_active( RTP_CF7 ) ) {
+                    echo '<span class="active">' . __( 'Active', 'rtPanel' ) . '</span>';
+                } elseif ( array_key_exists( RTP_CF7, $plugins ) ) {
+                    echo '<span class="inactive">' . __( 'Inactive', 'rtPanel' ) . '</span>';
+                } else {
+                    echo '<span class="not-installed">' . __( 'Not Installed', 'rtPanel' ) . '</span>';
+                }
+                ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_CF7 ) ) { ?>
+                    <input type="hidden" value="<?php echo esc_attr($rtp_cf7_deactivate); ?>" name="_wpnonce_cf7_deactivate" id="_wpnonce_cf7_deactivate" /><input id="cf7-deactivate" type="hidden" name="cf7-deactivate" value="0" /><a class="cf7-deactivate" href="#cf7-deactivate" onclick="deactivate_plugin( 'Contact Form 7' )"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
+                <?php } elseif ( array_key_exists( RTP_CF7, $plugins ) ) { ?>
+                    <input type="hidden" value="<?php echo esc_attr($rtp_cf7_activate); ?>" name="_wpnonce_cf7_activate" id="_wpnonce_cf7_activate" /><input id="cf7-activate" type="hidden" name="cf7-activate" value="0" /><a class="cf7-activate" href="#cf7-activate" onclick="activate_plugin( 'Contact Form 7' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo esc_attr( $rtp_cf7_delete ); ?>" name="_wpnonce_cf7_delete" id="_wpnonce_cf7_delete" /><input id="cf7-delete" type="hidden" name="cf7-delete" value="0" /><a class="cf7-delete" href="#cf7-delete" onclick="delete_plugin_confirmation( 'Contact Form 7' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=contact-form-7' ), 'install-plugin_contact-form-7' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
+                <?php } ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_CF7 ) || array_key_exists( RTP_CF7, $plugins ) ) { ?>
+                    <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_CF7 ) ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <span class="not-installed"> ----- </span>
+                <?php } ?>
+            </td>
+        </tr>
+        <!-- End of Contact Form 7 Plugin -->
+        
+        <!-- Start of Jetpack by WordPress.com Plugin -->
+        <tr>
+            <td><a target="_blank" href="http://wordpress.org/plugins/jetpack/"><?php _e( 'Jetpack by WordPress.com', 'rtPanel' ); ?></a></td>
+            <td>
+                <?php 
+                if ( is_plugin_active( RTP_JETPACK ) ) {
+                    echo '<span class="active">' . __( 'Active', 'rtPanel' ) . '</span>';
+                } elseif ( array_key_exists( RTP_JETPACK, $plugins ) ) {
+                    echo '<span class="inactive">' . __( 'Inactive', 'rtPanel' ) . '</span>';
+                } else {
+                    echo '<span class="not-installed">' . __( 'Not Installed', 'rtPanel' ) . '</span>';
+                }
+                ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_JETPACK ) ) { ?>
+                    <input type="hidden" value="<?php echo esc_attr($rtp_jetpack_deactivate); ?>" name="_wpnonce_jetpack_deactivate" id="_wpnonce_jetpack_deactivate" /><input id="jetpack-deactivate" type="hidden" name="jetpack-deactivate" value="0" /><a class="jetpack-deactivate" href="#jetpack-deactivate" onclick="deactivate_plugin( 'Jetpack by WordPress.com' )"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
+                <?php } elseif ( array_key_exists( RTP_JETPACK, $plugins ) ) { ?>
+                    <input type="hidden" value="<?php echo esc_attr($rtp_jetpack_activate); ?>" name="_wpnonce_jetpack_activate" id="_wpnonce_jetpack_activate" /><input id="jetpack-activate" type="hidden" name="jetpack-activate" value="0" /><a class="jetpack-activate" href="#jetpack-activate" onclick="activate_plugin( 'Jetpack by WordPress.com' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo esc_attr( $rtp_jetpack_delete ); ?>" name="_wpnonce_jetpack_delete" id="_wpnonce_jetpack_delete" /><input id="jetpack-delete" type="hidden" name="jetpack-delete" value="0" /><a class="jetpack-delete" href="#jetpack-delete" onclick="delete_plugin_confirmation( 'Jetpack by WordPress.com' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=jetpack' ), 'install-plugin_jetpack' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
+                <?php } ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_JETPACK ) || array_key_exists( RTP_JETPACK, $plugins ) ) { ?>
+                    <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_JETPACK ) ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <span class="not-installed"> ----- </span>
+                <?php } ?>
+            </td>
+        </tr>
+        <!-- End of Jetpack by WordPress.com Plugin -->
+
+        <!-- Start of Ninja Forms Plugin -->
+        <tr>
+            <td><a target="_blank" href="http://wordpress.org/plugins/ninja-forms/"><?php _e( 'Ninja Forms', 'rtPanel' ); ?></a></td>
+            <td>
+                <?php 
+                if ( is_plugin_active( RTP_NINJA_FORM ) ) {
+                    echo '<span class="active">' . __( 'Active', 'rtPanel' ) . '</span>';
+                } elseif ( array_key_exists( RTP_NINJA_FORM, $plugins ) ) {
+                    echo '<span class="inactive">' . __( 'Inactive', 'rtPanel' ) . '</span>';
+                } else {
+                    echo '<span class="not-installed">' . __( 'Not Installed', 'rtPanel' ) . '</span>';
+                }
+                ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_NINJA_FORM ) ) { ?>
+                    <input type="hidden" value="<?php echo esc_attr($rtp_ninja_form_deactivate); ?>" name="_wpnonce_ninja_form_deactivate" id="_wpnonce_ninja_form_deactivate" /><input id="ninja_form-deactivate" type="hidden" name="ninja_form-deactivate" value="0" /><a class="ninja_form-deactivate" href="#ninja_form-deactivate" onclick="deactivate_plugin( 'Ninja Forms' )"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
+                <?php } elseif ( array_key_exists( RTP_NINJA_FORM, $plugins ) ) { ?>
+                    <input type="hidden" value="<?php echo esc_attr($rtp_ninja_form_activate); ?>" name="_wpnonce_ninja_form_activate" id="_wpnonce_ninja_form_activate" /><input id="ninja_form-activate" type="hidden" name="ninja_form-activate" value="0" /><a class="ninja_form-activate" href="#ninja_form-activate" onclick="activate_plugin( 'Ninja Forms' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo esc_attr( $rtp_ninja_form_delete ); ?>" name="_wpnonce_ninja_form_delete" id="_wpnonce_ninja_form_delete" /><input id="ninja_form-delete" type="hidden" name="ninja_form-delete" value="0" /><a class="ninja_form-delete" href="#ninja_form-delete" onclick="delete_plugin_confirmation( 'Ninja Forms' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=ninja-forms' ), 'install-plugin_ninja-forms' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
+                <?php } ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_NINJA_FORM ) || array_key_exists( RTP_NINJA_FORM, $plugins ) ) { ?>
+                    <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_NINJA_FORM ) ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <span class="not-installed"> ----- </span>
+                <?php } ?>
+            </td>
+        </tr>
+        <!-- End of Ninja Forms Plugin -->
+
+        <!-- Start of Regenerate Thumbnails Plugin -->
+        <tr>
+            <td><a href="http://wordpress.org/extend/plugins/regenerate-thumbnails/"><?php _e( 'Regenerate Thumbnails', 'rtPanel' ); ?></a></td>
+            <td>
+                <?php
+                if ( is_plugin_active( RTP_REGENERATE_THUMBNAILS ) ) {
+                    echo '<span class="active">Active</span>';
+                } elseif ( array_key_exists( RTP_REGENERATE_THUMBNAILS, $plugins ) ) {
+                    echo '<span class="inactive">Inactive</span>';
+                } else {
+                    echo '<span class="not-installed">Not Installed</span>';
+                } ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_REGENERATE_THUMBNAILS ) ) { ?>
+                    <input type="hidden" value="<?php echo esc_attr($regenerate_deactivate); ?>" name="_wpnonce_regenerate_deactivate" id="_wpnonce_regenerate_deactivate" /><input id="regenerate-deactivate" type="hidden" name="regenerate-deactivate" value="0" /><a class="regenerate-deactivate" href="#regenerate-deactivate" onclick="deactivate_plugin( 'Regenerate Thumbnails' )"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
+                <?php } elseif ( array_key_exists( RTP_REGENERATE_THUMBNAILS, $plugins ) ) { ?>
+                    <input type="hidden" value="<?php echo esc_attr($regenerate_activate); ?>" name="_wpnonce_regenerate_activate" id="_wpnonce_regenerate_activate" /><input id="regenerate-activate" type="hidden" name="regenerate-activate" value="0" /><a class="regenerate-activate" href="#regenerate-activate" onclick="activate_plugin( 'Regenerate Thumbnails' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo esc_attr($regenerate_delete); ?>" name="_wpnonce_regenerate_delete" id="_wpnonce_regenerate_delete" /><input id="regenerate-delete" type="hidden" name="regenerate-delete" value="0" /><a class="regenerate-delete" href="#regenerate-delete" onclick="delete_plugin_confirmation( 'Regenerate Thumbnails' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=regenerate-thumbnails' ), 'install-plugin_regenerate-thumbnails' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
+                <?php } ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_REGENERATE_THUMBNAILS ) || array_key_exists( RTP_REGENERATE_THUMBNAILS, $plugins ) ) { ?>
+                    <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_REGENERATE_THUMBNAILS ); ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <span class="not-installed"> ----- </span>
+                <?php } ?>
+            </td>
+        </tr>
+        <!-- End of Regenerate Thumbnails Plugin -->
+
+        <!-- Start of rtMedia Plugin -->
+        <tr>
+            <td><a target="_blank" href="http://wordpress.org/plugins/buddypress-media/"><?php _e( 'rtMedia for WordPress, BuddyPress and bbPress', 'rtPanel' ); ?></a></td>
+            <td>
+                <?php 
+                if ( is_plugin_active( RTP_MEDIA ) ) {
+                    echo '<span class="active">' . __( 'Active', 'rtPanel' ) . '</span>';
+                } elseif ( array_key_exists( RTP_MEDIA, $plugins ) ) {
+                    echo '<span class="inactive">' . __( 'Inactive', 'rtPanel' ) . '</span>';
+                } else {
+                    echo '<span class="not-installed">' . __( 'Not Installed', 'rtPanel' ) . '</span>';
+                }
+                ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_MEDIA ) ) { ?>
+                    <input type="hidden" value="<?php echo esc_attr($rtmedia_deactivate); ?>" name="_wpnonce_rtmedia_deactivate" id="_wpnonce_rtmedia_deactivate" /><input id="rtmedia-deactivate" type="hidden" name="rtmedia-deactivate" value="0" /><a class="rtmedia-deactivate" href="#rtmedia-deactivate" onclick="deactivate_plugin('rtMedia for WordPress, BuddyPress and bbPress')"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
+                <?php } elseif ( array_key_exists( RTP_MEDIA, $plugins ) ) { ?>
+                    <input type="hidden" value="<?php echo esc_attr($rtmedia_activate); ?>" name="_wpnonce_rtmedia_activate" id="_wpnonce_rtmedia_activate" /><input id="rtmedia-activate" type="hidden" name="rtmedia-activate" value="0" /><a class="rtmedia-activate" href="#rtmedia-activate" onclick="activate_plugin( 'rtMedia for WordPress, BuddyPress and bbPress' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo esc_attr($rtmedia_delete); ?>" name="_wpnonce_rtmedia_delete" id="_wpnonce_rtmedia_delete" /><input id="rtmedia-delete" type="hidden" name="rtmedia-delete" value="0" /><a class="rtmedia-delete" href="#rtmedia-delete" onclick="delete_plugin_confirmation( 'rtMedia for WordPress, BuddyPress and bbPress' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=buddypress-media' ), 'install-plugin_buddypress-media' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
+                <?php } ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_MEDIA ) || array_key_exists( RTP_MEDIA, $plugins ) ) { ?>
+                    <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_MEDIA ) ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <span class="not-installed"> ----- </span>
+                <?php } ?>
+            </td>
+        </tr>
+        <!-- End of rtMedia Plugin -->
+
+        <!-- Start of rtPanel Hooks Editor Plugin -->
         <tr>
             <td><a target="_blank" href="http://wordpress.org/extend/plugins/rtpanel-hooks-editor/"><?php _e( 'rtPanel Hooks Editor', 'rtPanel' ); ?></a></td>
             <td>
@@ -281,6 +540,9 @@ function rtp_plugin_metabox() {
                 <?php } ?>
             </td>
         </tr>
+        <!-- End of rtPanel Hooks Editor Plugin -->
+
+        <!-- Start of rtSocial Plugin -->
         <tr>
             <td><a target="_blank" href="http://wordpress.org/extend/plugins/rtsocial/"><?php _e( 'rtSocial', 'rtPanel' ); ?></a></td>
             <td>
@@ -311,8 +573,11 @@ function rtp_plugin_metabox() {
                 <?php } ?>
             </td>
         </tr>
+        <!-- End of rtSocial Plugin -->
+
+        <!-- Start of Subscribe To Comments Reloaded Plugin -->
         <tr>
-            <td><a target="_blank" href="http://wordpress.org/extend/plugins/subscribe-to-comments/"><?php _e( 'Subscribe to Comments', 'rtPanel' ); ?></a></td>
+            <td><a target="_blank" href="http://wordpress.org/plugins/subscribe-to-comments-reloaded/"><?php _e( 'Subscribe To Comments Reloaded', 'rtPanel' ); ?></a></td>
             <td>
                 <?php
                 if ( is_plugin_active( RTP_SUBSCRIBE_TO_COMMENTS ) ) {
@@ -326,11 +591,11 @@ function rtp_plugin_metabox() {
             </td>
             <td>
                 <?php if ( is_plugin_active( RTP_SUBSCRIBE_TO_COMMENTS ) ) { ?>
-                    <input type="hidden" value="<?php echo esc_attr($subscribe_deactivate); ?>" name="_wpnonce_subscribe_deactivate" id="_wpnonce_subscribe_deactivate" /><input id="subscribe-deactivate" type="hidden" name="subscribe-deactivate" value="0" /><a class="subscribe-deactivate" href="#subscribe-deactivate" onclick="deactivate_plugin('Subscribe To Comments')"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
+                    <input type="hidden" value="<?php echo esc_attr($subscribe_deactivate); ?>" name="_wpnonce_subscribe_deactivate" id="_wpnonce_subscribe_deactivate" /><input id="subscribe-deactivate" type="hidden" name="subscribe-deactivate" value="0" /><a class="subscribe-deactivate" href="#subscribe-deactivate" onclick="deactivate_plugin('Subscribe To Comments Reloaded')"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
                 <?php } elseif ( array_key_exists( RTP_SUBSCRIBE_TO_COMMENTS, $plugins ) ) { ?>
-                    <input type="hidden" value="<?php echo esc_attr($subscribe_activate); ?>" name="_wpnonce_subscribe_activate" id="_wpnonce_subscribe_activate" /><input id="subscribe-activate" type="hidden" name="subscribe-activate" value="0" /><a class="subscribe-activate" href="#subscribe-activate" onclick="activate_plugin('Subscribe To Comments')"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo esc_attr($subscribe_delete); ?>" name="_wpnonce_subscribe_delete" id="_wpnonce_subscribe_delete" /><input id="subscribe-delete" type="hidden" name="subscribe-delete" value="0" /><a class="subscribe-delete" href="#subscribe-delete" onclick="delete_plugin_confirmation( 'Subscribe To Comments' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
+                    <input type="hidden" value="<?php echo esc_attr($subscribe_activate); ?>" name="_wpnonce_subscribe_activate" id="_wpnonce_subscribe_activate" /><input id="subscribe-activate" type="hidden" name="subscribe-activate" value="0" /><a class="subscribe-activate" href="#subscribe-activate" onclick="activate_plugin('Subscribe To Comments Reloaded')"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo esc_attr($subscribe_delete); ?>" name="_wpnonce_subscribe_delete" id="_wpnonce_subscribe_delete" /><input id="subscribe-delete" type="hidden" name="subscribe-delete" value="0" /><a class="subscribe-delete" href="#subscribe-delete" onclick="delete_plugin_confirmation( 'Subscribe To Comments Reloaded' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
                 <?php } else { ?>
-                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=subscribe-to-comments' ), 'install-plugin_subscribe-to-comments' ); ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
+                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=subscribe-to-comments-reloaded' ), 'install-plugin_subscribe-to-comments-reloaded' ); ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
                 <?php } ?>
             </td>
             <td>
@@ -341,6 +606,42 @@ function rtp_plugin_metabox() {
                 <?php } ?>
             </td>
         </tr>
+        <!-- End of Subscribe To Comments Reloaded Plugin -->
+
+        <!-- Start of WooCommerce Plugin -->
+        <tr>
+            <td><a target="_blank" href="http://wordpress.org/plugins/woocommerce/"><?php _e( 'WooCommerce - excelling eCommerce', 'rtPanel' ); ?></a></td>
+            <td>
+                <?php 
+                if ( is_plugin_active( RTP_WOOCOMMERCE ) ) {
+                    echo '<span class="active">' . __( 'Active', 'rtPanel' ) . '</span>';
+                } elseif ( array_key_exists( RTP_WOOCOMMERCE, $plugins ) ) {
+                    echo '<span class="inactive">' . __( 'Inactive', 'rtPanel' ) . '</span>';
+                } else {
+                    echo '<span class="not-installed">' . __( 'Not Installed', 'rtPanel' ) . '</span>';
+                }
+                ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_WOOCOMMERCE ) ) { ?>
+                    <input type="hidden" value="<?php echo esc_attr($rtp_woocommerce_deactivate); ?>" name="_wpnonce_woocommerce_deactivate" id="_wpnonce_woocommerce_deactivate" /><input id="woocommerce-deactivate" type="hidden" name="woocommerce-deactivate" value="0" /><a class="woocommerce-deactivate" href="#woocommerce-deactivate" onclick="deactivate_plugin( 'WooCommerce - excelling eCommerce' )"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
+                <?php } elseif ( array_key_exists( RTP_WOOCOMMERCE, $plugins ) ) { ?>
+                    <input type="hidden" value="<?php echo esc_attr($rtp_woocommerce_activate); ?>" name="_wpnonce_woocommerce_activate" id="_wpnonce_woocommerce_activate" /><input id="woocommerce-activate" type="hidden" name="woocommerce-activate" value="0" /><a class="woocommerce-activate" href="#woocommerce-activate" onclick="activate_plugin( 'WooCommerce - excelling eCommerce' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo esc_attr( $rtp_woocommerce_delete ); ?>" name="_wpnonce_woocommerce_delete" id="_wpnonce_woocommerce_delete" /><input id="woocommerce-delete" type="hidden" name="woocommerce-delete" value="0" /><a class="woocommerce-delete" href="#woocommerce-delete" onclick="delete_plugin_confirmation( 'WooCommerce - excelling eCommerce' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=woocommerce' ), 'install-plugin_woocommerce' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
+                <?php } ?>
+            </td>
+            <td>
+                <?php if ( is_plugin_active( RTP_WOOCOMMERCE ) || array_key_exists( RTP_WOOCOMMERCE, $plugins ) ) { ?>
+                    <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_WOOCOMMERCE ) ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
+                <?php } else { ?>
+                    <span class="not-installed"> ----- </span>
+                <?php } ?>
+            </td>
+        </tr>
+        <!-- End of WooCommerce Plugin -->
+
+        <!-- Start of WordPress SEO by Yoast Plugin -->
         <tr>
             <td><a target="_blank" href="http://wordpress.org/extend/plugins/wordpress-seo/"><?php _e( 'WordPress SEO by Yoast', 'rtPanel' ); ?></a></td>
             <td>
@@ -370,66 +671,42 @@ function rtp_plugin_metabox() {
                     <span class="not-installed"> ----- </span>
                 <?php } ?>
             </td>
-        </tr>        
+        </tr>
+        <!-- End of WordPress SEO by Yoast Plugin -->
+        
+        <!-- Start of Yet Another Related Posts Plugin (YARPP) Plugin -->
         <tr>
-            <td><a target="_blank" href="http://wordpress.org/plugins/buddypress-media/"><?php _e( 'rtMedia for WordPress, BuddyPress and bbPress', 'rtPanel' ); ?></a></td>
-            <td>
-                <?php 
-                if ( is_plugin_active( RTP_MEDIA ) ) {
+            <td class="last-child"><a target="_blank" href="http://wordpress.org/plugins/yet-another-related-posts-plugin/"><?php _e( 'Yet Another Related Posts Plugin (YARPP)', 'rtPanel' ); ?></a></td>
+            <td class="last-child">
+                <?php
+                if ( is_plugin_active( RTP_YARPP ) ) {
                     echo '<span class="active">' . __( 'Active', 'rtPanel' ) . '</span>';
-                } elseif ( array_key_exists( RTP_MEDIA, $plugins ) ) {
+                } elseif ( array_key_exists( RTP_YARPP, $plugins ) ) {
                     echo '<span class="inactive">' . __( 'Inactive', 'rtPanel' ) . '</span>';
                 } else {
                     echo '<span class="not-installed">' . __( 'Not Installed', 'rtPanel' ) . '</span>';
                 }
                 ?>
             </td>
-            <td>
-                <?php if ( is_plugin_active( RTP_MEDIA ) ) { ?>
-                    <input type="hidden" value="<?php echo esc_attr($rtmedia_deactivate); ?>" name="_wpnonce_rtmedia_deactivate" id="_wpnonce_rtmedia_deactivate" /><input id="rtmedia-deactivate" type="hidden" name="rtmedia-deactivate" value="0" /><a class="rtmedia-deactivate" href="#rtmedia-deactivate" onclick="deactivate_plugin('rtMedia for WordPress, BuddyPress and bbPress')"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
-                <?php } elseif ( array_key_exists( RTP_MEDIA, $plugins ) ) { ?>
-                    <input type="hidden" value="<?php echo esc_attr($rtmedia_activate); ?>" name="_wpnonce_rtmedia_activate" id="_wpnonce_rtmedia_activate" /><input id="rtmedia-activate" type="hidden" name="rtmedia-activate" value="0" /><a class="rtmedia-activate" href="#rtmedia-activate" onclick="activate_plugin( 'rtMedia for WordPress, BuddyPress and bbPress' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo esc_attr($rtmedia_delete); ?>" name="_wpnonce_rtmedia_delete" id="_wpnonce_rtmedia_delete" /><input id="rtmedia-delete" type="hidden" name="rtmedia-delete" value="0" /><a class="rtmedia-delete" href="#rtmedia-delete" onclick="delete_plugin_confirmation( 'rtMedia for WordPress, BuddyPress and bbPress' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
-                <?php } else { ?>
-                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=buddypress-media' ), 'install-plugin_buddypress-media' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
-                <?php } ?>
-            </td>
-            <td>
-                <?php if ( is_plugin_active( RTP_MEDIA ) || array_key_exists( RTP_MEDIA, $plugins ) ) { ?>
-                    <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_MEDIA ) ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
-                <?php } else { ?>
-                    <span class="not-installed"> ----- </span>
-                <?php } ?>
-            </td>
-        </tr>        
-        <tr>
-            <td class="last-child"><a href="http://wordpress.org/extend/plugins/regenerate-thumbnails/"><?php _e( 'Regenerate Thumbnails', 'rtPanel' ); ?></a></td>
             <td class="last-child">
-                <?php
-                if ( is_plugin_active( RTP_REGENERATE_THUMBNAILS ) ) {
-                    echo '<span class="active">Active</span>';
-                } elseif ( array_key_exists( RTP_REGENERATE_THUMBNAILS, $plugins ) ) {
-                    echo '<span class="inactive">Inactive</span>';
-                } else {
-                    echo '<span class="not-installed">Not Installed</span>';
-                } ?>
-            </td>
-            <td class="last-child">
-                <?php if ( is_plugin_active( RTP_REGENERATE_THUMBNAILS ) ) { ?>
-                    <input type="hidden" value="<?php echo esc_attr($regenerate_deactivate); ?>" name="_wpnonce_regenerate_deactivate" id="_wpnonce_regenerate_deactivate" /><input id="regenerate-deactivate" type="hidden" name="regenerate-deactivate" value="0" /><a class="regenerate-deactivate" href="#regenerate-deactivate" onclick="deactivate_plugin( 'Regenerate Thumbnails' )"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
-                <?php } elseif ( array_key_exists( RTP_REGENERATE_THUMBNAILS, $plugins ) ) { ?>
-                    <input type="hidden" value="<?php echo esc_attr($regenerate_activate); ?>" name="_wpnonce_regenerate_activate" id="_wpnonce_regenerate_activate" /><input id="regenerate-activate" type="hidden" name="regenerate-activate" value="0" /><a class="regenerate-activate" href="#regenerate-activate" onclick="activate_plugin( 'Regenerate Thumbnails' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo esc_attr($regenerate_delete); ?>" name="_wpnonce_regenerate_delete" id="_wpnonce_regenerate_delete" /><input id="regenerate-delete" type="hidden" name="regenerate-delete" value="0" /><a class="regenerate-delete" href="#regenerate-delete" onclick="delete_plugin_confirmation( 'Regenerate Thumbnails' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
+                <?php if ( is_plugin_active( RTP_YARPP ) ) { ?>
+                    <input type="hidden" value="<?php echo esc_attr($rtp_yarpp_deactivate); ?>" name="_wpnonce_yarpp_deactivate" id="_wpnonce_yarpp_deactivate" /><input id="yarpp-deactivate" type="hidden" name="yarpp-deactivate" value="0" /><a class="yarpp-deactivate" href="#yarpp-deactivate" onclick="deactivate_plugin('Yet Another Related Posts Plugin (YARPP)')"><?php _e( 'Deactivate', 'rtPanel' ); ?></a>
+                <?php } elseif ( array_key_exists( RTP_YARPP, $plugins ) ) { ?>
+                    <input type="hidden" value="<?php echo esc_attr($rtp_yarpp_activate); ?>" name="_wpnonce_yarpp_activate" id="_wpnonce_yarpp_activate" /><input id="yarpp-activate" type="hidden" name="yarpp-activate" value="0" /><a class="yarpp-activate" href="#yarpp-activate" onclick="activate_plugin( 'Yet Another Related Posts Plugin (YARPP)' )"><?php _e( 'Activate', 'rtPanel' ); ?></a> / <input type="hidden" value="<?php echo esc_attr($rtp_yarpp_delete); ?>" name="_wpnonce_yarpp_delete" id="_wpnonce_yarpp_delete" /><input id="yarpp-delete" type="hidden" name="yarpp-delete" value="0" /><a class="yarpp-delete" href="#yarpp-delete" onclick="delete_plugin_confirmation( 'Yet Another Related Posts Plugin (YARPP)' )"><?php _e( 'Delete', 'rtPanel' ); ?></a>
                 <?php } else { ?>
-                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=regenerate-thumbnails' ), 'install-plugin_regenerate-thumbnails' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
+                    <a href="<?php echo wp_nonce_url( admin_url( 'update.php?action=install-plugin&amp;plugin=yet-another-related-posts-plugin' ), 'install-plugin_yet-another-related-posts-plugin' ) ?>"><?php _e( 'Install', 'rtPanel' ); ?></a>
                 <?php } ?>
             </td>
             <td class="last-child">
-                <?php if ( is_plugin_active( RTP_REGENERATE_THUMBNAILS ) || array_key_exists( RTP_REGENERATE_THUMBNAILS, $plugins ) ) { ?>
-                    <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_REGENERATE_THUMBNAILS ); ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
+                <?php if ( is_plugin_active( RTP_YARPP ) || array_key_exists( RTP_YARPP, $plugins ) ) { ?>
+                    <a href="<?php echo admin_url( 'plugin-editor.php?file=' . RTP_YARPP ) ?>"><?php _e( 'Edit', 'rtPanel' ); ?></a>
                 <?php } else { ?>
                     <span class="not-installed"> ----- </span>
                 <?php } ?>
             </td>
         </tr>
+        <!-- End of Yet Another Related Posts Plugin (YARPP) Plugin -->
+        
     </table><?php
 }
 

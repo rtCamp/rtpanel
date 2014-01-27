@@ -95,7 +95,10 @@ function rtp_general_validate($input) {
             }
         }
 
-        if (isset($_POST['rtsocial-activate']) && ( $_POST['rtsocial-activate'] == 1 )) {
+        /**
+         * rtSocial Plugin
+         */
+        if ( isset($_POST['rtsocial-activate']) && ( $_POST['rtsocial-activate'] == 1 ) ) {
             $nonce = $_REQUEST['_wpnonce_rtsocial_activate'];
             if (!wp_verify_nonce($nonce, RTP_SOCIAL . '-activate' )) {
                 add_settings_error( 'activate-plugin', 'failure_plugin_activation', __( 'You do not have sufficient permissions to activate this plugin.', 'rtPanel' ));
@@ -119,7 +122,12 @@ function rtp_general_validate($input) {
                 delete_plugins(array(RTP_SOCIAL));
                 add_settings_error( 'delete-plugin', 'plugin_deletion', __( 'rtSocial has been Deleted.', 'rtPanel' ), 'updated' );
             }
-        } elseif (isset($_POST['rtp-hooks-editor-activate']) && ( $_POST['rtp-hooks-editor-activate'] == 1 )) {
+        }
+
+        /**
+         * rtPanel Hooks Editor Plugin
+         */
+        elseif (isset($_POST['rtp-hooks-editor-activate']) && ( $_POST['rtp-hooks-editor-activate'] == 1 )) {
             $nonce = $_REQUEST['_wpnonce_rtp_hooks_editor_activate'];
             if (!wp_verify_nonce($nonce, RTP_HOOKS_EDITOR . '-activate' )) {
                 add_settings_error( 'activate-plugin', 'failure_plugin_activation', __( 'You do not have sufficient permissions to activate this plugin.', 'rtPanel' ));
@@ -143,13 +151,18 @@ function rtp_general_validate($input) {
                 delete_plugins(array(RTP_HOOKS_EDITOR));
                 add_settings_error( 'delete-plugin', 'plugin_deletion', __( 'rtPanel Hooks Editor Plugin has been Deleted.', 'rtPanel' ), 'updated' );
             }
-        } elseif (isset($_POST['subscribe-activate']) && ( $_POST['subscribe-activate'] == 1 )) {
+        }
+
+        /**
+         * Subscribe to Comment Plugin
+         */
+        elseif (isset($_POST['subscribe-activate']) && ( $_POST['subscribe-activate'] == 1 )) {
             $nonce = $_REQUEST['_wpnonce_subscribe_activate'];
             if (!wp_verify_nonce($nonce, RTP_SUBSCRIBE_TO_COMMENTS . '-activate' )) {
                 add_settings_error( 'activate-plugin', 'failure_plugin_activation', __( 'You do not have sufficient permissions to activate this plugin.', 'rtPanel' ));
             } else {
                 activate_plugin(RTP_SUBSCRIBE_TO_COMMENTS);
-                add_settings_error( 'activate-plugin', 'plugin_activation', __( 'Subscribe to Comments Plugin has been Activated.', 'rtPanel' ), 'updated' );
+                add_settings_error( 'activate-plugin', 'plugin_activation', __( 'Subscribe To Comments Reloaded Plugin has been Activated.', 'rtPanel' ), 'updated' );
             }
         } elseif (isset($_POST['subscribe-deactivate']) && ( $_POST['subscribe-deactivate'] == 1 )) {
             $nonce = $_REQUEST['_wpnonce_subscribe_deactivate'];
@@ -157,7 +170,7 @@ function rtp_general_validate($input) {
                 add_settings_error( 'deactivate-plugin', 'failure_plugin_deactivation', __( 'You do not have sufficient permissions to deactivate this plugin.', 'rtPanel' ));
             } else {
                 deactivate_plugins(array(RTP_SUBSCRIBE_TO_COMMENTS));
-                add_settings_error( 'deactivate-plugin', 'plugin_activation', __( 'Subscribe to Comments Plugin has been Deactivated.', 'rtPanel' ), 'updated' );
+                add_settings_error( 'deactivate-plugin', 'plugin_activation', __( 'Subscribe To Comments Reloaded Plugin has been Deactivated.', 'rtPanel' ), 'updated' );
             }
         } elseif (isset($_POST['subscribe-delete']) && ( $_POST['subscribe-delete'] == 1 )) {
             $nonce = $_REQUEST['_wpnonce_subscribe_delete'];
@@ -165,9 +178,14 @@ function rtp_general_validate($input) {
                 add_settings_error( 'delete-plugin', 'failure_plugin_deletion', __( 'You do not have sufficient permissions to delete this plugin.', 'rtPanel' ));
             } else {
                 delete_plugins(array(RTP_SUBSCRIBE_TO_COMMENTS));
-                add_settings_error( 'delete-plugin', 'plugin_deletion', __( 'Subscribe to Comments Plugin has been Deleted.', 'rtPanel' ), 'updated' );
+                add_settings_error( 'delete-plugin', 'plugin_deletion', __( 'Subscribe To Comments Reloaded Plugin has been Deleted.', 'rtPanel' ), 'updated' );
             }
-        } elseif (isset($_POST['yoast_seo-activate']) && ( $_POST['yoast_seo-activate'] == 1 )) {
+        }
+
+        /**
+         * WordPress SEO by Yoast Plugin
+         */
+        elseif (isset($_POST['yoast_seo-activate']) && ( $_POST['yoast_seo-activate'] == 1 )) {
             $nonce = $_REQUEST['_wpnonce_yoast_seo_activate'];
             if (!wp_verify_nonce($nonce, RTP_YOAST_SEO . '-activate' )) {
                 add_settings_error( 'activate-plugin', 'failure_plugin_activation', __( 'You do not have sufficient permissions to activate this plugin.', 'rtPanel' ));
@@ -191,7 +209,12 @@ function rtp_general_validate($input) {
                 delete_plugins(array(RTP_YOAST_SEO));
                 add_settings_error( 'delete-plugin', 'plugin_deletion', __( 'Yoast WordPress SEO Plugin has been Deleted.', 'rtPanel' ), 'updated' );
             }
-        }elseif (isset($_POST['rtmedia-activate']) && ( $_POST['rtmedia-activate'] == 1 )) {
+        }
+
+        /**
+         * rtMedia Plugin
+         */
+        elseif (isset($_POST['rtmedia-activate']) && ( $_POST['rtmedia-activate'] == 1 )) {
             $nonce = $_REQUEST['_wpnonce_rtmedia_activate'];
             if (!wp_verify_nonce($nonce, RTP_MEDIA . '-activate' )) {
                 add_settings_error( 'activate-plugin', 'failure_plugin_activation', __( 'You do not have sufficient permissions to activate this plugin.', 'rtPanel' ));
@@ -215,7 +238,215 @@ function rtp_general_validate($input) {
                 delete_plugins(array(RTP_MEDIA));
                 add_settings_error( 'delete-plugin', 'plugin_deletion', __( 'rtMedia for WordPress, BuddyPress and bbPress Plugin has been Deleted.', 'rtPanel' ), 'updated' );
             }
-        }elseif (isset($_POST['regenerate-activate']) && ( $_POST['regenerate-activate'] == 1 )) {
+        }
+
+        /**
+         * bbPress Plugin
+         */
+        elseif (isset($_POST['bbpress-activate']) && ( $_POST['bbpress-activate'] == 1 )) {
+            $nonce = $_REQUEST['_wpnonce_bbpress_activate'];
+            if (!wp_verify_nonce($nonce, RTP_BBPRESS . '-activate' )) {
+                add_settings_error( 'activate-plugin', 'failure_plugin_activation', __( 'You do not have sufficient permissions to activate this plugin.', 'rtPanel' ));
+            } else {
+                activate_plugin(RTP_BBPRESS);
+                add_settings_error( 'activate-plugin', 'plugin_activation', __( 'bbPress Plugin has been Activated.', 'rtPanel' ), 'updated' );
+            }
+        } elseif (isset($_POST['bbpress-deactivate']) && ( $_POST['bbpress-deactivate'] == 1 )) {
+            $nonce = $_REQUEST['_wpnonce_bbpress_deactivate'];
+            if (!wp_verify_nonce($nonce, RTP_BBPRESS . '-deactivate' )) {
+                add_settings_error( 'deactivate-plugin', 'failure_plugin_deactivation', __( 'You do not have sufficient permissions to deactivate this plugin.', 'rtPanel' ));
+            } else {
+                deactivate_plugins(array(RTP_BBPRESS));
+                add_settings_error( 'deactivate-plugin', 'plugin_deactivation', __( 'bbPress Plugin has been Deactivated.', 'rtPanel' ), 'updated' );
+            }
+        } elseif (isset($_POST['bbpress-delete']) && ( $_POST['bbpress-delete'] == 1 )) {
+            $nonce = $_REQUEST['_wpnonce_bbpress_delete'];
+            if (!wp_verify_nonce($nonce, RTP_BBPRESS . '-delete' )) {
+                add_settings_error( 'delete-plugin', 'failure_plugin_deletion', __( 'You do not have sufficient permissions to delete this plugin.', 'rtPanel' ));
+            } else {
+                delete_plugins(array(RTP_BBPRESS));
+                add_settings_error( 'delete-plugin', 'plugin_deletion', __( 'bbPress Plugin has been Deleted.', 'rtPanel' ), 'updated' );
+            }
+        } 
+        
+        /**
+         * BuddyPress Plugin
+         */
+        elseif (isset($_POST['buddypress-activate']) && ( $_POST['buddypress-activate'] == 1 )) {
+            $nonce = $_REQUEST['_wpnonce_buddypress_activate'];
+            if (!wp_verify_nonce($nonce, RTP_BUDDYPRESS . '-activate' )) {
+                add_settings_error( 'activate-plugin', 'failure_plugin_activation', __( 'You do not have sufficient permissions to activate this plugin.', 'rtPanel' ));
+            } else {
+                activate_plugin(RTP_BUDDYPRESS);
+                add_settings_error( 'activate-plugin', 'plugin_activation', __( 'BuddyPress Plugin has been Activated.', 'rtPanel' ), 'updated' );
+            }
+        } elseif (isset($_POST['buddypress-deactivate']) && ( $_POST['buddypress-deactivate'] == 1 )) {
+            $nonce = $_REQUEST['_wpnonce_buddypress_deactivate'];
+            if (!wp_verify_nonce($nonce, RTP_BUDDYPRESS . '-deactivate' )) {
+                add_settings_error( 'deactivate-plugin', 'failure_plugin_deactivation', __( 'You do not have sufficient permissions to deactivate this plugin.', 'rtPanel' ));
+            } else {
+                deactivate_plugins(array(RTP_BUDDYPRESS));
+                add_settings_error( 'deactivate-plugin', 'plugin_deactivation', __( 'BuddyPress Plugin has been Deactivated.', 'rtPanel' ), 'updated' );
+            }
+        } elseif (isset($_POST['buddypress-delete']) && ( $_POST['buddypress-delete'] == 1 )) {
+            $nonce = $_REQUEST['_wpnonce_buddypress_delete'];
+            if (!wp_verify_nonce($nonce, RTP_BUDDYPRESS . '-delete' )) {
+                add_settings_error( 'delete-plugin', 'failure_plugin_deletion', __( 'You do not have sufficient permissions to delete this plugin.', 'rtPanel' ));
+            } else {
+                delete_plugins(array(RTP_BUDDYPRESS));
+                add_settings_error( 'delete-plugin', 'plugin_deletion', __( 'BuddyPress Plugin has been Deleted.', 'rtPanel' ), 'updated' );
+            }
+        } 
+        
+        /**
+         * Contact Form 7 Plugin
+         */
+        elseif (isset($_POST['cf7-activate']) && ( $_POST['cf7-activate'] == 1 )) {
+            $nonce = $_REQUEST['_wpnonce_cf7_activate'];
+            if (!wp_verify_nonce($nonce, RTP_CF7 . '-activate' )) {
+                add_settings_error( 'activate-plugin', 'failure_plugin_activation', __( 'You do not have sufficient permissions to activate this plugin.', 'rtPanel' ));
+            } else {
+                activate_plugin(RTP_CF7);
+                add_settings_error( 'activate-plugin', 'plugin_activation', __( 'Contact Form 7 Plugin has been Activated.', 'rtPanel' ), 'updated' );
+            }
+        } elseif (isset($_POST['cf7-deactivate']) && ( $_POST['cf7-deactivate'] == 1 )) {
+            $nonce = $_REQUEST['_wpnonce_cf7_deactivate'];
+            if (!wp_verify_nonce($nonce, RTP_CF7 . '-deactivate' )) {
+                add_settings_error( 'deactivate-plugin', 'failure_plugin_deactivation', __( 'You do not have sufficient permissions to deactivate this plugin.', 'rtPanel' ));
+            } else {
+                deactivate_plugins(array(RTP_CF7));
+                add_settings_error( 'deactivate-plugin', 'plugin_deactivation', __( 'Contact Form 7 Plugin has been Deactivated.', 'rtPanel' ), 'updated' );
+            }
+        } elseif (isset($_POST['cf7-delete']) && ( $_POST['cf7-delete'] == 1 )) {
+            $nonce = $_REQUEST['_wpnonce_cf7_delete'];
+            if (!wp_verify_nonce($nonce, RTP_CF7 . '-delete' )) {
+                add_settings_error( 'delete-plugin', 'failure_plugin_deletion', __( 'You do not have sufficient permissions to delete this plugin.', 'rtPanel' ));
+            } else {
+                delete_plugins(array(RTP_CF7));
+                add_settings_error( 'delete-plugin', 'plugin_deletion', __( 'Contact Form 7 Plugin has been Deleted.', 'rtPanel' ), 'updated' );
+            }
+        }
+
+        /**
+         * Jetpack by WordPress.com Plugin
+         */
+        elseif (isset($_POST['jetpack-activate']) && ( $_POST['jetpack-activate'] == 1 )) {
+            $nonce = $_REQUEST['_wpnonce_jetpack_activate'];
+            if (!wp_verify_nonce($nonce, RTP_JETPACK . '-activate' )) {
+                add_settings_error( 'activate-plugin', 'failure_plugin_activation', __( 'You do not have sufficient permissions to activate this plugin.', 'rtPanel' ));
+            } else {
+                activate_plugin(RTP_JETPACK);
+                add_settings_error( 'activate-plugin', 'plugin_activation', __( 'Jetpack by WordPress.com Plugin has been Activated.', 'rtPanel' ), 'updated' );
+            }
+        } elseif (isset($_POST['jetpack-deactivate']) && ( $_POST['jetpack-deactivate'] == 1 )) {
+            $nonce = $_REQUEST['_wpnonce_jetpack_deactivate'];
+            if (!wp_verify_nonce($nonce, RTP_JETPACK . '-deactivate' )) {
+                add_settings_error( 'deactivate-plugin', 'failure_plugin_deactivation', __( 'You do not have sufficient permissions to deactivate this plugin.', 'rtPanel' ));
+            } else {
+                deactivate_plugins(array(RTP_JETPACK));
+                add_settings_error( 'deactivate-plugin', 'plugin_deactivation', __( 'Jetpack by WordPress.com Plugin has been Deactivated.', 'rtPanel' ), 'updated' );
+            }
+        } elseif (isset($_POST['jetpack-delete']) && ( $_POST['jetpack-delete'] == 1 )) {
+            $nonce = $_REQUEST['_wpnonce_jetpack_delete'];
+            if (!wp_verify_nonce($nonce, RTP_JETPACK . '-delete' )) {
+                add_settings_error( 'delete-plugin', 'failure_plugin_deletion', __( 'You do not have sufficient permissions to delete this plugin.', 'rtPanel' ));
+            } else {
+                delete_plugins(array(RTP_JETPACK));
+                add_settings_error( 'delete-plugin', 'plugin_deletion', __( 'Jetpack by WordPress.com Plugin has been Deleted.', 'rtPanel' ), 'updated' );
+            }
+        }
+        
+        /**
+         * Ninja Forms Plugin
+         */
+        elseif (isset($_POST['ninja_form-activate']) && ( $_POST['ninja_form-activate'] == 1 )) {
+            $nonce = $_REQUEST['_wpnonce_ninja_form_activate'];
+            if (!wp_verify_nonce($nonce, RTP_NINJA_FORM . '-activate' )) {
+                add_settings_error( 'activate-plugin', 'failure_plugin_activation', __( 'You do not have sufficient permissions to activate this plugin.', 'rtPanel' ));
+            } else {
+                activate_plugin(RTP_NINJA_FORM);
+                add_settings_error( 'activate-plugin', 'plugin_activation', __( 'Ninja Forms Plugin has been Activated.', 'rtPanel' ), 'updated' );
+            }
+        } elseif (isset($_POST['ninja_form-deactivate']) && ( $_POST['ninja_form-deactivate'] == 1 )) {
+            $nonce = $_REQUEST['_wpnonce_ninja_form_deactivate'];
+            if (!wp_verify_nonce($nonce, RTP_NINJA_FORM . '-deactivate' )) {
+                add_settings_error( 'deactivate-plugin', 'failure_plugin_deactivation', __( 'You do not have sufficient permissions to deactivate this plugin.', 'rtPanel' ));
+            } else {
+                deactivate_plugins(array(RTP_NINJA_FORM));
+                add_settings_error( 'deactivate-plugin', 'plugin_deactivation', __( 'Ninja Forms Plugin has been Deactivated.', 'rtPanel' ), 'updated' );
+            }
+        } elseif (isset($_POST['ninja_form-delete']) && ( $_POST['ninja_form-delete'] == 1 )) {
+            $nonce = $_REQUEST['_wpnonce_ninja_form_delete'];
+            if (!wp_verify_nonce($nonce, RTP_NINJA_FORM . '-delete' )) {
+                add_settings_error( 'delete-plugin', 'failure_plugin_deletion', __( 'You do not have sufficient permissions to delete this plugin.', 'rtPanel' ));
+            } else {
+                delete_plugins(array(RTP_NINJA_FORM));
+                add_settings_error( 'delete-plugin', 'plugin_deletion', __( 'Ninja Forms Plugin has been Deleted.', 'rtPanel' ), 'updated' );
+            }
+        }
+        
+        /**
+         * WooCommerce Plugin
+         */
+        elseif (isset($_POST['woocommerce-activate']) && ( $_POST['woocommerce-activate'] == 1 )) {
+            $nonce = $_REQUEST['_wpnonce_woocommerce_activate'];
+            if (!wp_verify_nonce($nonce, RTP_WOOCOMMERCE . '-activate' )) {
+                add_settings_error( 'activate-plugin', 'failure_plugin_activation', __( 'You do not have sufficient permissions to activate this plugin.', 'rtPanel' ));
+            } else {
+                activate_plugin(RTP_WOOCOMMERCE);
+                add_settings_error( 'activate-plugin', 'plugin_activation', __( 'WooCommerce - excelling eCommerce Plugin has been Activated.', 'rtPanel' ), 'updated' );
+            }
+        } elseif (isset($_POST['woocommerce-deactivate']) && ( $_POST['woocommerce-deactivate'] == 1 )) {
+            $nonce = $_REQUEST['_wpnonce_woocommerce_deactivate'];
+            if (!wp_verify_nonce($nonce, RTP_WOOCOMMERCE . '-deactivate' )) {
+                add_settings_error( 'deactivate-plugin', 'failure_plugin_deactivation', __( 'You do not have sufficient permissions to deactivate this plugin.', 'rtPanel' ));
+            } else {
+                deactivate_plugins(array(RTP_WOOCOMMERCE));
+                add_settings_error( 'deactivate-plugin', 'plugin_deactivation', __( 'WooCommerce - excelling eCommerce Plugin has been Deactivated.', 'rtPanel' ), 'updated' );
+            }
+        } elseif (isset($_POST['woocommerce-delete']) && ( $_POST['woocommerce-delete'] == 1 )) {
+            $nonce = $_REQUEST['_wpnonce_woocommerce_delete'];
+            if (!wp_verify_nonce($nonce, RTP_WOOCOMMERCE . '-delete' )) {
+                add_settings_error( 'delete-plugin', 'failure_plugin_deletion', __( 'You do not have sufficient permissions to delete this plugin.', 'rtPanel' ));
+            } else {
+                delete_plugins(array(RTP_WOOCOMMERCE));
+                add_settings_error( 'delete-plugin', 'plugin_deletion', __( 'WooCommerce - excelling eCommerce Plugin has been Deleted.', 'rtPanel' ), 'updated' );
+            }
+        }
+
+        /**
+         * Yet Another Related Posts Plugin (YARPP)
+         */
+        elseif (isset($_POST['yarpp-activate']) && ( $_POST['yarpp-activate'] == 1 )) {
+            $nonce = $_REQUEST['_wpnonce_yarpp_activate'];
+            if (!wp_verify_nonce($nonce, RTP_YARPP . '-activate' )) {
+                add_settings_error( 'activate-plugin', 'failure_plugin_activation', __( 'You do not have sufficient permissions to activate this plugin.', 'rtPanel' ));
+            } else {
+                activate_plugin(RTP_YARPP);
+                add_settings_error( 'activate-plugin', 'plugin_activation', __( 'Yet Another Related Posts Plugin (YARPP) has been Activated.', 'rtPanel' ), 'updated' );
+            }
+        } elseif (isset($_POST['yarpp-deactivate']) && ( $_POST['yarpp-deactivate'] == 1 )) {
+            $nonce = $_REQUEST['_wpnonce_yarpp_deactivate'];
+            if (!wp_verify_nonce($nonce, RTP_YARPP . '-deactivate' )) {
+                add_settings_error( 'deactivate-plugin', 'failure_plugin_deactivation', __( 'You do not have sufficient permissions to deactivate this plugin.', 'rtPanel' ));
+            } else {
+                deactivate_plugins(array(RTP_YARPP));
+                add_settings_error( 'deactivate-plugin', 'plugin_deactivation', __( 'Yet Another Related Posts Plugin (YARPP) has been Deactivated.', 'rtPanel' ), 'updated' );
+            }
+        } elseif (isset($_POST['yarpp-delete']) && ( $_POST['yarpp-delete'] == 1 )) {
+            $nonce = $_REQUEST['_wpnonce_yarpp_delete'];
+            if (!wp_verify_nonce($nonce, RTP_YARPP . '-delete' )) {
+                add_settings_error( 'delete-plugin', 'failure_plugin_deletion', __( 'You do not have sufficient permissions to delete this plugin.', 'rtPanel' ));
+            } else {
+                delete_plugins(array(RTP_YARPP));
+                add_settings_error( 'delete-plugin', 'plugin_deletion', __( 'Yet Another Related Posts Plugin (YARPP) has been Deleted.', 'rtPanel' ), 'updated' );
+            }
+        }
+
+        /**
+         * Regenerate Thumbnails Plugin
+         */
+        elseif (isset($_POST['regenerate-activate']) && ( $_POST['regenerate-activate'] == 1 )) {
             $nonce = $_REQUEST['_wpnonce_regenerate_activate'];
             if (!wp_verify_nonce($nonce, RTP_REGENERATE_THUMBNAILS . '-activate' )) {
                 add_settings_error( 'activate-plugin', 'failure_plugin_activation', __( 'You do not have sufficient permissions to activate this plugin.', 'rtPanel' ));
