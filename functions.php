@@ -12,7 +12,7 @@ define( 'RTP_VERSION', '4.1.5' );
 /* Define Links */
 define( 'RTP_AUTHOR_URL', 'https://rtcamp.com/' );                      // Theme Author URL
 define( 'RTP_THEME_URL', RTP_AUTHOR_URL . 'rtpanel/' );                 // Theme URI
-define( 'RTP_DONATE_URL', RTP_AUTHOR_URL . 'donate/' );                 // Theme URI
+define( 'RTP_DONATE_URL', RTP_AUTHOR_URL . 'donate/' );                 // Theme Donate URL
 define( 'RTP_DOCS_URL', RTP_THEME_URL . 'docs/' );                      // Theme Documentation URL
 define( 'RTP_FORUM_URL', RTP_AUTHOR_URL . 'support/forum/rtpanel/' );   // Theme Support Forum URL
 
