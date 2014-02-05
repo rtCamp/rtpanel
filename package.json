@@ -1,6 +1,6 @@
 {
   "name": "rtPanel",
-  "version": "4.1.4",
+  "version": "4.1.5",
   "dependencies": {
     "load-grunt-tasks": "~0.2.1"
   },

@@ -177,15 +177,7 @@ $link-hover-color: #cd5a1b;
         .rtp-icon-twitter:hover { background-color: #40BFF5; }
     }
 }
-
-// Latest News
-#latest_news .inside {
-    ul { margin: 0 0 0 15px;
-        li { list-style: disc; padding: 0 0 7px;
-        &:last-child { padding-bottom: 0; }
-        }
-    }
-}
+.rtp-wp-rating { text-align: center; margin: 20px auto 0; }
 
 /* Meta style */
 a.regenerate_thumbanil_notice_close { text-decoration: none; }

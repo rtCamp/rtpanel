@@ -86,7 +86,7 @@ module.exports = function(grunt) {
         // Ref. https://npmjs.org/package/grunt-wordpress-deploy
         wordpressdeploy: {
             options: {
-                backup_dir: "backups/",
+                backup_dir: "../../backups/",
                 rsync_args: ['-avz'],
                 exclusions: ['Gruntfile.js', '.bower.json', '.editorconfig', '.travis.yml', '.git/', '.svn/', 'tmp/*', 'wp-config.php', 'composer.json', 'composer.lock', '.gitignore', 'package.json', 'node_modules', '.sass-cache', 'npm-debug.log', '.scss-cache']
             },

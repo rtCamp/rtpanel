@@ -1053,28 +1053,27 @@ function rtp_default_admin_sidebar() { ?>
         <div title="<?php _e( 'Click to toggle', 'rtPanel' ); ?>" class="handlediv"><br /></div>
         <h3 class="hndle"><span><?php _e( 'Promote, Donate, Share', 'rtPanel' ); ?>...</span></h3>
         <div class="inside">
-            <p><?php printf( __( 'Buy coffee/beer for team behind <a href="%s" title="rtPanel">rtPanel</a>.', 'rtPanel' ), RTP_THEME_URL ); ?></p>
-            <div class="rt-paypal" style="text-align:center">
-                <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-                    <input type="hidden" name="cmd" value="_donations" />
-                    <input type="hidden" name="business" value="paypal@rtcamp.com" />
-                    <input type="hidden" name="lc" value="US" />
-                    <input type="hidden" name="item_name" value="rtPanel" />
-                    <input type="hidden" name="no_note" value="0" />
-                    <input type="hidden" name="currency_code" value="USD" />
-                    <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest" />
-                    <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" name="submit" alt="<?php _e( 'PayPal - The safer, easier way to pay online!', 'rtPanel' ); ?>" />
-                    <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
-                </form>
-            </div>
+            <p><?php printf( __( 'Buy coffee/beer for team behind <a href="%s" title="rtPanel">rtPanel</a>.', 'rtPanel' ), RTP_DONATE_URL ); ?></p>
             <div class="rt-social-share">
                 <div class="rt-twitter rtp-social-box">
-                    <?php printf( __( '<a href="%s"  class="twitter-share-button" data-text="I &hearts; #rtPanel"  data-url="%s" data-count="vertical" data-via="rtPanel">Tweet</a>', 'rtPanel' ), 'http://twitter.com/share', RTP_THEME_URL ); ?>
+                    <?php printf( __( '<a href="%s"  class="twitter-share-button" data-text="I &hearts; #rtPanel" data-url="%s" data-via="rtpanel" data-count="none">Tweet</a>', 'rtPanel' ), 'http://twitter.com/share', RTP_THEME_URL ); ?>
                 </div>
                 <div class="rt-facebook rtp-social-box">
-                    <?php printf( __( '<a style="text-align: center;" name="fb_share" type="box_count" share_url="%s"></a>', '' ), 'http://rtpanel.com/' ); ?>
+                    <div id="fb-root"></div>
+                    <script type="text/javascript">(function(d, s, id) {
+                      var js, fjs = d.getElementsByTagName(s)[0];
+                      if (d.getElementById(id)) return;
+                      js = d.createElement(s); js.id = id;
+                      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=239118682896164";
+                      fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));
+                    </script>
+                    <div class="fb-share-button" data-href="<?php echo RTP_THEME_URL; ?>" data-type="button"></div>
                 </div>
                 <div class="clear"></div>
+            </div>
+            <div class="rtp-wp-rating">
+                <a href="http://wordpress.org/themes/rtpanel" title="Rate on WordPress.org" class="button">Rate on WordPress.org</a>
             </div>
         </div>
     </div>
@@ -1083,51 +1082,7 @@ function rtp_default_admin_sidebar() { ?>
         <div title="<?php _e( 'Click to toggle', 'rtPanel' ); ?>" class="handlediv"><br /></div>
         <h3 class="hndle"><span><?php _e( 'Free Support', 'rtPanel' ); ?></span></h3>
         <div class="inside"><?php printf( __( 'If you are facing any problems while using rtPanel, or have good ideas for improvements, please discuss the same in our <a href="%s" target="_blank" title="Click here for rtPanel Free Support">Support forums</a>', 'rtPanel' ), 'http://rtcamp.com/support/forum/rtpanel/' ); ?>.</div>
-    </div>
-
-    <div class="postbox" id="latest_news">
-        <div title="<?php _e( 'Click to toggle', 'rtPanel' ); ?>" class="handlediv"><br /></div>
-        <h3 class="hndle"><span><?php _e( 'Latest News', 'rtPanel' ); ?></span></h3>
-        <div class="inside"><?php rtp_get_feeds(); ?></div>
     </div><?php
-}
-
-/**
- * Display feeds from a specified Feed URL
- *
- * @param string $feed_url The Feed URL.
- *
- * @since rtPanel 2.0
- */
-function rtp_get_feeds($feed_url = 'http://rtcamp.com/blog/category/rtpanel/feed/' ) {
-
-// Get RSS Feed(s)
-    require_once( ABSPATH . WPINC . '/feed.php' );
-    $maxitems = 0;
-// Get a SimplePie feed object from the specified feed source.
-    $rss = fetch_feed($feed_url);
-    if (!is_wp_error($rss)) { // Checks that the object is created correctly
-// Figure out how many total items there are, but limit it to 5.
-        $maxitems = $rss->get_item_quantity(5);
-
-// Build an array of all the items, starting with element 0 (first element).
-        $rss_items = $rss->get_items(0, $maxitems);
-    }
-    ?>
-    <ul><?php
-    if ($maxitems == 0) {
-        echo '<li>' . __( 'No items', 'rtPanel' ) . '.</li>';
-    } else {
-// Loop through each feed item and display each item as a hyperlink.
-        foreach ($rss_items as $item) {
-            ?>
-                <li>
-                    <a href='<?php echo esc_attr( $item->get_permalink() ); ?>' title='<?php echo __( 'Posted ', 'rtPanel' ) . esc_attr( $item->get_date( 'j F Y | g:i a' ) ); ?>'><?php echo $item->get_title(); ?></a>
-                </li><?php
-        }
-    }
-    ?>
-    </ul><?php
 }
 
 /**
@@ -1194,7 +1149,7 @@ function rtp_theme_options_help() {
     $sidebar = '<p><strong>' . __( 'For more information, <br />you can always visit:', 'rtPanel' ) . '</strong></p>' .
             '<p><a href="' . RTP_THEME_URL . '" target="_blank" title="' . __( 'rtPanel Official Page', 'rtPanel' ) . '">' . __( 'rtPanel Official Page', 'rtPanel' ) . '</a></p>' .
             '<p><a href="' . RTP_DOCS_URL . '" target="_blank" title="' . __( 'rtPanel Documentation', 'rtPanel' ) . '">' . __( 'rtPanel Documentation', 'rtPanel' ) . '</a></p>' .
-            '<p><a href="' . RTP_AUTHOR_URL . '" target="_blank" title="' . __( 'rtPanel Forum', 'rtPanel' ) . '">' . __( 'rtPanel Forum', 'rtPanel' ) . '</a></p>';
+            '<p><a href="' . RTP_FORUM_URL . '" target="_blank" title="' . __( 'rtPanel Forum', 'rtPanel' ) . '">' . __( 'rtPanel Forum', 'rtPanel' ) . '</a></p>';
 
     $screen = get_current_screen();
     $screen->add_help_tab(array( 'title' => __( 'General', 'rtPanel' ), 'id' => 'rtp-general-help', 'content' => $general_help));

@@ -16,7 +16,7 @@
 
 /* Theme Option Container */
 .rtpanel-admin { overflow: hidden; width: 75%; position: relative; max-width: 1050px; font-size: 15px; }
- .rtpanel-admin h2 { border-bottom: 1px solid #cccccc; padding-bottom: 0; padding-left: 6px; }
+    .rtpanel-admin h2 { border-bottom: 1px solid #cccccc; padding-bottom: 0; padding-left: 6px; }
 #icon-rtpanel { background: url("../../img/rtp-icon.jpg") no-repeat }
 .nav-tab { margin: 0 5px -1px 0 }
 h2 .nav-tab { font-size: 20px; padding: 4px 6px; }
@@ -27,8 +27,8 @@ h2 .nav-tab { font-size: 20px; padding: 4px 6px; }
 
 /* Theme Options Inside Style */
 .inside { overflow: hidden }
- .inside .image-uploader { float: left; overflow: hidden; width: 395px; }
- .inside .image-preview { margin: 0 auto; overflow: hidden; text-align: center; }
+    .inside .image-uploader { float: left; overflow: hidden; width: 395px; }
+    .inside .image-preview { margin: 0 auto; overflow: hidden; text-align: center; }
 #poststuff .postbox .inside p { margin: 0 0 5px }
 #poststuff .postbox .inside p.login-head { margin-top: 10px }
 #poststuff .postbox .inside th p { font-size: 11px; margin-bottom: 8px; }
@@ -49,7 +49,7 @@ h2 .nav-tab { font-size: 20px; padding: 4px 6px; }
 .feedburner { padding: 22px 0 }
 .custom-search-main { padding: 22px 0 0 }
 .custom-search-scripts { padding: 10px 0 0 }
- .custom-search-scripts textarea { margin-bottom: 10px; margin-left: 6px; vertical-align: middle; }
+    .custom-search-scripts textarea { margin-bottom: 10px; margin-left: 6px; vertical-align: middle; }
 .post-meta-common { margin-left: 30px }
 #plugin_support .active { color: green }
 #plugin_support .inactive { color: orange }
@@ -64,17 +64,15 @@ h2 .nav-tab { font-size: 20px; padding: 4px 6px; }
 .feedburner label, .custom-search-main label { padding: 0 0 3px }
 .feedburner label, .custom-search-main label { padding: 0 0 3px }
 .inner-sidebar { width: 50% !important }
- .inner-sidebar #side-sortables { width: 99.7% !important }
+    .inner-sidebar #side-sortables { width: 99.7% !important }
 
- /* Getting Social is Good widget */
+/* Getting Social is Good widget */
 #social .inside a { background-color: #666; color: #FFF; display: inline-block; height: 30px; font-size: 1.25rem; line-height: 30px; margin: 10px 20px 0 0; overflow: hidden; padding: 0; text-align: center; text-decoration: none; width: 30px; -webkit-border-radius: 1000px; -moz-border-radius: 1000px; border-radius: 1000px; }
 #social .inside .rtp-icon-rss:hover { background-color: #FAA33D }
 #social .inside .rtp-icon-facebook:hover { background-color: #537BBD }
 #social .inside .rtp-icon-gplus:hover { background-color: #DD4B39 }
 #social .inside .rtp-icon-twitter:hover { background-color: #40BFF5 }
-#latest_news .inside ul { margin: 0 0 0 15px }
- #latest_news .inside ul li { list-style: disc; padding: 0 0 7px; }
- #latest_news .inside ul li:last-child { padding-bottom: 0 }
+.rtp-wp-rating { text-align: center; margin: 20px auto 0; }
 
 /* Meta style */
 a.regenerate_thumbanil_notice_close { text-decoration: none }
@@ -83,7 +81,7 @@ a.regenerate_thumbanil_notice_close { text-decoration: none }
 .form-table th { width: 170px }
 .has-right-sidebar .form-table td.img-url, .has-right-sidebar .form-table td.img-preview { float: left }
 .form-table label { font-size: 13px }
- .form-table label .example { font-size: 100% }
+    .form-table label .example { font-size: 100% }
 #post_thumbnail_options .form-table label { margin: 0 20px 0 0 }
 #google_search .form-table label { line-height: 20px }
 .form-table a { text-decoration: none }
@@ -103,5 +101,5 @@ textarea[disabled] { background-color: Silver }
 .expand-collapse { background: #cccccc; color: #333333; float: right; font-size: 85%; padding: 5px 8px; text-decoration: none; }
 .expand-collapse:hover { text-decoration: underline }
 .rt-social-share { margin: 2px auto; text-align: center; width: 135px; }
- .rt-social-share .rt-twitter { float: left; margin-right: 5px; }
- .rt-social-share .rt-facebook { float: left; margin-left: 5px; position: relative; }
+    .rt-social-share .rt-twitter { float: left; margin-right: 5px; }
+    .rt-social-share .rt-facebook { float: left; margin-left: 5px; position: relative; }
