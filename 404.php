@@ -8,7 +8,7 @@
  */
 get_header();
 
-    $rtp_content_grid_class = apply_filters( 'rtp_set_content_grid_class', 'large-8 columns' ); ?>
+	$rtp_content_grid_class = apply_filters( 'rtp_set_content_grid_class', 'large-8 columns' ); ?>
 
     <section id="content" role="main" class="rtp-content-section rtp-singular rtp-404-content <?php echo esc_attr( $rtp_content_grid_class ); ?>">
 
