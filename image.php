@@ -46,7 +46,7 @@ while ( have_posts() ) {
 				<?php $img_info = wp_get_attachment_image_src( '', 'full' ); ?>
 
 				<figure role="img" class="wp-caption aligncenter" aria-describedby="figcaption_attachment_<?php echo esc_attr( get_the_ID() ); ?>">
-					<a role="link" href="<?php echo $img_info[ 0 ]; ?>" title="<?php the_title_attribute(); ?>" rel="attachment"><?php echo wp_get_attachment_image( '', 'full' ); ?></a><?php echo ( get_the_excerpt() ) ? '<figcaption id="figcaption_attachment_' . get_the_ID() . '" class="wp-caption-text">' . get_the_excerpt() . '</figcaption>' : ''; ?>
+					<a role="link" href="<?php echo esc_attr( $img_info[0] ); ?>" title="<?php the_title_attribute(); ?>" rel="attachment"><?php echo wp_get_attachment_image( '', 'full' ); ?></a><?php echo ( get_the_excerpt() ) ? '<figcaption id="figcaption_attachment_' . get_the_ID() . '" class="wp-caption-text">' . get_the_excerpt() . '</figcaption>' : ''; ?>
 				</figure>
 
 				<?php the_content(); ?>
@@ -67,7 +67,7 @@ while ( have_posts() ) {
 		if ( $attachments ) {
 						?>
 			<ul role="list" class="rtp-sibling-attachments rtp-alpha rtp-omega clearfix clearing-thumbs clearing-feature" data-clearing>
-				<li><a href="<?php echo $img_info[ 0 ]; ?>"><?php echo wp_get_attachment_image( get_the_ID(), 'thumbnail', false, array( 'data-caption' => get_the_excerpt() ) ); ?></a></li>
+				<li><a href="<?php echo esc_attr( $img_info[0] ); ?>"><?php echo wp_get_attachment_image( get_the_ID(), 'thumbnail', false, array( 'data-caption' => get_the_excerpt() ) ); ?></a></li>
 				<?php
 				$count = 1;
 			foreach ( $attachments as $attachment ) {

@@ -27,18 +27,18 @@ if ( have_comments() || ( ( ! is_attachment() && comments_open() ) || ( is_attac
 				?>
 
 			<div class="rtp-comment-count clearfix" id="comments"><?php
-					$comment_count = sprintf( _n( '<span class="count">%1$s</span> Comment', '<span class="count">%1$s</span> Comments', $comments_count_only, 'rtPanel' ), number_format_i18n( $comments_count_only ) );
+				$comment_count = sprintf( _n( '<span class="count">%1$s</span> Comment', '<span class="count">%1$s</span> Comments', $comments_count_only, 'rtPanel' ), number_format_i18n( $comments_count_only ) );
 			if ( ( comments_open() ) || $comments_count_only ) {
-						?>
-						<h4 class="rtp-comment-count-container"><?php echo $comment_count; ?></h4><?php
+				?>
+				<h4 class="rtp-comment-count-container"><?php echo $comment_count; ?></h4><?php
 				echo ( comments_open() ) ? sprintf( __( '<small class="rtp-thoughts">&nbsp;Add <a role="link" href="%s" title="Add your comment">your comment</a></small>', 'rtPanel' ), '#respond' ) : '';
 			}
 
 			if ( current_user_can( 'moderate_comments' ) ) {
 				?>
-					<h6 class="subheader rtp-manage-comments"><a role="link" href="<?php echo get_admin_url( '', 'edit-comments.php?p=' . get_the_ID() ); ?>"><?php _e( 'Manage Comments', 'rtPanel' ); ?></a></h6><?php 
+				<h6 class="subheader rtp-manage-comments"><a role="link" href="<?php echo get_admin_url( '', 'edit-comments.php?p=' . get_the_ID() ); ?>"><?php _e( 'Manage Comments', 'rtPanel' ); ?></a></h6><?php 
 			}
-					?>
+				?>
 			</div><!-- .rtp-comment-count -->
 
 			<ol class="commentlist"><?php

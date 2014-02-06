@@ -651,7 +651,7 @@ function rtp_post_comments_validate( $input ) {
 
 		if ( ! $input[ 'post_date_l' ] ) {
 			$input[ 'post_date_format_l' ]		 = $rtp_post_comments[ 'post_date_format_l' ];
-			$input[ 'post_date_custom_format_l' ]	 = $rtp_post_comments[ 'post_date_custom_format_l' ];
+			$input[ 'post_date_custom_format_l' ] = $rtp_post_comments[ 'post_date_custom_format_l' ];
 		}
 
 		if ( ! $input[ 'post_author_u' ] ) {
@@ -885,13 +885,13 @@ function rtp_theme_setup_values() {
 				update_user_meta( $blog_user_id, 'screen_layout_appearance_page_rtp_general', 1, NULL );
 		}
 	}
-	if ( !get_option( 'rtp_post_comments' ) ) {
+	if ( ! get_option( 'rtp_post_comments' ) ) {
 		update_option( 'rtp_post_comments', $default_post_comments );
 		$blog_users = get_users();
 
 		foreach ( $blog_users as $blog_user ) {
 			$blog_user_id = $blog_user->ID;
-			if ( !get_user_meta( $blog_user_id, 'screen_layout_appearance_page_rtp_post_comments' ) )
+			if ( ! get_user_meta( $blog_user_id, 'screen_layout_appearance_page_rtp_post_comments' ) )
 				update_user_meta( $blog_user_id, 'screen_layout_appearance_page_rtp_post_comments', 1, NULL );
 		}
 	}
@@ -985,7 +985,7 @@ if ( isset( $rtp_general[ 'logo_use' ] ) && isset( $rtp_general[ 'login_head' ] 
 function rtp_custom_login_logo() {
 	global $rtp_general;
 	$custom_logo = $rtp_general[ 'logo_upload' ];
-	if ( isset( $rtp_general[ 'logo_width' ] ) && ! empty( $rtp_general[ 'logo_width' ] ) && isset( $rtp_general[ 'logo_height' ] ) && !empty( $rtp_general[ 'logo_height' ] ) ) {
+	if ( isset( $rtp_general[ 'logo_width' ] ) && ! empty( $rtp_general[ 'logo_width' ] ) && isset( $rtp_general[ 'logo_height' ] ) && ! empty( $rtp_general[ 'logo_height' ] ) ) {
 		$rtp_logo_width	 = $rtp_general[ 'logo_width' ];
 		$rtp_logo_height = $rtp_general[ 'logo_height' ];
 	} else {
@@ -1097,7 +1097,7 @@ function rtp_default_admin_sidebar() {
  */
 function rtp_theme_options_help() {
 
-	$general_help = '<p>';
+	$general_help  = '<p>';
 	$general_help .= __( 'rtPanel is the most easy to use WordPress Theme Framework. You will find many state of the art options and widgets with rtPanel.', 'rtPanel' );
 	$general_help .= '</p><p>';
 	$general_help .= __( 'rtPanel framework is used worldwide and keeping this in mind we have made it localization ready. ', 'rtPanel' );
@@ -1192,24 +1192,28 @@ function rtp_admin_bar_links() {
 	// Links to add, in the form: 'Label' => 'URL'
 	foreach ( $rt_panel_theme->theme_pages as $key => $theme_page ) {
 		if ( is_array( $theme_page ) )
-			$links[ $theme_page[ 'menu_title' ] ] = array( 'url' => admin_url( 'themes.php?page=' . $theme_page[ 'menu_slug' ] ), 'slug' => $theme_page[ 'menu_slug' ] );
+			$links[$theme_page['menu_title']] = array( 'url' => admin_url( 'themes.php?page=' . $theme_page[ 'menu_slug' ] ), 'slug' => $theme_page[ 'menu_slug' ] );
 	}
 
 	//  Add parent link
-	$wp_admin_bar->add_menu( array(
-		'title'	 => 'rtPanel',
-		'href'	 => admin_url( 'themes.php?page=rtp_general' ),
-		'id'	 => 'rt_links',
-	) );
+	$wp_admin_bar->add_menu(
+		array(
+			'title'	 => 'rtPanel',
+			'href'	 => admin_url( 'themes.php?page=rtp_general' ),
+			'id'	 => 'rt_links',
+		)
+	);
 
 	// Add submenu links
 	foreach ( $links as $label => $menu ) {
-		$wp_admin_bar->add_menu( array(
-			'title'	 => $label,
-			'href'	 => $menu[ 'url' ],
-			'parent' => 'rt_links',
-			'id'	 => $menu[ 'slug' ]
-		) );
+		$wp_admin_bar->add_menu(
+			array(
+				'title'	 => $label,
+				'href'	 => $menu['url'],
+				'parent' => 'rt_links',
+				'id'	 => $menu['slug'],
+			)
+		);
 	}
 }
 
@@ -1224,7 +1228,7 @@ function rtp_export() {
 	global $wpdb;
 	$sitename = sanitize_key( get_bloginfo( 'name' ) );
 
-	if ( !empty( $sitename ) )
+	if ( ! empty( $sitename ) )
 		$sitename .= '.';
 
 	$filename = $sitename . 'rtpanel.' . date( 'Y-m-d' ) . '.rtp';
@@ -1233,19 +1237,19 @@ function rtp_export() {
 	$post_comments				 = "WHERE option_name = 'rtp_post_comments'";
 	$hooks						 = "WHERE option_name = 'rtp_hooks'";
 	$args[ 'rtp_general' ]		 = $wpdb->get_var( "SELECT option_value FROM {$wpdb->options} $general" );
-	$args[ 'rtp_post_comments' ]	 = $wpdb->get_var( "SELECT option_value FROM {$wpdb->options} $post_comments" );
+	$args[ 'rtp_post_comments' ] = $wpdb->get_var( "SELECT option_value FROM {$wpdb->options} $post_comments" );
 	$args[ 'rtp_hooks' ]			 = $wpdb->get_var( "SELECT option_value FROM {$wpdb->options} $hooks" );
 
 	header( 'Content-Description: File Transfer' );
 	header( 'Content-Disposition: attachment; filename=' . $filename );
 	header( 'Content-Type: text/xml; charset=' . get_option( 'blog_charset' ), true );
 		?>
-<rtpanel>
-	<rtp_version><?php echo maybe_serialize( rtp_export_version() ); ?></rtp_version>
-	<rtp_general><?php echo $args[ 'rtp_general' ]; ?></rtp_general>
-	<rtp_post_comments><?php echo $args[ 'rtp_post_comments' ]; ?></rtp_post_comments>
-</rtpanel>
-<?php
+	<rtpanel>
+		<rtp_version><?php echo maybe_serialize( rtp_export_version() ); ?></rtp_version>
+		<rtp_general><?php echo $args['rtp_general']; ?></rtp_general>
+		<rtp_post_comments><?php echo $args['rtp_post_comments']; ?></rtp_post_comments>
+	</rtpanel>
+	<?php
 }
 
 /**
@@ -1269,7 +1273,7 @@ function rtp_import( $file ) {
 	$overrides	 = array( 'test_form' => false, 'test_type' => false );
 	$import_file = wp_handle_upload( $file, $overrides );
 	extract( wp_check_filetype( $import_file[ 'file' ], array( 'rtp' => 'txt/rtp' ) ) );
-	$data		 = wp_remote_get( $import_file[ 'url' ] );
+	$data = wp_remote_get( $import_file[ 'url' ] );
 	$file_object->delete( $import_file[ 'file' ] );
 	if ( $ext != 'rtp' ) {
 		return 'ext';
@@ -1279,7 +1283,7 @@ function rtp_import( $file ) {
 	} else {
 		preg_match( '/\<rtp_general\>(.*)<\/rtp_general\>/is', $data[ 'body' ], $general );
 		preg_match( '/\<rtp_post_comments\>(.*)<\/rtp_post_comments\>/is', $data[ 'body' ], $post_comments );
-		if ( !empty( $post_comments[ 1 ] ) ) {
+		if ( ! empty( $post_comments[ 1 ] ) ) {
 			update_option( 'rtp_post_comments', maybe_unserialize( $post_comments[ 1 ] ) );
 		}
 		return $general[ 1 ];
@@ -1406,7 +1410,7 @@ function rtp_regenerate_thumbnail_notice_js() {
 				jQuery( '.regenerate_thumbnail_notice' ).hide();
 				// call ajax
 				jQuery.ajax( {
-					url: "<?php echo admin_url( 'admin-ajax.php' ); ?>",
+					url: "<?php echo esc_attr( admin_url( 'admin-ajax.php' ) ); ?>",
 					type: 'POST',
 					data: 'action=hide_regenerate_thumbnail_notice&hide_notice=1'
 				} );
@@ -1488,7 +1492,7 @@ function rtp_mce_before_init( $settings ) {
 			'block'		 => 'p',
 			'classes'	 => 'error',
 			'wrapper'	 => false,
-		)
+		),
 	);
 
 	$settings[ 'style_formats' ] = json_encode( $style_formats );
