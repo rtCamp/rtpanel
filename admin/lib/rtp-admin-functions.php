@@ -1071,7 +1071,7 @@ function rtp_default_admin_sidebar() {
 							fjs.parentNode.insertBefore( js, fjs );
 						}( document, 'script', 'facebook-jssdk' ) );
 					</script>
-					<div class="fb-share-button" data-href="<?php echo esc_etr( RTP_THEME_URL ); ?>" data-type="button"></div>
+					<div class="fb-share-button" data-href="<?php echo esc_attr( RTP_THEME_URL ); ?>" data-type="button"></div>
 				</div>
 				<div class="clear"></div>
 			</div>

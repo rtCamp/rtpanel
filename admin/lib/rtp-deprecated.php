@@ -121,7 +121,7 @@ function rtp_generate_thumbs( $attach_id = null, $size = 'thumbnail', $the_id = 
 	return '';
 }
 
-if ( ! class_exists( 'rtp_ogp' ) ) {
+if ( ! class_exists( 'Rtp_Ogp' ) ) {
 
 	/**
 	 * Facebook Open Graph Protocol
@@ -129,7 +129,7 @@ if ( ! class_exists( 'rtp_ogp' ) ) {
 	 * @since 2.0
 	 * @deprecated 4.0
 	 */
-	class rtp_ogp {
+	class Rtp_Ogp {
 
 		var $data;
 

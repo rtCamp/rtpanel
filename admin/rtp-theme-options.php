@@ -18,7 +18,7 @@ foreach ( glob( get_template_directory() . '/admin/lib/*.php' ) as $lib_filename
  *
  * @since rtPanel 2.0
  */
-class rtp_theme {
+class Rtp_Theme {
 
 	var $theme_pages;
 
