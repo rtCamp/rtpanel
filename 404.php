@@ -14,7 +14,7 @@ get_header();
 
 		<?php rtp_hook_begin_content(); ?>
 
-            <h1 class="post-title rtp-main-title"><?php _e( 'Not Found', 'rtPanel' ); ?></h1>
+		<h1 class="post-title rtp-main-title"><?php _e( 'Not Found', 'rtPanel' ); ?></h1>
 
             <?php rtp_hook_begin_post(); ?>
 
