@@ -468,7 +468,7 @@ function rtp_gallery_shortcode( $output, $attr ) {
 		$output .= "</{$itemtag}>";
 	}
 
-	$output .= '</ul>\n';
+	$output .= "</ul>\n";
 	return $output;
 }
 
