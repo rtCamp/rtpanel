@@ -793,7 +793,7 @@ function rtp_default_admin_sidebar() { ?>
         <div title="<?php _e( 'Click to toggle', 'rtPanel' ); ?>" class="handlediv"><br /></div>
         <h3 class="hndle"><span><?php _e( 'Promote, Donate, Share', 'rtPanel' ); ?>...</span></h3>
         <div class="inside">
-            <p><?php printf( __( 'Buy coffee/beer for team behind <a href="%s" title="rtPanel">rtPanel</a>.', 'rtPanel' ), RTP_THEME_URL ); ?></p>
+            <p><?php printf( __( 'Buy coffee/beer for team behind <a href="%s" target="_blank" title="rtPanel">rtPanel</a>.', 'rtPanel' ), RTP_THEME_URL ); ?></p>
             <div class="rt-paypal" style="text-align:center">
                 <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
                     <input type="hidden" name="cmd" value="_donations" />
