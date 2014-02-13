@@ -27,21 +27,21 @@ while ( have_posts() ) {
 	?>
 
 		<article <?php post_class( 'clearfix rtp-image-box' ); ?>>
-				<?php rtp_hook_begin_post(); ?>
+		<?php rtp_hook_begin_post(); ?>
 
 			<header class="post-header clearfix">
-				<?php rtp_hook_begin_post_title(); ?>
+			<?php rtp_hook_begin_post_title(); ?>
 
 				<h1 class="post-title"><?php the_title(); ?></h1>
 
-	<?php rtp_hook_end_post_title(); ?>
+			<?php rtp_hook_end_post_title(); ?>
 
-	<?php rtp_hook_post_meta( 'top' ); ?>
+			<?php rtp_hook_post_meta( 'top' ); ?>
 
 			</header><!-- .post-title -->
 
 			<div class="post-content clearfix">
-	<?php rtp_hook_begin_post_content(); ?>
+			<?php rtp_hook_begin_post_content(); ?>
 
 				<?php $img_info = wp_get_attachment_image_src( '', 'full' ); ?>
 
@@ -53,16 +53,16 @@ while ( have_posts() ) {
 
 	<?php
 	if ( $post->post_parent > 0 ) {
-					$args = array(
-						'numberposts'	 => apply_filters( 'rtp_image_sibling_count', 10 ),
-						'order'			 => 'ASC',
-						'post_mime_type' => 'image',
-						'post_parent'	 => $post->post_parent,
-						'post_status'	 => 'inherit',
-						'post_type'		 => 'attachment',
-					);
+		$args = array(
+			'numberposts'	 => apply_filters( 'rtp_image_sibling_count', 10 ),
+			'order'			 => 'ASC',
+			'post_mime_type' => 'image',
+			'post_parent'	 => $post->post_parent,
+			'post_status'	 => 'inherit',
+			'post_type'		 => 'attachment',
+		);
 
-					$attachments = get_children( $args );
+		$attachments = get_children( $args );
 
 		if ( $attachments ) {
 						?>
@@ -72,7 +72,7 @@ while ( have_posts() ) {
 				$count = 1;
 			foreach ( $attachments as $attachment ) {
 				if ( get_the_ID() != $attachment->ID ) {
-									$alpha_omega = NULL;
+						$alpha_omega = NULL;
 					if ( $count % 6 == 1 ) {
 						$alpha_omega = ' rtp-alpha';
 					} elseif ( $count % 6 == 0 ) {
@@ -88,8 +88,8 @@ while ( have_posts() ) {
 		}
 	}
 	?>
-
-			<?php rtp_hook_end_post_content(); ?>
+				
+		<?php rtp_hook_end_post_content(); ?>
 
 			</div><!-- .post-content -->
 

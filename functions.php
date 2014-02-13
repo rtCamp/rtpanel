@@ -38,8 +38,8 @@ $rtp_version = get_option( 'rtp_version' ); // rtPanel Version
 $rtp_general['pagination_show'] = isset( $rtp_general['pagination_show'] ) ? $rtp_general['pagination_show'] : 0;
 $rtp_post_comments['prev_text'] = isset( $rtp_post_comments['prev_text'] ) ? $rtp_post_comments['prev_text'] : __( '&laquo; Previous', 'rtPanel' );
 $rtp_post_comments['next_text'] = isset( $rtp_post_comments['next_text'] ) ? $rtp_post_comments['next_text'] : __( 'Next &raquo;', 'rtPanel' );
-$rtp_post_comments['end_size'] = isset( $rtp_post_comments['end_size'] ) ? $rtp_post_comments['end_size'] : 1;
-$rtp_post_comments['mid_size'] = isset( $rtp_post_comments['mid_size'] ) ? $rtp_post_comments['mid_size'] : 2;
+$rtp_post_comments['end_size']  = isset( $rtp_post_comments['end_size'] ) ? $rtp_post_comments['end_size'] : 1;
+$rtp_post_comments['mid_size']  = isset( $rtp_post_comments['mid_size'] ) ? $rtp_post_comments['mid_size'] : 2;
 $rtp_post_comments['attachment_comments'] = isset( $rtp_post_comments['attachment_comments'] ) ? $rtp_post_comments['attachment_comments'] : 0;
 
 /* Includes PHP files located in 'lib' folder */

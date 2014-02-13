@@ -162,9 +162,9 @@ function rtp_default_nav_menu() {
 add_action( 'rtp_hook_begin_header', 'rtp_default_nav_menu' ); // Adds default nav menu after #header
 
 function filter_wp_nav_menu_items( $items, $args ) {
-	$items		  = str_replace( "\"sub-menu\"", "\"sub-menu dropdown\"", $items );
-	$strItems	= explode( "<li", $items );
-	$items		  = '';
+	$items    = str_replace( "\"sub-menu\"", "\"sub-menu dropdown\"", $items );
+	$strItems = explode( "<li", $items );
+	$items    = '';
 	foreach ( $strItems as $item ) {
 		if ( trim( $item ) == '' ) {
 			continue;
@@ -408,7 +408,7 @@ function rtp_gallery_shortcode( $output, $attr ) {
 		)
 	);
 
-	$id		 = intval( $id );
+	$id      = intval( $id );
 	$orderby = ( 'RAND' == $order ) ? 'none' : '';
 
 	if ( ! empty( $include ) ) {
@@ -435,9 +435,9 @@ function rtp_gallery_shortcode( $output, $attr ) {
 		return $output;
 	}
 
-	$itemtag	   = tag_escape( $itemtag );
+	$itemtag    = tag_escape( $itemtag );
 	$captiontag	= tag_escape( $captiontag );
-	$icontag	   = tag_escape( $icontag );
+	$icontag    = tag_escape( $icontag );
 	$valid_tags	= wp_kses_allowed_html( 'post' );
 	if ( ! isset( $valid_tags[ $itemtag ] ) ) {
 		$itemtag = 'li';
@@ -449,17 +449,17 @@ function rtp_gallery_shortcode( $output, $attr ) {
 		$icontag = '';
 	}
 
-	$columns	  = intval( $columns );
-	$itemwidth	= $columns > 0 ? floor( 100 / $columns ) : 100;
-	$float		   = is_rtl() ? 'right' : 'left';
+	$columns   = intval( $columns );
+	$itemwidth = $columns > 0 ? floor( 100 / $columns ) : 100;
+	$float     = is_rtl() ? 'right' : 'left';
 
 	$selector = "gallery-{$instance}";
 
-	$gallery_style	= $gallery_div	= '';
+	$gallery_style = $gallery_div	= '';
 
-	$size_class	 = sanitize_html_class( $size );
+	$size_class  = sanitize_html_class( $size );
 	$gallery_div = "<ul id='$selector' class='gallery galleryid-{$id} gallery-columns-{$columns} large-block-grid-{$columns} small-block-grid-{$columns} gallery-size-{$size_class} clearing-thumbs' data-clearing>";
-	$output		 = apply_filters( 'gallery_style', $gallery_style . "\n\t\t" . $gallery_div );
+	$output      = apply_filters( 'gallery_style', $gallery_style . "\n\t\t" . $gallery_div );
 
 	foreach ( $attachments as $id => $attachment ) {
 		$url = wp_get_attachment_image_src( $id, 'full' );

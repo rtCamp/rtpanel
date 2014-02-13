@@ -506,9 +506,9 @@ function rtp_general_validate( $input ) {
 		foreach ( $options as $option => $value )
 			$input[ $option ] = $value;
 
-		$input[ 'logo_use' ]		 = $default[0]['logo_use'];
+		$input[ 'logo_use' ]       = $default[0]['logo_use'];
 		$input[ 'logo_upload' ]    = $default[0]['logo_upload'];
-		$input[ 'logo_id' ]		 = $default[0]['logo_id'];
+		$input[ 'logo_id' ]        = $default[0]['logo_id'];
 		$input[ 'logo_width' ]     = $default[0]['logo_width'];
 		$input[ 'logo_height' ]    = $default[0]['logo_height'];
 		$input[ 'login_head' ]     = $default[0]['login_head'];
@@ -638,30 +638,30 @@ function rtp_post_comments_validate( $input ) {
 		}
 
 		if ( ! in_array( $input[ 'post_date_format_u' ], array( $rtp_post_comments[ 'post_date_format_u' ], 'F j, Y', 'Y/m/d', 'm/d/Y', 'd/m/Y' ) ) ) {
-			$input[ 'post_date_format_u' ]		 = str_replace( '<', '', $input[ 'post_date_format_u' ] );
-			$input[ 'post_date_format_l' ]		 = str_replace( '<', '', $input[ 'post_date_format_l' ] );
+			$input[ 'post_date_format_u' ]        = str_replace( '<', '', $input[ 'post_date_format_u' ] );
+			$input[ 'post_date_format_l' ]        = str_replace( '<', '', $input[ 'post_date_format_l' ] );
 			$input[ 'post_date_custom_format_u' ] = str_replace( '<', '', $input[ 'post_date_custom_format_u' ] );
 			$input[ 'post_date_custom_format_l' ] = str_replace( '<', '', $input[ 'post_date_custom_format_l' ] );
 		}
 
 		if ( ! $input[ 'post_date_u' ] ) {
-			$input[ 'post_date_format_u' ]		 = $rtp_post_comments[ 'post_date_format_u' ];
+			$input[ 'post_date_format_u' ]        = $rtp_post_comments[ 'post_date_format_u' ];
 			$input[ 'post_date_custom_format_u' ] = $rtp_post_comments[ 'post_date_custom_format_u' ];
 		}
 
 		if ( ! $input[ 'post_date_l' ] ) {
-			$input[ 'post_date_format_l' ]		 = $rtp_post_comments[ 'post_date_format_l' ];
+			$input[ 'post_date_format_l' ]        = $rtp_post_comments[ 'post_date_format_l' ];
 			$input[ 'post_date_custom_format_l' ] = $rtp_post_comments[ 'post_date_custom_format_l' ];
 		}
 
 		if ( ! $input[ 'post_author_u' ] ) {
 			$input[ 'author_count_u' ] = $rtp_post_comments[ 'author_count_u' ];
-			$input[ 'author_link_u' ]	 = $rtp_post_comments[ 'author_link_u' ];
+			$input[ 'author_link_u' ]  = $rtp_post_comments[ 'author_link_u' ];
 		}
 
 		if ( ! $input[ 'post_author_l' ] ) {
 			$input[ 'author_count_l' ] = $rtp_post_comments[ 'author_count_l' ];
-			$input[ 'author_link_l' ]	 = $rtp_post_comments[ 'author_link_l' ];
+			$input[ 'author_link_l' ]  = $rtp_post_comments[ 'author_link_l' ];
 		}
 
 		if ( $input[ 'pagination_show' ] ) {
@@ -688,8 +688,8 @@ function rtp_post_comments_validate( $input ) {
 		} else {
 			$input[ 'prev_text' ] = $rtp_post_comments[ 'prev_text' ];
 			$input[ 'next_text' ] = $rtp_post_comments[ 'next_text' ];
-			$input[ 'end_size' ]	 = $rtp_post_comments[ 'end_size' ];
-			$input[ 'mid_size' ]	 = $rtp_post_comments[ 'mid_size' ];
+			$input[ 'end_size' ]  = $rtp_post_comments[ 'end_size' ];
+			$input[ 'mid_size' ]  = $rtp_post_comments[ 'mid_size' ];
 		}
 	} elseif ( isset( $_POST[ 'rtp_summary_reset' ] ) ) {
 		$options = maybe_unserialize( $rtp_post_comments );
@@ -698,7 +698,7 @@ function rtp_post_comments_validate( $input ) {
 		foreach ( $options as $option => $value )
 			$input[ $option ] = $value;
 
-		$input[ 'notices' ]		 = $rtp_post_comments[ 'notices' ];
+		$input[ 'notices' ]      = $rtp_post_comments[ 'notices' ];
 		$input[ 'summary_show' ] = $default[ 1 ][ 'summary_show' ];
 		$input[ 'word_limit' ]   = $default[ 1 ][ 'word_limit' ];
 		$input[ 'read_text' ]    = $default[ 1 ][ 'read_text' ];
@@ -710,7 +710,7 @@ function rtp_post_comments_validate( $input ) {
 		foreach ( $options as $option => $value )
 			$input[ $option ] = $value;
 
-		$input[ 'notices' ]			 = $rtp_post_comments[ 'notices' ];
+		$input[ 'notices' ]            = $rtp_post_comments[ 'notices' ];
 		$input[ 'thumbnail_show' ]     = $default[ 1 ][ 'thumbnail_show' ];
 		$input[ 'thumbnail_position' ] = $default[ 1 ][ 'thumbnail_position' ];
 		$input[ 'thumbnail_frame' ]    = $default[ 1 ][ 'thumbnail_frame' ];
@@ -722,24 +722,24 @@ function rtp_post_comments_validate( $input ) {
 		foreach ( $options as $option => $value )
 			$input[ $option ] = $value;
 
-		$input[ 'notices' ]					 = $rtp_post_comments[ 'notices' ];
-		$input[ 'post_date_u' ]				 = $default[ 1 ][ 'post_date_u' ];
-		$input[ 'post_date_format_u' ]		 = $default[ 1 ][ 'post_date_format_u' ];
-		$input[ 'post_date_custom_format_u' ]	 = $default[ 1 ][ 'post_date_custom_format_u' ];
-		$input[ 'post_author_u' ]				 = $default[ 1 ][ 'post_author_u' ];
-		$input[ 'author_count_u' ]			 = $default[ 1 ][ 'author_count_u' ];
-		$input[ 'author_link_u' ]				 = $default[ 1 ][ 'author_link_u' ];
-		$input[ 'post_category_u' ]			 = $default[ 1 ][ 'post_category_u' ];
-		$input[ 'post_tags_u' ]				 = $default[ 1 ][ 'post_tags_u' ];
-		$input[ 'post_date_l' ]				 = $default[ 1 ][ 'post_date_l' ];
-		$input[ 'post_date_format_l' ]		 = $default[ 1 ][ 'post_date_format_l' ];
-		$input[ 'post_date_custom_format_l' ]	 = $default[ 1 ][ 'post_date_custom_format_l' ];
-		$input[ 'post_author_l' ]				 = $default[ 1 ][ 'post_author_l' ];
-		$input[ 'author_count_l' ]			 = $default[ 1 ][ 'author_count_l' ];
-		$input[ 'author_link_l' ]				 = $default[ 1 ][ 'author_link_l' ];
-		$input[ 'post_category_l' ]			 = $default[ 1 ][ 'post_category_l' ];
-		$input[ 'post_tags_l' ]				 = $default[ 1 ][ 'post_tags_l' ];
-		$args								 = array( '_builtin' => false );
+		$input[ 'notices' ]                   = $rtp_post_comments[ 'notices' ];
+		$input[ 'post_date_u' ]               = $default[ 1 ][ 'post_date_u' ];
+		$input[ 'post_date_format_u' ]        = $default[ 1 ][ 'post_date_format_u' ];
+		$input[ 'post_date_custom_format_u' ] = $default[ 1 ][ 'post_date_custom_format_u' ];
+		$input[ 'post_author_u' ]             = $default[ 1 ][ 'post_author_u' ];
+		$input[ 'author_count_u' ]            = $default[ 1 ][ 'author_count_u' ];
+		$input[ 'author_link_u' ]             = $default[ 1 ][ 'author_link_u' ];
+		$input[ 'post_category_u' ]           = $default[ 1 ][ 'post_category_u' ];
+		$input[ 'post_tags_u' ]               = $default[ 1 ][ 'post_tags_u' ];
+		$input[ 'post_date_l' ]               = $default[ 1 ][ 'post_date_l' ];
+		$input[ 'post_date_format_l' ]        = $default[ 1 ][ 'post_date_format_l' ];
+		$input[ 'post_date_custom_format_l' ] = $default[ 1 ][ 'post_date_custom_format_l' ];
+		$input[ 'post_author_l' ]             = $default[ 1 ][ 'post_author_l' ];
+		$input[ 'author_count_l' ]            = $default[ 1 ][ 'author_count_l' ];
+		$input[ 'author_link_l' ]             = $default[ 1 ][ 'author_link_l' ];
+		$input[ 'post_category_l' ]           = $default[ 1 ][ 'post_category_l' ];
+		$input[ 'post_tags_l' ]               = $default[ 1 ][ 'post_tags_l' ];
+		$args                                 = array( '_builtin' => false );
 		$taxonomies = get_taxonomies( $args, 'names' );
 
 		if ( ! empty( $taxonomies ) ) {
@@ -756,12 +756,12 @@ function rtp_post_comments_validate( $input ) {
 		foreach ( $options as $option => $value )
 			$input[ $option ] = $value;
 
-		$input[ 'notices' ]			 = $rtp_post_comments[ 'notices' ];
+		$input[ 'notices' ]         = $rtp_post_comments[ 'notices' ];
 		$input[ 'pagination_show' ] = $default[ 1 ][ 'pagination_show' ];
-		$input[ 'prev_text' ]			 = $default[ 1 ][ 'prev_text' ];
-		$input[ 'next_text' ]			 = $default[ 1 ][ 'next_text' ];
-		$input[ 'end_size' ]			 = $default[ 1 ][ 'end_size' ];
-		$input[ 'mid_size' ]			 = $default[ 1 ][ 'mid_size' ];
+		$input[ 'prev_text' ]       = $default[ 1 ][ 'prev_text' ];
+		$input[ 'next_text' ]       = $default[ 1 ][ 'next_text' ];
+		$input[ 'end_size' ]        = $default[ 1 ][ 'end_size' ];
+		$input[ 'mid_size' ]        = $default[ 1 ][ 'mid_size' ];
 		add_settings_error( 'pagination', 'reset_pagination', __( 'The Pagination Settings have been restored to default.', 'rtPanel' ), 'updated' );
 	} elseif ( isset( $_POST[ 'rtp_comment_reset' ] ) ) {
 		$options = maybe_unserialize( $rtp_post_comments );
@@ -770,17 +770,17 @@ function rtp_post_comments_validate( $input ) {
 		foreach ( $options as $option => $value )
 			$input[ $option ] = $value;
 
-		$input[ 'notices' ]			 = $rtp_post_comments[ 'notices' ];
+		$input[ 'notices' ]          = $rtp_post_comments[ 'notices' ];
 		$input[ 'compact_form' ]     = $default[ 1 ][ 'compact_form' ];
-		$input[ 'hide_labels' ]		 = $default[ 1 ][ 'hide_labels' ];
+		$input[ 'hide_labels' ]      = $default[ 1 ][ 'hide_labels' ];
 		$input[ 'comment_textarea' ] = $default[ 1 ][ 'comment_textarea' ];
 		$input[ 'comment_separate' ] = $default[ 1 ][ 'comment_separate' ];
 		$input[ 'gravatar_show' ]    = $default[ 1 ][ 'gravatar_show' ];
 		add_settings_error( 'comment', 'reset_comment', __( 'The Comment Settings have been restored to default.', 'rtPanel' ), 'updated' );
 	} elseif ( isset( $_POST[ 'rtp_reset' ] ) ) {
-		$input				 = $default[ 1 ];
-		$input[ 'notices' ]	 = $rtp_post_comments[ 'notices' ];
-		$args				 = array( '_builtin' => false );
+		$input              = $default[ 1 ];
+		$input[ 'notices' ] = $rtp_post_comments[ 'notices' ];
+		$args = array( '_builtin' => false );
 		$taxonomies = get_taxonomies( $args, 'names' );
 		if ( ! empty( $taxonomies ) ) {
 			foreach ( $taxonomies as $taxonomy ) {
@@ -924,19 +924,19 @@ function rtp_theme_activation( $themename, $theme = false ) {
 	if ( isset( $rtp_general[ 'use_logo' ] ) && ( $rtp_general[ 'logo_use' ] == 'use_logo_url' ) ) {
 		$update++;
 		$rtp_general[ 'logo_upload' ] = $rtp_general[ 'logo_url' ];
-		$id							 = rtp_get_attachment_id_from_src( $rtp_general[ 'logo_upload' ], true );
-		$img_dimensions				 = rtp_get_image_dimensions( $rtp_general[ 'logo_upload' ], true, '', $id );
+		$id                           = rtp_get_attachment_id_from_src( $rtp_general[ 'logo_upload' ], true );
+		$img_dimensions               = rtp_get_image_dimensions( $rtp_general[ 'logo_upload' ], true, '', $id );
 		$rtp_general[ 'logo_id' ]     = $id;
-		$rtp_general[ 'logo_width' ]	 = $img_dimensions[ 'width' ];
+		$rtp_general[ 'logo_width' ]  = $img_dimensions[ 'width' ];
 		$rtp_general[ 'logo_height' ] = $img_dimensions[ 'height' ];
 		unset( $rtp_general[ 'use_logo' ] );
 		unset( $rtp_general[ 'logo_url' ] );
 	} elseif ( isset( $rtp_general[ 'use_logo' ] ) && ( $rtp_general[ 'use_logo' ] == 'use_logo_upload' ) ) {
 		$update++;
-		$id							 = rtp_get_attachment_id_from_src( $rtp_general[ 'logo_upload' ], true );
-		$img_dimensions				 = rtp_get_image_dimensions( $rtp_general[ 'logo_upload' ], true, '', $id );
+		$id                           = rtp_get_attachment_id_from_src( $rtp_general[ 'logo_upload' ], true );
+		$img_dimensions               = rtp_get_image_dimensions( $rtp_general[ 'logo_upload' ], true, '', $id );
 		$rtp_general[ 'logo_id' ]     = $id;
-		$rtp_general[ 'logo_width' ]	 = $img_dimensions[ 'width' ];
+		$rtp_general[ 'logo_width' ]  = $img_dimensions[ 'width' ];
 		$rtp_general[ 'logo_height' ] = $img_dimensions[ 'height' ];
 		unset( $rtp_general[ 'use_logo' ] );
 	}
@@ -952,8 +952,8 @@ function rtp_theme_activation( $themename, $theme = false ) {
 	if ( isset( $rtp_general[ 'use_favicon' ] ) && ( $rtp_general[ 'use_favicon' ] == 'use_favicon_url' ) ) {
 		$update++;
 		$rtp_general[ 'favicon_upload' ] = $rtp_general[ 'favicon_url' ];
-		$id								 = rtp_get_attachment_id_from_src( $rtp_general[ 'favicon_upload' ], true );
-		$img_dimensions					 = rtp_get_image_dimensions( $rtp_general[ 'favicon_upload' ], true, '', $id );
+		$id                              = rtp_get_attachment_id_from_src( $rtp_general[ 'favicon_upload' ], true );
+		$img_dimensions                  = rtp_get_image_dimensions( $rtp_general[ 'favicon_upload' ], true, '', $id );
 		$rtp_general[ 'favicon_id' ]     = $id;
 		unset( $rtp_general[ 'use_favicon' ] );
 	} elseif ( isset( $rtp_general[ 'use_favicon' ] ) && ( $rtp_general[ 'use_favicon' ] == 'use_favicon_upload' ) ) {
@@ -999,9 +999,9 @@ function rtp_custom_login_logo() {
 	}
 	$rtp_wp_loginbox_width = 312;
 	if ( $rtp_logo_width > $rtp_wp_loginbox_width ) {
-		$ratio				 = $rtp_logo_height / $rtp_logo_width;
+		$ratio               = $rtp_logo_height / $rtp_logo_width;
 		$rtp_logo_height     = ceil( $ratio * $rtp_wp_loginbox_width );
-		$rtp_logo_width		 = $rtp_wp_loginbox_width;
+		$rtp_logo_width      = $rtp_wp_loginbox_width;
 		$rtp_background_size = 'contain';
 	} else {
 		$rtp_background_size = 'auto';
@@ -1233,12 +1233,12 @@ function rtp_export() {
 
 	$filename = $sitename . 'rtpanel.' . date( 'Y-m-d' ) . '.rtp';
 
-	$general					 = "WHERE option_name = 'rtp_general'";
-	$post_comments				 = "WHERE option_name = 'rtp_post_comments'";
-	$hooks						 = "WHERE option_name = 'rtp_hooks'";
-	$args[ 'rtp_general' ]		 = $wpdb->get_var( "SELECT option_value FROM {$wpdb->options} $general" );
+	$general                     = "WHERE option_name = 'rtp_general'";
+	$post_comments               = "WHERE option_name = 'rtp_post_comments'";
+	$hooks                       = "WHERE option_name = 'rtp_hooks'";
+	$args[ 'rtp_general' ]       = $wpdb->get_var( "SELECT option_value FROM {$wpdb->options} $general" );
 	$args[ 'rtp_post_comments' ] = $wpdb->get_var( "SELECT option_value FROM {$wpdb->options} $post_comments" );
-	$args[ 'rtp_hooks' ]			 = $wpdb->get_var( "SELECT option_value FROM {$wpdb->options} $hooks" );
+	$args[ 'rtp_hooks' ]         = $wpdb->get_var( "SELECT option_value FROM {$wpdb->options} $hooks" );
 
 	header( 'Content-Description: File Transfer' );
 	header( 'Content-Disposition: attachment; filename=' . $filename );
@@ -1423,14 +1423,14 @@ add_action( 'admin_head', 'rtp_regenerate_thumbnail_notice_js' );
 
 /* Removes 'regenerate thumbnail' notice ( Admin User Only !!! ) */
 if ( is_admin() && $pagenow == 'tools.php' && ( @$_GET[ 'page' ] == 'regenerate-thumbnails' ) && @$_POST[ 'regenerate-thumbnails' ] ) {
-	$rtp_notice				 = get_option( 'rtp_post_comments' );
+	$rtp_notice              = get_option( 'rtp_post_comments' );
 	$rtp_notice[ 'notices' ] = '0';
 	update_option( 'rtp_post_comments', $rtp_notice );
 }
 
 /* Check if regeneration of thumbnail is required, or not */
 if ( is_array( $rtp_post_comments ) && ( @$rtp_post_comments[ 'thumbnail_width' ] != get_option( 'thumbnail_size_w' ) || @$rtp_post_comments[ 'thumbnail_height' ] != get_option( 'thumbnail_size_h' ) || @$rtp_post_comments[ 'thumbnail_crop' ] != get_option( 'thumbnail_crop' ) ) ) {
-	$rtp_post_comments[ 'notices' ]			 = '1';
+	$rtp_post_comments[ 'notices' ]          = '1';
 	$rtp_post_comments[ 'thumbnail_width' ]	 = get_option( 'thumbnail_size_w' );
 	$rtp_post_comments[ 'thumbnail_height' ] = get_option( 'thumbnail_size_h' );
 	$rtp_post_comments[ 'thumbnail_crop' ]   = get_option( 'thumbnail_crop' );

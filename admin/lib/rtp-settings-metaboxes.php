@@ -45,8 +45,8 @@ function rtp_logo_option_metabox() {
 	global $rtp_general;
 	$rtp_general[ 'logo_use' ]    = isset( $rtp_general[ 'logo_use' ] ) ? $rtp_general[ 'logo_use' ] : 'site_title';
 	$rtp_general[ 'favicon_use' ] = isset( $rtp_general[ 'favicon_use' ] ) ? $rtp_general[ 'favicon_use' ] : 'disable';
-	$logo_style					 = ( 'site_title' == $rtp_general[ 'logo_use' ] ) ? ' style="display: none"' : '';
-	$favicon_style				 = ( in_array( $rtp_general[ 'favicon_use' ], array( 'disable', 'logo' ) ) ) ? ' style="display: none"' : '';
+	$logo_style                   = ( 'site_title' == $rtp_general[ 'logo_use' ] ) ? ' style="display: none"' : '';
+	$favicon_style                = ( in_array( $rtp_general[ 'favicon_use' ], array( 'disable', 'logo' ) ) ) ? ' style="display: none"' : '';
 	?>
 	<table class="form-table">
 		<tbody>
@@ -773,7 +773,7 @@ function rtp_backup_metabox() {
 				<th><label for="rtp_import"><?php _e( 'Import rtPanel Options', 'rtPanel' ); ?></label></th>
 				<td>
 	                <input type="file" id="rtp_import" name="rtp_import" />
-	<?php submit_button( 'Import', 'secondary', 'rtp_import', false ); ?>
+					<?php submit_button( 'Import', 'secondary', 'rtp_import', false ); ?>
 				</td>
 			</tr>
 		</tbody>
@@ -906,10 +906,10 @@ function rtp_post_thumbnail_metabox() {
  */
 function rtp_post_meta_metabox() {
 	global $rtp_post_comments;
-	$date_format_u	 = ( $rtp_post_comments[ 'post_date_format_u' ] != 'F j, Y' && $rtp_post_comments[ 'post_date_format_u' ] != 'Y/m/d' && $rtp_post_comments[ 'post_date_format_u' ] != 'm/d/Y' && $rtp_post_comments[ 'post_date_format_u' ] != 'd/m/Y' ) ? true : false;
-	$date_format_l	 = ( $rtp_post_comments[ 'post_date_format_l' ] != 'F j, Y' && $rtp_post_comments[ 'post_date_format_l' ] != 'Y/m/d' && $rtp_post_comments[ 'post_date_format_l' ] != 'm/d/Y' && $rtp_post_comments[ 'post_date_format_l' ] != 'd/m/Y' ) ? true : false;
-	$args			 = array( '_builtin' => false );
-	$taxonomies = get_taxonomies( $args, 'objects' );
+	$date_format_u   = ( $rtp_post_comments[ 'post_date_format_u' ] != 'F j, Y' && $rtp_post_comments[ 'post_date_format_u' ] != 'Y/m/d' && $rtp_post_comments[ 'post_date_format_u' ] != 'm/d/Y' && $rtp_post_comments[ 'post_date_format_u' ] != 'd/m/Y' ) ? true : false;
+	$date_format_l   = ( $rtp_post_comments[ 'post_date_format_l' ] != 'F j, Y' && $rtp_post_comments[ 'post_date_format_l' ] != 'Y/m/d' && $rtp_post_comments[ 'post_date_format_l' ] != 'm/d/Y' && $rtp_post_comments[ 'post_date_format_l' ] != 'd/m/Y' ) ? true : false;
+	$args            = array( '_builtin' => false );
+	$taxonomies      = get_taxonomies( $args, 'objects' );
 	?><br />
 	<span class="description"><strong><?php _e( 'This option will allow you to specify the post meta attributes and their position', 'rtPanel' ); ?></strong></span><br /><br />
 	<strong><?php _e( 'These Post Meta will be displayed above content', 'rtPanel' ); ?></strong>

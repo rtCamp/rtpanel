@@ -12,8 +12,8 @@
  * Used to set the width of images and content. Should be equal to the width the theme
  * is designed for, generally via the style.css stylesheet
  */
-$content_width		   = ( isset( $content_width ) ) ? $content_width : 620;
-$max_content_width	= ( isset( $max_content_width ) ) ? $max_content_width : 940;
+$content_width     = ( isset( $content_width ) ) ? $content_width : 620;
+$max_content_width = ( isset( $max_content_width ) ) ? $max_content_width : 940;
 
 if ( ! function_exists( 'rtpanel_setup' ) ) {
 

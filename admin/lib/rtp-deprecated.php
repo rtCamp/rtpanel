@@ -185,16 +185,16 @@ if ( ! class_exists( 'Rtp_Ogp' ) ) {
 				if ( strlen( wp_html_excerpt( $post_content, 130 ) ) >= 130 )
 					$append = '...';
 
-				$data[ 'og:title' ]		 = esc_attr( $post->post_title );
-				$data[ 'og:type' ]		 = 'article';
-				$data[ 'og:image' ]		 = $this->rtp_ogp_image_url();
-				$data[ 'og:url' ]			 = get_permalink();
+				$data[ 'og:title' ]       = esc_attr( $post->post_title );
+				$data[ 'og:type' ]        = 'article';
+				$data[ 'og:image' ]       = $this->rtp_ogp_image_url();
+				$data[ 'og:url' ]         = get_permalink();
 				$data[ 'og:description' ] = esc_attr( wp_html_excerpt( $post_content, 130 ) . $append );
 			} else {
-				$data[ 'og:title' ]		 = get_bloginfo( 'name' );
-				$data[ 'og:type' ]		 = 'website';
-				$data[ 'og:image' ]		 = $this->rtp_ogp_image_url();
-				$data[ 'og:url' ]			 = home_url( $_SERVER[ 'REQUEST_URI' ] );
+				$data[ 'og:title' ]       = get_bloginfo( 'name' );
+				$data[ 'og:type' ]        = 'website';
+				$data[ 'og:image' ]       = $this->rtp_ogp_image_url();
+				$data[ 'og:url' ]         = home_url( $_SERVER[ 'REQUEST_URI' ] );
 				$data[ 'og:description' ] = get_bloginfo( 'description' );
 			}
 			return $data;

@@ -63,22 +63,22 @@ if ( have_comments() || ( ( ! is_attachment() && comments_open() ) || ( is_attac
 		/* Including Comment form using comment_form() function */
 	if ( ( ! is_attachment() && comments_open() ) || ( is_attachment() && $rtp_post_comments[ 'attachment_comments' ] ) ) {
 		if ( $rtp_post_comments[ 'hide_labels' ] ) {
-			$hide_class		 = ' hide-labels';
-			$asterix		 = ( $req ) ? '*' : '';
-			$label_author	= '';
-			$author_value	= __( 'Name', 'rtPanel' ) . $asterix;
-			$label_email	 = '';
-			$email_value	 = __( 'Email', 'rtPanel' ) . $asterix;
-			$label_url		  = '';
-			$url_value		  = __( 'Website', 'rtPanel' );
+			$hide_class   = ' hide-labels';
+			$asterix      = ( $req ) ? '*' : '';
+			$label_author = '';
+			$author_value = __( 'Name', 'rtPanel' ) . $asterix;
+			$label_email  = '';
+			$email_value  = __( 'Email', 'rtPanel' ) . $asterix;
+			$label_url    = '';
+			$url_value    = __( 'Website', 'rtPanel' );
 		} else {
-			$hide_class		 = '';
-			$label_author	= '<label for="author">' . __( 'Name', 'rtPanel' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' );
-			$author_value	= '';
-			$label_email	 = '<label for="email">' . __( 'Email', 'rtPanel' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' );
-			$email_value	 = '';
-			$label_url		  = '<label for="url">' . __( 'Website', 'rtPanel' ) . '</label> ';
-			$url_value		  = '';
+			$hide_class   = '';
+			$label_author = '<label for="author">' . __( 'Name', 'rtPanel' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' );
+			$author_value = '';
+			$label_email  = '<label for="email">' . __( 'Email', 'rtPanel' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' );
+			$email_value  = '';
+			$label_url    = '<label for="url">' . __( 'Website', 'rtPanel' ) . '</label> ';
+			$url_value    = '';
 		}
 
 		if ( $rtp_post_comments[ 'comment_textarea' ] && ! is_user_logged_in() ) {

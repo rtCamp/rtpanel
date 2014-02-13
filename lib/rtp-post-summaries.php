@@ -22,7 +22,7 @@ function rtp_no_ellipsis( $text ) {
 		$alignment = ' left';
 	}
 	$read_text = ( ! empty( $rtp_post_comments[ 'read_text' ] ) ) ? $rtp_post_comments[ 'read_text' ] : '';
-	$text = str_replace( '[...]', '&hellip;', $text );
+	$text      = str_replace( '[...]', '&hellip;', $text );
 	$text     .= ! is_attachment() ? apply_filters( 'rtp_readmore', ( ( $read_text ) ? '<a role="link" class="rtp-readmore" title="' . sprintf( __( 'Read more on %s', 'rtPanel' ), get_the_title() ) . '" href="' . get_permalink( $post->ID ) . '" rel="nofollow">' . esc_attr( sprintf( __( '%s', 'rtPanel' ), $read_text ) ) . '</a>' : '' ) ) : '';
 	return $text;
 }
@@ -82,7 +82,7 @@ function rtp_show_post_thumbnail( $post_id = null, $thumbnail_size = 'thumbnail'
 			$image = apply_filters( 'rtp_default_image_path', $default_img_path );
 			if ( isset( $image ) && ! empty( $image ) ) {
 				$image_id = rtp_get_attachment_id_from_src( $image, true );
-				$alt = get_post_meta( $image_id, '_wp_attachment_image_alt', true ) ? get_post_meta( $image_id, '_wp_attachment_image_alt', true ) : 'Image';
+				$alt      = get_post_meta( $image_id, '_wp_attachment_image_alt', true ) ? get_post_meta( $image_id, '_wp_attachment_image_alt', true ) : 'Image';
 				echo '<figure class="rtp-thumbnail-container ' . esc_attr( $image_align ) . ' ' . $thumbnail_frame . '">';
 				?>
 				<a role="link" class="<?php echo esc_attr( $image_align ); ?>" href="<?php echo get_permalink(); ?>" title="<?php the_title_attribute(); ?>"><img role="img" class="<?php echo 'post-thumb ' . esc_attr( $image_align ); ?> wp-post-image" title="<?php the_title_attribute(); ?>" alt="<?php echo esc_attr( $alt ); ?>" <?php echo rtp_get_image_dimensions( $image ); ?> src="<?php echo esc_attr( $image ); ?>" /></a><?php
@@ -205,7 +205,7 @@ function rtp_create_external_thumb( $match, $post, $size, $double_check_tag = ''
 				/* if the image tag has class attribute and it does not have wp-image in class */
 				if ( isset( $class[ 1 ] ) ) {
 					$updated_class = $class[ 1 ] . ' wp-image-' . $new_image_id;
-					$updated_image_tag = str_replace( 'class="' . $class[ 1 ] . '"', 'class="' . $updated_class . '"', $match[ 0 ] );
+					$updated_image_tag            = str_replace( 'class="' . $class[ 1 ] . '"', 'class="' . $updated_class . '"', $match[ 0 ] );
 					$updated_post['post_content'] = str_replace( $match[ 0 ], $updated_image_tag, $post->post_content );
 
 					if ( $double_check_tag != '' ) {
@@ -215,7 +215,7 @@ function rtp_create_external_thumb( $match, $post, $size, $double_check_tag = ''
 					// Update the post
 					wp_update_post( $updated_post );
 				} else {
-					$updated_image_tag = str_replace( '<img', '<img role="img" class="wp-image-' . $new_image_id . '"', $match[ 0 ] );
+					$updated_image_tag              = str_replace( '<img', '<img role="img" class="wp-image-' . $new_image_id . '"', $match[ 0 ] );
 					$updated_post[ 'post_content' ] = str_replace( $match[ 0 ], $updated_image_tag, $post->post_content );
 
 					// Update the post
@@ -233,7 +233,7 @@ function rtp_create_external_thumb( $match, $post, $size, $double_check_tag = ''
 
 				if ( isset( $class[ 1 ] ) ) {
 					$updated_class = $class[ 1 ] . ' wp-image-' . $new_image_id;
-					$updated_image_tag = str_replace( 'class="' . $class[ 1 ] . '"', 'class="' . $updated_class . '"', $match[ 0 ] );
+					$updated_image_tag              = str_replace( 'class="' . $class[ 1 ] . '"', 'class="' . $updated_class . '"', $match[ 0 ] );
 					$updated_post[ 'post_content' ] = str_replace( $match[ 0 ], $updated_image_tag, $post->post_content );
 
 					if ( $double_check_tag != '' ) {
@@ -243,7 +243,7 @@ function rtp_create_external_thumb( $match, $post, $size, $double_check_tag = ''
 					// Update the post
 					wp_update_post( $updated_post );
 				} else {
-					$updated_image_tag = str_replace( '<img', '<img role="img" class="wp-image-' . $new_image_id . '"', $match[ 0 ] );
+					$updated_image_tag              = str_replace( '<img', '<img role="img" class="wp-image-' . $new_image_id . '"', $match[ 0 ] );
 					$updated_post[ 'post_content' ] = str_replace( $match[ 0 ], $updated_image_tag, $post->post_content );
 
 					// Update the post
