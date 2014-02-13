@@ -40,12 +40,12 @@ $rtp_post_comments['prev_text'] = isset( $rtp_post_comments['prev_text'] ) ? $rt
 $rtp_post_comments['next_text'] = isset( $rtp_post_comments['next_text'] ) ? $rtp_post_comments['next_text'] : __( 'Next &raquo;', 'rtPanel' );
 $rtp_post_comments['end_size']  = isset( $rtp_post_comments['end_size'] ) ? $rtp_post_comments['end_size'] : 1;
 $rtp_post_comments['mid_size']  = isset( $rtp_post_comments['mid_size'] ) ? $rtp_post_comments['mid_size'] : 2;
-$rtp_post_comments['attachment_comments']  = isset( $rtp_post_comments['attachment_comments'] ) ? $rtp_post_comments['attachment_comments'] : 0;
+$rtp_post_comments['attachment_comments'] = isset( $rtp_post_comments['attachment_comments'] ) ? $rtp_post_comments['attachment_comments'] : 0;
 
 /* Includes PHP files located in 'lib' folder */
-foreach( glob ( get_template_directory() . "/lib/*.php" ) as $lib_filename ) {
-    require_once( $lib_filename );
+foreach ( glob( get_template_directory() . '/lib/*.php' ) as $lib_filename ) {
+	require_once( $lib_filename );
 }
 
 /* Includes rtPanel Theme Options */
-require_once( get_template_directory() . "/admin/rtp-theme-options.php" );
+require_once( get_template_directory() . '/admin/rtp-theme-options.php' );
