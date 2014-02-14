@@ -1042,11 +1042,10 @@ function rtp_default_admin_sidebar() {
 		<div title="<?php _e( 'Click to toggle', 'rtPanel' ); ?>" class="handlediv"><br /></div>
 		<h3 class="hndle"><span><?php _e( 'Getting Social is Good', 'rtPanel' ); ?></span></h3>
 		<div class="inside" style="text-align: center;"><?php
-	printf( __( '<a href="%s" target="_blank" title="Like Us on Facebook" class="rtp-icon-facebook"></a>', 'rtPanel' ), 'https://www.facebook.com/rtCamp.solutions' );
-	printf( __( '<a href="%s" target="_blank" title="Follow Us on Twitter" class="rtp-icon-twitter"></a>', 'rtPanel' ), 'http://twitter.com/rtcamp' );
-	printf( __( '<a href="%s" target="_blank" title="Add to Circle" class="rtp-icon-gplus"></a>', 'rtPanel' ), 'https://plus.google.com/110214156830549460974/posts' );
-	printf( __( '<a href="%s" target="_blank" title="Subscribe to our feeds" class="rtp-icon-rss"></a>', 'rtPanel' ), 'http://rtcamp.com/feed/' );
-	?>
+                    printf( __( '<a href="%s" target="_blank" title="Like Us on Facebook" class="rtp-icon-facebook"></a>', 'rtPanel' ), 'https://www.facebook.com/rtCamp.solutions' );
+                    printf( __( '<a href="%s" target="_blank" title="Follow Us on Twitter" class="rtp-icon-twitter"></a>', 'rtPanel' ), 'http://twitter.com/rtcamp' );
+                    printf( __( '<a href="%s" target="_blank" title="Add to Circle" class="rtp-icon-gplus"></a>', 'rtPanel' ), 'https://plus.google.com/110214156830549460974/posts' );
+                    printf( __( '<a href="%s" target="_blank" title="Subscribe to our feeds" class="rtp-icon-rss"></a>', 'rtPanel' ), 'http://rtcamp.com/feed/' ); ?>
 		</div>
 	</div>
 
@@ -1054,7 +1053,7 @@ function rtp_default_admin_sidebar() {
 		<div title="<?php _e( 'Click to toggle', 'rtPanel' ); ?>" class="handlediv"><br /></div>
 		<h3 class="hndle"><span><?php _e( 'Promote, Donate, Share', 'rtPanel' ); ?>...</span></h3>
 		<div class="inside">
-			<p><?php printf( __( 'Buy coffee/beer for team behind <a href="%s" title="rtPanel">rtPanel</a>.', 'rtPanel' ), RTP_DONATE_URL ); ?></p>
+			<p><?php printf( __( 'Buy coffee/beer for team behind <a href="%s" target="_blank" title="rtPanel">rtPanel</a>.', 'rtPanel' ), RTP_DONATE_URL ); ?></p>
 			<div class="rt-social-share">
 				<div class="rt-twitter rtp-social-box">
 			<?php printf( __( '<a href="%s"  class="twitter-share-button" data-text="I &hearts; #rtPanel" data-url="%s" data-via="rtpanel" data-count="none">Tweet</a>', 'rtPanel' ), 'http://twitter.com/share', RTP_THEME_URL ); ?>

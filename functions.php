@@ -7,7 +7,7 @@
  * @since rtPanel 2.0
  */
 
-define( 'RTP_VERSION', '4.1.5' );
+define( 'RTP_VERSION', '4.1.6' );
 
 /* Define Links */
 define( 'RTP_AUTHOR_URL', 'https://rtcamp.com/' );                      // Theme Author URL

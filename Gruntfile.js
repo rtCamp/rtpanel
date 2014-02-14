@@ -67,20 +67,33 @@ module.exports = function(grunt) {
         // Concat
         // Note: This will concat all js files to single file to reduce http request
         // Ref. https://npmjs.org/package/grunt-contrib-concat
-        concat: {
-            options: {
-                banner: '/*! \n\* Concat JS libraries to single js file to reduce http request.\n\* This will include modernizr.js, foundation.min.js and jquery.sidr.min.js \n\* \n\* @since rtPanel 4.1.4\n\*/ '
-            },
-            dist: {
-                src: [
-                    'assets/foundation/bower_components/foundation/js/vendor/custom.modernizr.js', 
-                    'assets/foundation/bower_components/foundation/js/foundation.min.js', 
+//        concat: {
+//            options: {
+//                banner: '/*! \n\* Concat JS libraries to single js file to reduce http request.\n\* This will include modernizr.js, foundation.min.js and jquery.sidr.min.js \n\* \n\* @since rtPanel 4.1.4\n\*/ '
+//            },
+//            dist: {
+//                src: [
+//                    'assets/foundation/bower_components/foundation/js/vendor/custom.modernizr.js',
+//                    'assets/foundation/bower_components/foundation/js/foundation.min.js',
+//                    'js/jquery.sidr.min.js',
+//                    'js/rtp-app.js'
+//                ],
+//                dest: 'js/rtp-concat-lib.js'
+//            }
+//        },
+
+        uglify: {
+            rtp_js_lib: {
+              files: {
+                'js/rtp-main-lib.js': [
+                    'assets/foundation/bower_components/foundation/js/vendor/custom.modernizr.js',
+                    'assets/foundation/bower_components/foundation/js/foundation.min.js',
                     'js/jquery.sidr.min.js',
                     'js/rtp-app.js'
-                ],
-                dest: 'js/rtp-concat-lib.js'
+                ]
+              }
             }
-        },
+          },
 
         // WordPress Deployment
         // Ref. https://npmjs.org/package/grunt-wordpress-deploy
@@ -138,5 +151,5 @@ module.exports = function(grunt) {
     // grunt.registerTask('default', ['concat']);
 
     // register task
-    grunt.registerTask('default', ['fontello', 'imagemin', 'concat', 'watch']);
+    grunt.registerTask('default', ['fontello', 'imagemin', 'uglify', 'watch']);
 };
