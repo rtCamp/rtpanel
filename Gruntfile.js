@@ -7,32 +7,9 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
 
-        // Watch for hanges and trigger compass, jshint, uglify and livereload
-        // Ref. https://npmjs.org/package/grunt-contrib-watch
-        watch: {
-            compass: {
-                files: ['assets/rtpanel/**/*.{scss,sass}'],
-                tasks: ['compass']
-            },
-            
-            livereload: {
-                options: {livereload: true},
-                files: ['style.css', 'js/*.js', '*.html', '*.php', 'img/**/*.{png,jpg,jpeg,gif,webp,svg}']
-            }
-        },
-
-        // SCSS and Compass
-        // Ref. https://npmjs.org/package/grunt-contrib-compass
-        compass: {
-            dist: {
-                options: {
-                    config: 'config.rb',
-                    force: true
-                }
-            }
-        },
-
         // Fontello Icons
+        // Note: This is one time running task, so run grunt after update assets/fontello/config.json file
+        // Ref. https://npmjs.org/package/grunt-fontello
         fontello: {
             dist: {
                 options: {
@@ -40,7 +17,6 @@ module.exports = function(grunt) {
                     fonts: 'assets/fontello/font',
                     styles: 'assets/fontello/css',
                     scss: true,
-                    // zip: 'test/output',
                     force: true
                 }
             }
@@ -64,36 +40,56 @@ module.exports = function(grunt) {
             }
         },
 
-        // Concat
-        // Note: This will concat all js files to single file to reduce http request
-        // Ref. https://npmjs.org/package/grunt-contrib-concat
-//        concat: {
-//            options: {
-//                banner: '/*! \n\* Concat JS libraries to single js file to reduce http request.\n\* This will include modernizr.js, foundation.min.js and jquery.sidr.min.js \n\* \n\* @since rtPanel 4.1.4\n\*/ '
-//            },
-//            dist: {
-//                src: [
-//                    'assets/foundation/bower_components/foundation/js/vendor/custom.modernizr.js',
-//                    'assets/foundation/bower_components/foundation/js/foundation.min.js',
-//                    'js/jquery.sidr.min.js',
-//                    'js/rtp-app.js'
-//                ],
-//                dest: 'js/rtp-concat-lib.js'
-//            }
-//        },
+        // SCSS and Compass
+        // Ref. https://npmjs.org/package/grunt-contrib-compass
+        compass: {
+            frontend: {
+                options: {
+                    config: 'config.rb',
+                    force: true
+                }
+            },
 
+            // Admin Panel CSS
+            backend: {
+                options: {
+                    sassDir: 'admin/css/',
+                    cssDir: 'admin/css/'
+                }
+            }
+        },
+
+        // Uglify
+        // Compress and Minify JS files in js/rtp-main-lib.js
+        // Ref. https://npmjs.org/package/grunt-contrib-uglify
         uglify: {
-            rtp_js_lib: {
-              files: {
-                'js/rtp-main-lib.js': [
+            options: {
+                banner: '/*! \n * rtPanel JavaScript Library \n * @package rtPanel \n */'
+            },
+            build: {
+                src: [
                     'assets/foundation/bower_components/foundation/js/vendor/custom.modernizr.js',
                     'assets/foundation/bower_components/foundation/js/foundation.min.js',
                     'js/jquery.sidr.min.js',
                     'js/rtp-app.js'
-                ]
-              }
+                ],
+                dest: 'js/rtp-package-min.js'
             }
-          },
+        },
+
+        // Watch for hanges and trigger compass and uglify
+        // Ref. https://npmjs.org/package/grunt-contrib-watch
+        watch: {
+            compass: {
+                files: ['**/*.{scss,sass}'],
+                tasks: ['compass']
+            },
+
+            uglify: {
+                files: '<%= uglify.build.src %>',
+                tasks: ['uglify']
+            }
+        },
 
         // WordPress Deployment
         // Ref. https://npmjs.org/package/grunt-wordpress-deploy
@@ -101,7 +97,7 @@ module.exports = function(grunt) {
             options: {
                 backup_dir: "../../backups/",
                 rsync_args: ['-avz'],
-                exclusions: ['Gruntfile.js', '.bower.json', '.editorconfig', '.travis.yml', '.git/', '.svn/', 'tmp/*', 'wp-config.php', 'composer.json', 'composer.lock', '.gitignore', 'package.json', 'node_modules', '.sass-cache', 'npm-debug.log', '.scss-cache']
+                exclusions: ['Gruntfile.js', '.bower.json', '.editorconfig', '.travis.yml', '.gitmodules', '.gitattributes', '.git/', '.svn/', 'tmp/*', 'wp-config.php', 'composer.json', 'composer.lock', '.gitignore', 'package.json', 'node_modules', '.sass-cache', 'npm-debug.log', '.scss-cache']
             },
 
             local: {
@@ -138,18 +134,9 @@ module.exports = function(grunt) {
         }
     });
 
-    // register task
-    // grunt.registerTask('imagemin', ['imagemin']);
-
-    // Fontello Fonts
-    // grunt.registerTask('iconFonts', ['fontello']);
-
     // WordPress Deploy
     // grunt.registerTask('default', ['wordpressdeploy']);
 
-    // Concat
-    // grunt.registerTask('default', ['concat']);
-
-    // register task
-    grunt.registerTask('default', ['fontello', 'imagemin', 'uglify', 'watch']);
+    // Register Task
+    grunt.registerTask('default', ['fontello', 'imagemin', 'watch']);
 };

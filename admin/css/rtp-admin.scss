@@ -1,9 +1,11 @@
-/**
-* rtPanel Admin CSS
-*
-* @package rtPanel
-*
-*/
+/*!
+ * rtPanel Admin CSS
+ *
+ * @package rtPanel
+ * 
+ * @since rtPanel 2.0
+ *
+ */
 
 // ***** Compass Imports ***** //
 @import "compass/css3";
@@ -11,8 +13,8 @@
 
 // rtPanel Dynamic Variables
 $text-color: #333333;
-$gray: #cccccc;
-$light-gray: #dddddd;
+$gray: #CCCCCC;
+$light-gray: #DDDDDD;
 $red: red;
 $light-red: #FFEBE8;
 $green: green;
@@ -20,7 +22,7 @@ $orange: orange;
 
 // ***** Links ***** //
 $link-color: #006999;
-$link-hover-color: #cd5a1b;
+$link-hover-color: #CD5A1B;
 
 /* Utility Classes */
 // Show
@@ -133,7 +135,7 @@ $link-hover-color: #cd5a1b;
 }
 
 // Post meta common
-.post-meta-common { margin-left:30px; }
+.post-meta-common { margin-left: 30px; }
 
 // Plugin support
 #plugin_support {
@@ -160,7 +162,7 @@ $link-hover-color: #cd5a1b;
 }
 
 .feedburner label,
-.custom-search-main label { padding:0 0 3px; }
+.custom-search-main label { padding: 0 0 3px; }
 
 // Inner Sidebar
 .inner-sidebar { width: 50% !important;

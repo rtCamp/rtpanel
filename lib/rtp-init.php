@@ -90,7 +90,7 @@ add_action( 'rtp_hook_begin_header', 'rtp_header_image' );
  */
 function rtp_default_scripts() {
 	/* Concat all js libraries to single rtp-concat-lib.js */
-	wp_enqueue_script( 'rtp-main-lib', RTP_JS_FOLDER_URL . '/rtp-main-lib.js', array( 'jquery' ), RTP_VERSION, true );
+	wp_enqueue_script( 'rtp-package-min', RTP_JS_FOLDER_URL . '/rtp-package-min.js', array( 'jquery' ), RTP_VERSION, true );
 
 	/* Google Font: Open Sans */
 	wp_enqueue_style( 'rtp-google-font', 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700', '', NULL );
