@@ -1517,7 +1517,7 @@ function rtp_create_favicon( $sizes ) {
  */
 function rtp_wpadmin_favicon() {
 	global $rtp_general;
-	if ( 'disable' != $rtp_general[ 'favicon_use' ] ) {
+	if ( isset( $rtp_general[ 'favicon_use' ] ) && 'disable' != $rtp_general[ 'favicon_use' ] ) {
 		?>
 		<link rel="shortcut icon" type="image/x-icon" href="<?php echo esc_attr( $rtp_general[ 'favicon_upload' ] ); ?>" /><?php
 	}
