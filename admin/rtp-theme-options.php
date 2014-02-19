@@ -55,7 +55,7 @@ class Rtp_Theme {
 	 * */
 	function rtp_theme_option_page() {
 		// Add options page, you can also add it to different sections or use your own one
-		add_theme_page( 'rtPanel - ' . $this->theme_pages[ 'rtp_general' ][ 'menu_title' ], '<strong class="rtpanel">rtPanel</strong>', 'edit_theme_options', 'rtp_general', array( &$this, 'rtp_admin_options' ) );
+		add_theme_page( 'rtPanel - ' . $this->theme_pages[ 'rtp_general' ][ 'menu_title' ], '<strong class="rtpanel">' . apply_filters( 'rtp_admin_setting_page_name', 'rtPanel' ) . '</strong>', 'edit_theme_options', 'rtp_general', array( &$this, 'rtp_admin_options' ) );
 		foreach ( $this->theme_pages as $key => $theme_page ) {
 			if ( is_array( $theme_page ) )
 				add_theme_page( 'rtPanel - ' . $theme_page[ 'menu_title' ], '--- <em>' . $theme_page[ 'menu_title' ] . '</em>', 'edit_theme_options', $theme_page[ 'menu_slug' ], array( &$this, 'rtp_admin_options' ) );
