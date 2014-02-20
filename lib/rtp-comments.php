@@ -33,7 +33,7 @@ function rtp_comment_list( $comment, $args, $depth ) {
 		?>
 		<div class="vcard">
 			<?php echo get_avatar( $comment, $gravatar_size );
-			rtp_hook_after_comment_author_avatar()
+			rtp_hook_after_comment_author_avatar();
 			?>
 		</div><?php
 }

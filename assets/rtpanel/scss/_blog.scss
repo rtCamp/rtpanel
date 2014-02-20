@@ -55,11 +55,16 @@ $post-meta-styles: true !default;
         > .rtp-meta-separator {
             &:first-child { display: none; }
         }
+        .vcard { 
+            border: 0; display: inline; margin: 0; padding: 0;
+
+            .fn { font-weight: normal; font-size: rem-calc(13); }
+        }
     }
     .post-meta-bottom { padding: 1em 0 0;
         .single & { margin: 1.5em 0 0; padding: 0; }
     }
-    .rtp-post-comment-count { margin-left: rem-calc(8);
+    .rtp-post-comment-count {
         @if $rtp-icon-font {
             a:before { content: '\e80a'; font-family: $rtp-icon-font-family; font-size: rem-calc(14); margin: rem-calc(0 5); }    
         }
