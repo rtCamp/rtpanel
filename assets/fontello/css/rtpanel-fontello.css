@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'rtpanel-fontello';
-  src: url('../font/rtpanel-fontello.eot?64058519');
-  src: url('../font/rtpanel-fontello.eot?64058519#iefix') format('embedded-opentype'),
-       url('../font/rtpanel-fontello.woff?64058519') format('woff'),
-       url('../font/rtpanel-fontello.ttf?64058519') format('truetype'),
-       url('../font/rtpanel-fontello.svg?64058519#rtpanel-fontello') format('svg');
+  src: url('../font/rtpanel-fontello.eot?39827865');
+  src: url('../font/rtpanel-fontello.eot?39827865#iefix') format('embedded-opentype'),
+       url('../font/rtpanel-fontello.woff?39827865') format('woff'),
+       url('../font/rtpanel-fontello.ttf?39827865') format('truetype'),
+       url('../font/rtpanel-fontello.svg?39827865#rtpanel-fontello') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -14,7 +14,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'rtpanel-fontello';
-    src: url('../font/rtpanel-fontello.svg?64058519#rtpanel-fontello') format('svg');
+    src: url('../font/rtpanel-fontello.svg?39827865#rtpanel-fontello') format('svg');
   }
 }
 */
