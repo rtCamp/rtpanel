@@ -47,7 +47,7 @@ if ( have_posts() ) {
 				<?php if ( is_singular() ) { ?>
 					<h1 class="post-title entry-title"><?php the_title(); ?></h1><?php } else {
 					?>
-                                        <h2 class="post-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permanent Link to %s', 'rtPanel' ), the_title_attribute( 'echo=0' ) ); ?>" class="url"><?php the_title(); ?></a></h2><?php }
+                                        <h2 class="post-title entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permanent Link to %s', 'rtPanel' ), the_title_attribute( 'echo=0' ) ); ?>" class="url"><?php the_title(); ?></a></h2><?php }
 				?>
 
 				<?php rtp_hook_end_post_title(); ?>
