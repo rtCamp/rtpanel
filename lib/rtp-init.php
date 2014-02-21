@@ -72,7 +72,9 @@ add_action( 'after_setup_theme', 'rtpanel_setup' ); // Tell WordPress to run rtp
  * @since rtPanel 2.3
  */
 if ( ! function_exists( 'rtp_header_image' ) ) {
-
+        /**
+         * Get header image if it exists
+         */
 	function rtp_header_image() {
 		if ( get_header_image() ) {
 			?>
@@ -163,6 +165,7 @@ add_filter( 'body_class', 'rtp_body_class' );
  * Remove category from rel attribute to solve validation error.
  *
  * @since rtPanel 2.1
+ * @param String $output markup of categories list
  */
 function rtp_remove_category_list_rel( $output ) {
 	$output = str_replace( ' rel="category tag"', ' rel="tag"', $output );

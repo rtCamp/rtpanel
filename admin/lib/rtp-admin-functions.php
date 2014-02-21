@@ -15,6 +15,7 @@ global $rtp_general, $rtp_post_comments, $rtp_hooks, $rtp_version;
  * @return Array
  *
  * @since rtPanel 2.0
+ * @param Array $input Non-validated data
  */
 function rtp_general_validate( $input ) {
 	global $rtp_general;
@@ -908,7 +909,12 @@ function rtp_theme_setup_values() {
 	return array( $default_general, $default_post_comments );
 }
 
-// Redirect to rtPanel on theme activation //
+/**
+ * Redirect to rtPanel on theme activation
+ * 
+ * @param String $themename
+ * @param Boolean $theme
+ */
 function rtp_theme_activation( $themename, $theme = false ) {
 	global $rtp_general;
 	$update = 0;
@@ -1304,6 +1310,7 @@ add_action( 'admin_head', 'rtp_custom_admin_logo' );
  * Adds custom footer text
  *
  * @since rtPanel 2.0
+ * @param String $footer_text Footer markup in backend dahsboard
  */
 function rtp_custom_admin_footer( $footer_text ) {
 	echo $footer_text;
@@ -1336,6 +1343,7 @@ function rtp_export_version() {
  * Gets rtPanel and WordPress version (in text) for footer
  *
  * @since rtPanel 2.0
+ * @param String $update_footer Footer markup
  */
 function rtp_version( $update_footer ) {
 	global $rtp_version;
@@ -1363,9 +1371,10 @@ function rtp_handle_regenerate_notice() {
 add_action( 'wp_ajax_hide_regenerate_thumbnail_notice', 'rtp_handle_regenerate_notice' );
 
 /**
- *  Displays the regenerate thumbnail notice
+ * Displays the regenerate thumbnail notice
  *
  * @since rtPanel 2.0
+ * @param Boolean $return Directly display or to return the content
  */
 function rtp_regenerate_thumbnail_notice( $return = false ) {
 	if ( current_user_can( 'administrator' ) ) {
@@ -1440,6 +1449,7 @@ if ( is_array( $rtp_post_comments ) && ( @$rtp_post_comments[ 'thumbnail_width' 
  * Adds Styles dropdown to TinyMCE Editor
  *
  * @since rtPanel 2.1
+ * @param Array $buttons array of all TinyMCE buttons
  */
 function rtp_mce_editor_buttons( $buttons ) {
 	array_unshift( $buttons, 'styleselect' );
@@ -1452,6 +1462,7 @@ add_filter( 'mce_buttons_2', 'rtp_mce_editor_buttons' );
  * Adds Non Semantic Helper classes/styles dropdown to TinyMCE Editor
  *
  * @since rtPanel 2.1
+ * @param Array $settings
  */
 function rtp_mce_before_init( $settings ) {
 
@@ -1504,6 +1515,7 @@ add_filter( 'tiny_mce_before_init', 'rtp_mce_before_init' );
  * Adds favicon image to the list of generated images ( For Logo/Favicon Settings )
  *
  * @since rtPanel 2.2
+ * @param Array $sizes Array of favicon size
  */
 function rtp_create_favicon( $sizes ) {
 	$sizes[ 'favicon' ] = array( 'width' => 16, 'height' => 16, 'crop' => 1 );
