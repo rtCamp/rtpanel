@@ -20,6 +20,9 @@ foreach ( glob( get_template_directory() . '/admin/lib/*.php' ) as $lib_filename
  */
 class Rtp_Theme {
 
+        /**
+         * Array of custom option pages required the the theme
+         */
 	var $theme_pages;
 
 	/**

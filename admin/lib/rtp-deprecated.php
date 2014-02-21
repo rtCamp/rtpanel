@@ -17,6 +17,9 @@
  * This function is to be used in every function that is deprecated.
  *
  * @since 2.2.2
+ * @param String $function deprecated function name
+ * @param Float $version version information
+ * @param String $replacement The replacement function name
  */
 function _rtp_deprecated_function( $function, $version, $replacement = null ) {
 	if ( WP_DEBUG ) {
@@ -27,6 +30,16 @@ function _rtp_deprecated_function( $function, $version, $replacement = null ) {
 	}
 }
 
+/**
+ * Marks an argument as deprecated and informs when it has been used.
+ *
+ * The current behavior is to trigger a user error if WP_DEBUG is true.
+ *
+ * @since 2.2.2
+ * @param String $function deprecated function name
+ * @param Float $version version information
+ * @param String $message Message to display
+ */
 function _rtp_deprecated_argument( $function, $version, $message = null ) {
 	if ( WP_DEBUG ) {
 		if ( ! is_null( $message ) )
@@ -130,7 +143,10 @@ if ( ! class_exists( 'Rtp_Ogp' ) ) {
 	 * @deprecated 4.0
 	 */
 	class Rtp_Ogp {
-
+                
+                /**
+                 * Store open graph information
+                 */
 		var $data;
 
 		/**
@@ -207,7 +223,8 @@ if ( ! class_exists( 'Rtp_Ogp' ) ) {
 		 *
 		 * @since rtPanel 2.0
 		 * @deprecated 4.0
-		 * */
+                 * @param String $data Unfiltered markup
+		 */
 		function rtp_ogp_get_headers( $data ) {
 			_rtp_deprecated_function( __FUNCTION__, '4.0', 'Not used anymore' );
 			if ( ! count( $data ) ) {

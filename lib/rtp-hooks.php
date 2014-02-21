@@ -219,6 +219,7 @@ function rtp_hook_end_post_title() {
  * Adds Post Meta Box (default behavior)
  *
  * @since rtPanel 2.0
+ * @param String $placement for positioning top or bottom
  */
 function rtp_hook_post_meta( $placement ) {
 	if ( $placement == 'bottom' )
@@ -380,14 +381,23 @@ function rtp_hook_archive_pagination() {
 	do_action( 'rtp_hook_archive_pagination' );
 }
 
+/**
+ * Add content before content-wrapper
+ */
 function rtp_hook_before_content_wrapper() {
 	do_action( 'rtp_hook_before_content_wrapper' );
 }
 
+/**
+ * Add content after content-wrapper
+ */
 function rtp_hook_after_content_wrapper() {
 	do_action( 'rtp_hook_after_content_wrapper' );
 }
 
+/**
+ * Add content after author image in comments
+ */
 function rtp_hook_after_comment_author_avatar() {
 	do_action( 'rtp_hook_after_comment_author_avatar' );
 }

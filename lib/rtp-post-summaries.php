@@ -35,6 +35,7 @@ add_filter( 'the_excerpt', 'rtp_no_ellipsis' );
  * @return string The gallery style filter, with the styles themselves removed
  *
  * @since rtPanel 2.0
+ * @param String $css markup to modify or remove
  */
 function rtp_remove_gallery_css( $css ) {
 	return preg_replace( "#<style type='text/css'>(.*?)</style>#s", '', $css );
@@ -67,6 +68,9 @@ add_filter( 'excerpt_length', 'rtp_new_excerpt_length' );
  * Displays Attachment Image Thumbnail
  *
  * @since rtPanel 2.0
+ * @param Integer $post_id for which post thumbnail will be fetched
+ * @param String $thumbnail_size size of the thumbnail required. Default is thumbnail
+ * @param String $default_img_path The path to the default image ( in case of no thumbnail found )
  */
 function rtp_show_post_thumbnail( $post_id = null, $thumbnail_size = 'thumbnail', $default_img_path = '' ) {
 	global $rtp_post_comments;
@@ -287,6 +291,11 @@ function rtp_get_attachment_id_from_src( $image_src, $hard_find = false ) {
  * @return mixed
  *
  * @since rtPanel 2.1
+ * @param String  $src The image source
+ * @param Array   $array whether to get the output in the form of array or not
+ * @param String  $deprecated Whether function is deprecated
+ * @param Integer $id attachment id
+ * @param String  $size Size of the image
  */
 function rtp_get_image_dimensions( $src, $array = false, $deprecated = '', $id = 0, $size = null ) {
 	global $rtp_general;
@@ -355,6 +364,9 @@ add_filter( 'the_password_form', 'rtp_get_the_password_form' );
  * @return string
  *
  * @since rtPanel 2.1
+ * @param String $output
+ * @param Array  $attr Shortcode attributes
+ * @param String $content Actual content
  */
 function rtp_html5_caption( $output, $attr, $content ) {
 	extract(

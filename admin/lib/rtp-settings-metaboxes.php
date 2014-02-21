@@ -234,49 +234,49 @@ function rtp_custom_styles_metabox() {
  * @since rtPanel 2.0
  */
 function rtp_plugin_metabox() {
-	$plugins					 = get_plugins();
+	$plugins                     = get_plugins();
 	$rtp_hooks_editor_activate   = wp_create_nonce( RTP_HOOKS_EDITOR . '-activate' );
 	$rtp_hooks_editor_deactivate = wp_create_nonce( RTP_HOOKS_EDITOR . '-deactivate' );
 	$rtp_hooks_editor_delete     = wp_create_nonce( RTP_HOOKS_EDITOR . '-delete' );
-	$rtp_social_activate		 = wp_create_nonce( RTP_SOCIAL . '-activate' );
-	$rtp_social_deactivate		 = wp_create_nonce( RTP_SOCIAL . '-deactivate' );
-	$rtp_social_delete			 = wp_create_nonce( RTP_SOCIAL . '-delete' );
-	$subscribe_activate			 = wp_create_nonce( RTP_SUBSCRIBE_TO_COMMENTS . '-activate' );
-	$subscribe_deactivate		 = wp_create_nonce( RTP_SUBSCRIBE_TO_COMMENTS . '-deactivate' );
-	$subscribe_delete			 = wp_create_nonce( RTP_SUBSCRIBE_TO_COMMENTS . '-delete' );
-	$yoast_seo_activate			 = wp_create_nonce( RTP_YOAST_SEO . '-activate' );
-	$yoast_seo_deactivate		 = wp_create_nonce( RTP_YOAST_SEO . '-deactivate' );
-	$yoast_seo_delete			 = wp_create_nonce( RTP_YOAST_SEO . '-delete' );
-	$regenerate_activate		 = wp_create_nonce( RTP_REGENERATE_THUMBNAILS . '-activate' );
-	$regenerate_deactivate		 = wp_create_nonce( RTP_REGENERATE_THUMBNAILS . '-deactivate' );
-	$regenerate_delete			 = wp_create_nonce( RTP_REGENERATE_THUMBNAILS . '-delete' );
-	$rtmedia_activate			 = wp_create_nonce( RTP_MEDIA . '-activate' );
-	$rtmedia_deactivate			 = wp_create_nonce( RTP_MEDIA . '-deactivate' );
-	$rtmedia_delete				 = wp_create_nonce( RTP_MEDIA . '-delete' );
-	$rtp_bbpress_activate		 = wp_create_nonce( RTP_BBPRESS . '-activate' );
-	$rtp_bbpress_deactivate		 = wp_create_nonce( RTP_BBPRESS . '-deactivate' );
-	$rtp_bbpress_delete			 = wp_create_nonce( RTP_BBPRESS . '-delete' );
+	$rtp_social_activate         = wp_create_nonce( RTP_SOCIAL . '-activate' );
+	$rtp_social_deactivate       = wp_create_nonce( RTP_SOCIAL . '-deactivate' );
+	$rtp_social_delete           = wp_create_nonce( RTP_SOCIAL . '-delete' );
+	$subscribe_activate          = wp_create_nonce( RTP_SUBSCRIBE_TO_COMMENTS . '-activate' );
+	$subscribe_deactivate        = wp_create_nonce( RTP_SUBSCRIBE_TO_COMMENTS . '-deactivate' );
+	$subscribe_delete            = wp_create_nonce( RTP_SUBSCRIBE_TO_COMMENTS . '-delete' );
+	$yoast_seo_activate          = wp_create_nonce( RTP_YOAST_SEO . '-activate' );
+	$yoast_seo_deactivate        = wp_create_nonce( RTP_YOAST_SEO . '-deactivate' );
+	$yoast_seo_delete            = wp_create_nonce( RTP_YOAST_SEO . '-delete' );
+	$regenerate_activate         = wp_create_nonce( RTP_REGENERATE_THUMBNAILS . '-activate' );
+	$regenerate_deactivate       = wp_create_nonce( RTP_REGENERATE_THUMBNAILS . '-deactivate' );
+	$regenerate_delete           = wp_create_nonce( RTP_REGENERATE_THUMBNAILS . '-delete' );
+	$rtmedia_activate            = wp_create_nonce( RTP_MEDIA . '-activate' );
+	$rtmedia_deactivate          = wp_create_nonce( RTP_MEDIA . '-deactivate' );
+	$rtmedia_delete              = wp_create_nonce( RTP_MEDIA . '-delete' );
+	$rtp_bbpress_activate        = wp_create_nonce( RTP_BBPRESS . '-activate' );
+	$rtp_bbpress_deactivate      = wp_create_nonce( RTP_BBPRESS . '-deactivate' );
+	$rtp_bbpress_delete          = wp_create_nonce( RTP_BBPRESS . '-delete' );
 	$rtp_buddypress_activate     = wp_create_nonce( RTP_BUDDYPRESS . '-activate' );
 	$rtp_buddypress_deactivate   = wp_create_nonce( RTP_BUDDYPRESS . '-deactivate' );
-	$rtp_buddypress_delete		 = wp_create_nonce( RTP_BUDDYPRESS . '-delete' );
-	$rtp_cf7_activate			 = wp_create_nonce( RTP_CF7 . '-activate' );
-	$rtp_cf7_deactivate			 = wp_create_nonce( RTP_CF7 . '-deactivate' );
-	$rtp_cf7_delete				 = wp_create_nonce( RTP_CF7 . '-delete' );
-	$rtp_jetpack_activate		 = wp_create_nonce( RTP_JETPACK . '-activate' );
-	$rtp_jetpack_deactivate		 = wp_create_nonce( RTP_JETPACK . '-deactivate' );
-	$rtp_jetpack_delete			 = wp_create_nonce( RTP_JETPACK . '-delete' );
+	$rtp_buddypress_delete       = wp_create_nonce( RTP_BUDDYPRESS . '-delete' );
+	$rtp_cf7_activate            = wp_create_nonce( RTP_CF7 . '-activate' );
+	$rtp_cf7_deactivate          = wp_create_nonce( RTP_CF7 . '-deactivate' );
+	$rtp_cf7_delete              = wp_create_nonce( RTP_CF7 . '-delete' );
+	$rtp_jetpack_activate        = wp_create_nonce( RTP_JETPACK . '-activate' );
+	$rtp_jetpack_deactivate      = wp_create_nonce( RTP_JETPACK . '-deactivate' );
+	$rtp_jetpack_delete          = wp_create_nonce( RTP_JETPACK . '-delete' );
 	$rtp_ninja_form_activate     = wp_create_nonce( RTP_NINJA_FORM . '-activate' );
 	$rtp_ninja_form_deactivate   = wp_create_nonce( RTP_NINJA_FORM . '-deactivate' );
-	$rtp_ninja_form_delete		 = wp_create_nonce( RTP_NINJA_FORM . '-delete' );
+	$rtp_ninja_form_delete       = wp_create_nonce( RTP_NINJA_FORM . '-delete' );
 	$rtp_woocommerce_activate    = wp_create_nonce( RTP_WOOCOMMERCE . '-activate' );
-	$rtp_woocommerce_deactivate	 = wp_create_nonce( RTP_WOOCOMMERCE . '-deactivate' );
-	$rtp_woocommerce_delete		 = wp_create_nonce( RTP_WOOCOMMERCE . '-delete' );
-	$rtp_yarpp_activate			 = wp_create_nonce( RTP_YARPP . '-activate' );
-	$rtp_yarpp_deactivate		 = wp_create_nonce( RTP_YARPP . '-deactivate' );
-	$rtp_yarpp_delete			 = wp_create_nonce( RTP_YARPP . '-delete' );
-	$rtp_rtwidgets_activate		 = wp_create_nonce( RTP_RTWIDGETS . '-activate' );
+	$rtp_woocommerce_deactivate  = wp_create_nonce( RTP_WOOCOMMERCE . '-deactivate' );
+	$rtp_woocommerce_delete      = wp_create_nonce( RTP_WOOCOMMERCE . '-delete' );
+	$rtp_yarpp_activate          = wp_create_nonce( RTP_YARPP . '-activate' );
+	$rtp_yarpp_deactivate        = wp_create_nonce( RTP_YARPP . '-deactivate' );
+	$rtp_yarpp_delete            = wp_create_nonce( RTP_YARPP . '-delete' );
+	$rtp_rtwidgets_activate      = wp_create_nonce( RTP_RTWIDGETS . '-activate' );
 	$rtp_rtwidgets_deactivate    = wp_create_nonce( RTP_RTWIDGETS . '-deactivate' );
-	$rtp_rtwidgets_delete		 = wp_create_nonce( RTP_RTWIDGETS . '-delete' );
+	$rtp_rtwidgets_delete        = wp_create_nonce( RTP_RTWIDGETS . '-delete' );
 	?>
 
 	<table class="form-table">
@@ -287,10 +287,33 @@ function rtp_plugin_metabox() {
 		<th><?php _e( 'Edit', 'rtPanel' ); ?></th>
 	</tr>
 
+        <?php 
+        
+        /*
+         * Use these filters if you do not want to show support for the below listed plugins in your child theme ( Plugins Editor Metabox in General Settings )
+         */
+        $rtp_show_bbpress_support           = apply_filters('rtp_show_bbpress_support',true);
+        $rtp_show_buddypress_support        = apply_filters('rtp_show_buddypress_support',true);
+        $rtp_show_cf7_support               = apply_filters('rtp_show_cf7_support',true);
+        $rtp_show_jetpack_support           = apply_filters('rtp_show_jetpack_support',true);
+        $rtp_show_ninjaform_support         = apply_filters('rtp_show_ninjaform_support',true);
+        $rtp_show_regenerate_support        = apply_filters('rtp_show_regenerate_support',true);
+        $rtp_show_rtmedia_support           = apply_filters('rtp_show_rtmedia_support',true);
+        $rtp_show_rtpanelhooks_support      = apply_filters('rtp_show_rtpanelhooks_support',true);
+        $rtp_show_rtsocial_support          = apply_filters('rtp_show_rtsocial_support',true);
+        $rtp_show_rtwidgets_support         = apply_filters('rtp_show_rtwidgets_support',true);
+        $rtp_show_subscribecomments_support = apply_filters('rtp_show_subscribecomments_support',true);
+        $rtp_show_woocommerce_support       = apply_filters('rtp_show_woocommerce_support',true);
+        $rtp_show_wordpressseo_support      = apply_filters('rtp_show_wordpressseo_support',true);
+        $rtp_show_yarpp_support             = apply_filters('rtp_show_yarpp_support',true);
+        
+        ?>
+        
+        <?php if( $rtp_show_bbpress_support ) {  ?>
 	<!-- Start of bbPress Plugin -->
 	<tr>
-		<td><a target="_blank" href="http://wordpress.org/plugins/bbpress/"><?php _e( 'bbPress', 'rtPanel' ); ?></a></td>
-		<td>
+        <td><a target="_blank" href="http://wordpress.org/plugins/bbpress/"><?php _e( 'bbPress', 'rtPanel' ); ?></a></td>
+        <td>
 	<?php
 	if ( is_plugin_active( RTP_BBPRESS ) ) {
 			echo '<span class="active">' . __( 'Active', 'rtPanel' ) . '</span>';
@@ -319,7 +342,9 @@ function rtp_plugin_metabox() {
 	</td>
 	</tr>
 	<!-- End of bbPress Plugin -->
+        <?php } ?>
 
+        <?php if( $rtp_show_buddypress_support ) { ?>
 	<!-- Start of BuddyPress Plugin -->
 	<tr>
 	<td><a target="_blank" href="http://wordpress.org/plugins/buddypress/"><?php _e( 'BuddyPress', 'rtPanel' ); ?></a></td>
@@ -352,7 +377,9 @@ function rtp_plugin_metabox() {
 	</td>
 	</tr>
 	<!-- End of BuddyPress Plugin -->
+        <?php } ?>
 
+        <?php if( $rtp_show_cf7_support ) { ?>
 	<!-- Start of Contact Form 7 Plugin -->
 	<tr>
 	<td><a target="_blank" href="http://wordpress.org/plugins/contact-form-7/"><?php _e( 'Contact Form 7', 'rtPanel' ); ?></a></td>
@@ -385,7 +412,9 @@ function rtp_plugin_metabox() {
 	</td>
 	</tr>
 	<!-- End of Contact Form 7 Plugin -->
+        <?php } ?>
 
+        <?php if( $rtp_show_jetpack_support ) { ?>
 	<!-- Start of Jetpack by WordPress.com Plugin -->
 	<tr>
 	<td><a target="_blank" href="http://wordpress.org/plugins/jetpack/"><?php _e( 'Jetpack by WordPress.com', 'rtPanel' ); ?></a></td>
@@ -418,7 +447,9 @@ function rtp_plugin_metabox() {
 	</td>
 	</tr>
 	<!-- End of Jetpack by WordPress.com Plugin -->
+        <?php } ?>
 
+        <?php if( $rtp_show_ninjaform_support ) { ?>
 	<!-- Start of Ninja Forms Plugin -->
 	<tr>
 	<td><a target="_blank" href="http://wordpress.org/plugins/ninja-forms/"><?php _e( 'Ninja Forms', 'rtPanel' ); ?></a></td>
@@ -451,7 +482,9 @@ function rtp_plugin_metabox() {
 	</td>
 	</tr>
 	<!-- End of Ninja Forms Plugin -->
+        <?php } ?>
 
+        <?php if( $rtp_show_regenerate_support ) { ?>
 	<!-- Start of Regenerate Thumbnails Plugin -->
 	<tr>
 	<td><a href="http://wordpress.org/plugins/regenerate-thumbnails/"><?php _e( 'Regenerate Thumbnails', 'rtPanel' ); ?></a></td>
@@ -484,7 +517,9 @@ function rtp_plugin_metabox() {
 	</td>
 	</tr>
 	<!-- End of Regenerate Thumbnails Plugin -->
+        <?php } ?>
 
+        <?php if( $rtp_show_rtmedia_support ) { ?>
 	<!-- Start of rtMedia Plugin -->
 	<tr>
 	<td><a target="_blank" href="http://wordpress.org/plugins/buddypress-media/"><?php _e( 'rtMedia for WordPress, BuddyPress and bbPress', 'rtPanel' ); ?></a></td>
@@ -517,7 +552,9 @@ function rtp_plugin_metabox() {
 	</td>
 	</tr>
 	<!-- End of rtMedia Plugin -->
+        <?php } ?>
 
+        <?php if( $rtp_show_rtpanelhooks_support ) { ?>
 	<!-- Start of rtPanel Hooks Editor Plugin -->
 	<tr>
 	<td><a target="_blank" href="http://wordpress.org/plugins/rtpanel-hooks-editor/"><?php _e( 'rtPanel Hooks Editor', 'rtPanel' ); ?></a></td>
@@ -550,7 +587,9 @@ function rtp_plugin_metabox() {
 	</td>
 	</tr>
 	<!-- End of rtPanel Hooks Editor Plugin -->
+        <?php } ?>
 
+        <?php if( $rtp_show_rtsocial_support ) { ?>
 	<!-- Start of rtSocial Plugin -->
 	<tr>
 	<td><a target="_blank" href="http://wordpress.org/plugins/rtsocial/"><?php _e( 'rtSocial', 'rtPanel' ); ?></a></td>
@@ -583,7 +622,9 @@ function rtp_plugin_metabox() {
 	</td>
 	</tr>
 	<!-- End of rtSocial Plugin -->
+        <?php } ?>
 
+        <?php if( $rtp_show_rtwidgets_support ) { ?>
 	<!-- Start of rtWidgets Plugin -->
 	<tr>
 	<td><a target="_blank" href="http://wordpress.org/plugins/rtwidgets/"><?php _e( 'rtWidgets', 'rtPanel' ); ?></a></td>
@@ -616,7 +657,9 @@ function rtp_plugin_metabox() {
 	</td>
 	</tr>
 	<!-- End of rtWidgets Plugin -->
+        <?php } ?>
 
+        <?php if( $rtp_show_subscribecomments_support ) { ?>
 	<!-- Start of Subscribe To Comments Reloaded Plugin -->
 	<tr>
 	<td><a target="_blank" href="http://wordpress.org/plugins/subscribe-to-comments-reloaded/"><?php _e( 'Subscribe To Comments Reloaded', 'rtPanel' ); ?></a></td>
@@ -649,7 +692,9 @@ function rtp_plugin_metabox() {
 	</td>
 	</tr>
 	<!-- End of Subscribe To Comments Reloaded Plugin -->
+        <?php } ?>
 
+        <?php if( $rtp_show_woocommerce_support ) { ?>
 	<!-- Start of WooCommerce Plugin -->
 	<tr>
 	<td><a target="_blank" href="http://wordpress.org/plugins/woocommerce/"><?php _e( 'WooCommerce - excelling eCommerce', 'rtPanel' ); ?></a></td>
@@ -682,7 +727,9 @@ function rtp_plugin_metabox() {
 	</td>
 	</tr>
 	<!-- End of WooCommerce Plugin -->
+        <?php } ?>
 
+        <?php if( $rtp_show_wordpressseo_support ) { ?>
 	<!-- Start of WordPress SEO by Yoast Plugin -->
 	<tr>
 	<td><a target="_blank" href="http://wordpress.org/plugins/wordpress-seo/"><?php _e( 'WordPress SEO by Yoast', 'rtPanel' ); ?></a></td>
@@ -715,7 +762,9 @@ function rtp_plugin_metabox() {
 	</td>
 	</tr>
 	<!-- End of WordPress SEO by Yoast Plugin -->
+        <?php } ?>
 
+        <?php if( $rtp_show_yarpp_support ) { ?>
 	<!-- Start of Yet Another Related Posts Plugin (YARPP) Plugin -->
 	<tr>
 	<td class="last-child"><a target="_blank" href="http://wordpress.org/plugins/yet-another-related-posts-plugin/"><?php _e( 'Yet Another Related Posts Plugin (YARPP)', 'rtPanel' ); ?></a></td>
@@ -748,6 +797,7 @@ function rtp_plugin_metabox() {
 	</td>
 	</tr>
 	<!-- End of Yet Another Related Posts Plugin (YARPP) Plugin -->
+        <?php } ?>
 
 	</table><?php
 }

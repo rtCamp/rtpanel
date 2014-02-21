@@ -161,6 +161,12 @@ function rtp_default_nav_menu() {
 
 add_action( 'rtp_hook_begin_header', 'rtp_default_nav_menu' ); // Adds default nav menu after #header
 
+/**
+ * Filter the submenu items
+ * 
+ * @param String $items markup of the menu items
+ * @param $args arguments if any
+ */
 function filter_wp_nav_menu_items( $items, $args ) {
 	$items    = str_replace( "\"sub-menu\"", "\"sub-menu dropdown\"", $items );
 	$strItems = explode( "<li", $items );
@@ -204,6 +210,7 @@ add_action( 'rtp_hook_begin_post_meta_top', 'rtp_edit_link' );
  * Adds breadcrumb support to the theme.
  *
  * @since rtPanel 2.0.7
+ * @param String $text
  */
 function rtp_breadcrumb_support( $text ) {
 	// Breadcrumb Support
@@ -380,6 +387,8 @@ add_action( 'rtp_head', 'rtp_custom_css' );
  * Gallery Shortcode Hack with Foundation
  * 
  * @since rtPanel 3.2
+ * @param String $output is the default gallery markup
+ * @param Array $attr parameters for the gallery shortcode
  */
 function rtp_gallery_shortcode( $output, $attr ) {
 	$post			 = get_post();
@@ -475,12 +484,13 @@ function rtp_gallery_shortcode( $output, $attr ) {
 add_filter( 'post_gallery', 'rtp_gallery_shortcode', 1, 2 );
 
 /**
- *
- * @param type $ID
- * @param type $large
- * @param type $medium
- * @param type $small
- * @param type $custom = array({"path"=> '', "query"=> ''},{} ..) <br />
+ * Get string with image size
+ * 
+ * @param Integer $ID
+ * @param Boolean $large
+ * @param Boolean $medium
+ * @param Boolean $small
+ * @param Array $custom = array({"path"=> '', "query"=> ''},{} ..) <br />
  *      <table border=1>
 
   <tr>

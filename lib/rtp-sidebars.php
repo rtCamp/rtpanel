@@ -7,6 +7,11 @@
  *
  * @since rtPanel 2.0
  */
+
+
+/**
+ * Register sidebar on widgets initialization
+ */
 function rtp_widgets_init() {
 
 	global $rtp_general;
