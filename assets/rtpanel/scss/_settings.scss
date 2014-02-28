@@ -61,7 +61,7 @@ $body-font-family: 'Open Sans', sans-serif;
 
 // We use these as default colors throughout
 $primary-color: $link-color;
-// $secondary-color: #e7e7e7;
+$secondary-color: #e7e7e7;
 $alert-color: $color-error;
 $success-color: $color-success;
 $warning-color: $color-warning;
@@ -267,8 +267,8 @@ $list-ordered-side-margin: 2rem;
 // $crumb-link-decor: underline;
 
 // We use these to control the slash between breadcrumbs
-// $crumb-slash-color: #aaa;
-// $crumb-slash: "/";
+ $crumb-slash-color: #aaa;
+ $crumb-slash: "»";
 
 //
 // BUTTONS

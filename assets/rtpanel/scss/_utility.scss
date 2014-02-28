@@ -31,7 +31,7 @@
 
 
 // Messages
-.notice, .info, .success, .warning, .error, .alert, .clean,
+.notice, .info, .success, .warning, .error, .alert, .clean, .alert-box, .secondary,
 [class^="rtp-message-"],
 [class*=" rtp-message-"] {
     padding: rem-calc(10 15); text-shadow: 1px 0 0 $white; // box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1); 

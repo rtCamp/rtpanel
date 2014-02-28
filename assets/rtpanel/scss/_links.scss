@@ -20,17 +20,9 @@ h1, h2 {
     }
 }
 
-/* Generic Links */
-//.rtp-common-link {
-//    // Self, Active & Visited
-//    &,
-//    a,
-//    span {
-//        // Self, Active & Visited
-//        & { color: $secondary-link-color; }
-//
-//        // Hover & Focus
-//        &:hover,
-//        &:focus { color: $secondary-link-hover-color; }
-//    }
-//}
+.alert-box .close {
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+    }
+}

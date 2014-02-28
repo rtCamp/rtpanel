@@ -1,5 +1,12 @@
 // ********* rtPanel Mixins *********
 
+// We use this to do clear floats
+@mixin rtp-clearfix {
+  *zoom:1;
+  &:before, &:after { content: " "; display: table; }
+  &:after { clear: both; }
+}
+
 @mixin rtp-link ( $link-color: $link-color, $hover-color: $link-hover-color ) {
     & { color: $link-color; }
     &:hover, &:focus { color: $link-hover-color; }
@@ -11,7 +18,7 @@
 }
 
 // Sidebar textbox with button
-@mixin rtp-sidebar-textbox($float: left, $height: 37px, $width: 75%) {
+@mixin rtp-sidebar-textbox($float: left, $height: 36px, $width: 70%) {
     float: $float;
     height: $height;
     width: $width;

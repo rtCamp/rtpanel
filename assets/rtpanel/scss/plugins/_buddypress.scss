@@ -4,7 +4,7 @@
         #content div.item-list-tabs ul li.last select{ padding-right: rem-calc(8);}
         .hentry { border-bottom: 0; }
         .standard-form {
-            textarea, #{$form-input-text}, select { width: auto; }
+            textarea, #{$form-input-text}, select { width: 75%; }
         }
         .dir-search input[type="text"] { width: auto; }
         .message-search, .dir-search {
@@ -28,7 +28,7 @@
                         @include radius($global-radius)
                     }
                     &:hover,
-                    &:focus { background: $pagination-link-active-bg; }
+                        &:focus { background: $pagination-link-active-bg; }
                 }
                 .current {
                     background: $pagination-link-current-background;
@@ -36,7 +36,7 @@
                     font-weight: $pagination-link-current-font-weight;
                     cursor: $pagination-link-current-cursor;
                     &:hover,
-                    &:focus { background: $pagination-link-current-active-bg; }
+                        &:focus { background: $pagination-link-current-active-bg; }
                 }
             }
             div.dir-search { margin: rem-calc(-43 0 10); }
@@ -46,7 +46,8 @@
                 &:hover, &:focus { background-image: none; border: 0; }
             }
             .activity-meta {
-                .button { background: transparent; border-radius: 0; box-shadow: 0 0 0; color: inherit; font-size: rem-calc(14); margin: rem-calc(0 10 0 0); padding: 0;
+                .button { 
+                    background: transparent; border-radius: 0; box-shadow: 0 0 0; color: inherit; font-size: rem-calc(14); margin: rem-calc(0 10 0 0); padding: 0;
                     &:before { color: inherit; display: inline-block; font-family: $rtp-icon-font-family; margin-right: rem-calc(5); }
                     &:hover, &:focus { background: transparent; color: $link-color; }
                 }
@@ -60,10 +61,12 @@
                 }
             }
             a.bp-primary-action span,
-            #reply-title small a span { background: transparent; color: inherit; font-size: inherit;
+            #reply-title small a span { 
+                background: transparent; color: inherit; font-size: inherit;
                 &:before {  content: '\e80a'; display: inline-block; font-family: $rtp-icon-font-family; margin-right: rem-calc(5); }
             }
-            form#whats-new-form { padding: rem-calc(10 0 0) !important;
+            form#whats-new-form { 
+                padding: rem-calc(10 0 0) !important;
                 textarea { margin: 0; width: 100%; }
                 #whats-new-submit { margin: 0; }
             }
@@ -71,7 +74,8 @@
             #whats-new-options { margin-top: rem-calc(12); }
             input[type="text"], select { display: inline-block; margin-bottom: 0; height: rem-calc(37); }
             select { padding: 5px; width: auto; height: auto; }
-            .item-list-tabs { background-color: $border-color; padding: rem-calc(10 15 0);
+            .item-list-tabs { 
+                background-color: $border-color; padding: rem-calc(10 15 0);
                 li {
                     a { background: transparent;
                         span { line-height: 1.8; }
@@ -104,7 +108,8 @@
                 label{ display: block; }
                 input[type="text"],input[type="password"]{ margin: rem-calc(10 0); }
             }
-            #rtMedia-galary-next{ color: $link-color;
+            #rtMedia-galary-next{ 
+                color: $link-color;
                 &:hover{ background-color: $border-color; color: $link-hover-color; }
             }
             #profile-edit-form{
@@ -116,9 +121,10 @@
             form#whats-new-form #whats-new-options{
                 #rtmedia-add-media-button-post-update, select{ margin-top: 0; }
             }
-            .activity-list li.load-more{  color: $link-color;
+            .activity-list li.load-more{  
+                color: $link-color;
                 a{ display: block; color: $link-color;
-                    &:hover{ color: $link-hover-color; }
+                   &:hover{ color: $link-hover-color; }
                 }
                 &:hover{ background-color: $border-color;}
             }
@@ -131,26 +137,30 @@
             div.wp-editor-container{ border: 1px solid #cccccc; }
             div#item-header div#item-actions h3 {font-size: rem-calc(20); margin: rem-calc(0 0 10);}
             div#item-header ul img.avatar, div#item-header ul.avatars img.avatar { height: auto; width: auto; }
-            #bbpress-forums { margin: rem-calc(10 0);
+            #bbpress-forums { 
+                margin: rem-calc(10 0);
                 ul.bbp-topic-revision-log img.avatar { margin-bottom: 0; }
                 .bbp-topic-content ul.bbp-topic-revision-log, .bbp-reply-content ul.bbp-topic-revision-log, .bbp-reply-content ul.bbp-reply-revision-log { padding-top: 0; }
             }
             ul.item-list li img.avatar{ margin-top: rem-calc(4); }
             #groups-list .item-desc p{ margin-bottom: 0; }
-            .bbp-meta span.bbp-admin-links a{ color: $link-color;
+            .bbp-meta span.bbp-admin-links a{ 
+                color: $link-color;
                 &:hover{ color: $link-hover-color; }
             }
             .bbp-meta {
                 a.bbp-forum-permalink, a.bbp-topic-permalink, a.bbp-reply-permalink{ color: #666666; }
             }
             .activity .info { border-color: #cb2; }
-            div#message.error { clear: both;
-                p{margin-bottom:0}
+            div#message.error { 
+                clear: both;
+                p { margin-bottom: 0; }
             }
             #group-settings-form{
-                label{ display: block; }
+                label{ display: block; margin-bottom: rem-calc(5); }
                 #group-name{ margin-bottom: rem-calc(10); }
             }
+            #group-create-body > div { margin-bottom: rem-calc(10); }
         }
         &.settings form .columns{ width: 100%; }
         .clear { clear: both; }
@@ -167,10 +177,11 @@
         ul.item-list img.avatar{ margin-top: rem-calc(8); }
     }
     .buddypress.widget_bp_core_login_widget {
-        #bp-login-widget-form { @include rtp-border(); padding: rem-calc(20); margin: rem-calc(20 0);
+        #bp-login-widget-form { 
+            @include rtp-border(); padding: rem-calc(20); margin: rem-calc(20 0); @include rtp-clearfix();
             input[type="text"], input[type="password"]{ width: 100%;}
-            #bp-login-widget-submit{ float: right; margin-right: 0;}
-        }               
+            #bp-login-widget-submit { float: right; margin-right: 0; font-size: rem-calc(11); padding: rem-calc(10 20 11); }
+        }
     }
     .widget_bp_core_friends_widget{
         li { border: 0 none; margin-bottom: 0; padding: 0; width: 100%; } 
@@ -179,5 +190,29 @@
     .widget.buddypress div.item-content {
         margin-left: rem-calc(30);
         span.activity{ font-size: rem-calc(12);}
+    }
+    #buddypress div#item-header div.generic-button,
+    #buddypress div#item-header a.button {
+        float: left;
+        margin: 10px 10px 10px 0;
+    }
+        .buddypress.single-item .group-subscription-div { 
+        padding-bottom: rem-calc(10);
+        padding-top: 0;
+
+        .gemail_icon { background-position: 0 4px !important; }
+    }
+
+    #buddypress .group-subscription-options {
+        z-index: 10; border: 1px solid #FFDF80; width: 350px; margin-top: 0 !important; margin-bottom: 5px;
+        
+        a.group-subscription-close { height: auto; padding: rem-calc(4 10); @include border-radius(3px); }
+        a.group-sub { margin-bottom: rem-calc(5); display: inline-block; padding: rem-calc(0 5); @include border-radius(3px); }
+        
+    }
+    .ass-email-type input[type="radio"] { margin-right: 5px; }
+    #buddypress #delete-group-avatar-button a { 
+        background: lighten( $color-error, 40 ); @include border-radius(3px); border: 1px solid $color-error; font-weight: bold; color: $color-error;
+        &:hover { background: lighten( $color-error, 30 ); }
     }
 }

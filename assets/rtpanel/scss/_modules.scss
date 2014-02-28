@@ -67,7 +67,7 @@ $image-space: rem-calc(20);
         img { margin: 0; }
     }
 
-    .wp-caption-text { color: $gray; line-height: 1.286em; margin: rem-calc(0 5 8); }
+    .wp-caption-text { color: $gray; line-height: 1.286em; margin: rem-calc(5); }
     .rtp-image-box .wp-caption + p { margin: rem-calc(20 0 10); }
 }
 

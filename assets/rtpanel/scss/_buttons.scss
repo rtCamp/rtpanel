@@ -36,3 +36,6 @@ input[type=submit] {
         border-radius: 0 $global-radius $global-radius 0 !important;
     }
 }
+
+// Border radius 0 for Button Group
+.button-group .button { border-radius: 0; }
