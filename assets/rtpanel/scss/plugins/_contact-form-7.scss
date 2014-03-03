@@ -3,8 +3,8 @@
     .wpcf7-form{
         .wpcf7-list-item { margin-left: 0; }
         /* Error */
-        div.wpcf7-validation-errors, .wpcf7-not-valid-tip{ @include rtp-error(); padding: rem-calc(5 10); margin: rem-calc(10 0 20); list-style: none; color: #4c4c4c; }
+        div.wpcf7-validation-errors, .wpcf7-not-valid-tip { @include rtp-error(); padding: rem-calc(5 10); margin: rem-calc(10 0 20); list-style: none; color: $body-font-color; }
         /* Success */
-        div.wpcf7-mail-sent-ok {@include rtp-success(); }
+        div.wpcf7-mail-sent-ok { @include rtp-success(); }
     }
 }

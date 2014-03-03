@@ -18,7 +18,6 @@ $image-space: rem-calc(20);
     }
 }
 
-
 // ***** Thumbnail Container ***** //
 @mixin rtp-thumbnail() {
     .rtp-thumbnail-container {
@@ -39,7 +38,6 @@ $image-space: rem-calc(20);
     }
 }
 
-
 // ***** Thumbnail with shadow effect ***** //
 @mixin rtp-thumbnail-shadow() {
     /* Thumbnail with shadow effect */
@@ -52,7 +50,6 @@ $image-space: rem-calc(20);
         }
     }
 }
-
 
 // ***** Image Caption Style ***** //
 @mixin rtp-wp-caption() {
@@ -70,7 +67,6 @@ $image-space: rem-calc(20);
     .wp-caption-text { color: $gray; line-height: 1.286em; margin: rem-calc(5); }
     .rtp-image-box .wp-caption + p { margin: rem-calc(20 0 10); }
 }
-
 
 // ***** WP Gallery ***** //
 @mixin rtp-gallery() {
@@ -104,7 +100,6 @@ $image-space: rem-calc(20);
     }
 }
 
-
 // ****** Paged Navigation ****** //
 @mixin rtp-paged-navigation() {
     /* Paged Navigation */
@@ -119,15 +114,6 @@ $image-space: rem-calc(20);
     .rtp-navigation {
         .alignleft { text-align: left; }
         .alignright { text-align: right; }
-    }
-
-    // Single Page Navigation
-    .single {
-        .rtp-navigation,
-        .rtp-comments-pagination {
-            //padding-bottom: 0;
-            //padding-top: 1.5em;
-        }
     }
 
     // Attachment Page

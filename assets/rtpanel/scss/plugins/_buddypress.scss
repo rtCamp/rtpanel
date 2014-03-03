@@ -1,7 +1,7 @@
 // ***** Common BuddyPress Style ***** //
 @mixin rtp-buddypress-style() {
     .buddypress {
-        #content div.item-list-tabs ul li.last select{ padding-right: rem-calc(8);}
+        #content div.item-list-tabs ul li.last select { padding-right: rem-calc(8); }
         .hentry { border-bottom: 0; }
         .standard-form {
             textarea, #{$form-input-text}, select { width: 75%; }
@@ -11,10 +11,10 @@
             label { float: left; }
         }
         #buddypress {
-            #item-header-avatar{ float: left; }
+            #item-header-avatar { float: left; }
             div#item-header div#item-header-content { float: none; }
-            div#subnav.item-list-tabs ul li.last{ margin-top : 2px; }
-            .mejs-container .mejs-controls .mejs-time{ height : auto; }
+            div#subnav.item-list-tabs ul li.last { margin-top : 2px; }
+            .mejs-container .mejs-controls .mejs-time { height : auto; }
             #group-dir-pag-top, #group-dir-pag-bottom, .pagination-links {
                 a {
                     color: $pagination-li-font-color;
@@ -27,16 +27,14 @@
                         color: $pagination-link-font-color;
                         @include radius($global-radius)
                     }
-                    &:hover,
-                        &:focus { background: $pagination-link-active-bg; }
+                    &:hover, &:focus { background: $pagination-link-active-bg; }
                 }
                 .current {
                     background: $pagination-link-current-background;
                     color: $pagination-link-current-font-color;
                     font-weight: $pagination-link-current-font-weight;
                     cursor: $pagination-link-current-cursor;
-                    &:hover,
-                        &:focus { background: $pagination-link-current-active-bg; }
+                    &:hover, &:focus { background: $pagination-link-current-active-bg; }
                 }
             }
             div.dir-search { margin: rem-calc(-43 0 10); }
@@ -51,13 +49,17 @@
                     &:before { color: inherit; display: inline-block; font-family: $rtp-icon-font-family; margin-right: rem-calc(5); }
                     &:hover, &:focus { background: transparent; color: $link-color; }
                 }
-                .button.delete-activity {
+                .button.delete-activity, .button.delete-activity-single {
                     &:before { content: '\e813'; }
                     &:hover, &:focus { color: $color-error; }
                 }
                 .button.fav {
                     &:before { content: '\e810'; }
                     &:hover, &:focus { color: $color-success; }
+                }
+                .button.unfav {
+                    &:before { content: '\e810'; }
+                    &:hover, &:focus { color: $color-error; }
                 }
             }
             a.bp-primary-action span,
@@ -80,7 +82,7 @@
                     a { background: transparent;
                         span { line-height: 1.8; }
                     }
-                    &.current a, &.selected a { background: $white; border-radius: 3px 3px 0 0; opacity: 1; }
+                    &.current a, &.selected a { background: $white; @include border-radius(3px 3px 0 0); opacity: 1; }
                 }
             }
             #subnav { padding: rem-calc(0 0 10); border-bottom: 1px solid $border-color; }
@@ -94,125 +96,136 @@
             .label { color: $body-font-color; }
             ul.button-nav { margin: rem-calc(15 0 0); }
             .messages-notices tr td:last-child { width: 18%; }
-            .bp-widget.base h4{ margin-bottom: 10px; }
-            #groups_search_submit, #messages_search_submit, #members_search_submit{ border-radius: 0 5px 5px 0; }
-            #groups_search, #members_search, #messages_search { border-radius: 5px 0 0 5px;}
+            .bp-widget.base h4 { margin-bottom: 10px; }
+            #groups_search_submit, #messages_search_submit, #members_search_submit { border-radius: 0 5px 5px 0; }
+            #groups_search, #members_search, #messages_search { @include border-radius(5px 0 0 5px); }
             ul.item-list { border-top: 0; }
-            #send_message_form{
-                label{ margin-bottom: rem-calc(10); display: block; }
-                ul.acfb-holder li{ float: none; }
-                input,textarea{ margin-bottom: 20px; }
+            #send_message_form {
+                label { margin-bottom: rem-calc(10); display: block; }
+                ul.acfb-holder li { float: none; }
+                input,textarea { margin-bottom: 20px; }
             }
-            #settings-form{
-                table{ margin-bottom: 20px; width: 100%; }
-                label{ display: block; }
-                input[type="text"],input[type="password"]{ margin: rem-calc(10 0); }
+            #settings-form {
+                table { margin-bottom: 20px; width: 100%; }
+                label { display: block; }
+                input[type="text"], input[type="password"] { margin: rem-calc(10 0); }
             }
-            #rtMedia-galary-next{ 
+            #rtMedia-galary-next {
                 color: $link-color;
                 &:hover{ background-color: $border-color; color: $link-hover-color; }
             }
-            #profile-edit-form{
-                label{ display: block; }
-                .field-visibility-settings-notoggle{ margin-top: rem-calc(10); }
-                .radio{ margin-bottom: 0; list-style: none; margin-left: 0; }
+            #profile-edit-form {
+                label { display: block; }
+                .field-visibility-settings-notoggle { margin-top: rem-calc(10); }
+                .radio { margin-bottom: 0; list-style: none; margin-left: 0; }
             }
-            .item-list-tabs{ padding-top: 0.2rem;}
-            form#whats-new-form #whats-new-options{
-                #rtmedia-add-media-button-post-update, select{ margin-top: 0; }
+            .item-list-tabs { padding-top: 0.2rem; }
+            form#whats-new-form #whats-new-options {
+                #rtmedia-add-media-button-post-update, select { margin-top: 0; }
             }
-            .activity-list li.load-more{  
+            .activity-list li.load-more {
                 color: $link-color;
-                a{ display: block; color: $link-color;
-                   &:hover{ color: $link-hover-color; }
+                a { 
+                    display: block; color: $link-color;
+
+                    &:hover { color: $link-hover-color; }
                 }
-                &:hover{ background-color: $border-color;}
+                &:hover { background-color: $border-color; }
             }
-            .standard-form #basic-details-section{
-                #signup_password, #signup_password_confirm{ width : 90%; }
-                input{ margin-bottom: rem-calc(10); }
+            .standard-form #basic-details-section {
+                #signup_password, #signup_password_confirm { width : 90%; }
+                input { margin-bottom: rem-calc(10); }
             }
             .activity-list li.mini .activity-avatar img.avatar, .activity-list li.mini .activity-avatar img.FB_profile_pic { margin-top: 3px; }
-            .activity-list .activity-content .activity-header img.avatar{ margin: 0 10px 0 0!important; }
-            div.wp-editor-container{ border: 1px solid #cccccc; }
-            div#item-header div#item-actions h3 {font-size: rem-calc(20); margin: rem-calc(0 0 10);}
+            .activity-list .activity-content .activity-header img.avatar { margin: 0 10px 0 0!important; }
+            div.wp-editor-container{ border: $sec-border-color; }
+            div#item-header div#item-actions h3 { font-size: rem-calc(20); margin: rem-calc(0 0 10); }
             div#item-header ul img.avatar, div#item-header ul.avatars img.avatar { height: auto; width: auto; }
             #bbpress-forums { 
                 margin: rem-calc(10 0);
                 ul.bbp-topic-revision-log img.avatar { margin-bottom: 0; }
                 .bbp-topic-content ul.bbp-topic-revision-log, .bbp-reply-content ul.bbp-topic-revision-log, .bbp-reply-content ul.bbp-reply-revision-log { padding-top: 0; }
             }
-            ul.item-list li img.avatar{ margin-top: rem-calc(4); }
-            #groups-list .item-desc p{ margin-bottom: 0; }
-            .bbp-meta span.bbp-admin-links a{ 
+            ul.item-list li img.avatar { margin-top: rem-calc(4); }
+            #groups-list .item-desc p { margin-bottom: 0; }
+            .bbp-meta span.bbp-admin-links a {
                 color: $link-color;
-                &:hover{ color: $link-hover-color; }
+                &:hover { color: $link-hover-color; }
             }
             .bbp-meta {
-                a.bbp-forum-permalink, a.bbp-topic-permalink, a.bbp-reply-permalink{ color: #666666; }
+                a.bbp-forum-permalink, a.bbp-topic-permalink, a.bbp-reply-permalink { color: $gray; }
             }
-            .activity .info { border-color: #cb2; }
-            div#message.error { 
-                clear: both;
+
+            div#message.error { clear: both;
                 p { margin-bottom: 0; }
             }
-            #group-settings-form{
-                label{ display: block; margin-bottom: rem-calc(5); }
-                #group-name{ margin-bottom: rem-calc(10); }
+            #group-settings-form {
+                label { display: block; margin-bottom: rem-calc(5); }
+                #group-name { margin-bottom: rem-calc(10); }
             }
             #group-create-body > div { margin-bottom: rem-calc(10); }
+            div.activity-comments form .ac-textarea { border-style: solid; }
+            ul.item-list li div.item-title span { font-size: rem-calc(13); }
         }
-        &.settings form .columns{ width: 100%; }
+        &.settings form .columns { width: 100%; }
         .clear { clear: both; }
     }
     .widget_bp_core_login_widget .logout {
         @include rtp-button(); @include rtp-button-shadow(); @include button-size($button-tny);
     }
-    .widget.buddypress.widget_bp_groups_widget,.widget.buddypress.widget_bp_core_friends_widget{
-        ul { margin: 0; }
-        ul li{ list-style: none; }
-        .item-options{ margin: 0; padding: 0.5em 0 1em; }
-        .item-options .selected{ color: $link-hover-color;  background: $border-color; }
-        .item-options a{  background: #CCCCCC;   padding: rem-calc(5 10); }
-        ul.item-list img.avatar{ margin-top: rem-calc(8); }
-    }
-    .buddypress.widget_bp_core_login_widget {
-        #bp-login-widget-form { 
-            @include rtp-border(); padding: rem-calc(20); margin: rem-calc(20 0); @include rtp-clearfix();
-            input[type="text"], input[type="password"]{ width: 100%;}
-            #bp-login-widget-submit { float: right; margin-right: 0; font-size: rem-calc(11); padding: rem-calc(10 20 11); }
-        }
-    }
-    .widget_bp_core_friends_widget{
-        li { border: 0 none; margin-bottom: 0; padding: 0; width: 100%; } 
-    }
-    .widget.buddypress div.item-meta,
-    .widget.buddypress div.item-content {
-        margin-left: rem-calc(30);
-        span.activity{ font-size: rem-calc(12);}
-    }
+
     #buddypress div#item-header div.generic-button,
     #buddypress div#item-header a.button {
         float: left;
         margin: 10px 10px 10px 0;
     }
-        .buddypress.single-item .group-subscription-div { 
-        padding-bottom: rem-calc(10);
-        padding-top: 0;
+    .buddypress.single-item .group-subscription-div {
+        padding-bottom: rem-calc(10); padding-top: 0;
 
         .gemail_icon { background-position: 0 4px !important; }
     }
 
     #buddypress .group-subscription-options {
-        z-index: 10; border: 1px solid #FFDF80; width: 350px; margin-top: 0 !important; margin-bottom: 5px;
-        
+        z-index: 10; border: 1px solid $yellow-cream; width: 350px; margin-top: 0 !important; margin-bottom: rem-calc(5);
+
         a.group-subscription-close { height: auto; padding: rem-calc(4 10); @include border-radius(3px); }
         a.group-sub { margin-bottom: rem-calc(5); display: inline-block; padding: rem-calc(0 5); @include border-radius(3px); }
-        
+
     }
     .ass-email-type input[type="radio"] { margin-right: 5px; }
     #buddypress #delete-group-avatar-button a { 
         background: lighten( $color-error, 40 ); @include border-radius(3px); border: 1px solid $color-error; font-weight: bold; color: $color-error;
         &:hover { background: lighten( $color-error, 30 ); }
+    }
+
+    // BuddyPress Widgets
+    .widget.buddypress {
+        &.widget_bp_groups_widget,
+        &.widget_bp_core_friends_widget {
+            ul { margin: 0;
+                li { list-style: none; }
+
+                &.item-list img.avatar { margin-top: rem-calc(8); }
+            }
+            .item-options { margin: 0; padding: 0.5em 0 1em;
+                .selected { color: $link-hover-color; background: $border-color; }
+                a {  background: $sec-border-color; padding: rem-calc(5 10); }
+            }
+        }
+        &.widget_bp_core_login_widget {
+            #bp-login-widget-form { 
+                @include rtp-border(); padding: rem-calc(20); margin: rem-calc(20 0); @include rtp-clearfix();
+                input[type="text"], input[type="password"] { width: 100%; }
+                #bp-login-widget-submit { float: right; margin-right: 0; font-size: rem-calc(11); padding: rem-calc(10 20 11); }
+            }
+        }
+        div.item-meta,
+        div.item-content {
+            margin-left: rem-calc(30);
+            span.activity { font-size: rem-calc(12); }
+        }
+        &.widget_bp_core_friends_widget {
+            li { border: 0 none; margin-bottom: 0; padding: 0; width: 100%; } 
+        }
     }
 }

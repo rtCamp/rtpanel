@@ -15,7 +15,7 @@
             div.bbp-template-notice img.avatar,
             .widget_display_topics img.avatar,
             .widget_display_replies img.avatar { border: 0; margin-bottom: 0; }
-            li.bbp-header { background: #EEE; }
+            li.bbp-header { background: $submenu-border-color; }
             .bbp-forums-list li { display: block; }
             // Forum Inputs
             fieldset.bbp-form {
@@ -24,9 +24,11 @@
             .bbp-forum-info .bbp-forum-content, p.bbp-topic-meta { font-size: rem-calc(14); }
             .subscription-toggle { float: right; font-size: rem-calc(16); }
             .bbp-reply-author br { display: none; }
-            textarea.wp-editor-area { border: 1px solid #CCC; height: auto; }
+            textarea.wp-editor-area { border: 1px solid $border-color; height: auto; }
             .bbp-author-avatar img.avatar { border: 0; margin: rem-calc(0 3); }
-            p.bbp-topic-meta img.avatar, ul.bbp-reply-revision-log img.avatar, ul.bbp-topic-revision-log img.avatar, div.bbp-template-notice img.avatar, .widget_display_topics img.avatar, .widget_display_replies img.avatar { border: 0; float: none; margin: rem-calc(0 3); }
+            p.bbp-topic-meta img.avatar, ul.bbp-reply-revision-log img.avatar,
+            ul.bbp-topic-revision-log img.avatar, div.bbp-template-notice img.avatar,
+            .widget_display_topics img.avatar, .widget_display_replies img.avatar { border: 0; float: none; margin: rem-calc(0 3); }
             li.bbp-header, li.bbp-footer { font-size: rem-calc(18); font-weight: 400; padding: rem-calc(10 20); }
             .bbp-forums-list li { display: block; }
             #bbp-search-form #bbp_search { float: left; }
@@ -36,9 +38,8 @@
             &:hover{ color: $link-hover-color; }
         }
         .bbp-meta {
-            a.bbp-forum-permalink, a.bbp-topic-permalink, a.bbp-reply-permalink{ color: #666666; }
+            a.bbp-forum-permalink, a.bbp-topic-permalink, a.bbp-reply-permalink{ color: $gray; }
         }
-        .activity .info { border-color: #cb2; }
     }
     .bbp-login-form {
         label { margin-bottom: 0; }
@@ -57,12 +58,14 @@
         #bbp_search { @include rtp-sidebar-textbox(); }
         #bbp_search_submit, #user-submit, .bbp_widget_login .button{ font-size: rem-calc(11); padding: rem-calc(10 20 11); }
         .bbp_widget_login {
-            .bbp-logged-in h4{ margin-bottom: rem-calc(10); font-size: rem-calc(16);}                        
+            .bbp-logged-in h4 { margin-bottom: rem-calc(10); font-size: rem-calc(16); }
         }
         .bbp-login-form label{ width: auto; }
-        .bbp-login-form .bbp-username, .bbp-login-form .bbp-email, .bbp-login-form .bbp-password, .bbp-login-form .bbp-remember-me, .bbp-login-form .bbp-submit-wrapper{margin-top:0;}
+        .bbp-login-form .bbp-username, .bbp-login-form .bbp-email,
+        .bbp-login-form .bbp-password, .bbp-login-form .bbp-remember-me,
+        .bbp-login-form .bbp-submit-wrapper { margin-top: 0; }
         .widget_display_stats {
             dt { float: left; font-weight: normal; width: 75%; }
-        }    
+        }
     }
 }

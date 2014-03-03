@@ -4,37 +4,46 @@ $black: #000000;
 $white: #FFFFFF;
 $gray: #666666;
 $gray-light: #999999;
+$yellow-cream: #FFDF80;
 
 // ***** Dynamic Variables ***** //
-// Borders
-$border-color: #DDDDDD;
 
-// Backgrounds
+// ***** Borders ***** //
+$border-color: #DDDDDD;
+$sec-border-color: #CCCCCC;
+
+// ***** Backgrounds ***** //
 $base-background: $white;
 
 // ***** Links ***** //
 $link-color: #446CB3;
-$link-hover-color: #eb5b4c;
+$link-hover-color: #EB5B4C;
 
-// Secondary Links
+// ***** Secondary Links ***** //
 $secondary-link-color: $gray;
 $secondary-link-hover-color: #111111;
 
-// Title Links
+// ***** Title Links ***** //
 $title-link-color: #333333;
 $title-hover-color: $link-hover-color;
 
-// Typography
+// ***** Navigation Background ***** //
+$navigation-bg: #444444;
+$sub-nav-color: #7D7D7D;
+$submenu-border-color: #EEEEEE;
+$mobile-background-shadow: #222222;
 
-// Optimal Typography for 16px Font Reference here: http://pearsonified.com/typography/
+// ***** Typography ***** //
+
+// ***** Optimal Typography for 16px Font. Ref. http://pearsonified.com/typography/ ***** //
 $rtp-base-line-height: rem-calc(28); // rem-calc(28)
 $rtp-base-spacing: rem-calc(28); // This will same as line height
 
-// Icon Font Settings
+// ***** Icon Font Settings ***** //
 $rtp-icon-font: true;
 $rtp-icon-font-family: 'rtpanel-fontello';
 
-// Form Elements
+// ***** Form Elements ***** //
 $form-input-text: unquote('input[type="text"], input[type="password"], input[type="search"], input[type="email"], input[type="tel"], input[type="url"]');
 $form-input-buttons: unquote('input[type="submit"], input[type="reset"], input[type="button"], button');
 $form-input-dates: unquote('input[type^="date"], input[type="month"], input[type="week"], input[type="time"]');
@@ -55,7 +64,7 @@ $load-contact-form-7-styles : true;
 $load-rtmedia-styles : true;
 $load-yarpp-styles: true;
 
-// Messages Colors
+// ***** Messages Colors ***** //
 $color-notice: #BBBBBB;
 $color-info: #2EA2CC;
 $color-warning: #FFBA00;

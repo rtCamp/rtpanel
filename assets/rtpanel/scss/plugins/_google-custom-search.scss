@@ -15,7 +15,7 @@
                     &:hover { border-color: darken($border-color, 30%); color: $link-hover-color; text-decoration: underline; }
                 }
             }
-            .gsc-cursor-current-page, .gsc-cursor-current-page:hover { border-color: darken($border-color, 30%); color: #333; font-weight: normal; text-decoration: none; }
+            .gsc-cursor-current-page, .gsc-cursor-current-page:hover { border-color: darken($border-color, 30%); color: $title-link-color; font-weight: normal; text-decoration: none; }
             a.gs-title, a.gs-title b {
                 color: $link-color; text-decoration: none;
                 &:hover { color: $link-hover-color; }

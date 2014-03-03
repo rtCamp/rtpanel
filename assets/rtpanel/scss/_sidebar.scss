@@ -1,4 +1,4 @@
-/* Sidebar */
+// ***** Sidebar ***** //
 .rtp-sidebar-inner-wrapper { padding-left: rem-calc(40); }
 
 .widget { margin-bottom: rem-calc(30); word-wrap: break-word;
@@ -6,17 +6,13 @@
     .current-menu-item > a, .current_page_item > a { color: $link-hover-color; }
 
     // Remove listing bottom margin
-    > ul, > ol { margin-left: 1.25em; }
-    
-    .email-subscription-container input[type="submit"] { 
-        -webkit-border-radius: 0 $global-radius $global-radius 0;
-        border-radius:0 $global-radius $global-radius 0;
-    }
+    & > ul, & > ol { margin-left: 1.25em; }
+
+    .email-subscription-container input[type="submit"] { -webkit-border-radius: 0 $global-radius $global-radius 0; border-radius:0 $global-radius $global-radius 0; }
 }
 
-/* Calendar Widget */
+// ***** Calendar Widget ***** //
 .widget_calendar {
-    // Children
     table { font-size: rem-calc(14); margin: rem-calc(0 0 4); width: 100%; }
     th, td { border: 1px solid $border-color; color: $gray; text-align: center; }
     caption { background: $border-color; font-weight: bold; line-height: 2.5em; }
@@ -24,14 +20,15 @@
 
 #today { background-color: darken($base-background, 6%); font-weight: 700; }
 
+// Calendar footer
 tfoot {
-    // Children
     #prev { border-right: 0; text-align: left; }
     #next { border-left: 0; text-align: right; }
 }
 
 #prev + .pad { border-left: 0; border-right: 0; }
 
-/* Tag Cloud Widget */
+// ***** Tag Cloud Widget ***** //
 .tagcloud a { line-height: 1; }
+
 /* End - Sidebar */

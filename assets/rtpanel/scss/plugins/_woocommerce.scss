@@ -56,7 +56,7 @@
                 tr {
                     &.even, &.alt, &:nth-of-type(2n) {
                         background: transparent;
-                        .post-content & { background: #F9F9F9; }
+                        .post-content & { background: $table-even-row-bg; }
                     }
                 }
             }

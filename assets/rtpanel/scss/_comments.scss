@@ -41,7 +41,7 @@ $rtp-comment-style-type: box; // you can use box, clean,...
         .vcard { 
             border: 0; float: left; margin: rem-calc(8 15 3 8); padding: 0; // Self
 
-            img { @include border-radius($global-rounded); @include rtp-border($width: 2px, $color: #FFFFFF); }
+            img { @include border-radius($global-rounded); @include rtp-border($width: 2px, $color: $white); }
         }
 
         .fn { font-size: rem-calc(24); font-style: normal; text-transform: capitalize; }
@@ -53,18 +53,13 @@ $rtp-comment-style-type: box; // you can use box, clean,...
             em { color: $gray; font-size: rem-calc(12); }
         }
 
-        pre { background-color: #EFEFEF; padding: rem-calc(10); }
+        pre { background-color: $panel-bg; padding: rem-calc(10); }
     }
-
-    // Avatar
-    .avatar {  }
-
-    .rtp-comment-author-role {  }
 
     // Comment Text
     .comment-text { clear: both; padding: rem-calc(15 15 0); overflow: hidden; @include rtp-border();
         p { margin: rem-calc(0 0 15 0); }
-        > ol, > ul { margin-bottom: rem-calc(26); }
+        & > ol, & > ul { margin-bottom: rem-calc(26); }
     }
 
     // Comment Body
@@ -81,9 +76,6 @@ $rtp-comment-style-type: box; // you can use box, clean,...
 
     // Comment Meta
     .comment-meta { font-size: rem-calc(14); margin: rem-calc(2 0 0 15);
-        // Children
-        //abbr { color: $gray-light; border: 0; }
-
         // Comment Edit Link
         .comment-edit-link { margin: rem-calc(0 0 0 5);
             &:hover { text-decoration: none; }
@@ -98,7 +90,7 @@ $rtp-comment-style-type: box; // you can use box, clean,...
 
     /* Admin Comments */
     .comment-author-admin, .bypostauthor, .byuser {
-        > .comment-body .comment-author { background-color: aliceblue; } // background-color: darken($base-background, 4%); @include rtp-rem-fallback(padding, 10, 10, 0);
+        & > .comment-body .comment-author { background-color: aliceblue; } // background-color: darken($base-background, 4%); @include rtp-rem-fallback(padding, 10, 10, 0);
     }
 
     /* Comment Form */
@@ -117,9 +109,6 @@ $rtp-comment-style-type: box; // you can use box, clean,...
         .comment & {
             .form-submit { margin-bottom: 0; }
         }
-
-        // Form
-        form { }
 
         // Form Paragraph
         p { margin: 0; } // margin: 0.8em 0;
@@ -179,7 +168,7 @@ $rtp-comment-style-type: box; // you can use box, clean,...
 
     .rtp-comment-await { color: $gray-light; font-size: rem-calc(12); }
 
-    /* trackback and pingback inside comments */
+    /* Trackback and Pingback inside comments */
     .rtp-comments-header { margin: rem-calc(30 0 0); // Self
 
         .commentlist + & { margin: rem-calc(10 0 0); }
@@ -189,8 +178,6 @@ $rtp-comment-style-type: box; // you can use box, clean,...
             li { margin-bottom: rem-calc(10); }
         }
     }
-
-    /*.hide-labels { overflow: hidden; }*/
 
     // Plugin rtAccountDiv
     #rtAccountDiv {

@@ -34,11 +34,6 @@ $post-meta-styles: true !default;
     }
 }
 
-// ***** Post Content ***** //
-.post-content {
-
-} // @extend .clearfix;
-
 // Not Found Page
 .rtp-not-found { margin: 1.5em 0; }
 
@@ -52,7 +47,7 @@ $post-meta-styles: true !default;
             & { color: $gray-light; text-decoration: none; }
             &:hover, &:focus { color: $link-hover-color; }
         }
-        > .rtp-meta-separator {
+        & > .rtp-meta-separator {
             &:first-child { display: none; }
         }
         .vcard { 
@@ -75,7 +70,6 @@ $post-meta-styles: true !default;
         a { @include rtp-message($border: false); border: 1px solid lighten($color-info, 34); @include border-radius(3px); color: $color-info; font-size: rem-calc(12); display: inline-block; line-height: 1; margin-right: rem-calc(6); padding: rem-calc(4 8); }
     }
     /* Post Comment */
-    .rtp-post-comment {  }
     .rtp-meta-separator { padding: rem-calc(0 2); }
     .post-tags { font-size: inherit; margin-bottom: 0; }
     /* End - Post Meta */

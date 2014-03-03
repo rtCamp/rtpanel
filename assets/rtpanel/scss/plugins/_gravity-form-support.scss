@@ -10,7 +10,7 @@
             ginput_full { margin-bottom: rem-calc(5); }
         }
         .gfield_time_hour input { display: inline-block; margin-right: rem-calc(4); }
-        .gfield_time_ampm.ginput_container select { padding: rem-calc(6 2);}
+        .gfield_time_ampm.ginput_container select { padding: rem-calc(6 2); }
     }
     .gfield_checkbox li input[type=checkbox],
     .gfield_radio li input[type=radio] {
@@ -25,6 +25,7 @@
     input[type=submit], .button, button {
         @include rtp-button(); @include rtp-button-shadow(); @include button-size;
     }
+
     // width issue fixed
     #content-wrapper {
         .gform_wrapper {
@@ -33,6 +34,6 @@
     }
     .widget .gform_wrapper {
         .top_label input.medium, .top_label select.medium { width : 97%; }   
-        .gfield_time_ampm select{ height: 37px; }
+        .gfield_time_ampm select { height: 37px; }
     }
 }

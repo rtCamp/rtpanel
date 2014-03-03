@@ -2,7 +2,8 @@
 $center: true;
 
 @mixin rtp-pagenavi() {
-    .rtp-pagenavi, body.woocommerce #content nav.woocommerce-pagination, body.woocommerce-page #content nav.woocommerce-pagination {
+    .rtp-pagenavi, body.woocommerce #content nav.woocommerce-pagination,
+    body.woocommerce-page #content nav.woocommerce-pagination {
         ul { margin: $rtp-base-spacing 0 0; overflow: hidden;
             //* center align
             @if $center { text-align: center; }

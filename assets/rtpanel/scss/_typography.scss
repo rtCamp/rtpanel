@@ -3,31 +3,15 @@
 // Set Line height
 body { line-height: $rtp-base-line-height; }
 
-/* Fonts */
-.rtp-font-size-10 { font-size: rem-calc(10); }
-.rtp-font-size-11 { font-size: rem-calc(11); }
-.rtp-font-size-12 { font-size: rem-calc(12); }
-.rtp-font-size-13 { font-size: rem-calc(13); }
-.rtp-font-size-14 { font-size: rem-calc(14); }
-.rtp-font-size-15 { font-size: rem-calc(15); }
-.rtp-font-size-16 { font-size: rem-calc(16); }
-.rtp-font-size-18 { font-size: rem-calc(18); }
-.rtp-font-size-20 { font-size: rem-calc(20); }
-.rtp-font-size-22 { font-size: rem-calc(22); }
-.rtp-font-size-24 { font-size: rem-calc(24); }
-.rtp-font-size-28 { font-size: rem-calc(28); }
-
 // Headings
-h4,
-h5,
-h6 { font-weight: 700; }
+h4, h5, h6 { font-weight: 700; }
 
 // reset line height
 .rtp-reset-line-height { line-height: 1; }
 
 // keys
 .keystroke, kbd {
-    @include box-shadow(0 1px rgba(203,203,203,.75), inset 0 -1px $white);
+    @include box-shadow(0 1px rgba(203,203,203,0.75), inset 0 -1px $white);
 }
 
 // Pre
