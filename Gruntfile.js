@@ -68,7 +68,7 @@ module.exports = function(grunt) {
             },
             build: {
                 src: [
-                    'assets/foundation/bower_components/foundation/js/vendor/custom.modernizr.js',
+                    'assets/foundation/bower_components/foundation/js/vendor/modernizr.js',
                     'assets/foundation/bower_components/foundation/js/foundation.min.js',
                     'js/jquery.sidr.min.js',
                     'js/rtp-app.js'

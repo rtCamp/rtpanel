@@ -79,7 +79,7 @@ class Rtp_Theme {
 	 * */
 	function rtp_admin_page_scripts() {
 		wp_enqueue_script( 'rtp-admin-scripts', RTP_TEMPLATE_URL . '/admin/js/rtp-admin.js' );
-		wp_enqueue_script( 'rtp-twitter-share', ('http://platform.twitter.com/widgets.js' ), '', '', true );
+		wp_enqueue_script( 'rtp-twitter-share', ('https://platform.twitter.com/widgets.js' ), '', '', true );
 		wp_enqueue_script( 'thickbox' );
 	}
 

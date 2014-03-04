@@ -177,7 +177,7 @@ function rtp_google_search_metabox() {
 				<th scope="row"><label for="search_code"><?php _e( 'Google Custom Search Element Code', 'rtPanel' ); ?></label></th>
 				<td>
 					<textarea cols="80" rows="5" name="rtp_general[search_code]" id="search_code"><?php echo esc_textarea( $rtp_general[ 'search_code' ] ); ?></textarea><br />
-					<label for="search_code"><span class="description"><?php printf( __( 'The Google Search Code Obtained by Default. You can obtain the Google Custom Search Code <a href="%s" title="Google Custom Search">here</a><br />', 'rtPanel' ), 'http://www.google.com/cse/' ); ?></span>
+					<label for="search_code"><span class="description"><?php printf( __( 'The Google Search Code Obtained by Default. You can obtain the Google Custom Search Code <a href="%s" title="Google Custom Search">here</a><br />', 'rtPanel' ), 'https://www.google.com/cse/' ); ?></span>
 	                    <strong><?php _e( 'NOTE', 'rtPanel' ); ?>: </strong><span class="description"><?php _e( 'The hosting option must be "Search Element" and layout should be either "full-width" or "compact".', 'rtPanel' ); ?></span></label>
 				</td>
 			</tr>

@@ -1049,9 +1049,9 @@ function rtp_default_admin_sidebar() {
 		<h3 class="hndle"><span><?php _e( 'Getting Social is Good', 'rtPanel' ); ?></span></h3>
 		<div class="inside" style="text-align: center;"><?php
                     printf( __( '<a href="%s" target="_blank" title="Like Us on Facebook" class="rtp-icon-facebook"></a>', 'rtPanel' ), 'https://www.facebook.com/rtCamp.solutions' );
-                    printf( __( '<a href="%s" target="_blank" title="Follow Us on Twitter" class="rtp-icon-twitter"></a>', 'rtPanel' ), 'http://twitter.com/rtcamp' );
+                    printf( __( '<a href="%s" target="_blank" title="Follow Us on Twitter" class="rtp-icon-twitter"></a>', 'rtPanel' ), 'https://twitter.com/rtcamp' );
                     printf( __( '<a href="%s" target="_blank" title="Add to Circle" class="rtp-icon-gplus"></a>', 'rtPanel' ), 'https://plus.google.com/110214156830549460974/posts' );
-                    printf( __( '<a href="%s" target="_blank" title="Subscribe to our feeds" class="rtp-icon-rss"></a>', 'rtPanel' ), 'http://rtcamp.com/feed/' ); ?>
+                    printf( __( '<a href="%s" target="_blank" title="Subscribe to our feeds" class="rtp-icon-rss"></a>', 'rtPanel' ), 'https://rtcamp.com/feed/' ); ?>
 		</div>
 	</div>
 
@@ -1062,7 +1062,7 @@ function rtp_default_admin_sidebar() {
 			<p><?php printf( __( 'Buy coffee/beer for team behind <a href="%s" target="_blank" title="rtPanel">rtPanel</a>.', 'rtPanel' ), RTP_DONATE_URL ); ?></p>
 			<div class="rt-social-share">
 				<div class="rt-twitter rtp-social-box">
-			<?php printf( __( '<a href="%s"  class="twitter-share-button" data-text="I &hearts; #rtPanel" data-url="%s" data-via="rtpanel" data-count="none">Tweet</a>', 'rtPanel' ), 'http://twitter.com/share', RTP_THEME_URL ); ?>
+			<?php printf( __( '<a href="%s"  class="twitter-share-button" data-text="I &hearts; #rtPanel" data-url="%s" data-via="rtpanel" data-count="none">Tweet</a>', 'rtPanel' ), 'https://twitter.com/share', RTP_THEME_URL ); ?>
 				</div>
 				<div class="rt-facebook rtp-social-box">
 					<div id="fb-root"></div>
@@ -1089,7 +1089,7 @@ function rtp_default_admin_sidebar() {
 	<div class="postbox" id="support">
 		<div title="<?php _e( 'Click to toggle', 'rtPanel' ); ?>" class="handlediv"><br /></div>
 		<h3 class="hndle"><span><?php _e( 'Free Support', 'rtPanel' ); ?></span></h3>
-		<div class="inside"><?php printf( __( 'If you are facing any problems while using rtPanel, or have good ideas for improvements, please discuss the same in our <a href="%s" target="_blank" title="Click here for rtPanel Free Support">Support forums</a>', 'rtPanel' ), 'http://rtcamp.com/support/forum/rtpanel/' ); ?>.</div>
+		<div class="inside"><?php printf( __( 'If you are facing any problems while using rtPanel, or have good ideas for improvements, please discuss the same in our <a href="%s" target="_blank" title="Click here for rtPanel Free Support">Support forums</a>', 'rtPanel' ), RTP_FORUM_URL ); ?>.</div>
 	</div><?php
 }
 
