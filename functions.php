@@ -7,7 +7,18 @@
  * @since rtPanel 2.0
  */
 
+/**
+ * Define Theme Version
+ */
 define( 'RTP_VERSION', '4.2' );
+
+/**
+ * Define Constant for the themes which developed using rtPanel.
+ * IMPORTANT: Do Not Remove OR Change This Constant
+ * 
+ * @since rtPanel 4.2
+ */
+define( 'RT_THEME_BASE', 'rtPanel' );
 
 /* Define Links */
 define( 'RTP_AUTHOR_URL', 'https://rtcamp.com/' );                      // Theme Author URL
