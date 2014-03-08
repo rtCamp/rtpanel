@@ -138,5 +138,5 @@ module.exports = function(grunt) {
     // grunt.registerTask('default', ['wordpressdeploy']);
 
     // Register Task
-    grunt.registerTask('default', ['fontello', 'imagemin', 'watch']);
+    grunt.registerTask('default', ['fontello', 'watch']);
 };
