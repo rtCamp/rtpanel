@@ -19,17 +19,17 @@ if ( rtp_get_sidebar_id() === 0 ) {
 }
 
 if ( is_archive() ) {
-	$rtp_content_class = ' class="rtp-content-section ' . $rtp_content_grid_class . ' rtp-multiple-post" ';
+	$rtp_content_class = ' rtp-content-section ' . $rtp_content_grid_class . ' rtp-multiple-post ';
 } elseif ( is_page() || is_single() || is_404() ) {
-	$rtp_content_class = ' class="rtp-content-section ' . $rtp_content_grid_class . ' rtp-singular" ';
+	$rtp_content_class = ' rtp-content-section ' . $rtp_content_grid_class . ' rtp-singular ';
 } elseif ( is_home() ) {
-	$rtp_content_class = ' class="rtp-content-section ' . $rtp_content_grid_class . ' rtp-blog-post" ';
+	$rtp_content_class = ' rtp-content-section ' . $rtp_content_grid_class . ' rtp-blog-post ';
 } else {
-	$rtp_content_class = ' class="rtp-content-section ' . $rtp_content_grid_class . '"';
+	$rtp_content_class = ' rtp-content-section ' . $rtp_content_grid_class;
 }
 ?>
 
-<section id="content" role="main"<?php echo $rtp_content_class; ?>>
+<section id="content" role="main" class="<?php echo esc_attr( $rtp_content_class ); ?>">
 	<?php rtp_hook_begin_content(); ?>
 
 	<?php get_template_part( 'loop', 'common' ); ?>
