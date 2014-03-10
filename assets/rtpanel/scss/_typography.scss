@@ -15,6 +15,7 @@ h4, h5, h6 { font-weight: 700; }
 }
 
 // Pre
-pre { background: $panel-bg; padding: rem-calc(10); @include radius; margin-bottom: $rtp-base-spacing; white-space: pre; overflow-x: auto; word-wrap: normal;
-    code { background: $panel-bg !important; overflow: auto; }
+pre { 
+	background: $panel-bg; padding: rem-calc(10); @include radius; margin-bottom: $rtp-base-spacing; white-space: pre; overflow-x: auto; word-wrap: normal;
+	code { background: $panel-bg !important; overflow: auto; }
 }

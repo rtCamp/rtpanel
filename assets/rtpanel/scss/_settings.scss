@@ -1,4 +1,6 @@
-@import 'variables';
+// Foundation by ZURB
+// foundation.zurb.com
+// Licensed under MIT Open Source
 
 // 
 // FOUNDATION SETTINGS
@@ -41,10 +43,6 @@ $column-gutter: rem-calc(20);
 // $total-columns: 12;
 
 // We use these to control various global styles
-
-// Use Open Sans font
-$include-open-sans: false;
-
 // $body-bg: #fff;
 $body-font-color: #4C4C4C;
 $body-font-family: 'Open Sans', sans-serif;
@@ -312,8 +310,8 @@ $list-ordered-side-margin: 2rem;
 // $crumb-link-decor: underline;
 
 // We use these to control the slash between breadcrumbs
- $crumb-slash-color: #aaa;
- $crumb-slash: "»";
+$crumb-slash-color: #aaa;
+$crumb-slash: "»";
 
 //
 // BUTTONS
@@ -777,7 +775,7 @@ $button-margin-bottom: rem-calc(10);
 // $panel-border-size: 1px;
 
 // We use this % to control how much we darken things on hover
- $panel-function-factor: 10%;
+$panel-function-factor: 10%;
 // $panel-border-color: scale-color($panel-bg, $lightness: $panel-function-factor);
 
 // We use these to set default inner padding and bottom margin

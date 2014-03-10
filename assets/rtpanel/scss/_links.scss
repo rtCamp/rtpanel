@@ -4,8 +4,7 @@ a {
     & { color: $link-color; text-decoration: none; }
 
     // Hover & Focus
-    &:hover,
-    &:focus { color: $link-hover-color; text-decoration: underline; }
+    &:hover, &:focus { color: $link-hover-color; text-decoration: underline; }
 }
 
 /* Heading Links */
@@ -15,14 +14,12 @@ h1, h2 {
         & { color: $title-link-color; }
 
         // Hover & Focus
-        &:hover,
-        &:focus { color: $title-hover-color; text-decoration: none; }
+        &:hover, &:focus { color: $title-hover-color; text-decoration: none; }
     }
 }
 
 .alert-box .close {
     text-decoration: none;
-    &:hover {
-        text-decoration: none;
-    }
+
+    &:hover { text-decoration: none; }
 }

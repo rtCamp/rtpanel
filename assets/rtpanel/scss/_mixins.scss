@@ -2,9 +2,9 @@
 
 // We use this to do clear floats
 @mixin rtp-clearfix {
-  *zoom:1;
-  &:before, &:after { content: " "; display: table; }
-  &:after { clear: both; }
+	*zoom:1;
+	&:before, &:after { content: " "; display: table; }
+	&:after { clear: both; }
 }
 
 @mixin rtp-link ( $link-color: $link-color, $hover-color: $link-hover-color ) {
@@ -58,7 +58,7 @@
 
 // Notice
 @mixin rtp-notice() {
-   @include rtp-message( $color-notice, 20 );
+	@include rtp-message( $color-notice, 20 );
 }
 
 // Info

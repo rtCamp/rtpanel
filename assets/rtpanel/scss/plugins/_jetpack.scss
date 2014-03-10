@@ -1,8 +1,9 @@
 // ****** Jetpack Plugin Support ****** //
 @mixin rtp-jetpack() {
-   #content-wrapper div.sharedaddy .sd-title { font-size: rem-calc(18); }
-    .post-content .form-errors { margin: 0; 
-        .form-error-message { @include rtp-error(); padding: rem-calc(5 10); margin: rem-calc(10 0 20); list-style: none; color: $body-font-color; }
+	#content-wrapper div.sharedaddy .sd-title { font-size: rem-calc(18); }
+    .post-content .form-errors { 
+		margin: 0; 
+		.form-error-message { @include rtp-error(); padding: rem-calc(5 10); margin: rem-calc(10 0 20); list-style: none; color: $body-font-color; }
     }
     .contact-form .select { width: 300px; }
 }

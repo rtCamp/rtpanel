@@ -2,12 +2,13 @@
 
 // Logo
 .rtp-logo-container { margin-bottom: rem-calc(30); }
-.rtp-site-logo { float: left; font-size: rem-calc(40); margin: 0 rem-calc(30) 0 0; overflow: hidden;
-    // Float is used to remove excess spacing bellow logo image
-    a { float: left; }
+.rtp-site-logo { 
+	float: left; font-size: rem-calc(40); margin: 0 rem-calc(30) 0 0; overflow: hidden;
+	// Float is used to remove excess spacing bellow logo image
+	a { float: left; }
 
-    // Logo : Float is used to remove excess spacing bellow logo image
-    img { float: left; margin: 0; }
+	// Logo : Float is used to remove excess spacing bellow logo image
+	img { float: left; margin: 0; }
 }
 
 // Tagline
@@ -19,8 +20,6 @@
 }
 
 // Header Image
-.rtp-header-image {
-    margin-bottom: rem-calc(30);
-}
+.rtp-header-image { margin-bottom: rem-calc(30); }
 
 /* End - Header */

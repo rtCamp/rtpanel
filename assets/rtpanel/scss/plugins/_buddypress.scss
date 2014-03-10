@@ -4,7 +4,7 @@
         #content div.item-list-tabs ul li.last select { padding-right: rem-calc(8); }
         .hentry { border-bottom: 0; }
         .standard-form {
-            textarea, #{$form-input-text}, select { width: 75%; }
+            textarea, select, #{$form-input-text} { width: 75%; }
         }
         .dir-search input[type="text"] { width: auto; }
         .message-search, .dir-search {
@@ -46,26 +46,44 @@
             .activity-meta {
                 .button { 
                     background: transparent; border-radius: 0; box-shadow: 0 0 0; color: inherit; font-size: rem-calc(14); margin: rem-calc(0 10 0 0); padding: 0;
-                    &:before { color: inherit; display: inline-block; font-family: $rtp-icon-font-family; margin-right: rem-calc(5); }
-                    &:hover, &:focus { background: transparent; color: $link-color; }
+
+					@if $rtp-icon-font {
+						&:before { color: inherit; display: inline-block; font-family: $rtp-icon-font-family; margin-right: rem-calc(5); }
+                    }
+					&:hover, &:focus { background: transparent; color: $link-color; }
                 }
                 .button.delete-activity, .button.delete-activity-single {
-                    &:before { content: '\e813'; }
+
+                    @if $rtp-icon-font { 
+						&:before { content: '\e813'; }
+					}
+
                     &:hover, &:focus { color: $color-error; }
                 }
                 .button.fav {
-                    &:before { content: '\e810'; }
+
+                    @if $rtp-icon-font { 
+						&:before { content: '\e810'; }
+					}
+
                     &:hover, &:focus { color: $color-success; }
                 }
                 .button.unfav {
-                    &:before { content: '\e810'; }
+
+                    @if $rtp-icon-font { 
+						&:before { content: '\e810'; }
+					}
+
                     &:hover, &:focus { color: $color-error; }
                 }
             }
             a.bp-primary-action span,
             #reply-title small a span { 
                 background: transparent; color: inherit; font-size: inherit;
-                &:before {  content: '\e80a'; display: inline-block; font-family: $rtp-icon-font-family; margin-right: rem-calc(5); }
+
+				@if $rtp-icon-font {
+					&:before {  content: '\e80a'; display: inline-block; font-family: $rtp-icon-font-family; margin-right: rem-calc(5); }
+				}
             }
             form#whats-new-form { 
                 padding: rem-calc(10 0 0) !important;
@@ -79,7 +97,8 @@
             .item-list-tabs { 
                 background-color: $border-color; padding: rem-calc(10 15 0);
                 li {
-                    a { background: transparent;
+                    a { 
+						background: transparent;
                         span { line-height: 1.8; }
                     }
                     &.current a, &.selected a { background: $white; @include border-radius(3px 3px 0 0); opacity: 1; }
@@ -125,7 +144,7 @@
             }
             .activity-list li.load-more {
                 color: $link-color;
-                a { 
+                a {
                     display: block; color: $link-color;
 
                     &:hover { color: $link-hover-color; }
@@ -141,7 +160,7 @@
             div.wp-editor-container{ border: $sec-border-color; }
             div#item-header div#item-actions h3 { font-size: rem-calc(20); margin: rem-calc(0 0 10); }
             div#item-header ul img.avatar, div#item-header ul.avatars img.avatar { height: auto; width: auto; }
-            #bbpress-forums { 
+            #bbpress-forums {
                 margin: rem-calc(10 0);
                 ul.bbp-topic-revision-log img.avatar { margin-bottom: 0; }
                 .bbp-topic-content ul.bbp-topic-revision-log, .bbp-reply-content ul.bbp-topic-revision-log, .bbp-reply-content ul.bbp-reply-revision-log { padding-top: 0; }
@@ -156,8 +175,9 @@
                 a.bbp-forum-permalink, a.bbp-topic-permalink, a.bbp-reply-permalink { color: $gray; }
             }
 
-            div#message.error { clear: both;
-                p { margin-bottom: 0; }
+            div#message.error {
+				clear: both;
+				p { margin-bottom: 0; }
             }
             #group-settings-form {
                 label { display: block; margin-bottom: rem-calc(5); }
@@ -203,13 +223,15 @@
         &.widget_bp_groups_widget,
         &.widget_bp_core_friends_widget {
             ul { margin: 0;
-                li { list-style: none; }
+				 li { list-style: none; }
 
-                &.item-list img.avatar { margin-top: rem-calc(8); }
+				 &.item-list img.avatar { margin-top: rem-calc(8); }
             }
-            .item-options { margin: 0; padding: 0.5em 0 1em;
-                .selected { color: $link-hover-color; background: $border-color; }
-                a {  background: $sec-border-color; padding: rem-calc(5 10); }
+            .item-options { 
+				margin: 0; padding: 0.5em 0 1em;
+
+				.selected { color: $link-hover-color; background: $border-color; }
+				a {  background: $sec-border-color; padding: rem-calc(5 10); }
             }
         }
         &.widget_bp_core_login_widget {

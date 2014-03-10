@@ -7,7 +7,6 @@ $image-space: rem-calc(20);
         // Floated Images
         &.none,
         &.alignnone { margin-left: 0; margin-right: $image-space; }
-        //&.aligncenter { margin-left: auto; margin-right: auto; }
         &.left,
         &.alignleft { margin-left: 0; margin-right: $image-space; }
         &.right,
@@ -24,7 +23,8 @@ $image-space: rem-calc(20);
         img { margin: 0; }
 
         // Image Container Link
-        a { margin-top: rem-calc(5); margin-bottom: rem-calc(5);
+        a { 
+			margin-top: rem-calc(5); margin-bottom: rem-calc(5);
             // Floated Images
             &.none,
             &.alignnone { display: inline-block; margin-bottom: rem-calc(14); margin-left: 0; margin-right: $image-space; }
@@ -54,14 +54,15 @@ $image-space: rem-calc(20);
 // ***** Image Caption Style ***** //
 @mixin rtp-wp-caption() {
     /* Image Caption Style */
-    .wp-caption { background-color: darken($base-background, 4%); margin: rem-calc(6 5 15); max-width: 100%; overflow: hidden; padding: rem-calc(5 5 0); text-align: center; // Self
-        // Floated Elements
-        &.alignnone, &.alignleft { margin-left: 0; margin-right: rem-calc(15); }
-        &.aligncenter { margin-left: auto; margin-right: auto; }
-        &.alignright { margin-left: rem-calc(15); margin-right: 0; }
+    .wp-caption { 
+		background-color: darken($base-background, 4%); margin: rem-calc(6 5 15); max-width: 100%; overflow: hidden; padding: rem-calc(5 5 0); text-align: center; // Self
+		// Floated Elements
+		&.alignnone, &.alignleft { margin-left: 0; margin-right: rem-calc(15); }
+		&.aligncenter { margin-left: auto; margin-right: auto; }
+		&.alignright { margin-left: rem-calc(15); margin-right: 0; }
 
-        a { border: 0; text-decoration: none; }
-        img { margin: 0; }
+		a { border: 0; text-decoration: none; }
+		img { margin: 0; }
     }
 
     .wp-caption-text { color: $gray; line-height: 1.286em; margin: rem-calc(5); }
@@ -89,26 +90,31 @@ $image-space: rem-calc(20);
     .post-content .attachment img { margin: 0 auto; }
 
     // Attachment Page Images
-    .rtp-sibling-attachments { padding: 0; margin: 0 0 1em; // Self
-        // List
-        li { line-height: 1em; list-style: none; margin-top: rem-calc(10); margin-bottom: rem-calc(10); text-align: center; }
-        // Images
-        img {
-            background-color: darken($base-background, 4%); @include rtp-border(); margin: 0; padding: rem-calc(5);
-            &:hover { border-color: darken($border-color, 30%); }
-        }
+    .rtp-sibling-attachments { 
+		padding: 0; margin: 0 0 1em; // Self
+
+		// List
+		li { line-height: 1em; list-style: none; margin-top: rem-calc(10); margin-bottom: rem-calc(10); text-align: center; }
+
+		// Images
+		img {
+			background-color: darken($base-background, 4%); @include rtp-border(); margin: 0; padding: rem-calc(5);
+			&:hover { border-color: darken($border-color, 30%); }
+		}
     }
 }
 
 // ****** Paged Navigation ****** //
 @mixin rtp-paged-navigation() {
     /* Paged Navigation */
-    .rtp-navigation, .rtp-comments-pagination { border-bottom: 1px dotted $border-color; clear: both; margin-bottom: $rtp-base-spacing; padding-bottom: rem-calc(20); padding-top: rem-calc(20); // Self
-        // Links
-        a { text-decoration: none;
-            // Hover
-            &:hover { text-decoration: underline; }
-        }
+    .rtp-navigation, .rtp-comments-pagination {
+		border-bottom: 1px dotted $border-color; clear: both; margin-bottom: $rtp-base-spacing; padding-bottom: rem-calc(20); padding-top: rem-calc(20); // Self
+		// Links
+		a { 
+			text-decoration: none;
+			// Hover
+			&:hover { text-decoration: underline; }
+		}
     }
 
     .rtp-navigation {

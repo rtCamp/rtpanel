@@ -27,64 +27,69 @@ $menu-spacing: rem-calc(12 30);
 }
 
 /* Navigation */
-.rtp-nav-wrapper { @include rtp-bg-color(); clear: both; min-height: $menu-height; margin-bottom: rem-calc(30); position: relative;
-    @if $menu-full-bg {
-        &:before, &:after { content: ' '; position: absolute; background: $background-menu; top: 0;  bottom: 0; width: rem-calc(9999); } 
-        &:before { right: 100%; }
-        &:after { left: 100%; }
-    }
+.rtp-nav-wrapper {
+	@include rtp-bg-color(); clear: both; min-height: $menu-height; margin-bottom: rem-calc(30); position: relative;
+	@if $menu-full-bg {
+		&:before, &:after { content: ' '; position: absolute; background: $background-menu; top: 0;  bottom: 0; width: rem-calc(9999); } 
+		&:before { right: 100%; }
+		&:after { left: 100%; }
+	}
 }
 
-.rtp-nav-container { @include rtp-margin-padding-0; // Self
+.rtp-nav-container { 
+	@include rtp-margin-padding-0; // Self
 
-    // Menu List
-    li { float: left; list-style: none; position: relative; // Self
+	// Menu List
+	li { float: left; list-style: none; position: relative; // Self
 
-        &:hover > a { @include rtp-active-menu(); } // Submenu Links
+		 &:hover > a { @include rtp-active-menu(); } // Submenu Links
 
-        &:hover > ul { display: block; } // Show Dropdown on Mouse Hover
+		 &:hover > ul { display: block; } // Show Dropdown on Mouse Hover
 
-    }
+	}
 
-    // Main Menu Separator
-    @if $menu-separator {
+	// Main Menu Separator
+	@if $menu-separator {
 
-        & > li {
+		& > li {
 
-            &:first-child { border-left: 1px solid rgba(255, 255, 255, 0.11); box-shadow: -1px 0 0 rgba(0, 0, 0, 0.1); }
+			&:first-child { border-left: 1px solid rgba(255, 255, 255, 0.11); box-shadow: -1px 0 0 rgba(0, 0, 0, 0.1); }
 
-            & > a {
-                @include rtp-menu-separator();
-            }
-        }
-    }
+			& > a {
+				@include rtp-menu-separator();
+			}
+		}
+	}
 
-    // Navigation Links
-    a { color: $white; font-size: $menu-font-size; display: block; height: auto; line-height: 1.5; padding: $menu-spacing; text-decoration: none; word-wrap: break-word;
+	// Navigation Links
+	a { 
+		color: $white; font-size: $menu-font-size; display: block; height: auto; line-height: 1.5; padding: $menu-spacing; text-decoration: none; word-wrap: break-word;
 
-        // Hover
-        &:hover { @include rtp-active-menu(); }
-    }
+		// Hover
+		&:hover { @include rtp-active-menu(); }
+	}
 
-    // Submenu Support //
-    ul { background-color: $submenu-bg; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28); display: none; left: 0; @include rtp-margin-padding-0; position: absolute; top: $menu-height; width: $submenu-width; z-index: 9; // Self
+	// Submenu Support //
+	ul { 
+		background-color: $submenu-bg; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28); display: none; left: 0; @include rtp-margin-padding-0; position: absolute; top: $menu-height; width: $submenu-width; z-index: 9; // Self
 
-        a { color: $submenu-link-color; }
+		a { color: $submenu-link-color; }
 
-        // Submenu List
-        li { border-bottom: 1px solid $submenu-border-color; min-width: $submenu-width; width: 100%;
+		// Submenu List
+		li { 
+			border-bottom: 1px solid $submenu-border-color; min-width: $submenu-width; width: 100%;
 
-            // Submenu Links
-            &:hover > a { @include rtp-active-menu(); }
-        }
+			// Submenu Links
+			&:hover > a { @include rtp-active-menu(); }
+		}
 
-        // Submenu children List
-        ul { left: 100%; top: 0; }
-    }
+		// Submenu children List
+		ul { left: 100%; top: 0; }
+	}
 
-    // Current Menu Style
-    .current-menu-item, .current_page_ancestor, .current_page_item {
-        > a { @include rtp-active-menu(); }
-    }
+	// Current Menu Style
+	.current-menu-item, .current_page_ancestor, .current_page_item {
+		& > a { @include rtp-active-menu(); }
+	}
 }
 /* End - Navigation */

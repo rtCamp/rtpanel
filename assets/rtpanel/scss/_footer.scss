@@ -5,10 +5,11 @@
 }
 
 /* Copyrights */
-#footer { color: $gray; text-align: center; // Self
-    // Footer Links
-    a { border-bottom: 1px solid $border-color; // Self
-        &:hover { text-decoration: none; }
-    }
+#footer { 
+	color: $gray; text-align: center; // Self
+	// Footer Links
+	a { border-bottom: 1px solid $border-color; // Self
+		&:hover { text-decoration: none; }
+	}
 }
 /* End - Footer */

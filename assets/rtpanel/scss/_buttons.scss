@@ -1,8 +1,7 @@
 // ********* Mixin ********* //
 @mixin rtp-button( $bg: $link-color, $color: $white, $dark: 4%, $light: 3%, $radius: $global-radius ) {
     & { background-color: $bg; border-radius: $radius; border: 0; color: $color; }
-    &:hover,
-    &:focus { background-color: darken($bg, $dark); }
+    &:hover, &:focus { background-color: darken($bg, $dark); }
     &:active { background-color: lighten($bg, $light); }
 }
 
@@ -32,7 +31,7 @@ input[type=submit] {
 
 // Input Next button fix
 #{$form-input-text}, #{$form-input-dates}, textarea {
-    + input[type="button"], + input[type="submit"], + button {
+    & + input[type="button"], & + input[type="submit"], & + button {
         border-radius: 0 $global-radius $global-radius 0 !important;
     }
 }

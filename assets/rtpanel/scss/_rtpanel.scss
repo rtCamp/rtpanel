@@ -3,6 +3,9 @@
 // Import Compass
 @import "compass";
 
+// rtPanel variables
+@import 'variables';
+
 // Global Foundation Settings
 @import "settings";
 
@@ -10,7 +13,7 @@
 @import "normalize";
 
 // Comment out this import if you are customizing you imports below
-@import "foundation";
+@import "rtp-foundation";
 
 // ***** Do not remove or comment above files ***** //
 

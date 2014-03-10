@@ -1,14 +1,15 @@
 // ***** Sidebar ***** //
 .rtp-sidebar-inner-wrapper { padding-left: rem-calc(40); }
 
-.widget { margin-bottom: rem-calc(30); word-wrap: break-word;
-    // Current Menu item highlight
-    .current-menu-item > a, .current_page_item > a { color: $link-hover-color; }
+.widget { 
+	margin-bottom: rem-calc(30); word-wrap: break-word;
+	// Current Menu item highlight
+	.current-menu-item > a, .current_page_item > a { color: $link-hover-color; }
 
-    // Remove listing bottom margin
-    & > ul, & > ol { margin-left: 1.25em; }
+	// Remove listing bottom margin
+	& > ul, & > ol { margin-left: 1.25em; }
 
-    .email-subscription-container input[type="submit"] { -webkit-border-radius: 0 $global-radius $global-radius 0; border-radius:0 $global-radius $global-radius 0; }
+	.email-subscription-container input[type="submit"] { -webkit-border-radius: 0 $global-radius $global-radius 0; border-radius:0 $global-radius $global-radius 0; }
 }
 
 // ***** Calendar Widget ***** //

@@ -41,10 +41,11 @@ $sidr-text-color: $white;
             border-bottom: 1px solid darken($sidr-background, 10%);
 
             &:hover, &.active,
-            &.sidr-class-current-menu-item { border-top: none; line-height: 49px;
-                > a, > span {
-                    @include single-box-shadow($sidr-background-shadow-color, 0, 0, 15px, 3px, inset);
-                }
+				&.sidr-class-current-menu-item { 
+				border-top: none; line-height: 49px;
+				& > a, & > span {
+					@include single-box-shadow($sidr-background-shadow-color, 0, 0, 15px, 3px, inset);
+				}
             }
 
             a, span { padding: 0 15px; display: block; text-decoration: none; color: $sidr-text-color; }
@@ -57,8 +58,7 @@ $sidr-text-color: $white;
 
                     &:last-child { border-bottom: none; }
 
-                    &:hover, &.active,
-                    &.sidr-class-current-menu-item {
+                    &:hover, &.active, &.sidr-class-current-menu-item {
                         border-top: none; line-height: 41px;
 
                         & > a, & > span {
@@ -66,7 +66,7 @@ $sidr-text-color: $white;
                         }
                     }
 
-                    a, span { color: rgba($sidr-text-color, 0.8); padding-left: 30px; }
+                    a, span { color: rgba($sidr-text-color, 0.8); padding-left: rem-calc(30); }
                 }
             }
         }
