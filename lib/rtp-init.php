@@ -91,18 +91,28 @@ add_action( 'rtp_hook_begin_header', 'rtp_header_image' );
  * @version 2.1
  */
 function rtp_default_scripts() {
-	/* Concat all js libraries to single rtp-concat-lib.js */
-	wp_enqueue_script( 'rtp-package-min', RTP_JS_FOLDER_URL . '/rtp-package-min.js', array( 'jquery' ), RTP_VERSION, true );
 
-	/* Google Font: Open Sans */
-	wp_enqueue_style( 'rtp-google-font', '//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700', '', NULL );
+	/* Register Theme jQuery */
+	wp_register_script( 'rtp-package-min', RTP_JS_FOLDER_URL . '/rtp-package-min.js', array( 'jquery' ), RTP_VERSION, true );
 
-	/* Fontello icons */
-	wp_enqueue_style( 'rtp-icon-fonts-animation', RTP_ASSETS_URL . '/fontello/css/animation.css', '', NULL );
-	wp_enqueue_style( 'rtp-icon-fonts', RTP_ASSETS_URL . '/fontello/css/rtpanel-fontello.css', '', NULL );
+	/* Register Google Font: Open Sans */
+	wp_register_style( 'rtp-google-font', '//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700', '', NULL );
 
-	// Loads our main stylesheet.
-	wp_enqueue_style( 'rtpanel-style', get_stylesheet_uri(), array(), RTP_VERSION );
+	/* Register Fontello icons */
+	wp_register_style( 'rtp-icon-fonts-animation', RTP_ASSETS_URL . '/fontello/css/animation.css', '', NULL );
+	wp_register_style( 'rtp-icon-fonts', RTP_ASSETS_URL . '/fontello/css/rtpanel-fontello.css', '', NULL );
+
+	/* Register Theme Main Stylesheet. */
+	wp_register_style( 'rtpanel-style', get_stylesheet_uri(), array(), RTP_VERSION );
+
+	/**
+	 * Enqueue Scripts and Styles
+	 */
+	wp_enqueue_script( 'rtp-package-min' );
+	wp_enqueue_style( 'rtp-google-font' );
+	wp_enqueue_style( 'rtp-icon-fonts-animation' );
+	wp_enqueue_style( 'rtp-icon-fonts' );
+	wp_enqueue_style( 'rtpanel-style' );
 
 	// Nested Comment Support
 	( is_singular() && get_option( 'thread_comments' ) ) ? wp_enqueue_script( 'comment-reply' ) : '';

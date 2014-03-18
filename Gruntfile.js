@@ -134,7 +134,10 @@ module.exports = function(grunt) {
         }
     });
 
-    // WordPress Deploy
+	// Imagemin Task
+	// grunt.registerTask('default', ['imagemin']);
+
+    // WordPress Deploy Task
     // grunt.registerTask('default', ['wordpressdeploy']);
 
     // Register Task
