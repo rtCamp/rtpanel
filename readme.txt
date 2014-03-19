@@ -52,9 +52,10 @@ If you make changes to thumbnail height, width or crop settings, you must use "R
 == Changelog ==
 
 = 4.2 =
-* Modified: Update Foundation version to 5.1.1
+* Modified: Update Foundation version to 5.2.1
 * Modified: PHP Coding Standards
 * Modified: Plugin Styles
+* Resolved: UI Issues Fixed
 
 = 4.1.5 =
 * Resolved: Facebook JavaScript SDK issue

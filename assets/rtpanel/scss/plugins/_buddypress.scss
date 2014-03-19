@@ -39,6 +39,7 @@
             }
             div.dir-search { margin: rem-calc(-43 0 10); }
             label { display: inline-block; margin: 0; }
+			.widget_bp_core_login_widget .logout,
             button, .button, input[type="submit"], a.button, input[type="button"] {
                 @include rtp-button(); @include rtp-button-shadow(); @include button-size($button-tny); text-shadow: none; background-image: none; text-decoration: none;
                 &:hover, &:focus { background-image: none; border: 0; }
@@ -82,7 +83,7 @@
                 background: transparent; color: inherit; font-size: inherit;
 
 				@if $rtp-icon-font {
-					&:before {  content: '\e80a'; display: inline-block; font-family: $rtp-icon-font-family; margin-right: rem-calc(5); }
+					&:before { content: '\e80a'; display: inline-block; font-family: $rtp-icon-font-family; margin-right: rem-calc(5); }
 				}
             }
             form#whats-new-form { 
@@ -186,37 +187,30 @@
             #group-create-body > div { margin-bottom: rem-calc(10); }
             div.activity-comments form .ac-textarea { border-style: solid; }
             ul.item-list li div.item-title span { font-size: rem-calc(13); }
+			div#item-header div.generic-button, div#item-header a.button { float: left; margin: rem-calc(10 10 10 0); }
+			.group-subscription-options {
+				z-index: 10; border: 1px solid $yellow-cream; width: 350px; margin-top: 0 !important; margin-bottom: rem-calc(5);
+
+				a.group-subscription-close { height: auto; padding: rem-calc(4 10); @include border-radius(3px); }
+				a.group-sub { margin-bottom: rem-calc(5); display: inline-block; padding: rem-calc(0 5); @include border-radius(3px); }
+
+			}
+			#delete-group-avatar-button a {
+				background: lighten( $color-error, 40 ); @include border-radius(3px); border: 1px solid $color-error; font-weight: bold; color: $color-error;
+				&:hover { background: lighten( $color-error, 30 ); }
+			}
         }
+
         &.settings form .columns { width: 100%; }
         .clear { clear: both; }
-    }
-    .widget_bp_core_login_widget .logout {
-        @include rtp-button(); @include rtp-button-shadow(); @include button-size($button-tny);
-    }
+		&.single-item .group-subscription-div {
+			padding-bottom: rem-calc(10); padding-top: 0;
 
-    #buddypress div#item-header div.generic-button,
-    #buddypress div#item-header a.button {
-        float: left;
-        margin: 10px 10px 10px 0;
-    }
-    .buddypress.single-item .group-subscription-div {
-        padding-bottom: rem-calc(10); padding-top: 0;
-
-        .gemail_icon { background-position: 0 4px !important; }
-    }
-
-    #buddypress .group-subscription-options {
-        z-index: 10; border: 1px solid $yellow-cream; width: 350px; margin-top: 0 !important; margin-bottom: rem-calc(5);
-
-        a.group-subscription-close { height: auto; padding: rem-calc(4 10); @include border-radius(3px); }
-        a.group-sub { margin-bottom: rem-calc(5); display: inline-block; padding: rem-calc(0 5); @include border-radius(3px); }
-
+			.gemail_icon { background-position: 0 4px !important; }
+		}
     }
     .ass-email-type input[type="radio"] { margin-right: 5px; }
-    #buddypress #delete-group-avatar-button a { 
-        background: lighten( $color-error, 40 ); @include border-radius(3px); border: 1px solid $color-error; font-weight: bold; color: $color-error;
-        &:hover { background: lighten( $color-error, 30 ); }
-    }
+
 
     // BuddyPress Widgets
     .widget.buddypress {

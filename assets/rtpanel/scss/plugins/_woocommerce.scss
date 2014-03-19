@@ -1,21 +1,8 @@
 // ****** WooCommerce CSS Support ****** //
 @mixin rtp-woocommerce() {
     body {
-        .woocommerce-message, .woocommerce-error, .woocommerce-info {
-            &:before, &:after { @include box-sizing(content-box); }
-        }
 
-        div.pp_woocommerce {
-            .pp_nav p, .pp_description { font-size: inherit; line-height: 1.1rem; }
-            .pp_arrow_previous, .pp_arrow_next,
-            .pp_previous:before, .pp_next:before { height: rem-calc(20); width: rem-calc(20); }
-            .pp_close { height: rem-calc(25); right: rem-calc(-13); text-shadow: 0 1px 0 $white; top: rem-calc(-13); width: rem-calc(25); }
-        }
-
-        .label { background: transparent; line-height: rem-calc(40); padding: 0; }
-        .value { padding: 0; }
-
-        &.woocommerce, &.woocommerce-page {
+		&.woocommerce, &.woocommerce-page {
             .rtp-main-wrapper, .rtp-main-wrapper {
                 button, .button, input[type="submit"], 
                 #payment #place_order, #content-wrapper 
@@ -61,6 +48,22 @@
                 }
             }
         }
+
+        .woocommerce-message, .woocommerce-error, .woocommerce-info {
+            &:before, &:after { @include box-sizing(content-box); }
+        }
+
+        div.pp_woocommerce {
+            .pp_nav p, .pp_description { font-size: inherit; line-height: 1.1rem; }
+            .pp_arrow_previous, .pp_arrow_next,
+            .pp_previous:before, .pp_next:before { height: rem-calc(20); width: rem-calc(20); }
+            .pp_close { height: rem-calc(25); right: rem-calc(-13); text-shadow: 0 1px 0 $white; top: rem-calc(-13); width: rem-calc(25); }
+        }
+
+        .label { background: transparent; line-height: rem-calc(40); padding: 0; }
+        .value { padding: 0; }
+
+
 
         .widget_product_search {
             input[type="text"] { @include rtp-sidebar-textbox(); }
