@@ -19,16 +19,11 @@
  * @since rtPanel 2.0
  */
 function rtp_custom_search_form( $form ) {
-	global $rtp_general, $is_chrome;
+	global $is_chrome;
 	$search_class = 'search-text search-field rtp-search-input';
-	if ( preg_match( '/customSearchControl.draw\(\'cse\'(.*)\)\;/i', @$rtp_general['search_code'] ) ) {
-		$search_class .= ' rtp-google-search';
-		$placeholder   = NULL;
-	} else {
-		$placeholder = 'placeholder="' . apply_filters( 'rtp_search_placeholder', __( 'Search Here...', 'rtPanel' ) ) . '" ';
-	}
+	$placeholder = 'placeholder="' . apply_filters( 'rtp_search_placeholder', __( 'Search Here...', 'rtPanel' ) ) . '" ';
 	$chrome_voice_search = ( $is_chrome ) ? ' x-webkit-speech="x-webkit-speech" speech="speech" onwebkitspeechchange="this.form.submit();"' : '';
-	$form				 = '<form role="search" method="get" class="searchform search-form" action="' . esc_url( home_url( '/' ) ) . '">
+	$form = '<form role="search" method="get" class="searchform search-form" action="' . esc_url( home_url( '/' ) ) . '">
                 <div class="rtp-search-form-wrapper">
                     <label class="screen-reader-text hide">' . __( 'Search for:', 'rtPanel' ) . '</label>
                     <input type="search" required="required" ' . $placeholder . 'value="' . esc_attr( apply_filters( 'the_search_query', get_search_query() ) ) . '" name="s" class="' . esc_attr( $search_class ) . '" title="' . apply_filters( 'rtp_search_placeholder', __( 'Search Here...', 'rtPanel' ) ) . '"' . $chrome_voice_search . ' />

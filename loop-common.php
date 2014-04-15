@@ -61,12 +61,12 @@ if ( have_posts() ) {
 				<?php rtp_show_post_thumbnail(); ?>
 
 				<?php
-		if ( is_singular() || ! $rtp_post_comments[ 'summary_show' ] || rtp_is_bbPress() || rtp_is_rtmedia() ) {
-			the_content( __( 'Read More &rarr;', 'rtPanel' ) );
-			wp_link_pages( array( 'before' => '<div class="page-link clearfix">' . __( 'Pages:', 'rtPanel' ), 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) );
-		} else {
-			@the_excerpt();
-		}
+				if ( is_singular() || ! rtp_get_titan_option( 'summary_show' ) || rtp_is_bbPress() || rtp_is_rtmedia() ) {
+					the_content( __( 'Read More &rarr;', 'rtPanel' ) );
+					wp_link_pages( array( 'before' => '<div class="page-link clearfix">' . __( 'Pages:', 'rtPanel' ), 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) );
+				} else {
+					@the_excerpt();
+				}
 				?>
 
 		<?php rtp_hook_end_post_content(); ?>
