@@ -53,7 +53,15 @@ global $rtp_general;
 							<?php rtp_hook_before_logo(); ?>
 
 							<?php $heading = ( is_home() || is_front_page() ) ? 'h1' : 'h2'; ?>
-							<<?php echo esc_attr( $heading ); ?> class="rtp-site-logo"><a role="link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>"><?php echo ( 'image' == $rtp_general[ 'logo_use' ] ) ? '<img role="img" alt="' . get_bloginfo( 'name' ) . '" height="' . $rtp_general[ 'logo_height' ] . '" width="' . $rtp_general[ 'logo_width' ] . '" src="' . $rtp_general[ 'logo_upload' ] . '" />' : get_bloginfo( 'name' ); ?></a></<?php echo esc_attr( $heading ); ?>>
+
+							<<?php echo esc_attr( $heading ); ?> class="rtp-site-logo">
+							<a role="link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>"><?php
+								$rtp_logo_image = wp_get_attachment_image( rtp_get_titan_option( 'logo_upload' ), 'full', false, array( 'class' => 'site-logo-image', 'alt' => get_bloginfo( 'name' ) ) );
+								
+								echo ( ( 'image' == rtp_get_titan_option( 'logo_settings' ) ) && ! empty( $rtp_logo_image ) ) ? $rtp_logo_image : get_bloginfo( 'name' );
+								?>
+							</a>
+							</<?php echo esc_attr( $heading ); ?>>
 
 							<?php rtp_hook_after_logo(); ?>
 						</div>

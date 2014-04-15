@@ -18,8 +18,8 @@
  */
 function rtp_has_postmeta( $position = 'u' ) {
 	global $post, $rtp_post_comments;
-	$can_edit	= ( get_edit_post_link() ) ? 1 : 0;
-	$flag					= 0;
+	$can_edit = ( get_edit_post_link() ) ? 1 : 0;
+	$flag = 0;
 	// Show Author?
 	if ( $rtp_post_comments[ 'post_author_' . $position ] ) {
 		$flag ++;
@@ -45,8 +45,8 @@ function rtp_has_postmeta( $position = 'u' ) {
 		$flag ++;
 	} else {
 		// Show Custom Taxonomies?
-		$args		 = array( '_builtin' => false );
-		$taxonomies	= get_taxonomies( $args, 'names' );
+		$args = array( '_builtin' => false );
+		$taxonomies = get_taxonomies( $args, 'names' );
 		foreach ( $taxonomies as $taxonomy ) {
 			if ( get_the_terms( $post->ID, $taxonomy ) && isset( $rtp_post_comments[ 'post_' . $taxonomy . '_' . $position ] ) && $rtp_post_comments[ 'post_' . $taxonomy . '_' . $position ] ) {
 				$flag ++;
@@ -68,7 +68,7 @@ function rtp_has_postmeta( $position = 'u' ) {
  */
 function rtp_default_post_meta( $placement = 'top' ) {
 
-	if ( 'post' == get_post_type() && ! rtp_is_bbPress() ) {
+	if ( 'post' == get_post_type() && !rtp_is_bbPress() ) {
 		global $post, $rtp_post_comments;
 		$position = ( 'bottom' == $placement ) ? 'l' : 'u'; // l = Lower/Bottom , u = Upper/Top
 
@@ -79,54 +79,54 @@ function rtp_default_post_meta( $placement = 'top' ) {
 			?>
 
 			<div class="clearfix post-meta post-meta-<?php echo esc_attr( $placement ); ?>"><?php
-			if ( 'bottom' == $placement ){
-				rtp_hook_begin_post_meta_bottom();
-			} else {
-				rtp_hook_begin_post_meta_top();
-			}
-
-			// Author Link
-			if ( $rtp_post_comments[ 'post_author_' . $position ] || $rtp_post_comments[ 'post_date_' . $position ] ) {
-
-				if ( $rtp_post_comments[ 'post_author_' . $position ] ) {
-						printf( __( '<span class="rtp-post-author-prefix">By</span> <span class="vcard author">%s</span>', 'rtPanel' ), ( ! $rtp_post_comments[ 'author_link_' . $position ] ? get_the_author() . ( $rtp_post_comments[ 'author_count_' . $position ] ? '(' . get_the_author_posts() . ')' : '' ) : sprintf( __( '<a class="fn" href="%1$s" title="%2$s">%3$s</a>', 'rtPanel' ), get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ), esc_attr( sprintf( __( 'Posts by %s', 'rtPanel' ), get_the_author() ) ), get_the_author() ) . ( $rtp_post_comments[ 'author_count_' . $position ] ? '(' . get_the_author_posts() . ')' : '' ) ) );
+				if ( 'bottom' == $placement ) {
+					rtp_hook_begin_post_meta_bottom();
+				} else {
+					rtp_hook_begin_post_meta_top();
 				}
 
-				echo ( $rtp_post_comments[ 'post_author_' . $position ] && $rtp_post_comments[ 'post_date_' . $position ] ) ? ' ' : '';
+				// Author Link
+				if ( $rtp_post_comments[ 'post_author_' . $position ] || $rtp_post_comments[ 'post_date_' . $position ] ) {
 
-				if ( $rtp_post_comments[ 'post_date_' . $position ] ) {
-					printf( __( '<span class="rtp-meta-separator">&middot;</span> <time class="published date updated" datetime="%s">%s</time>', 'rtPanel' ), get_the_date( 'c' ), get_the_time( $rtp_post_comments[ 'post_date_format_' . $position ] ) );
+					if ( $rtp_post_comments[ 'post_author_' . $position ] ) {
+						printf( __( '<span class="rtp-post-author-prefix">By</span> <span class="vcard author">%s</span>', 'rtPanel' ), (!$rtp_post_comments[ 'author_link_' . $position ] ? get_the_author() . ( $rtp_post_comments[ 'author_count_' . $position ] ? '(' . get_the_author_posts() . ')' : '' ) : sprintf( __( '<a class="fn" href="%1$s" title="%2$s">%3$s</a>', 'rtPanel' ), get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ), esc_attr( sprintf( __( 'Posts by %s', 'rtPanel' ), get_the_author() ) ), get_the_author() ) . ( $rtp_post_comments[ 'author_count_' . $position ] ? '(' . get_the_author_posts() . ')' : '' ) ) );
+					}
+
+					echo ( $rtp_post_comments[ 'post_author_' . $position ] && $rtp_post_comments[ 'post_date_' . $position ] ) ? ' ' : '';
+
+					if ( $rtp_post_comments[ 'post_date_' . $position ] ) {
+						printf( __( '<span class="rtp-meta-separator">&middot;</span> <time class="published date updated" datetime="%s">%s</time>', 'rtPanel' ), get_the_date( 'c' ), get_the_time( $rtp_post_comments[ 'post_date_format_' . $position ] ) );
+					}
 				}
-			}
 
 				// Post Categories
-			echo ( get_the_category_list() && $rtp_post_comments[ 'post_category_' . $position ] ) ? ' <span class="rtp-meta-separator">&middot;</span> ' . get_the_category_list( ', ' ) . '' : '';
+				echo ( get_the_category_list() && $rtp_post_comments[ 'post_category_' . $position ] ) ? ' <span class="rtp-meta-separator">&middot;</span> ' . get_the_category_list( ', ' ) . '' : '';
 
-			// Comment Count
-			rtp_default_comment_count();
+				// Comment Count
+				rtp_default_comment_count();
 
-			// Post Tags
-			echo ( get_the_tag_list() && $rtp_post_comments[ 'post_tags_' . $position ] ) ? '<p class="post-tags">' . get_the_tag_list( __( 'Tagged', 'rtPanel' ) . ': <span>', ', ', '</span>' ) . '</p>' : '';
+				// Post Tags
+				echo ( get_the_tag_list() && $rtp_post_comments[ 'post_tags_' . $position ] ) ? '<p class="post-tags">' . get_the_tag_list( __( 'Tagged', 'rtPanel' ) . ': <span>', ', ', '</span>' ) . '</p>' : '';
 
-			// Post Custom Taxonomies
-			$args		 = array( '_builtin' => false );
-			$taxonomies	= get_taxonomies( $args, 'objects' );
-			foreach ( $taxonomies as $key => $taxonomy ) {
-				( get_the_terms( $post->ID, $key ) && isset( $rtp_post_comments[ 'post_' . $key . '_' . $position ] ) && $rtp_post_comments[ 'post_' . $key . '_' . $position ] ) ? the_terms( $post->ID, $key, '<span class="post-custom-tax post-' . $key . '">' . $taxonomy->labels->singular_name . ': ', ', ', '</span>' ) : '';
-			}
+				// Post Custom Taxonomies
+				$args = array( '_builtin' => false );
+				$taxonomies = get_taxonomies( $args, 'objects' );
+				foreach ( $taxonomies as $key => $taxonomy ) {
+					( get_the_terms( $post->ID, $key ) && isset( $rtp_post_comments[ 'post_' . $key . '_' . $position ] ) && $rtp_post_comments[ 'post_' . $key . '_' . $position ] ) ? the_terms( $post->ID, $key, '<span class="post-custom-tax post-' . $key . '">' . $taxonomy->labels->singular_name . ': ', ', ', '</span>' ) : '';
+				}
 
-			if ( 'bottom' == $placement )
-				rtp_hook_end_post_meta_bottom();
-			else
-				rtp_hook_end_post_meta_top();
-			?>
+				if ( 'bottom' == $placement )
+					rtp_hook_end_post_meta_bottom();
+				else
+					rtp_hook_end_post_meta_top();
+				?>
 
 			</div><!-- .post-meta --><?php
 			if ( $position == 'l' ) {
 				echo '</footer>';
 			}
 		}
-	} elseif ( ! rtp_is_bbPress() ) {
+	} elseif ( !rtp_is_bbPress() ) {
 		if ( get_edit_post_link() && ( 'top' == $placement ) ) {
 			?>
 			<div class="post-meta post-meta-top"><?php rtp_hook_end_post_meta_top(); ?></div><?php
@@ -168,9 +168,9 @@ add_action( 'rtp_hook_begin_header', 'rtp_default_nav_menu' ); // Adds default n
  * @param $args arguments if any
  */
 function filter_wp_nav_menu_items( $items, $args ) {
-	$items    = str_replace( "\"sub-menu\"", "\"sub-menu dropdown\"", $items );
+	$items = str_replace( "\"sub-menu\"", "\"sub-menu dropdown\"", $items );
 	$strItems = explode( "<li", $items );
-	$items    = '';
+	$items = '';
 	foreach ( $strItems as $item ) {
 		if ( trim( $item ) == '' ) {
 			continue;
@@ -214,7 +214,7 @@ add_action( 'rtp_hook_begin_post_meta_top', 'rtp_edit_link' );
  */
 function rtp_breadcrumb_support( $text ) {
 	// Breadcrumb Support
-	if ( function_exists( 'yoast_breadcrumb' ) ) {	  // WordPress SEO by Yoast Plugin Support
+	if ( function_exists( 'yoast_breadcrumb' ) ) {   // WordPress SEO by Yoast Plugin Support
 		yoast_breadcrumb( '<nav role="navigation" id="breadcrumbs" class="breadcrumbs breadcrumbs-yoast">', '</nav>' );
 	} else if ( function_exists( 'bcn_display' ) ) {   // Breadcrumb NavXT Plugin Support
 		echo '<nav role="navigation" class="breadcrumbs breadcrumbs-navxt">';
@@ -245,7 +245,7 @@ add_action( 'rtp_hook_after_logo', 'rtp_blog_description' );
  * @since rtPanel 2.1
  */
 function rtp_default_single_pagination() {
-	if ( ! rtp_is_yarpp() && is_single() && ( get_adjacent_post( '', '', true ) || get_adjacent_post( '', '', false ) ) ) {
+	if ( !rtp_is_yarpp() && is_single() && ( get_adjacent_post( '', '', true ) || get_adjacent_post( '', '', false ) ) ) {
 		?>
 		<div class="rtp-navigation clearfix">
 			<?php if ( get_adjacent_post( '', '', true ) ) { ?><div class="left"><?php previous_post_link( '%link', __( '&larr; %title', 'rtPanel' ) ); ?></div><?php } ?>
@@ -263,25 +263,25 @@ add_action( 'rtp_hook_single_pagination', 'rtp_default_single_pagination' );
  */
 function rtp_default_archive_pagination() {
 	/* Page-Navi Plugin Support with WordPress Default Pagination */
-	if ( ! rtp_is_bbPress() ) {
-		if ( ! is_singular() ) {
+	if ( !rtp_is_bbPress() ) {
+		if ( !is_singular() ) {
 			global $wp_query, $rtp_post_comments;
 			if ( isset( $rtp_post_comments[ 'pagination_show' ] ) && $rtp_post_comments[ 'pagination_show' ] ) {
 				if ( ( $wp_query->max_num_pages > 1 ) ) {
 					?>
 					<nav class="wp-pagenavi rtp-pagenavi"><?php
 						echo paginate_links(
-							array(
-								'base'		 => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
-								'format'	 => '?paged=%#%',
-								'current'	 => max( 1, get_query_var( 'paged' ) ),
-								'total'		 => $wp_query->max_num_pages,
-								'prev_text'	 => esc_attr( $rtp_post_comments[ 'prev_text' ] ),
-								'next_text'	 => esc_attr( $rtp_post_comments[ 'next_text' ] ),
-								'end_size'	 => $rtp_post_comments[ 'end_size' ],
-								'mid_size'	 => $rtp_post_comments[ 'mid_size' ],
-								'type'		 => 'list',
-							)
+								array(
+									'base' => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
+									'format' => '?paged=%#%',
+									'current' => max( 1, get_query_var( 'paged' ) ),
+									'total' => $wp_query->max_num_pages,
+									'prev_text' => esc_attr( $rtp_post_comments[ 'prev_text' ] ),
+									'next_text' => esc_attr( $rtp_post_comments[ 'next_text' ] ),
+									'end_size' => $rtp_post_comments[ 'end_size' ],
+									'mid_size' => $rtp_post_comments[ 'mid_size' ],
+									'type' => 'list',
+								)
 						);
 						?>
 					</nav> <!-- End of .wp-pagenavi .rtp-pagenavi -->
@@ -292,8 +292,8 @@ function rtp_default_archive_pagination() {
 			} elseif ( get_next_posts_link() || get_previous_posts_link() ) {
 				?>
 				<nav class="rtp-navigation clearfix">
-				<?php if ( get_next_posts_link() ) { ?><div class="left"><?php next_posts_link( __( '&larr; Older Entries', 'rtPanel' ) ); ?></div><?php } ?>
-				<?php if ( get_previous_posts_link() ) { ?><div class="right"><?php previous_posts_link( __( 'Newer Entries &rarr;', 'rtPanel' ) ); ?></div><?php } ?>
+					<?php if ( get_next_posts_link() ) { ?><div class="left"><?php next_posts_link( __( '&larr; Older Entries', 'rtPanel' ) ); ?></div><?php } ?>
+					<?php if ( get_previous_posts_link() ) { ?><div class="right"><?php previous_posts_link( __( 'Newer Entries &rarr;', 'rtPanel' ) ); ?></div><?php } ?>
 				</nav><!-- End of .rtp-navigation --><?php
 			}
 		}
@@ -335,7 +335,7 @@ function rtp_default_comment_count() {
 	global $rtp_post_comments;
 	// Comment Count
 	add_filter( 'get_comments_number', 'rtp_only_comment_count', 11, 2 );
-	if ( ( ( get_comments_number() || @comments_open() ) && ! is_attachment() && ! rtp_is_bbPress() ) || ( is_attachment() && $rtp_post_comments[ 'attachment_comments' ] ) ) { // If post meta is set to top then only display the comment count. 
+	if ( ( ( get_comments_number() || @comments_open() ) && !is_attachment() && !rtp_is_bbPress() ) || ( is_attachment() && $rtp_post_comments[ 'attachment_comments' ] ) ) { // If post meta is set to top then only display the comment count. 
 		?>
 		<span class="rtp-meta-separator">&middot;</span> <span class="rtp-post-comment-count"><?php comments_popup_link( _x( 'Leave a comment', 'comments number', 'rtPanel' ), _x( '<span>1</span> Comment', 'comments number', 'rtPanel' ), _x( '<span>%</span> Comments', 'comments number', 'rtPanel' ), 'rtp-post-comment rtp-common-link' ); ?></span><?php
 	}
@@ -391,43 +391,42 @@ add_action( 'rtp_head', 'rtp_custom_css' );
  * @param Array $attr parameters for the gallery shortcode
  */
 function rtp_gallery_shortcode( $output, $attr ) {
-	$post			 = get_post();
+	$post = get_post();
 	static $instance = 0;
 	$instance ++;
 	if ( isset( $attr[ 'orderby' ] ) ) {
 		$attr[ 'orderby' ] = sanitize_sql_orderby( $attr[ 'orderby' ] );
-		if ( ! $attr[ 'orderby' ] )
+		if ( !$attr[ 'orderby' ] )
 			unset( $attr[ 'orderby' ] );
 	}
 	extract(
-		shortcode_atts(
-			array(
-				'order'		 => 'ASC',
-				'orderby'	 => 'menu_order ID',
-				'id'		 => $post->ID,
-				'itemtag'	 => 'li',
-				'icontag'	 => '',
-				'captiontag' => '',
-				'columns'	 => 3,
-				'size'		 => 'thumbnail',
-				'include'	 => '',
-				'exclude'	 => '',
-			),
-			$attr
-		)
+			shortcode_atts(
+					array(
+		'order' => 'ASC',
+		'orderby' => 'menu_order ID',
+		'id' => $post->ID,
+		'itemtag' => 'li',
+		'icontag' => '',
+		'captiontag' => '',
+		'columns' => 3,
+		'size' => 'thumbnail',
+		'include' => '',
+		'exclude' => '',
+					), $attr
+			)
 	);
 
-	$id      = intval( $id );
+	$id = intval( $id );
 	$orderby = ( 'RAND' == $order ) ? 'none' : '';
 
-	if ( ! empty( $include ) ) {
+	if ( !empty( $include ) ) {
 		$_attachments = get_posts( array( 'include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby ) );
 
 		$attachments = array();
 		foreach ( $_attachments as $key => $val ) {
 			$attachments[ $val->ID ] = $_attachments[ $key ];
 		}
-	} elseif ( ! empty( $exclude ) ) {
+	} elseif ( !empty( $exclude ) ) {
 		$attachments = get_children( array( 'post_parent' => $id, 'exclude' => $exclude, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby ) );
 	} else {
 		$attachments = get_children( array( 'post_parent' => $id, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby ) );
@@ -444,31 +443,31 @@ function rtp_gallery_shortcode( $output, $attr ) {
 		return $output;
 	}
 
-	$itemtag    = tag_escape( $itemtag );
-	$captiontag	= tag_escape( $captiontag );
-	$icontag    = tag_escape( $icontag );
-	$valid_tags	= wp_kses_allowed_html( 'post' );
-	if ( ! isset( $valid_tags[ $itemtag ] ) ) {
+	$itemtag = tag_escape( $itemtag );
+	$captiontag = tag_escape( $captiontag );
+	$icontag = tag_escape( $icontag );
+	$valid_tags = wp_kses_allowed_html( 'post' );
+	if ( !isset( $valid_tags[ $itemtag ] ) ) {
 		$itemtag = 'li';
 	}
-	if ( ! isset( $valid_tags[ $captiontag ] ) ) {
+	if ( !isset( $valid_tags[ $captiontag ] ) ) {
 		$captiontag = '';
 	}
-	if ( ! isset( $valid_tags[ $icontag ] ) ) {
+	if ( !isset( $valid_tags[ $icontag ] ) ) {
 		$icontag = '';
 	}
 
-	$columns   = intval( $columns );
+	$columns = intval( $columns );
 	$itemwidth = $columns > 0 ? floor( 100 / $columns ) : 100;
-	$float     = is_rtl() ? 'right' : 'left';
+	$float = is_rtl() ? 'right' : 'left';
 
 	$selector = "gallery-{$instance}";
 
-	$gallery_style = $gallery_div	= '';
+	$gallery_style = $gallery_div = '';
 
-	$size_class  = sanitize_html_class( $size );
+	$size_class = sanitize_html_class( $size );
 	$gallery_div = "<ul id='$selector' class='gallery galleryid-{$id} gallery-columns-{$columns} large-block-grid-{$columns} small-block-grid-{$columns} gallery-size-{$size_class} clearing-thumbs' data-clearing>";
-	$output      = apply_filters( 'gallery_style', $gallery_style . "\n\t\t" . $gallery_div );
+	$output = apply_filters( 'gallery_style', $gallery_style . "\n\t\t" . $gallery_div );
 
 	foreach ( $attachments as $id => $attachment ) {
 		$url = wp_get_attachment_image_src( $id, 'full' );
@@ -542,32 +541,32 @@ function rtp_img_attachement_interchange_string( $ID, $large = false, $medium = 
 	$img = wp_get_attachment_image_src( $ID, 'small' );
 	if ( $img ) {
 		$str .= $sep . '[' . $img[ 0 ] . ',(default)]';
-		$sep  = ',';
+		$sep = ',';
 	}
 	if ( $small ) {
 		$img = wp_get_attachment_image_src( $ID, $small );
 		if ( $img ) {
 			$str .= $sep . '[' . $img[ 0 ] . ',(small)]';
-			$sep  = ',';
+			$sep = ',';
 		}
 	}
 	if ( $medium ) {
 		$img = wp_get_attachment_image_src( $ID, $medium );
 		if ( $img ) {
 			$str .= $sep . '[' . $img[ 0 ] . ',(medium)]';
-			$sep  = ',';
+			$sep = ',';
 		}
 	}
 	if ( $large ) {
 		$img = wp_get_attachment_image_src( $ID, $large );
 		if ( $img ) {
 			$str .= $sep . '[' . $img[ 0 ] . ',(large)]';
-			$sep  = ',';
+			$sep = ',';
 		}
 	}
 	foreach ( $custom as $sz ) {
 		$str .= $sep . '[' . $sz[ 'path' ] . ',(' . $sz[ 'query' ] . ')]';
-		$sep  = ',';
+		$sep = ',';
 	}
 	return $str;
 }
@@ -645,17 +644,33 @@ add_action( 'rtp_hook_after_content_wrapper', 'rtp_footer_separator_border' );
 /**
  * Footer Copyright Section
  *
- * @since rtPanel 4.1.2
+ * @since rtPanel 1.1
  */
 function rtp_footer_copyright_content() {
 	?>
-	<div id="footer" class="rtp-footer rtp-section-container row">
-	<?php $rtp_set_grid_class = apply_filters( 'rtp_set_full_width_grid_class', 'large-12 columns rtp-full-width-grid' ); ?>
+	<div id="footer" class="rtp-footer rtp-section-container">
+		<?php
+		$rtp_set_grid_class = apply_filters( 'rtp_set_full_width_grid_class', 'large-12 columns rtp-full-width-grid' );
+
+		$footer_content = ( rtp_get_titan_option( 'footer_info' ) ) ? rtp_get_titan_option( 'footer_info' ) : '';
+		$show_powered_by = ( rtp_get_titan_option( 'powered_by' ) ) ? rtp_get_titan_option( 'powered_by' ) : '';
+		$affiliate_id = ( rtp_get_titan_option( 'affiliate_ID' ) ) ? '?ref=' . rtp_get_titan_option( 'affiliate_ID' ) : '';
+		?>
+
 		<div class="rtp-footer-section <?php echo esc_attr( $rtp_set_grid_class ); ?>">
-			<p>&copy; <?php echo date( 'Y' );
-			echo ' - ';
-			bloginfo( 'name' ); ?>
-			<em><?php printf( __( 'Designed on <a role="link" target="_blank" href="%s" class="rtp-common-link" title="rtPanel WordPress Theme Framework">rtPanel WordPress Theme Framework</a>.', 'rtPanel' ), RTP_THEME_URL ); ?></em></p>
+
+			<?php
+			if ( $footer_content ) {
+				echo $footer_content;
+			}
+			?>
+
+			<?php
+			if ( $show_powered_by ) {
+				printf( __( '<p class="rtp-powered-by">Powered by <a role="link" target="_blank" href="%s" class="rtp-common-link" title="rtPanel">rtPanel</a>.</p>', 'rtPanel' ), RTP_THEME_URL . $affiliate_id );
+			}
+			?>
+
 		</div>
 	</div><!-- #footer -->
 	<?php
@@ -672,12 +687,21 @@ function rtp_sidebar_content() {
 	?>
 	<div class="widget sidebar-widget">
 		<p>
-	<?php _e( '<strong>rtPanel</strong> is equipped with everything you need to produce a professional website. <br />It is one of the most optimized WordPress Theme Framework available today.', 'rtPanel' ); ?>
+			<?php _e( '<strong>rtPanel</strong> is equipped with everything you need to produce a professional website. <br />It is one of the most optimized WordPress Theme Framework available today.', 'rtPanel' ); ?>
 		</p>
 		<p class="rtp-message-success">
-	<?php printf( __( 'This theme comes with free technical <a title="Click here for rtPanel Free Support" target="_blank" href="%s">Support</a> by team of 30+ full-time developers.', 'rtPanel' ), RTP_FORUM_URL ); ?>
+			<?php printf( __( 'This theme comes with free technical <a title="Click here for rtPanel Free Support" target="_blank" href="%s">Support</a> by team of 30+ full-time developers.', 'rtPanel' ), RTP_FORUM_URL ); ?>
 		</p>
 	</div><?php
 }
 
 add_action( 'rtp_hook_sidebar_content', 'rtp_sidebar_content' );
+
+/**
+ * Fetch Google Analytics Code
+ */
+function rtp_google_analytics() {
+	echo ( rtp_get_titan_option( 'google_analytics' ) ) ? rtp_get_titan_option( 'google_analytics' ) : '';
+}
+
+add_action( 'wp_head', 'rtp_google_analytics' );

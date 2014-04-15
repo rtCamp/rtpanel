@@ -66,15 +66,19 @@ module.exports = function(grunt) {
             options: {
                 banner: '/*! \n * rtPanel JavaScript Library \n * @package rtPanel \n */'
             },
-            build: {
-                src: [
-                    'assets/foundation/bower_components/foundation/js/vendor/modernizr.js',
-                    'assets/foundation/bower_components/foundation/js/foundation.min.js',
-                    'js/jquery.sidr.min.js',
+            frontend: {
+				src: [
+					'assets/foundation/bower_components/modernizr/modernizr.js',
+					'assets/foundation/bower_components/foundation/js/foundation.min.js',
+					'js/jquery.sidr.min.js',
                     'js/rtp-app.js'
-                ],
-                dest: 'js/rtp-package-min.js'
-            }
+				],
+				dest: 'js/rtp-package-min.js'
+			},
+			backend: {
+				src: ['admin/js/rtp-admin.js'],
+				dest: 'admin/js/rtp-admin-min.js'
+			}
         },
 
         // Watch for hanges and trigger compass and uglify
@@ -86,7 +90,7 @@ module.exports = function(grunt) {
             },
 
             uglify: {
-                files: '<%= uglify.build.src %>',
+                files: ['<%= uglify.frontend.src %>', 'admin/js/rtp-admin.js'],
                 tasks: ['uglify']
             }
         },

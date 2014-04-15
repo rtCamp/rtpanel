@@ -3,359 +3,153 @@
  *
  * @package rtPanel
  *
- * @since rtPanel 2.0
+ * @since rtPanel 1.1
  */
-jQuery(document).ready(function() {
 
-    var expand = false;
-    var post_date_u = jQuery('#post_date_u').attr('checked');
-    var post_date_l = jQuery('#post_date_l').attr('checked');
-    var post_author_u = jQuery('#post_author_u').attr('checked');
-    var post_author_l = jQuery('#post_author_l').attr('checked');
-    var gravatar_fields = jQuery('#gravatar_show').attr('checked');
-    var logo_show = jQuery('#logo_show').attr('checked');
-    var favicon_show = jQuery('#favicon_show').attr('checked');
-    var summary_show = jQuery('#summary_show').attr('checked');
+jQuery( document ).ready( function() {
 
-    jQuery('input[name=rtp_reset]').click( function(){
-        if ( !confirm('Are you sure you want to reset all the options?'))
-            return false;
-    });
+	/* Plugins */
+	jQuery( '.rtp-manage-plugin  a.rtp-manage-plugin-action' ).click( function( e ) {
+		var elem = jQuery( this ),
+				plugin_action = elem.data( 'action' ),
+				plugin = elem.data( 'plugin' ),
+				plugin_title = elem.data( 'plugin-title' ),
+				nonce = elem.data( 'nonce' ),
+				that = this;
 
-    jQuery('.expand-collapse').live( 'click', function(){
-        expand = false;
-        jQuery('#normal-sortables .postbox').each( function() {
-            if( jQuery(this).hasClass('closed') ) {
-                expand = true;
-            }
-        });
+		if ( plugin_action === 'purchase' ) {
+			return true;
+		} else {
+			e.preventDefault();
+		}
 
-        jQuery('#normal-sortables .postbox').each( function(){
-            if ( expand ) {
-                if( jQuery(this).hasClass('closed') ) {
-                    jQuery(this).children('h3').trigger('click');
-                }
-            } else {
-                if( !jQuery(this).hasClass('closed') ) {
-                    jQuery(this).children('h3').trigger('click');
-                }
-            }
-        });
-        return false;
-    } );
+		if ( elem.hasClass( 'delete' ) && !confirm( 'Are you sure you want to delete "' + plugin_title + '" plugin' ) ) {
+			return false;
+		}
 
-    date_format('u');
-    date_format('l');
+		//@todo:Add Loading
+		var siteUrl = elem.attr( 'data-site-url' );
+		elem.after( '<img class="rtp-ajax-loder" src="' + siteUrl + '/img/ajax-loader.gif" alt="loader" />' );
 
-    jQuery('strong.rtpanel').parent().addClass('current');
-    jQuery('strong.rtpanel').parent().parent().addClass('current');
-    jQuery('.postbox .inside h3').remove();
+		jQuery.ajax( {
+			url: ajaxurl,
+			type: 'post',
+			data: { 'action': 'rtpanel_plugin_manage', 'plugin_action': jQuery( this ).data( 'action' ), 'plugin': jQuery( this ).data( 'plugin' ), 'nonce': jQuery( this ).data( 'nonce' ) },
+			success: function( data ) {
+				if ( data.success === false ) {
+					//@todo:Handle Error : data.data - for error messege
+				} else {
+					location.reload();
+					jQuery( '.rtp-ajax-loder' ).remove();
+				}
+			}
+		} );
+	} );
 
-    jQuery('.rtp_logo').change(function(){
-        if (jQuery(this).val()==='site_title') {
-            jQuery('#html-upload-logo').hide();
-            jQuery('.login-head').hide();
-            jQuery('#logo_metabox').hide();
-            if ( jQuery('#use_logo').is(':checked') ){
-                jQuery('#use_logo').removeAttr('checked');
-                jQuery('#favicon_disable').attr('checked','checked');
-                jQuery('#favicon_metabox').hide();
-            }
-            jQuery('#use_logo').attr('disabled','disabled');
-            jQuery('.show-fields-logo').hide();
-        } else {
-            jQuery('#html-upload-logo').show();
-            jQuery('.login-head').show();
-            jQuery('#logo_metabox').show();
-            jQuery('#use_logo').removeAttr('disabled');
-            jQuery('.show-fields-logo').show();
-        }
-    });
+	/*
+	 * Tabs
+	 */
+	var tab = jQuery( '.rtp-tabs a' ),
+			tab_content = jQuery( '.tab-content' );
 
-    jQuery('.rtp_favicon').change(function(){
-        if (jQuery(this).val()==='disable') {
-            jQuery('#html-upload-fav').hide();
-            jQuery('#favicon_metabox').hide();
-        } else if( jQuery(this).val()==='logo' ) {
-            jQuery('#html-upload-fav').hide();
-            jQuery('#favicon_metabox').show();
-        } else {
-            jQuery('#html-upload-fav').show();
-            jQuery('#favicon_metabox').show();
-        }
-    });
+	/* Hide All Tab Contents */
+	tab_content.hide();
 
-    toggle_handler( post_date_u, '.post_date_format_u', '#post_date_u' );
-    toggle_handler( post_date_l, '.post_date_format_l', '#post_date_l' );
-    toggle_handler( post_author_u, '.post_author_u-sub', '#post_author_u' );
-    toggle_handler( post_author_l, '.post_author_l-sub', '#post_author_l' );
-    toggle_handler( gravatar_fields, '.gravatar-size', '#gravatar_show' );
-    toggle_handler( favicon_show, '.show-fields-favicon', '#favicon_show' );
+	/* Show First Tab Content */
+	tab_content.first().show();
 
-    if (typeof summary_show !== 'undefined' && summary_show !== false) {
-        jQuery('#post_thumbnail_options .inside .form-table').show();
-        jQuery('#post_thumbnail_options .inside .rtp_submit').show();
-        jQuery('#post_thumbnail_options .inside .post-summary-hide').hide();
+	/* Add active Class to first Tab */
+	tab.first().addClass( 'nav-tab-active' );
 
-        jQuery('#summary_show').click(function() {
-            jQuery('#post_thumbnail_options .inside .form-table').toggle();
-            jQuery('#post_thumbnail_options .inside .rtp_submit').toggle();
-            jQuery('#post_thumbnail_options .inside .post-summary-hide').toggle();
-        });
-    } else {
-        jQuery('#post_thumbnail_options .inside .form-table').hide();
-        jQuery('#post_thumbnail_options .inside .rtp_submit').hide();
-        jQuery('#post_thumbnail_options .inside .post-summary-hide').show();
-        
-        jQuery('#summary_show').click(function() {
-            jQuery('#post_thumbnail_options .inside .form-table').toggle();
-            jQuery('#post_thumbnail_options .inside .rtp_submit').toggle();
-            jQuery('#post_thumbnail_options .inside .post-summary-hide').toggle();
-        });
-    }
+	/* Click Event */
+	tab.on( 'click', function( e ) {
+		e.preventDefault();
 
-    init_content('#post_summaries_options');
-    init_content('#post_thumbnail_options');
-    init_content('#pagination_options');
-    contentshow_table('#post_summaries_options .inside .form-table tr.custom', '#summary_show');
-    contentshow_table('#post_thumbnail_options .inside .form-table tr.custom', '#thumbnail_show');
-    contentshow_table('#pagination_options .inside .form-table tr.custom', '#pagination_show');
+		var elem = jQuery( this );
 
-});
+		if ( !elem.hasClass( 'nav-tab-active' ) ) {
 
-/* Show and hide sections on checked */
-function init_content( container ) {
-    jQuery(container+' .inside .form-table tr:first').css('visibility','visible');
-    jQuery(container+' .inside .form-table tr:first').css('display', 'block');
-    jQuery(container+' .inside .form-table tr').addClass('custom');
-    jQuery(container+' .inside .form-table tr:first').removeClass('custom');
-}
+			/* Remove Active Class From All Tabs */
+			tab.removeClass( 'nav-tab-active' );
 
-function contentshow_table( container, event_handler ) {
-    if( typeof jQuery(event_handler).attr('checked') !== 'undefined' && jQuery(event_handler).attr('checked') !== false ) {
-        jQuery( jQuery(container) ).css('visibility','visible');
-        jQuery( jQuery(container) ).css('display','block');
-    } else {
-        jQuery( jQuery(container) ).css('visibility','hidden');
-        jQuery( jQuery(container) ).css('display','none');
-    }
+			/* Hide All Tab Contents */
+			tab_content.hide();
 
-    jQuery(event_handler).click(function () {
-        if (( jQuery(container+':hidden').length > 1)) {
-            jQuery( jQuery(container) ).css('visibility','visible');
-            jQuery( jQuery(container) ).css('display','block');
-        } else {
-            jQuery( jQuery(container) ).css('visibility','hidden');
-            jQuery( jQuery(container) ).css('display','none');
-        }
-    });
-}
+			/* Add Active Class to Current Tab */
+			elem.addClass( 'nav-tab-active' );
 
-/* Format date according to changes in custom date field */
-function date_format( position ) {
-    jQuery('input[name="rtp_post_comments[post_date_format_'+position+']"]').click(function(){
-        if ( 'post_date_custom_format_'+position !== jQuery(this).attr('id') ) {
-            if ( 'full-date-'+position === jQuery(this).attr('id') ) {
-                jQuery('input[name="rtp_post_comments[post_date_custom_format_'+position+']"]').val( jQuery(this).val() ).siblings('span').text( jQuery(this).siblings('.full-date-'+position).text() );
-            } else if ( 'y-m-d-'+position === jQuery(this).attr('id') ) {
-                jQuery('input[name="rtp_post_comments[post_date_custom_format_'+position+']"]').val( jQuery(this).val() ).siblings('span').text( jQuery(this).siblings('.y-m-d-'+position).text() );
-            } else if ( 'm-d-y-'+position === jQuery(this).attr('id') ) {
-                jQuery('input[name="rtp_post_comments[post_date_custom_format_'+position+']"]').val( jQuery(this).val() ).siblings('span').text( jQuery(this).siblings('.m-d-y-'+position).text() );
-            } else if ( 'd-m-y-'+position === jQuery(this).attr('id') ) {
-                jQuery('input[name="rtp_post_comments[post_date_custom_format_'+position+']"]').val( jQuery(this).val() ).siblings('span').text( jQuery(this).siblings('.d-m-y-'+position).text() );
-            }
-            jQuery('#post_date_custom_format_'+position).val(jQuery(this).val());
-            jQuery('#post_date_custom_format_'+position).siblings('label').attr('title', jQuery(this).val());
-        }
-    });
+			/* Show Active Tab Content */
+			var activeTab = elem.attr( 'href' );
+			jQuery( activeTab ).fadeIn();
+		}
+	} );
 
-    jQuery('#custom-date-'+position).keyup(function () {
-        jQuery('#post_date_custom_format_'+position).val(jQuery(this).val());
-        jQuery('#post_date_custom_format_'+position).siblings('label').attr('title', jQuery(this).val());
-    });
+	/*
+	 * 
+	 */
+	jQuery( '#rtpanel-submit-request' ).click( function() {
+		var flag = true;
+		var name = jQuery( '#name' ).val();
+		var email = jQuery( '#email' ).val();
+		var website = jQuery( '#website' ).val();
+		var phone = jQuery( '#phone' ).val();
+		var subject = jQuery( '#subject' ).val();
+		var details = jQuery( '#details' ).val();
+		var request_type = jQuery( 'input[name="request_type"]' ).val();
+		var request_id = jQuery( 'input[name="request_id"]' ).val();
+		var server_address = jQuery( 'input[name="server_address"]' ).val();
+		var ip_address = jQuery( 'input[name="ip_address"]' ).val();
+		var server_type = jQuery( 'input[name="server_type"]' ).val();
+		var user_agent = jQuery( 'input[name="user_agent"]' ).val();
+		var form_data = { name: name, email: email, website: website, phone: phone, subject: subject, details: details, request_id: request_id, request_type: 'premium_support', server_address: server_address, ip_address: ip_address, server_type: server_type, user_agent: user_agent };
+		if ( request_type == "bug_report" ) {
+			var wp_admin_username = jQuery( '#wp_admin_username' ).val();
+			if ( wp_admin_username == "" ) {
+				alert( "Please enter WP Admin Login." );
+				return false;
+			}
+			var wp_admin_pwd = jQuery( '#wp_admin_pwd' ).val();
+			if ( wp_admin_pwd == "" ) {
+				alert( "Please enter WP Admin password." );
+				return false;
+			}
+			var ssh_ftp_host = jQuery( '#ssh_ftp_host' ).val();
+			if ( ssh_ftp_host == "" ) {
+				alert( "Please enter SSH / FTP host." );
+				return false;
+			}
+			var ssh_ftp_username = jQuery( '#ssh_ftp_username' ).val();
+			if ( ssh_ftp_username == "" ) {
+				alert( "Please enter SSH / FTP login." );
+				return false;
+			}
+			var ssh_ftp_pwd = jQuery( '#ssh_ftp_pwd' ).val();
+			if ( ssh_ftp_pwd == "" ) {
+				alert( "Please enter SSH / FTP password." );
+				return false;
+			}
+			form_data = { name: name, email: email, website: website, phone: phone, subject: subject, details: details, request_id: request_id, request_type: 'premium_support', server_address: server_address, ip_address: ip_address, server_type: server_type, user_agent: user_agent, wp_admin_username: wp_admin_username, wp_admin_pwd: wp_admin_pwd, ssh_ftp_host: ssh_ftp_host, ssh_ftp_username: ssh_ftp_username, ssh_ftp_pwd: ssh_ftp_pwd };
+		}
+		for ( formdata in form_data ) {
+			if ( form_data[formdata] == "" && formdata != 'phone' ) {
+				alert( "Please enter " + formdata.replace( "_", " " ) + " field." );
+				return false;
+			}
+		}
+		data = {
+			action: "rtpanel_submit_request",
+			form_data: form_data
+		};
+		jQuery.post( ajaxurl, data, function( data ) {
+			data = data.trim();
+			if ( data == "false" ) {
+				alert( "Please fill all the fields." );
+				return false;
+			}
+			jQuery( '#rtpanel_service_contact_container' ).empty();
+			jQuery( '#rtpanel_service_contact_container' ).append( data );
+		} );
+		return false;
+	} );
 
-    jQuery('input[name="rtp_post_comments[post_date_custom_format_'+position+']"]').focus(function(){
-        jQuery('#post_date_custom_format_'+position).attr('checked', 'checked');
-    });
-
-    jQuery('input[name="rtp_post_comments[post_date_custom_format_'+position+']"]').change( function() {
-        var format = jQuery(this);
-        format.siblings('img').css('visibility','visible');
-        jQuery.post(ajaxurl, { action: 'date_format', date : format.val() }, function(d) { format.siblings('img').css('visibility','hidden'); format.siblings('span').text(d); } );
-    });
-}
-
-/* Function to handle toggling of sub options */
-function toggle_handler( the_option, the_class, the_id ) {
-    if (typeof the_option !== 'undefined' && the_option !== false) {
-        jQuery(the_class).show();
-        jQuery(the_id).click(function(){
-            jQuery(the_class).toggle();
-        });
-    } else {
-        jQuery(the_class).hide();
-        jQuery(the_id).click(function(){
-            jQuery(the_class).toggle();
-        });
-    }
-}
-
-function delete_plugin_confirmation(plugin) {
-    if (! confirm('Are you sure you want to delete \''+plugin+'\' plugin?')) { return false; }
-    if ( plugin === 'rtSocial'){
-        jQuery('#rtsocial-delete').val(1);
-        jQuery('#rtsocial-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'rtPanel Hooks Editor'){
-        jQuery('#rtp-hooks-editor-delete').val(1);
-        jQuery('#rtp-hooks-editor-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'Subscribe To Comments Reloaded'){
-        jQuery('#subscribe-delete').val(1);
-        jQuery('#subscribe-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'WP PageNavi'){
-        jQuery('#pagenavi-delete').val(1);
-        jQuery('#pagenavi-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'Yoast WordPress SEO'){
-        jQuery('#yoast_seo-delete').val(1);
-        jQuery('#yoast_seo-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'Breadcrumb NavXT'){
-        jQuery('#breadcrumb-delete').val(1);
-        jQuery('#breadcrumb-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'Regenerate Thumbnails'){
-        jQuery('#regenerate-delete').val(1);
-        jQuery('#regenerate-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'rtMedia for WordPress, BuddyPress and bbPress' ) {
-        jQuery('#rtmedia-delete').val(1);
-        jQuery('#rtmedia-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'bbPress' ) {
-        jQuery('#bbpress-delete').val(1);
-        jQuery('#bbpress-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'BuddyPress' ) {
-        jQuery('#buddypress-delete').val(1);
-        jQuery('#buddypress-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'Contact Form 7' ) {
-        jQuery('#cf7-delete').val(1);
-        jQuery('#cf7-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'Ninja Forms' ) {
-        jQuery('#ninja_form-delete').val(1);
-        jQuery('#ninja_form-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'WooCommerce - excelling eCommerce' ) {
-        jQuery('#woocommerce-delete').val(1);
-        jQuery('#woocommerce-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'Jetpack by WordPress.com' ) {
-        jQuery('#jetpack-delete').val(1);
-        jQuery('#jetpack-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'Yet Another Related Posts Plugin (YARPP)' ) {
-        jQuery('#yarpp-delete').val(1);
-        jQuery('#yarpp-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'rtWidgets' ) {
-        jQuery('#rtwidgets-delete').val(1);
-        jQuery('#rtwidgets-delete').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    }
-    jQuery('#rt_general_form').submit();
-}
-
-function activate_plugin(plugin) {
-    if ( plugin === 'rtSocial'){
-        jQuery('#rtsocial-activate').val(1);
-        jQuery('#rtsocial-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'rtPanel Hooks Editor'){
-        jQuery('#rtp-hooks-editor-activate').val(1);
-        jQuery('#rtp-hooks-editor-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'Subscribe To Comments Reloaded'){
-        jQuery('#subscribe-activate').val(1);
-        jQuery('#subscribe-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'WP PageNavi'){
-        jQuery('#pagenavi-activate').val(1);
-        jQuery('#pagenavi-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'Yoast WordPress SEO'){
-        jQuery('#yoast_seo-activate').val(1);
-        jQuery('#yoast_seo-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'Breadcrumb NavXT'){
-        jQuery('#breadcrumb-activate').val(1);
-        jQuery('#breadcrumb-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'Regenerate Thumbnails'){
-        jQuery('#regenerate-activate').val(1);
-        jQuery('#regenerate-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'rtMedia for WordPress, BuddyPress and bbPress'){
-        jQuery('#rtmedia-activate').val(1);
-        jQuery('#rtmedia-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'bbPress' ) {
-        jQuery('#bbpress-activate').val(1);
-        jQuery('#bbpress-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'BuddyPress' ) {
-        jQuery('#buddypress-activate').val(1);
-        jQuery('#buddypress-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'Contact Form 7' ) {
-        jQuery('#cf7-activate').val(1);
-        jQuery('#cf7-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'Ninja Forms' ) {
-        jQuery('#ninja_form-activate').val(1);
-        jQuery('#ninja_form-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'WooCommerce - excelling eCommerce' ) {
-        jQuery('#woocommerce-activate').val(1);
-        jQuery('#woocommerce-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'Jetpack by WordPress.com' ) {
-        jQuery('#jetpack-activate').val(1);
-        jQuery('#jetpack-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'Yet Another Related Posts Plugin (YARPP)' ) {
-        jQuery('#yarpp-activate').val(1);
-        jQuery('#yarpp-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'rtWidgets' ) {
-        jQuery('#rtwidgets-activate').val(1);
-        jQuery('#rtwidgets-activate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    }
-    jQuery('#rt_general_form').submit();
-}
-
-function deactivate_plugin(plugin) {
-    if ( plugin === 'rtSocial'){
-        jQuery('#rtsocial-deactivate').val(1);
-        jQuery('#rtsocial-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'rtPanel Hooks Editor'){
-        jQuery('#rtp-hooks-editor-deactivate').val(1);
-        jQuery('#rtp-hooks-editor-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'Subscribe To Comments Reloaded'){
-        jQuery('#subscribe-deactivate').val(1);
-        jQuery('#subscribe-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'WP PageNavi'){
-        jQuery('#pagenavi-deactivate').val(1);
-        jQuery('#pagenavi-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'Yoast WordPress SEO'){
-        jQuery('#yoast_seo-deactivate').val(1);
-        jQuery('#yoast_seo-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'Breadcrumb NavXT'){
-        jQuery('#breadcrumb-deactivate').val(1);
-        jQuery('#breadcrumb-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'Regenerate Thumbnails'){
-        jQuery('#regenerate-deactivate').val(1);
-        jQuery('#regenerate-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'rtMedia for WordPress, BuddyPress and bbPress'){
-        jQuery('#rtmedia-deactivate').val(1);
-        jQuery('#rtmedia-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'bbPress' ) {
-        jQuery('#bbpress-deactivate').val(1);
-        jQuery('#bbpress-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'BuddyPress' ) {
-        jQuery('#buddypress-deactivate').val(1);
-        jQuery('#buddypress-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'Contact Form 7' ) {
-        jQuery('#cf7-deactivate').val(1);
-        jQuery('#cf7-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'Ninja Forms' ) {
-        jQuery('#ninja_form-deactivate').val(1);
-        jQuery('#ninja_form-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'WooCommerce - excelling eCommerce' ) {
-        jQuery('#woocommerce-deactivate').val(1);
-        jQuery('#woocommerce-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'Jetpack by WordPress.com' ) {
-        jQuery('#jetpack-deactivate').val(1);
-        jQuery('#jetpack-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'Yet Another Related Posts Plugin (YARPP)' ) {
-        jQuery('#yarpp-deactivate').val(1);
-        jQuery('#yarpp-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    } else if ( plugin === 'rtWidgets' ) {
-        jQuery('#rtwidgets-deactivate').val(1);
-        jQuery('#rtwidgets-deactivate').after('<input value="Save" name="rtp_submit" type="hidden" />');
-    }
-    jQuery('#rt_general_form').submit();
-}
+} );

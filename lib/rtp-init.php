@@ -12,10 +12,10 @@
  * Used to set the width of images and content. Should be equal to the width the theme
  * is designed for, generally via the style.css stylesheet
  */
-$content_width     = ( isset( $content_width ) ) ? $content_width : 620;
+$content_width = ( isset( $content_width ) ) ? $content_width : 620;
 $max_content_width = ( isset( $max_content_width ) ) ? $max_content_width : 940;
 
-if ( ! function_exists( 'rtpanel_setup' ) ) {
+if ( !function_exists( 'rtpanel_setup' ) ) {
 
 	/**
 	 * Sets up rtPanel
@@ -26,7 +26,6 @@ if ( ! function_exists( 'rtpanel_setup' ) ) {
 	 * @since rtPanel 2.0
 	 */
 	function rtpanel_setup() {
-		rtp_theme_setup_values();
 		add_theme_support( 'post-thumbnails' ); // This theme uses post thumbnails
 		add_theme_support( 'automatic-feed-links' ); // Add default posts and comments RSS feed links to head
 		add_editor_style( 'style.css' ); // This theme styles the visual editor with the themes style.css itself.
@@ -36,11 +35,11 @@ if ( ! function_exists( 'rtpanel_setup' ) ) {
 		// Add support for custom headers.
 		$rtp_custom_header_support = array(
 			// The height and width of our custom header.
-			'width'					 => apply_filters( 'rtp_header_image_width', 1200 ),
-			'height'				 => apply_filters( 'rtp_header_image_height', 200 ),
-			'header-text'			 => false,
-			'wp-head-callback'		 => '',
-			'admin-head-callback'	 => '',
+			'width' => apply_filters( 'rtp_header_image_width', 1200 ),
+			'height' => apply_filters( 'rtp_header_image_height', 200 ),
+			'header-text' => false,
+			'wp-head-callback' => '',
+			'admin-head-callback' => '',
 		);
 		add_theme_support( 'custom-header', $rtp_custom_header_support );
 
@@ -57,9 +56,9 @@ if ( ! function_exists( 'rtpanel_setup' ) ) {
 
 		// Make use of wp_nav_menu() for navigation purpose
 		register_nav_menus(
-			array(
-				'primary' => __( 'Primary Navigation', 'rtPanel' )
-			)
+				array(
+					'primary' => __( 'Primary Navigation', 'rtPanel' )
+				)
 		);
 	}
 
@@ -71,16 +70,18 @@ add_action( 'after_setup_theme', 'rtpanel_setup' ); // Tell WordPress to run rtp
  *
  * @since rtPanel 2.3
  */
-if ( ! function_exists( 'rtp_header_image' ) ) {
-        /**
-         * Get header image if it exists
-         */
+if ( !function_exists( 'rtp_header_image' ) ) {
+
+	/**
+	 * Get header image if it exists
+	 */
 	function rtp_header_image() {
 		if ( get_header_image() ) {
 			?>
 			<img class="rtp-header-image rtp-margin-0" src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?>" /><?php
 		}
 	}
+
 }
 add_action( 'rtp_hook_begin_header', 'rtp_header_image' );
 
@@ -148,7 +149,7 @@ function rtp_body_class( $classes ) {
 	elseif ( $is_IE ) {
 		$classes[] = 'ie';
 		if ( isset( $_SERVER[ 'HTTP_USER_AGENT' ] ) && preg_match( '/MSIE ([0-9]+)([a-zA-Z0-9.]+)/', $_SERVER[ 'HTTP_USER_AGENT' ], $browser_version ) ) {
-			$classes[] = 'ie' . $browser_version[1];
+			$classes[] = 'ie' . $browser_version[ 1 ];
 		}
 	} else {
 		$classes[] = 'unknown';
@@ -227,7 +228,7 @@ function rtp_is_yarpp() {
 function rtp_general_sanitize_option() {
 	global $wpdb;
 
-	$option	 = 'rtp_general';
+	$option = 'rtp_general';
 	$default = false;
 
 	$option = trim( $option );
@@ -237,10 +238,10 @@ function rtp_general_sanitize_option() {
 	if ( defined( 'WP_SETUP_CONFIG' ) )
 		return false;
 
-	if ( ! defined( 'WP_INSTALLING' ) ) {
+	if ( !defined( 'WP_INSTALLING' ) ) {
 		// prevent non-existent options from triggering multiple queries
 		$notoptions = wp_cache_get( 'notoptions', 'options' );
-		if ( isset( $notoptions[ $option ] ) ){
+		if ( isset( $notoptions[ $option ] ) ) {
 			return $default;
 		}
 
@@ -269,7 +270,7 @@ function rtp_general_sanitize_option() {
 		$suppress = $wpdb->suppress_errors();
 		$row = $wpdb->get_row( $wpdb->prepare( "SELECT option_value FROM $wpdb->options WHERE option_name = %s LIMIT 1", $option ) );
 		$wpdb->suppress_errors( $suppress );
-		if ( is_object( $row ) ){
+		if ( is_object( $row ) ) {
 			$value = $row->option_value;
 		} else {
 			return $default;
@@ -359,3 +360,64 @@ add_filter( 'wp_title', 'rtp_wp_title', 10, 2 );
 function rtp_is_rtmedia() {
 	return ( in_array( get_post_type(), array( 'rtmedia', 'bp_member', 'bp_group' ) ) );
 }
+
+/**
+ * Dislays custom logo on Login Page
+ *
+ * @uses $rtp_get_titan_option
+ *
+ * @since rtPanel 1.1
+ */
+function rtp_site_login_logo() {
+
+	$rtp_logo_image = wp_get_attachment_image_src( rtp_get_titan_option( 'logo_upload' ), 'full' );
+
+	if ( $rtp_logo_image && rtp_get_titan_option( 'login_head' ) && 'image' == rtp_get_titan_option( 'logo_settings' ) ) {
+
+		$rtp_wp_loginbox_width = 312;
+		$rtp_logo_url = $rtp_logo_image[ 0 ];
+		$rtp_logo_width = $rtp_logo_image[ 1 ];
+		$rtp_logo_height = $rtp_logo_image[ 2 ];
+
+		if ( $rtp_logo_width > $rtp_wp_loginbox_width ) {
+			$ratio = $rtp_logo_height / $rtp_logo_width;
+			$rtp_logo_height = ceil( $ratio * $rtp_wp_loginbox_width );
+			$rtp_logo_width = $rtp_wp_loginbox_width;
+			$rtp_background_size = 'contain';
+		} else {
+			$rtp_background_size = 'auto';
+		}
+
+		echo '<style type="text/css">
+        /*.login h1 { margin-left: 8px; }*/
+        .login h1 a { background: url( ' . $rtp_logo_url . ' ) no-repeat 50% 0;
+                background-size: ' . $rtp_background_size . ';';
+		if ( $rtp_logo_width && $rtp_logo_height ) {
+			echo 'height: ' . $rtp_logo_height . 'px;
+              width: ' . $rtp_logo_width . 'px; margin: 0 auto 15px; padding: 0; }';
+		}
+		echo '</style>';
+	}
+}
+
+/* condition to check Admin Login Logo option */
+add_action( 'login_head', 'rtp_site_login_logo' );
+add_filter( 'login_headerurl', 'rtp_login_site_url' );
+
+/**
+ * Adds favicon to Wpadmin
+ *
+ * @since rtPanel 1.1
+ */
+function rtp_favicon() {
+	if ( ( 'image' == rtp_get_titan_option( 'favicon_settings' ) ) && ( rtp_get_titan_option( 'favicon_upload' ) ) ) {
+
+		$rtp_favicon = wp_get_attachment_image_src( rtp_get_titan_option( 'favicon_upload' ), 'full' );
+		?>
+		<link rel="shortcut icon" type="image/x-icon" href="<?php echo $rtp_favicon[ 0 ]; ?>" />
+		<?php
+	}
+}
+
+add_action( 'wp_head', 'rtp_favicon' );
+add_action( 'admin_head', 'rtp_favicon' );
