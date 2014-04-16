@@ -8,8 +8,9 @@
  * 
  * @since rtPanel 2.0
  */
-global $rtp_general;
-?><!DOCTYPE html>
+?>
+
+<!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" <?php language_attributes(); ?>><![endif]-->
 <!--[if gt IE 8]><!--><html class="no-js" <?php language_attributes(); ?>><!--<![endif]-->
     <head>
@@ -21,8 +22,6 @@ global $rtp_general;
         <meta name="viewport" content="<?php echo apply_filters( 'rtp_viewport', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no' ); ?>" />
 
         <link rel="profile" href="http://gmpg.org/xfn/11" />
-
-		<?php if ( 'disable' != $rtp_general[ 'favicon_use' ] ) { ?><link rel="shortcut icon" type="image/x-icon" href="<?php echo esc_attr( $rtp_general[ 'favicon_upload' ] ); ?>" /><?php } ?>
 
         <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
@@ -56,10 +55,10 @@ global $rtp_general;
 
 							<<?php echo esc_attr( $heading ); ?> class="rtp-site-logo">
 							<a role="link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>"><?php
-								$rtp_logo_image = wp_get_attachment_image( rtp_get_titan_option( 'logo_upload' ), 'full', false, array( 'class' => 'site-logo-image', 'alt' => get_bloginfo( 'name' ) ) );
-								
-								echo ( ( 'image' == rtp_get_titan_option( 'logo_settings' ) ) && ! empty( $rtp_logo_image ) ) ? $rtp_logo_image : get_bloginfo( 'name' );
-								?>
+							$rtp_logo_image = wp_get_attachment_image( rtp_get_titan_option( 'logo_upload' ), 'full', false, array( 'class' => 'site-logo-image', 'alt' => get_bloginfo( 'name' ) ) );
+
+							echo ( ( 'image' == rtp_get_titan_option( 'logo_settings' ) ) && !empty( $rtp_logo_image ) ) ? $rtp_logo_image : get_bloginfo( 'name' );
+							?>
 							</a>
 							</<?php echo esc_attr( $heading ); ?>>
 
@@ -77,13 +76,13 @@ global $rtp_general;
 
 			<?php rtp_hook_before_content_wrapper(); ?>
 
-			<?php $content_wrapper_class = ( is_search() && $rtp_general[ 'search_code' ] && $rtp_general[ 'search_layout' ] ) ? 'rtp-content-wrapper rtp-section-wrapper search-layout-wrapper' : 'rtp-content-wrapper rtp-section-wrapper'; ?>
+			<?php $content_wrapper_class = ( is_search() ) ? 'rtp-content-wrapper rtp-section-wrapper search-layout-wrapper' : 'rtp-content-wrapper rtp-section-wrapper'; ?>
 
-            <div id="content-wrapper" class="<?php echo esc_attr( apply_filters( 'rtp_content_wrapper_class', $content_wrapper_class ) ); ?>"><!-- ends in footer.php -->
+            <div id="content-wrapper" class="clearfix <?php echo esc_attr( apply_filters( "rtp_content_wrapper_class", $content_wrapper_class ) ); ?>"><!-- ends in footer.php -->
 
-			<?php rtp_hook_begin_content_wrapper(); ?>
+				<?php rtp_hook_begin_content_wrapper(); ?>
 
                 <div class="row rtp-section-container">
 
-			<?php
-			rtp_hook_begin_content_row();
+					<?php
+					rtp_hook_begin_content_row();

@@ -6,10 +6,8 @@
  *
  * @since rtPanel 2.0
  */
-global $rtp_general;
 
-rtp_hook_end_content_row();
-?>
+rtp_hook_end_content_row(); ?>
 
 </div> <!-- End of content-wrapper row -->
 
