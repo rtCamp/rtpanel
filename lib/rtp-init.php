@@ -213,7 +213,11 @@ function rtp_is_yarpp() {
 	$rtp_yarpp = '';
 	if ( function_exists( 'related_posts' ) ) {
 		$rtp_yarpp = get_option( 'yarpp' );
-		return ( in_array( $post->post_type, $rtp_yarpp[ 'auto_display_post_types' ] ) );
+		if( isset( $rtp_yarpp[ 'auto_display_post_types' ] ) && is_array( $rtp_yarpp[ 'auto_display_post_types' ] ) ) {
+			return ( in_array( $post->post_type, $rtp_yarpp[ 'auto_display_post_types' ] ) );
+		} else {
+			return false;
+		}		
 	} else {
 		return false;
 	}
