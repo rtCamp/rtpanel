@@ -12,8 +12,9 @@
  * Used to set the width of images and content. Should be equal to the width the theme
  * is designed for, generally via the style.css stylesheet
  */
-$content_width     = ( isset( $content_width ) ) ? $content_width : 620;
-$max_content_width = ( isset( $max_content_width ) ) ? $max_content_width : 940;
+global $content_width, $max_content_width;
+$content_width     = ( isset( $content_width ) ) ? $content_width : 780;
+$max_content_width = ( isset( $max_content_width ) ) ? $max_content_width : 1200;
 
 if ( ! function_exists( 'rtpanel_setup' ) ) {
 
@@ -164,6 +165,28 @@ function rtp_body_class( $classes ) {
 		$classes[] = 'linux';
 	} elseif ( isset( $_SERVER[ 'HTTP_USER_AGENT' ] ) && stristr( $_SERVER[ 'HTTP_USER_AGENT' ], 'windows' ) ) {
 		$classes[] = 'windows';
+	}
+
+	if ( ! is_multi_author() ) {
+		$classes[] = 'rtp-single-author';
+	}
+
+	if ( is_multi_author() ) {
+		$classes[] = 'rtp-group-blog';
+	}
+
+	if ( get_header_image() ) {
+		$classes[] = 'header-image';
+	} else {
+		$classes[] = 'masthead-fixed';
+	}
+
+	if ( is_archive() || is_search() || is_home() ) {
+		$classes[] = 'rtp-list-view';
+	}
+
+	if ( is_singular() && ! is_front_page() ) {
+		$classes[] = 'singular';
 	}
 
 	return $classes;
