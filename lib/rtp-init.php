@@ -12,8 +12,9 @@
  * Used to set the width of images and content. Should be equal to the width the theme
  * is designed for, generally via the style.css stylesheet
  */
-$content_width = ( isset( $content_width ) ) ? $content_width : 620;
-$max_content_width = ( isset( $max_content_width ) ) ? $max_content_width : 940;
+global $content_width, $max_content_width;
+$content_width     = ( isset( $content_width ) ) ? $content_width : 780;
+$max_content_width = ( isset( $max_content_width ) ) ? $max_content_width : 1200;
 
 if ( !function_exists( 'rtpanel_setup' ) ) {
 
@@ -167,6 +168,28 @@ function rtp_body_class( $classes ) {
 		$classes[] = 'windows';
 	}
 
+	if ( ! is_multi_author() ) {
+		$classes[] = 'rtp-single-author';
+	}
+
+	if ( is_multi_author() ) {
+		$classes[] = 'rtp-group-blog';
+	}
+
+	if ( get_header_image() ) {
+		$classes[] = 'header-image';
+	} else {
+		$classes[] = 'masthead-fixed';
+	}
+
+	if ( is_archive() || is_search() || is_home() ) {
+		$classes[] = 'rtp-list-view';
+	}
+
+	if ( is_singular() && ! is_front_page() ) {
+		$classes[] = 'singular';
+	}
+
 	return $classes;
 }
 
@@ -214,7 +237,11 @@ function rtp_is_yarpp() {
 	$rtp_yarpp = '';
 	if ( function_exists( 'related_posts' ) ) {
 		$rtp_yarpp = get_option( 'yarpp' );
-		return ( in_array( $post->post_type, $rtp_yarpp[ 'auto_display_post_types' ] ) );
+		if( isset( $rtp_yarpp[ 'auto_display_post_types' ] ) && is_array( $rtp_yarpp[ 'auto_display_post_types' ] ) ) {
+			return ( in_array( $post->post_type, $rtp_yarpp[ 'auto_display_post_types' ] ) );
+		} else {
+			return false;
+		}		
 	} else {
 		return false;
 	}
