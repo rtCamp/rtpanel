@@ -11,7 +11,7 @@
 /**
  * Define Theme Version
  */
-define( 'RTP_VERSION', '4.2' );
+define( 'RTP_VERSION', '4.2.1' );
 
 /* Define Links */
 define( 'RTP_AUTHOR_URL', 'https://rtcamp.com/' );					  // Theme Author URL

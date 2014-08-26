@@ -66,9 +66,20 @@ class TitanFrameworkCSS {
 	 * @since   1.2
 	 */
 	public function printCSS() {
-		$css = get_option( $this->getCSSSlug() );
-		if ( ! empty( $css ) ) {
-			print "<style>{$css}</style>";
+
+		// If the setting is 'generate css' and we can't just echo it out
+		if ( $this->frameworkInstance->settings['css'] == 'generate' ) {
+			$css = get_option( $this->getCSSSlug() );
+			if ( ! empty( $css ) ) {
+				echo "<style>{$css}</style>";
+			}
+
+		// If the setting is 'print inline css', print it out if we have any
+		} else if ( $this->frameworkInstance->settings['css'] == 'inline' ) {
+			$css = $this->generateCSS();
+			if ( ! empty( $css ) ) {
+				echo "<style>{$css}</style>";
+			}
 		}
 	}
 
@@ -80,9 +91,17 @@ class TitanFrameworkCSS {
 	 * @since   1.2
 	 */
 	public function enqueueCSS() {
-		$css = get_option( $this->getCSSSlug() );
-		if ( empty( $css ) ) {
-			wp_enqueue_style( 'tf-compiled-options-' . $this->frameworkInstance->optionNamespace, $this->getCSSFileURL(), __FILE__ );
+
+		// Only enqueue the generated css if we have the settings for it
+		if ( $this->frameworkInstance->settings['css'] == 'generate' ) {
+
+			$css = get_option( $this->getCSSSlug() );
+			$generatedCss = $this->generateCSS();
+
+			if ( ! empty( $generatedCss ) && empty( $css ) ) {
+				wp_enqueue_style( 'tf-compiled-options-' . $this->frameworkInstance->optionNamespace, $this->getCSSFileURL(), __FILE__ );
+			}
+
 		}
 	}
 
@@ -95,7 +114,7 @@ class TitanFrameworkCSS {
 	 * @since   1.2
 	 */
 	public function getOptionsWithCSS( $option ) {
-		if ( !empty( $option->settings['id'] ) ) {
+		if ( ! empty( $option->settings['id'] ) ) {
 			$this->allOptionsWithIDs[] = $option;
 		}
 	}
@@ -219,11 +238,17 @@ class TitanFrameworkCSS {
 				continue;
 			}
 
+			// Don't render CSS for this option if it doesn't have a value
+			$optionValue = $this->frameworkInstance->getOption( $option->settings['id'] );
+			if ( empty( $optionValue ) ) {
+				continue;
+			}
+
 			// Add the values as SaSS variables
 			$generatedCSS = $this->formCSSVariables(
 				$option->settings['id'],
 				$option->settings['type'],
-				$this->frameworkInstance->getOption( $option->settings['id'] )
+				$optionValue
 			);
 
 			try {
@@ -253,8 +278,10 @@ class TitanFrameworkCSS {
 		}
 
 		// Compile as SCSS & minify
-		$scss->setFormatter( self::SCSS_COMPRESSION );
-		$cssString = $scss->compile( $cssString );
+		if ( ! empty( $cssString ) ) {
+			$scss->setFormatter( self::SCSS_COMPRESSION );
+			$cssString = $scss->compile( $cssString );
+		}
 
 		return $cssString;
 	}
@@ -269,6 +296,10 @@ class TitanFrameworkCSS {
 	 */
 	public function generateSaveCSS() {
 		$cssString = $this->generateCSS();
+
+		if ( empty( $cssString ) ) {
+			return;
+		}
 
 		// Save our css
 		if ( $this->writeCSS( $cssString, $this->getCSSFilePath() ) ) {

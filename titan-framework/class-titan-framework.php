@@ -11,6 +11,7 @@ class TitanFramework {
 	private $themeCustomizerSections = array();
 	private $widgetAreas = array();
 	private $googleFontsOptions = array();
+	public $settings = array();
 
 	// We store option ids which should not be created here (see removeOption)
 	private $optionsToRemove = array();
@@ -20,10 +21,18 @@ class TitanFramework {
 	private $allOptions;
 
 	public $cssInstance;
+	public $trackerInstance;
 
 	// We store the options (with IDs) here, used for ensuring our serialized option
 	// value doesn't get cluttered with unused options
 	public $optionsUsed = array();
+
+	private $defaultSettings = array(
+		'css' => 'generate', 	// If 'generate', Titan will try and generate a cacheable CSS file (or inline if it can't).
+			 					// If 'inline', CSS will be printed out in the head tag,
+								// If false, CSS will not be generated nor printed
+		'tracking' => false, 	// TODO: Turn to true, when code is finalized for 1.6
+	);
 
 	public static function getInstance( $optionNamespace ) {
 		// Clean namespace
@@ -45,18 +54,20 @@ class TitanFramework {
 		$optionNamespace = str_replace( ' ', '-', trim( strtolower( $optionNamespace ) ) );
 
 		$this->optionNamespace = $optionNamespace;
+		$this->settings = $this->defaultSettings;
 
 		do_action( 'tf_init', $this );
 		do_action( 'tf_init_' . $this->optionNamespace, $this );
 
 		$this->cssInstance = new TitanFrameworkCSS( $this );
+		$this->trackerInstance = new TitanFrameworkTracker( $this );
 
-		add_action( 'after_setup_theme', array( $this, 'getAllOptions' ), 1 );
-		add_action( 'after_setup_theme', array( $this, 'updateOptionDBListing' ) );
+		add_action( 'after_setup_theme', array( $this, 'getAllOptions' ), 6 );
+		add_action( 'after_setup_theme', array( $this, 'updateOptionDBListing' ), 7 );
 
 		if ( is_admin() ) {
-			add_action( 'after_setup_theme', array( $this, 'updateThemeModListing' ) );
-			add_action( 'after_setup_theme', array( $this, 'updateMetaDbListing' ) );
+			add_action( 'after_setup_theme', array( $this, 'updateThemeModListing' ), 7 );
+			add_action( 'after_setup_theme', array( $this, 'updateMetaDbListing' ), 7 );
 			add_action( 'tf_create_option_' . $this->optionNamespace, array( $this, "verifyUniqueIDs" ) );
 		}
 
@@ -72,7 +83,7 @@ class TitanFramework {
 	 * This is to ensure that there won't be any option conflicts
 	 *
 	 * @param   TitanFrameworkOption $option The object just created
-	 * @return  null
+	 * @return  void
 	 * @since   1.1.1
 	 */
 	public function verifyUniqueIDs( $option ) {
@@ -129,12 +140,20 @@ class TitanFramework {
 		}
 	}
 
-	public function loadAdminScripts() {
-		wp_enqueue_media();
-		wp_enqueue_script( 'tf-serialize', TitanFramework::getURL( 'js/serialize.js', __FILE__ ) );
-		wp_enqueue_script( 'tf-styling', TitanFramework::getURL( 'js/admin-styling.js', __FILE__ ) );
-		wp_enqueue_style( 'tf-admin-styles', TitanFramework::getURL( 'css/admin-styles.css', __FILE__ ) );
-		wp_enqueue_style( 'tf-font-awesome', TitanFramework::getURL( 'css/font-awesome/css/font-awesome.min.css', __FILE__ ) );
+	public function loadAdminScripts( $hook ) {
+		// Get all options panel IDs
+		$panel_ids = array();
+		foreach ( $this->adminPanels as $admin_panel ) {
+			$panel_ids[] = $admin_panel->panelID;
+		}
+
+		// Only enqueue scripts if we're on a Titan options page
+		if ( in_array( $hook, $panel_ids ) || count($this->metaBoxes) ) {
+			wp_enqueue_media();
+			wp_enqueue_script( 'tf-serialize', TitanFramework::getURL( 'js/serialize.js', __FILE__ ) );
+			wp_enqueue_script( 'tf-styling', TitanFramework::getURL( 'js/admin-styling.js', __FILE__ ) );
+			wp_enqueue_style( 'tf-admin-styles', TitanFramework::getURL( 'css/admin-styles.css', __FILE__ ) );
+		}
 	}
 
 	public function getAllOptions() {
@@ -278,18 +297,27 @@ class TitanFramework {
 	public function createAdminPanel( $settings ) {
 		$obj = new TitanFrameworkAdminPanel( $settings, $this );
 		$this->adminPanels[] = $obj;
+
+		do_action( 'tf_admin_panel_created_' . $this->optionNamespace, $obj );
+
 		return $obj;
 	}
 
 	public function createMetaBox( $settings ) {
 		$obj = new TitanFrameworkMetaBox( $settings, $this );
 		$this->metaBoxes[] = $obj;
+
+		do_action( 'tf_meta_box_created_' . $this->optionNamespace, $obj );
+
 		return $obj;
 	}
 
 	public function createThemeCustomizerSection( $settings ) {
 		$obj = new TitanFrameworkThemeCustomizerSection( $settings, $this );
 		$this->themeCustomizerSections[] = $obj;
+
+		do_action( 'tf_theme_customizer_created_' . $this->optionNamespace, $obj );
+
 		return $obj;
 	}
 
@@ -447,6 +475,7 @@ class TitanFramework {
 		<?php
 	}
 
+
 	/**
 	 * Acts the same way as plugins_url( 'script', __FILE__ ) but returns then correct url
 	 * when called from inside a theme.
@@ -484,5 +513,32 @@ class TitanFramework {
 		}
 		// framework is a or in a plugin
 		return plugins_url( $script, $file );
+	}
+
+
+	/**
+	 * Sets a value in the $setting class variable
+	 *
+	 * @param   string $setting The name of the setting
+	 * @param   string $value The value to set
+	 * @return  void
+	 * @since   1.6
+	 */
+	public function set( $setting, $value ) {
+		$oldValue = $this->settings[ $setting ];
+		$this->settings[ $setting ] = $value;
+
+		do_action( 'tf_setting_' . $setting . '_changed_' . $this->optionNamespace, $value, $oldValue );
+	}
+
+
+	/**
+	 * Gets the CSS generated
+	 *
+	 * @return  string The generated CSS
+	 * @since   1.6
+	 */
+	public function generateCSS() {
+		return $this->cssInstance->generateCSS();
 	}
 }

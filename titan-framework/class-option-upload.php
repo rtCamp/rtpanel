@@ -7,6 +7,7 @@ class TitanFrameworkOptionUpload extends TitanFrameworkOption {
 	private static $firstLoad = true;
 
 	public $defaultSecondarySettings = array(
+		'size' => 'full', // The size of the image to use in the generated CSS
 		'placeholder' => '', // show this when blank
 	);
 
@@ -39,8 +40,13 @@ class TitanFrameworkOptionUpload extends TitanFrameworkOption {
 
 		$value = $this->getFramework()->getOption( $option->settings['id'] );
 
+		if ( empty( $value ) ) {
+			return $css;
+		}
+
 		if ( is_numeric( $value ) ) {
-			$attachment = wp_get_attachment_image_src( $value );
+			$size = ! empty( $option->settings['size'] ) ? $option->settings['size'] : 'thumbnail';
+			$attachment = wp_get_attachment_image_src( $value, $size );
 			$value = $attachment[0];
 		}
 
@@ -77,7 +83,7 @@ class TitanFrameworkOptionUpload extends TitanFrameworkOption {
 
 		$previewImage = '';
 		if ( ! empty( $value ) ) {
-			$previewImage = "<i class='fa fa-times remove'></i><img src='" . esc_url( $value ) . "' style='display: none'/>";
+			$previewImage = "<i class='dashicons dashicons-no-alt remove'></i><img src='" . esc_url( $value ) . "' style='display: none'/>";
 		}
 		echo "<div class='thumbnail tf-image-preview'>" . $previewImage . "</div>";
 
@@ -229,7 +235,7 @@ class TitanFrameworkOptionUpload extends TitanFrameworkOption {
 								.css('marginTop', marginTop)
 								.css('marginLeft', marginLeft)
 								.appendTo(_preview);
-							$("<i class='fa fa-times remove'></i>").prependTo(_preview);
+							$("<i class='dashicons dashicons-no-alt remove'></i>").prependTo(_preview);
 						}
 						// we need to trigger a change so that WP would detect that we changed the value
 						// or else the save button won't be enabled
@@ -275,7 +281,7 @@ function registerTitanFrameworkOptionUploadControl() {
 			}
 
 			if ( ! empty( $value ) ) {
-				$previewImage = "<i class='fa fa-times remove'></i><img src='" . esc_url( $value ) . "' style='display: none'/>";
+				$previewImage = "<i class='dashicons dashicons-no-alt remove'></i><img src='" . esc_url( $value ) . "' style='display: none'/>";
 			}
 
 			?>

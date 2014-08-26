@@ -24,6 +24,7 @@ class TitanFrameworkOptionNumber extends TitanFrameworkOption {
 		'max' => 1000,
 		'step' => 1,
 		'default' => 0,
+		'unit' => ''
 	);
 
 
@@ -131,7 +132,7 @@ class TitanFrameworkOptionNumber extends TitanFrameworkOption {
 	public function display() {
 		$this->echoOptionHeader();
 		echo "<div class='number-slider'></div>";
-		printf("<input class=\"%s-text\" name=\"%s\" placeholder=\"%s\" id=\"%s\" type=\"number\" value=\"%s\" min=\"%s\" max=\"%s\" step=\"%s\" />",
+		printf("<input class=\"%s-text\" name=\"%s\" placeholder=\"%s\" id=\"%s\" type=\"number\" value=\"%s\" min=\"%s\" max=\"%s\" step=\"%s\" /> %s <p class=\"description\">%s</p>",
 			$this->settings['size'],
 			$this->getID(),
 			$this->settings['placeholder'],
@@ -139,9 +140,11 @@ class TitanFrameworkOptionNumber extends TitanFrameworkOption {
 			esc_attr( $this->getValue() ),
 			$this->settings['min'],
 			$this->settings['max'],
-			$this->settings['step']
+			$this->settings['step'],
+			$this->settings['unit'],
+			$this->settings['desc']
 		);
-		$this->echoOptionFooter();
+		$this->echoOptionFooter(false);
 	}
 
 
