@@ -26,7 +26,7 @@
       return slides_container.children(settings.slide_selector);
     };
 
-    if (!has_init_active) {self.slides().first().addClass(settings.active_slide_class)};
+    self.slides().first().addClass(settings.active_slide_class);
 
     self.update_slide_number = function(index) {
       if (settings.slide_number) {
@@ -62,9 +62,7 @@
       if (settings.timer) {
         timer_container = $('<div>').addClass(settings.timer_container_class);
         timer_container.append('<span>');
-        if (settings.timer_show_progress_bar) {
-            timer_container.append($('<div>').addClass(settings.timer_progress_class));
-        }
+        timer_container.append($('<div>').addClass(settings.timer_progress_class));
         timer_container.addClass(settings.timer_paused_class);
         container.append(timer_container);
       }
@@ -110,9 +108,6 @@
       current.css('zIndex', 2);
       current.removeClass(settings.active_slide_class);
       next.css('zIndex', 4).addClass(settings.active_slide_class);
-
-      // This means that circular is disabled and we most likely reached the last slide.
-      if (res === false) return false;
 
       slides_container.trigger('before-slide-change.fndtn.orbit');
       settings.before_slide_change();
@@ -333,10 +328,8 @@
       if (!el.hasClass(settings.timer_paused_class)) {return true;}
       left = (left === -1) ? duration : left;
       el.removeClass(settings.timer_paused_class);
-      if (do_progress) {
-          start = new Date().getTime();
-          progress.animate({'width': '100%'}, left, 'linear');
-      }
+      start = new Date().getTime();
+      progress.animate({'width': '100%'}, left, 'linear');
       timeout = setTimeout(function() {
         self.restart();
         callback();
@@ -348,12 +341,10 @@
       if (el.hasClass(settings.timer_paused_class)) {return true;}
       clearTimeout(timeout);
       el.addClass(settings.timer_paused_class);
-      if (do_progress) {
-          var end = new Date().getTime();
-          left = left - (end - start);
-          var w = 100 - ((left / duration) * 100);
-          self.update_progress(w);
-      }
+      var end = new Date().getTime();
+      left = left - (end - start);
+      var w = 100 - ((left / duration) * 100);
+      self.update_progress(w);
       el.trigger('timer-stopped.fndtn.orbit');
     };
   };
@@ -431,7 +422,6 @@
       timer_container_class: 'orbit-timer',
       timer_paused_class: 'paused',
       timer_progress_class: 'orbit-progress',
-      timer_show_progress_bar: true,
       slides_container_class: 'orbit-slides-container',
       preloader_class: 'preloader',
       slide_selector: '*',

@@ -20,21 +20,15 @@ function rtp_comment_list( $comment, $args, $depth ) {
 	$GLOBALS['comment'] = $comment; ?>
 	<li <?php comment_class( 'clearfix' ); ?> id="li-comment-<?php comment_ID(); ?>">
 
-	<div id="comment-<?php comment_ID(); ?>" class="comment-body clearfix"><?php
-	if ( $rtp_post_comments[ 'gravatar_show' ] ) { // check if gravatar support is enabled
-		if ( isset( $rtp_post_comments[ 'gravatar_size' ] ) ) {
-			$gravatar_size = apply_filters( 'rtp_gravatar_size', $rtp_post_comments[ 'gravatar_size' ] );
-		} else {
-			$gravatar_size = apply_filters( 'rtp_gravatar_size', 48 );
-		}
-		?>
-		<div class="vcard">
-			<span class="fn"><?php echo get_avatar( $comment, $gravatar_size );
-			rtp_hook_after_comment_author_avatar();
-			?></span>
-		</div><?php
-}
-			?>
+		<div id="comment-<?php comment_ID(); ?>" class="comment-body clearfix"><?php
+			if ( rtp_get_titan_option( 'gravatar_show' ) ) { // check if gravatar support is enabled
+				$gravatar_size = apply_filters( 'rtp_gravatar_size', 48 ); ?>
+				<div class="vcard">
+					<span class="fn"><?php echo get_avatar( $comment, $gravatar_size );
+					rtp_hook_after_comment_author_avatar();
+					?></span>
+				</div><?php
+			} ?>
 
 			<div class="comment-author clearfix <?php echo ( rtp_get_titan_option( 'gravatar_show' ) ) ? '' : 'no-gravatar'; ?>">
 				<cite class="fn"><?php comment_author_link(); ?></cite>

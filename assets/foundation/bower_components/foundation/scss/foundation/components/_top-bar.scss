@@ -306,7 +306,6 @@ $topbar-arrows: true !default; //Set false to remove the triangle icon from the 
           text-transform: $topbar-link-text-transform;
 
 
-
           &.button {
             font-size: $topbar-link-font-size;
             padding-#{$opposite-direction}: $topbar-link-padding;

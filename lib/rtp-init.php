@@ -187,7 +187,7 @@ function rtp_body_class( $classes ) {
 		$classes[] = 'rtp-list-view';
 	}
 
-	if ( is_singular() && ! is_front_page() ) {
+	if ( is_singular() && !is_front_page() ) {
 		$classes[] = 'singular';
 	}
 
@@ -238,11 +238,11 @@ function rtp_is_yarpp() {
 	$rtp_yarpp = '';
 	if ( function_exists( 'related_posts' ) ) {
 		$rtp_yarpp = get_option( 'yarpp' );
-		if( isset( $rtp_yarpp[ 'auto_display_post_types' ] ) && is_array( $rtp_yarpp[ 'auto_display_post_types' ] ) ) {
-			return ( in_array( $post->post_type, $rtp_yarpp[ 'auto_display_post_types' ] ) );
+		if ( isset( $rtp_yarpp['auto_display_post_types'] ) && is_array( $rtp_yarpp['auto_display_post_types'] ) ) {
+			return ( in_array( $post->post_type, $rtp_yarpp['auto_display_post_types'] ) );
 		} else {
 			return false;
-		}		
+		}
 	} else {
 		return false;
 	}

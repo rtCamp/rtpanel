@@ -27,11 +27,10 @@ rtp_hook_end_content_row(); ?>
 	/* Grid class for widget */
 	$rtp_footer_widget_grid_class = apply_filters( 'rtp_set_footer_widget_grid_class', 'large-4 columns' );
 
-	if ( rtp_get_titan_option( 'footer_sidebar' ) ) {
-		?>
+	if ( rtp_get_titan_option( 'footer_sidebar' ) ) { ?>
 		<aside role="complementary" id="rtp-footer-widgets-wrapper" class="rtp-footerbar rtp-section-container row"><?php
 			// Default Widgets ( Fallback )
-			if ( !dynamic_sidebar( 'footer-widgets' ) ) {
+			if ( ! dynamic_sidebar( 'footer-widgets' ) ) {
 				?>
 				<div class="widget footerbar-widget <?php echo esc_attr( $rtp_footer_widget_grid_class ); ?>"><h3 class="widgettitle"><?php _e( 'Archives', 'rtPanel' ); ?></h3><ul><?php wp_get_archives( array( 'type' => 'monthly' ) ); ?></ul></div>
 				<div class="widget footerbar-widget <?php echo esc_attr( $rtp_footer_widget_grid_class ); ?>"><h3 class="widgettitle"><?php _e( 'Tags', 'rtPanel' ); ?></h3><div class="tagcloud"><?php wp_tag_cloud(); ?></div></div>
