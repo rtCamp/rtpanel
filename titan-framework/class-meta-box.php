@@ -14,6 +14,8 @@ class TitanFrameworkMetaBox {
 		'post_type' => 'page', // Post type, can be an array of post types
 		'context' => 'normal', // normal, advanced, or side
 		'hide_custom_fields' => true, // If true, the custom fields box will not be shown
+        'priority' => 'high', //  high, core, default, low
+		'desc' => '', // Description displayed below the title
 	);
 
 	public $settings;
@@ -65,7 +67,8 @@ class TitanFrameworkMetaBox {
 				array( $this, 'display' ),
 				$postType,
 				$this->settings['context'],
-				'high' );
+				$this->settings['priority']
+            );
 		}
 	}
 
@@ -73,6 +76,10 @@ class TitanFrameworkMetaBox {
 		$this->postID = $post->ID;
 
 		wp_nonce_field( $this->settings['id'], TF . '_' . $this->settings['id'] . '_nonce' );
+
+		if ( ! empty( $this->settings['desc'] ) ) {
+			?><p class='description'><?php echo $this->settings['desc'] ?></p><?php
+		}
 
 		?>
 		<table class="form-table tf-form-table">

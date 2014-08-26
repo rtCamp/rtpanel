@@ -8,6 +8,7 @@ class TitanFrameworkOptionSave extends TitanFrameworkOption {
 		'save' => '',
 		'reset' => '',
 		'use_reset' => true,
+		'reset_question' => '',
 		'action' => 'save',
 	);
 
@@ -20,7 +21,10 @@ class TitanFrameworkOptionSave extends TitanFrameworkOption {
 			$this->settings['save'] = __( 'Save Changes', TF_I18NDOMAIN );
 		}
 		if ( empty( $this->settings['reset'] ) ) {
-			$this->settings['reset'] = __( 'Reset to Default', TF_I18NDOMAIN );
+			$this->settings['reset'] = __( 'Reset to Defaults', TF_I18NDOMAIN );
+		}
+		if ( empty( $this->settings['reset_question'] ) ) {
+			$this->settings['reset_question'] = __( 'Are you sure you want to reset ALL options to their default values?', TF_I18NDOMAIN );
 		}
 
 		?>
@@ -35,7 +39,8 @@ class TitanFrameworkOptionSave extends TitanFrameworkOption {
 			<?php
 			if ( $this->settings['use_reset'] ):
 			?>
-			<button name="action" class="button button-secondary" onclick="javascript: jQuery('#tf-reset-form').submit(); return false;">
+			<button name="action" class="button button-secondary"
+				onclick="javascript: if ( confirm( '<?php echo htmlentities( esc_attr( $this->settings['reset_question'] ) ) ?>' ) ) { jQuery( '#tf-reset-form' ).submit(); } jQuery(this).blur(); return false;">
 				<?php echo $this->settings['reset'] ?>
 			</button>
 			<?php

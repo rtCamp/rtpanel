@@ -3,8 +3,8 @@ Contributors: bfintal
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=D2MK28E7BDLHC
 Tags: framework, options, admin, admin panel, meta box, theme customizer, option framework, library, sdk
 Requires at least: 3.8
-Tested up to: 3.8.1
-Stable tag: 1.4.3
+Tested up to: 3.9.1
+Stable tag: 1.5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -87,7 +87,11 @@ We want Titan Framework to be used by everyone, and since not everyone speaks or
 = Currently translated to =
 
 * French (thanks @PunKeel)
+* German (thanks @jascha)
+* Italian (thanks @DavideVogliotti & Giuseppe Pignataro)
+* Portuguese (thanks @pagelab)
 * Spanish (thanks @maperezotero)
+* Turkish (thanks @gurkankara)
 
 = Donate to the Development =
 
@@ -97,7 +101,9 @@ If Titan Framework has helped you in any way, we would appreciate any amount of 
 
 = Special Thanks to all the Contributors =
 
-@ardallan, @BrazenlyGeek, @davidossahdez, and @dovy
+@ardallan, @BrazenlyGeek, @csloisel, @DavideVogliotti, @davidossahdez, @desaiuditd, @dovy, @kevinlangleyjr, @manishsongirkar, @mendezcode, @MickeyKay, @sagarjadhav, and @smccafferty
+
+and to everyone else in the GitHub repo!
 
 == Installation ==
 
@@ -205,6 +211,16 @@ $myValue = $titan->getOption( 'option_name', $post_id );`
 4. Sample code on how to create admin pages and options
 
 == Changelog ==
+
+= 1.5 =
+* Added German, Portuguese, Turkish and updated Italian translations
+* Added `notification` and `paragraph` paramaters to the note option
+* Added `include_fonts` parameter to the font option for specifying the selectable fonts
+* Added `show_websafe_fonts` and `show_google_fonts` parameters to the font option
+* Added `maxlength` parameter to the the text option
+* Fixed Titan plugin detection code
+* New more WordPress-centric styling of admin panels (special thanks to @sagarjadhav)
+* A Lot of stabilization bug fixes
 
 = 1.4.3 =
 * Added a few global hooks
