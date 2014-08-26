@@ -37,10 +37,6 @@ $orbit-slide-number-bg: rgba(0,0,0,0) !default;
 $orbit-slide-number-font-color: $white !default;
 $orbit-slide-number-padding: rem-calc(5) !default;
 
-// We use these to controls the css animation
-$orbit-animation-speed: 500ms !default;
-$orbit-animation-ease: ease-in-out !default;
-
 // Graceful Loading Wrapper and preloader
 $wrapper-class: "slideshow-wrapper" !default;
 $preloader-class: "preloader" !default;
@@ -67,8 +63,8 @@ $orbit-timer-hide-for-small: true !default;
       to { -o-transform: rotate(360deg); }
     }
     @keyframes rotate {
-      from { @include rotate(0deg); }
-      to { @include rotate(360deg); }
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
 
     /* Orbit Graceful Loading */
@@ -138,7 +134,7 @@ $orbit-timer-hide-for-small: true !default;
 
         img { display: block; max-width: 100%; }
 
-        li {
+        &>* {
           position: absolute;
           top: 0;
           width: 100%;
@@ -202,8 +198,6 @@ $orbit-timer-hide-for-small: true !default;
             position: relative;
             right: 20px;
             top: 5px;
-          } @else {
-              display:none; // This is used by the Javascript to not create a handler.
           }
         }
 
@@ -292,6 +286,7 @@ $orbit-timer-hide-for-small: true !default;
           border-#{$default-float}-color: $orbit-nav-arrow-color-hover;
         }
       }
+    }
 
     .orbit-bullets-container { text-align: center; }
     .orbit-bullets {
@@ -311,28 +306,16 @@ $orbit-timer-hide-for-small: true !default;
         background: $orbit-bullet-nav-color;
         // float: $default-float;
         float: none;
-        text-align: center;
-        display: block;
+        margin-#{$opposite-direction}: 6px;
+        @include radius(1000px);
 
-        li {
-          display: inline-block;
-          width: $orbit-bullet-radius;
-          height: $orbit-bullet-radius;
-          background: $orbit-bullet-nav-color;
-          // float: $default-float;
-          float: none;
-          margin-#{$opposite-direction}: 6px;
-          @include radius(1000px);
-
-          &.active {
-            background: $orbit-bullet-nav-color-active;
-          }
-
-          &:last-child { margin-#{$opposite-direction}: 0; }
+        &.active {
+          background: $orbit-bullet-nav-color-active;
         }
+
+        &:last-child { margin-#{$opposite-direction}: 0; }
       }
     }
-
 
     .touch {
       .orbit-container {
