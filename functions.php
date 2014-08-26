@@ -13,6 +13,11 @@
  */
 define( 'RTP_VERSION', '4.2.1' );
 
+/** Fix for childtheme to parent theme */
+if ( is_child_theme() && 'rtpanel' != get_option( 'template', '' ) ) {
+	switch_theme( get_stylesheet() );
+}
+
 /* Define Links */
 define( 'RTP_AUTHOR_URL', 'https://rtcamp.com/' );					  // Theme Author URL
 define( 'RTP_THEME_URL', RTP_AUTHOR_URL . 'rtpanel/' );				 // Theme URI

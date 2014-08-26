@@ -6,6 +6,7 @@
  * 
  * @since rtPanel 2.0
  */
+$enable_compact_form = ( rtp_get_titan_option( 'enable_compact_form' ) ) ? rtp_get_titan_option( 'enable_compact_form' ) : array();
 $extra_form_settings = ( rtp_get_titan_option( 'extra_form_settings' ) ) ? rtp_get_titan_option( 'extra_form_settings' ) : array();
 
 if ( post_password_required() ) {
@@ -61,7 +62,7 @@ if ( have_comments() || ( (!is_attachment() && comments_open() ) || ( is_attachm
 
 		/* Including Comment form using comment_form() function */
 		if ( (!is_attachment() && comments_open() ) || ( is_attachment() && in_array( 'attachment_comments', $extra_form_settings ) ) ) {
-			if ( in_array( 'hide_labels', $extra_form_settings ) ) {
+			if ( in_array( 'hide_labels', $enable_compact_form ) ) {
 				$hide_class = ' hide-labels';
 				$asterix = ( $req ) ? '*' : '';
 				$label_author = '';
@@ -82,7 +83,7 @@ if ( have_comments() || ( (!is_attachment() && comments_open() ) || ( is_attachm
 
 			if ( in_array( 'comment_textarea', $extra_form_settings ) && !is_user_logged_in() ) {
 				$fields = '';
-				if ( in_array( 'compact_form', $extra_form_settings ) ) {
+				if ( in_array( 'compact_form', $enable_compact_form ) ) {
 					$comments_after = '<p class="comment-form-author compact-comment-form' . $hide_class . '">' . $label_author . '<input role="textbox" id="author" name="author" type="text"' . ( $req ? ' required="required"' : '' ) . ' value="' . ( $commenter[ 'comment_author' ] ? esc_attr( $commenter[ 'comment_author' ] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_author_placeholder', $author_value ) . '" size="30" /></p>
 								<p class="comment-form-email compact-comment-form' . $hide_class . '">' . $label_email . '<input role="textbox" id="email" name="email" type="email"' . ( $req ? ' required="required"' : '' ) . ' value="' . ( $commenter[ 'comment_author_email' ] ? esc_attr( $commenter[ 'comment_author_email' ] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_email_placeholder', $email_value ) . '" size="30" /></p>
 								<p class="comment-form-url compact-comment-form' . $hide_class . '">' . $label_url . '<input role="textbox" id="url" name="url" type="url" value="' . ( $commenter[ 'comment_author_url' ] ? esc_attr( $commenter[ 'comment_author_url' ] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_url_placeholder', $url_value ) . '" size="30" /></p>';
@@ -92,7 +93,7 @@ if ( have_comments() || ( (!is_attachment() && comments_open() ) || ( is_attachm
 								<p class="comment-form-url clearfix' . $hide_class . '"><input class="alignleft" id="url" name="url" type="url" value="' . ( $commenter[ 'comment_author_url' ] ? esc_attr( $commenter[ 'comment_author_url' ] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_url_placeholder', $url_value ) . '" size="30" />' . $label_url . '</p>';
 				}
 			} else {
-				if ( in_array( 'compact_form', $extra_form_settings ) ) {
+				if ( in_array( 'compact_form', $enable_compact_form ) ) {
 					$comments_after = '';
 					$fields = array(
 						'author' => '<p class="comment-form-author compact-comment-form' . $hide_class . '">' . $label_author . '<input id="author" name="author" type="text"' . ( $req ? ' required="required"' : '' ) . ' value="' . ( $commenter[ 'comment_author' ] ? esc_attr( $commenter[ 'comment_author' ] ) : '' ) . '" placeholder="' . apply_filters( 'rtp_author_placeholder', $author_value ) . '" size="30" /></p>',
