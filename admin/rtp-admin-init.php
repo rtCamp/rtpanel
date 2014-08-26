@@ -7,12 +7,16 @@
  *
  * @since rtPanel 2.0
  */
+
 /**
  * Includes PHP files located in 'admin/php/' folder
  */
 foreach ( glob( get_template_directory() . '/admin/lib/*.php' ) as $lib_filename ) {
 	require_once( $lib_filename );
 }
+
+/* Options */
+require_once( get_template_directory() . '/admin/rtp-options-main.php' );
 
 /*
  * Global Menus
@@ -103,3 +107,16 @@ function rtp_submit_support_request() {
 }
 
 add_action( 'wp_ajax_rtpanel_submit_request', 'rtp_submit_support_request', 1 );
+
+/**
+ * Change rtPanel title to setting in WP Dashboard menu.
+ */
+function rtp_admin_menu_js() { ?>
+	<script type="text/javascript">
+		jQuery(document).ready( function() {
+			jQuery( '#toplevel_page_rtpanel li.wp-first-item a' ).text( 'Settings' );
+		} );
+	</script><?php
+}
+
+add_action( 'admin_head', 'rtp_admin_menu_js' );

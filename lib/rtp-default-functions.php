@@ -521,35 +521,70 @@ function rtp_woocommerce_wrapper_end() {
  * @since rtPanel 4.0
  */
 function rtp_footer_copyright_content() {
-	?>
-	<div id="footer" class="rtp-footer rtp-section-container">
-		<?php
-		$rtp_set_grid_class = apply_filters( 'rtp_set_full_width_grid_class', 'large-12 columns rtp-full-width-grid' );
+    ?>
+    <div id="footer" class="rtp-footer rtp-section-container row">
+        <?php
+        $rtp_set_grid_class = apply_filters('rtp_set_full_width_grid_class', 'large-12 columns rtp-full-width-grid');
 
-		$footer_content = ( rtp_get_titan_option( 'footer_info' ) ) ? rtp_get_titan_option( 'footer_info' ) : '';
-		$show_powered_by = ( rtp_get_titan_option( 'powered_by' ) ) ? rtp_get_titan_option( 'powered_by' ) : '';
-		$affiliate_id = ( rtp_get_titan_option( 'affiliate_ID' ) ) ? '?ref=' . rtp_get_titan_option( 'affiliate_ID' ) : ''; ?>
+        $footer_content = ( rtp_get_titan_option('footer_info') ) ? rtp_get_titan_option('footer_info') : '';
+        $footer_nav = ( rtp_get_titan_option('footer_navigation') ) ? rtp_get_titan_option('footer_navigation') : '';
+        $show_powered_by = ( rtp_get_titan_option('powered_by') ) ? rtp_get_titan_option('powered_by') : '';
+        $affiliate_id = ( rtp_get_titan_option('affiliate_ID') ) ? '?ref=' . rtp_get_titan_option('affiliate_ID') : '';
+        ?>
 
-		<div class="rtp-footer-section <?php echo esc_attr( $rtp_set_grid_class ); ?>">
+        <hr class="rtp-separator" />
 
-			<?php
-			if ( $footer_content ) {
-				echo $footer_content;
-			}
-			?>
+        <div class="rtp-footer-section <?php echo esc_attr($rtp_set_grid_class); ?>">
 
-	<?php
-	if ( $show_powered_by ) {
-		printf( __( '<p class="rtp-powered-by">Powered by <a role="link" target="_blank" href="%s" class="rtp-common-link" title="rtPanel">rtPanel</a>.</p>', 'rtPanel' ), RTP_THEME_URL . $affiliate_id );
-	}
-	?>
+            <?php
+            if ($footer_nav && function_exists('wp_nav_menu') && has_nav_menu('footer')) {
+                wp_nav_menu(array(
+                    'container' => '',
+                    'menu_id' => 'rtp-footer-menu',
+                    'menu_class' => 'rtp-footer-menu menu',
+                    'theme_location' => 'footer',
+                    'depth' => 1
+                ));
+            }
 
-		</div>
-	</div><!-- #footer -->
-	<?php
+            if ($show_powered_by) {
+                printf(__('<p class="rtp-powered-by">Powered by <a role="link" target="_blank" href="%s" class="rtp-common-link" title="rtCamp">rtCamp</a>.</p>', 'rtPanel'), RTP_AUTHOR_URL . $affiliate_id);
+            }
+            
+            if ($footer_content) {
+                echo '<div class="rtp-footer-content">' . $footer_content . '</div>';
+            }
+
+            ?>
+
+        </div>
+    </div><!-- #footer -->
+    <?php
 }
 
 add_action( 'rtp_hook_end_footer', 'rtp_footer_copyright_content' );
+
+/*
+ * Footer Sidebar
+ */
+
+function rtp_footer_sidebar() {
+    /* Grid class for widget */
+    $rtp_footer_widget_grid_class = apply_filters('rtp_set_footer_widget_grid_class', 'large-4 columns');
+
+    if (rtp_get_titan_option('footer_sidebar')) {
+        ?>
+        <aside role="complementary" id="rtp-footer-widgets-wrapper" class="rtp-footerbar-widgets clearfix"><?php if (!dynamic_sidebar('footer-widgets')) { ?>
+                <div class="large-12 column"><br /><p class="alert"><?php _e('There are no widgets found in Footer Widgets. Please add it from Widget section.', 'rtPanel'); ?></p></div>
+                <?php
+            }
+            ?>
+        </aside><!-- #footerbar --><?php
+    }
+}
+
+add_action('rtp_hook_within_footer', 'rtp_footer_sidebar');
+
 
 /**
  * Default sidebar text if widgets are inactive
@@ -568,3 +603,12 @@ function rtp_sidebar_content() { ?>
 }
 
 add_action( 'rtp_hook_sidebar_content', 'rtp_sidebar_content' );
+
+/**
+ * Fetch Google Analytics Code
+ */
+function rtp_google_analytics() {
+    echo ( rtp_get_titan_option('google_analytics') ) ? rtp_get_titan_option('google_analytics') : '';
+}
+
+add_action('wp_head', 'rtp_google_analytics');

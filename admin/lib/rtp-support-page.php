@@ -393,7 +393,7 @@ if ( ! class_exists( 'rtPanelSupport' ) ) {
 			$message .= '</body></html>';
 			add_filter( 'wp_mail_content_type', create_function( '', 'return "text/html";' ) );
 			$headers = 'From: ' . $form_data['name'] . ' <' . $form_data['email'] . '>' . "\r\n";
-			$support_email = "sagar.jadhav@rtcamp.com";
+			$support_email = "support@rtcamp.com";
 			if ( wp_mail( $support_email, '[rtPanel] ' . $mail_type . ' from ' . str_replace( array( 'http://', 'https://' ), '', $form_data['website'] ), $message, $headers ) ) {
 				echo '<div class="rtpanel-success" style="margin:10px 0;">';
 				if ( $form_data['request_type'] == 'new_feature' ) {

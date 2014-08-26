@@ -5,4 +5,42 @@
  * 
  * @since rtPanel 1.1
  *
- */.show{display:block}.hide,.hidden{display:none}.clear{clear:both;content:'\0020';display:block;height:0;visibility:hidden;overflow:hidden;width:0}.clearfix{zoom:1}.clearfix:before,.clearfix:after{content:' ';display:table}.clearfix:after{clear:both}.rtp-manage-plugin a{text-decoration:none}.rtp-manage-plugin .active{color:green}.rtp-manage-plugin .inactive{color:orange}.rtp-manage-plugin .not-installed{color:red}.rtp-manage-plugin th{font-weight:700}.rtp-manage-plugin .form-table th,.rtp-manage-plugin .form-table td{border-bottom:1px solid #ddd;font-size:12px;padding:10px}.rtp-manage-plugin .form-table td.last-child{border:none}.rtp-ajax-loder{margin:-2px 3px 0 6px;position:relative;top:3px}.tab-content{margin-top:20px;padding:20px 30px 30px}.tab-content .rtp-meta-title{cursor:default;margin-bottom:30px;padding-bottom:10px}.rtp-form label{float:left;line-height:2;width:12%}.rtp-form input[type=text],.rtp-form textarea{width:25%}.rtp-form textarea{height:80px}.rtp-form li{margin-bottom:20px}.rtp-button-cotainer{margin-left:12%}.tab-content .form-table th,.tab-content .form-table td{border-bottom:1px solid rgba(0,0,0,0.1);padding:20px 10px}.tab-content .form-table td.last-child{border:none}
+ */
+/* Utility Classes */
+.show { display: block; }
+
+.hide, .hidden { display: none; }
+
+.clear { clear: both; content: '\0020'; display: block; height: 0; visibility: hidden; overflow: hidden; width: 0; }
+
+/* The Magnificent "Clear" fix */
+.clearfix { zoom: 1; }
+.clearfix:before, .clearfix:after { content: ' '; display: table; }
+.clearfix:after { clear: both; }
+
+/* Plugin support */
+.rtp-manage-plugin a { text-decoration: none; }
+.rtp-manage-plugin .active { color: green; }
+.rtp-manage-plugin .inactive { color: orange; }
+.rtp-manage-plugin .not-installed { color: red; }
+.rtp-manage-plugin th { font-weight: 700; }
+.rtp-manage-plugin .form-table th, .rtp-manage-plugin .form-table td { border-bottom: 1px solid #DDDDDD; font-size: 12px; padding: 10px; }
+.rtp-manage-plugin .form-table td.last-child { border: none; }
+
+.rtp-ajax-loder { margin: -2px 3px 0 6px; position: relative; top: 3px; }
+
+/* Tabs */
+.tab-content { margin-top: 20px; padding: 20px 30px 30px; }
+.tab-content .rtp-meta-title { cursor: default; margin-bottom: 30px; padding-bottom: 10px; }
+
+.rtp-form label { float: left; line-height: 2; width: 12%; }
+.rtp-form input[type=text], .rtp-form textarea { width: 25%; }
+.rtp-form textarea { height: 80px; }
+.rtp-form li { margin-bottom: 20px; }
+
+.rtp-button-cotainer { margin-left: 12%; }
+
+.tab-content .form-table th, .tab-content .form-table td { border-bottom: 1px solid rgba(0, 0, 0, 0.1); padding: 20px 10px; }
+.tab-content .form-table td.last-child { border: none; }
+
+.options-container .tf-radio-palette span span { width: 40px; }

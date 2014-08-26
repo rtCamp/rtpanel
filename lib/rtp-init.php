@@ -58,7 +58,8 @@ if ( !function_exists( 'rtpanel_setup' ) ) {
 		// Make use of wp_nav_menu() for navigation purpose
 		register_nav_menus(
 				array(
-					'primary' => __( 'Primary Navigation', 'rtPanel' )
+					'primary' => __( 'Primary Navigation', 'rtPanel' ),
+					'footer' => __( 'Footer Navigation', 'rtPanel' )
 				)
 		);
 	}

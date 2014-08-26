@@ -36,9 +36,11 @@ $link-hover-color: #CD5A1B;
 
 /* The Magnificent "Clear" fix */
 // For More Info Visit: http://nicolasgallagher.com/micro-clearfix-hack/
-.clearfix { zoom: 1; //  For IE 6/7 only. Include this rule to trigger hasLayout and contain floats.
+.clearfix {
+    zoom: 1; //  For IE 6/7 only. Include this rule to trigger hasLayout and contain floats.
+
     &:before,
-    &:after {
+        &:after {
         content: ' '; // The space content is one way to avoid an Opera bug when the contenteditable attribute is included anywhere else in the document. //
         display: table; // The use of 'table' rather than 'block' is only necessary if using ':before' to contain the top-margins of child elements. //
     }
@@ -49,9 +51,9 @@ $link-hover-color: #CD5A1B;
 
 /* Plugin support */
 .rtp-manage-plugin {
-	
-	a { text-decoration: none; }
-	
+
+    a { text-decoration: none; }
+
     .active { color: $green; }
     .inactive { color: $orange; }
     .not-installed { color: $red; }
@@ -68,17 +70,18 @@ $link-hover-color: #CD5A1B;
 .rtp-ajax-loder { margin: -2px 3px 0 6px; position: relative; top: 3px; }
 
 /* Tabs */
-.tab-content { margin-top: 20px; padding: 20px 30px 30px;
-	// Meta Title
-	.rtp-meta-title { cursor: default; margin-bottom: 30px; padding-bottom: 10px; }
+.tab-content {
+    margin-top: 20px; padding: 20px 30px 30px;
+    // Meta Title
+    .rtp-meta-title { cursor: default; margin-bottom: 30px; padding-bottom: 10px; }
 }
 
 .rtp-form {
-	label { float: left; line-height: 2; width: 12%; }
-	input[type=text], textarea { width: 25%; }
-	textarea { height: 80px; }
-	
-	li { margin-bottom: 20px; }
+    label { float: left; line-height: 2; width: 12%; }
+    input[type=text], textarea { width: 25%; }
+    textarea { height: 80px; }
+
+    li { margin-bottom: 20px; }
 }
 
 .rtp-button-cotainer { margin-left: 12%; }
@@ -88,4 +91,8 @@ $link-hover-color: #CD5A1B;
         th, td { border-bottom: 1px solid rgba(0,0,0,0.1); padding: 20px 10px; }
         td.last-child { border: none; }
     }
+}
+
+.options-container .tf-radio-palette span span {
+    width: 40px;
 }
