@@ -98,9 +98,6 @@ function rtp_default_scripts() {
 	/* Register Theme jQuery */
 	wp_register_script( 'rtp-package-min', RTP_JS_FOLDER_URL . '/rtp-package-min.js', array( 'jquery' ), RTP_VERSION, true );
 
-	/* Register Google Font: Open Sans */
-	wp_register_style( 'rtp-google-font', '//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700', '', NULL );
-
 	/* Register Fontello icons */
 	wp_register_style( 'rtp-icon-fonts-animation', RTP_ASSETS_URL . '/fontello/css/animation.css', '', NULL );
 	wp_register_style( 'rtp-icon-fonts', RTP_ASSETS_URL . '/fontello/css/rtpanel-fontello.css', '', NULL );
@@ -110,12 +107,12 @@ function rtp_default_scripts() {
 
 	/**
 	 * Enqueue Scripts and Styles
+	 * Note: Style should load before Scripts
 	 */
-	wp_enqueue_script( 'rtp-package-min' );
-	wp_enqueue_style( 'rtp-google-font' );
 	wp_enqueue_style( 'rtp-icon-fonts-animation' );
 	wp_enqueue_style( 'rtp-icon-fonts' );
 	wp_enqueue_style( 'rtpanel-style' );
+	wp_enqueue_script( 'rtp-package-min' );
 
 	// Nested Comment Support
 	( is_singular() && get_option( 'thread_comments' ) ) ? wp_enqueue_script( 'comment-reply' ) : '';
