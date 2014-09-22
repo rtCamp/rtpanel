@@ -1,3 +1,6 @@
+// rtPanel theme using WP 4.0, the WP editor window 4.0 doesn't scroll
+html, body { height: auto; }
+
 /* WP-Editor TinyMCE Style */
 body#tinymce {
     background: $white;
