@@ -2,7 +2,7 @@
 Theme Name: rtPanel
 Theme URI: http://rtcamp.com/rtpanel/
 Description: WordPress theme framework with Custom Menu, Header and Background along with Logo, Favicon, Featured Image, Google Custom Search Integration and more options. Now includes a Foundation 5 framework, Grunt Task Runner, Bower package manager, SAAS based CSS preprocessor and translation support. This theme comes with free technical support by team of 30+ full-time developers. Support Links: <a href="http://rtcamp.com/support/forum/rtpanel/" title="rtPanel Free Support" rel="follow">rtPanel Support forum</a>, <a href="http://rtcamp.com/rtpanel/docs/" title="rtPanel Documentation" rel="follow">Documentation</a> or visit <a href="http://rtcamp.com/rtpanel/" title="rtPanel" rel="follow">rtPanel</a>.
-Version: 4.2
+Version: 4.2.1
 Author: rtCamp
 Author URI: http://rtcamp.com/
 Contributors: rtCampers ( http://rtcamp.com/about/rtcampers/ )
@@ -13,7 +13,7 @@ Tags: black, blue, white, orange, light, one-column, two-columns, right-sidebar,
 == Description ==
 rtPanel is the most easy to use WordPress Theme Framework. You will find many state of the art options and widgets with rtPanel.
 rtPanel framework is used worldwide and keeping this in mind we have made it localization ready. Developers can use rtPanel as a basic and stripped to bones theme framework for developing their own creative and wonderful WordPress Themes.
-By using rtPanel, developers and users can specify settings for basic functions (like date format, excerpt word count etc.) directly from theme options. rtPanel provides theme options to manage some basic settings for your theme. 
+By using rtPanel, developers and users can specify settings for basic functions (like date format, excerpt word count etc.) directly from theme options. rtPanel provides theme options to manage some basic settings for your theme.
 
 == Plugins Supported ==
 * bbPress - http://wordpress.org/plugins/bbpress/
@@ -50,6 +50,9 @@ By using rtPanel, developers and users can specify settings for basic functions 
 If you make changes to thumbnail height, width or crop settings, you must use "Regenerate Thumbnail Plugin" ( http://wordpress.org/plugins/regenerate-thumbnails/ ) to regenerate thumbnails on old posts.
 
 == Changelog ==
+
+= 4.2.1 =
+
 
 = 4.2 =
 * Modified: Update Foundation version to 5.2.1
