@@ -34,45 +34,46 @@ if ( have_posts() ) {
 		the_post();
 		?>
 
-		<article id="post-<?php if ( ! rtp_is_bbPress() ) {
+		<article id="post-<?php
+		if ( ! rtp_is_bbPress() ) {
 			the_ID();
 		} else {
 			echo 'forum-index';
-		} ?>" <?php post_class( 'clearfix rtp-post-box' ); ?>>
+		}
+		?>" <?php post_class( 'clearfix rtp-post-box' ); ?>>
 				<?php rtp_hook_begin_post(); ?>
 
-			<header class="post-header <?php echo esc_attr( rtp_is_buddypress() ? 'clearfix' : '' ); ?>">
+			<header class="post-header <?php echo esc_attr( rtp_is_buddypress() ? 'clearfix' : ''  ); ?>">
 				<?php rtp_hook_begin_post_title(); ?>
 
 				<?php if ( is_singular() ) { ?>
 					<h1 class="post-title entry-title"><?php the_title(); ?></h1><?php } else {
 					?>
-                                        <h2 class="post-title entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permanent Link to %s', 'rtPanel' ), the_title_attribute( 'echo=0' ) ); ?>" class="url"><?php the_title(); ?></a></h2><?php }
+					<h2 class="post-title entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php printf( esc_attr__( 'Permanent Link to %s', 'rtPanel' ), the_title_attribute( 'echo=0' ) ); ?>" class="url"><?php the_title(); ?></a></h2><?php }
 				?>
 
 				<?php rtp_hook_end_post_title(); ?>
 
-				<?php rtp_hook_post_meta( 'top' ); ?>
+		<?php rtp_hook_post_meta( 'top' ); ?>
 			</header><!-- .post-title -->
 
 			<div class="post-content">
 				<?php rtp_hook_begin_post_content(); ?>
 
-				<?php rtp_show_post_thumbnail(); ?>
 
 				<?php
-		if ( is_singular() || ! $rtp_post_comments[ 'summary_show' ] || rtp_is_bbPress() || rtp_is_rtmedia() ) {
-			the_content( __( 'Read More &rarr;', 'rtPanel' ) );
-			wp_link_pages( array( 'before' => '<div class="page-link clearfix">' . __( 'Pages:', 'rtPanel' ), 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) );
-		} else {
-			@the_excerpt();
-		}
+				if ( is_singular() || ! $rtp_post_comments[ 'summary_show' ] || rtp_is_bbPress() || rtp_is_rtmedia() ) {
+					the_content( __( 'Read More &rarr;', 'rtPanel' ) );
+					wp_link_pages( array( 'before' => '<div class="page-link clearfix">' . __( 'Pages:', 'rtPanel' ), 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) );
+				} else {
+					@the_excerpt();
+				}
 				?>
 
-		<?php rtp_hook_end_post_content(); ?>
+			<?php rtp_hook_end_post_content(); ?>
 			</div><!-- .post-content -->
 
-		<?php rtp_hook_post_meta( 'bottom' ); ?>
+			<?php rtp_hook_post_meta( 'bottom' ); ?>
 
 		<?php rtp_hook_end_post(); ?>
 

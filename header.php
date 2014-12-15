@@ -5,10 +5,9 @@
  * Displays all of the <head> section and everything up till <div id="content-wrapper">
  *
  * @package rtPanel
- * 
+ *
  * @since rtPanel 2.0
  */
-global $rtp_general;
 ?><!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" <?php language_attributes(); ?>><![endif]-->
 <!--[if gt IE 8]><!--><html class="no-js" <?php language_attributes(); ?>><!--<![endif]-->
@@ -21,8 +20,6 @@ global $rtp_general;
         <meta name="viewport" content="<?php echo apply_filters( 'rtp_viewport', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no' ); ?>" />
 
         <link rel="profile" href="http://gmpg.org/xfn/11" />
-
-		<?php if ( 'disable' != $rtp_general[ 'favicon_use' ] ) { ?><link rel="shortcut icon" type="image/x-icon" href="<?php echo esc_attr( $rtp_general[ 'favicon_upload' ] ); ?>" /><?php } ?>
 
         <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
@@ -73,9 +70,9 @@ global $rtp_general;
 
             <div id="content-wrapper" class="<?php echo esc_attr( apply_filters( 'rtp_content_wrapper_class', $content_wrapper_class ) ); ?>"><!-- ends in footer.php -->
 
-			<?php rtp_hook_begin_content_wrapper(); ?>
+				<?php rtp_hook_begin_content_wrapper(); ?>
 
                 <div class="row rtp-section-container">
 
-			<?php
-			rtp_hook_begin_content_row();
+					<?php
+					rtp_hook_begin_content_row();

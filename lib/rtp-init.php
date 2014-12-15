@@ -3,7 +3,7 @@
  * rtPanel Initialization
  *
  * @package rtPanel
- * 
+ *
  * @since rtPanel 2.0
  */
 /**
@@ -13,7 +13,7 @@
  * is designed for, generally via the style.css stylesheet
  */
 global $content_width, $max_content_width;
-$content_width     = ( isset( $content_width ) ) ? $content_width : 780;
+$content_width = ( isset( $content_width ) ) ? $content_width : 780;
 $max_content_width = ( isset( $max_content_width ) ) ? $max_content_width : 1200;
 
 if ( ! function_exists( 'rtpanel_setup' ) ) {
@@ -27,21 +27,34 @@ if ( ! function_exists( 'rtpanel_setup' ) ) {
 	 * @since rtPanel 2.0
 	 */
 	function rtpanel_setup() {
-		rtp_theme_setup_values();
-		add_theme_support( 'post-thumbnails' ); // This theme uses post thumbnails
-		add_theme_support( 'automatic-feed-links' ); // Add default posts and comments RSS feed links to head
-		add_editor_style( 'style.css' ); // This theme styles the visual editor with the themes style.css itself.
-		load_theme_textdomain( 'rtPanel', get_template_directory() . '/languages' ); // Load the text domain
 
-		add_theme_support( 'custom-background' ); // Add support for custom background
+		/*
+		 * Make rtPanle available for translation.
+		 *
+		 * Translations can be added to the /languages/ directory.
+		 * If you're building a theme based on rtPanel, use a find and
+		 * replace to change 'rtPanel' to the name of your theme in all
+		 * template files.
+		 */
+		load_theme_textdomain( 'rtPanel', get_template_directory() . '/languages' );
+
+		// Enable support for Post Thumbnails.
+		add_theme_support( 'post-thumbnails' );
+
+		// This theme styles the visual editor to resemble the theme style.
+		add_editor_style( 'style.css' );
+
+		// This theme allows users to set a custom background.
+		add_theme_support( 'custom-background' );
+
 		// Add support for custom headers.
 		$rtp_custom_header_support = array(
 			// The height and width of our custom header.
-			'width'					 => apply_filters( 'rtp_header_image_width', 1200 ),
-			'height'				 => apply_filters( 'rtp_header_image_height', 200 ),
-			'header-text'			 => false,
-			'wp-head-callback'		 => '',
-			'admin-head-callback'	 => '',
+			'width' => apply_filters( 'rtp_header_image_width', 1200 ),
+			'height' => apply_filters( 'rtp_header_image_height', 200 ),
+			'header-text' => false,
+			'wp-head-callback' => '',
+			'admin-head-callback' => '',
 		);
 		add_theme_support( 'custom-header', $rtp_custom_header_support );
 
@@ -49,18 +62,26 @@ if ( ! function_exists( 'rtpanel_setup' ) ) {
 		 * Switches default core markup for search form, comment form,
 		 * and comments to output valid HTML5.
 		 */
-		add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
+		add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 
 		/**
 		 * Adds RSS feed links to head for posts and comments.
 		 */
 		add_theme_support( 'automatic-feed-links' );
 
+		/*
+		 * Enable support for Post Formats.
+		 * See http://codex.wordpress.org/Post_Formats
+		 */
+		add_theme_support( 'post-formats', array(
+			'aside', 'image', 'video', 'audio', 'quote', 'link', 'gallery',
+		) );
+
 		// Make use of wp_nav_menu() for navigation purpose
 		register_nav_menus(
-			array(
-				'primary' => __( 'Primary Navigation', 'rtPanel' )
-			)
+				array(
+					'primary' => __( 'Primary Navigation', 'rtPanel' )
+				)
 		);
 	}
 
@@ -73,15 +94,17 @@ add_action( 'after_setup_theme', 'rtpanel_setup' ); // Tell WordPress to run rtp
  * @since rtPanel 2.3
  */
 if ( ! function_exists( 'rtp_header_image' ) ) {
-        /**
-         * Get header image if it exists
-         */
+
+	/**
+	 * Get header image if it exists
+	 */
 	function rtp_header_image() {
 		if ( get_header_image() ) {
 			?>
 			<img class="rtp-header-image rtp-margin-0" src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?>" /><?php
 		}
 	}
+
 }
 add_action( 'rtp_hook_begin_header', 'rtp_header_image' );
 
@@ -96,24 +119,14 @@ function rtp_default_scripts() {
 	/* Register Theme jQuery */
 	wp_register_script( 'rtp-package-min', RTP_JS_FOLDER_URL . '/rtp-package-min.js', array( 'jquery' ), RTP_VERSION, true );
 
-	/* Register Google Font: Open Sans */
-	wp_register_style( 'rtp-google-font', '//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700', '', NULL );
-
-	/* Register Fontello icons */
-	wp_register_style( 'rtp-icon-fonts-animation', RTP_ASSETS_URL . '/fontello/css/animation.css', '', NULL );
-	wp_register_style( 'rtp-icon-fonts', RTP_ASSETS_URL . '/fontello/css/rtpanel-fontello.css', '', NULL );
-
 	/* Register Theme Main Stylesheet. */
-	wp_register_style( 'rtpanel-style', get_stylesheet_uri(), array(), RTP_VERSION );
+	wp_register_style( 'rtp-style', get_stylesheet_uri(), array(), RTP_VERSION );
 
 	/**
 	 * Enqueue Scripts and Styles
 	 */
 	wp_enqueue_script( 'rtp-package-min' );
-	wp_enqueue_style( 'rtp-google-font' );
-	wp_enqueue_style( 'rtp-icon-fonts-animation' );
-	wp_enqueue_style( 'rtp-icon-fonts' );
-	wp_enqueue_style( 'rtpanel-style' );
+	wp_enqueue_style( 'rtp-style' );
 
 	// Nested Comment Support
 	( is_singular() && get_option( 'thread_comments' ) ) ? wp_enqueue_script( 'comment-reply' ) : '';
@@ -149,7 +162,7 @@ function rtp_body_class( $classes ) {
 	elseif ( $is_IE ) {
 		$classes[] = 'ie';
 		if ( isset( $_SERVER[ 'HTTP_USER_AGENT' ] ) && preg_match( '/MSIE ([0-9]+)([a-zA-Z0-9.]+)/', $_SERVER[ 'HTTP_USER_AGENT' ], $browser_version ) ) {
-			$classes[] = 'ie' . $browser_version[1];
+			$classes[] = 'ie' . $browser_version[ 1 ];
 		}
 	} else {
 		$classes[] = 'unknown';
@@ -236,91 +249,19 @@ function rtp_is_yarpp() {
 	$rtp_yarpp = '';
 	if ( function_exists( 'related_posts' ) ) {
 		$rtp_yarpp = get_option( 'yarpp' );
-		if( isset( $rtp_yarpp[ 'auto_display_post_types' ] ) && is_array( $rtp_yarpp[ 'auto_display_post_types' ] ) ) {
+		if ( isset( $rtp_yarpp[ 'auto_display_post_types' ] ) && is_array( $rtp_yarpp[ 'auto_display_post_types' ] ) ) {
 			return ( in_array( $post->post_type, $rtp_yarpp[ 'auto_display_post_types' ] ) );
 		} else {
 			return false;
-		}		
+		}
 	} else {
 		return false;
 	}
 }
-
-/**
- * Sanitizes options having urls in serilized data.
- *
- * @since rtPanel 2.1
- */
-function rtp_general_sanitize_option() {
-	global $wpdb;
-
-	$option	 = 'rtp_general';
-	$default = false;
-
-	$option = trim( $option );
-	if ( empty( $option ) )
-		return false;
-
-	if ( defined( 'WP_SETUP_CONFIG' ) )
-		return false;
-
-	if ( ! defined( 'WP_INSTALLING' ) ) {
-		// prevent non-existent options from triggering multiple queries
-		$notoptions = wp_cache_get( 'notoptions', 'options' );
-		if ( isset( $notoptions[ $option ] ) ){
-			return $default;
-		}
-
-		$alloptions = wp_load_alloptions();
-
-		if ( isset( $alloptions[ $option ] ) ) {
-			$value = $alloptions[ $option ];
-		} else {
-			$value = wp_cache_get( $option, 'options' );
-
-			if ( false === $value ) {
-				$row = $wpdb->get_row( $wpdb->prepare( "SELECT option_value FROM $wpdb->options WHERE option_name = %s LIMIT 1", $option ) );
-
-				// Has to be get_row instead of get_var because of funkiness with 0, false, null values
-				if ( is_object( $row ) ) {
-					$value = $row->option_value;
-					wp_cache_add( $option, $value, 'options' );
-				} else { // option does not exist, so we must cache its non-existence
-					$notoptions[ $option ] = true;
-					wp_cache_set( 'notoptions', $notoptions, 'options' );
-					return $default;
-				}
-			}
-		}
-	} else {
-		$suppress = $wpdb->suppress_errors();
-		$row = $wpdb->get_row( $wpdb->prepare( "SELECT option_value FROM $wpdb->options WHERE option_name = %s LIMIT 1", $option ) );
-		$wpdb->suppress_errors( $suppress );
-		if ( is_object( $row ) ){
-			$value = $row->option_value;
-		} else {
-			return $default;
-		}
-	}
-
-	// If home is not set use siteurl.
-	if ( 'home' == $option && '' == $value )
-		return get_option( 'siteurl' );
-
-	if ( in_array( $option, array( 'siteurl', 'home', 'category_base', 'tag_base' ) ) )
-		$value = untrailingslashit( $value );
-
-	/* Hack for serialized data containing URLs http://www.php.net/manual/en/function.unserialize.php#107886 */
-	$value = preg_replace( '!s:(\d+):"(.*?)";!s', "'s:'.strlen('$2').':\"$2\";'", $value );
-
-	return apply_filters( 'option_' . $option, maybe_unserialize( $value ) );
-}
-
-add_filter( 'pre_option_rtp_general', 'rtp_general_sanitize_option', 1 );
 
 /**
  * rtp_head() function call in wp_head
- * 
+ *
  * @since rtPanel 4.1
  */
 function rtp_head_call() {
@@ -333,7 +274,7 @@ add_action( 'wp_head', 'rtp_head_call', 999 );
 
 /**
  * rtp_hook_end_body() function call in wp_footer
- * 
+ *
  * @since rtPanel 4.1
  */
 function rtp_footer_call() {
@@ -346,11 +287,11 @@ add_action( 'wp_footer', 'rtp_footer_call', 999 );
 
 /**
  * Create formatted and SEO friendly title
- * 
+ *
  * @param string $title Default title text for current view
  * @param string $sep Optional separator
  * @return string The filtered title
- * 
+ *
  * @since rtPanel 4.1.1
  */
 function rtp_wp_title( $title, $sep ) {
