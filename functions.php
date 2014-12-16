@@ -38,7 +38,7 @@ $rtp_version = get_option( 'rtp_version' ); // rtPanel Version
 /**
  * Add Redux Framework & extras
  */
-require get_template_directory() . '/admin/admin-init.php';
+//require get_template_directory() . '/admin/admin-init.php';
 
 
 /* Includes PHP files located in 'lib' folder */
