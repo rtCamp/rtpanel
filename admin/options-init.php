@@ -1,4 +1,5 @@
 <?php
+
 /**
   ReduxFramework Sample Config File
   For full documentation, please visit: https://docs.reduxframework.com
@@ -148,73 +149,8 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 
 		public function setSections() {
 
-			/**
-			  Used within different fields. Simply examples. Search for ACTUAL DECLARATION for field examples
-			 * */
-			// Background Patterns Reader
-			$sample_patterns_path = ReduxFramework::$_dir . '../sample/patterns/';
-			$sample_patterns_url = ReduxFramework::$_url . '../sample/patterns/';
-			$sample_patterns = array();
-
-			if ( is_dir( $sample_patterns_path ) ) :
-
-				if ( $sample_patterns_dir = opendir( $sample_patterns_path ) ) :
-					$sample_patterns = array();
-
-					while ( ( $sample_patterns_file = readdir( $sample_patterns_dir ) ) !== false ) {
-
-						if ( stristr( $sample_patterns_file, '.png' ) !== false || stristr( $sample_patterns_file, '.jpg' ) !== false ) {
-							$name = explode( '.', $sample_patterns_file );
-							$name = str_replace( '.' . end( $name ), '', $sample_patterns_file );
-							$sample_patterns[] = array( 'alt' => $name, 'img' => $sample_patterns_url . $sample_patterns_file );
-						}
-					}
-				endif;
-			endif;
-
-			ob_start();
-
-			$ct = wp_get_theme();
-			$this->theme = $ct;
-			$item_name = $this->theme->get( 'Name' );
-			$tags = $this->theme->Tags;
-			$screenshot = $this->theme->get_screenshot();
-			$class = $screenshot ? 'has-screenshot' : '';
-
-			$customize_title = sprintf( __( 'Customize &#8220;%s&#8221;', 'redux-framework-demo' ), $this->theme->display( 'Name' ) );
-			?>
-			<div id="current-theme" class="<?php echo esc_attr( $class ); ?>">
-				<?php if ( $screenshot ) : ?>
-					<?php if ( current_user_can( 'edit_theme_options' ) ) : ?>
-						<a href="<?php echo wp_customize_url(); ?>" class="load-customize hide-if-no-customize" title="<?php echo esc_attr( $customize_title ); ?>">
-							<img src="<?php echo esc_url( $screenshot ); ?>" alt="<?php esc_attr_e( 'Current theme preview' ); ?>" />
-						</a>
-					<?php endif; ?>
-					<img class="hide-if-customize" src="<?php echo esc_url( $screenshot ); ?>" alt="<?php esc_attr_e( 'Current theme preview' ); ?>" />
-				<?php endif; ?>
-
-				<h4><?php echo $this->theme->display( 'Name' ); ?></h4>
-
-				<div>
-					<ul class="theme-info">
-						<li><?php printf( __( 'By %s', 'redux-framework-demo' ), $this->theme->display( 'Author' ) ); ?></li>
-						<li><?php printf( __( 'Version %s', 'redux-framework-demo' ), $this->theme->display( 'Version' ) ); ?></li>
-						<li><?php echo '<strong>' . __( 'Tags', 'redux-framework-demo' ) . ':</strong> '; ?><?php printf( $this->theme->display( 'Tags' ) ); ?></li>
-					</ul>
-					<p class="theme-description"><?php echo $this->theme->display( 'Description' ); ?></p>
-					<?php
-					if ( $this->theme->parent() ) {
-						printf( ' <p class="howto">' . __( 'This <a href="%1$s">child theme</a> requires its parent theme, %2$s.' ) . '</p>', __( 'http://codex.wordpress.org/Child_Themes', 'redux-framework-demo' ), $this->theme->parent()->display( 'Name' ) );
-					}
-					?>
-
-				</div>
-			</div>
-
-			<?php
-			ob_end_clean();
-
 			$sampleHTML = '';
+
 			if ( file_exists( dirname( __FILE__ ) . '/info-html.html' ) ) {
 				/** @global WP_Filesystem_Direct $wp_filesystem  */
 				global $wp_filesystem;
@@ -235,7 +171,7 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 					array(
 						'id' => 'opt-homepage-layout',
 						'type' => 'sorter',
-						'title' => 'Homepage Layout',
+						'title' => 'Layout',
 						'subtitle' => __( 'Organize how you want the layout to appear on the homepage', 'redux-framework-demo' ),
 						'compiler' => 'true',
 						'options' => array(
@@ -287,18 +223,6 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 						'subtitle' => __( 'Upload your custom site favicon.', 'redux-framework-demo' ),
 						'default' => array( 'url' => get_template_directory_uri() . '/img/favicon.ico' ),
 					),
-					array(
-						'id' => 'opt-sortable',
-						'type' => 'sortable',
-						'title' => __( 'Sortable Text Option', 'redux-framework-demo' ),
-						'subtitle' => __( 'Define and reorder these however you want.', 'redux-framework-demo' ),
-						'desc' => __( 'This is the description field, again good for additional info.', 'redux-framework-demo' ),
-						'options' => array(
-							'si1' => 'Item 1',
-							'si2' => 'Item 2',
-							'si3' => 'Item 3',
-						)
-					),
 				)
 			);
 
@@ -308,29 +232,23 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 				'icon' => 'el-icon-website',
 				'fields' => array(
 					array(
-						'id' => 'custom_logo',
-						'type' => 'media',
-						'url' => true,
-						'title' => __( 'Logo', 'redux-framework-demo' ),
-						'subtitle' => __( 'Upload your custom site logo.', 'redux-framework-demo' ),
-						'default' => array( 'url' => get_template_directory_uri() . '/img/rtp-logo.png' ),
+						'id' => 'main_layout',
+						'type' => 'select',
+						'title' => __( 'Layout Style', 'redux-framework-demo' ),
+						'subtitle' => __( 'Select your website layout style.', 'redux-framework-demo' ),
+						'options' => array(
+							'full-width' => __( 'Full Width', 'redux-framework-demo' ),
+							'boxed' => __( 'Boxed', 'redux-framework-demo' ),
+						),
+						'default' => 'full-width'
 					),
 					array(
-						'id' => 'favicon',
-						'type' => 'media',
-						'url' => true,
-						'title' => __( 'Favicon', 'redux-framework-demo' ),
-						'subtitle' => __( 'Upload your custom site favicon.', 'redux-framework-demo' ),
-						'default' => array( 'url' => get_template_directory_uri() . '/img/favicon.ico' ),
+						'id' => 'main_container_width',
+						'type' => 'text',
+						'title' => __( 'Main Container Width', 'redux-framework-demo' ),
+						'subtitle' => __( 'Enter your custom main container width in pixels.', 'redux-framework-demo' ),
+						'default' => '1200px',
 					),
-				)
-			);
-
-			// Background Settings
-			$this->sections[] = array(
-				'title' => __( 'Background', 'redux-framework-demo' ),
-				'icon' => 'el-icon-picture',
-				'fields' => array(
 				)
 			);
 
@@ -345,9 +263,41 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 						'title' => __( 'Body Font', 'redux-framework-demo' ),
 						'subtitle' => __( 'Specify the body font properties.', 'redux-framework-demo' ),
 						'google' => true,
+						'line-height' => false,
+						'text-align' => false,
 						'default' => array(
 							'color' => '#dd9933',
-							'font-size' => '30px',
+							'font-size' => '16px',
+							'font-family' => 'Arial,Helvetica,sans-serif',
+							'font-weight' => 'Normal',
+						),
+					),
+					array(
+						'id' => 'opt-typography-heading',
+						'type' => 'typography',
+						'title' => __( 'Heading Font', 'redux-framework-demo' ),
+						'subtitle' => __( 'Specify the heading tag font properties.', 'redux-framework-demo' ),
+						'google' => true,
+						'font-size' => false,
+						'line-height' => false,
+						'text-align' => false,
+						'default' => array(
+							'color' => '#dd9933',
+							'font-family' => 'Arial,Helvetica,sans-serif',
+							'font-weight' => 'Normal',
+						),
+					),
+					array(
+						'id' => 'opt-typography-coding',
+						'type' => 'typography',
+						'title' => __( 'Coding Font', 'redux-framework-demo' ),
+						'subtitle' => __( 'Set coding fonts for kbd, pre, samp, code, etc tags.', 'redux-framework-demo' ),
+						'google' => true,
+						'font-size' => false,
+						'line-height' => false,
+						'text-align' => false,
+						'default' => array(
+							'color' => '#dd9933',
 							'font-family' => 'Arial,Helvetica,sans-serif',
 							'font-weight' => 'Normal',
 						),
@@ -360,6 +310,14 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 				'title' => __( 'Styling', 'redux-framework-demo' ),
 				'icon' => 'el-icon-brush',
 				'fields' => array(
+					array(
+						'id' => 'opt-select-stylesheet',
+						'type' => 'select',
+						'title' => __( 'Theme Stylesheet', 'redux-framework-demo' ),
+						'subtitle' => __( 'Select your themes alternative color scheme.', 'redux-framework-demo' ),
+						'options' => array( 'default.css' => 'default.css', 'color1.css' => 'color1.css', 'color2.css' => 'color2.css', 'color3.css' => 'color3.css' ),
+						'default' => 'default.css',
+					),
 					array(
 						'id' => 'opt-link-color',
 						'type' => 'link_color',
@@ -377,23 +335,6 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 						)
 					),
 					array(
-						'id' => 'opt-select-stylesheet',
-						'type' => 'select',
-						'title' => __( 'Theme Stylesheet', 'redux-framework-demo' ),
-						'subtitle' => __( 'Select your themes alternative color scheme.', 'redux-framework-demo' ),
-						'options' => array( 'default.css' => 'default.css', 'color1.css' => 'color1.css' ),
-						'default' => 'default.css',
-					),
-					array(
-						'id' => 'opt-color-background',
-						'type' => 'color',
-						'output' => array( '.site-title' ),
-						'title' => __( 'Body Background Color', 'redux-framework-demo' ),
-						'subtitle' => __( 'Pick a background color for the theme (default: #fff).', 'redux-framework-demo' ),
-						'default' => '#FFFFFF',
-						'validate' => 'color',
-					),
-					array(
 						'id' => 'opt-background',
 						'type' => 'background',
 						'output' => array( 'body' ),
@@ -402,34 +343,26 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 					//'default'   => '#FFFFFF',
 					),
 					array(
-						'id' => 'opt-color-footer',
-						'type' => 'color',
-						'title' => __( 'Footer Background Color', 'redux-framework-demo' ),
-						'subtitle' => __( 'Pick a background color for the footer (default: #dd9933).', 'redux-framework-demo' ),
-						'default' => '#dd9933',
-						'validate' => 'color',
-					),
-					array(
-						'id' => 'opt-color-rgba',
-						'type' => 'color_rgba',
-						'title' => __( 'Color RGBA - BETA', 'redux-framework-demo' ),
-						'subtitle' => __( 'Gives you the RGBA color. Still quite experimental. Use at your own risk.', 'redux-framework-demo' ),
-						'default' => array( 'color' => '#dd9933', 'alpha' => '1.0' ),
-						'output' => array( 'body' ),
-						'mode' => 'background',
-						'validate' => 'colorrgba',
-					),
-					array(
-						'id' => 'opt-color-header',
-						'type' => 'color_gradient',
-						'title' => __( 'Header Gradient Color Option', 'redux-framework-demo' ),
-						'subtitle' => __( 'Only color validation can be done on this field type', 'redux-framework-demo' ),
-						'desc' => __( 'This is the description field, again good for additional info.', 'redux-framework-demo' ),
+						'id' => 'opt-color-scheme',
+						'type' => 'color_scheme',
+						'title' => 'Color Schemes',
+						'subtitle' => 'Save and load color schemes',
+						'output' => true,
+						'compiler' => true,
+						'simple' => false,
 						'default' => array(
-							'from' => '#1e73be',
-							'to' => '#00897e'
+							array(
+								'id' => 'body-background',
+								'title' => 'body background',
+								'color' => '#ededed',
+								'alpha' => .5,
+								'selector' => 'body',
+								'mode' => 'background-color',
+								'important' => false,
+								'group' => 'Body'
+							),
 						)
-					),
+					)
 				)
 			);
 
@@ -438,6 +371,14 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 				'title' => __( 'Header', 'redux-framework-demo' ),
 				'icon' => 'el-icon-screen',
 				'fields' => array(
+					array(
+						'id' => 'adminbar',
+						'type' => 'checkbox',
+						'title' => __( 'Hide Adminbar', 'redux-framework-demo' ),
+						'subtitle' => __( 'Hide admin bar on frontend', 'redux-framework-demo' ),
+						//'desc' => __( 'Hide admin bar', 'redux-framework-demo' ),
+						'default' => '1'// 1 = on | 0 = off
+					),
 				)
 			);
 
@@ -447,11 +388,44 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 				'icon' => 'el-icon-download',
 				'fields' => array(
 					array(
+						'id' => 'footer_sidebar',
+						'type' => 'checkbox',
+						'title' => __( 'Footer Sidebar', 'redux-framework-demo' ),
+						'subtitle' => __( 'Check this to enable footer sidebar.', 'redux-framework-demo' ),
+						//'desc' => __( 'Hide admin bar', 'redux-framework-demo' ),
+						'default' => '1'// 1 = on | 0 = off
+					),
+					array(
+						'id' => 'footer_navigation',
+						'type' => 'checkbox',
+						'title' => __( 'Footer Navigation', 'redux-framework-demo' ),
+						'subtitle' => __( 'Show Footer Navigation', 'redux-framework-demo' ),
+						//'desc' => __( 'Hide admin bar', 'redux-framework-demo' ),
+						'default' => '1'// 1 = on | 0 = off
+					),
+					array(
 						'id' => 'opt-editor',
 						'type' => 'editor',
 						'title' => __( 'Footer Text', 'redux-framework-demo' ),
 						'subtitle' => __( 'You can use the following shortcodes in your footer text: [wp-url] [site-url] [theme-url] [login-url] [logout-url] [site-title] [site-tagline] [current-year]', 'redux-framework-demo' ),
 						'default' => 'Powered by Redux Framework.',
+					),
+					array(
+						'id' => 'powered_by',
+						'type' => 'checkbox',
+						'title' => __( 'Powered by rtCamp', 'redux-framework-demo' ),
+						'subtitle' => __( 'Show "Powered by rtCamp" link in footer using my affiliate ID', 'redux-framework-demo' ),
+						//'desc' => __( 'Hide admin bar', 'redux-framework-demo' ),
+						'default' => '0'// 1 = on | 0 = off
+					),
+					array(
+						'id' => 'affiliate_id',
+						'type' => 'text',
+						'title' => __( 'Affiliate ID', 'redux-framework-demo' ),
+						'subtitle' => sprintf( __( 'You can use your rtCamp.com username as affiliate ID or get it from <a href="%s" target="_blank">here</a><br />', 'redux-framework-demo' ), 'https://rtcamp.com/wp-admin/admin.php?page=rt-affiliate-banners' ),
+						'default' => '',
+						'desc' => sprintf( __( 'To know more about our affiliate program, please check - <a href="%s" target="_blank">%s</a>', 'redux-framework-demo' ), 'https://rtcamp.com/affiliates', 'https://rtcamp.com/affiliates' ),
+						'required' => array( 'powered_by', 'equals', '1' ),
 					),
 				)
 			);
@@ -461,6 +435,41 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 				'title' => __( 'Blog', 'redux-framework-demo' ),
 				'icon' => 'el-icon-edit',
 				'fields' => array(
+					array(
+						'id' => 'blog_exceprt',
+						'type' => 'switch',
+						'title' => __( 'Entry Auto Excerpts', 'redux-framework-demo' ),
+						'subtitle' => __( 'Toggle your blog auto excerpts on or off.', 'redux-framework-demo' ),
+						"default" => '1',
+						'on' => __( 'On', 'redux-framework-demo' ),
+						'off' => __( 'Off', 'redux-framework-demo' ),
+					),
+					array(
+						'id' => 'blog_excerpt_length',
+						'type' => 'text',
+						'title' => __( 'Entry Excerpt length', 'redux-framework-demo' ),
+						'desc' => '',
+						'subtitle' => __( 'How many words do you want to show for your blog entry excerpts?', 'redux-framework-demo' ),
+						'default' => '40',
+						'required' => array( 'blog_exceprt', 'equals', '1' ),
+					),
+					array(
+						'id' => 'blog_entry_readmore',
+						'type' => 'switch',
+						'title' => __( 'Entry Read More Button', 'redux-framework-demo' ),
+						'subtitle' => __( 'Toggle the blog entry read more button on or off.', 'redux-framework-demo' ),
+						"default" => '1',
+						'on' => __( 'On', 'redux-framework-demo' ),
+						'off' => __( 'Off', 'redux-framework-demo' ),
+					),
+					array(
+						'id' => 'blog_entry_readmore_text',
+						'type' => 'text',
+						'title' => __( 'Entry Read More Text', 'redux-framework-demo' ),
+						'subtitle' => __( 'Your custom entry read more button text, default is "Continue Reading".', 'redux-framework-demo' ),
+						"default" => '',
+						'required' => array( 'blog_entry_readmore', 'equals', '1' ),
+					),
 				)
 			);
 
@@ -506,6 +515,28 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 						'theme' => 'chrome',
 						'desc' => 'Possible modes can be found at <a href="http://ace.c9.io" target="_blank">http://ace.c9.io/</a>.',
 						'default' => '<?php\nisset ( $redux ) ? true : false;\n?>'
+					),
+				)
+			);
+
+			// License Settings
+			$this->sections[] = array(
+				'title' => __( 'Social Links', 'redux-framework-demo' ),
+				'icon' => 'el-icon-bullhorn',
+				'fields' => array(
+					array(
+						'id' => 'social_links',
+						'type' => 'sortable',
+						'title' => __( 'Social Links', 'redux-framework-demo' ),
+						'subtitle' => __( 'Add your social link urls', 'redux-framework-demo' ),
+						'desc' => __( 'This is the description field, again good for additional info.', 'redux-framework-demo' ),
+						'options' => array(
+							'Facebook' => '',
+							'Twitter' => '',
+							'LinkedIn' => '',
+							'Google' => '',
+							'Email' => '',
+						)
 					),
 				)
 			);
@@ -568,18 +599,18 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 				'type' => 'divide',
 			);
 
-			$this->sections[] = array(
-				'icon' => 'el-icon-info-sign',
-				'title' => __( 'Theme Information', 'redux-framework-demo' ),
-				'desc' => __( '<p class="description">This is the Description. Again HTML is allowed</p>', 'redux-framework-demo' ),
-				'fields' => array(
-					array(
-						'id' => 'opt-raw-info',
-						'type' => 'raw',
-						'content' => $sampleHTML,
-					)
-				),
-			);
+//			$this->sections[] = array(
+//				'icon' => 'el-icon-info-sign',
+//				'title' => __( 'Theme Information', 'redux-framework-demo' ),
+//				'desc' => __( '<p class="description">This is the Description. Again HTML is allowed</p>', 'redux-framework-demo' ),
+//				'fields' => array(
+//					array(
+//						'id' => 'opt-raw-info',
+//						'type' => 'raw',
+//						'content' => $sampleHTML,
+//					)
+//				),
+//			);
 
 			if ( file_exists( trailingslashit( dirname( __FILE__ ) ) . 'README.html' ) ) {
 				$tabs[ 'docs' ] = array(
@@ -776,6 +807,137 @@ if ( ! function_exists( 'rtpanel_validate_callback_function' ) ):
 		}
 		return $return;
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
