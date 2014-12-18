@@ -226,6 +226,24 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 				)
 			);
 
+			// Styling Settings
+			$this->sections[] = array(
+				'title' => __( 'Background', 'redux-framework-demo' ),
+				'icon' => 'el-icon-picture',
+				'fields' => array(
+					array(
+						'id' => 'background_color',
+						'transparent' => false,
+						'preview_media' => true,
+						'type' => 'background',
+						'title' => __( 'Background', 'redux-framework-demo' ),
+						'default' => '',
+						'subtitle' => __( 'Select your custom background for body.', 'redux-framework-demo' ),
+						'output' => array( 'body' ),
+					),
+				)
+			);
+
 			// Layout Settings
 			$this->sections[] = array(
 				'title' => __( 'Layout', 'redux-framework-demo' ),
@@ -334,35 +352,6 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 							'active' => '#ccc',
 						)
 					),
-					array(
-						'id' => 'opt-background',
-						'type' => 'background',
-						'output' => array( 'body' ),
-						'title' => __( 'Body Background', 'redux-framework-demo' ),
-						'subtitle' => __( 'Body background with image, color, etc.', 'redux-framework-demo' ),
-					//'default'   => '#FFFFFF',
-					),
-					array(
-						'id' => 'opt-color-scheme',
-						'type' => 'color_scheme',
-						'title' => 'Color Schemes',
-						'subtitle' => 'Save and load color schemes',
-						'output' => true,
-						'compiler' => true,
-						'simple' => false,
-						'default' => array(
-							array(
-								'id' => 'body-background',
-								'title' => 'body background',
-								'color' => '#ededed',
-								'alpha' => .5,
-								'selector' => 'body',
-								'mode' => 'background-color',
-								'important' => false,
-								'group' => 'Body'
-							),
-						)
-					)
 				)
 			);
 
@@ -373,11 +362,12 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 				'fields' => array(
 					array(
 						'id' => 'adminbar',
-						'type' => 'checkbox',
-						'title' => __( 'Hide Adminbar', 'redux-framework-demo' ),
-						'subtitle' => __( 'Hide admin bar on frontend', 'redux-framework-demo' ),
-						//'desc' => __( 'Hide admin bar', 'redux-framework-demo' ),
-						'default' => '1'// 1 = on | 0 = off
+						'type' => 'switch',
+						'title' => __( 'Adminbar', 'redux-framework-demo' ),
+						'subtitle' => __( 'Toggle the adminbar on frontend.', 'redux-framework-demo' ),
+						"default" => '1',
+						'on' => __( 'On', 'redux-framework-demo' ),
+						'off' => __( 'Off', 'redux-framework-demo' ),
 					),
 				)
 			);
@@ -389,19 +379,30 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 				'fields' => array(
 					array(
 						'id' => 'footer_sidebar',
-						'type' => 'checkbox',
+						'type' => 'switch',
 						'title' => __( 'Footer Sidebar', 'redux-framework-demo' ),
 						'subtitle' => __( 'Check this to enable footer sidebar.', 'redux-framework-demo' ),
-						//'desc' => __( 'Hide admin bar', 'redux-framework-demo' ),
-						'default' => '1'// 1 = on | 0 = off
+						"default" => '1',
+						'on' => __( 'On', 'redux-framework-demo' ),
+						'off' => __( 'Off', 'redux-framework-demo' ),
 					),
 					array(
 						'id' => 'footer_navigation',
-						'type' => 'checkbox',
+						'type' => 'switch',
 						'title' => __( 'Footer Navigation', 'redux-framework-demo' ),
 						'subtitle' => __( 'Show Footer Navigation', 'redux-framework-demo' ),
-						//'desc' => __( 'Hide admin bar', 'redux-framework-demo' ),
-						'default' => '1'// 1 = on | 0 = off
+						"default" => '1',
+						'on' => __( 'On', 'redux-framework-demo' ),
+						'off' => __( 'Off', 'redux-framework-demo' ),
+					),
+					array(
+						'id' => 'footer_area',
+						'type' => 'switch',
+						'title' => __( 'Bottom Footer Area', 'redux-framework-demo' ),
+						'subtitle' => __( 'Toggle the bottom footer area on or off.', 'redux-framework-demo' ),
+						"default" => '1',
+						'on' => __( 'On', 'redux-framework-demo' ),
+						'off' => __( 'Off', 'redux-framework-demo' ),
 					),
 					array(
 						'id' => 'opt-editor',
@@ -409,14 +410,16 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 						'title' => __( 'Footer Text', 'redux-framework-demo' ),
 						'subtitle' => __( 'You can use the following shortcodes in your footer text: [wp-url] [site-url] [theme-url] [login-url] [logout-url] [site-title] [site-tagline] [current-year]', 'redux-framework-demo' ),
 						'default' => 'Powered by Redux Framework.',
+						'required' => array( 'footer_area', 'equals', '1' ),
 					),
 					array(
 						'id' => 'powered_by',
-						'type' => 'checkbox',
+						'type' => 'switch',
 						'title' => __( 'Powered by rtCamp', 'redux-framework-demo' ),
 						'subtitle' => __( 'Show "Powered by rtCamp" link in footer using my affiliate ID', 'redux-framework-demo' ),
-						//'desc' => __( 'Hide admin bar', 'redux-framework-demo' ),
-						'default' => '0'// 1 = on | 0 = off
+						"default" => '0',
+						'on' => __( 'On', 'redux-framework-demo' ),
+						'off' => __( 'Off', 'redux-framework-demo' ),
 					),
 					array(
 						'id' => 'affiliate_id',
@@ -450,7 +453,7 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 						'title' => __( 'Entry Excerpt length', 'redux-framework-demo' ),
 						'desc' => '',
 						'subtitle' => __( 'How many words do you want to show for your blog entry excerpts?', 'redux-framework-demo' ),
-						'default' => '40',
+						'default' => '50',
 						'required' => array( 'blog_exceprt', 'equals', '1' ),
 					),
 					array(
@@ -467,8 +470,170 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 						'type' => 'text',
 						'title' => __( 'Entry Read More Text', 'redux-framework-demo' ),
 						'subtitle' => __( 'Your custom entry read more button text, default is "Continue Reading".', 'redux-framework-demo' ),
-						"default" => '',
+						'default' => '',
 						'required' => array( 'blog_entry_readmore', 'equals', '1' ),
+					),
+					array(
+						'id' => 'multi-info',
+						'type' => 'info',
+						'title' => false,
+						'desc' => __( 'Post Thumbnail Settings', 'redux-framework-demo' ),
+					),
+					array(
+						'id' => 'post_thumbnails',
+						'type' => 'switch',
+						'title' => __( 'Enable Thumbnails', 'redux-framework-demo' ),
+						'subtitle' => __( 'Toggle the blog entry read more button on or off.', 'redux-framework-demo' ),
+						"default" => '1',
+						'on' => __( 'On', 'redux-framework-demo' ),
+						'off' => __( 'Off', 'redux-framework-demo' ),
+					),
+					array(
+						'id' => 'thumbnail-alignment',
+						'type' => 'select',
+						'title' => __( 'Thumbnail Alignment', 'redux-framework-demo' ),
+						'subtitle' => __( 'Select the thumbnail alignment', 'redux-framework-demo' ),
+						'options' => array( 'alignnone' => 'None', 'alignleft' => 'Left', 'alignright' => 'Right', 'aligncenter' => 'Center' ),
+						'default' => 'alignnone',
+						'required' => array( 'post_thumbnails', 'equals', '1' ),
+					),
+					array(
+						'id' => 'blog_single_thumbnail',
+						'type' => 'switch',
+						'title' => __( 'Post Featured Image', 'redux-framework-demo' ),
+						'subtitle' => __( 'Toggle the display of featured images on single blog posts on or off.', 'redux-framework-demo' ),
+						"default" => '1',
+						'on' => __( 'On', 'redux-framework-demo' ),
+						'off' => __( 'Off', 'redux-framework-demo' ),
+					),
+					array(
+						'id' => 'multi-info',
+						'type' => 'info',
+						'title' => false,
+						'desc' => __( 'Post Meta Settings', 'redux-framework-demo' ),
+					),
+					array(
+						'id' => 'post_meta',
+						'type' => 'switch',
+						'title' => __( 'Post Meta', 'redux-framework-demo' ),
+						'subtitle' => __( 'Toggle the display post author in meta.', 'redux-framework-demo' ),
+						"default" => '1',
+						'on' => __( 'On', 'redux-framework-demo' ),
+						'off' => __( 'Off', 'redux-framework-demo' ),
+					),
+					array(
+						'id' => 'post_author',
+						'type' => 'switch',
+						'title' => __( 'Post Author', 'redux-framework-demo' ),
+						'subtitle' => __( 'Toggle the display post author in meta.', 'redux-framework-demo' ),
+						"default" => '1',
+						'on' => __( 'On', 'redux-framework-demo' ),
+						'off' => __( 'Off', 'redux-framework-demo' ),
+						'required' => array( 'post_meta', 'equals', '1' ),
+					),
+					array(
+						'id' => 'post_date',
+						'type' => 'switch',
+						'title' => __( 'Post Date', 'redux-framework-demo' ),
+						'subtitle' => __( 'Toggle the display post dates in meta.', 'redux-framework-demo' ),
+						"default" => '1',
+						'on' => __( 'On', 'redux-framework-demo' ),
+						'off' => __( 'Off', 'redux-framework-demo' ),
+						'required' => array( 'post_meta', 'equals', '1' ),
+					),
+					array(
+						'id' => 'post_categories',
+						'type' => 'switch',
+						'title' => __( 'Post Categories', 'redux-framework-demo' ),
+						'subtitle' => __( 'Toggle the display post categories in meta.', 'redux-framework-demo' ),
+						"default" => '1',
+						'on' => __( 'On', 'redux-framework-demo' ),
+						'off' => __( 'Off', 'redux-framework-demo' ),
+						'required' => array( 'post_meta', 'equals', '1' ),
+					),
+					array(
+						'id' => 'post_tags',
+						'type' => 'switch',
+						'title' => __( 'Post Tags', 'redux-framework-demo' ),
+						'subtitle' => __( 'Toggle the display post tags in meta.', 'redux-framework-demo' ),
+						"default" => '1',
+						'on' => __( 'On', 'redux-framework-demo' ),
+						'off' => __( 'Off', 'redux-framework-demo' ),
+						'required' => array( 'post_meta', 'equals', '1' ),
+					),
+					array(
+						'id' => 'comment_count',
+						'type' => 'switch',
+						'title' => __( 'Comment Count', 'redux-framework-demo' ),
+						'subtitle' => __( 'Toggle the display comment count in meta.', 'redux-framework-demo' ),
+						"default" => '1',
+						'on' => __( 'On', 'redux-framework-demo' ),
+						'off' => __( 'Off', 'redux-framework-demo' ),
+						'required' => array( 'post_meta', 'equals', '1' ),
+					),
+					array(
+						'id' => 'multi-info',
+						'type' => 'info',
+						'title' => false,
+						'desc' => __( 'Pagination Settings', 'redux-framework-demo' ),
+					),
+					array(
+						'id' => 'pagination',
+						'type' => 'switch',
+						'title' => __( 'Pagination', 'redux-framework-demo' ),
+						'subtitle' => __( 'Toggle the display pagination.', 'redux-framework-demo' ),
+						"default" => '1',
+						'on' => __( 'On', 'redux-framework-demo' ),
+						'off' => __( 'Off', 'redux-framework-demo' ),
+					),
+					array(
+						'id' => 'prev_text',
+						'type' => 'text',
+						'title' => __( 'Prev Text', 'redux-framework-demo' ),
+						'subtitle' => __( 'Text to display for Previous Page', 'redux-framework-demo' ),
+						"default" => '« Previous',
+						'required' => array( 'pagination', 'equals', '1' ),
+					),
+					array(
+						'id' => 'next_text',
+						'type' => 'text',
+						'title' => __( 'Next Text', 'redux-framework-demo' ),
+						'subtitle' => __( 'Text to display for Next Page', 'redux-framework-demo' ),
+						"default" => 'Next »',
+						'required' => array( 'pagination', 'equals', '1' ),
+					),
+					array(
+						'id' => 'end_size',
+						'type' => 'text',
+						'title' => __( 'End Size', 'redux-framework-demo' ),
+						'subtitle' => __( 'How many numbers on either the start and the end list edges?', 'redux-framework-demo' ),
+						"default" => '1',
+						'validate' => 'numeric',
+						'required' => array( 'pagination', 'equals', '1' ),
+					),
+					array(
+						'id' => 'mid_size',
+						'type' => 'text',
+						'title' => __( 'Mid Size', 'redux-framework-demo' ),
+						'subtitle' => __( 'How many numbers to either side of current page, but not including current page?', 'redux-framework-demo' ),
+						"default" => '2',
+						'validate' => 'numeric',
+						'required' => array( 'pagination', 'equals', '1' ),
+					),
+					array(
+						'id' => 'multi-info',
+						'type' => 'info',
+						'title' => false,
+						'desc' => __( 'Comment Settings', 'redux-framework-demo' ),
+					),
+					array(
+						'id' => 'comment',
+						'type' => 'switch',
+						'title' => __( 'Site Comments', 'redux-framework-demo' ),
+						'subtitle' => __( 'Toggle the display to unable/disable comments.', 'redux-framework-demo' ),
+						"default" => '1',
+						'on' => __( 'On', 'redux-framework-demo' ),
+						'off' => __( 'Off', 'redux-framework-demo' ),
 					),
 				)
 			);
@@ -724,23 +889,23 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 
 			// SOCIAL ICONS -> Setup custom links in the footer for quick links in your panel footer icons.
 			$this->args[ 'share_icons' ][] = array(
-				'url' => 'https://github.com/ReduxFramework/ReduxFramework',
+				'url' => 'https://github.com/rtcamp/',
 				'title' => 'Visit us on GitHub',
 				'icon' => 'el-icon-github'
 					//'img'   => '', // You can use icon OR img. IMG needs to be a full URL.
 			);
 			$this->args[ 'share_icons' ][] = array(
-				'url' => 'https://www.facebook.com/pages/Redux-Framework/243141545850368',
+				'url' => 'https://www.facebook.com/rtCamp.solutions',
 				'title' => 'Like us on Facebook',
 				'icon' => 'el-icon-facebook'
 			);
 			$this->args[ 'share_icons' ][] = array(
-				'url' => 'http://twitter.com/reduxframework',
+				'url' => 'https://twitter.com/rtcamp',
 				'title' => 'Follow us on Twitter',
 				'icon' => 'el-icon-twitter'
 			);
 			$this->args[ 'share_icons' ][] = array(
-				'url' => 'http://www.linkedin.com/company/redux-framework',
+				'url' => 'https://www.linkedin.com/company/rtcamp',
 				'title' => 'Find us on LinkedIn',
 				'icon' => 'el-icon-linkedin'
 			);
@@ -808,139 +973,5 @@ if ( ! function_exists( 'rtpanel_validate_callback_function' ) ):
 		return $return;
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 endif;
+?>
