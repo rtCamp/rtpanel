@@ -213,7 +213,7 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 						'url' => true,
 						'title' => __( 'Logo', 'redux-framework-demo' ),
 						'subtitle' => __( 'Upload your custom site logo.', 'redux-framework-demo' ),
-						'default' => array( 'url' => get_template_directory_uri() . '/img/rtp-logo.png' ),
+					//'default' => array( 'url' => get_template_directory_uri() . '/img/rtp-logo.png' ),
 					),
 					array(
 						'id' => 'favicon',
@@ -454,6 +454,7 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 						'desc' => '',
 						'subtitle' => __( 'How many words do you want to show for your blog entry excerpts?', 'redux-framework-demo' ),
 						'default' => '50',
+						'validate' => 'numeric',
 						'required' => array( 'blog_exceprt', 'equals', '1' ),
 					),
 					array(
@@ -817,7 +818,7 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 
 			$this->args = array(
 				// TYPICAL -> Change these values as you need/desire
-				'opt_name' => 'rtp_settings', // This is where your data is stored in the database and also becomes your global variable name.
+				'opt_name' => 'rtp_options', // This is where your data is stored in the database and also becomes your global variable name.
 				'display_name' => $theme->get( 'Name' ), // Name that appears at the top of your panel
 				'display_version' => $theme->get( 'Version' ), // Version that appears at the top of your panel
 				'menu_type' => 'menu', //Specify if the admin menu should appear or not. Options: menu or submenu (Under appearance only)

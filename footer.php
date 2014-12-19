@@ -19,17 +19,25 @@ rtp_hook_end_content_row();
 
 <?php rtp_hook_after_content_wrapper(); ?>
 
-<?php rtp_hook_before_footer(); ?>
+
 
 <footer id="footer-wrapper" role="contentinfo" class="clearfix rtp-footer-wrapper rtp-section-wrapper">
+	<?php rtp_hook_before_footer(); ?>
 
-	<?php rtp_hook_begin_footer(); ?>
+	<div id="footer" class="rtp-footer rtp-section-container row">
+		<?php rtp_hook_begin_footer(); ?>
 
-	<?php rtp_hook_end_footer(); ?>
+		<?php $rtp_set_grid_class = apply_filters( 'rtp_set_full_width_grid_class', 'large-12 columns rtp-full-width-grid' ); ?>
+		<div class="rtp-footer-section <?php echo esc_attr( $rtp_set_grid_class ); ?>">
+			<?php rtp_hook_within_footer(); ?>
+		</div>
+
+		<?php rtp_hook_end_footer(); ?>
+	</div><!-- #footer -->
+
+	<?php rtp_hook_after_footer(); ?>
 
 </footer><!-- #footer-wrapper-->
-
-<?php rtp_hook_after_footer(); ?>
 
 <?php rtp_hook_end_main_wrapper(); ?>
 

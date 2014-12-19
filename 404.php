@@ -3,32 +3,31 @@
  * The template for displaying 404 pages (Not Found)
  *
  * @package rtPanel
- * 
+ *
  * @since rtPanel 2.0
  */
 get_header();
 
-	$rtp_content_grid_class = apply_filters( 'rtp_set_content_grid_class', 'large-8 columns' ); ?>
+$rtp_content_grid_class = apply_filters( 'rtp_set_content_grid_class', 'large-8 columns' );
+?>
 
-	<section id="content" role="main" class="rtp-content-section rtp-singular rtp-404-content <?php echo esc_attr( $rtp_content_grid_class ); ?>">
+<main id="main" class="rtp-main-content <?php echo esc_attr( $rtp_content_grid_class ); ?>" role="main">
 
-		<?php rtp_hook_begin_content(); ?>
+	<section class="error-404 not-found">
+		<header class="page-header">
+			<h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'rtPanel' ); ?></h1>
+		</header><!-- .page-header -->
 
-		<h1 class="post-title rtp-main-title"><?php _e( 'Not Found', 'rtPanel' ); ?></h1>
+		<div class="page-content">
+			<p><?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'rtPanel' ); ?></p>
 
-            <?php rtp_hook_begin_post(); ?>
+			<?php get_search_form(); ?>
+		</div><!-- .page-content -->
+	</section><!-- .error-404 -->
 
-            <div class="post-content clearfix rtp-not-found">
-                <p><?php _e( 'Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post.', 'rtPanel' ); ?></p>
-                <?php get_search_form(); ?>
-            </div>
+</main><!-- .site-main -->
 
-            <?php rtp_hook_end_post();?>
+<?php ( rtp_get_sidebar_id() === 0 ) ? '' : rtp_hook_sidebar(); ?>
 
-        <?php rtp_hook_end_content(); ?>
-
-    </section><!-- #content -->
-
-    <?php ( rtp_get_sidebar_id() === 0 ) ? '' : rtp_hook_sidebar(); ?>
-
-<?php get_footer();
+<?php
+get_footer();

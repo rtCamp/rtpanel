@@ -1,6 +1,6 @@
 <?php
 
-$redux_opt_name = "rtp_settings";
+$redux_opt_name = "rtp_options";
 
 // Place any extra hooks/configs in here for extensions and
 // place the actual extension within the /extensions dir

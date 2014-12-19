@@ -4,7 +4,7 @@
  * rtPanel Hooks
  *
  * @package rtPanel
- * 
+ *
  * @since rtPanel 2.0
  */
 
@@ -69,6 +69,13 @@ function rtp_hook_begin_header() {
  */
 function rtp_hook_end_header() {
 	do_action( 'rtp_hook_end_header' );
+}
+
+/**
+ * Adds content end #header
+ */
+function rtp_hook_within_header() {
+	do_action( 'rtp_hook_within_header' );
 }
 
 /**
@@ -400,4 +407,11 @@ function rtp_hook_after_content_wrapper() {
  */
 function rtp_hook_after_comment_author_avatar() {
 	do_action( 'rtp_hook_after_comment_author_avatar' );
+}
+
+/**
+ * Adds content begin #footer-wrapper
+ */
+function rtp_hook_within_footer() {
+	do_action( 'rtp_hook_within_footer' );
 }

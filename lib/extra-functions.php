@@ -8,6 +8,83 @@
  */
 
 /**
+ * Create formatted and SEO friendly title
+ *
+ * @param string $title Default title text for current view
+ * @param string $sep Optional separator
+ * @return string The filtered title
+ *
+ * @since rtPanel 4.1.1
+ */
+function rtp_wp_title( $title, $sep ) {
+	global $paged, $page;
+
+	if ( is_feed() ) {
+		return $title;
+	}
+
+	// Add the site name
+	$title .= get_bloginfo( 'name' );
+
+	// Add the site description for the home/front page.
+	$site_description = get_bloginfo( 'description', 'display' );
+	if ( $site_description && ( is_home() || is_front_page() ) ) {
+		$title = "$title $sep $site_description";
+	}
+
+	// Add a page number if necessary.
+	if ( $paged >= 2 || $page >= 2 ) {
+		$title = "$title $sep " . sprintf( __( 'Page %s', 'rtPanel' ), max( $paged, $page ) );
+	}
+	return $title;
+}
+
+add_filter( 'wp_title', 'rtp_wp_title', 10, 2 );
+
+/**
+ * Default Navigation Menu
+ */
+function rtp_default_nav_menu() {
+	echo '<nav id="rtp-primary-menu" role="navigation" class="clearfix rtp-nav-wrapper' . apply_filters( 'rtp_mobile_nav_support', ' rtp-mobile-nav' ) . '">';
+	rtp_hook_begin_primary_menu();
+
+	/* Call wp_nav_menu() for Wordpress Navigaton with fallback wp_list_pages() if menu not set in admin panel */
+	if ( function_exists( 'wp_nav_menu' ) && has_nav_menu( 'primary' ) ) {
+		wp_nav_menu( array( 'container' => '', 'menu_class' => 'menu rtp-nav-container clearfix', 'menu_id' => 'rtp-nav-menu', 'theme_location' => 'primary', 'depth' => apply_filters( 'rtp_nav_menu_depth', 4 ), ) );
+	} else {
+		echo '<ul id="rtp-nav-menu" class="menu rtp-nav-container clearfix">';
+		wp_list_pages( array( 'title_li' => '', 'sort_column' => 'menu_order', 'number' => '5', 'depth' => apply_filters( 'rtp_nav_menu_depth', 4 ), ) );
+		echo '</ul>';
+	}
+
+	rtp_hook_end_primary_menu();
+	echo '</nav>';
+}
+
+add_action( 'rtp_hook_within_header', 'rtp_default_nav_menu' );
+
+/**
+ * Site header image
+ *
+ * @since rtPanel 2.3
+ */
+if ( ! function_exists( 'rtp_header_image' ) ) {
+
+	/**
+	 * Get header image if it exists
+	 */
+	function rtp_header_image() {
+		if ( get_header_image() ) {
+			?>
+			<img class="rtp-header-image" src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?>" /><?php
+		}
+	}
+
+}
+
+add_action( 'rtp_hook_within_header', 'rtp_header_image' );
+
+/**
  * 'Edit' link for post/page
  *
  * @since rtPanel 2.0
