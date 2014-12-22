@@ -24,7 +24,7 @@ $sidr-text-color: $white;
     /* Theme Settings */
     background: $sidr-background; color: $sidr-text-color; font-family: $sidr-font-family; font-size: $sidr-font-size;
 
-    @include single-box-shadow($sidr-background-shadow-color, 0, 0, 5px, 5px, inset);
+    @include single-box-shadow(0, 0, 5px, 5px, $sidr-background-shadow-color, inset);
 
     ul {
         display: block;
@@ -41,10 +41,10 @@ $sidr-text-color: $white;
             border-bottom: 1px solid darken($sidr-background, 10%);
 
             &:hover, &.active,
-				&.sidr-class-current-menu-item { 
+				&.sidr-class-current-menu-item {
 				border-top: none; line-height: 49px;
 				& > a, & > span {
-					@include single-box-shadow($sidr-background-shadow-color, 0, 0, 15px, 3px, inset);
+					@include single-box-shadow(0, 0, 15px, 3px, $sidr-background-shadow-color, inset);
 				}
             }
 
@@ -62,7 +62,7 @@ $sidr-text-color: $white;
                         border-top: none; line-height: 41px;
 
                         & > a, & > span {
-                            @include single-box-shadow($sidr-background-shadow-color, 0, 0, 15px, 3px, inset);
+                            @include single-box-shadow(0, 0, 15px, 3px, $sidr-background-shadow-color, inset);
                         }
                     }
 

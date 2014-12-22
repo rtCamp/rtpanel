@@ -262,10 +262,14 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 					),
 					array(
 						'id' => 'main_container_width',
-						'type' => 'text',
+						'type' => 'dimensions',
 						'title' => __( 'Main Container Width', 'redux-framework-demo' ),
-						'subtitle' => __( 'Enter your custom main container width in pixels.', 'redux-framework-demo' ),
-						'default' => '1200px',
+						'subtitle' => __( 'Enter your custom main container width.', 'redux-framework-demo' ),
+						'height' => false,
+						'default' => array(
+							'width' => '1200'
+						),
+						'output' => array( '.row' ),
 					),
 				)
 			);

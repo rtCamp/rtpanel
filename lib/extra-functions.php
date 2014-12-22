@@ -61,8 +61,6 @@ function rtp_default_nav_menu() {
 	echo '</nav>';
 }
 
-add_action( 'rtp_hook_within_header', 'rtp_default_nav_menu' );
-
 /**
  * Site header image
  *

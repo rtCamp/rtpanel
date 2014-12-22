@@ -40,6 +40,10 @@ $rtp_version = get_option( 'rtp_version' ); // rtPanel Version
  */
 require get_template_directory() . '/admin/admin-init.php';
 
+/* Includes PHP files located in 'lib' folder */
+foreach ( glob( get_template_directory() . '/framework/*.php' ) as $framework_filename ) {
+	require_once( $framework_filename );
+}
 
 /* Includes PHP files located in 'lib' folder */
 foreach ( glob( get_template_directory() . '/lib/*.php' ) as $lib_filename ) {

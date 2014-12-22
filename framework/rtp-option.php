@@ -1,7 +1,8 @@
 <?php
 
-global $rtp_options;
-
+/*
+ * Get Option
+ */
 
 if ( ! function_exists( 'rtp_option' ) ) {
 

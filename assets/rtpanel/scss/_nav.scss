@@ -30,13 +30,13 @@ $menu-spacing: rem-calc(12 30);
 .rtp-nav-wrapper {
 	@include rtp-bg-color(); clear: both; min-height: $menu-height; margin-bottom: rem-calc(30); position: relative;
 	@if $menu-full-bg {
-		&:before, &:after { content: ' '; position: absolute; background: $background-menu; top: 0;  bottom: 0; width: rem-calc(9999); } 
+		&:before, &:after { content: ' '; position: absolute; background: $background-menu; top: 0;  bottom: 0; width: rem-calc(9999); }
 		&:before { right: 100%; }
 		&:after { left: 100%; }
 	}
 }
 
-.rtp-nav-container { 
+.rtp-nav-container {
 	@include rtp-margin-padding-0; // Self
 
 	// Menu List
@@ -62,7 +62,7 @@ $menu-spacing: rem-calc(12 30);
 	}
 
 	// Navigation Links
-	a { 
+	a {
 		color: $white; font-size: $menu-font-size; display: block; height: auto; line-height: 1.5; padding: $menu-spacing; text-decoration: none; word-wrap: break-word;
 
 		// Hover
@@ -70,13 +70,13 @@ $menu-spacing: rem-calc(12 30);
 	}
 
 	// Submenu Support //
-	ul { 
+	ul {
 		background-color: $submenu-bg; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28); display: none; left: 0; @include rtp-margin-padding-0; position: absolute; top: $menu-height; width: $submenu-width; z-index: 9; // Self
 
 		a { color: $submenu-link-color; }
 
 		// Submenu List
-		li { 
+		li {
 			border-bottom: 1px solid $submenu-border-color; min-width: $submenu-width; width: 100%;
 
 			// Submenu Links
