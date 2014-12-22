@@ -1,5 +1,11 @@
 # Redux Framework Changelog
 
+## 3.3.9.27
+* Fixed:    Added PHP 5.2 support (ugh!) for SASS compiler.
+
+## 3.3.9.26
+* Fixed:    More SASS compiler tweaking.
+
 ## 3.3.9.25
 * Fixed:    PHP errors when disabling SASS.
 
