@@ -70,7 +70,7 @@
             // ATTENTION DEVS
             // Please update the build number with each push, no matter how small.
             // This will make for easier support when we ask users what version they are using.
-            public static $_version = '3.3.9.27';
+            public static $_version = '3.3.9.29';
             public static $_dir; 
             public static $_url;
             public static $_upload_dir;
@@ -1634,7 +1634,7 @@
                 $min                      = Redux_Functions::isMin();
 
                 // Select2 business.  Fields:  Background, Border, Dimensions, Select, Slider, Typography
-                if ( Redux_Helpers::isFieldInUseByType( $this->fields, array(
+                $field_arr = array(
                     'background',
                     'border',
                     'dimensions',
@@ -1645,9 +1645,9 @@
                     'typography',
                     'color_scheme',
                     'css_layout'
-
-                ) )
-                ) {
+                );
+                
+                if ( Redux_Helpers::isFieldInUseByType( $this->fields, $field_arr ) ) {
 
                     // select2 CSS
                     wp_register_style(
