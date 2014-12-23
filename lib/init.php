@@ -23,7 +23,9 @@ function rtp_adjust_content_width() {
 	global $content_width;
 
 	if ( is_page_template( 'template-full-width.php' ) ) {
-		$content_width = 1200;
+		$main_container_width = rtp_option( 'main_container_width', 'width' );
+		$width = ( ! empty( $main_container_width )) ? $main_container_width : 1200;
+		$content_width = filter_var( $width, FILTER_SANITIZE_NUMBER_INT );
 	}
 }
 

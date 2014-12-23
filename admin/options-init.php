@@ -221,7 +221,7 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 						'url' => true,
 						'title' => __( 'Favicon', 'redux-framework-demo' ),
 						'subtitle' => __( 'Upload your custom site favicon.', 'redux-framework-demo' ),
-						'default' => array( 'url' => get_template_directory_uri() . '/img/favicon.ico' ),
+					//'default' => array( 'url' => get_template_directory_uri() . '/img/favicon.ico' ),
 					),
 				)
 			);
@@ -255,19 +255,19 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 						'title' => __( 'Layout Style', 'redux-framework-demo' ),
 						'subtitle' => __( 'Select your website layout style.', 'redux-framework-demo' ),
 						'options' => array(
-							'full-width' => __( 'Full Width', 'redux-framework-demo' ),
-							'boxed' => __( 'Boxed', 'redux-framework-demo' ),
+							'rtp-full-width-layout' => __( 'Full Width', 'redux-framework-demo' ),
+							'rtp-boxed-layout' => __( 'Boxed', 'redux-framework-demo' ),
 						),
-						'default' => 'full-width'
+						'default' => 'rtp-full-width-layout'
 					),
 					array(
 						'id' => 'main_container_width',
 						'type' => 'dimensions',
 						'title' => __( 'Main Container Width', 'redux-framework-demo' ),
-						'subtitle' => __( 'Enter your custom main container width.', 'redux-framework-demo' ),
+						'subtitle' => __( 'Enter your custom main container width. Default width is 1200px', 'redux-framework-demo' ),
 						'height' => false,
 						'default' => array(
-							'width' => '1200'
+						//'width' => '1200'
 						),
 						'output' => array( '.row' ),
 					),

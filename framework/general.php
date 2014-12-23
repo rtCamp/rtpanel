@@ -1,15 +1,14 @@
 <?php
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Logo
  */
 
 if ( ! function_exists( 'rtp_header_logo' ) ) {
 
 	function rtp_header_logo() {
-		$logo_id = rtp_option( 'custom_logo', false, 'id' );
-		$logo = ( '' != $logo_id ) ? wp_get_attachment_image( $logo_id, 'full', '', array( 'class' => 'rtp-custom-logo' ) ) : get_bloginfo( 'name' );
+		$logo_id = rtp_option( 'custom_logo', 'id' );
+
+		$logo = ( $logo_id ) ? wp_get_attachment_image( $logo_id, 'full', '', array( 'class' => 'rtp-custom-logo' ) ) : get_bloginfo( 'name' );
 		?>
 
 		<div class="rtp-logo-container clearfix">
@@ -31,6 +30,24 @@ if ( ! function_exists( 'rtp_header_logo' ) ) {
 
 			<?php rtp_hook_after_logo(); ?>
 		</div><?php
+	}
+
+}
+
+
+/**
+ * Adds favicon to Wpadmin
+ */
+if ( ! function_exists( 'rtp_favicon' ) ) {
+
+	function rtp_favicon() {
+		$favicon = rtp_option( 'favicon', false, 'url' );
+
+		if ( '' != $favicon ) {
+			?>
+			<link rel="shortcut icon" type="image/x-icon" href="<?php echo esc_url( $favicon ); ?>" />
+			<?php
+		}
 	}
 
 }

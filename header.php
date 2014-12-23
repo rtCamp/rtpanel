@@ -8,9 +8,13 @@
  *
  * @since rtPanel 2.0
  */
-?><!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" <?php language_attributes(); ?>><![endif]-->
-<!--[if gt IE 8]><!--><html class="no-js" <?php language_attributes(); ?>><!--<![endif]-->
+$html_class = apply_filters( 'rtp_set_html_class', 'rtp-html' );
+?>
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="<?php echo esc_attr( $html_class ); ?> lt-ie9" <?php language_attributes(); ?>><![endif]-->
+<!--[if gt IE 8]><!--><html class="<?php echo esc_attr( $html_class ); ?>" <?php language_attributes(); ?>><!--<![endif]-->
+
     <head>
         <meta http-equiv="Content-Type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php bloginfo( 'charset' ); ?>" />
 
