@@ -102,7 +102,7 @@ add_action( 'rtp_hook_begin_post_meta_top', 'rtp_edit_link' );
 function rtp_blog_description() {
 	if ( get_bloginfo( 'description' ) ) {
 		?>
-		<h3 class="tagline"><?php bloginfo( 'description' ); ?></h3><?php
+		<p class="tagline"><?php bloginfo( 'description' ); ?></p><?php
 	}
 }
 

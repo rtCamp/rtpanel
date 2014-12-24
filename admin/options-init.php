@@ -280,7 +280,7 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 				'icon' => 'el-icon-font',
 				'fields' => array(
 					array(
-						'id' => 'opt-typography-body',
+						'id' => 'typography_body',
 						'type' => 'typography',
 						'title' => __( 'Body Font', 'redux-framework-demo' ),
 						'subtitle' => __( 'Specify the body font properties.', 'redux-framework-demo' ),
@@ -288,14 +288,15 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 						'line-height' => false,
 						'text-align' => false,
 						'default' => array(
-							'color' => '#dd9933',
+							'color' => '#333333',
 							'font-size' => '16px',
 							'font-family' => 'Arial,Helvetica,sans-serif',
 							'font-weight' => 'Normal',
 						),
+						'output' => array( 'body' ),
 					),
 					array(
-						'id' => 'opt-typography-heading',
+						'id' => 'typography_heading',
 						'type' => 'typography',
 						'title' => __( 'Heading Font', 'redux-framework-demo' ),
 						'subtitle' => __( 'Specify the heading tag font properties.', 'redux-framework-demo' ),
@@ -304,17 +305,19 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 						'line-height' => false,
 						'text-align' => false,
 						'default' => array(
-							'color' => '#dd9933',
+							'color' => '#333333',
 							'font-family' => 'Arial,Helvetica,sans-serif',
 							'font-weight' => 'Normal',
 						),
+						'output' => array( 'h1, h2, h3, h4, h5, h6' ),
 					),
 					array(
-						'id' => 'opt-typography-coding',
+						'id' => 'typography_coding',
 						'type' => 'typography',
 						'title' => __( 'Coding Font', 'redux-framework-demo' ),
 						'subtitle' => __( 'Set coding fonts for kbd, pre, samp, code, etc tags.', 'redux-framework-demo' ),
 						'google' => true,
+						'color' => false,
 						'font-size' => false,
 						'line-height' => false,
 						'text-align' => false,
@@ -323,6 +326,7 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 							'font-family' => 'Arial,Helvetica,sans-serif',
 							'font-weight' => 'Normal',
 						),
+						'output' => array( 'kbd, pre, samp, code' ),
 					),
 				)
 			);
@@ -333,7 +337,7 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 				'icon' => 'el-icon-brush',
 				'fields' => array(
 					array(
-						'id' => 'opt-select-stylesheet',
+						'id' => 'select_stylesheet',
 						'type' => 'select',
 						'title' => __( 'Theme Stylesheet', 'redux-framework-demo' ),
 						'subtitle' => __( 'Select your themes alternative color scheme.', 'redux-framework-demo' ),
@@ -341,7 +345,7 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 						'default' => 'default.css',
 					),
 					array(
-						'id' => 'opt-link-color',
+						'id' => 'link_color',
 						'type' => 'link_color',
 						'title' => __( 'Links Color Option', 'redux-framework-demo' ),
 						'subtitle' => __( 'Only color validation can be done on this field type', 'redux-framework-demo' ),
@@ -409,7 +413,7 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 						'off' => __( 'Off', 'redux-framework-demo' ),
 					),
 					array(
-						'id' => 'opt-editor',
+						'id' => 'footer_content',
 						'type' => 'editor',
 						'title' => __( 'Footer Text', 'redux-framework-demo' ),
 						'subtitle' => __( 'You can use the following shortcodes in your footer text: [wp-url] [site-url] [theme-url] [login-url] [logout-url] [site-title] [site-tagline] [current-year]', 'redux-framework-demo' ),
@@ -443,7 +447,7 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 				'icon' => 'el-icon-edit',
 				'fields' => array(
 					array(
-						'id' => 'blog_exceprt',
+						'id' => 'blog_excerpt',
 						'type' => 'switch',
 						'title' => __( 'Entry Auto Excerpts', 'redux-framework-demo' ),
 						'subtitle' => __( 'Toggle your blog auto excerpts on or off.', 'redux-framework-demo' ),
@@ -459,7 +463,7 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 						'subtitle' => __( 'How many words do you want to show for your blog entry excerpts?', 'redux-framework-demo' ),
 						'default' => '50',
 						'validate' => 'numeric',
-						'required' => array( 'blog_exceprt', 'equals', '1' ),
+						'required' => array( 'blog_excerpt', 'equals', '1' ),
 					),
 					array(
 						'id' => 'blog_entry_readmore',
@@ -475,11 +479,11 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 						'type' => 'text',
 						'title' => __( 'Entry Read More Text', 'redux-framework-demo' ),
 						'subtitle' => __( 'Your custom entry read more button text, default is "Continue Reading".', 'redux-framework-demo' ),
-						'default' => '',
+						'default' => 'Continue reading',
 						'required' => array( 'blog_entry_readmore', 'equals', '1' ),
 					),
 					array(
-						'id' => 'multi-info',
+						'id' => 'post_thumb_info',
 						'type' => 'info',
 						'title' => false,
 						'desc' => __( 'Post Thumbnail Settings', 'redux-framework-demo' ),
@@ -487,19 +491,19 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 					array(
 						'id' => 'post_thumbnails',
 						'type' => 'switch',
-						'title' => __( 'Enable Thumbnails', 'redux-framework-demo' ),
-						'subtitle' => __( 'Toggle the blog entry read more button on or off.', 'redux-framework-demo' ),
+						'title' => __( 'Blog Archives Thumbnails', 'redux-framework-demo' ),
+						'subtitle' => __( 'Toggle the blog entry post thumbnails on or off. Shows only feature image.', 'redux-framework-demo' ),
 						"default" => '1',
 						'on' => __( 'On', 'redux-framework-demo' ),
 						'off' => __( 'Off', 'redux-framework-demo' ),
 					),
 					array(
-						'id' => 'thumbnail-alignment',
+						'id' => 'thumbnail_alignment',
 						'type' => 'select',
 						'title' => __( 'Thumbnail Alignment', 'redux-framework-demo' ),
 						'subtitle' => __( 'Select the thumbnail alignment', 'redux-framework-demo' ),
 						'options' => array( 'alignnone' => 'None', 'alignleft' => 'Left', 'alignright' => 'Right', 'aligncenter' => 'Center' ),
-						'default' => 'alignnone',
+						'default' => 'alignright',
 						'required' => array( 'post_thumbnails', 'equals', '1' ),
 					),
 					array(
@@ -512,7 +516,16 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 						'off' => __( 'Off', 'redux-framework-demo' ),
 					),
 					array(
-						'id' => 'multi-info',
+						'id' => 'single_thumbnail_alignment',
+						'type' => 'select',
+						'title' => __( 'Featured Image Alignment', 'redux-framework-demo' ),
+						'subtitle' => __( 'Select the image alignment', 'redux-framework-demo' ),
+						'options' => array( 'alignnone' => 'None', 'alignleft' => 'Left', 'alignright' => 'Right', 'aligncenter' => 'Center' ),
+						'default' => 'aligncenter',
+						'required' => array( 'blog_single_thumbnail', 'equals', '1' ),
+					),
+					array(
+						'id' => 'post_meta_info',
 						'type' => 'info',
 						'title' => false,
 						'desc' => __( 'Post Meta Settings', 'redux-framework-demo' ),
@@ -577,7 +590,7 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 						'required' => array( 'post_meta', 'equals', '1' ),
 					),
 					array(
-						'id' => 'multi-info',
+						'id' => 'pagination-info',
 						'type' => 'info',
 						'title' => false,
 						'desc' => __( 'Pagination Settings', 'redux-framework-demo' ),
@@ -626,7 +639,7 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 						'required' => array( 'pagination', 'equals', '1' ),
 					),
 					array(
-						'id' => 'multi-info',
+						'id' => 'comment_info',
 						'type' => 'info',
 						'title' => false,
 						'desc' => __( 'Comment Settings', 'redux-framework-demo' ),
@@ -657,7 +670,7 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 						'desc' => 'Validate that it\'s javascript!',
 					),
 					array(
-						'id' => 'opt-ace-editor-css',
+						'id' => 'editor_css',
 						'type' => 'ace_editor',
 						'title' => __( 'CSS Code', 'redux-framework-demo' ),
 						'subtitle' => __( 'Paste your CSS code here.', 'redux-framework-demo' ),
@@ -667,7 +680,7 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 						'default' => "#header{\nmargin: 0 auto;\n}"
 					),
 					array(
-						'id' => 'opt-ace-editor-js',
+						'id' => 'editor_js',
 						'type' => 'ace_editor',
 						'title' => __( 'JS Code', 'redux-framework-demo' ),
 						'subtitle' => __( 'Paste your JS code here.', 'redux-framework-demo' ),
@@ -677,7 +690,7 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 						'default' => "jQuery(document).ready(function(){\n\n});"
 					),
 					array(
-						'id' => 'opt-ace-editor-php',
+						'id' => 'editor_php',
 						'type' => 'ace_editor',
 						'title' => __( 'PHP Code', 'redux-framework-demo' ),
 						'subtitle' => __( 'Paste your PHP code here.', 'redux-framework-demo' ),

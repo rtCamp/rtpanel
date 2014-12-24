@@ -6,7 +6,7 @@
 if ( ! function_exists( 'rtp_header_logo' ) ) {
 
 	function rtp_header_logo() {
-		$logo_id = rtp_option( 'custom_logo', 'id' );
+		$logo_id = rtp_get_option( 'custom_logo', 'id' );
 
 		$logo = ( $logo_id ) ? wp_get_attachment_image( $logo_id, 'full', '', array( 'class' => 'rtp-custom-logo' ) ) : get_bloginfo( 'name' );
 		?>
@@ -41,9 +41,9 @@ if ( ! function_exists( 'rtp_header_logo' ) ) {
 if ( ! function_exists( 'rtp_favicon' ) ) {
 
 	function rtp_favicon() {
-		$favicon = rtp_option( 'favicon', false, 'url' );
+		$favicon = rtp_get_option( 'favicon', 'url' );
 
-		if ( '' != $favicon ) {
+		if ( $favicon ) {
 			?>
 			<link rel="shortcut icon" type="image/x-icon" href="<?php echo esc_url( $favicon ); ?>" />
 			<?php
