@@ -4,9 +4,9 @@
   ReduxFramework Sample Config File
   For full documentation, please visit: https://docs.reduxframework.com
  * */
-if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
+if ( ! class_exists( 'rtp_Redux_Framework_config' ) ) {
 
-	class rtpanel_Redux_Framework_config {
+	class rtp_Redux_Framework_config {
 
 		public $args = array();
 		public $sections = array();
@@ -574,16 +574,16 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 						'type' => 'switch',
 						'title' => __( 'Post Tags', 'redux-framework-demo' ),
 						'subtitle' => __( 'Toggle the display post tags in meta.', 'redux-framework-demo' ),
-						"default" => '1',
+						"default" => '0',
 						'on' => __( 'On', 'redux-framework-demo' ),
 						'off' => __( 'Off', 'redux-framework-demo' ),
 						'required' => array( 'post_meta', 'equals', '1' ),
 					),
 					array(
-						'id' => 'comment_count',
+						'id' => 'post_comment',
 						'type' => 'switch',
-						'title' => __( 'Comment Count', 'redux-framework-demo' ),
-						'subtitle' => __( 'Toggle the display comment count in meta.', 'redux-framework-demo' ),
+						'title' => __( 'Post Comments', 'redux-framework-demo' ),
+						'subtitle' => __( 'Toggle the display post comment count in meta.', 'redux-framework-demo' ),
 						"default" => '1',
 						'on' => __( 'On', 'redux-framework-demo' ),
 						'off' => __( 'Off', 'redux-framework-demo' ),
@@ -596,10 +596,10 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 						'desc' => __( 'Pagination Settings', 'redux-framework-demo' ),
 					),
 					array(
-						'id' => 'pagination',
+						'id' => 'archives_pagination',
 						'type' => 'switch',
-						'title' => __( 'Pagination', 'redux-framework-demo' ),
-						'subtitle' => __( 'Toggle the display pagination.', 'redux-framework-demo' ),
+						'title' => __( 'Blog Archives Pagination', 'redux-framework-demo' ),
+						'subtitle' => __( 'Toggle the display custom pagination.', 'redux-framework-demo' ),
 						"default" => '1',
 						'on' => __( 'On', 'redux-framework-demo' ),
 						'off' => __( 'Off', 'redux-framework-demo' ),
@@ -610,7 +610,7 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 						'title' => __( 'Prev Text', 'redux-framework-demo' ),
 						'subtitle' => __( 'Text to display for Previous Page', 'redux-framework-demo' ),
 						"default" => '« Previous',
-						'required' => array( 'pagination', 'equals', '1' ),
+						'required' => array( 'archives_pagination', 'equals', '1' ),
 					),
 					array(
 						'id' => 'next_text',
@@ -618,7 +618,7 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 						'title' => __( 'Next Text', 'redux-framework-demo' ),
 						'subtitle' => __( 'Text to display for Next Page', 'redux-framework-demo' ),
 						"default" => 'Next »',
-						'required' => array( 'pagination', 'equals', '1' ),
+						'required' => array( 'archives_pagination', 'equals', '1' ),
 					),
 					array(
 						'id' => 'end_size',
@@ -627,7 +627,7 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 						'subtitle' => __( 'How many numbers on either the start and the end list edges?', 'redux-framework-demo' ),
 						"default" => '1',
 						'validate' => 'numeric',
-						'required' => array( 'pagination', 'equals', '1' ),
+						'required' => array( 'archives_pagination', 'equals', '1' ),
 					),
 					array(
 						'id' => 'mid_size',
@@ -636,7 +636,16 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 						'subtitle' => __( 'How many numbers to either side of current page, but not including current page?', 'redux-framework-demo' ),
 						"default" => '2',
 						'validate' => 'numeric',
-						'required' => array( 'pagination', 'equals', '1' ),
+						'required' => array( 'archives_pagination', 'equals', '1' ),
+					),
+					array(
+						'id' => 'single_pagination',
+						'type' => 'switch',
+						'title' => __( 'Single Post Pagination', 'redux-framework-demo' ),
+						'subtitle' => __( 'Toggle the display pagination.', 'redux-framework-demo' ),
+						"default" => '1',
+						'on' => __( 'On', 'redux-framework-demo' ),
+						'off' => __( 'Off', 'redux-framework-demo' ),
 					),
 					array(
 						'id' => 'comment_info',
@@ -670,34 +679,34 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 						'desc' => 'Validate that it\'s javascript!',
 					),
 					array(
-						'id' => 'editor_css',
+						'id' => 'custom_css',
 						'type' => 'ace_editor',
 						'title' => __( 'CSS Code', 'redux-framework-demo' ),
 						'subtitle' => __( 'Paste your CSS code here.', 'redux-framework-demo' ),
 						'mode' => 'css',
-						'theme' => 'monokai',
+						'theme' => 'chrome',
 						'desc' => 'Possible modes can be found at <a href="http://ace.c9.io" target="_blank">http://ace.c9.io/</a>.',
-						'default' => "#header{\nmargin: 0 auto;\n}"
+						'default' => "#header{\nbackground: red;\n}"
 					),
 					array(
-						'id' => 'editor_js',
+						'id' => 'custom_js',
 						'type' => 'ace_editor',
 						'title' => __( 'JS Code', 'redux-framework-demo' ),
 						'subtitle' => __( 'Paste your JS code here.', 'redux-framework-demo' ),
 						'mode' => 'javascript',
 						'theme' => 'chrome',
 						'desc' => 'Possible modes can be found at <a href="http://ace.c9.io" target="_blank">http://ace.c9.io/</a>.',
-						'default' => "jQuery(document).ready(function(){\n\n});"
+						'default' => "jQuery( document ).ready( function(){\n\n});"
 					),
 					array(
-						'id' => 'editor_php',
+						'id' => 'custom_php',
 						'type' => 'ace_editor',
 						'title' => __( 'PHP Code', 'redux-framework-demo' ),
 						'subtitle' => __( 'Paste your PHP code here.', 'redux-framework-demo' ),
 						'mode' => 'php',
-						'theme' => 'chrome',
+						'theme' => 'monokai',
 						'desc' => 'Possible modes can be found at <a href="http://ace.c9.io" target="_blank">http://ace.c9.io/</a>.',
-						'default' => '<?php\nisset ( $redux ) ? true : false;\n?>'
+						'default' => '<?php isset ( $redux ) ? true : false; ?>'
 					),
 				)
 			);
@@ -844,7 +853,7 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 				'page_title' => __( 'rtPanel Options', 'redux-framework-demo' ),
 				// You will need to generate a Google API key to use this feature.
 				// Please visit: https://developers.google.com/fonts/docs/developer_api#Auth
-				'google_api_key' => '', // Must be defined to add google fonts to the typography module
+				'google_api_key' => 'AIzaSyAcVwUB4-1PFXbn3I4_u-ZwoDCnaXJ6MRo', // Must be defined to add google fonts to the typography module
 				'async_typography' => true, // Use a asynchronous font on the front end or font string
 				//'disable_google_fonts_link' => true,                    // Disable this in case you want to create your own google fonts loader
 				'admin_bar' => true, // Show the panel pages on the admin bar
@@ -947,15 +956,15 @@ if ( ! class_exists( 'rtpanel_Redux_Framework_config' ) ) {
 	}
 
 	global $reduxConfig;
-	$reduxConfig = new rtpanel_Redux_Framework_config();
+	$reduxConfig = new rtp_Redux_Framework_config();
 }
 
 /**
   Custom function for the callback referenced above
  */
-if ( ! function_exists( 'rtpanel_my_custom_field' ) ):
+if ( ! function_exists( 'rtp_my_custom_field' ) ):
 
-	function rtpanel_my_custom_field( $field, $value ) {
+	function rtp_my_custom_field( $field, $value ) {
 		print_r( $field );
 		echo '<br/>';
 		print_r( $value );
@@ -966,9 +975,9 @@ endif;
 /**
   Custom function for the callback validation referenced above
  * */
-if ( ! function_exists( 'rtpanel_validate_callback_function' ) ):
+if ( ! function_exists( 'rtp_validate_callback_function' ) ):
 
-	function rtpanel_validate_callback_function( $field, $value, $existing_value ) {
+	function rtp_validate_callback_function( $field, $value, $existing_value ) {
 		$error = false;
 		$value = 'just testing';
 

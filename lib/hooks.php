@@ -223,25 +223,12 @@ function rtp_hook_end_post_title() {
 }
 
 /**
- * Adds Post Meta Box (default behavior)
- *
- * @since rtPanel 2.0
- * @param String $placement for positioning top or bottom
- */
-function rtp_hook_post_meta( $placement ) {
-	if ( $placement == 'bottom' )
-		do_action( 'rtp_hook_post_meta_bottom', $placement );
-	else
-		do_action( 'rtp_hook_post_meta_top', $placement );
-}
-
-/**
  * Adds content before Top Post Meta Box
  *
  * @since rtPanel 2.0
  */
-function rtp_hook_begin_post_meta_top() {
-	do_action( 'rtp_hook_begin_post_meta_top' );
+function rtp_hook_begin_post_meta() {
+	do_action( 'rtp_hook_begin_post_meta' );
 }
 
 /**
@@ -249,26 +236,8 @@ function rtp_hook_begin_post_meta_top() {
  *
  * @since rtPanel 2.0
  */
-function rtp_hook_end_post_meta_top() {
-	do_action( 'rtp_hook_end_post_meta_top' );
-}
-
-/**
- * Adds content before Bottom Post Meta Box
- *
- * @since rtPanel 2.0
- */
-function rtp_hook_begin_post_meta_bottom() {
-	do_action( 'rtp_hook_begin_post_meta_bottom' );
-}
-
-/**
- * Adds content after Bottom Post Meta Box
- *
- * @since rtPanel 2.0
- */
-function rtp_hook_end_post_meta_bottom() {
-	do_action( 'rtp_hook_end_post_meta_bottom' );
+function rtp_hook_end_post_meta() {
+	do_action( 'rtp_hook_end_post_meta' );
 }
 
 /**
