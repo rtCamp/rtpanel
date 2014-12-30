@@ -214,27 +214,6 @@ function rtp_woocommerce_wrapper_end() {
 }
 
 /**
- * Footer Copyright Section
- *
- * @since rtPanel 4.1.2
- */
-function rtp_footer_copyright_content() {
-	?>
-	<?php $rtp_set_grid_class = apply_filters( 'rtp_set_full_width_grid_class', 'large-12 columns rtp-full-width-grid' ); ?>
-	<div class="rtp-footer-section <?php echo esc_attr( $rtp_set_grid_class ); ?>">
-		<p>&copy; <?php
-			echo date( 'Y' );
-			echo ' - ';
-			bloginfo( 'name' );
-			?>
-			<em><?php printf( __( 'Designed on <a role="link" target="_blank" href="%s" class="rtp-common-link" title="rtPanel WordPress Theme Framework">rtPanel WordPress Theme Framework</a>.', 'rtPanel' ), RTP_THEME_URL ); ?></em></p>
-	</div>
-	<?php
-}
-
-add_action( 'rtp_hook_end_footer', 'rtp_footer_copyright_content' );
-
-/**
  * Default sidebar text if widgets are inactive
  *
  * @since rtPanel 4.1.3
