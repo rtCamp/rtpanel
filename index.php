@@ -24,10 +24,22 @@ if ( rtp_get_sidebar_id() === 0 ) {
 	<?php if ( have_posts() ) : ?>
 
 		<?php if ( is_home() && ! is_front_page() ) : ?>
-			<header>
+			<header class="">
 				<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
 			</header>
 		<?php endif; ?>
+
+		<?php if ( is_archive() ) : ?>
+			<header class="page-header">
+				<?php
+				the_archive_title( '<h1 class="page-title">', '</h1>' );
+				the_archive_description( '<div class="taxonomy-description">', '</div>' );
+				?>
+			</header>
+
+			<?php
+		endif;
+		?>
 
 		<?php
 		// Start the loop.
@@ -43,12 +55,6 @@ if ( rtp_get_sidebar_id() === 0 ) {
 		// End the loop.
 		endwhile;
 
-	// Previous/next page navigation.
-//		the_posts_pagination( array(
-//			'prev_text' => __( 'Previous page', 'twentyfifteen' ),
-//			'next_text' => __( 'Next page', 'twentyfifteen' ),
-//			'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'rtPanel' ) . ' </span>',
-//		) );
 	// If no content, include the "No posts found" template.
 	else :
 		get_template_part( 'templates/content', 'none' );

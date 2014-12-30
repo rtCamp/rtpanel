@@ -191,12 +191,12 @@ if ( ! function_exists( 'rtp_archive_pagination' ) ) {
 				<nav class="rtp-navigation clearfix">
 					<?php if ( get_next_posts_link() ) { ?>
 						<div class="left"><?php next_posts_link( __( '&larr; Older Entries', 'rtPanel' ) ); ?></div>
-					<?php
+						<?php
 					}
 					if ( get_previous_posts_link() ) {
 						?>
 						<div class="right"><?php previous_posts_link( __( 'Newer Entries &rarr;', 'rtPanel' ) ); ?></div>
-				<?php } ?>
+					<?php } ?>
 				</nav><?php
 			}
 		}
@@ -223,10 +223,28 @@ if ( ! function_exists( 'rtp_single_pagination' ) ) {
 				<?php } ?>
 				<?php if ( get_adjacent_post( '', '', false ) ) { ?>
 					<div class="right"><?php next_post_link( '%link', __( '%title &rarr;', 'rtPanel' ) ); ?></div>
-			<?php } ?>
+				<?php } ?>
 			</div><!-- .rtp-navigation --><?php
 		}
 	}
 
 	add_action( 'rtp_hook_end_post', 'rtp_single_pagination' );
+}
+
+
+
+/**
+ * Displays the comments and comment form.
+ */
+if ( ! function_exists( 'rtp_default_comments' ) ) {
+
+	function rtp_default_comments() {
+		$comments_on = rtp_get_option( 'comments' );
+
+		if ( $comments_on && is_singular() ) {
+			comments_template( '', true );
+		}
+	}
+
+	add_action( 'rtp_hook_comments', 'rtp_default_comments' );
 }

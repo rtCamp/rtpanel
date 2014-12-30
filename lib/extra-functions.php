@@ -120,19 +120,6 @@ function rtp_default_sidebar() {
 add_action( 'rtp_hook_sidebar', 'rtp_default_sidebar' );
 
 /**
- * Displays the comments and comment form.
- *
- * @since rtPanel 2.1
- */
-function rtp_default_comments() {
-	if ( is_singular() ) {
-		comments_template( '', true );
-	}
-}
-
-add_action( 'rtp_hook_comments', 'rtp_default_comments' );
-
-/**
  * Get the sidebar ID for current page.
  *
  * @since rtPanel 3.1

@@ -12,34 +12,49 @@ if ( is_admin() ) {
 	return;
 }
 
-// Start function
+
+// Tracking Code
+if ( ! function_exists( 'rtp_tracking' ) ) {
+
+	function rtp_tracking() {
+		$on = rtp_get_option( 'tracking' );
+		$tracking = rtp_get_option( 'tracking_code' );
+
+		if ( $on && $tracking ) {
+			echo $tracking;
+		}
+	}
+
+	// Hook function to wp_footer
+	add_action( 'wp_footer', 'rtp_tracking', 9999 );
+}
+
+// Custom CSS
 if ( ! function_exists( 'rtp_custom_css' ) ) {
 
 	function rtp_custom_css() {
+		$on = rtp_get_option( 'css' );
 		$css = rtp_get_option( 'custom_css' );
 
-		if ( $css ) {
-			$css = '<style>' . $css . '</style>';
+		if ( $on && $css ) {
+			echo '<style>' . $css . '</style>';
 		}
-
-		echo $css;
 	}
 
 	// Hook function to wp_head
 	add_action( 'wp_head', 'rtp_custom_css' );
 }
 
-// Start function
+// Custom JavaScript
 if ( ! function_exists( 'rtp_custom_js' ) ) {
 
 	function rtp_custom_js() {
+		$on = rtp_get_option( 'js' );
 		$js = rtp_get_option( 'custom_js' );
 
-		if ( $js ) {
-			$js = '<script>' . $js . '</script>';
+		if ( $on && $js ) {
+			echo '<script>' . $js . '</script>';
 		}
-
-		echo $js;
 	}
 
 	// Hook function to wp_footer
