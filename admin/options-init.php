@@ -416,8 +416,8 @@ if ( ! class_exists( 'rtp_Redux_Framework_config' ) ) {
 						'id' => 'footer_content',
 						'type' => 'editor',
 						'title' => __( 'Footer Text', 'rtPanel' ),
-						'subtitle' => __( 'You can use the following shortcodes in your footer text: [wp-url] [site-url] [theme-url] [login-url] [logout-url] [site-title] [site-tagline] [current-year]', 'rtPanel' ),
-						'default' => 'Powered by Redux Framework.',
+						'subtitle' => __( 'Copyright content', 'rtPanel' ),
+						'default' => '&copy; ' . date( 'Y' ) . ' - rtPanel WordPress Theme Framework.',
 						'required' => array( 'footer_area', 'equals', '1' ),
 					),
 					array(
