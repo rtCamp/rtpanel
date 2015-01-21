@@ -32,7 +32,7 @@ function rtp_adjust_content_width() {
 add_action( 'template_redirect', 'rtp_adjust_content_width' );
 
 
-if ( ! function_exists( 'rtpanel_setup' ) ) {
+if ( ! function_exists( 'rtp_theme_setup' ) ) {
 
 	/**
 	 * Sets up rtPanel
@@ -42,7 +42,7 @@ if ( ! function_exists( 'rtpanel_setup' ) ) {
 	 *
 	 * @since rtPanel 2.0
 	 */
-	function rtpanel_setup() {
+	function rtp_theme_setup() {
 
 		/*
 		 * Make rtPanle available for translation.
@@ -103,7 +103,7 @@ if ( ! function_exists( 'rtpanel_setup' ) ) {
 	}
 
 }
-add_action( 'after_setup_theme', 'rtpanel_setup' ); // Tell WordPress to run rtpanel_setup() when the 'after_setup_theme' hook is run
+add_action( 'after_setup_theme', 'rtp_theme_setup' ); // Tell WordPress to run rtp_theme_setup() when the 'after_setup_theme' hook is run
 
 /**
  * Enqueues rtPanel Default Scripts

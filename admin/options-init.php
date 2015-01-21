@@ -904,6 +904,7 @@ if ( ! class_exists( 'rtp_Redux_Framework_config' ) ) {
 				// FUTURE -> Not in use yet, but reserved or partially implemented. Use at your own risk.
 				'database' => '', // possible: options, theme_mods, theme_mods_expanded, transient. Not fully functional, warning!
 				'system_info' => false, // REMOVE
+				'disable_tracking' => true,
 				// HINTS
 				'hints' => array(
 					'icon' => 'icon-question-sign',
