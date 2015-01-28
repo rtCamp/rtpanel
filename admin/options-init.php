@@ -204,23 +204,43 @@ if ( ! class_exists( 'rtp_Redux_Framework_config' ) ) {
 
 			// General Settings
 			$this->sections[] = array(
-				'title' => __( 'General', 'rtPanel' ),
+				'title' => __( 'General', 'rtBook' ),
 				'icon' => 'el-icon-cog',
 				'fields' => array(
 					array(
-						'id' => 'custom_logo',
+						'id' => 'logo',
+						'type' => 'switch',
+						'title' => __( 'Custom Logo', 'rtBook' ),
+						'subtitle' => __( 'Toggle the custom logo on or off.', 'rtBook' ),
+						"default" => '0',
+						'on' => __( 'On', 'rtBook' ),
+						'off' => __( 'Off', 'rtBook' ),
+					),
+					array(
+						'id' => 'logo_image',
 						'type' => 'media',
 						'url' => true,
-						'title' => __( 'Logo', 'rtPanel' ),
-						'subtitle' => __( 'Upload your custom site logo.', 'rtPanel' ),
+						'title' => __( 'Logo Image', 'rtBook' ),
+						'subtitle' => __( 'Upload your custom site logo.', 'rtBook' ),
+						'required' => array( 'logo', 'equals', '1' ),
 					//'default' => array( 'url' => get_template_directory_uri() . '/img/rtp-logo.png' ),
 					),
 					array(
 						'id' => 'favicon',
+						'type' => 'switch',
+						'title' => __( 'Favicon', 'rtBook' ),
+						'subtitle' => __( 'Toggle the favicon on or off.', 'rtBook' ),
+						"default" => '0',
+						'on' => __( 'On', 'rtBook' ),
+						'off' => __( 'Off', 'rtBook' ),
+					),
+					array(
+						'id' => 'favicon_image',
 						'type' => 'media',
 						'url' => true,
-						'title' => __( 'Favicon', 'rtPanel' ),
-						'subtitle' => __( 'Upload your custom site favicon.', 'rtPanel' ),
+						'title' => __( 'Favicon Image', 'rtBook' ),
+						'subtitle' => __( 'Upload your custom site favicon.', 'rtBook' ),
+						'required' => array( 'favicon', 'equals', '1' ),
 					//'default' => array( 'url' => get_template_directory_uri() . '/img/favicon.ico' ),
 					),
 				)

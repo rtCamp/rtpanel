@@ -21,27 +21,12 @@ if ( rtp_get_sidebar_id() === 0 ) {
 <main id="main" class="rtp-main-content <?php echo esc_attr( $rtp_content_grid_class ); ?>" role="main">
 	<?php rtp_hook_begin_content(); ?>
 
-	<?php if ( have_posts() ) : ?>
+	<?php
+	if ( have_posts() ) :
 
-		<?php if ( is_home() && ! is_front_page() ) : ?>
-			<header class="">
-				<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-			</header>
-		<?php endif; ?>
+		// Page Header
+		get_template_part( 'templates/page', 'header' );
 
-		<?php if ( is_archive() ) : ?>
-			<header class="page-header">
-				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="taxonomy-description">', '</div>' );
-				?>
-			</header>
-
-			<?php
-		endif;
-		?>
-
-		<?php
 		// Start the loop.
 		while ( have_posts() ) : the_post();
 
@@ -62,7 +47,7 @@ if ( rtp_get_sidebar_id() === 0 ) {
 	endif;
 	?>
 
-	<?php rtp_hook_end_content(); ?>
+<?php rtp_hook_end_content(); ?>
 
 </main><!-- .site-main -->
 

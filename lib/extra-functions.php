@@ -44,21 +44,22 @@ add_filter( 'wp_title', 'rtp_wp_title', 10, 2 );
 /**
  * Default Navigation Menu
  */
-function rtp_default_nav_menu() {
-	echo '<nav id="rtp-primary-menu" role="navigation" class="clearfix rtp-nav-wrapper' . apply_filters( 'rtp_mobile_nav_support', ' rtp-mobile-nav' ) . '">';
-	rtp_hook_begin_primary_menu();
+if ( ! function_exists( 'rtp_primary_nav_menu' ) ) {
 
-	/* Call wp_nav_menu() for Wordpress Navigaton with fallback wp_list_pages() if menu not set in admin panel */
-	if ( function_exists( 'wp_nav_menu' ) && has_nav_menu( 'primary' ) ) {
-		wp_nav_menu( array( 'container' => '', 'menu_class' => 'menu rtp-nav-container clearfix', 'menu_id' => 'rtp-nav-menu', 'theme_location' => 'primary', 'depth' => apply_filters( 'rtp_nav_menu_depth', 4 ), ) );
-	} else {
-		echo '<ul id="rtp-nav-menu" class="menu rtp-nav-container clearfix">';
-		wp_list_pages( array( 'title_li' => '', 'sort_column' => 'menu_order', 'number' => '5', 'depth' => apply_filters( 'rtp_nav_menu_depth', 4 ), ) );
-		echo '</ul>';
+	function rtp_primary_nav_menu() {
+		echo '<nav id="rtp-primary-menu" role="navigation" class="clearfix rtp-nav-wrapper' . apply_filters( 'rtp_mobile_nav_support', ' rtp-mobile-nav' ) . '">';
+		rtp_hook_begin_primary_menu();
+
+		/* Call wp_nav_menu() for Wordpress Navigaton with fallback wp_list_pages() if menu not set in admin panel */
+		if ( function_exists( 'wp_nav_menu' ) && has_nav_menu( 'primary' ) ) {
+			wp_nav_menu( array( 'container' => '', 'menu_class' => 'menu rtp-nav-container clearfix', 'menu_id' => 'rtp-nav-menu', 'theme_location' => 'primary', 'depth' => apply_filters( 'rtp_nav_menu_depth', 4 ), ) );
+		}
+
+		rtp_hook_end_primary_menu();
+		echo '</nav>';
 	}
 
-	rtp_hook_end_primary_menu();
-	echo '</nav>';
+	add_action( 'rtp_hook_within_header', 'rtp_primary_nav_menu' );
 }
 
 /**
@@ -93,20 +94,6 @@ function rtp_edit_link() {
 }
 
 add_action( 'rtp_hook_begin_post_meta_top', 'rtp_edit_link' );
-
-/**
- * Adds Site Description
- *
- * @since rtPanel 2.0.7
- */
-function rtp_blog_description() {
-	if ( get_bloginfo( 'description' ) ) {
-		?>
-		<p class="tagline"><?php bloginfo( 'description' ); ?></p><?php
-	}
-}
-
-add_action( 'rtp_hook_after_logo', 'rtp_blog_description' );
 
 /**
  * Displays the sidebar.
@@ -215,6 +202,6 @@ function rtp_sidebar_content() {
 			<?php printf( __( 'This theme comes with free technical <a title="Click here for rtPanel Free Support" target="_blank" href="%s">Support</a> by team of 30+ full-time developers.', 'rtPanel' ), RTP_FORUM_URL ); ?>
 		</p>
 	</div><?php
-}
+		}
 
-add_action( 'rtp_hook_sidebar_content', 'rtp_sidebar_content' );
+		add_action( 'rtp_hook_sidebar_content', 'rtp_sidebar_content' );

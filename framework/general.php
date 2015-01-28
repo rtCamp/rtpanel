@@ -6,9 +6,9 @@
 if ( ! function_exists( 'rtp_header_logo' ) ) {
 
 	function rtp_header_logo() {
-		$logo_id = rtp_get_option( 'custom_logo', 'id' );
-
-		$logo = ( $logo_id ) ? wp_get_attachment_image( $logo_id, 'full', '', array( 'class' => 'rtp-custom-logo' ) ) : get_bloginfo( 'name' );
+		$show = rtp_get_option( 'logo' );
+		$logo_id = rtp_get_option( 'logo_image', 'id' );
+		$logo = ( $show && $logo_id ) ? wp_get_attachment_image( $logo_id, 'full', '', array( 'class' => 'rtp-custom-logo' ) ) : get_bloginfo( 'name' );
 		?>
 
 		<div class="rtp-logo-container clearfix">
@@ -21,17 +21,19 @@ if ( ! function_exists( 'rtp_header_logo' ) ) {
 					</a>
 				</h1>
 			<?php else : ?>
-				<p class="rtp-site-logo">
+				<h2 class="rtp-site-logo">
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 						<?php echo $logo; ?>
 					</a>
-				</p>
+				</h2>
 			<?php endif; ?>
 
 			<?php rtp_hook_after_logo(); ?>
 		</div><?php
 	}
 
+	// Header Logo
+	add_action( 'rtp_hook_within_header', 'rtp_header_logo' );
 }
 
 
@@ -41,13 +43,17 @@ if ( ! function_exists( 'rtp_header_logo' ) ) {
 if ( ! function_exists( 'rtp_favicon' ) ) {
 
 	function rtp_favicon() {
-		$favicon = rtp_get_option( 'favicon', 'url' );
+		$favicon = rtp_get_option( 'favicon' );
+		$favicon_url = rtp_get_option( 'favicon_image', 'url' );
 
-		if ( $favicon ) {
+		if ( $favicon && $favicon_url ) {
 			?>
-			<link rel="shortcut icon" type="image/x-icon" href="<?php echo esc_url( $favicon ); ?>" />
+			<link rel="shortcut icon" type="image/x-icon" href="<?php echo esc_url( $favicon_url ); ?>" />
 			<?php
 		}
 	}
 
+	// Favicon
+	add_action( 'wp_head', 'rtp_favicon' );
+	add_action( 'admin_head', 'rtp_favicon' );
 }

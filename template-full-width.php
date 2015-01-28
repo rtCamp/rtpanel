@@ -14,9 +14,9 @@ $rtp_content_grid_class = apply_filters( 'rtp_set_full_width_grid_class', 'large
 <section id="content" class="rtp-content-section <?php echo esc_attr( $rtp_content_grid_class ); ?>">
 	<?php rtp_hook_begin_content(); ?>
 
-	<?php get_template_part( 'loop', 'common' ); ?>
+	<?php get_template_part( 'templates/content', get_post_format() ); ?>
 
-<?php rtp_hook_end_content(); ?>
+	<?php rtp_hook_end_content(); ?>
 </section><!-- #content -->
 
 <?php
