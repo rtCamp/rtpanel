@@ -51,10 +51,7 @@ If you make changes to thumbnail height, width or crop settings, you must use "R
 
 == Changelog ==
 
-= 4.2.1 =
-
-
-= 4.2 =
+= 4.1.6 =
 * Modified: Update Foundation version to 5.2.1
 * Modified: PHP Coding Standards
 * Modified: Plugin Styles
