@@ -3,7 +3,7 @@
  * rtPanel Initialization
  *
  * @package rtPanel
- * 
+ *
  * @since rtPanel 2.0
  */
 /**
@@ -13,7 +13,7 @@
  * is designed for, generally via the style.css stylesheet
  */
 global $content_width, $max_content_width;
-$content_width     = ( isset( $content_width ) ) ? $content_width : 780;
+$content_width = ( isset( $content_width ) ) ? $content_width : 780;
 $max_content_width = ( isset( $max_content_width ) ) ? $max_content_width : 1200;
 
 if ( ! function_exists( 'rtpanel_setup' ) ) {
@@ -29,7 +29,7 @@ if ( ! function_exists( 'rtpanel_setup' ) ) {
 	function rtpanel_setup() {
 		rtp_theme_setup_values();
 		add_theme_support( 'post-thumbnails' ); // This theme uses post thumbnails
-		add_theme_support( 'automatic-feed-links' ); // Add default posts and comments RSS feed links to head
+		add_theme_support( 'title-tag' ); // This feature enables plugins and themes to manage the document title.
 		add_editor_style( 'style.css' ); // This theme styles the visual editor with the themes style.css itself.
 		load_theme_textdomain( 'rtPanel', get_template_directory() . '/languages' ); // Load the text domain
 
@@ -37,11 +37,11 @@ if ( ! function_exists( 'rtpanel_setup' ) ) {
 		// Add support for custom headers.
 		$rtp_custom_header_support = array(
 			// The height and width of our custom header.
-			'width'					 => apply_filters( 'rtp_header_image_width', 1200 ),
-			'height'				 => apply_filters( 'rtp_header_image_height', 200 ),
-			'header-text'			 => false,
-			'wp-head-callback'		 => '',
-			'admin-head-callback'	 => '',
+			'width' => apply_filters( 'rtp_header_image_width', 1200 ),
+			'height' => apply_filters( 'rtp_header_image_height', 200 ),
+			'header-text' => false,
+			'wp-head-callback' => '',
+			'admin-head-callback' => '',
 		);
 		add_theme_support( 'custom-header', $rtp_custom_header_support );
 
@@ -58,9 +58,9 @@ if ( ! function_exists( 'rtpanel_setup' ) ) {
 
 		// Make use of wp_nav_menu() for navigation purpose
 		register_nav_menus(
-			array(
-				'primary' => __( 'Primary Navigation', 'rtPanel' )
-			)
+				array(
+					'primary' => __( 'Primary Navigation', 'rtPanel' )
+				)
 		);
 	}
 
@@ -73,15 +73,17 @@ add_action( 'after_setup_theme', 'rtpanel_setup' ); // Tell WordPress to run rtp
  * @since rtPanel 2.3
  */
 if ( ! function_exists( 'rtp_header_image' ) ) {
-        /**
-         * Get header image if it exists
-         */
+
+	/**
+	 * Get header image if it exists
+	 */
 	function rtp_header_image() {
 		if ( get_header_image() ) {
 			?>
 			<img class="rtp-header-image rtp-margin-0" src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?>" /><?php
 		}
 	}
+
 }
 add_action( 'rtp_hook_begin_header', 'rtp_header_image' );
 
@@ -149,7 +151,7 @@ function rtp_body_class( $classes ) {
 	elseif ( $is_IE ) {
 		$classes[] = 'ie';
 		if ( isset( $_SERVER[ 'HTTP_USER_AGENT' ] ) && preg_match( '/MSIE ([0-9]+)([a-zA-Z0-9.]+)/', $_SERVER[ 'HTTP_USER_AGENT' ], $browser_version ) ) {
-			$classes[] = 'ie' . $browser_version[1];
+			$classes[] = 'ie' . $browser_version[ 1 ];
 		}
 	} else {
 		$classes[] = 'unknown';
@@ -236,11 +238,11 @@ function rtp_is_yarpp() {
 	$rtp_yarpp = '';
 	if ( function_exists( 'related_posts' ) ) {
 		$rtp_yarpp = get_option( 'yarpp' );
-		if( isset( $rtp_yarpp[ 'auto_display_post_types' ] ) && is_array( $rtp_yarpp[ 'auto_display_post_types' ] ) ) {
+		if ( isset( $rtp_yarpp[ 'auto_display_post_types' ] ) && is_array( $rtp_yarpp[ 'auto_display_post_types' ] ) ) {
 			return ( in_array( $post->post_type, $rtp_yarpp[ 'auto_display_post_types' ] ) );
 		} else {
 			return false;
-		}		
+		}
 	} else {
 		return false;
 	}
@@ -254,7 +256,7 @@ function rtp_is_yarpp() {
 function rtp_general_sanitize_option() {
 	global $wpdb;
 
-	$option	 = 'rtp_general';
+	$option = 'rtp_general';
 	$default = false;
 
 	$option = trim( $option );
@@ -267,7 +269,7 @@ function rtp_general_sanitize_option() {
 	if ( ! defined( 'WP_INSTALLING' ) ) {
 		// prevent non-existent options from triggering multiple queries
 		$notoptions = wp_cache_get( 'notoptions', 'options' );
-		if ( isset( $notoptions[ $option ] ) ){
+		if ( isset( $notoptions[ $option ] ) ) {
 			return $default;
 		}
 
@@ -296,7 +298,7 @@ function rtp_general_sanitize_option() {
 		$suppress = $wpdb->suppress_errors();
 		$row = $wpdb->get_row( $wpdb->prepare( "SELECT option_value FROM $wpdb->options WHERE option_name = %s LIMIT 1", $option ) );
 		$wpdb->suppress_errors( $suppress );
-		if ( is_object( $row ) ){
+		if ( is_object( $row ) ) {
 			$value = $row->option_value;
 		} else {
 			return $default;
@@ -320,7 +322,7 @@ add_filter( 'pre_option_rtp_general', 'rtp_general_sanitize_option', 1 );
 
 /**
  * rtp_head() function call in wp_head
- * 
+ *
  * @since rtPanel 4.1
  */
 function rtp_head_call() {
@@ -333,7 +335,7 @@ add_action( 'wp_head', 'rtp_head_call', 999 );
 
 /**
  * rtp_hook_end_body() function call in wp_footer
- * 
+ *
  * @since rtPanel 4.1
  */
 function rtp_footer_call() {
@@ -346,11 +348,11 @@ add_action( 'wp_footer', 'rtp_footer_call', 999 );
 
 /**
  * Create formatted and SEO friendly title
- * 
+ *
  * @param string $title Default title text for current view
  * @param string $sep Optional separator
  * @return string The filtered title
- * 
+ *
  * @since rtPanel 4.1.1
  */
 function rtp_wp_title( $title, $sep ) {
