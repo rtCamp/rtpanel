@@ -20,9 +20,9 @@ foreach ( glob( get_template_directory() . '/admin/lib/*.php' ) as $lib_filename
  */
 class Rtp_Theme {
 
-        /**
-         * Array of custom option pages required the the theme
-         */
+	/**
+	 * Array of custom option pages required the the theme
+	 */
 	var $theme_pages;
 
 	/**
@@ -34,17 +34,16 @@ class Rtp_Theme {
 	 * */
 	function rtp_theme() {
 		$this->theme_pages = apply_filters(
-			'rtp_add_theme_pages',
-			array(
-				'rtp_general' => array(
-					'menu_title' => __( 'General', 'rtPanel' ),
-					'menu_slug'	 => 'rtp_general',
-				),
-				'rtp_post_comments'	 => array(
-					'menu_title' => __( 'Post &amp; Comments', 'rtPanel' ),
-					'menu_slug'	 => 'rtp_post_comments',
-				)
+				'rtp_add_theme_pages', array(
+			'rtp_general' => array(
+				'menu_title' => __( 'General', 'rtPanel' ),
+				'menu_slug' => 'rtp_general',
+			),
+			'rtp_post_comments' => array(
+				'menu_title' => __( 'Post &amp; Comments', 'rtPanel' ),
+				'menu_slug' => 'rtp_post_comments',
 			)
+				)
 		);
 
 		// Register callback for admin menu  setup
@@ -97,7 +96,7 @@ class Rtp_Theme {
 
 	/**
 	 * rtPanel Tabs
-	 * 
+	 *
 	 * Dividing the page into Tabs ( General, Post & Comments )
 	 *
 	 * @since rtPanel 2.0
@@ -129,24 +128,25 @@ class Rtp_Theme {
 		</div>
 
 		<div class="wrap rtpanel-admin">
-			<?php screen_icon( 'rtpanel' ); ?>
-		<h2 class="rtp-tab-wrapper">
-		<?php foreach ( $links as $link ){
-			echo $link;
-		} ?>
-		</h2><?php
-		if ( $pagenow == 'themes.php' ) {
-			foreach ( $this->theme_pages as $key => $theme_page ) {
-				if ( is_array( $theme_page ) ) {
-					switch ( $current ) {
-						case $theme_page['menu_slug'] :
-							if ( function_exists( $theme_page['menu_slug'] . '_options_page' ) )
-								call_user_func( $theme_page['menu_slug'] . '_options_page', 'appearance_page_' . $current );
-							break;
+			<h2 class="rtp-tab-wrapper">
+				<?php
+				foreach ( $links as $link ) {
+					echo $link;
+				}
+				?>
+			</h2><?php
+			if ( $pagenow == 'themes.php' ) {
+				foreach ( $this->theme_pages as $key => $theme_page ) {
+					if ( is_array( $theme_page ) ) {
+						switch ( $current ) {
+							case $theme_page[ 'menu_slug' ] :
+								if ( function_exists( $theme_page[ 'menu_slug' ] . '_options_page' ) )
+									call_user_func( $theme_page[ 'menu_slug' ] . '_options_page', 'appearance_page_' . $current );
+								break;
+						}
 					}
 				}
 			}
-		}
 			?>
 		</div><!-- .wrap --><?php
 	}
