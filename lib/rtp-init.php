@@ -16,7 +16,7 @@ global $content_width, $max_content_width;
 $content_width = ( isset( $content_width ) ) ? $content_width : 780;
 $max_content_width = ( isset( $max_content_width ) ) ? $max_content_width : 1200;
 
-if ( ! function_exists( 'rtpanel_setup' ) ) {
+if ( !function_exists( 'rtpanel_setup' ) ) {
 
 	/**
 	 * Sets up rtPanel
@@ -58,9 +58,9 @@ if ( ! function_exists( 'rtpanel_setup' ) ) {
 
 		// Make use of wp_nav_menu() for navigation purpose
 		register_nav_menus(
-				array(
-					'primary' => __( 'Primary Navigation', 'rtPanel' )
-				)
+			array(
+				'primary' => __( 'Primary Navigation', 'rtPanel' )
+			)
 		);
 	}
 
@@ -72,7 +72,7 @@ add_action( 'after_setup_theme', 'rtpanel_setup' ); // Tell WordPress to run rtp
  *
  * @since rtPanel 2.3
  */
-if ( ! function_exists( 'rtp_header_image' ) ) {
+if ( !function_exists( 'rtp_header_image' ) ) {
 
 	/**
 	 * Get header image if it exists
@@ -150,8 +150,8 @@ function rtp_body_class( $classes ) {
 		$classes[] = 'chrome';
 	elseif ( $is_IE ) {
 		$classes[] = 'ie';
-		if ( isset( $_SERVER[ 'HTTP_USER_AGENT' ] ) && preg_match( '/MSIE ([0-9]+)([a-zA-Z0-9.]+)/', $_SERVER[ 'HTTP_USER_AGENT' ], $browser_version ) ) {
-			$classes[] = 'ie' . $browser_version[ 1 ];
+		if ( isset( $_SERVER['HTTP_USER_AGENT'] ) && preg_match( '/MSIE ([0-9]+)([a-zA-Z0-9.]+)/', $_SERVER['HTTP_USER_AGENT'], $browser_version ) ) {
+			$classes[] = 'ie' . $browser_version[1];
 		}
 	} else {
 		$classes[] = 'unknown';
@@ -161,15 +161,15 @@ function rtp_body_class( $classes ) {
 		$classes[] = 'iphone';
 	}
 
-	if ( isset( $_SERVER[ 'HTTP_USER_AGENT' ] ) && stristr( $_SERVER[ 'HTTP_USER_AGENT' ], 'mac' ) ) {
+	if ( isset( $_SERVER['HTTP_USER_AGENT'] ) && stristr( $_SERVER['HTTP_USER_AGENT'], 'mac' ) ) {
 		$classes[] = 'osx';
-	} elseif ( isset( $_SERVER[ 'HTTP_USER_AGENT' ] ) && stristr( $_SERVER[ 'HTTP_USER_AGENT' ], 'linux' ) ) {
+	} elseif ( isset( $_SERVER['HTTP_USER_AGENT'] ) && stristr( $_SERVER['HTTP_USER_AGENT'], 'linux' ) ) {
 		$classes[] = 'linux';
-	} elseif ( isset( $_SERVER[ 'HTTP_USER_AGENT' ] ) && stristr( $_SERVER[ 'HTTP_USER_AGENT' ], 'windows' ) ) {
+	} elseif ( isset( $_SERVER['HTTP_USER_AGENT'] ) && stristr( $_SERVER['HTTP_USER_AGENT'], 'windows' ) ) {
 		$classes[] = 'windows';
 	}
 
-	if ( ! is_multi_author() ) {
+	if ( !is_multi_author() ) {
 		$classes[] = 'rtp-single-author';
 	}
 
@@ -187,7 +187,7 @@ function rtp_body_class( $classes ) {
 		$classes[] = 'rtp-list-view';
 	}
 
-	if ( is_singular() && ! is_front_page() ) {
+	if ( is_singular() && !is_front_page() ) {
 		$classes[] = 'singular';
 	}
 
@@ -238,8 +238,8 @@ function rtp_is_yarpp() {
 	$rtp_yarpp = '';
 	if ( function_exists( 'related_posts' ) ) {
 		$rtp_yarpp = get_option( 'yarpp' );
-		if ( isset( $rtp_yarpp[ 'auto_display_post_types' ] ) && is_array( $rtp_yarpp[ 'auto_display_post_types' ] ) ) {
-			return ( in_array( $post->post_type, $rtp_yarpp[ 'auto_display_post_types' ] ) );
+		if ( isset( $rtp_yarpp['auto_display_post_types'] ) && is_array( $rtp_yarpp['auto_display_post_types'] ) ) {
+			return ( in_array( $post->post_type, $rtp_yarpp['auto_display_post_types'] ) );
 		} else {
 			return false;
 		}
@@ -266,17 +266,17 @@ function rtp_general_sanitize_option() {
 	if ( defined( 'WP_SETUP_CONFIG' ) )
 		return false;
 
-	if ( ! defined( 'WP_INSTALLING' ) ) {
+	if ( !defined( 'WP_INSTALLING' ) ) {
 		// prevent non-existent options from triggering multiple queries
 		$notoptions = wp_cache_get( 'notoptions', 'options' );
-		if ( isset( $notoptions[ $option ] ) ) {
+		if ( isset( $notoptions[$option] ) ) {
 			return $default;
 		}
 
 		$alloptions = wp_load_alloptions();
 
-		if ( isset( $alloptions[ $option ] ) ) {
-			$value = $alloptions[ $option ];
+		if ( isset( $alloptions[$option] ) ) {
+			$value = $alloptions[$option];
 		} else {
 			$value = wp_cache_get( $option, 'options' );
 
@@ -288,7 +288,7 @@ function rtp_general_sanitize_option() {
 					$value = $row->option_value;
 					wp_cache_add( $option, $value, 'options' );
 				} else { // option does not exist, so we must cache its non-existence
-					$notoptions[ $option ] = true;
+					$notoptions[$option] = true;
 					wp_cache_set( 'notoptions', $notoptions, 'options' );
 					return $default;
 				}
@@ -313,7 +313,9 @@ function rtp_general_sanitize_option() {
 		$value = untrailingslashit( $value );
 
 	/* Hack for serialized data containing URLs http://www.php.net/manual/en/function.unserialize.php#107886 */
-	$value = preg_replace( '!s:(\d+):"(.*?)";!s', "'s:'.strlen('$2').':\"$2\";'", $value );
+	$value = preg_replace_callback( '!s:(\d+):"(.*?)";!s', function ( $m ) {
+		return 's:' . strlen( $m[2] ) . ':"' . $m[2] . '";';
+	}, $value );
 
 	return apply_filters( 'option_' . $option, maybe_unserialize( $value ) );
 }
