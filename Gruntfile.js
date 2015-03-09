@@ -15,7 +15,7 @@ module.exports = function ( grunt ) {
 					config: 'assets/fontello/config.json',
 					fonts: 'assets/fontello/font',
 					styles: 'assets/fontello/css',
-					scss: true,
+					scss: false,
 					force: true
 				}
 			}
