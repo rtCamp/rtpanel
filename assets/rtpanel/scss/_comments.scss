@@ -5,7 +5,7 @@ $rtp-comment-style-type: box; // you can use box, clean,...
 @if $rtp-comment-style-type == box {
 
     /* Comments */
-    .rtp-comment-count { 
+    .rtp-comment-count {
 		border-bottom: 1px dotted $border-color; color: $gray; padding: rem-calc(10 0);
 		&:empty { display: none; }
     }
@@ -29,7 +29,7 @@ $rtp-comment-style-type: box; // you can use box, clean,...
     .comment-form { overflow: hidden; }
 
     // Commentlist
-    .commentlist { 
+    .commentlist {
 		clear: both; margin: 0; // Self
 
 		& > li {
@@ -39,7 +39,7 @@ $rtp-comment-style-type: box; // you can use box, clean,...
 		.children { margin-left: rem-calc(84); }
 
 		// Children
-		.vcard { 
+		.avatar-container {
 			border: 0; float: left; margin: rem-calc(8 15 3 8); padding: 0; // Self
 
 			img { @include border-radius($global-rounded); @include rtp-border($width: 2px, $color: $white); }
@@ -49,7 +49,7 @@ $rtp-comment-style-type: box; // you can use box, clean,...
 
 		// Trackback Pingback
 		.trackback,
-		.pingback { 
+		.pingback {
 			overflow: hidden; padding: rem-calc(0 0 15);
 			// EM Element
 			em { color: $gray; font-size: rem-calc(12); }
@@ -59,22 +59,22 @@ $rtp-comment-style-type: box; // you can use box, clean,...
     }
 
     // Comment Text
-    .comment-text { 
+    .comment-text {
 		clear: both; padding: rem-calc(15 15 0); overflow: hidden; @include rtp-border();
 		p { margin: rem-calc(0 0 15 0); }
 		& > ol, & > ul { margin-bottom: rem-calc(26); }
     }
 
     // Comment Body
-    .comment-body { clear: both; margin: rem-calc(10 0); position: relative; }
+    .comment-body { display: block; clear: both; margin: rem-calc(10 0); position: relative; }
 
-    .comment { 
+    .comment {
 		list-style: none; // Self
 		code & { border-top: 0; }
 		li { margin-bottom: 0; }
     }
 
-    // Comment Author  border-bottom: 1px solid $border-color; 
+    // Comment Author  border-bottom: 1px solid $border-color;
     .comment-author { padding: rem-calc(17 5 5 5); }
     .no-gravatar { padding: rem-calc(5); }
 
@@ -111,7 +111,7 @@ $rtp-comment-style-type: box; // you can use box, clean,...
 		.commentlist + & { margin: 0 0 1.5em; }
 
 		// Comment body
-		.comment-body + & { margin-top: 0; padding: 0 0 0.8em; } // border-bottom: 1px solid $border-color; 
+		.comment-body + & { margin-top: 0; padding: 0 0 0.8em; } // border-bottom: 1px solid $border-color;
 
 		// Comment
 		.comment & {
@@ -155,14 +155,14 @@ $rtp-comment-style-type: box; // you can use box, clean,...
 		.form-allowed-tags { background: darken($base-background, 2%); @include rtp-border(); color: $gray; font-size: emCalc(13); margin: rem-calc(0 0 14); padding: rem-calc(4); width: 96%; }
 
 		// Compact Form
-		.compact-comment-form { 
+		.compact-comment-form {
 			float: left; width: 33%; // Self
 			// Compact Form Label and Input
 			label { margin-left: rem-calc(2); }
 			input { width: 98%; }
 		}
 
-		label[for=subscribe-reloaded] { 
+		label[for=subscribe-reloaded] {
 			float: left; margin: rem-calc(10 0 40); width: 80%;
 			span { display: block; line-height: 1.6; }
 		}
@@ -186,8 +186,8 @@ $rtp-comment-style-type: box; // you can use box, clean,...
 		.commentlist + & { margin: rem-calc(10 0 0); }
 
 		// Trackbacks
-		& + #trackbacks { 
-			margin: rem-calc(8 0 40 40); 
+		& + #trackbacks {
+			margin: rem-calc(8 0 40 40);
 			li { margin-bottom: rem-calc(10); }
 		}
     }
