@@ -88,7 +88,7 @@ $menu-spacing: rem-calc(12 30);
 	}
 
 	// Current Menu Style
-	.current-menu-item, .current_page_ancestor, .current_page_item {
+	.current-menu-item, .current-page-ancestor, .current_page_item {
 		& > a { @include rtp-active-menu(); }
 	}
 }
