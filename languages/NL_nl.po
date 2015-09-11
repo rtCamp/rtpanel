@@ -1,0 +1,1256 @@
+# Translation of rtPanel in Dutch
+# This file is distributed under the same license as the rtPanel package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: +0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/0.1\n"
+"Project-Id-Version: rtPanel\n"
+
+#: ../admin/lib/rtp-admin-functions.php:1311
+msgid "Currently using <a href=\""
+msgstr "Gebruikt nu <a href=\""
+
+#: ../admin/lib/rtp-admin-functions.php:1311
+msgid "Click here for rtPanel Free Support"
+msgstr "Klik hier voor gratis rtPanel Ondersteuning"
+
+#: ../admin/lib/rtp-admin-functions.php:1311
+msgid "Support"
+msgstr "Ondersteuning"
+
+#: ../admin/lib/rtp-admin-functions.php:1311
+msgid "Click here for rtPanel Documentation"
+msgstr "Klik hier voor rtPanel Documentatie"
+
+#: ../admin/lib/rtp-admin-functions.php:1311
+msgid "Documentation"
+msgstr "Documentatie"
+
+#: ../admin/lib/rtp-admin-functions.php:454
+msgid "Yet Another Related Posts Plugin (YARPP) has been Activated."
+msgstr "Yet Another Related Posts Plugin (YARPP) is geactiveerd."
+
+#: ../admin/lib/rtp-admin-functions.php:462
+msgid "Yet Another Related Posts Plugin (YARPP) has been Deactivated."
+msgstr "Yet Another Related Posts Plugin (YARPP) is uitgeschakeld."
+
+#: ../admin/lib/rtp-admin-functions.php:470
+msgid "Yet Another Related Posts Plugin (YARPP) has been Deleted."
+msgstr "Yet Another Related Posts Plugin (YARPP) is verwijderd."
+
+#: ../admin/lib/rtp-admin-functions.php:779
+msgid "The Comment Settings have been restored to default."
+msgstr "De Reactie Instellingen zijn teruggezet naar standaard."
+
+#: ../admin/lib/rtp-admin-functions.php:1045
+msgid "<a href=\"%s\" target=\"_blank\" title=\"Like Us on Facebook\" class=\"rtp-icon-facebook\"></a>"
+msgstr "<a href=\"%s\" target=\"_blank\" title=\"Vind ons leuk op Facebook\" class=\"rtp-icon-facebook\"></a>"
+
+#: ../admin/lib/rtp-admin-functions.php:1046
+msgid "<a href=\"%s\" target=\"_blank\" title=\"Follow Us on Twitter\" class=\"rtp-icon-twitter\"></a>"
+msgstr "<a href=\"%s\" target=\"_blank\" title=\"Volg ons via Twitter\" class=\"rtp-icon-twitter\"></a>"
+
+#: ../admin/lib/rtp-admin-functions.php:1047
+msgid "<a href=\"%s\" target=\"_blank\" title=\"Add to Circle\" class=\"rtp-icon-gplus\"></a>"
+msgstr "<a href=\"%s\" target=\"_blank\" title=\"Voeg toe aan Cirkel\" class=\"rtp-icon-gplus\"></a>"
+
+#: ../admin/lib/rtp-admin-functions.php:1048
+msgid "<a href=\"%s\" target=\"_blank\" title=\"Subscribe to our feeds\" class=\"rtp-icon-rss\"></a>"
+msgstr "<a href=\"%s\" target=\"_blank\" title=\"Abonneer op onze feeds\" class=\"rtp-icon-rss\"></a>"
+
+#: ../admin/lib/rtp-admin-functions.php:1087
+msgid "If you are facing any problems while using rtPanel, or have good ideas for improvements, please discuss the same in our <a href=\"%s\" target=\"_blank\" title=\"Click here for rtPanel Free Support\">Support forums</a>"
+msgstr "Als je problemen hebt bij het gebruik van rtPanel, of als je ideeën hebt ter verbetering, bespreek dit dan via onze <a href=\"%s\" target=\"_blank\" title=\"Klik hier voor rtPanel Gratis Ondersteuning\">Ondersteuning forums</a>"
+
+#: ../admin/lib/rtp-admin-functions.php:1146
+msgid "<strong>Comment Settings:</strong> You can specify the comment settings from this option."
+msgstr "<strong>Reactie Instellingen:</strong> Hier kun je verschillende reactie instellingen maken."
+
+#: ../admin/lib/rtp-admin-functions.php:1153
+msgid "rtPanel Official Page"
+msgstr "Officiële rtPanel pagina"
+
+#: ../admin/lib/rtp-admin-functions.php:1154
+msgid "rtPanel Documentation"
+msgstr "rtPanel Documentatie"
+
+#: ../admin/lib/rtp-admin-functions.php:1155
+msgid "rtPanel Forum"
+msgstr "rtPanel Forum"
+
+#: ../admin/lib/rtp-admin-functions.php:193
+msgid "Subscribe To Comments Reloaded Plugin has been Activated."
+msgstr "Abonnement op Reacties geactiveerd."
+
+#: ../admin/lib/rtp-admin-functions.php:201
+msgid "Subscribe To Comments Reloaded Plugin has been Deactivated."
+msgstr "Abonnement op Reacties gedeactiveerd."
+
+#: ../admin/lib/rtp-admin-functions.php:209
+msgid "Subscribe To Comments Reloaded Plugin has been Deleted."
+msgstr "Abonnement op Reacties verwijderd."
+
+#: ../admin/lib/rtp-settings-metaboxes.php:1119
+msgid "Enable Gravatar"
+msgstr "Gebruik Gravatar"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:1134
+msgid "Hide Labels for Name, Email & URL. These will be shown inside fields as default text"
+msgstr "Verberg de labels voor Naam, E-mail & URL. De labels worden zichtbaar binnen het veld als standaard tekst."
+
+#: ../admin/lib/rtp-deprecated.php:24
+msgid "%1$s is <strong>deprecated</strong> since rtPanel version %2$s! Use %3$s instead."
+msgstr "%1$s wordt <strong>niet meer gebruikt</strong> sinds rtPanel versie %2$s! Gebruik versie %3$s."
+
+#: ../admin/lib/rtp-deprecated.php:26
+msgid "%1$s is <strong>deprecated</strong> since rtPanel version %2$s with no alternative available."
+msgstr "%1$s wordt <strong>niet meer gebruikt</strong> sinds rtPanel versie %2$s er is helaas geen alternatief beschikbaar."
+
+#: ../admin/lib/rtp-deprecated.php:33
+msgid "%1$s was called with an argument that is <strong>deprecated</strong> since rtPanel version %2$s! %3$s"
+msgstr "%1$s werd aangeroepen met een argument dat <strong>niet meer gebruikt wordt</strong> sinds rtPanel versie %2$s! %3$s"
+
+#: ../admin/lib/rtp-deprecated.php:35
+msgid "%1$s was called with an argument that is <strong>deprecated</strong> since rtPanel version %2$s with no alternative available."
+msgstr "%1$s werd aangeroepen met een argument dat <strong>niet meer gebruikt wordt</strong> sinds rtPanel versie %2$s er is helaas geen alternatief beschikbaar."
+
+#: ../admin/lib/rtp-admin-functions.php:91
+msgid "Google Search Code Error : While generating the code the layout option should either be \"full-width\" or \"compact\". The changes made have been reverted."
+msgstr "Google Search Code Foutmelding : Voor het genereren van de code moet de lay-out optie een van de volgende zijn: \"volledige-breedte\" or \"compact\". De oude instellingen worden gehandhaafd."
+
+#: ../admin/lib/rtp-admin-functions.php:135
+msgid "rtWidgets has been Activated."
+msgstr "rtWidgets is Geactiveerd.."
+
+#: ../admin/lib/rtp-admin-functions.php:143
+msgid "rtWidgets has been Deactivated."
+msgstr "rtWidgets is Uitgeschakeld."
+
+#: ../admin/lib/rtp-admin-functions.php:151
+msgid "rtWidgets has been Deleted."
+msgstr "rtWidgets is Verwijderd."
+
+#: ../admin/lib/rtp-admin-functions.php:251
+msgid "rtMedia for WordPress, BuddyPress and bbPress Plugin has been Activated."
+msgstr "rtMedia voor WordPress, BuddyPress en bbPress Plugin is Geactiveerd."
+
+#: ../admin/lib/rtp-admin-functions.php:259
+msgid "rtMedia for WordPress, BuddyPress and bbPress Plugin has been Deactivated."
+msgstr "rtMedia voor WordPress, BuddyPress en bbPress Plugin is Uitgeschakeld"
+
+#: ../admin/lib/rtp-admin-functions.php:267
+msgid "rtMedia for WordPress, BuddyPress and bbPress Plugin has been Deleted."
+msgstr "rtMedia voor WordPress, BuddyPress en bbPress Plugin is Verwijderd."
+
+#: ../admin/lib/rtp-admin-functions.php:280
+msgid "bbPress Plugin has been Activated."
+msgstr "bbPress Plugin is Geactiveerd."
+
+#: ../admin/lib/rtp-admin-functions.php:288
+msgid "bbPress Plugin has been Deactivated."
+msgstr "bbPress Plugin is Uitgeschakeld."
+
+#: ../admin/lib/rtp-admin-functions.php:296
+msgid "bbPress Plugin has been Deleted."
+msgstr "bbPress Plugin is Verwijderd."
+
+#: ../admin/lib/rtp-admin-functions.php:309
+msgid "BuddyPress Plugin has been Activated."
+msgstr "BuddyPress Plugin is Geactiveerd."
+
+#: ../admin/lib/rtp-admin-functions.php:317
+msgid "BuddyPress Plugin has been Deactivated."
+msgstr "BuddyPress Plugin is Uitgeschakeld."
+
+#: ../admin/lib/rtp-admin-functions.php:325
+msgid "BuddyPress Plugin has been Deleted."
+msgstr "BuddyPress Plugin is Verwijderd."
+
+#: ../admin/lib/rtp-admin-functions.php:338
+msgid "Contact Form 7 Plugin has been Activated."
+msgstr "Contact Form 7 Plugin is Geactiveerd."
+
+#: ../admin/lib/rtp-admin-functions.php:346
+msgid "Contact Form 7 Plugin has been Deactivated."
+msgstr "Contact Form 7 Plugin is Uitgeschakeld."
+
+#: ../admin/lib/rtp-admin-functions.php:354
+msgid "Contact Form 7 Plugin has been Deleted."
+msgstr "Contact Form 7 Plugin is Verwijderd."
+
+#: ../admin/lib/rtp-admin-functions.php:367
+msgid "Jetpack by WordPress.com Plugin has been Activated."
+msgstr "Jetpack by WordPress.com Plugin is Geactiveerd."
+
+#: ../admin/lib/rtp-admin-functions.php:375
+msgid "Jetpack by WordPress.com Plugin has been Deactivated."
+msgstr "Jetpack by WordPress.com Plugin is Uitgeschakeld."
+
+#: ../admin/lib/rtp-admin-functions.php:383
+msgid "Jetpack by WordPress.com Plugin has been Deleted."
+msgstr "Jetpack by WordPress.com Plugin is Verwijderd."
+
+#: ../admin/lib/rtp-admin-functions.php:396
+msgid "Ninja Forms Plugin has been Activated."
+msgstr "Ninja Forms Plugin is Geactiveerd."
+
+#: ../admin/lib/rtp-admin-functions.php:404
+msgid "Ninja Forms Plugin has been Deactivated."
+msgstr "Ninja Forms Plugin is Uigeschakeld."
+
+#: ../admin/lib/rtp-admin-functions.php:412
+msgid "Ninja Forms Plugin has been Deleted."
+msgstr "Ninja Forms Plugin is Verwijderd."
+
+#: ../admin/lib/rtp-admin-functions.php:425
+msgid "WooCommerce - excelling eCommerce Plugin has been Activated."
+msgstr "WooCommerce - excelling eCommerce Plugin is Geactiveerd."
+
+#: ../admin/lib/rtp-admin-functions.php:433
+msgid "WooCommerce - excelling eCommerce Plugin has been Deactivated."
+msgstr "WooCommerce - excelling eCommerce Plugin is Uitgeschakeld."
+
+#: ../admin/lib/rtp-admin-functions.php:441
+msgid "WooCommerce - excelling eCommerce Plugin has been Deleted."
+msgstr "WooCommerce - excelling eCommerce Plugin is Verwijderd."
+
+#: ../admin/lib/rtp-settings-metaboxes.php:622
+msgid "Subscribe To Comments Reloaded"
+msgstr "Abonneer op Reacties"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:490
+msgid "rtMedia for WordPress, BuddyPress and bbPress"
+msgstr "rtMedia voor WordPress, BuddyPress en bbPress"
+
+#: ../lib/rtp-default-functions.php:333
+msgctxt "comments number"
+msgid "Leave a comment"
+msgstr "Reageren"
+
+#: ../lib/rtp-comments.php:56
+msgid "Reply"
+msgstr "Antwoord"
+
+#: ../admin/rtp-theme-options.php:182
+msgid "Comment Settings"
+msgstr "Reactie Instellingen"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:127
+#: ../admin/lib/rtp-settings-metaboxes.php:139
+msgid "Default Sidebar"
+msgstr "Standaard Sidebar"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:128
+msgid "Enable BuddyPress Sidebar"
+msgstr "Activeer BuddyPress Sidebar"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:129
+#: ../admin/lib/rtp-settings-metaboxes.php:141
+msgid "Disable Sidebar"
+msgstr "Schakel Sidebar uit"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:140
+msgid "Enable bbPress Sidebar"
+msgstr "Activeer bbPress Sidebar"
+
+#: ../lib/rtp-init.php:334
+msgid "Page %s"
+msgstr "Pagina %s"
+
+#: ../lib/rtp-default-functions.php:92
+msgid "<span class=\"rtp-post-author-prefix\">By</span> <span class=\"author\">%s</span>"
+msgstr "<span class=\"rtp-post-author-prefix\">Door</span> <span class=\"author\">%s</span>"
+
+#: ../lib/rtp-default-functions.php:648
+msgid "Designed on <a role=\"link\" target=\"_blank\" href=\"%s\" class=\"rtp-common-link\" title=\"rtPanel WordPress Theme Framework\">rtPanel WordPress Theme Framework</a>."
+msgstr "Gebruikt het <a role=\"link\" target=\"_blank\" href=\"%s\" class=\"rtp-common-link\" title=\"rtPanel WordPress Theme Framework\">rtPanel WordPress Theme Framework</a>."
+
+#: ../lib/rtp-default-functions.php:665
+msgid "<strong>rtPanel</strong> is equipped with everything you need to produce a professional website. <br />It is one of the most optimized WordPress Theme Framework available today."
+msgstr "<strong>rtPanel</strong> is voorzien van alles dat nodig is voor het ontwikkelen van een professionele website. <br />Het is één van de best geoptimaliseerde WordPress Theme Frameworks tot op dit moment."
+
+#: ../lib/rtp-default-functions.php:668
+msgid "This theme comes with free technical <a title=\"Click here for rtPanel Free Support\" target=\"_blank\" href=\"%s\">Support</a> by team of 30+ full-time developers."
+msgstr "Dit template heeft gratis techinsche ondersteuning <a title=\"Klik hier voor rtPanel Gratis Ondersteuning\" target=\"_blank\" href=\"%s\">Ondersteund</a> door een team van meer dan 30 full-time ontwikkelaars."
+
+#: ../comments.php:34
+msgid "<small class=\"rtp-thoughts\">&nbsp;Add <a role=\"link\" href=\"%s\" title=\"Add your comment\">your comment</a></small>"
+msgstr "<small class=\"rtp-thoughts\">&nbsp;<a role=\"link\" href=\"%s\" title=\"Reageren\">Reageren</a></small>"
+
+#: ../lib/rtp-post-summaries.php:336
+msgid "This post is password protected. To view it please enter your password below:"
+msgstr "Dit bericht is met een wachtwoord beveiligd. Vul hieronder het wachtwoord in om het bericht te bekijken:"
+
+#: ../lib/rtp-post-summaries.php:339
+msgid "Password:"
+msgstr "Wachtwoord:"
+
+#: ../lib/rtp-post-summaries.php:340
+msgid "Password"
+msgstr "Wachtwoord"
+
+#: ../lib/rtp-search.php:28 ../lib/rtp-search.php:34
+msgid "Search Here..."
+msgstr "Zoek Hier..."
+
+#: ../lib/rtp-search.php:33
+msgid "Search for:"
+msgstr "Zoeken:"
+
+#: ../lib/rtp-default-functions.php:333
+msgctxt "comments number"
+msgid "<span>1</span> Comment"
+msgstr "<span>1</span> Reactie"
+
+#: ../lib/rtp-default-functions.php:333
+msgctxt "comments number"
+msgid "<span>%</span> Comments"
+msgstr "<span>%</span> Reacties"
+
+#: ../lib/rtp-post-summaries.php:26
+msgid "Read more on %s"
+msgstr "Lees verder over %s"
+
+#: ../lib/rtp-init.php:61
+msgid "Primary Navigation"
+msgstr "Primaire Navigatie"
+
+#: ../lib/rtp-default-functions.php:289
+msgid "Newer Entries &rarr;"
+msgstr "Nieuwere Berichten &rarr;"
+
+#: ../lib/rtp-default-functions.php:92
+msgid "Posts by %s"
+msgstr "Berichten door %s"
+
+#: ../lib/rtp-default-functions.php:288
+msgid "&larr; Older Entries"
+msgstr "&larr; Oudere Berichten"
+
+#: ../lib/rtp-comments.php:50
+msgid "Your comment is awaiting moderation. "
+msgstr "Jouw reactie wacht op goedkeuring."
+
+#: ../lib/rtp-comments.php:73
+msgid "Comment"
+msgstr "Reageren"
+
+#: ../lib/rtp-comments.php:48
+msgid "[ edit ]"
+msgstr "[ wijzig ]"
+
+#: ../lib/rtp-comments.php:46
+msgid "%1$s at %2$s"
+msgstr "%1$s om %2$s"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:1094
+msgid "How many numbers to either side of current page, but not including current page?"
+msgstr "Hoeveel nummers tonen aan beide kanten van het huidige pagina nummer, het huidige pagina nummer niet meegerekend?"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:1126
+msgid "Enable Compact Form"
+msgstr "Activeer Compacte Vorm"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:1130
+msgid "Check this box to compact comment form. Name, URL & Email Fields will be on same line"
+msgstr "Vink dit aan om de compacte vorm te activeren. De Naam, URL & E-mail velden worden dat in één regel getoond."
+
+#: ../admin/lib/rtp-settings-metaboxes.php:1138
+msgid "Extra Settings"
+msgstr "Extra Instellingen"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:1142
+msgid "Display Comment textarea above Name, Email, &amp; URL Fields"
+msgstr "Toon het Reactie veld boven de Naam, E-mail, &amp; URL Velden"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:1146
+msgid "Separate Comments from Trackbacks &amp; Pingbacks"
+msgstr "Reacties scheiden van Trackbacks &amp; Pingbacks"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:1150
+msgid "Enable the comment form on Attachments"
+msgstr "Activeer het reactie formulier bij Bijlagen"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:1091
+msgid "Mid Size"
+msgstr "Midden nummer grootte"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:1062
+msgid "Enable Pagination"
+msgstr "Activeer paginering"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:1066
+msgid "Check this to enable default WordPress Pagination on Archive pages ( Pages with multiple posts on them )"
+msgstr "Vink dit aan om de standaard WordPress Paginering op Archief pagina's ( Pagina's die meerdere berichten weergeven ) te gebruiken"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:1070
+msgid "Prev Text"
+msgstr "Vorige Tekst"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:1073
+msgid "Text to display for Previous Page"
+msgstr "Tekst van de link naar de vorige pagina"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:1077
+msgid "Next Text"
+msgstr "Volgende tekst"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:1080
+msgid "Text to display for Next Page"
+msgstr "Tekst van de link naar de volgende pagina"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:1084
+msgid "End Size"
+msgstr "Eind nummer grootte"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:1087
+msgid "How many numbers on either the start and the end list edges?"
+msgstr "Hoeveel nummers wil je aan het begin en het eind van de pagina lijst?"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:942
+#: ../admin/lib/rtp-settings-metaboxes.php:1006
+msgid "Show Author Posts Count"
+msgstr "Toon hoeveel berichten een auteur heeft"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:944
+#: ../admin/lib/rtp-settings-metaboxes.php:1008
+msgid "Link to Author Archive page"
+msgstr "Link naar de Auteur Archief Pagina"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:949
+#: ../admin/lib/rtp-settings-metaboxes.php:1013
+msgid "Post Categories"
+msgstr "Bericht Categoriën"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:956
+#: ../admin/lib/rtp-settings-metaboxes.php:1020
+msgid "Post Tags"
+msgstr "Bericht Steekwoorden"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:979
+msgid "These Post Meta will be displayed below content"
+msgstr "Deze Post Meta wordt getoond onder het bericht"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:935
+#: ../admin/lib/rtp-settings-metaboxes.php:999
+msgid "Post Author"
+msgstr "Bericht Auteur"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:928
+#: ../admin/lib/rtp-settings-metaboxes.php:992
+msgid "m/d/Y"
+msgstr "m/d/J"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:929
+#: ../admin/lib/rtp-settings-metaboxes.php:993
+msgid "d/m/Y"
+msgstr "d/m/J"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:939
+#: ../admin/lib/rtp-settings-metaboxes.php:1003
+msgid "Check this box to include Author Name in meta"
+msgstr "Selecteer dit om Auteur Naam te tonen in de Post Meta"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:914
+msgid "This option will allow you to specify the post meta attributes and their position"
+msgstr "Met deze optie kun je de de Post Meta attributen en hun positie bepalen"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:915
+msgid "These Post Meta will be displayed above content"
+msgstr "Deze Post Meta wordt getoond boven het bericht"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:919
+#: ../admin/lib/rtp-settings-metaboxes.php:983
+msgid "Post Date"
+msgstr "Publicatie datum"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:923
+#: ../admin/lib/rtp-settings-metaboxes.php:987
+msgid "Check this box to include Post Dates in meta"
+msgstr "Selecteer dit om de Publicatie Datum te tonen in de Post Meta"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:925
+#: ../admin/lib/rtp-settings-metaboxes.php:989
+msgid "Select a Date Format"
+msgstr "Kies de datum notatie"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:871
+msgid "Crop Thumbnail"
+msgstr "Miniatuur bijsnijden"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:875
+msgid "Crop thumbnail to exact dimensions (normally thumbnails are proportional)"
+msgstr "Miniatuur bijsnijden in exacte verhoudingen (normaal gesproken zijn miniaturen proportioneel)"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:879
+msgid "Add Frame (Border Effect around Image)"
+msgstr "Toon kader (toon rand om een plaatje)"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:883
+msgid "Check this to display a light shadow border effect for the thumbnails"
+msgstr "Selecteer dit om een schaduw effect onder miniaturen te tonen"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:888
+msgid "If you make changes to thumbnail height, width or crop settings, you must use \"<a target=\"_blank\" href=\"%s\" title=\"Regenerate Thumbnail Plugin\">Regenerate Thumbnail Plugin</a>\" to regenerate thumbnails on old posts."
+msgstr "Als je aanpassingen doet in de miniatuur hoogte, breedte of bijsnij instellingen, gebruik dan de \"<a target=\"_blank\" href=\"%s\" title=\"Regenerate Thumbnail Plugin\">Regenerate Thumbnail Plugin</a>\" om miniaturen opnieuw te genereren voor oudere berichten."
+
+#: ../admin/lib/rtp-settings-metaboxes.php:852
+msgid "None"
+msgstr "Geen"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:853
+msgid "Left"
+msgstr "Links"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:854
+msgid "Right"
+msgstr "Rechts"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:855
+msgid "Center"
+msgstr "Centreer"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:859
+msgid "Width"
+msgstr "Breedte"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:865
+msgid "Height"
+msgstr "Hoogte"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:846
+msgid "Check this to display thumbnails as part of Post Summaries on Archive pages"
+msgstr "Selecteer dit om miniaturen te tonen bij bericht uittreksels op Archief pagina's"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:850
+msgid "Thumbnail Alignment"
+msgstr "Miniatuur Uitlijning"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:805
+msgid "Word Limit"
+msgstr "Woord limiet"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:808
+msgid "Post Content will be cut around Word Limit you will specify here."
+msgstr "Bericht uittreksel lengte wordt bepaald door de woord limiet die je hier aangeeft."
+
+#: ../admin/lib/rtp-settings-metaboxes.php:815
+msgid "This will be added after each post summary. Text added here will be automatically converted into a hyperlink pointing to the respective post."
+msgstr "Dit wordt toegevoegd na elk bericht uittreksel. De tekst die je gebruikt krijgt automatisch een link nar het betreffende bericht."
+
+#: ../admin/lib/rtp-settings-metaboxes.php:838
+msgid "Enable Summary must be checked on the Post Summary Settings to show these Options"
+msgstr "Activeer Uittreksels moet zijn geselecteerd bij de Bericht Uittreksel Instellingen om de opties te tonen"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:842
+msgid "Enable Thumbnails"
+msgstr "Toon Miniaturen"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:767
+msgid "Export rtPanel Options"
+msgstr "Exporteer rtPanel Instellingen"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:773
+msgid "Import rtPanel Options"
+msgstr "Importeer rtPanel Instellingen"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:797
+msgid "Enable Summary"
+msgstr "Toon Bericht Uittreksels"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:801
+msgid "Check this to enable excerpts on Archive pages ( Pages with multiple posts on them )"
+msgstr "Selecteer dit om Bericht Uittreksels te tonen op Archief pagina's (pagina's met meerdere berichten)"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:298
+#: ../admin/lib/rtp-settings-metaboxes.php:331
+#: ../admin/lib/rtp-settings-metaboxes.php:364
+#: ../admin/lib/rtp-settings-metaboxes.php:397
+#: ../admin/lib/rtp-settings-metaboxes.php:430
+#: ../admin/lib/rtp-settings-metaboxes.php:496
+#: ../admin/lib/rtp-settings-metaboxes.php:529
+#: ../admin/lib/rtp-settings-metaboxes.php:562
+#: ../admin/lib/rtp-settings-metaboxes.php:595
+#: ../admin/lib/rtp-settings-metaboxes.php:628
+#: ../admin/lib/rtp-settings-metaboxes.php:661
+#: ../admin/lib/rtp-settings-metaboxes.php:694
+#: ../admin/lib/rtp-settings-metaboxes.php:727
+msgid "Inactive"
+msgstr "Niet Actief"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:300
+#: ../admin/lib/rtp-settings-metaboxes.php:333
+#: ../admin/lib/rtp-settings-metaboxes.php:366
+#: ../admin/lib/rtp-settings-metaboxes.php:399
+#: ../admin/lib/rtp-settings-metaboxes.php:432
+#: ../admin/lib/rtp-settings-metaboxes.php:498
+#: ../admin/lib/rtp-settings-metaboxes.php:531
+#: ../admin/lib/rtp-settings-metaboxes.php:564
+#: ../admin/lib/rtp-settings-metaboxes.php:597
+#: ../admin/lib/rtp-settings-metaboxes.php:630
+#: ../admin/lib/rtp-settings-metaboxes.php:663
+#: ../admin/lib/rtp-settings-metaboxes.php:696
+#: ../admin/lib/rtp-settings-metaboxes.php:729
+msgid "Not Installed"
+msgstr "Niet Geinstalleerd"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:306
+#: ../admin/lib/rtp-settings-metaboxes.php:339
+#: ../admin/lib/rtp-settings-metaboxes.php:372
+#: ../admin/lib/rtp-settings-metaboxes.php:405
+#: ../admin/lib/rtp-settings-metaboxes.php:438
+#: ../admin/lib/rtp-settings-metaboxes.php:471
+#: ../admin/lib/rtp-settings-metaboxes.php:504
+#: ../admin/lib/rtp-settings-metaboxes.php:537
+#: ../admin/lib/rtp-settings-metaboxes.php:570
+#: ../admin/lib/rtp-settings-metaboxes.php:603
+#: ../admin/lib/rtp-settings-metaboxes.php:636
+#: ../admin/lib/rtp-settings-metaboxes.php:669
+#: ../admin/lib/rtp-settings-metaboxes.php:702
+#: ../admin/lib/rtp-settings-metaboxes.php:735
+msgid "Deactivate"
+msgstr "Uitschakelen"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:308
+#: ../admin/lib/rtp-settings-metaboxes.php:341
+#: ../admin/lib/rtp-settings-metaboxes.php:374
+#: ../admin/lib/rtp-settings-metaboxes.php:407
+#: ../admin/lib/rtp-settings-metaboxes.php:440
+#: ../admin/lib/rtp-settings-metaboxes.php:473
+#: ../admin/lib/rtp-settings-metaboxes.php:506
+#: ../admin/lib/rtp-settings-metaboxes.php:539
+#: ../admin/lib/rtp-settings-metaboxes.php:572
+#: ../admin/lib/rtp-settings-metaboxes.php:605
+#: ../admin/lib/rtp-settings-metaboxes.php:638
+#: ../admin/lib/rtp-settings-metaboxes.php:671
+#: ../admin/lib/rtp-settings-metaboxes.php:704
+#: ../admin/lib/rtp-settings-metaboxes.php:737
+msgid "Activate"
+msgstr "Activeren"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:308
+#: ../admin/lib/rtp-settings-metaboxes.php:341
+#: ../admin/lib/rtp-settings-metaboxes.php:374
+#: ../admin/lib/rtp-settings-metaboxes.php:407
+#: ../admin/lib/rtp-settings-metaboxes.php:440
+#: ../admin/lib/rtp-settings-metaboxes.php:473
+#: ../admin/lib/rtp-settings-metaboxes.php:506
+#: ../admin/lib/rtp-settings-metaboxes.php:539
+#: ../admin/lib/rtp-settings-metaboxes.php:572
+#: ../admin/lib/rtp-settings-metaboxes.php:605
+#: ../admin/lib/rtp-settings-metaboxes.php:638
+#: ../admin/lib/rtp-settings-metaboxes.php:671
+#: ../admin/lib/rtp-settings-metaboxes.php:704
+#: ../admin/lib/rtp-settings-metaboxes.php:737
+msgid "Delete"
+msgstr "Verwijderen"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:310
+#: ../admin/lib/rtp-settings-metaboxes.php:343
+#: ../admin/lib/rtp-settings-metaboxes.php:376
+#: ../admin/lib/rtp-settings-metaboxes.php:409
+#: ../admin/lib/rtp-settings-metaboxes.php:442
+#: ../admin/lib/rtp-settings-metaboxes.php:475
+#: ../admin/lib/rtp-settings-metaboxes.php:508
+#: ../admin/lib/rtp-settings-metaboxes.php:541
+#: ../admin/lib/rtp-settings-metaboxes.php:574
+#: ../admin/lib/rtp-settings-metaboxes.php:607
+#: ../admin/lib/rtp-settings-metaboxes.php:640
+#: ../admin/lib/rtp-settings-metaboxes.php:673
+#: ../admin/lib/rtp-settings-metaboxes.php:706
+#: ../admin/lib/rtp-settings-metaboxes.php:739
+msgid "Install"
+msgstr "Installeren"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:286
+msgid "Action"
+msgstr "Actie"
+
+#: ../lib/rtp-default-functions.php:198
+#: ../admin/lib/rtp-settings-metaboxes.php:287
+#: ../admin/lib/rtp-settings-metaboxes.php:315
+#: ../admin/lib/rtp-settings-metaboxes.php:348
+#: ../admin/lib/rtp-settings-metaboxes.php:381
+#: ../admin/lib/rtp-settings-metaboxes.php:414
+#: ../admin/lib/rtp-settings-metaboxes.php:447
+#: ../admin/lib/rtp-settings-metaboxes.php:480
+#: ../admin/lib/rtp-settings-metaboxes.php:513
+#: ../admin/lib/rtp-settings-metaboxes.php:546
+#: ../admin/lib/rtp-settings-metaboxes.php:579
+#: ../admin/lib/rtp-settings-metaboxes.php:612
+#: ../admin/lib/rtp-settings-metaboxes.php:645
+#: ../admin/lib/rtp-settings-metaboxes.php:678
+#: ../admin/lib/rtp-settings-metaboxes.php:711
+#: ../admin/lib/rtp-settings-metaboxes.php:744
+msgid "Edit"
+msgstr "Wijzig"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:296
+#: ../admin/lib/rtp-settings-metaboxes.php:329
+#: ../admin/lib/rtp-settings-metaboxes.php:362
+#: ../admin/lib/rtp-settings-metaboxes.php:395
+#: ../admin/lib/rtp-settings-metaboxes.php:428
+#: ../admin/lib/rtp-settings-metaboxes.php:494
+#: ../admin/lib/rtp-settings-metaboxes.php:527
+#: ../admin/lib/rtp-settings-metaboxes.php:560
+#: ../admin/lib/rtp-settings-metaboxes.php:593
+#: ../admin/lib/rtp-settings-metaboxes.php:626
+#: ../admin/lib/rtp-settings-metaboxes.php:659
+#: ../admin/lib/rtp-settings-metaboxes.php:692
+#: ../admin/lib/rtp-settings-metaboxes.php:725
+msgid "Active"
+msgstr "Actief"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:218
+msgid "Add your extra CSS rules here. No need to use !important. Rules written above will be loaded last."
+msgstr "Voeg hier jouw eeigen CSS regels toe. Je hoeft geen !important te gebruiken. Alles wat je hier invoert wordt als laatste geladen."
+
+#: ../admin/lib/rtp-settings-metaboxes.php:181
+msgid "NOTE"
+msgstr "OPMERKING"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:185
+msgid "Hide Sidebar"
+msgstr "Verberg Sidebar"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:189
+msgid "Do not show sidebar on \"Search Results\" Page ( While using Google Custom Search )"
+msgstr "Geen sidebar tonen op de \"Zoek Resultaat\" Pagina ( Als Google Custom Search gebruikt wordt )"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:215
+msgid "Add your CSS here &rarr;"
+msgstr "Voeg eigen CSS hier toe &rarr;"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:181
+msgid "The hosting option must be \"Search Element\" and layout should be either \"full-width\" or \"compact\"."
+msgstr "De Instelling moet staan op \"Search Element\" en de layout moet \"full-width\" of \"compact\" zijn."
+
+#: ../admin/lib/rtp-settings-metaboxes.php:147
+msgid "Enable Footer Sidebar"
+msgstr "Gebruik Footer Sidebar"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:151
+msgid "Check this to enable footer sidebar"
+msgstr "Selecteer dit om de Footer sidebar te tonen"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:180
+msgid "The Google Search Code Obtained by Default. You can obtain the Google Custom Search Code <a href=\"%s\" title=\"Google Custom Search\">here</a><br />"
+msgstr "De Google Search Code is standaard ingesteld. Je kan ook je eigen Google Custom Search Code <a href=\"%s\" title=\"Google Custom Search\">hier</a> ophalen<br />"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:85
+msgid "Disable"
+msgstr "Uitschakelen"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:88
+msgid "Resize Logo and use as Favicon"
+msgstr "Schaal logo en gebruik het als favicon"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:888
+msgid "Note"
+msgstr "Opmerking"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:54
+msgid "For Logo"
+msgstr "Het Logo"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:59
+msgid "Use Site Title"
+msgstr "Gebruik website titel"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:71
+msgid "Check this box to display logo on <a href=\"%s\" title=\"Wordpress Login\">WordPress Login Screen</a>"
+msgstr "Selecteer dit om het logo ook op het <a href=\"%s\" title=\"Wordpress Login\">WordPress Login Scherm</a> te tonen"
+
+#: ../admin/lib/rtp-settings-metaboxes.php:81
+msgid "For Favicon"
+msgstr "Het Favicon"
+
+#: ../admin/lib/rtp-admin-functions.php:1343
+msgid "rtPanel Version "
+msgstr "rtPanel Versie "
+
+#: ../admin/lib/rtp-admin-functions.php:1384
+msgid "The Thumbnail Settings have been updated. Please <a href=\"%s\" title=\"Regenerate Thumbnails\">Regenerate Thumbnails</a>."
+msgstr "De Miniatuur Instellingen zijn gewijzigd. Denk er aan om <a href=\"%s\" title=\"Regenerate Thumbnails\">Regenerate Thumbnails</a> te gebruiken."
+
+#: ../admin/lib/rtp-admin-functions.php:1148
+msgid "<strong>Gravtar Settings:</strong> Specify the general Gravtar support from this option."
+msgstr "<strong>Gravtar Instellingen:</strong> Specificeer de algemene Gravatar ondersteuning via deze optie."
+
+#: ../admin/lib/rtp-admin-functions.php:1152
+msgid "For more information, <br />you can always visit:"
+msgstr "Voor meer informatie, <br />bezoek dan:"
+
+#: ../admin/lib/rtp-admin-functions.php:1159
+msgid "Post &amp; Comment"
+msgstr "Bericht &amp; Reactie"
+
+#: ../admin/lib/rtp-admin-functions.php:1142
+msgid "<strong>Post Meta Settings:</strong> You can specify the post meta options like post date format, display or hide author name and their positions in relation with the content."
+msgstr "<strong>Post Meta Instellingen:</strong> Specificeer de post meta opties zoals datum type, toon of verberg auteur naam en de plaats (boven/onder/beide) waar post meta getoond wordt ten opzichte van de inhoud."
+
+#: ../admin/lib/rtp-admin-functions.php:1144
+msgid "<strong>Pagination Settings:</strong> Enable this setting to use default WordPress pagination."
+msgstr "<strong>Paginering Instellingen:</strong> Gebruik dit om de standaard WordPress paginering te gebruiken."
+
+#: ../admin/lib/rtp-admin-functions.php:1124
+#: ../admin/lib/rtp-admin-functions.php:1150
+msgid "Remember to click \"<strong>Save All Changes</strong>\" to save any changes you have made to the theme options."
+msgstr "Vergeet niet om op de \"<strong>Bewaar alle wijzigingen</strong>\" knop te klikken als je Instellingen hebt aangepast."
+
+#: ../admin/lib/rtp-admin-functions.php:1136
+msgid "<strong>Post Summaries Settings:</strong> Specify the different excerpt parameters like word count etc."
+msgstr "<strong>Bericht Uittreksel Instellingen:</strong> Specificeer hier de Uittreksel parameters zoals het aantal woorden et cetera..."
+
+#: ../admin/lib/rtp-admin-functions.php:1138
+msgid "<strong>Post Thumbnail Settings:</strong> Specify the post thumbnail options like position, size etc."
+msgstr "<strong>Bericht Miniatuur Instellingen:</strong> Specificeer hier de Bericht Miniatuur opties zoals de positionering, grootte, et cetera..."
+
+#: ../admin/lib/rtp-admin-functions.php:1140
+msgid "<small><strong><em>NOTE:</em></strong> If you are using this option to change height or width of the thumbnail, then please use 'Regenerate Thumbnails' plugin, to apply the new dimension settings to your thumbnails.</small>"
+msgstr "<small><strong><em>OPMERKING:</em></strong>Gebruik je deze optie om de hoogte of breedte van de miniatuur te wijzigen? Vergeet dan niet om 'Regenerate Thumbnails' plug-in te gebruiken om de nieuwe afmetingen door te voeren in de reeds bestaande miniaturen.</small>"
+
+#: ../admin/lib/rtp-admin-functions.php:1110
+msgid "<strong>Logo Settings:</strong> Theme's logo can be managed from this setting."
+msgstr "<strong>Logo Instellingen:</strong> Hier kun je het template logo beheren."
+
+#: ../admin/lib/rtp-admin-functions.php:1112
+msgid "<strong>Favicon Settings:</strong> Theme's favicon can be managed from this setting."
+msgstr "<strong>Favicon Instellingen:</strong> Hier kun je het template favicon beheren."
+
+#: ../admin/lib/rtp-admin-functions.php:1114
+msgid "<strong>Google Custom Search Integration:</strong> This option would enable you to harness the power of Google Search instead of the default WordPress search by specifying the Google Custom Search Code.  You also have the option of rendering the Google Search Page without the sidebar."
+msgstr "<strong>Google Custom Search Integratie:</strong> Deze instelling geeft je de mogelijkheid om Google Search te gebruiken in plaats van de standaard WordPress zoek functie door deze hier te specificeren. Je kunt ook kiezen om de resultaten weer te geven op een pagina met of zonder sidebar."
+
+#: ../admin/lib/rtp-admin-functions.php:1116
+msgid "<strong>Sidebar Settings:</strong> Enable / Disable the Footer Sidebar from here."
+msgstr "<strong>Sidebar Instellingen:</strong> Zet hier de Footer Sidebar aan of uit."
+
+#: ../admin/lib/rtp-admin-functions.php:1118
+msgid "<strong>Custom Styles:</strong> You can specify your own CSS styles in this option to override the default Style."
+msgstr "<strong>Eigen CSS stijlen:</strong> Hier kun je eigen CSS stijlen invoeren om de standaard stijlen aan te passen."
+
+#: ../admin/lib/rtp-admin-functions.php:1120
+msgid "<strong>Plugin Support:</strong> You will get a summary of plugins' status that are supported by rtPanel. This information box will allow you to manipulate the plugin settings on the fly."
+msgstr "<strong>Plug-in Ondersteuning:</strong> Hier onder zie je een overzicht van de status van de verschillende plug-ins die door rtPanel worden ondersteund. Je kunt hier ook direct de status van de plug-ins aanpassen."
+
+#: ../admin/lib/rtp-admin-functions.php:1122
+msgid "<strong>Backup rtPanel Options:</strong> Export or import all settings that you have configured in rtPanel."
+msgstr "<strong>Backup rtPanel Instellingen:</strong> Exporteer of importeer alle instellingen die je hebt gemaakt in rtPanel."
+
+#: ../admin/lib/rtp-admin-functions.php:1106
+#: ../admin/lib/rtp-admin-functions.php:1132
+msgid "By using rtPanel, developers and users can specify settings for basic functions (like date format, excerpt word count etc.) directly from theme options. "
+msgstr "In rtPanel kunnen, ontwikkelaars en gebruikers in de template opties zelf instellingen aanpassen voor onder andere het datum formaat, uittreksel lengte (aantal woorden) et cetera."
+
+#: ../admin/lib/rtp-admin-functions.php:1107
+#: ../admin/lib/rtp-admin-functions.php:1133
+msgid "rtPanel provides theme options to manage some basic settings for your theme. "
+msgstr "rtPanel heeft template opties om een aantal basis instellingen voor het template zelf aan te passen."
+
+#: ../admin/lib/rtp-admin-functions.php:1108
+#: ../admin/lib/rtp-admin-functions.php:1134
+msgid "Below are the options provided for your convenience."
+msgstr "Hier onder volgt voor het gemak een overzicht van alle opties."
+
+#: ../admin/lib/rtp-admin-functions.php:1101
+#: ../admin/lib/rtp-admin-functions.php:1127
+msgid "rtPanel is the most easy to use WordPress Theme Framework. You will find many state of the art options and widgets with rtPanel."
+msgstr "rtPanel is een eenvoudig te gebruiken WordPress Theme Framework. Het heeft de meest voorkomende instelling opties en widgets al ingebouwd."
+
+#: ../admin/lib/rtp-admin-functions.php:1103
+#: ../admin/lib/rtp-admin-functions.php:1129
+msgid "rtPanel framework is used worldwide and keeping this in mind we have made it localization ready. "
+msgstr "rtPanel framework wordt wereldwijd toegepast en heeft een ingebouwde functionaliteit voor vertalingen al ingebouwd."
+
+#: ../admin/lib/rtp-admin-functions.php:1104
+#: ../admin/lib/rtp-admin-functions.php:1130
+msgid "Developers can use rtPanel as a basic and stripped to bones theme framework for developing their own creative and wonderful WordPress Themes."
+msgstr "Ontwikkelaars kunnen rtPanel gebruiken als basis framework om eigen creatieve WordPress templates mee te ontwikkelen."
+
+#: ../admin/lib/rtp-admin-functions.php:1055
+msgid "Promote, Donate, Share"
+msgstr "Promoot, Doneer, Deel"
+
+#: ../admin/lib/rtp-admin-functions.php:1057
+msgid "Buy coffee/beer for team behind <a href=\"%s\" title=\"rtPanel\">rtPanel</a>."
+msgstr "Koop eens wat koffie/bier voor het team van <a href=\"%s\" title=\"rtPanel\">rtPanel</a>."
+
+#: ../admin/lib/rtp-admin-functions.php:1086
+msgid "Free Support"
+msgstr "Gratis Ondersteuning"
+
+#: ../admin/lib/rtp-admin-functions.php:1043
+msgid "Getting Social is Good"
+msgstr "Sociaal delen is goed!"
+
+#: ../admin/lib/rtp-admin-functions.php:791
+msgid "All the rtPanel Post & Comments Settings have been restored to default."
+msgstr "Alle rtPanel Bericht & Reactie Instellingen zijn hersteld naar standaard."
+
+#: ../admin/lib/rtp-admin-functions.php:1042
+#: ../admin/lib/rtp-admin-functions.php:1054
+#: ../admin/lib/rtp-admin-functions.php:1085
+msgid "Click to toggle"
+msgstr "Klik om te openen"
+
+#: ../admin/lib/rtp-admin-functions.php:686
+msgid "The Pagination Settings have been updated."
+msgstr "De Paginering Instellingen zijn aangepast."
+
+#: ../admin/lib/rtp-admin-functions.php:705
+msgid "The Post Summary Settings have been restored to default."
+msgstr "De Bericht Uittreksel Instellingen zijn hersteld naar standaard."
+
+#: ../admin/lib/rtp-admin-functions.php:717
+msgid "The Post Thumbnail Settings have been restored to default."
+msgstr "De Miniatuur Instellingen zijn hersteld naar standaard."
+
+#: ../admin/lib/rtp-admin-functions.php:751
+msgid "The Post Meta Settings have been restored to default."
+msgstr "De Post Meta Instellingen zijn hersteld naar standaard."
+
+#: ../admin/lib/rtp-admin-functions.php:765
+msgid "The Pagination Settings have been restored to default."
+msgstr "De Paginering instellingen zijn teruggezet naar standaard."
+
+#: ../admin/lib/rtp-admin-functions.php:679
+msgid "The End Size provided is invalid. Please provide a proper value."
+msgstr "De Eind Nummer grootte is ongeldig. Voer een geldige waarde in."
+
+#: ../admin/lib/rtp-admin-functions.php:683
+msgid "The Mid Size provided is invalid. Please provide a proper value."
+msgstr "De Midden Nummer grootte is ongeldig. Voer een geldige waarde in."
+
+#: ../admin/lib/rtp-admin-functions.php:557
+msgid "rtPanel Options have been imported successfully"
+msgstr "rtPanel Instellingen zijn succesvol geïmporteerd"
+
+#: ../admin/lib/rtp-admin-functions.php:559
+msgid "Not a valid RTP file"
+msgstr "Dit is geen geldig RTP bestand"
+
+#: ../admin/lib/rtp-admin-functions.php:561
+msgid "The file is corrupt. There was an error while importing. Please Try Again"
+msgstr "Dit bestand is beschadigd. Er is een fout opgetreden bij het importeren. Probeer het opnieuw."
+
+#: ../admin/lib/rtp-admin-functions.php:565
+msgid "All the rtPanel General Settings have been restored to default."
+msgstr "Alle rtPanel Instellingen zijn teruggezet naar standaard."
+
+#: ../admin/lib/rtp-admin-functions.php:593
+msgid "The Word Limit provided is invalid. Please provide a proper value."
+msgstr "De opgegeven woord limiet is niet geldig. Voer een geldige waarde in."
+
+#: ../admin/lib/rtp-admin-functions.php:598
+msgid "The Post Summary Settings have been updated."
+msgstr "De Bericht Instellingen zijn aangepast."
+
+#: ../admin/lib/rtp-admin-functions.php:604
+msgid "The Thumbnail Width provided is invalid. Please provide a proper value."
+msgstr "De opgegeven miniatuur breedte is niet geldig. Voer een geldige waarde in."
+
+#: ../admin/lib/rtp-admin-functions.php:613
+msgid "The Thumbnail Height provided is invalid. Please provide a proper value."
+msgstr "De opgegeven miniatuur hoogte is niet geldig. Voer een geldige waarde in."
+
+#: ../admin/lib/rtp-admin-functions.php:626
+msgid "The Post Thumbnail Settings have been updated"
+msgstr "De Bericht Miniatuur instellingen zijn aangepast."
+
+#: ../admin/lib/rtp-admin-functions.php:518
+msgid "The Logo Settings have been restored to Default."
+msgstr "De Logo Instellingen zijn hersteld naar standaard."
+
+#: ../admin/lib/rtp-admin-functions.php:528
+msgid "The Google Custom Search Integration has been restored to Default."
+msgstr "De Google Custom Search Integration Instellingen zijn hersteld naar standaard."
+
+#: ../admin/lib/rtp-admin-functions.php:539
+msgid "The Sidebar Settings have been restored to Default."
+msgstr "De Sidebar Instellingen zijn hersteld naar standaard."
+
+#: ../admin/lib/rtp-admin-functions.php:548
+msgid "Custom Styles has been restored to Default."
+msgstr "Eigen Stijlen zijn hersteld naar standaard."
+
+#: ../admin/lib/rtp-admin-functions.php:483
+msgid "Regenerate Thumbnails Plugin has been Activated."
+msgstr "Regenerate Thumbnails Plug-in is geactiveerd."
+
+#: ../admin/lib/rtp-admin-functions.php:491
+msgid "Regenerate Thumbnails Plugin has been Deactivated."
+msgstr "Regenerate Thumbnails Plug-in is uitgeschakeld."
+
+#: ../admin/lib/rtp-admin-functions.php:499
+msgid "Regenerate Thumbnails Plugin has been Deleted."
+msgstr "Regenerate Thumbnails Plug-in is verwijderd."
+
+#: ../admin/lib/rtp-admin-functions.php:180
+msgid "rtPanel Hooks Editor Plugin has been Deleted."
+msgstr "rtPanel Hooks Editor Plugin is verwijderd."
+
+#: ../admin/lib/rtp-admin-functions.php:222
+msgid "Yoast WordPress SEO Plugin has been Activated."
+msgstr "Yoast WordPress SEO Plugin is geactiveerd."
+
+#: ../admin/lib/rtp-admin-functions.php:230
+msgid "Yoast WordPress SEO Plugin has been Deactivated."
+msgstr "Yoast WordPress SEO Plugin is uitgeschakeld."
+
+#: ../admin/lib/rtp-admin-functions.php:238
+msgid "Yoast WordPress SEO Plugin has been Deleted."
+msgstr "Yoast WordPress SEO Plugin is verwijderd."
+
+#: ../admin/lib/rtp-admin-functions.php:122
+msgid "rtSocial has been Deleted."
+msgstr "rtSocial is verwijderd."
+
+#: ../admin/lib/rtp-admin-functions.php:164
+msgid "rtPanel Hooks Editor Plugin has been Activated."
+msgstr "rtPanel Hooks Editor Plugin is geactiveerd."
+
+#: ../admin/lib/rtp-admin-functions.php:172
+msgid "rtPanel Hooks Editor Plugin has been Deactivated."
+msgstr "rtPanel Hooks Editor Plugin is uitgeschakeld."
+
+#: ../admin/lib/rtp-admin-functions.php:111
+#: ../admin/lib/rtp-admin-functions.php:140
+#: ../admin/lib/rtp-admin-functions.php:169
+#: ../admin/lib/rtp-admin-functions.php:198
+#: ../admin/lib/rtp-admin-functions.php:227
+#: ../admin/lib/rtp-admin-functions.php:256
+#: ../admin/lib/rtp-admin-functions.php:285
+#: ../admin/lib/rtp-admin-functions.php:314
+#: ../admin/lib/rtp-admin-functions.php:343
+#: ../admin/lib/rtp-admin-functions.php:372
+#: ../admin/lib/rtp-admin-functions.php:401
+#: ../admin/lib/rtp-admin-functions.php:430
+#: ../admin/lib/rtp-admin-functions.php:459
+#: ../admin/lib/rtp-admin-functions.php:488
+msgid "You do not have sufficient permissions to deactivate this plugin."
+msgstr "Je hebt geen rechten om deze plug-in uit te schakelen."
+
+#: ../admin/lib/rtp-admin-functions.php:114
+msgid "rtSocial has been Deactivated."
+msgstr "rtSocial is uitgeschakeld."
+
+#: ../admin/lib/rtp-admin-functions.php:119
+#: ../admin/lib/rtp-admin-functions.php:148
+#: ../admin/lib/rtp-admin-functions.php:177
+#: ../admin/lib/rtp-admin-functions.php:206
+#: ../admin/lib/rtp-admin-functions.php:235
+#: ../admin/lib/rtp-admin-functions.php:264
+#: ../admin/lib/rtp-admin-functions.php:293
+#: ../admin/lib/rtp-admin-functions.php:322
+#: ../admin/lib/rtp-admin-functions.php:351
+#: ../admin/lib/rtp-admin-functions.php:380
+#: ../admin/lib/rtp-admin-functions.php:409
+#: ../admin/lib/rtp-admin-functions.php:438
+#: ../admin/lib/rtp-admin-functions.php:467
+#: ../admin/lib/rtp-admin-functions.php:496
+msgid "You do not have sufficient permissions to delete this plugin."
+msgstr "Je hebt geen rechten om deze plug-in te verwijderen."
+
+#: ../admin/lib/rtp-admin-functions.php:93
+msgid "Google Custom Search Integration has been updated."
+msgstr "Google Custom Search Integration is aangepast."
+
+#: ../admin/lib/rtp-admin-functions.php:106
+msgid "rtSocial has been Activated."
+msgstr "rtSocial is geactiveerd."
+
+#: ../admin/lib/rtp-admin-functions.php:103
+#: ../admin/lib/rtp-admin-functions.php:132
+#: ../admin/lib/rtp-admin-functions.php:161
+#: ../admin/lib/rtp-admin-functions.php:190
+#: ../admin/lib/rtp-admin-functions.php:219
+#: ../admin/lib/rtp-admin-functions.php:248
+#: ../admin/lib/rtp-admin-functions.php:277
+#: ../admin/lib/rtp-admin-functions.php:306
+#: ../admin/lib/rtp-admin-functions.php:335
+#: ../admin/lib/rtp-admin-functions.php:364
+#: ../admin/lib/rtp-admin-functions.php:393
+#: ../admin/lib/rtp-admin-functions.php:422
+#: ../admin/lib/rtp-admin-functions.php:451
+#: ../admin/lib/rtp-admin-functions.php:480
+msgid "You do not have sufficient permissions to activate this plugin."
+msgstr "Je hebt geen rechten m deze plug-in te activeren."
+
+#: ../admin/lib/rtp-admin-functions.php:45
+#: ../admin/lib/rtp-admin-functions.php:67
+msgid "Logo & Favicon Settings Updated"
+msgstr "Logo & Favicon instellingen aangepast"
+
+#: ../admin/lib/rtp-admin-functions.php:48
+#: ../admin/lib/rtp-admin-functions.php:70
+msgid "Please upload a valid image file."
+msgstr "Upload een juiste bestand soort voor een plaatje."
+
+#: ../admin/rtp-theme-options.php:178
+msgid "Post Summary Settings"
+msgstr "Bericht Uittreksel instellingen"
+
+#: ../admin/rtp-theme-options.php:179
+msgid "Post Thumbnail Settings"
+msgstr "Bericht Miniatuur instellingen"
+
+#: ../admin/rtp-theme-options.php:180
+msgid "Post Meta Settings"
+msgstr "Bericht Meta instellingen"
+
+#: ../admin/rtp-theme-options.php:181
+msgid "Pagination Settings"
+msgstr "Paginering instellingen"
+
+#: ../admin/rtp-theme-options.php:170
+msgid "Sidebar Settings"
+msgstr "Sidebar Instellingen"
+
+#: ../admin/rtp-theme-options.php:171
+msgid "Custom Styles"
+msgstr "Eigen CSS stijlen"
+
+#: ../admin/rtp-theme-options.php:172
+msgid "Plugin Support"
+msgstr "Plug-in ondersteuning"
+
+#: ../admin/rtp-theme-options.php:173
+msgid "Backup / Restore Settings"
+msgstr "Opslaan / Terugzetten instellingen"
+
+#: ../admin/rtp-theme-options.php:169
+msgid "Google Custom Search Integration"
+msgstr "Google Custom Search Integratie"
+
+#: ../loop-common.php:65 ../admin/lib/rtp-settings-metaboxes.php:812
+#: ../admin/lib/rtp-admin-functions.php:833
+msgid "Read More &rarr;"
+msgstr "Lees Verder &rarr;"
+
+#: ../loop-common.php:66
+msgid "Pages:"
+msgstr "Pagina's:"
+
+#: ../lib/rtp-search.php:35
+msgid "Search"
+msgstr "Zoek"
+
+#: ../admin/rtp-theme-options.php:37 ../admin/lib/rtp-admin-functions.php:1158
+msgid "General"
+msgstr "Algemeen"
+
+#: ../admin/rtp-theme-options.php:41
+msgid "Post &amp; Comments"
+msgstr "Bericht &amp; Reacties"
+
+#: ../admin/rtp-theme-options.php:168
+msgid "Logo & Favicon Settings"
+msgstr "Logo &amp; Favicon Instellingen"
+
+#: ../loop-common.php:22 ../loop-common.php:24
+msgid "Archive for  %s"
+msgstr "Archief voor %s"
+
+#: ../loop-common.php:28
+msgid "Author: %s"
+msgstr "Auteur: %s"
+
+#: ../functions.php:39
+msgid "&laquo; Previous"
+msgstr "&laquo; Vorige"
+
+#: ../functions.php:40
+msgid "Next &raquo;"
+msgstr "Volgende &raquo;"
+
+#: ../loop-common.php:14 ../search.php:34
+msgid "Search Results for: %s"
+msgstr "Zoekresultaat voor: %s"
+
+#: ../loop-common.php:16
+msgid "Tags: %s"
+msgstr "Steekwoorden: %s"
+
+#: ../loop-common.php:18
+msgid "Category: %s"
+msgstr "Categorie: %s"
+
+#: ../loop-common.php:20
+msgid "Archive for %s"
+msgstr "Archief voor %s"
+
+#: ../comments.php:121 ../comments.php:122
+msgid "Leave a Comment"
+msgstr "Reageren"
+
+#: ../comments.php:123
+msgid "Cancel reply"
+msgstr "Anuleer antwoord"
+
+#: ../comments.php:124
+msgid "Submit"
+msgstr "Verstuur"
+
+#: ../footer.php:39
+msgid "Tags"
+msgstr "Steekwoorden"
+
+#: ../footer.php:38
+msgid "Archives"
+msgstr "Archieven"
+
+#: ../comments.php:56
+msgid "Previous Comments"
+msgstr "Vorige Reacties"
+
+#: ../comments.php:57
+msgid "Next Comments"
+msgstr "Volgende Reacties"
+
+#: ../comments.php:69 ../comments.php:76
+#: ../admin/lib/rtp-settings-metaboxes.php:284
+msgid "Name"
+msgstr "Naam"
+
+#: ../comments.php:71 ../comments.php:78
+msgid "Email"
+msgstr "E-mail"
+
+#: ../comments.php:113
+msgid "Your email address will not be published."
+msgstr "Jouw e-mail adres wordt niet gepubliceerd."
+
+#: ../comments.php:120
+msgid "Comment..."
+msgstr "Reactie..."
+
+#: ../comments.php:73 ../comments.php:80
+msgid "Website"
+msgstr "Website"
+
+#: ../comments.php:39
+msgid "Manage Comments"
+msgstr "Beheer Reacties"
+
+#: ../comments.php:13
+msgid "This post is password protected. Enter the password to view comments."
+msgstr "Dit bericht is beveiligd met een wachtwoord. Vul het wachtwoord in om de reacties te bekijken."
+
+#: ../comments.php:30
+msgid "<span class=\"count\">%1$s</span> Comment"
+msgid_plural "<span class=\"count\">%1$s</span> Comments"
+msgstr[0] "<span class=\"count\">%1$s</span> Reactie"
+msgstr[1] "<span class=\"count\">%1$s</span> Reacties"
+
+#: ../404.php:17 ../loop-common.php:92
+msgid "Not Found"
+msgstr "Niet Gevonden"
+
+#: ../404.php:22 ../loop-common.php:98
+msgid "Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post."
+msgstr "Sorry, maar er zijn geen resultaten gevonden voor gekozen archief. Gebruik eventueel de zoek optie om een gerelateerd bericht te vinden."
