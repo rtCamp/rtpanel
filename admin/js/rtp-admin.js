@@ -33,11 +33,11 @@ jQuery(document).ready(function() {
         jQuery('#normal-sortables .postbox').each( function(){
             if ( expand ) {
                 if( jQuery(this).hasClass('closed') ) {
-                    jQuery(this).children('h3').trigger('click');
+                    jQuery(this).children('.hndle').trigger('click');
                 }
             } else {
                 if( !jQuery(this).hasClass('closed') ) {
-                    jQuery(this).children('h3').trigger('click');
+                    jQuery(this).children('.hndle').trigger('click');
                 }
             }
         });
