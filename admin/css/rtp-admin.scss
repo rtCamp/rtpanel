@@ -48,9 +48,9 @@ $link-hover-color: #CD5A1B;
 }
 
 /* Theme Option Container */
-.rtpanel-admin { overflow: hidden;width: 75%;position: relative;max-width: 1050px;font-size: 15px; // Self
+.rtpanel-admin.wrap { overflow: hidden;width: 75%;position: relative;max-width: 1050px;font-size: 15px; // Self
     // Heading
-     h2 { border-bottom: 1px solid $gray; padding-bottom: 0; padding-left: 6px; }
+    & > h2 { border-bottom: 1px solid $gray; padding-bottom: 0; padding-left: 6px; &.rtp-tab-wrapper { overflow: hidden; } }
 }
 
 // rtPanel Icon
