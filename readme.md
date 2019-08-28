@@ -1,4 +1,5 @@
-=== rtPanel ===
+# rtPanel 
+
 Theme Name: rtPanel
 Theme URI: http://rtcamp.com/rtpanel/
 Description: WordPress theme framework with Custom Menu, Header and Background along with Logo, Favicon, Featured Image, Google Custom Search Integration and more options. Now includes a Foundation 5 framework, Grunt Task Runner, Bower package manager, SAAS based CSS preprocessor and translation support. This theme comes with free technical support by team of 30+ full-time developers. Support Links: <a href="http://rtcamp.com/support/forum/rtpanel/" title="rtPanel Free Support" rel="follow">rtPanel Support forum</a>, <a href="http://rtcamp.com/rtpanel/docs/" title="rtPanel Documentation" rel="follow">Documentation</a> or visit <a href="http://rtcamp.com/rtpanel/" title="rtPanel" rel="follow">rtPanel</a>.
@@ -10,12 +11,13 @@ License: GNU General Public License, v2 (or newer)
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: black, blue, white, orange, light, one-column, two-columns, right-sidebar, custom-header, custom-background, custom-menu, editor-style, theme-options, threaded-comments, sticky-post, translation-ready, responsive-layout, full-width-template, buddypress
 
-== Description ==
+## Description 
 rtPanel is the most easy to use WordPress Theme Framework. You will find many state of the art options and widgets with rtPanel.
 rtPanel framework is used worldwide and keeping this in mind we have made it localization ready. Developers can use rtPanel as a basic and stripped to bones theme framework for developing their own creative and wonderful WordPress Themes.
 By using rtPanel, developers and users can specify settings for basic functions (like date format, excerpt word count etc.) directly from theme options. rtPanel provides theme options to manage some basic settings for your theme.
 
-== Plugins Supported ==
+## Plugins Supported
+
 * bbPress - http://wordpress.org/plugins/bbpress/
 
 * BuddyPress - http://wordpress.org/plugins/buddypress/
@@ -46,10 +48,10 @@ By using rtPanel, developers and users can specify settings for basic functions 
 
 * Yet Another Related Posts Plugin (YARPP) - http://wordpress.org/plugins/yet-another-related-posts-plugin/
 
-== Important Note ==
+## Important Note 
 If you make changes to thumbnail height, width or crop settings, you must use "Regenerate Thumbnail Plugin" ( http://wordpress.org/plugins/regenerate-thumbnails/ ) to regenerate thumbnails on old posts.
 
-== Changelog ==
+## Changelog 
 
 = 4.1.6 =
 * Modified: Update Foundation version
@@ -172,3 +174,7 @@ If you make changes to thumbnail height, width or crop settings, you must use "R
 * Modified: Editor Stylesheet
 * Removed: IE6 Support
 * Removed: JS support for onfoucs onblur on text and textarea fields ( Using HTML5 placeholder instead )
+
+## Does this interest you?
+
+<a href="https://rtcamp.com/"><img src="https://rtcamp.com/wp-content/uploads/2019/04/github-banner@2x.png" alt="Join us at rtCamp, we specialize in providing high performance enterprise WordPress solutions"></a>
